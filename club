@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moon's Club</title>
+    <style>
+        /* Configuração básica */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            padding: 20px 0;
+        }
+
+        h1 {
+            font-size: 3em;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Lista de moderadores */
+        .moderators-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .moderator {
+            background-color: transparent;
+            border: 2px solid white;
+            border-radius: 10px;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Efeito :hover */
+        .moderator:hover {
+            background-color: white;
+            color: black;
+            transform: scale(1.1);
+            box-shadow: 0 0 15px white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="https://vrchat.com/home/group/grp_382c5e60-54a6-4cf6-ba8e-a3a894f2ac34" target="_blank">Moon's Club,/a></h1>
+    </header>
+    <main>
+        <div class="moderators-list">
+            <!-- Lista dos MODs -->
+            
+<div class="moderator">HoLLyKiD</div>
+<div class="moderator">FrogBr</div>
+     <div class="moderator">Gus LW</div>
+          <div class="moderator">Cósmicoo</div>
+   <div class="moderator">Kampashi</div>
+            <div class="moderator">Duah</div>
+            <div class="moderator">Drawkilll</div>
+            <div class="moderator">LuisDK ac60</div>
+            <div class="moderator">Felpoca03 35f8</div>
+    <div class="moderator">ǃ Neisan ǃ</div>
+            <div class="moderator">cakePan</div>
+            <div class="moderator">pastel_mistico bf42</div>
+            <div class="moderator">DUCK0-0</div>
+            <div class="moderator">-SHILLO</div>
+  
+  
+        
+            <div class="moderator">Ryutetsu 58a4</div>
+            <div class="moderator">Kins f754</div>
+  
+       
+        </div>
+    </main>
+    <script>
+        // Adiciona interatividade: exibe uma mensagem ao clicar no moderador
+        document.querySelectorAll('.moderator').forEach((div) => {
+            div.addEventListener('click', () => {
+                alert(`Você clicou no moderador: ${div.textContent}`);
+            });
+        });
+    </script>
+</body>
+</html>
