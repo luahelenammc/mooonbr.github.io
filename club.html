@@ -60,10 +60,19 @@ color: #1bfe81;
             text-decoration:underline;
         }
 
-       a .moderator:hover {
-            color: black;
-            text-decoration: none;
-        }
+/* Estilo padrão para .moderator */
+.moderator:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px white;
+}
+
+/* Caso .moderator esteja dentro de um <a> */
+a .moderator:hover {
+    background-color: #1bfe81;
+}
+
 
 
         /* Efeito :hover */
