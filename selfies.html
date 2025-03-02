@@ -38,6 +38,27 @@
       height: auto;
       display: block;
     }
+
+    /* Estilos para o contador da transição hormonal */
+    .contador-container {
+      margin-top: 40px;
+      padding: 20px;
+      background: #fff;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: inline-block;
+    }
+    .contador-container h2 {
+      margin-top: 0;
+      font-size: 24px;
+      color: #333;
+    }
+    .contador {
+      font-size: 48px;
+      color: #555;
+      margin: 10px 0;
+    }
   </style>
 </head>
 <body>
@@ -69,6 +90,30 @@
       divItem.appendChild(img);
       galleryContainer.appendChild(divItem);
     });
+  </script>
+
+  <!-- Contador de Transição Hormonal -->
+  <div class="contador-container">
+    <h2>Contador de Transição Hormonal</h2>
+    <div class="contador" id="contador-hormonal">0,00 meses</div>
+  </div>
+
+  <script>
+    // Configurar data de início da terapia hormonal
+    const dataInicioHormonal = new Date('2024-09-06'); // Ajuste conforme necessário
+
+    function atualizarContadorHormonal() {
+      const agora = new Date();
+      const diffTime = agora - dataInicioHormonal;
+      const diffDays = diffTime / (1000 * 60 * 60 * 24);
+      const diffMonths = diffDays / 30.4375; // Média de dias por mês
+      const diffMonthsFormatado = diffMonths.toFixed(2).replace('.', ','); // Formatação com duas casas decimais
+
+      document.getElementById('contador-hormonal').textContent = diffMonthsFormatado + ' meses';
+    }
+
+    atualizarContadorHormonal();
+    setInterval(atualizarContadorHormonal, 1000);
   </script>
 </body>
 </html>
