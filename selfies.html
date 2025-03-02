@@ -26,6 +26,7 @@
     }
     
     .gallery-item {
+      width: 90%;
       max-width: 90%;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       border: 2px solid #ddd;
@@ -38,18 +39,20 @@
       height: auto;
       display: block;
     }
-
-    /* Para telas maiores, exibe a imagem no seu tamanho original */
+    
+    /* Em telas maiores, exibe a imagem no tamanho original */
     @media (min-width: 768px) {
       .gallery-item {
+        width: auto;
         max-width: none;
+        margin: 0 auto;
       }
       .gallery-item img {
         width: auto;
         max-width: 100%;
       }
     }
-
+    
     /* Estilos para o contador da transição hormonal */
     .contador-container {
       margin-top: 40px;
@@ -82,7 +85,7 @@
       'selfie/IMG_20250213_190731_426.webp',
       'selfie/Screenshot_20250301_132850_Instagram.jpg',
       'selfie/SquareQuick_2025124175829836.jpg',
-      'selfie/IMG_20250219_170657_084.jpg',
+      'selfie/IMG_20250219_170657_084.webp',
       'selfie/IMG_20250224_120453_846.webp'
     ];
 
