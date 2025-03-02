@@ -27,7 +27,6 @@
     
     .gallery-item {
       width: 90%;
-      max-width: 90%;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       border: 2px solid #ddd;
       border-radius: 8px;
@@ -40,16 +39,10 @@
       display: block;
     }
     
-    /* Em telas maiores, exibe a imagem no tamanho original */
+    /* Em telas maiores, ajustar para 70% da largura da tela */
     @media (min-width: 768px) {
       .gallery-item {
-        width: auto;
-        max-width: none;
-        margin: 0 auto;
-      }
-      .gallery-item img {
-        width: auto;
-        max-width: 100%;
+        width: 70%;
       }
     }
     
