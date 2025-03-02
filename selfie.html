@@ -3,10 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Galeria de Fotos</title>
-  <!-- Lightbox CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
   <style>
-    /* Estilos básicos para a galeria */
     body {
       font-family: Arial, sans-serif;
       background-color: #f5f5f5;
@@ -20,25 +17,20 @@
       color: #333;
     }
     
+    /* Container da galeria em coluna vertical */
     .gallery {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
     }
     
     .gallery-item {
-      width: 200px;
-      height: 150px;
-      overflow: hidden;
+      max-width: 90%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       border: 2px solid #ddd;
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    
-    .gallery-item:hover {
-      transform: scale(1.05);
+      overflow: hidden;
     }
     
     .gallery-item img {
@@ -52,33 +44,30 @@
   <h1>Minha Galeria de Fotos</h1>
   <div class="gallery" id="gallery"></div>
 
-  <!-- Lightbox JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
   <script>
     // Array centralizado com as referências dos arquivos das fotos
+    // A ordem foi ajustada para que a imagem "Screenshot_20250301_132850_Instagram.jpg" seja a penúltima.
     const fotos = [
       'selfie/IMG_20250213_190731_426.webp',
-      'selfie/Screenshot_20250301_132850_Instagram.jpg',
       'selfie/SquareQuick_2025124175829836.jpg',
       'selfie/IMG_20250219_170657_084.jpg',
+      'selfie/Screenshot_20250301_132850_Instagram.jpg',
       'selfie/IMG_20250224_120453_846.webp'
     ];
 
     const galleryContainer = document.getElementById('gallery');
 
-    // Criando dinamicamente os elementos da galeria
+    // Cria dinamicamente os elementos para cada imagem
     fotos.forEach((foto) => {
-      const link = document.createElement('a');
-      link.href = foto; 
-      link.setAttribute('data-lightbox', 'minha-galeria');
-      link.className = 'gallery-item';
+      const divItem = document.createElement('div');
+      divItem.className = 'gallery-item';
 
       const img = document.createElement('img');
       img.src = foto;
       img.alt = 'Imagem da Galeria';
 
-      link.appendChild(img);
-      galleryContainer.appendChild(link);
+      divItem.appendChild(img);
+      galleryContainer.appendChild(divItem);
     });
   </script>
 </body>
