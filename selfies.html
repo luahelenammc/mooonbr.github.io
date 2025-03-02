@@ -39,6 +39,17 @@
       display: block;
     }
 
+    /* Para telas maiores, exibe a imagem no seu tamanho original */
+    @media (min-width: 768px) {
+      .gallery-item {
+        max-width: none;
+      }
+      .gallery-item img {
+        width: auto;
+        max-width: 100%;
+      }
+    }
+
     /* Estilos para o contador da transição hormonal */
     .contador-container {
       margin-top: 40px;
