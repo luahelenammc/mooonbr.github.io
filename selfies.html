@@ -103,7 +103,7 @@
   <!-- Contador de Transição Hormonal -->
   <div class="contador-container">
     <h2>Contador de Transição Hormonal</h2>
-    <div class="contador" id="contador-hormonal">0,00 meses</div>
+    <div class="contador" id="contador-hormonal">0,0 meses</div>
   </div>
 
   <script>
@@ -113,11 +113,10 @@
     function atualizarContadorHormonal() {
       const agora = new Date();
       const diffTime = agora - dataInicioHormonal;
-      const diffDays = diffTime / (1000 * 60 * 60 * 24);
-      const diffMonths = diffDays / 30.4375; // Média de dias por mês
-      const diffMonthsFormatado = diffMonths.toFixed(2).replace('.', ','); // Formatação com duas casas decimais
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+      const diffMonths = (diffDays / 30.4375).toFixed(1).replace('.', ','); // Formatação com uma casa decimal
 
-      document.getElementById('contador-hormonal').textContent = diffMonthsFormatado + ' meses';
+      document.getElementById('contador-hormonal').textContent = diffMonths + ' meses';
     }
 
     atualizarContadorHormonal();
