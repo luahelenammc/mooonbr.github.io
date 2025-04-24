@@ -9,7 +9,18 @@
   @-ms-viewport {
   width: device-width ;
   }
- 
+
+/* MOUSE MAC OS X */
+html, body {
+  cursor:url('/images/mouse.png'), auto !important;
+}
+a:hover {
+  cursor:url('/images/select.png'), auto !important;
+}
+a:active {
+  cursor:url('/images/wheel.png'), auto !important;
+}
+
  
  
 /* Custom Font */
