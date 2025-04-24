@@ -94,9 +94,7 @@
     th:nth-child(2),td:nth-child(2) {
       width:40px; text-align:center;
     }
-    /* --------------------------------------------------------------------
-       stripe rows iTunes style
-    -------------------------------------------------------------------- */
+    /* iTunes stripes */
     tbody tr:nth-child(odd)  { background:#fff; }
     tbody tr:nth-child(even) { background:#f7f7f7; }
     tbody tr:hover { background:#d4dfff; }
@@ -147,6 +145,7 @@
     </div>
   </div>
   <script>
+    const API_KEY = "YOUR_API_KEY_HERE"; // insira sua YouTube Data API v3 key
     const library = {
       "INFÂNCIA":[
         "Bring Me To Life - Evanescence","Relicário - Cássia Eller & Nando Reis","Ursinho de Dormir - Armandinho",
@@ -189,8 +188,9 @@
         "California Gurls - Katy Perry","We Found Love - Rihanna & Calvin Harris",
         "The Time (Dirty Bit) - Black Eyed Peas","Vanilla Twilight - Owl City","Cave In - Owl City",
         "Dental Care - Owl City","Hey, Soul Sister - Train","Blame It On The Girls - MIKA",
-        "Love Today - MIKA","Kids - MGMT","Bad Day - Daniel Powter","Hollaback Girl - Gwen Stefani",
-        "TiK ToK - Kesha","Locked out of Heaven - Bruno Mars","Dynamite - Taio Cruz"
+        "Love Today - MIKA","Kids - MGMT","Bad Day - Daniel Powter",
+        "Hollaback Girl - Gwen Stefani","TiK ToK - Kesha","Locked out of Heaven - Bruno Mars",
+        "Dynamite - Taio Cruz"
       ],
       "VIAGEM AOS EUA":[
         "I Am Not a Robot - Marina and the Diamonds (*MARINA)","Like Horses - Syd Matters",
@@ -222,20 +222,32 @@
     });
 
     function load(name){
-      tbody.innerHTML="";
+      tbody.innerHTML = "";
       current = library[name].map((s,i)=>buildRow(i+1,s));
       current.forEach(r=>tbody.appendChild(r));
     }
 
     function buildRow(n,str){
-      const [title,artist] = str.split(" - ");
-      const href = `https://www.youtube.com/results?search_query=${encodeURIComponent(title+" "+(artist||""))}`;
+      const [title,artist] = str.split(" - "),
+            query = encodeURIComponent(title+" "+(artist||"")),
+            btn = document.createElement("a");
+      btn.className = "ybtn";
+      btn.title = "Abrir primeiro vídeo no YouTube";
+      btn.href  = "#";
+      btn.target = "_blank";
+
+      fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}`
+          +`&part=id&type=video&maxResults=1&q=${query}`)
+        .then(r=>r.json())
+        .then(json=>{
+          const vid = json.items?.[0]?.id?.videoId;
+          if(vid) btn.href = `https://www.youtube.com/watch?v=${vid}`;
+        })
+        .catch(console.error);
+
       const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${n}</td>
-        <td><a class="ybtn" href="${href}" target="_blank" title="Abrir no YouTube"></a></td>
-        <td>${title.trim()}</td>
-        <td>${artist?artist.trim():""}</td>`;
+      tr.innerHTML = `<td>${n}</td><td></td><td>${title.trim()}</td><td>${artist?artist.trim():""}</td>`;
+      tr.children[1].appendChild(btn);
       tr.onclick = e=>{
         if(e.target.closest(".ybtn")) return;
         document.querySelectorAll("tbody tr").forEach(r=>r.classList.remove("selected"));
