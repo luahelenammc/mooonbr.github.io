@@ -1,207 +1,255 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<title>MoonTunes</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-/* =====================  BASE & RESET  =============================== */
-*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;}
-html,body{height:100%;color:#222;}
-/* linen-style “felt” background à la iOS 6 */
-body{
-  background:#cfd4da;
-  background-image:
-    linear-gradient(#dfe3e9 0%,#b6bbc2 40%),
-    radial-gradient(rgba(255,255,255,.12) 1px,transparent 1px);
-  background-size:100% 100%,4px 4px;
-}
-
-/* =====================  VARIABLES  ================================== */
-:root{
-  --sideW:200px;          /* largura padrão da sidebar  */
-  --sideBG:linear-gradient(#f2f2f2 0%,#d7d7d7 100%);
-  --blue1:#9bc2ff; --blue2:#5f8eff;
-  --select:#4c82ff;
-}
-
-/* =====================  LAYOUT  ===================================== */
-.wrapper{display:flex;height:100%;}
-#sidebar{
-  width:var(--sideW);min-width:var(--sideW);
-  background:var(--sideBG);
-  border-right:1px solid #9aa0a8;
-  padding-top:60px;
-  overflow-y:auto;
-  box-shadow:inset -1px 0 2px rgba(0,0,0,.15);
-}
-#main{
-  flex:1;display:flex;flex-direction:column;
-  padding-top:60px;
-  overflow-y:auto;
-}
-
-/* =====================  TOOLBAR  ==================================== */
-.toolbar{
-  position:fixed;top:0;left:0;right:0;height:60px;
-  background:linear-gradient(#fafafa 0%,#cdcdcd 100%);
-  border-bottom:1px solid #888;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 16px;
-  user-select:none;
-  box-shadow:0 1px 3px rgba(0,0,0,.25);
-}
-.toolbar h1{
-  font-size:20px;font-weight:600;color:#3b3b3b;text-shadow:0 1px #fff;
-}
-#search-box{
-  padding:4px 8px 4px 28px;
-  min-width:140px;
-  border:1px solid #9ca1a8;
-  border-radius:6px;
-  font-size:14px;
-  background:#fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%239ca1a8" viewBox="0 0 16 16"><path d="M11.742 10.344a6 6 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.414-1.415l-3.866-3.833zM12 6a5 5 0 1 1-10 0 5 5 0 0 1 10 0z"/></svg>') no-repeat 6px center;
-  box-shadow:inset 0 1px 2px rgba(0,0,0,.25);
-}
-
-/* =====================  SIDEBAR  ==================================== */
-.playlist{
-  padding:9px 14px;
-  cursor:pointer;
-  border-radius:6px;
-  margin:2px 6px;
-  transition:.15s;
-}
-.playlist:hover{background:linear-gradient(var(--blue1),var(--blue2));color:#fff;}
-.playlist.active{
-  background:linear-gradient(var(--blue2),var(--blue1));
-  color:#fff;
-  box-shadow:inset 0 1px 2px rgba(0,0,0,.3);
-}
-
-/* =====================  TABLE  ====================================== */
-table{width:100%;border-collapse:collapse;border-radius:8px;overflow:hidden;}
-thead{
-  background:linear-gradient(#ececec,#d1d1d1);
-  border-bottom:1px solid #9aa0a8;
-  position:sticky;top:0;
-}
-th,td{padding:7px 12px;font-size:14px;}
-tbody tr:nth-child(odd){background:#f7f7f7;}
-tbody tr:hover{background:#d4dfff;}
-tbody tr.selected{
-  background:linear-gradient(90deg,#558aff 0%,#4c7cff 100%);
-  color:#fff;
-}
-th:first-child,td:first-child{width:32px;text-align:right;color:#666;user-select:none;}
-table,thead{box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 #b7b7b7;}
-
-/* =====================  MOBILE TWEAKS  ============================== */
-@media (max-width:600px){
-  :root{--sideW:120px;}
-  .playlist{font-size:12px;padding:6px 8px;}
-  .toolbar h1{font-size:17px;}
-}
-</style>
+  <meta charset="utf-8" />
+  <title>MoonTunes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <link href="/mouse.css" rel="stylesheet" type="text/css" />
+  <link href="/common.css" rel="stylesheet" type="text/css" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:-apple-system,"Helvetica Neue",Arial,sans-serif; }
+    html,body { height:100%; color:#222; }
+    body {
+      background:#cfd4da;
+      background-image:
+        linear-gradient(#dfe3e9 0%,#b6bbc2 40%),
+        radial-gradient(rgba(255,255,255,.12) 1px,transparent 1px);
+      background-size:100% 100%,4px 4px;
+    }
+    .window { height:100%; }
+    @media(min-width:601px){
+      .window {
+        width:85%; height:90%; margin:2% auto;
+        background:#f7f7f7; border-radius:14px;
+        overflow-x:hidden; overflow-y:auto;
+        box-shadow:0 25px 50px rgba(0,0,0,.35);
+        display:flex; flex-direction:column;
+      }
+    }
+    .toolbar {
+      height:60px; flex-shrink:0; position:relative;
+      background:linear-gradient(#fafafa 0%,#cdcdcd 100%);
+      display:flex; align-items:center; gap:16px; padding:0 16px;
+      box-shadow:0 1px 3px rgba(0,0,0,.25);
+    }
+    @media(min-width:601px){ .toolbar { border-bottom:none; } }
+    .lights { display:none; }
+    @media(min-width:601px){
+      .lights { display:flex; gap:8px; }
+      .light {
+        width:12px; height:12px; border-radius:50%;
+        border:1px solid rgba(0,0,0,.2);
+        box-shadow:0 1px 2px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.7);
+      }
+      .red   { background:radial-gradient(circle at 30% 30%,#ffffff77 0%,#ff5f57 40%,#c1463b 100%); }
+      .yellow{ background:radial-gradient(circle at 30% 30%,#ffffff88 0%,#ffbd2e 40%,#c59127 100%); }
+      .green { background:radial-gradient(circle at 30% 30%,#ffffff88 0%,#28c83e 40%,#1d8f2d 100%); }
+    }
+    .lights:hover {
+ cursor:url('/images/select.png'), auto !important;
+    }
+    .toolbar h1 {
+      font-size:20px; font-weight:600; color:#3b3b3b; text-shadow:0 1px #fff;
+      margin-right:auto;
+    }
+    @media(max-width:600px){ .toolbar h1 { font-size:17px; } }
+    #search-box {
+      padding:4px 8px 4px 28px; min-width:140px; font-size:14px;
+      border:1px solid #9ca1a8; border-radius:6px;
+      background:#fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%239ca1a8" viewBox="0 0 16 16"><path d="M11.742 10.344a6 6 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.414-1.415l-3.866-3.833zM12 6a5 5 0 1 1-10 0 5 5 0 0 1 10 0z"/></svg>') no-repeat 6px center;
+      box-shadow:inset 0 1px 2px rgba(0,0,0,.25);
+    }
+    .wrapper { display:flex; flex:1; }
+    #sidebar {
+      width:200px; background:linear-gradient(#f2f2f2 0%,#d7d7d7 100%);
+      border-right:1px solid #9aa0a8; padding-top:60px; overflow-y:auto;
+      box-shadow:inset -1px 0 2px rgba(0,0,0,.15);
+    }
+    @media(max-width:600px){ #sidebar { width:120px; } }
+    #main {
+      flex:1; display:flex; flex-direction:column; overflow-y:auto;
+    }
+    .playlist {
+      padding:9px 14px; cursor:pointer; border-radius:6px; margin:2px 6px;
+      transition:.15s;
+    }
+    .playlist:hover { background:linear-gradient(#9bc2ff,#5f8eff); color:#fff; }
+    .playlist.active {
+      background:linear-gradient(#5f8eff,#9bc2ff); color:#fff;
+      box-shadow:inset 0 1px 2px rgba(0,0,0,.3);
+    }
+    table {
+      width:100%; border-collapse:collapse; border-radius:8px; overflow:hidden;
+    }
+    thead {
+      background:linear-gradient(#ececec,#d1d1d1);
+      border-bottom:1px solid #9aa0a8; position:sticky; top:0; z-index:1;
+    }
+    th,td { padding:7px 12px; font-size:14px; }
+    th:first-child,td:first-child {
+      width:32px; text-align:right; color:#666; user-select:none;
+    }
+    th:nth-child(2),td:nth-child(2) {
+      width:40px; text-align:center;
+    }
+    tbody tr:nth-child(odd) { background:#f7f7f7; }
+    tbody tr:hover { background:#d4dfff; }
+    tbody tr.selected {
+      background:linear-gradient(90deg,#558aff 0%,#4c7cff 100%); color:#fff;
+    }
+    .ybtn {
+      display:inline-block; width:22px; height:16px; cursor:pointer;
+      background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 60"><rect width="90" height="60" rx="10" ry="10" fill="%23ff0000"/><polygon points="35,15 65,30 35,45" fill="%23ffffff"/></svg>') center/contain no-repeat;
+      filter:drop-shadow(0 1px 1px rgba(0,0,0,.25)); transition:transform .15s;
+    }
+    .ybtn:hover { transform:scale(1.15); }
+    .window::-webkit-scrollbar, #sidebar::-webkit-scrollbar, #main::-webkit-scrollbar {
+      width:8px;
+    }
+    .window::-webkit-scrollbar-thumb, #sidebar::-webkit-scrollbar-thumb, #main::-webkit-scrollbar-thumb {
+      background:rgba(130,130,130,.6); border-radius:5px;
+    }
+    .window::-webkit-scrollbar-thumb:hover, #sidebar::-webkit-scrollbar-thumb:hover, #main::-webkit-scrollbar-thumb:hover {
+      background:rgba(90,90,90,.8);
+    }
+    .window, #sidebar, #main {
+      scrollbar-width:thin; scrollbar-color:rgba(130,130,130,.6) transparent;
+    }
+  </style>
 </head>
 <body>
-<header class="toolbar">
-  <h1>MoonTunes</h1>
-  <input id="search-box" type="search" placeholder="Buscar">
-</header>
+  <div class="window">
+    <header class="toolbar">
+      <div class="lights">
+        <span class="light red"></span>
+        <span class="light yellow"></span>
+        <span class="light green"></span>
+      </div>
+      <h1>MoonTunes</h1>
+      <input id="search-box" type="search" placeholder="Buscar" />
+    </header>
+    <div class="wrapper">
+      <nav id="sidebar"></nav>
+      <section id="main">
+        <table>
+          <thead>
+            <tr><th>#</th><th></th><th>Música</th><th>Artista</th></tr>
+          </thead>
+          <tbody id="track-body"></tbody>
+        </table>
+      </section>
+    </div>
+  </div>
+  <script>
+    const library = {
+      "INFÂNCIA":[
+        "Bring Me To Life - Evanescence","Relicário - Cássia Eller & Nando Reis","Ursinho de Dormir - Armandinho",
+        "Não Sei Viver Sem Ter Você - CPM 22","Desenho de Deus - Armandinho","Anna Júlia - Los Hermanos",
+        "My Immortal - Evanescence","Fairy Tale - Shaman","Wonderwall - Oasis",
+        "Stop Crying Your Heart Out - Oasis","1997 - Hateeen","Um Minuto Para o Fim do Mundo - CPM 22",
+        "Behind Blue Eyes - Limp Bizkit","Malandragem - Cássia Eller","Wherever You Will Go - The Calling",
+        "Numb - Linkin Park","Eu Sei - Papas da Língua","A Cera - O Surto",
+        "Boulevard of Broken Dreams - Green Day","L'Amour Toujours - Gigi D'Agostino",
+        "That's My Name - Akcent","Something - Lasgo","Vou Deixar - Skank",
+        "Reggae do Manêro - Raimundos","Asas - Maskavo","Me Namora - Edu Ribeiro",
+        "Sweet Child O' Mine - Guns N' Roses","Cartoon Heroes - Aqua","Just Dance - Lady Gaga",
+        "Don't Stop The Music - Rihanna","O Segundo Sol - Cássia Eller","All Star - Cássia Eller",
+        "Palavras ao Vento - Cássia Eller","I Need Some Sleep - Eels","Gita - Raul Seixas",
+        "Metamorfose Ambulante - Raul Seixas","The Scientist - Coldplay","Lonely - Akon",
+        "I Kissed A Girl - Katy Perry","Medo da Chuva - Raul Seixas","Where is The Love? - Black Eyed Peas",
+        "A Maçã - Raul Seixas","Al Capone - Raul Seixas","Quando a Chuva Passar - Ivete Sangalo",
+        "Love Generation - Generation DJ","Segredos - Frejat","Amen Forgive (Vater Unser) - Padre Nuestro",
+        "Blue Moon - The Marcels","Axel F - Crazy Frog","In The End - Linkin Park",
+        "Barbie Girl - Aqua","Cowboy Fora da Lei - Raul Seixas","A Thousand Miles - Vanessa Carlton",
+        "All The Things She Said - t.A.T.u.","Folha de Bananeira - Armandinho","Tropicana (Morena Tropicana) - Alceu Valença",
+        "Ai, ai, ai - Vanessa da Mata","Lollipop (Candyman) - Aqua","Doctor Jones - Aqua",
+        "My Oh My - Aqua","Around The World - Aqua","Say You, Say Me - Lionel Richie",
+        "Diz Nos Meus Olhos (Inclemência) - Zélia Duncan","Fidelity - Regina Spektor","The Call - Regina Spektor"
+      ],
+      "ADOLESCÊNCIA":[
+        "The Reason - Hoobastank","Iris - The Goo Goo Dolls","Just Can't Get Enough - Black Eyed Peas",
+        "Meet Me Halfway - Black Eyed Peas","Hey Ya ! - Outkast","Kids of the Future - Jonas Brothers",
+        "Dois Rios - Skank","Sutilmente - Skank","Tente Outra Vez - Raul Seixas",
+        "Secrets - OneRepublic","21 Guns - Green Day","Viva La Vida - Coldplay",
+        "Yellow - Coldplay","Marchin On - OneRepublic","Apologize - OneRepublic",
+        "Counting Stars - One Republic","Garotos II -  O Outro Lado","Epitáfio - Titãs",
+        "Use Somebody - Kings of Leon","I'm Yours - Jason Mraz","Wake me up When September Ends - Green Day",
+        "Firework - Katy Perry","We Are Young - fun. & Janelle Monáe","Walk Away - Franz Ferdinand",
+        "Imagine - John Lennon","It's My Life - Bon Jovi","Tempo Perdido - Legião Urbana",
+        "Pumped Up Kicks - Foster The People","Open Your Eyes - Snow Patrol","You Could Be Happy - Snow Patrol",
+        "Chasing Cars - Snow Patrol","Run - Snow Patrol","Primadonna - MARINA","Ouro de Tolo - Raul Seixas",
+        "Any Other World - MIKA","Happy Ending - MIKA","The State of Dreaming - MARINA",
+        "Equalize - Pitty","What If - Coldplay","Look What You've Done - Jet","Some Nights - fun."
+      ],
+      "HABBO":[
+        "Minha Juventude - Mr. Gyn","Speechless - Lady Gaga","I Gotta Feeling - Black Eyed Peas",
+        "Alejandro - Lady Gaga","Fireflies - Owl City","DVNO - Justice",
+        "The Sweet Escape - Gwen Stefani","California Gurls - Katy Perry","We Found Love - Rihanna & Calvin Harris",
+        "The Time (Dirty Bit) - Black Eyed Peas","Vanilla Twilight - Owl City","Cave In - Owl City",
+        "Dental Care - Owl City","Hey, Soul Sister - Train","Blame It On The Girls - MIKA",
+        "Love Today - MIKA","Kids - MGMT","Bad Day - Daniel Powter",
+        "Hollaback Girl - Gwen Stefani","TiK ToK - Kesha","Locked out of Heaven - Bruno Mars",
+        "Dynamite - Taio Cruz"
+      ],
+      "VIAGEM AOS EUA":[
+        "I Am Not a Robot - Marina and the Diamonds (*MARINA)","Like Horses - Syd Matters",
+        "Last Friday Night (T.G.I.F.) - Katy Perry","My Moon My Man - Feist","Dead Disco - Metric",
+        "Soft Rock Star - Metric","Combat Baby - Metric","Lazy Eye - Silversun Pickups",
+        "Party In The U.S.A. - Miley Cyrus"
+      ],
+      "SOFRÊNCIA AMOROSA":[
+        "Always - Bon Jovi","Amado - Vanessa da Mata","Pensar em Você - Daniela Mercury",
+        "Because of You - Kelly Clarkson","Here Comes the Sun - The Beatles",
+        "The Blower's Daughter - Damien Rice"
+      ]
+    };
 
-<div class="wrapper">
-  <nav id="sidebar"></nav>
+    const sidebar = document.getElementById("sidebar"),
+          tbody   = document.getElementById("track-body"),
+          search  = document.getElementById("search-box");
+    let current = [];
 
-  <section id="main">
-    <table>
-      <thead><tr><th>#</th><th>Música</th><th>Artista</th></tr></thead>
-      <tbody id="track-body"></tbody>
-    </table>
-  </section>
-</div>
+    Object.keys(library).forEach((name,i)=>{
+      const div = document.createElement("div");
+      div.className = "playlist"+(i===0?" active":"");
+      div.textContent = name;
+      div.onclick = ()=>{
+        document.querySelectorAll(".playlist").forEach(p=>p.classList.remove("active"));
+        div.classList.add("active");
+        load(name);
+      };
+      sidebar.appendChild(div);
+    });
 
-<script>
-/* =====================  DADOS  ====================================== */
-const library={
-"INFÂNCIA":[`Bring Me To Life - Evanescence`,`Relicário - Cássia Eller & Nando Reis`,`Ursinho de Dormir - Armandinho`,
-`Não Sei Viver Sem Ter Você - CPM 22`,`Desenho de Deus - Armandinho`,`Anna Júlia - Los Hermanos`,`My Immortal - Evanescence`,
-`Fairy Tale - Shaman`,`Wonderwall - Oasis`,`Stop Crying Your Heart Out - Oasis`,`1997 - Hateeen`,
-`Um Minuto Para o Fim do Mundo - CPM 22`,`Behind Blue Eyes - Limp Bizkit`,`Malandragem - Cássia Eller`,
-`Wherever You Will Go - The Calling`,`Numb - Linkin Park`,`Eu Sei - Papas da Língua`,`A Cera - O Surto`,
-`Boulevard of Broken Dreams - Green Day`,`L'Amour Toujours - Gigi D'Agostino`,`That's My Name - Akcent`,
-`Something - Lasgo`,`Vou Deixar - Skank`,`Reggae do Manêro - Raimundos`,`Asas - Maskavo`,`Me Namora - Edu Ribeiro`,
-`Sweet Child O' Mine - Guns N' Roses`,`Cartoon Heroes - Aqua`,`Just Dance - Lady Gaga`,`Don't Stop The Music - Rihanna`,
-`O Segundo Sol - Cássia Eller`,`All Star - Cássia Eller`,`Palavras ao Vento - Cássia Eller`,`I Need Some Sleep - Eels`,
-`Gita - Raul Seixas`,`Metamorfose Ambulante - Raul Seixas`,`The Scientist - Coldplay`,`Lonely - Akon`,
-`I Kissed A Girl - Katy Perry`,`Medo da Chuva - Raul Seixas`,`Where is The Love? - Black Eyed Peas`,
-`A Maçã - Raul Seixas`,`Al Capone - Raul Seixas`,`Quando a Chuva Passar - Ivete Sangalo`,
-`Love Generation - Generation DJ`,`Segredos - Frejat`,`Amen Forgive (Vater Unser) - Padre Nuestro`,
-`Blue Moon - The Marcels`,`Axel F - Crazy Frog`,`In The End - Linkin Park`,`Barbie Girl - Aqua`,
-`Cowboy Fora da Lei - Raul Seixas`,`A Thousand Miles - Vanessa Carlton`,`All The Things She Said - t.A.T.u.`,
-`Folha de Bananeira - Armandinho`,`Tropicana (Morena Tropicana) - Alceu Valença`,`Ai, ai, ai - Vanessa da Mata`,
-`Lollipop (Candyman) - Aqua`,`Doctor Jones - Aqua`,`My Oh My - Aqua`,`Around The World - Aqua`,
-`Say You, Say Me - Lionel Richie`,`Diz Nos Meus Olhos (Inclemência) - Zélia Duncan`,`Fidelity - Regina Spektor`,
-`The Call - Regina Spektor`],
-"ADOLESCÊNCIA":[`The Reason - Hoobastank`,`Iris - The Goo Goo Dolls`,`Just Can't Get Enough - Black Eyed Peas`,
-`Meet Me Halfway - Black Eyed Peas`,`Hey Ya ! - Outkast`,`Kids of the Future - Jonas Brothers`,
-`Dois Rios - Skank`,`Sutilmente - Skank`,`Tente Outra Vez - Raul Seixas`,`Secrets - OneRepublic`,
-`21 Guns - Green Day`,`Viva La Vida - Coldplay`,`Yellow - Coldplay`,`Marchin On - OneRepublic`,
-`Apologize - OneRepublic`,`Counting Stars - One Republic`,`Garotos II -  O Outro Lado`,`Epitáfio - Titãs`,
-`Use Somebody - Kings of Leon`,`I'm Yours - Jason Mraz`,`Wake me up When September Ends - Green Day`,
-`Firework - Katy Perry`,`We Are Young - fun. & Janelle Monáe`,`Walk Away - Franz Ferdinand`,
-`Imagine - John Lennon`,`It's My Life - Bon Jovi`,`Tempo Perdido - Legião Urbana`,
-`Pumped Up Kicks - Foster The People`,`Open Your Eyes - Snow Patrol`,`You Could Be Happy - Snow Patrol`,
-`Chasing Cars - Snow Patrol`,`Run - Snow Patrol`,`Primadonna - MARINA`,`Ouro de Tolo - Raul Seixas`,
-`Any Other World - MIKA`,`Happy Ending - MIKA`,`The State of Dreaming - MARINA`,
-`Equalize - Pitty`,`What If - Coldplay`,`Look What You've Done - Jet`,`Some Nights - fun.`],
-"HABBO":[`Minha Juventude - Mr. Gyn`,`Speechless - Lady Gaga`,`I Gotta Feeling - Black Eyed Peas`,
-`Alejandro - Lady Gaga`,`Fireflies - Owl City`,`DVNO - Justice`,`The Sweet Escape - Gwen Stefani`,
-`California Gurls - Katy Perry`,`We Found Love - Rihanna & Calvis Harris`,`The Time (Dirty Bit) - Black Eyed Peas`,
-`Vanilla Twilight - Owl City`,`Cave In - Owl City`,`Dental Care - Owl City`,`Hey, Soul Sister - Train`,
-`Blame It On The Girls - MIKA`,`Love Today - MIKA`,`Kids - MGMT`,`Bad Day - Daniel Powter`,
-`Hollaback girl - Gwen Stefani`,`TiK ToK - Kesha`,`Locked out of Heaven - Bruno Mars`,`Dynamite - Taio Cruz`],
-"VIAGEM AOS EUA":[`I Am Not a Robot - Marina and the Diamonds (*MARINA)`,`Like Horses - Syd Matters`,
-`Last Friday Night (T.GI.F.) - Katy Perry`,`My Moon My Man - Feist`,`Dead Disco - Metric`,
-`Soft Rock Star - Metric`,`Combat Baby - Metric`,`Lazy Eye - Silversun Pickups`,
-`Party In The U.S.A. - Miley Cyrus`],
-"SOFRÊNCIA AMOROSA":[`Always - Bon Jovi`,`Amado - Vanessa da Mata`,`Pensar em Você - Daniela Mercury`,
-`Because of You - Kelly Clarkson`,`Here Comes the Sun - The Beatles`,
-`The Blower's Daughter - Damien Rice`]
-};
+    function load(name){
+      tbody.innerHTML="";
+      current = library[name].map((s,i)=>buildRow(i+1,s));
+      current.forEach(r=>tbody.appendChild(r));
+    }
 
-/* =====================  UI  ========================================= */
-const sidebar=document.getElementById('sidebar');
-const tbody=document.getElementById('track-body');
-const searchBox=document.getElementById('search-box');
-let current=[];
+    function buildRow(n,str){
+      const [title,artist] = str.split(" - ");
+      const href = `https://www.youtube.com/results?search_query=${encodeURIComponent(title+" "+(artist||""))}`;
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${n}</td>
+        <td><a class="ybtn" href="${href}" target="_blank" title="Abrir no YouTube"></a></td>
+        <td>${title.trim()}</td>
+        <td>${artist?artist.trim():""}</td>`;
+      tr.onclick = e=>{
+        if(e.target.closest(".ybtn")) return;
+        document.querySelectorAll("tbody tr").forEach(r=>r.classList.remove("selected"));
+        tr.classList.add("selected");
+      };
+      return tr;
+    }
 
-Object.keys(library).forEach((name,i)=>{
-  const el=document.createElement('div');
-  el.className='playlist'+(i===0?' active':'');
-  el.textContent=name;
-  el.onclick=()=>{document.querySelectorAll('.playlist').forEach(p=>p.classList.remove('active'));el.classList.add('active');load(name);};
-  sidebar.appendChild(el);
-});
-function load(name){
-  tbody.innerHTML='';
-  current=library[name].map((s,i)=>row(i+1,s));
-  current.forEach(r=>tbody.appendChild(r));
-}
-function row(n,str){
-  const [title,artist]=str.split(' - ');
-  const tr=document.createElement('tr');
-  tr.innerHTML=`<td>${n}</td><td>${title.trim()}</td><td>${artist?artist.trim():''}</td>`;
-  tr.onclick=()=>{document.querySelectorAll('tbody tr').forEach(r=>r.classList.remove('selected'));tr.classList.add('selected');};
-  return tr;
-}
+    search.addEventListener("input",()=>{
+      const q = search.value.toLowerCase();
+      current.forEach(r=> r.style.display = r.innerText.toLowerCase().includes(q) ? "table-row":"none");
+    });
 
-searchBox.addEventListener('input',()=>{
-  const q=searchBox.value.toLowerCase();
-  current.forEach(r=>{r.style.display=r.innerText.toLowerCase().includes(q)?'table-row':'none';});
-});
-
-load(Object.keys(library)[0]);
-</script>
+    load(Object.keys(library)[0]);
+  </script>
 </body>
 </html>
