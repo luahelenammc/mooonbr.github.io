@@ -37,7 +37,7 @@
       margin: 2% auto;
       background: #f7f7f7;
       border-radius: 14px;
-      overflow: hidden;             /* remove scroll daqui */
+      overflow: hidden;
       box-shadow: 0 25px 50px rgba(0,0,0,.35);
       display: flex;
       flex-direction: column;
@@ -136,11 +136,10 @@
   .spotify-icon:active { filter: brightness(0.9); }
 
   /* LAYOUT */
-  /* wrapper now blocks overflow except in main */
   .wrapper {
     display: flex;
     flex: 1;
-    overflow: hidden;
+    overflow: hidden;      /* block overflow except in #main */
   }
 
   /* SIDEBAR FIXED */
@@ -150,7 +149,7 @@
     border-right: 1px solid #9aa0a8;
     padding-top: 60px;
     box-shadow: inset -1px 0 2px rgba(0,0,0,.15);
-    overflow-y: hidden;
+    overflow-y: hidden;    /* no scroll */
   }
 
   /* MAIN SCROLLABLE */
@@ -158,7 +157,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    overflow-y: auto;      /* scroll only here */
   }
 
   /* PLAYLIST ITEMS */
@@ -209,7 +208,7 @@
   }
   tbody tr:nth-child(odd)  { background: #fff; }
   tbody tr:nth-child(even) { background: #f7f7f7; }
-  tbody tr:hover { background: #d4dfff; }
+  tbody tr:hover           { background: #d4dfff; }
   tbody tr.selected {
     background: linear-gradient(90deg, #558aff 0%, #4c7cff 100%);
     color: #fff;
@@ -245,7 +244,8 @@
 
   /* MOBILE TWEAKS */
   @media (max-width: 600px) {
-    #sidebar { width: 120px; }
+    .wrapper { overflow: hidden; }    /* preserve no scroll outside #main */
+    #sidebar { width: 120px; overflow-y: hidden; }
     #main {
       flex: 1;
       display: flex;
@@ -268,6 +268,7 @@
     }
   }
 </style>
+
 
 
 
