@@ -77,7 +77,6 @@
     }
     .spotify-icon:hover { filter:brightness(1.2); }
     .spotify-icon:active{ filter: brightness(0.9); }
-    }
 
     /* LAYOUT */
     .wrapper { display:flex; flex:1; }
@@ -197,29 +196,25 @@
     const API_KEY = "YOUR_API_KEY_HERE";
     const library = {
       "INFÂNCIA":[
-        "Bring Me To Life - Evanescence","Relicário - Cássia Eller & Nando Reis","Ursinho de Dormir - Armandinho",
+        "Bring Me To Life - Evanescence", "Relicário - Cássia Eller & Nando Reis","Ursinho de Dormir - Armandinho",
         "Não Sei Viver Sem Ter Você - CPM 22","Desenho de Deus - Armandinho","Anna Júlia - Los Hermanos",
-        "My Immortal - Evanescence","Fairy Tale - Shaman","Wonderwall - Oasis",
-        "Stop Crying Your Heart Out - Oasis","1997 - Hateeen","Um Minuto Para o Fim do Mundo - CPM 22",
-        "Behind Blue Eyes - Limp Bizkit","Malandragem - Cássia Eller","Wherever You Will Go - The Calling",
-        "Numb - Linkin Park","Eu Sei - Papas da Língua","A Cera - O Surto",
-        "Boulevard of Broken Dreams - Green Day","L'Amour Toujours - Gigi D'Agostino",
-        "That's My Name - Akcent","Something - Lasgo","Vou Deixar - Skank",
-        "Reggae do Manêro - Raimundos","Asas - Maskavo","Me Namora - Edu Ribeiro",
-        "Sweet Child O' Mine - Guns N' Roses","Cartoon Heroes - Aqua","Just Dance - Lady Gaga",
-        "Don't Stop The Music - Rihanna","O Segundo Sol - Cássia Eller","All Star - Cássia Eller",
-        "Palavras ao Vento - Cássia Eller","I Need Some Sleep - Eels","Gita - Raul Seixas",
-        "Metamorfose Ambulante - Raul Seixas","The Scientist - Coldplay","Lonely - Akon",
-        "I Kissed A Girl - Katy Perry","Medo da Chuva - Raul Seixas","Where is The Love? - Black Eyed Peas",
-        "A Maçã - Raul Seixas","Al Capone - Raul Seixas","Quando a Chuva Passar - Ivete Sangalo",
-        "Love Generation - Generation DJ","Segredos - Frejat","Amen Forgive (Vater Unser) - Padre Nuestro",
-        "Blue Moon - The Marcels","Axel F - Crazy Frog","In The End - Linkin Park",
-        "Barbie Girl - Aqua","Cowboy Fora da Lei - Raul Seixas","A Thousand Miles - Vanessa Carlton",
-        "All The Things She Said - t.A.T.u.","Folha de Bananeira - Armandinho","Tropicana (Morena Tropicana) - Alceu Valença",
-        "Ai, ai, ai - Vanessa da Mata","Lollipop (Candyman) - Aqua","Doctor Jones - Aqua",
-        "My Oh My - Aqua","Around The World - Aqua","Say You, Say Me - Lionel Richie",
-        "Diz Nos Meus Olhos (Inclemência) - Zélia Duncan","Fidelity - Regina Spektor",
-        "The Call - Regina Spektor"
+        "My Immortal - Evanescence","Fairy Tale - Shaman","Wonderwall - Oasis","Stop Crying Your Heart Out - Oasis",
+        "1997 - Hateeen","Um Minuto Para o Fim do Mundo - CPM 22","Behind Blue Eyes - Limp Bizkit",
+        "Malandragem - Cássia Eller","Wherever You Will Go - The Calling","Numb - Linkin Park",
+        "Eu Sei - Papas da Língua","A Cera - O Surto","Boulevard of Broken Dreams - Green Day",
+        "L'Amour Toujours - Gigi D'Agostino","That's My Name - Akcent","Something - Lasgo","Vou Deixar - Skank",
+        "Reggae do Manêro - Raimundos","Asas - Maskavo","Me Namora - Edu Ribeiro","Sweet Child O' Mine - Guns N' Roses",
+        "Cartoon Heroes - Aqua","Just Dance - Lady Gaga","Don't Stop The Music - Rihanna","O Segundo Sol - Cássia Eller",
+        "All Star - Cássia Eller","Palavras ao Vento - Cássia Eller","I Need Some Sleep - Eels","Gita - Raul Seixas",
+        "Metamorfose Ambulante - Raul Seixas","The Scientist - Coldplay","Lonely - Akon","I Kissed A Girl - Katy Perry",
+        "Medo da Chuva - Raul Seixas","Where is The Love? - Black Eyed Peas","A Maçã - Raul Seixas","Al Capone - Raul Seixas",
+        "Quando a Chuva Passar - Ivete Sangalo","Love Generation - Generation DJ","Segredos - Frejat",
+        "Amen Forgive (Vater Unser) - Padre Nuestro","Blue Moon - The Marcels","Axel F - Crazy Frog",
+        "In The End - Linkin Park","Barbie Girl - Aqua","Cowboy Fora da Lei - Raul Seixas",
+        "A Thousand Miles - Vanessa Carlton","All The Things She Said - t.A.T.u.","Folha de Bananeira - Armandinho",
+        "Tropicana (Morena Tropicana) - Alceu Valença","Ai, ai, ai - Vanessa da Mata","Lollipop (Candyman) - Aqua",
+        "Doctor Jones - Aqua","My Oh My - Aqua","Around The World - Aqua","Say You, Say Me - Lionel Richie",
+        "Diz Nos Meus Olhos (Inclemência) - Zélia Duncan","Fidelity - Regina Spektor","The Call - Regina Spektor"
       ],
       "ADOLESCÊNCIA":[
         "The Reason - Hoobastank","Iris - The Goo Goo Dolls","Just Can't Get Enough - Black Eyed Peas",
@@ -280,7 +275,7 @@
 
     function buildRow(n,str){
       const [title,artist] = str.split(" - "),
-            query = encodeURIComponent(title+" "+(artist||"")),
+            query = encodeURIComponent(title + (artist ? " "+artist : "")),
             fallbackUrl = `https://www.youtube.com/results?search_query=${query}`,
             btn = document.createElement("a");
       btn.className = "ybtn";
