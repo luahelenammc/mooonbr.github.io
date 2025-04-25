@@ -131,7 +131,9 @@
       background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 60"><rect width="90" height="60" rx="10" ry="10" fill="%23ff0000"/><polygon points="35,15 65,30 35,45" fill="%23ffffff"/></svg>') center/contain no-repeat;
       filter:drop-shadow(0 1px 1px rgba(0,0,0,.25)); transition:transform .15s;
     }
-    .ybtn:hover { transform:scale(1.15); }
+    .ybtn:hover { transform:scale(1.15);
+                 filter:brightness(1.2); }
+    .ybtn::active{ filter: brightness(0.9); }
 
     /* SCROLLBARS */
     .window::-webkit-scrollbar, #sidebar::-webkit-scrollbar, #main::-webkit-scrollbar {
