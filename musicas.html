@@ -1,3 +1,13 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>MoonTunes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="/images/websites/ringtone.png">
+  <link href="/mouse.css" rel="stylesheet" type="text/css" />
+  <link href="/common.css" rel="stylesheet" type="text/css" />
 <style>
   /* WINDOWED CONTAINER: oculta scroll geral */
   @media(min-width:601px){
@@ -45,3 +55,150 @@
     scrollbar-color: rgba(130,130,130,.6) transparent;
   }
 </style>
+
+
+</head>
+<body>
+  <div class="window">
+    <header class="toolbar">
+      <div class="lights">
+       <a href="https://MoOon.com.br/" target="blank_" title="Voltar para o portal" alt="Voltar para o portal"><div class="light red"></div></a>
+        <span class="light yellow"></span>
+        <span class="light green"></span>
+      </div>
+      <h1>MoonTunes</h1>
+      <input id="search-box" type="search" placeholder="Buscar" />
+      <a class="spotify-link" href="https://open.spotify.com/playlist/2FEk2pq9qqrSEfGWMX8jUu?si=1771a05ee20b4e6e" target="_blank">
+        <img src="/images/spotify new icon.fw.png" alt="Spotify" class="spotify-icon" />
+      </a>
+    </header>
+    <div class="wrapper">
+      <nav id="sidebar"></nav>
+      <section id="main">
+        <table>
+          <thead><tr><th>#</th><th></th><th>Música</th><th>Artista</th></tr></thead>
+          <tbody id="track-body"></tbody>
+        </table>
+      </section>
+    </div>
+  </div>
+  <script>
+    const API_KEY = "YOUR_API_KEY_HERE";
+    const library = {
+      "INFÂNCIA":[
+        "Bring Me To Life - Evanescence", "Relicário - Cássia Eller & Nando Reis","Ursinho de Dormir - Armandinho",
+        "Não Sei Viver Sem Ter Você - CPM 22","Desenho de Deus - Armandinho","Anna Júlia - Los Hermanos",
+        "My Immortal - Evanescence","Fairy Tale - Shaman","Wonderwall - Oasis","Stop Crying Your Heart Out - Oasis",
+        "1997 - Hateeen","Um Minuto Para o Fim do Mundo - CPM 22","Behind Blue Eyes - Limp Bizkit",
+        "Malandragem - Cássia Eller","Wherever You Will Go - The Calling","Numb - Linkin Park",
+        "Eu Sei - Papas da Língua","A Cera - O Surto","Boulevard of Broken Dreams - Green Day",
+        "L'Amour Toujours - Gigi D'Agostino","That's My Name - Akcent","Something - Lasgo","Vou Deixar - Skank",
+        "Reggae do Manêro - Raimundos","Asas - Maskavo","Me Namora - Edu Ribeiro","Sweet Child O' Mine - Guns N' Roses",
+        "Cartoon Heroes - Aqua","Just Dance - Lady Gaga","Don't Stop The Music - Rihanna","O Segundo Sol - Cássia Eller",
+        "All Star - Cássia Eller","Palavras ao Vento - Cássia Eller","I Need Some Sleep - Eels","Gita - Raul Seixas",
+        "Metamorfose Ambulante - Raul Seixas","The Scientist - Coldplay","Lonely - Akon","I Kissed A Girl - Katy Perry",
+        "Medo da Chuva - Raul Seixas","Where is The Love? - Black Eyed Peas","A Maçã - Raul Seixas","Al Capone - Raul Seixas",
+        "Quando a Chuva Passar - Ivete Sangalo","Love Generation - Generation DJ","Segredos - Frejat",
+        "Amen Forgive (Vater Unser) - Padre Nuestro","Blue Moon - The Marcels","Axel F - Crazy Frog",
+        "In The End - Linkin Park","Barbie Girl - Aqua","Cowboy Fora da Lei - Raul Seixas",
+        "A Thousand Miles - Vanessa Carlton","All The Things She Said - t.A.T.u.","Folha de Bananeira - Armandinho",
+        "Tropicana (Morena Tropicana) - Alceu Valença","Ai, ai, ai - Vanessa da Mata","Lollipop (Candyman) - Aqua",
+        "Doctor Jones - Aqua","My Oh My - Aqua","Around The World - Aqua","Say You, Say Me - Lionel Richie",
+        "Diz Nos Meus Olhos (Inclemência) - Zélia Duncan","Fidelity - Regina Spektor","The Call - Regina Spektor"
+      ],
+      "ADOLESCÊNCIA":[
+        "The Reason - Hoobastank","Iris - The Goo Goo Dolls","Just Can't Get Enough - Black Eyed Peas",
+        "Meet Me Halfway - Black Eyed Peas","Hey Ya ! - Outkast","Kids of the Future - Jonas Brothers",
+        "Dois Rios - Skank","Sutilmente - Skank","Tente Outra Vez - Raul Seixas","Secrets - OneRepublic",
+        "21 Guns - Green Day","Viva La Vida - Coldplay","Yellow - Coldplay","Marchin On - OneRepublic",
+        "Apologize - OneRepublic","Counting Stars - One Republic","Garotos II -  O Outro Lado","Epitáfio - Titãs",
+        "Use Somebody - Kings of Leon","I'm Yours - Jason Mraz","Wake me up When September Ends - Green Day",
+        "Firework - Katy Perry","We Are Young - fun. & Janelle Monáe","Walk Away - Franz Ferdinand",
+        "Imagine - John Lennon","It's My Life - Bon Jovi","Tempo Perdido - Legião Urbana",
+        "Pumped Up Kicks - Foster The People","Open Your Eyes - Snow Patrol","You Could Be Happy - Snow Patrol",
+        "Chasing Cars - Snow Patrol","Run - Snow Patrol","Primadonna - MARINA","Ouro de Tolo - Raul Seixas",
+        "Any Other World - MIKA","Happy Ending - MIKA","The State of Dreaming - MARINA","Equalize - Pitty",
+        "What If - Coldplay","Look What You've Done - Jet","Some Nights - fun."
+      ],
+      "HABBO":[
+        "Minha Juventude - Mr. Gyn","Speechless - Lady Gaga","I Gotta Feeling - Black Eyed Peas",
+        "Alejandro - Lady Gaga","Fireflies - Owl City","DVNO - Justice","The Sweet Escape - Gwen Stefani",
+        "California Gurls - Katy Perry","We Found Love - Rihanna & Calvin Harris",
+        "The Time (Dirty Bit) - Black Eyed Peas","Vanilla Twilight - Owl City","Cave In - Owl City",
+        "Dental Care - Owl City","Hey, Soul Sister - Train","Blame It On The Girls - MIKA","Love Today - MIKA",
+        "Kids - MGMT","Bad Day - Daniel Powter","Hollaback Girl - Gwen Stefani","TiK ToK - Kesha",
+        "Locked out of Heaven - Bruno Mars","Dynamite - Taio Cruz"
+      ],
+      "VIAGEM AOS EUA":[
+        "I Am Not a Robot - Marina and the Diamonds (*MARINA)","Like Horses - Syd Matters",
+        "Last Friday Night (T.G.I.F.) - Katy Perry","My Moon My Man - Feist","Dead Disco - Metric",
+        "Soft Rock Star - Metric","Combat Baby - Metric","Lazy Eye - Silversun Pickups","Party In The U.S.A. - Miley Cyrus"
+      ],
+      "SOFRÊNCIA AMOROSA":[
+        "Always - Bon Jovi","Amado - Vanessa da Mata","Pensar em Você - Daniela Mercury",
+        "Because of You - Kelly Clarkson","Here Comes the Sun - The Beatles","The Blower's Daughter - Damien Rice"
+      ]
+    };
+
+    const sidebar = document.getElementById("sidebar"),
+          tbody   = document.getElementById("track-body"),
+          search  = document.getElementById("search-box");
+    let current = [];
+
+    Object.keys(library).forEach((name,i)=>{
+      const div = document.createElement("div");
+      div.className = "playlist"+(i===0?" active":"");
+      div.textContent = name;
+      div.onclick = ()=>{
+        document.querySelectorAll(".playlist").forEach(p=>p.classList.remove("active"));
+        div.classList.add("active");
+        load(name);
+      };
+      sidebar.appendChild(div);
+    });
+
+    function load(name){
+      tbody.innerHTML = "";
+      current = library[name].map((s,i)=>buildRow(i+1,s));
+      current.forEach(r=>tbody.appendChild(r));
+    }
+
+    function buildRow(n,str){
+      const [title,artist] = str.split(" - "),
+            query = encodeURIComponent(title + (artist ? " "+artist : "")),
+            fallbackUrl = `https://www.youtube.com/results?search_query=${query}`,
+            btn = document.createElement("a");
+      btn.className = "ybtn";
+      btn.title = "Abrir primeiro vídeo no YouTube";
+      btn.href  = fallbackUrl;
+      btn.target = "_blank";
+
+      fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}`
+          +`&part=id&type=video&maxResults=1&q=${query}`)
+        .then(r=>r.json())
+        .then(json=>{
+          const vid = json.items?.[0]?.id?.videoId;
+          if(vid) btn.href = `https://www.youtube.com/watch?v=${vid}`;
+        })
+        .catch(console.error);
+
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td>${n}</td><td></td><td>${title.trim()}</td><td>${artist?artist.trim():""}</td>`;
+      tr.children[1].appendChild(btn);
+      tr.onclick = e=>{
+        if(e.target.closest(".ybtn")) return;
+        document.querySelectorAll("tbody tr").forEach(r=>r.classList.remove("selected"));
+        tr.classList.add("selected");
+      };
+      return tr;
+    }
+
+    search.addEventListener("input",()=>{
+      const q = search.value.toLowerCase();
+      current.forEach(r=> r.style.display = r.innerText.toLowerCase().includes(q) ? "table-row":"none");
+    });
+
+    load(Object.keys(library)[0]);
+  </script>
+</body>
+</html>
