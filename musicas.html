@@ -28,8 +28,13 @@
     background-size: 100% 100%, 4px 4px;
   }
 
-  /* WINDOWED CONTAINER */
-  .window { height: 100%; }
+  /* ALWAYS FLEX WINDOW CONTAINER & HIDE GLOBAL SCROLL */
+  .window {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden; /* no scroll here */
+  }
   @media (min-width: 601px) {
     .window {
       width: 85%;
@@ -37,10 +42,7 @@
       margin: 2% auto;
       background: #f7f7f7;
       border-radius: 14px;
-      overflow: hidden;
       box-shadow: 0 25px 50px rgba(0,0,0,.35);
-      display: flex;
-      flex-direction: column;
     }
   }
 
@@ -135,29 +137,27 @@
   .spotify-icon:hover { filter: brightness(1.2); }
   .spotify-icon:active { filter: brightness(0.9); }
 
-  /* LAYOUT */
+  /* LAYOUT: wrapper hides overflow, main scrolls */
   .wrapper {
     display: flex;
     flex: 1;
-    overflow: hidden;      /* block overflow except in #main */
+    overflow: hidden; /* only #main scrolls */
   }
 
-  /* SIDEBAR FIXED */
   #sidebar {
     width: 200px;
     background: linear-gradient(#f2f2f2 0%, #d7d7d7 100%);
     border-right: 1px solid #9aa0a8;
     padding-top: 60px;
     box-shadow: inset -1px 0 2px rgba(0,0,0,.15);
-    overflow-y: hidden;    /* no scroll */
+    overflow-y: hidden; /* fixed sidebar */
   }
 
-  /* MAIN SCROLLABLE */
   #main {
     flex: 1;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;      /* scroll only here */
+    overflow-y: auto; /* scrollable panel */
   }
 
   /* PLAYLIST ITEMS */
@@ -244,8 +244,9 @@
 
   /* MOBILE TWEAKS */
   @media (max-width: 600px) {
-    .wrapper { overflow: hidden; }    /* preserve no scroll outside #main */
-    #sidebar { width: 120px; overflow-y: hidden; }
+    #sidebar { width: 120px; }
+    /* ensure only main scrolls on mobile */
+    .wrapper { overflow: hidden; }
     #main {
       flex: 1;
       display: flex;
@@ -268,6 +269,7 @@
     }
   }
 </style>
+
 
 
 
