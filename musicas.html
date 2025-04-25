@@ -89,19 +89,40 @@
       border-right:1px solid #9aa0a8; padding-top:60px; overflow-y:auto;
       box-shadow:inset -1px 0 2px rgba(0,0,0,.15);
     }
-    @media(max-width:600px){ #sidebar { width:120px; } }
-    #main {
-      flex:1; display:flex; flex-direction:column; overflow-y:auto;
-    }
-    .playlist {
-      padding:9px 14px; cursor:pointer; border-radius:6px; margin:2px 6px;
-      transition:.15s;
-    }
-    .playlist:hover { background:linear-gradient(#9bc2ff,#5f8eff); color:#fff; }
-    .playlist.active {
-      background:linear-gradient(#5f8eff,#9bc2ff); color:#fff;
-      box-shadow:inset 0 1px 2px rgba(0,0,0,.3);
-    }
+    @media (max-width: 600px) {
+  /* reduz largura da sidebar */
+  #sidebar {
+    width: 120px;
+  }
+
+  /* mantém comportamento do main */
+  #main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  /* ajusta playlists: fonte e padding menores */
+  .playlist {
+    font-size: 12px;
+    padding: 6px 8px;
+    cursor: pointer;
+    border-radius: 6px;
+    margin: 2px 6px;
+    transition: .15s;
+  }
+  .playlist:hover {
+    background: linear-gradient(#9bc2ff, #5f8eff);
+    color: #fff;
+  }
+  .playlist.active {
+    background: linear-gradient(#5f8eff, #9bc2ff);
+    color: #fff;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.3);
+  }
+
+
     table {
       width:100%; border-collapse:collapse; border-radius:8px; overflow:hidden;
     }
