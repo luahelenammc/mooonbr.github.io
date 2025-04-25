@@ -41,15 +41,37 @@
         border:1px solid rgba(0,0,0,.2);
         box-shadow:0 1px 2px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.7);
       }
-      .red   { background:radial-gradient(circle at 30% 30%,#ffffff77 0%,#ff5f57 40%,#c1463b 100%); }
-      .yellow{ background:radial-gradient(circle at 30% 30%,#ffffff88 0%,#ffbd2e 40%,#c59127 100%); }
-      .green { background:radial-gradient(circle at 30% 30%,#ffffff88 0%,#28c83e 40%,#1d8f2d 100%); }
-    }
-    .lights:hover {
+      .red   {
+        background:radial-gradient(circle at 30% 30%,#ffffff77 0%,#ff5f57 40%,#c1463b 100%); }
+      
+ .red:hover {
       cursor:url('/images/select.png'), auto !important;
       filter: brightness(1.25);
     }
-    .lights:active { filter: brightness(0.9); }
+      .red:active {
+      filter: brightness(0.9); }
+      
+      .yellow{ 
+        background:radial-gradient(circle at 30% 30%,#ffffff88 0%,#ffbd2e 40%,#c59127 100%); }
+ .yellow:hover {
+      cursor:url('/images/select.png'), auto !important;
+      filter: brightness(1.25);
+    }
+      .yellow:active {
+      filter: brightness(0.9); }
+      
+      .green {
+        background:radial-gradient(circle at 30% 30%,#ffffff88 0%,#28c83e 40%,#1d8f2d 100%); }
+    }
+     .green:hover {
+      cursor:url('/images/select.png'), auto !important;
+      filter: brightness(1.25);
+    }
+    .green:active {
+      filter: brightness(0.9); }
+    
+ 
+    
     .toolbar h1 {
       font-size:20px; font-weight:600; color:#3b3b3b; text-shadow:0 1px #fff;
       margin-right:auto;
