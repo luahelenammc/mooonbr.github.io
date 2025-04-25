@@ -50,8 +50,29 @@
         transition:filter .15s, cursor .15s;
       }
       
-      .light.red   { background:radial-gradient(circle at 30% 30%,#ffffff77 0%,#ff5f57 40%,#c1463b 100%); }
-      .light.red:hover { transform:scale(1.15); }
+  /* keyframes para glow vermelho sutil */
+@keyframes redGlow {
+  0% {
+    box-shadow: 0 0 0px rgba(255, 95, 87, 0);
+  }
+  50% {
+    box-shadow: 0 0 8px rgba(255, 95, 87, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 4px rgba(255, 95, 87, 0.2);
+  }
+}
+
+/* aplica animação lenta e infinita ao botão vermelho */
+.light.red {
+  background: radial-gradient(circle at 30% 30%, #ffffff77 0%, #ff5f57 40%, #c1463b 100%);
+  animation: redGlow 4s ease-in-out infinite;
+}
+
+.light.red:hover {
+  transform: scale(1.15);
+}
+
 
       
       .light.yellow{ background:radial-gradient(circle at 30% 30%,#ffffff88 0%,#ffbd2e 40%,#c59127 100%); }
