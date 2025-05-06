@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfólio de Banners</title>
+  <style>
+    /* Grid fluido de quatro colunas */
+    #gallery-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding: 16px;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+    #gallery-container a {
+      flex: 0 0 calc(25% - 16px);
+      text-decoration: none;
+    }
+    #gallery-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+      display: block;
+    }
+    body {
+      font-family: sans-serif;
+      background: #fafafa;
+      margin: 0;
+    }
+    h1 {
+      text-align: center;
+      margin: 24px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Galeria de Banners</h1>
+  <div id="gallery-container"></div>
+  <script>
+    // Constrói o grid a partir do JSON-P do feed do Blogger
+    function buildGallery(json) {
+      var container = document.getElementById('gallery-container');
+      if (!json.feed || !json.feed.entry) return;
+      json.feed.entry.forEach(function(post) {
+        if (!post.media$thumbnail) return;
+        var thumb = post.media$thumbnail.url.replace(/^http:/, 'https:');
+        var linkObj = post.link.find(function(l){ return l.rel==='alternate'; });
+        var a = document.createElement('a');
+        a.href = linkObj ? linkObj.href : '#';
+        var img = document.createElement('img');
+        img.src = thumb;
+        img.alt = post.title.$t || '';
+        a.appendChild(img);
+        container.appendChild(a);
+      });
+    }
+    // Injeta JSON-P do Blogger, máximo 500 posts
+    (function(){
+      var s = document.createElement('script');
+      s.src = 'https://nostalgia.mooon.com.br/feeds/posts/summary'
+            + '?alt=json-in-script'
+            + '&callback=buildGallery'
+            + '&max-results=500';
+      document.head.appendChild(s);
+    })();
+  </script>
+</body>
+</html>
