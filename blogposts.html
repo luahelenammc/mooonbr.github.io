@@ -75,4 +75,11 @@
     (function(){
       var script = document.createElement('script');
       script.src = 'https://nostalgia.mooon.com.br/feeds/posts/summary'
-                 + '?alt=json-in-
+                 + '?alt=json-in-script'
+                 + '&max-results=500'
+                 + '&callback=buildGallery';
+      document.body.appendChild(script);
+    })();
+  </script>
+</body>
+</html>
