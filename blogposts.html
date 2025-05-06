@@ -2,69 +2,77 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Portfólio de Banners</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Portfólio de Banners – Nostalgia</title>
   <style>
-    /* Grid fluido de quatro colunas */
+    body {
+      font-family: sans-serif;
+      background: #fafafa;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      text-align: center;
+      margin: 24px 0;
+    }
     #gallery-container {
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
       padding: 16px;
-      margin: 0 auto;
       max-width: 1200px;
+      margin: 0 auto;
     }
-    #gallery-container a {
+    .portfolio-item {
       flex: 0 0 calc(25% - 16px);
       text-decoration: none;
     }
-    #gallery-container img {
+    .portfolio-item img {
       width: 100%;
       height: auto;
       border-radius: 8px;
       object-fit: cover;
       display: block;
     }
-    body {
-      font-family: sans-serif;
-      background: #fafafa;
-      margin: 0;
-    }
-    h1 {
-      text-align: center;
-      margin: 24px 0;
-    }
   </style>
 </head>
 <body>
-  <h1>Galeria de Banners</h1>
+  <h1>Portfólio de Banners</h1>
   <div id="gallery-container"></div>
+
   <script>
-    // Constrói o grid a partir do JSON-P do feed do Blogger
+    // Constrói o grid de banners
     function buildGallery(json) {
       var container = document.getElementById('gallery-container');
       if (!json.feed || !json.feed.entry) return;
       json.feed.entry.forEach(function(post) {
+        // ignora posts sem thumbnail
         if (!post.media$thumbnail) return;
+
+        // pega a URL e troca o tamanho para 800px
         var thumb = post.media$thumbnail.url.replace(/^http:/, 'https:');
-        var linkObj = post.link.find(function(l){ return l.rel==='alternate'; });
+        var large = thumb.replace(/\/s\d+(-c)?\//, '/s800/');
+
+        // encontra o link do post
+        var linkObj = post.link.find(function(l){
+          return l.rel === 'alternate';
+        });
+        var href = linkObj ? linkObj.href : '#';
+
+        // monta o <a><img/></a>
         var a = document.createElement('a');
-        a.href = linkObj ? linkObj.href : '#';
+        a.href = href;
+        a.className = 'portfolio-item';
         var img = document.createElement('img');
-        img.src = thumb;
-        img.alt = post.title.$t || '';
+        img.src = large;
+        img.alt = (post.title && post.title.$t) || '';
         a.appendChild(img);
         container.appendChild(a);
       });
     }
-    // Injeta JSON-P do Blogger, máximo 500 posts
+
+    // Injeta JSON-P para até 500 posts
     (function(){
-      var s = document.createElement('script');
-      s.src = 'https://nostalgia.mooon.com.br/feeds/posts/summary'
-            + '?alt=json-in-script'
-            + '&callback=buildGallery'
-            + '&max-results=500';
-      document.head.appendChild(s);
-    })();
-  </script>
-</body>
-</html>
+      var script = document.createElement('script');
+      script.src = 'https://nostalgia.mooon.com.br/feeds/posts/summary'
+                 + '?alt=json-in-
