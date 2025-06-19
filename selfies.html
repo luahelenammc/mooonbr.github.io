@@ -12,7 +12,7 @@
       height:100%;
       font-family: Arial, sans-serif;
       background-color: #f5f5f5;
-      overflow: hidden;
+      /* removido overflow:hidden para permitir scroll após o paywall */
     }
 
     /* Overlay do paywall */
@@ -144,12 +144,17 @@
       const entrada = document.getElementById('senha').value;
       if (entrada === '2506') {
         paywall.classList.add('hidden');
+        // reabilita scroll
+        document.body.style.overflow = 'auto';
         setTimeout(() => main.classList.add('visible'), 600);
       } else {
         document.getElementById('senha').value = '';
         document.getElementById('senha').placeholder = 'Senha incorreta';
       }
     });
+
+    // deixa o scroll bloqueado inicialmente
+    document.body.style.overflow = 'hidden';
 
     // GALERIA
     const fotos = ['selfie/moon1.jpg','selfie/moon2.jpg','selfie/moon3.jpg'];
