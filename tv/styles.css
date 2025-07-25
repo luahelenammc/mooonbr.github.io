@@ -20,7 +20,7 @@ body {
 .RetroShell {
   position: relative;
   width: 780px;
-  padding: 24px;
+    padding: 60px 40px;
   /* madeira como fundo */
   background-image: url('materiais/madeira/color.jpg');
   background-size: cover;
