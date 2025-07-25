@@ -138,32 +138,15 @@ body {
   background: var(--accent-hover);
 }
 
-.inline-btn {
-  position: absolute;
-  z-index: 2;
-  width: 36px; height: 36px;
-  border: 2px solid #4b3821;
-  border-radius: 50%;
-  background: #e0c097;
-  color: #222;
-  font-size: 1.2rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: auto;
-  transition: background .2s;
+/* botões dentro da tela */
+.inline-btn{
+  position:absolute; width:34px; height:34px;
+  background:var(--accent); border:2px solid #4b3821;
+  border-radius:50%; font-size:1.25rem; color:#222;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; z-index:3; user-select:none;
 }
-.inline-btn:hover {
-  background: #d4b67a;
-}
-.inline-btn.next {
-  bottom: 16px;
-  right: 16px;
-}
-.inline-btn.random {
-  bottom: 16px;
-  left: 16px;
-}
-
-/* scanlines e static já têm pointer-events: none; logo, os botões pegam o clique */
+.inline-btn.shuffle{ bottom:18px; left:18px; }
+.inline-btn.next   { bottom:18px; right:18px; }
+.inline-btn:hover  { background:var(--accent-hover); }
+atic já têm pointer-events: none; logo, os botões pegam o clique */
