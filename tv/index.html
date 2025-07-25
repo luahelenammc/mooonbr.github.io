@@ -14,15 +14,14 @@
       <div class="scanlines"></div>
       <div class="static"></div>
 
-      <!-- CONTROLES INLINE SOBRE A TELA -->
+      <!-- NOTE: removido o shuffleAll inline -->
       <div class="screen-controls">
-        <button id="prevInline"   class="inline-btn" title="Canal anterior">⏮️</button>
-        <button id="nextInline"   class="inline-btn" title="Próximo canal">▶️</button>
-        <button id="shuffleAll"   class="inline-btn" title="Aleatório geral">🔀</button>
+        <button id="prevInline" class="inline-btn" title="Canal anterior">⏮️</button>
+        <button id="nextInline" class="inline-btn" title="Próximo canal">▶️</button>
       </div>
     </div>
 
-    <!-- PAINEL DE CONTROLES EMBAIXO -->
+    <!-- Painel de controles embaixo -->
     <div class="controls">
       <div class="selectors">
         <label>
@@ -40,15 +39,17 @@
         <span id="knobLabel">Canal 0</span>
       </div>
 
-      <div class="extra-buttons">
-        <button id="prevBtn"    class="control-btn" title="Canal anterior">⏮️</button>
-        <button id="shuffleBtn" class="control-btn" title="Toggle shuffle">🔀</button>
-        <button id="nextBtn"    class="control-btn" title="Próximo canal">⏭️</button>
+      <div class="extra-buttons" style="display:flex; justify-content:space-between;">
+        <div class="left-controls">
+          <button id="prevBtn" class="control-btn" title="Canal anterior">⏮️</button>
+          <button id="nextBtn" class="control-btn" title="Próximo canal">⏭️</button>
+        </div>
+        <button id="shuffleBtn" class="control-btn" title="Aleatório geral">🔀</button>
       </div>
     </div>
   </div>
 
-  <!-- SDK da YouTube IFrame API -->
+  <!-- YouTube IFrame API -->
   <script src="https://www.youtube.com/iframe_api"></script>
   <script src="scripts.js" defer></script>
 </body>
