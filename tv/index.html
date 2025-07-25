@@ -9,9 +9,13 @@
 <body>
   <div class="RetroShell">
     <div class="screen">
-      <div id="player"></div>              <!-- player YouTube -->
-      <div class="scanlines"></div>        <!-- efeito CRT -->
+      <div id="player"></div>
+      <div class="scanlines"></div>
       <div class="static"></div>
+
+      <!-- Botões inline dentro da tela -->
+      <button id="nextInline"   class="inline-btn next"   title="Próximo">▶</button>
+      <button id="randomInline" class="inline-btn random" title="Aleatório">🔀</button>
     </div>
 
     <div class="controls">
@@ -37,7 +41,7 @@
     </div>
   </div>
 
-  <!-- SDK CORRETO da YouTube API  -->
+  <!-- SDK oficial da YouTube IFrame API -->
   <script src="https://www.youtube.com/iframe_api"></script>
   <script src="scripts.js" defer></script>
 </body>
