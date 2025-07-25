@@ -6,27 +6,24 @@ async function fetchCatalog() {
 }
 
 function populateCategories() {
-  const categories = [...new Set(catalog.map(v => v.cat))];
-  const catSelect = document.getElementById('categorySelect');
-  categories.forEach(c => catSelect.add(new Option(c, c)));
+  const cats = [...new Set(catalog.map(v => v.cat))];
+  const catSel = document.getElementById('categorySelect');
+  cats.forEach(c => catSel.add(new Option(c, c)));
 }
 
 function populateSubcategories(cat) {
   const subs = [...new Set(catalog.filter(v => v.cat === cat).map(v => v.sub))];
-  const subSelect = document.getElementById('subCategorySelect');
-  subSelect.innerHTML = '';
-  subs.forEach(s => subSelect.add(new Option(s, s)));
+  const subSel = document.getElementById('subCategorySelect');
+  subSel.innerHTML = '';
+  subs.forEach(s => subSel.add(new Option(s, s)));
 }
 
+// **Troca o embed para Invidious** (yewtu.be)
 function loadVideo(id) {
   const player = document.getElementById('player');
-  const url = new URL(`https://www.youtube-nocookie.com/embed/${id}`);
-  url.searchParams.set('rel', '0');
-  url.searchParams.set('autoplay', '1');
-  url.searchParams.set('enablejsapi', '1');
-  url.searchParams.set('origin', window.location.origin);
-  url.searchParams.set('host', 'https://www.youtube-nocookie.com');
-  player.src = url.toString();
+  // domínio Invidious livre de bloqueios de login
+  const embedUrl = `https://yewtu.be/embed/${id}?autoplay=1&quality=hq`;
+  player.src = embedUrl;
 }
 
 function updateKnob() {
@@ -45,9 +42,7 @@ function initControls() {
     populateSubcategories(e.target.value);
     updateKnob();
   });
-
   document.getElementById('subCategorySelect').addEventListener('change', updateKnob);
-
   document.getElementById('channelKnob').addEventListener('input', e => {
     const cat = document.getElementById('categorySelect').value;
     const sub = document.getElementById('subCategorySelect').value;
@@ -61,6 +56,7 @@ function initControls() {
 window.addEventListener('DOMContentLoaded', async () => {
   await fetchCatalog();
   populateCategories();
+  // inicia subcats e player
   populateSubcategories(document.getElementById('categorySelect').value);
   initControls();
   updateKnob();
