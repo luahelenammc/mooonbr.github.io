@@ -1,6 +1,6 @@
 :root {
-  --wood-bg: url('/materiais/madeira/color.jpg') center/cover no-repeat;
-  --metal-fosco: url('/materiais/metal-fosco/color.jpg');
+  --wood-bg: url('/madeira/color.jpg') center/cover no-repeat;
+  --metal-fosco: url('/metal-fosco/color.jpg');
   --accent: #e0c097;
   --accent-hover: #d4b67a;
   --text: #f4ece1;
@@ -88,7 +88,7 @@ body {
 }
 .static {
   position:absolute; inset:0;
-  background:url('/materiais/assets/static.gif') center/cover;
+  background:url('/assets/static.gif') center/cover;
   opacity:0.03;
   animation:staticDance 0.2s steps(2) infinite;
   pointer-events:none;
