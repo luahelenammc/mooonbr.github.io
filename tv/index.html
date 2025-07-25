@@ -13,9 +13,9 @@
       <div class="scanlines"></div>
       <div class="static"></div>
 
-      <!-- Botões inline dentro da tela -->
-      <button id="nextInline"   class="inline-btn next"   title="Próximo">▶</button>
-      <button id="randomInline" class="inline-btn random" title="Aleatório">🔀</button>
+      <!-- botões inline -->
+      <button id="shuffleAll" class="inline-btn shuffle" title="Aleatório">🔀</button>
+      <button id="nextInline" class="inline-btn next"   title="Próximo">▶</button>
     </div>
 
     <div class="controls">
@@ -30,18 +30,17 @@
 
       <div class="knob">
         <input type="range" id="channelKnob" min="0" max="0" />
-        <span id="knobLabel">Canal 0</span>
+        <span id="knobLabel">Canal 0</span>
       </div>
 
       <div class="extra-buttons">
-        <button id="prevBtn"    title="Anterior">⏮️</button>
-        <button id="shuffleBtn" title="Shuffle" >🔀</button>
-        <button id="nextBtn"    title="Próximo" >⏭️</button>
+        <button id="prevBtn" title="Anterior">⏮️</button>
+        <button id="shuffleBtn" title="Shuffle">🔀</button>
+        <button id="nextBtn" title="Próximo">⏭️</button>
       </div>
     </div>
   </div>
 
-  <!-- SDK oficial da YouTube IFrame API -->
   <script src="https://www.youtube.com/iframe_api"></script>
   <script src="scripts.js" defer></script>
 </body>
