@@ -26,7 +26,7 @@ body {
   background-size: cover;
   background-position: center;
   /* borda em madeira escura */
-  border: 16px solid #3b2e1a;
+  border: 3px solid #3b2e1a;
   border-radius: 16px;
   box-shadow:
     inset 0 0 0 8px #2e2110,
