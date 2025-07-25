@@ -22,7 +22,7 @@ body {
   background: url('/materiais/madeira/color.jpg') no-repeat center center;
   background-size: cover;
   padding: 20px;
-  border: 8px solid #4b3821;
+  border: 8px solid var(--border);
   border-radius: 12px;
   box-shadow: 0 0 20px #000;
   display: flex;
@@ -42,15 +42,9 @@ body {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: inset 0 0 60px rgba(0,0,0,0.8);
-  background-image: url('/materiais/metal-fosco/color.jpg');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-/* Player YouTube e overlays */
+/* Vídeo / IFrame */
 #player,
 .screen iframe {
   position: absolute;
@@ -60,38 +54,42 @@ body {
   pointer-events: auto;
 }
 
-.scanlines,
-.static {
+/* Scanlines */
+.scanlines {
   position: absolute;
   inset: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.02) 0px,
+    rgba(0,0,0,0.1) 1px,
+    transparent 2px
+  );
+  mix-blend-mode: overlay;
   z-index: 2;
   pointer-events: none;
 }
 
-.scanlines {
-  background-image: repeating-linear-gradient(
-    to bottom, rgba(255,255,255,0.02) 0px, rgba(0,0,0,0.1) 1px, transparent 2px
-  );
-  mix-blend-mode: overlay;
-}
-
+/* Estática */
 .static {
-  background-image: url('/materiais/metal-espelhado/roughness.jpg');
-  background-size: cover;
+  position: absolute;
+  inset: 0;
+  background: url('/materiais/metal-espelhado/roughness.jpg') center/cover;
   opacity: 0.07;
   animation: noise 0.3s infinite;
+  z-index: 2;
+  pointer-events: none;
 }
 
 @keyframes noise {
-  0% { transform: translate(0,0); }
-  20% { transform: translate(-1px, 1px); }
-  40% { transform: translate(1px, -1px); }
-  60% { transform: translate(-1px, -1px); }
-  80% { transform: translate(1px, 1px); }
+  0%   { transform: translate(0,0); }
+  20%  { transform: translate(-1px, 1px); }
+  40%  { transform: translate(1px, -1px); }
+  60%  { transform: translate(-1px, -1px); }
+  80%  { transform: translate(1px, 1px); }
   100% { transform: translate(0,0); }
 }
 
-/* Botões dentro da tela */
+/* Botões inline dentro da tela */
 .inline-btn {
   position: absolute;
   width: 34px;
@@ -113,7 +111,7 @@ body {
 .inline-btn.next    { bottom: 18px; right: 18px; }
 .inline-btn:hover   { background: var(--accent-hover); }
 
-/* Controles inferiores */
+/* Controles externos (baixo) */
 .controls {
   width: 100%;
   display: flex;
