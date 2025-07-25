@@ -9,17 +9,11 @@
 <body>
   <div class="RetroShell">
     <div class="screen">
-      <iframe
-        id="player"
-        src="about:blank"
-        allow="autoplay; encrypted-media; picture-in-picture"
-        allowfullscreen
-      ></iframe>
+      <!-- IFrame API precisa desse elemento -->
+      <div id="player"></div>
       <div class="scanlines"></div>
       <div class="static"></div>
-      <div id="errorMsg" style="display:none;color:#f44;font-family:var(--font-retro);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
-        Erro: não foi possível carregar o vídeo.
-      </div>
+      <div id="errorMsg" class="error">Canal indisponível para embed.</div>
     </div>
 
     <div class="controls">
@@ -40,6 +34,8 @@
     </div>
   </div>
 
+  <!-- YouTube IFrame API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script src="scripts.js" defer></script>
 </body>
 </html>
