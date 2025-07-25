@@ -22,7 +22,7 @@ body {
   width: 780px;
   padding: 24px;
   /* madeira como fundo */
-  background-image: url('/materiais/madeira/color.jpg');
+  background-image: url('materiais/madeira/color.jpg');
   background-size: cover;
   background-position: center;
   /* borda em madeira escura */
@@ -44,7 +44,7 @@ body {
   top: 80px;
   width: 48px;
   height: 220px;
-  background-image: url('/materiais/metal-fosco/color.jpg');
+  background-image: url('materiais/metal-fosco/color.jpg');
   background-size: cover;
   background-position: center;
   border: 4px solid #3b2e1a;
@@ -109,7 +109,7 @@ body {
 .static {
   position: absolute;
   inset: 0;
-  background-image: url('/materiais/metal-espelhado/roughness.jpg');
+  background-image: url('materiais/metal-espelhado/roughness.jpg');
   background-size: cover;
   opacity: 0.06;
   animation: noise 0.2s steps(2) infinite;
@@ -126,7 +126,7 @@ body {
   position: absolute;
   width: 36px;
   height: 36px;
-  background-image: url('/materiais/metal-fosco/color.jpg');
+  background-image: url('materiais/metal-fosco/color.jpg');
   background-size: cover;
   background-position: center;
   border: 4px solid #3b2e1a;
@@ -169,7 +169,7 @@ body {
 }
 .selectors select {
   appearance: none;
-  background-image: url('/materiais/metal-fosco/color.jpg');
+  background-image: url('materiais/metal-fosco/color.jpg');
   background-size: cover;
   background-position: center;
   color: #222;
@@ -190,7 +190,7 @@ body {
   flex: 1;
   -webkit-appearance: none;
   height: 10px;
-  background-image: url('/materiais/metal-fosco/color.jpg');
+  background-image: url('materiais/metal-fosco/color.jpg');
   background-size: cover;
   background-position: center;
   border: 4px solid #3b2e1a;
@@ -201,7 +201,7 @@ body {
   -webkit-appearance: none;
   width: 24px;
   height: 24px;
-  background-image: url('/materiais/metal-espelhado/color.jpg');
+  background-image: url('materiais/metal-espelhado/color.jpg');
   background-size: cover;
   background-position: center;
   border: 4px solid #3b2e1a;
@@ -225,7 +225,7 @@ body {
   align-items: center;
 }
 .control-btn {
-  background-image: url('/materiais/metal-fosco/color.jpg');
+  background-image: url('materiais/metal-fosco/color.jpg');
   background-size: cover;
   background-position: center;
   color: #222;
@@ -240,7 +240,7 @@ body {
   font-family: 'Courier New', monospace;
 }
 .control-btn:hover {
-  background-image: url('/materiais/metal-espelhado/color.jpg');
+  background-image: url('materiais/metal-espelhado/color.jpg');
   background-size: cover;
   background-position: center;
 }
