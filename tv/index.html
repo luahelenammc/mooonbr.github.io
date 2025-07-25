@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Moon TV</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="RetroShell">
+    <div class="screen">
+      <!-- scanlines via CSS -->
+      <div class="scanlines"></div>
+      <!-- player YouTube -->
+      <iframe
+        id="player"
+        src=""
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div class="controls">
+      <div class="selectors">
+        <label>
+          Categoria
+          <select id="categorySelect"></select>
+        </label>
+        <label>
+          Subcategoria
+          <select id="subCategorySelect"></select>
+        </label>
+      </div>
+      <div class="knob">
+        <input type="range" id="channelKnob" min="0" max="0" value="0">
+        <span id="knobLabel">Canal 0</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts.js" defer></script>
+</body>
+</html>
