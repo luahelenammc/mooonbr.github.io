@@ -1,18 +1,21 @@
 let catalog = [];
 let ytPlayer = null;
 let currentList = [];
+let currentIndex = 0;
+let isShuffle = false;
 
-// 1. Carrega o JSON
+// 1️⃣ Carrega o JSON
 async function fetchCatalog() {
   catalog = await (await fetch('videos.json')).json();
 }
 
-// 2. Popula selects
+// 2️⃣ Popula selects
 function populateCategories() {
   const cats = [...new Set(catalog.map(v => v.cat))];
   const sel = document.getElementById('categorySelect');
   cats.forEach(c => sel.add(new Option(c, c)));
 }
+
 function populateSubcategories(cat) {
   const subs = [...new Set(catalog.filter(v => v.cat === cat).map(v => v.sub))];
   const sel = document.getElementById('subCategorySelect');
@@ -20,66 +23,102 @@ function populateSubcategories(cat) {
   subs.forEach(s => sel.add(new Option(s, s)));
 }
 
-// 3. Chamado automaticamente pela API do YouTube
+// 3️⃣ YouTube IFrame API ready
 function onYouTubeIframeAPIReady() {
   ytPlayer = new YT.Player('player', {
-    height: '100%',
-    width: '100%',
-    videoId: '', 
+    width: '100%', height: '100%',
+    videoId: '',
     playerVars: { rel: 0, autoplay: 1, modestbranding: 1, playsinline: 1 },
     events: {
       onReady: () => updateKnob(),
-      onError: () => advanceChannel()
+      onStateChange: e => {
+        if (e.data === YT.PlayerState.ENDED) nextChannel();
+      },
+      onError: () => nextChannel()
     }
   });
 }
 
-// 4. Carrega o vídeo atual na lista
+// 4️⃣ Carrega o vídeo atual
 function loadCurrentVideo() {
-  const idx = +document.getElementById('channelKnob').value;
-  const vid = currentList[idx];
-  if (!vid) return;
+  if (!currentList.length) return;
+  const vid = currentList[currentIndex];
   ytPlayer.loadVideoById(vid.id);
-  document.getElementById('knobLabel').textContent = `Canal ${idx}`;
+  document.getElementById('knobLabel').textContent = `Canal ${currentIndex}`;
+  document.getElementById('channelKnob').value = currentIndex;
 }
 
-// 5. Avança para o próximo canal
-function advanceChannel() {
-  const knob = document.getElementById('channelKnob');
-  const next = (knob.valueAsNumber + 1) % currentList.length;
-  knob.value = next;
+// 5️⃣ Próximo canal
+function nextChannel() {
+  if (isShuffle) {
+    currentIndex = Math.floor(Math.random() * currentList.length);
+  } else {
+    currentIndex = (currentIndex + 1) % currentList.length;
+  }
   loadCurrentVideo();
 }
 
-// 6. Atualiza a lista e o knob sempre que categoria/sub muda
+// 6️⃣ Canal anterior
+function prevChannel() {
+  if (isShuffle) {
+    currentIndex = Math.floor(Math.random() * currentList.length);
+  } else {
+    currentIndex = (currentIndex - 1 + currentList.length) % currentList.length;
+  }
+  loadCurrentVideo();
+}
+
+// 7️⃣ Alterna shuffle
+function toggleShuffle() {
+  isShuffle = !isShuffle;
+  document.getElementById('shuffleBtn')
+    .style.background = isShuffle ? 'var(--accent-hover)' : 'var(--accent)';
+}
+
+// 8️⃣ Atualiza lista e knob
 function updateKnob() {
   const cat = document.getElementById('categorySelect').value;
   const sub = document.getElementById('subCategorySelect').value;
   currentList = catalog.filter(v => v.cat === cat && v.sub === sub);
+  currentIndex = 0;
   const knob = document.getElementById('channelKnob');
   knob.max = currentList.length - 1;
   knob.value = 0;
   loadCurrentVideo();
 }
 
-// 7. Eventos dos controles
+// 9️⃣ Liga controles
 function initControls() {
   document.getElementById('categorySelect')
     .addEventListener('change', e => {
       populateSubcategories(e.target.value);
       updateKnob();
     });
+
   document.getElementById('subCategorySelect')
     .addEventListener('change', updateKnob);
+
   document.getElementById('channelKnob')
-    .addEventListener('input', loadCurrentVideo);
+    .addEventListener('input', e => {
+      currentIndex = +e.target.value;
+      loadCurrentVideo();
+    });
+
+  document.getElementById('nextBtn')
+    .addEventListener('click', nextChannel);
+
+  document.getElementById('prevBtn')
+    .addEventListener('click', prevChannel);
+
+  document.getElementById('shuffleBtn')
+    .addEventListener('click', toggleShuffle);
 }
 
-// 8. Bootstrapping
+// 🔧 Boot
 window.addEventListener('DOMContentLoaded', async () => {
   await fetchCatalog();
   populateCategories();
   populateSubcategories(document.getElementById('categorySelect').value);
   initControls();
-  // A chamada definitiva acontece dentro de onReady da API
+  // onYouTubeIframeAPIReady será chamado pela API
 });
