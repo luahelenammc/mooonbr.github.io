@@ -1,16 +1,14 @@
 let catalog = [];
+let ytPlayer = null;
+let currentList = [];
 
-// instâncias para embed
-const providers = [
-  id => `https://piped.kavin.rocks/embed/${id}?autoplay=1`,
-  id => `https://yewtu.eu/embed/${id}?autoplay=1`
-];
-
+// Carrega o JSON
 async function fetchCatalog() {
   const res = await fetch('videos.json');
   catalog = await res.json();
 }
 
+// Popula selects
 function populateCategories() {
   const cats = [...new Set(catalog.map(v => v.cat))];
   const sel = document.getElementById('categorySelect');
@@ -24,66 +22,73 @@ function populateSubcategories(cat) {
   subs.forEach(s => sel.add(new Option(s, s)));
 }
 
-// tenta carregar em cada provider até funcionar
-function loadVideo(id) {
-  const player = document.getElementById('player');
-  const errorMsg = document.getElementById('errorMsg');
-  errorMsg.style.display = 'none';
-
-  let attempt = 0;
-  let loaded = false;
-
-  // limpa src anterior
-  player.src = 'about:blank';
-
-  // event listener para detectar carga
-  const onLoad = () => {
-    loaded = true;
-    player.removeEventListener('load', onLoad);
-  };
-  player.addEventListener('load', onLoad);
-
-  function tryNext() {
-    if (loaded) return;
-    if (attempt >= providers.length) {
-      // todos falharam
-      errorMsg.style.display = 'block';
-      return;
+// Chamado pela API do YouTube quando está pronta
+function onYouTubeIframeAPIReady() {
+  ytPlayer = new YT.Player('player', {
+    height: '100%',
+    width: '100%',
+    videoId: '', // vazio inicialmente
+    playerVars: {
+      rel: 0,
+      autoplay: 1,
+      modestbranding: 1
+    },
+    events: {
+      onReady: () => { /* nada*/ },
+      onError: onPlayerError
     }
-    const url = providers[attempt++](id);
-    player.src = url;
-    // se não carregar em 5s, tenta próximo
-    setTimeout(tryNext, 5000);
-  }
-
-  tryNext();
+  });
 }
 
+// Trata erro 101/150 de embed bloqueado
+function onPlayerError(event) {
+  const code = event.data;
+  if (code === 101 || code === 150) {
+    document.getElementById('errorMsg').style.display = 'block';
+    // tenta pular para próximo canal após 2s
+    setTimeout(() => {
+      document.getElementById('errorMsg').style.display = 'none';
+      advanceChannel();
+    }, 2000);
+  }
+}
+
+// Carrega o vídeo atual na lista
+function loadCurrentVideo() {
+  const idx = parseInt(document.getElementById('channelKnob').value, 10);
+  const vid = currentList[idx];
+  if (!vid) return;
+  ytPlayer.loadVideoById(vid.id);
+  document.getElementById('knobLabel').textContent = `Canal ${idx}`;
+}
+
+// Avança o knob para o próximo canal
+function advanceChannel() {
+  const knob = document.getElementById('channelKnob');
+  const next = (parseInt(knob.value,10) + 1) % currentList.length;
+  knob.value = next;
+  loadCurrentVideo();
+}
+
+// Atualiza currentList a partir dos selects
 function updateKnob() {
   const cat = document.getElementById('categorySelect').value;
   const sub = document.getElementById('subCategorySelect').value;
-  const vids = catalog.filter(v => v.cat === cat && v.sub === sub);
+  currentList = catalog.filter(v => v.cat === cat && v.sub === sub);
   const knob = document.getElementById('channelKnob');
-  knob.max = vids.length - 1;
+  knob.max = currentList.length - 1;
   knob.value = 0;
-  document.getElementById('knobLabel').textContent = `Canal 0`;
-  if (vids[0]) loadVideo(vids[0].id);
+  loadCurrentVideo();
 }
 
+// Inicializa eventos dos controles
 function initControls() {
   document.getElementById('categorySelect').addEventListener('change', e => {
     populateSubcategories(e.target.value);
     updateKnob();
   });
   document.getElementById('subCategorySelect').addEventListener('change', updateKnob);
-  document.getElementById('channelKnob').addEventListener('input', e => {
-    const cat = document.getElementById('categorySelect').value;
-    const sub = document.getElementById('subCategorySelect').value;
-    const vids = catalog.filter(v => v.cat === cat && v.sub === sub);
-    const idx = parseInt(e.target.value, 10);
-    document.getElementById('knobLabel').textContent = `Canal ${idx}`;
-    if (vids[idx]) loadVideo(vids[idx].id);
-  });
+  document.getElementById('channelKnob').addEventListener('input', loadCurrentVideo);
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
