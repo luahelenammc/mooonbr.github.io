@@ -1,6 +1,6 @@
 :root {
-  --wood-bg: url('/madeira/color.jpg') center/cover no-repeat;
-  --metal-fosco: url('/metal-fosco/color.jpg');
+  --wood-bg: url('/materiais/madeira/color.jpg') center/cover no-repeat;
+  --metal-fosco: url('/materiais/metal-fosco/color.jpg');
   --accent: #e0c097;
   --accent-hover: #d4b67a;
   --text: #f4ece1;
