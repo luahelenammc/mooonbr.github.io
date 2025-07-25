@@ -2,23 +2,19 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Moon TV</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="RetroShell">
-    <!-- Side speakers -->
-    <!-- (gerados por CSS ::before e ::after) -->
-
+    <!-- Carcaça da TV -->
     <div class="screen">
+      <!-- Player YouTube via IFrame API -->
       <div id="player"></div>
+      <!-- Efeitos CRT -->
       <div class="scanlines"></div>
       <div class="static"></div>
-
-      <!-- Botões inline -->
-      <button id="nextInline" class="inline-btn next" title="Próximo">▶</button>
-      <button id="shuffleAll" class="inline-btn shuffle" title="Aleatório">🔀</button>
     </div>
 
     <div class="controls">
@@ -34,14 +30,15 @@
       </div>
 
       <div class="knob">
-        <input type="range" id="channelKnob" min="0" max="0" value="0" />
+        <input type="range" id="channelKnob" min="0" max="0" />
         <span id="knobLabel">Canal 0</span>
       </div>
     </div>
   </div>
 
-  <!-- YouTube IFrame API -->
+  <!-- YouTube IFrame API (chama onYouTubeIframeAPIReady) -->
   <script src="https://www.youtube.com/iframe_api"></script>
+  <!-- Lógica de carregamento de vídeos e controles -->
   <script src="scripts.js" defer></script>
 </body>
 </html>
