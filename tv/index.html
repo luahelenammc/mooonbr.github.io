@@ -8,39 +8,47 @@
 </head>
 <body>
   <div class="RetroShell">
+    <!-- Tela CRT -->
     <div class="screen">
       <div id="player"></div>
       <div class="scanlines"></div>
       <div class="static"></div>
 
-      <!-- botões inline -->
-      <button id="shuffleAll" class="inline-btn shuffle" title="Aleatório">🔀</button>
-      <button id="nextInline" class="inline-btn next"   title="Próximo">▶</button>
+      <!-- CONTROLES INLINE SOBRE A TELA -->
+      <div class="screen-controls">
+        <button id="prevInline"   class="inline-btn" title="Canal anterior">⏮️</button>
+        <button id="nextInline"   class="inline-btn" title="Próximo canal">▶️</button>
+        <button id="shuffleAll"   class="inline-btn" title="Aleatório geral">🔀</button>
+      </div>
     </div>
 
+    <!-- PAINEL DE CONTROLES EMBAIXO -->
     <div class="controls">
       <div class="selectors">
-        <label>Categoria
+        <label>
+          Categoria
           <select id="categorySelect"></select>
         </label>
-        <label>Subcategoria
+        <label>
+          Subcategoria
           <select id="subCategorySelect"></select>
         </label>
       </div>
 
       <div class="knob">
         <input type="range" id="channelKnob" min="0" max="0" />
-        <span id="knobLabel">Canal 0</span>
+        <span id="knobLabel">Canal 0</span>
       </div>
 
       <div class="extra-buttons">
-        <button id="prevBtn" title="Anterior">⏮️</button>
-        <button id="shuffleBtn" title="Shuffle">🔀</button>
-        <button id="nextBtn" title="Próximo">⏭️</button>
+        <button id="prevBtn"    class="control-btn" title="Canal anterior">⏮️</button>
+        <button id="shuffleBtn" class="control-btn" title="Toggle shuffle">🔀</button>
+        <button id="nextBtn"    class="control-btn" title="Próximo canal">⏭️</button>
       </div>
     </div>
   </div>
 
+  <!-- SDK da YouTube IFrame API -->
   <script src="https://www.youtube.com/iframe_api"></script>
   <script src="scripts.js" defer></script>
 </body>
