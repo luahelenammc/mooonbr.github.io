@@ -18,12 +18,12 @@ function populateSubcategories(cat) {
   subs.forEach(s => subSel.add(new Option(s, s)));
 }
 
-// **Troca o embed para Invidious** (yewtu.be)
+// Carrega via Piped (piped.kavin.rocks), embed sem login.
 function loadVideo(id) {
   const player = document.getElementById('player');
-  // domínio Invidious livre de bloqueios de login
-  const embedUrl = `https://yewtu.be/embed/${id}?autoplay=1&quality=hq`;
-  player.src = embedUrl;
+  // URL de embed do Piped:
+  // https://piped.kavin.rocks/embed/ID
+  player.src = `https://piped.kavin.rocks/embed/${id}?autoplay=1`;
 }
 
 function updateKnob() {
@@ -56,7 +56,6 @@ function initControls() {
 window.addEventListener('DOMContentLoaded', async () => {
   await fetchCatalog();
   populateCategories();
-  // inicia subcats e player
   populateSubcategories(document.getElementById('categorySelect').value);
   initControls();
   updateKnob();
