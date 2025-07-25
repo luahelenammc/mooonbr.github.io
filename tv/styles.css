@@ -24,7 +24,7 @@ body {
   width: 780px;
   padding: 24px;
   /* madeira como fundo principal */
-  background-image: url('/materiais/madeira/color.jpg');
+  background-image: url('materiais/madeira/color.jpg');
   background-size: cover;
   background-position: center;
   /* borda de madeira */
@@ -46,7 +46,7 @@ body {
   top: 80px;
   width: 48px;
   height: 220px;
-  background-image: url('/materiais/metal-fosco/color.jpg');
+  background-image: url('materiais/metal-fosco/color.jpg');
   background-size: cover;
   background-position: center;
   border: 4px solid var(--border-wood-color);
@@ -111,7 +111,7 @@ body {
 .static {
   position: absolute;
   inset: 0;
-  background-image: url('/materiais/metal-espelhado/roughness.jpg');
+  background-image: url('materiais/metal-espelhado/roughness.jpg');
   background-size: cover;
   opacity: 0.06;
   animation: noise 0.2s steps(2) infinite;
@@ -129,7 +129,7 @@ body {
   width: 36px;
   height: 36px;
   /* metal fosco como fundo */
-  background-image: url('/materiais/metal-fosco/color.jpg');
+  background-image: url('materiais/metal-fosco/color.jpg');
   background-size: cover;
   background-position: center;
   border: 4px solid var(--border-wood-color);
@@ -172,7 +172,7 @@ body {
 .selectors select {
   appearance: none;
   /* metal fosco de fundo */
-  background-image: url('/materiais/metal-fosco/color.jpg');
+  background-image: url('materiais/metal-fosco/color.jpg');
   background-size: cover;
   background-position: center;
   color: #222;
@@ -194,7 +194,7 @@ body {
   -webkit-appearance: none;
   height: 10px;
   /* trilho em metal fosco */
-  background-image: url('/materiais/metal-fosco/color.jpg');
+  background-image: url('materiais/metal-fosco/color.jpg');
   background-size: cover;
   background-position: center;
   border: 4px solid var(--border-wood-color);
@@ -206,7 +206,7 @@ body {
   width: 24px;
   height: 24px;
   /* thumb em metal espelhado */
-  background-image: url('/materiais/metal-espelhado/color.jpg');
+  background-image: url('materiais/metal-espelhado/color.jpg');
   background-size: cover;
   background-position: center;
   border: 4px solid var(--border-wood-color);
@@ -231,7 +231,7 @@ body {
 }
 .control-btn {
   /* metal fosco de fundo */
-  background-image: url('/materiais/metal-fosco/color.jpg');
+  background-image: url('materiais/metal-fosco/color.jpg');
   background-size: cover;
   background-position: center;
   color: #222;
@@ -247,7 +247,7 @@ body {
 }
 .control-btn:hover {
   /* metal espelhado no hover */
-  background-image: url('/materiais/metal-espelhado/color.jpg');
+  background-image: url('materiais/metal-espelhado/color.jpg');
   background-size: cover;
   background-position: center;
 }
