@@ -1,19 +1,21 @@
-/* styles.css — Moon TV Skeuomorphic Anos 70 */
+/* styles.css — Moon TV skeuomorphic anos 70 */
 
 :root {
-  --wood: '/materiais/madeira/color.jpg';
-  --metalFosco: '/materiais/metal-fosco/color.jpg';
-  --metalEspelho: '/materiais/metal-espelhado/color.jpg';
-  --border-wood: #3b2e1a;
+  --border-wood-color: #3b2e1a;
   --shadow-dark: rgba(0,0,0,0.6);
   --font-retro: 'Courier New', monospace;
 }
 
-/* Reset básico */
+/* Reset */
 * { margin:0; padding:0; box-sizing:border-box; }
 body {
-  background:#111; display:flex; justify-content:center; align-items:center;
-  height:100vh; font-family:var(--font-retro); color:#eee;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: var(--font-retro);
+  color: #eee;
 }
 
 /* === Carcaça da TV === */
@@ -21,27 +23,33 @@ body {
   position: relative;
   width: 780px;
   padding: 24px;
-  background: url(var(--wood)) center/cover no-repeat;
-  border: 16px solid var(--border-wood);
-  border-image: url(var(--wood)) 30 round; /* moldura em madeira */
+  /* madeira como fundo principal */
+  background-image: url('/materiais/madeira/color.jpg');
+  background-size: cover;
+  background-position: center;
+  /* borda de madeira */
+  border: 16px solid var(--border-wood-color);
   border-radius: 16px;
   box-shadow:
-    inset 0 0 0 8px #2e2110,    /* sulco interno */
+    inset 0 0 0 8px #2e2110,
     0 12px 24px var(--shadow-dark);
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Speaker grilles laterais */
+/* Speaker grilles laterais em metal fosco */
 .RetroShell::before,
 .RetroShell::after {
   content: '';
   position: absolute;
   top: 80px;
-  width: 48px; height: 220px;
-  background: url(var(--metalFosco)) center/cover no-repeat;
-  border: 4px solid var(--border-wood);
+  width: 48px;
+  height: 220px;
+  background-image: url('/materiais/metal-fosco/color.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 4px solid var(--border-wood-color);
   border-radius: 6px;
   box-shadow: inset 0 2px 6px var(--shadow-dark);
 }
@@ -62,15 +70,17 @@ body {
 
 /* Player IFrame */
 #player {
-  position: absolute; inset: 0;
+  position: absolute;
+  inset: 0;
   z-index: 1;
   pointer-events: auto;
 }
 
 /* Curvatura e glow interno */
 .screen::before {
-  content:'';
-  position:absolute; inset:0;
+  content: '';
+  position: absolute;
+  inset: 0;
   background:
     radial-gradient(ellipse at center,
       rgba(255,255,255,0.05) 0%,
@@ -79,12 +89,13 @@ body {
     );
   mix-blend-mode: overlay;
   z-index: 2;
-  pointer-events:none;
+  pointer-events: none;
 }
 
 /* Scanlines */
 .scanlines {
-  position:absolute; inset:0;
+  position: absolute;
+  inset: 0;
   background: repeating-linear-gradient(
     to bottom,
     rgba(0,0,0,0) 0px,
@@ -93,109 +104,150 @@ body {
   );
   mix-blend-mode: multiply;
   z-index: 3;
-  pointer-events:none;
+  pointer-events: none;
 }
 
-/* Estática (usando roughness como pattern) */
+/* Estática usando roughness do metal espelhado */
 .static {
-  position:absolute; inset:0;
-  background: url('/materiais/metal-espelhado/roughness.jpg') center/cover;
-  opacity:0.06;
+  position: absolute;
+  inset: 0;
+  background-image: url('/materiais/metal-espelhado/roughness.jpg');
+  background-size: cover;
+  opacity: 0.06;
   animation: noise 0.2s steps(2) infinite;
   z-index: 3;
-  pointer-events:none;
+  pointer-events: none;
 }
 @keyframes noise {
   0%   { transform: translate(0,0); }
   100% { transform: translate(-2px,2px); }
 }
 
-/* === Inline Buttons (sobre a tela) === */
+/* === Inline Buttons sobre a tela === */
 .inline-btn {
-  position:absolute;
-  width:36px; height:36px;
-  background: url(var(--metalFosco)) center/cover no-repeat;
-  border: 4px solid var(--border-wood);
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  /* metal fosco como fundo */
+  background-image: url('/materiais/metal-fosco/color.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 4px solid var(--border-wood-color);
   border-radius: 50%;
-  box-shadow: inset 2px 2px 6px var(--shadow-dark),
-              2px 2px 4px var(--shadow-dark);
-  font-size:1.2rem; color:#222;
-  display:flex; align-items:center; justify-content:center;
-  cursor:pointer; z-index:4;
-  user-select:none;
+  box-shadow:
+    inset 2px 2px 6px var(--shadow-dark),
+    2px 2px 4px var(--shadow-dark);
+  font-size: 1.2rem;
+  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 4;
+  user-select: none;
 }
 .inline-btn:hover {
   filter: brightness(1.2);
 }
-.inline-btn.prev { top:16px; left:50%; transform:translateX(-120%); }
-.inline-btn.next { top:16px; right:50%; transform:translateX(120%); }
+.inline-btn.prev { top: 16px; left: 50%; transform: translateX(-120%); }
+.inline-btn.next { top: 16px; right: 50%; transform: translateX(120%); }
 
 /* === Painel Inferior === */
 .controls {
-  display:flex; flex-direction:column; gap:12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 /* Categoria/Subcategoria */
 .selectors {
-  display:flex; gap:16px;
+  display: flex;
+  gap: 16px;
 }
 .selectors label {
-  display:flex; flex-direction:column; font-size:0.9rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
 }
 .selectors select {
-  appearance:none;
-  background: url(var(--metalFosco)) center/cover no-repeat;
-  border: 4px solid var(--border-wood);
+  appearance: none;
+  /* metal fosco de fundo */
+  background-image: url('/materiais/metal-fosco/color.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #222;
+  border: 4px solid var(--border-wood-color);
   border-radius: 6px;
   padding: 6px 12px;
-  color: #222;
-  font-family: var(--font-retro);
   box-shadow: inset 1px 1px 4px var(--shadow-dark);
+  font-family: var(--font-retro);
 }
 
 /* Knob Slider */
 .knob {
-  display:flex; align-items:center; gap:12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 #channelKnob {
-  flex:1;
-  -webkit-appearance:none;
-  height:10px;
-  background: url(var(--metalFosco)) center/cover no-repeat;
-  border:4px solid var(--border-wood);
-  border-radius:5px;
+  flex: 1;
+  -webkit-appearance: none;
+  height: 10px;
+  /* trilho em metal fosco */
+  background-image: url('/materiais/metal-fosco/color.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 4px solid var(--border-wood-color);
+  border-radius: 5px;
   box-shadow: inset 1px 1px 4px var(--shadow-dark);
 }
 #channelKnob::-webkit-slider-thumb {
-  -webkit-appearance:none;
-  width:24px; height:24px;
-  background: url(var(--metalEspelho)) center/cover no-repeat;
-  border:4px solid var(--border-wood);
-  border-radius:50%;
-  box-shadow: inset 2px 2px 6px var(--shadow-dark),
-              2px 2px 4px var(--shadow-dark);
-  margin-top:-7px;
-  cursor:pointer;
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  /* thumb em metal espelhado */
+  background-image: url('/materiais/metal-espelhado/color.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 4px solid var(--border-wood-color);
+  border-radius: 50%;
+  box-shadow:
+    inset 2px 2px 6px var(--shadow-dark),
+    2px 2px 4px var(--shadow-dark);
+  margin-top: -7px;
+  cursor: pointer;
 }
 #knobLabel {
-  min-width:60px; text-align:center; font-size:1rem;
+  min-width: 60px;
+  text-align: center;
+  font-size: 1rem;
 }
 
 /* === Botões Externos === */
 .extra-buttons {
-  display:flex; justify-content:space-between; align-items:center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .control-btn {
-  background: url(var(--metalFosco)) center/cover no-repeat;
-  border: 4px solid var(--border-wood);
-  border-radius:6px;
-  padding:8px 16px;
-  font-size:1.1rem; color:#222;
-  box-shadow: inset 2px 2px 6px var(--shadow-dark),
-              2px 2px 4px var(--shadow-dark);
-  cursor:pointer;
+  /* metal fosco de fundo */
+  background-image: url('/materiais/metal-fosco/color.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #222;
+  border: 4px solid var(--border-wood-color);
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow:
+    inset 2px 2px 6px var(--shadow-dark),
+    2px 2px 4px var(--shadow-dark);
   font-family: var(--font-retro);
 }
 .control-btn:hover {
-  background: url(var(--metalEspelho)) center/cover no-repeat;
+  /* metal espelhado no hover */
+  background-image: url('/materiais/metal-espelhado/color.jpg');
+  background-size: cover;
+  background-position: center;
 }
