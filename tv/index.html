@@ -9,20 +9,17 @@
 <body>
   <div class="RetroShell">
     <div class="screen">
-      <!-- player usando nocookie -->
-      <div id="player"></div>
-      <div class="scanlines"></div>
+      <div id="player"></div>              <!-- player YouTube -->
+      <div class="scanlines"></div>        <!-- efeito CRT -->
       <div class="static"></div>
     </div>
 
     <div class="controls">
       <div class="selectors">
-        <label>
-          Categoria
+        <label>Categoria
           <select id="categorySelect"></select>
         </label>
-        <label>
-          Subcategoria
+        <label>Subcategoria
           <select id="subCategorySelect"></select>
         </label>
       </div>
@@ -33,15 +30,15 @@
       </div>
 
       <div class="extra-buttons">
-        <button id="prevBtn" title="Anterior">⏮️</button>
-        <button id="shuffleBtn" title="Shuffle">🔀</button>
-        <button id="nextBtn" title="Próximo">⏭️</button>
+        <button id="prevBtn"    title="Anterior">⏮️</button>
+        <button id="shuffleBtn" title="Shuffle" >🔀</button>
+        <button id="nextBtn"    title="Próximo" >⏭️</button>
       </div>
     </div>
   </div>
 
-  <!-- API do YouTube nocookie -->
-  <script src="https://www.youtube-nocookie.com/iframe_api"></script>
+  <!-- SDK CORRETO da YouTube API  -->
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script src="scripts.js" defer></script>
 </body>
 </html>
