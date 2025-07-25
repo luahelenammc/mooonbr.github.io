@@ -1,4 +1,3 @@
-// carrega o catálogo de vídeos
 let catalog;
 
 async function fetchCatalog() {
@@ -9,20 +8,24 @@ async function fetchCatalog() {
 function populateCategories() {
   const cats = [...new Set(catalog.map(v => v.cat))];
   const catSel = document.getElementById('categorySelect');
-  cats.forEach(c => {
-    const o = new Option(c, c);
-    catSel.add(o);
-  });
+  cats.forEach(c => catSel.add(new Option(c, c)));
 }
 
 function populateSubcategories(cat) {
   const subs = [...new Set(catalog.filter(v => v.cat === cat).map(v => v.sub))];
   const subSel = document.getElementById('subCategorySelect');
   subSel.innerHTML = '';
-  subs.forEach(s => {
-    const o = new Option(s, s);
-    subSel.add(o);
-  });
+  subs.forEach(s => subSel.add(new Option(s, s)));
+}
+
+function loadVideo(id) {
+  const player = document.getElementById('player');
+  const url = new URL(`https://www.youtube.com/embed/${id}`);
+  url.searchParams.set('rel', '0');
+  url.searchParams.set('autoplay', '1');
+  url.searchParams.set('enablejsapi', '1');
+  url.searchParams.set('origin', window.location.origin);
+  player.src = url;
 }
 
 function updateKnob() {
@@ -33,29 +36,22 @@ function updateKnob() {
   knob.max = vids.length - 1;
   knob.value = 0;
   document.getElementById('knobLabel').textContent = `Canal 0`;
-  loadVideo(vids[0].id);
-}
-
-function loadVideo(id) {
-  const player = document.getElementById('player');
-  player.src = `https://www.youtube.com/embed/${id}?rel=0&autoplay=1`;
+  if (vids[0]) loadVideo(vids[0].id);
 }
 
 function initControls() {
-  document.getElementById('categorySelect').addEventListener('change', () => {
-    populateSubcategories(this.value);
+  document.getElementById('categorySelect').addEventListener('change', e => {
+    populateSubcategories(e.target.value);
     updateKnob();
   });
-
   document.getElementById('subCategorySelect').addEventListener('change', updateKnob);
-
   document.getElementById('channelKnob').addEventListener('input', e => {
     const cat = document.getElementById('categorySelect').value;
     const sub = document.getElementById('subCategorySelect').value;
     const vids = catalog.filter(v => v.cat === cat && v.sub === sub);
     const idx = parseInt(e.target.value, 10);
     document.getElementById('knobLabel').textContent = `Canal ${idx}`;
-    loadVideo(vids[idx].id);
+    if (vids[idx]) loadVideo(vids[idx].id);
   });
 }
 
