@@ -8,10 +8,17 @@
 </head>
 <body>
   <div class="RetroShell">
+    <!-- Side speakers -->
+    <!-- (gerados por CSS ::before e ::after) -->
+
     <div class="screen">
       <div id="player"></div>
       <div class="scanlines"></div>
       <div class="static"></div>
+
+      <!-- Botões inline -->
+      <button id="nextInline" class="inline-btn next" title="Próximo">▶</button>
+      <button id="shuffleAll" class="inline-btn shuffle" title="Aleatório">🔀</button>
     </div>
 
     <div class="controls">
@@ -29,12 +36,6 @@
       <div class="knob">
         <input type="range" id="channelKnob" min="0" max="0" value="0" />
         <span id="knobLabel">Canal 0</span>
-      </div>
-
-      <div class="extra-buttons">
-        <button id="prevBtn" title="Anterior">⏮️</button>
-        <button id="shuffleBtn" title="Shuffle">🔀</button>
-        <button id="nextBtn" title="Próximo">⏭️</button>
       </div>
     </div>
   </div>
