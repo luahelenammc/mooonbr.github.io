@@ -1,104 +1,90 @@
-/* styles.css — Moon TV Skeuomorphic 70s */
+/* styles.css — Moon TV Skeuomorphic Anos 70 */
 
 :root {
-  --wood-bg: url('/materiais/madeira/color.jpg') center/cover no-repeat;
-  --wood-normal: url('/materiais/madeira/normal.jpg');
-  --wood-rough: url('/materiais/madeira/roughness.jpg');
-  --metal-fosco-bg: url('/materiais/metal-fosco/color.jpg') center/cover no-repeat;
-  --metal-fosco-normal: url('/materiais/metal-fosco/normal.jpg');
-  --metal-fosco-rough: url('/materiais/metal-fosco/roughness.jpg');
-  --metal-reflect-bg: url('/materiais/metal-espelhado/color.jpg') center/cover no-repeat;
-  --accent-color: #d4b67a;
-  --border-dark: #3b2e1a;
+  --wood: '/materiais/madeira/color.jpg';
+  --metalFosco: '/materiais/metal-fosco/color.jpg';
+  --metalEspelho: '/materiais/metal-espelhado/color.jpg';
+  --border-wood: #3b2e1a;
+  --shadow-dark: rgba(0,0,0,0.6);
   --font-retro: 'Courier New', monospace;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Reset básico */
+* { margin:0; padding:0; box-sizing:border-box; }
 body {
-  background: #111;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-family: var(--font-retro);
-  color: #eee;
+  background:#111; display:flex; justify-content:center; align-items:center;
+  height:100vh; font-family:var(--font-retro); color:#eee;
 }
 
-/* TV Cabinet */
+/* === Carcaça da TV === */
 .RetroShell {
   position: relative;
-  width: 760px;
-  padding: 24px 48px;
-  background: var(--wood-bg);
-  border: 8px solid var(--border-dark);
-  border-radius: 12px;
-  box-shadow: inset 0 0 0 4px #2e2110, 0 8px 20px rgba(0,0,0,0.7);
+  width: 780px;
+  padding: 24px;
+  background: url(var(--wood)) center/cover no-repeat;
+  border: 16px solid var(--border-wood);
+  border-image: url(var(--wood)) 30 round; /* moldura em madeira */
+  border-radius: 16px;
+  box-shadow:
+    inset 0 0 0 8px #2e2110,    /* sulco interno */
+    0 12px 24px var(--shadow-dark);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
-/* Speaker Grilles */
+/* Speaker grilles laterais */
 .RetroShell::before,
 .RetroShell::after {
   content: '';
   position: absolute;
-  top: 60px;
-  width: 48px;
-  height: 200px;
-  background: var(--metal-fosco-bg);
-  background-size: cover;
-  border: 2px solid var(--border-dark);
-  border-radius: 4px;
+  top: 80px;
+  width: 48px; height: 220px;
+  background: url(var(--metalFosco)) center/cover no-repeat;
+  border: 4px solid var(--border-wood);
+  border-radius: 6px;
+  box-shadow: inset 0 2px 6px var(--shadow-dark);
 }
-.RetroShell::before { left: 16px; }
-.RetroShell::after  { right: 16px; }
+.RetroShell::before { left: 8px; }
+.RetroShell::after  { right: 8px; }
 
-/* Screen */
+/* === Tela CRT === */
 .screen {
   position: relative;
   width: 100%;
-  padding-top: 75%; /* 4:3 CRT aspect */
+  padding-top: 75%; /* 4:3 */
   background: #000;
-  border: 6px solid var(--border-dark);
-  border-radius: 8px/6px;
+  border: 12px solid #1a140c;
+  border-radius: 10px/6px;
   overflow: hidden;
-  box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
+  box-shadow: inset 0 0 30px var(--shadow-dark);
 }
 
-/* YouTube IFrame */
+/* Player IFrame */
 #player {
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   z-index: 1;
   pointer-events: auto;
 }
 
-/* Curvature & Glow */
+/* Curvatura e glow interno */
 .screen::before {
-  content: '';
-  position: absolute;
-  inset: 0;
+  content:'';
+  position:absolute; inset:0;
   background:
     radial-gradient(ellipse at center,
       rgba(255,255,255,0.05) 0%,
-      rgba(0,0,0,0.6) 70%,
+      rgba(0,0,0,0.7) 60%,
       rgba(0,0,0,0.9) 100%
     );
   mix-blend-mode: overlay;
   z-index: 2;
-  pointer-events: none;
+  pointer-events:none;
 }
 
 /* Scanlines */
 .scanlines {
-  position: absolute;
-  inset: 0;
+  position:absolute; inset:0;
   background: repeating-linear-gradient(
     to bottom,
     rgba(0,0,0,0) 0px,
@@ -107,118 +93,109 @@ body {
   );
   mix-blend-mode: multiply;
   z-index: 3;
-  pointer-events: none;
+  pointer-events:none;
 }
 
-/* Static Noise */
+/* Estática (usando roughness como pattern) */
 .static {
-  position: absolute;
-  inset: 0;
-  background: var(--metal-reflect-bg);
-  opacity: 0.06;
-  animation: static-jitter 0.2s steps(2) infinite;
+  position:absolute; inset:0;
+  background: url('/materiais/metal-espelhado/roughness.jpg') center/cover;
+  opacity:0.06;
+  animation: noise 0.2s steps(2) infinite;
   z-index: 3;
-  pointer-events: none;
+  pointer-events:none;
 }
-@keyframes static-jitter {
-  from { transform: translate(0,0); }
-  to   { transform: translate(-2px,2px); }
+@keyframes noise {
+  0%   { transform: translate(0,0); }
+  100% { transform: translate(-2px,2px); }
 }
 
-/* Inline Controls Over Screen */
+/* === Inline Buttons (sobre a tela) === */
 .inline-btn {
-  position: absolute;
-  width: 38px;
-  height: 38px;
-  background: var(--accent-color);
-  border: 3px solid var(--border-dark);
+  position:absolute;
+  width:36px; height:36px;
+  background: url(var(--metalFosco)) center/cover no-repeat;
+  border: 4px solid var(--border-wood);
   border-radius: 50%;
-  font-size: 1.2rem;
-  color: #222;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 4;
-  user-select: none;
+  box-shadow: inset 2px 2px 6px var(--shadow-dark),
+              2px 2px 4px var(--shadow-dark);
+  font-size:1.2rem; color:#222;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; z-index:4;
+  user-select:none;
 }
 .inline-btn:hover {
-  background: lighten(var(--accent-color), 10%);
+  filter: brightness(1.2);
 }
-.inline-btn.prev { top: 16px; left: 50%; transform: translateX(-150%); }
-.inline-btn.next { top: 16px; right: 50%; transform: translateX(150%); }
+.inline-btn.prev { top:16px; left:50%; transform:translateX(-120%); }
+.inline-btn.next { top:16px; right:50%; transform:translateX(120%); }
 
-/* Controls Panel */
+/* === Painel Inferior === */
 .controls {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display:flex; flex-direction:column; gap:12px;
 }
 
-/* Dropdowns */
+/* Categoria/Subcategoria */
 .selectors {
-  display: flex;
-  gap: 16px;
+  display:flex; gap:16px;
+}
+.selectors label {
+  display:flex; flex-direction:column; font-size:0.9rem;
 }
 .selectors select {
-  appearance: none;
-  background: var(--metal-fosco-bg);
-  color: #222;
-  border: 3px solid var(--border-dark);
+  appearance:none;
+  background: url(var(--metalFosco)) center/cover no-repeat;
+  border: 4px solid var(--border-wood);
   border-radius: 6px;
   padding: 6px 12px;
+  color: #222;
   font-family: var(--font-retro);
-  font-size: 0.95rem;
-  background-size: cover;
+  box-shadow: inset 1px 1px 4px var(--shadow-dark);
 }
 
 /* Knob Slider */
 .knob {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  display:flex; align-items:center; gap:12px;
 }
 #channelKnob {
-  flex: 1;
-  -webkit-appearance: none;
-  height: 8px;
-  background: var(--metal-fosco-bg);
-  border-radius: 4px;
-  border: 2px solid var(--border-dark);
-  background-size: cover;
+  flex:1;
+  -webkit-appearance:none;
+  height:10px;
+  background: url(var(--metalFosco)) center/cover no-repeat;
+  border:4px solid var(--border-wood);
+  border-radius:5px;
+  box-shadow: inset 1px 1px 4px var(--shadow-dark);
 }
 #channelKnob::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 24px;
-  height: 24px;
-  background: var(--metal-reflect-bg);
-  border: 3px solid var(--border-dark);
-  border-radius: 50%;
-  margin-top: -8px;
-  cursor: pointer;
+  -webkit-appearance:none;
+  width:24px; height:24px;
+  background: url(var(--metalEspelho)) center/cover no-repeat;
+  border:4px solid var(--border-wood);
+  border-radius:50%;
+  box-shadow: inset 2px 2px 6px var(--shadow-dark),
+              2px 2px 4px var(--shadow-dark);
+  margin-top:-7px;
+  cursor:pointer;
 }
 #knobLabel {
-  min-width: 60px;
-  text-align: center;
+  min-width:60px; text-align:center; font-size:1rem;
 }
 
-/* Extra Buttons */
+/* === Botões Externos === */
 .extra-buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display:flex; justify-content:space-between; align-items:center;
 }
 .control-btn {
-  background: var(--metal-fosco-bg);
-  color: #222;
-  border: 3px solid var(--border-dark);
-  border-radius: 6px;
-  padding: 8px 16px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  background-size: cover;
+  background: url(var(--metalFosco)) center/cover no-repeat;
+  border: 4px solid var(--border-wood);
+  border-radius:6px;
+  padding:8px 16px;
+  font-size:1.1rem; color:#222;
+  box-shadow: inset 2px 2px 6px var(--shadow-dark),
+              2px 2px 4px var(--shadow-dark);
+  cursor:pointer;
+  font-family: var(--font-retro);
 }
 .control-btn:hover {
-  background: var(--metal-espelhado-bg);
-  background-size: cover;
+  background: url(var(--metalEspelho)) center/cover no-repeat;
 }
