@@ -1,0 +1,81 @@
+/* reset mínimo */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Casco da TV */
+.RetroShell {
+  width: 640px;
+  margin: 40px auto;
+  padding: 16px;
+  background: #2b1f0c url('/madeira/color.jpg') center/cover;
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 8px #563f23;
+}
+
+/* Tela 4:3 */
+.screen {
+  position: relative;
+  width: 100%;
+  padding-top: 75%; /* 4:3 */
+  background: #000;
+  overflow: hidden;
+  border: 4px solid #111;
+  border-radius: 4px;
+}
+
+/* iframe do vídeo */
+.screen iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+  filter: contrast(1.1) saturate(1.2);
+}
+
+/* scanlines */
+.scanlines {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 0px,
+    rgba(0,0,0,0) 1px,
+    rgba(0,0,0,0.05) 2px
+  );
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* Controles */
+.controls {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Selects */
+.selectors label {
+  margin-right: 16px;
+  color: #eee;
+  font-family: sans-serif;
+}
+.selectors select {
+  margin-left: 4px;
+  padding: 4px;
+}
+
+/* Knob */
+.knob {
+  display: flex;
+  align-items: center;
+}
+.knob input[type=range] {
+  width: 160px;
+  transform: rotate(-90deg);
+  margin-right: 12px;
+}
+.knob span {
+  color: #eee;
+  font-family: monospace;
+}
