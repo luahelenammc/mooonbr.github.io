@@ -2,7 +2,6 @@ let catalog = [];
 let ytPlayer = null;
 let currentList = [];
 let currentIndex = 0;
-let isShuffle = false;
 
 // 1️⃣ Carrega o JSON
 async function fetchCatalog() {
@@ -30,8 +29,9 @@ function onYouTubeIframeAPIReady() {
     videoId: '',
     playerVars: { rel: 0, autoplay: 1, modestbranding: 1, playsinline: 1 },
     events: {
-      onReady: () => updateKnob(),
+      onReady: () => updateChannelList(),
       onStateChange: e => {
+        // 0 = vídeo terminou
         if (e.data === YT.PlayerState.ENDED) nextChannel();
       },
       onError: () => nextChannel()
@@ -39,79 +39,59 @@ function onYouTubeIframeAPIReady() {
   });
 }
 
-// 4️⃣ Carrega o vídeo atual
-function loadCurrentVideo() {
-  if (!currentList.length) return;
-  const vid = currentList[currentIndex];
-  ytPlayer.loadVideoById(vid.id);
-  document.getElementById('knobLabel').textContent = `Canal ${currentIndex}`;
-  document.getElementById('channelKnob').value = currentIndex;
-}
-
-// 5️⃣ Próximo canal
-function nextChannel() {
-  if (isShuffle) {
-    currentIndex = Math.floor(Math.random() * currentList.length);
-  } else {
-    currentIndex = (currentIndex + 1) % currentList.length;
-  }
-  loadCurrentVideo();
-}
-
-// 6️⃣ Canal anterior
-function prevChannel() {
-  if (isShuffle) {
-    currentIndex = Math.floor(Math.random() * currentList.length);
-  } else {
-    currentIndex = (currentIndex - 1 + currentList.length) % currentList.length;
-  }
-  loadCurrentVideo();
-}
-
-// 7️⃣ Alterna shuffle
-function toggleShuffle() {
-  isShuffle = !isShuffle;
-  document.getElementById('shuffleBtn')
-    .style.background = isShuffle ? 'var(--accent-hover)' : 'var(--accent)';
-}
-
-// 8️⃣ Atualiza lista e knob
-function updateKnob() {
+// 4️⃣ Atualiza a lista de acordo com selects
+function updateChannelList() {
   const cat = document.getElementById('categorySelect').value;
   const sub = document.getElementById('subCategorySelect').value;
   currentList = catalog.filter(v => v.cat === cat && v.sub === sub);
   currentIndex = 0;
-  const knob = document.getElementById('channelKnob');
-  knob.max = currentList.length - 1;
-  knob.value = 0;
-  loadCurrentVideo();
+  document.getElementById('channelKnob').max = currentList.length - 1;
+  loadChannel(0);
+}
+
+// 5️⃣ Carrega canal por índice
+function loadChannel(idx) {
+  if (!currentList.length) return;
+  currentIndex = idx % currentList.length;
+  const vid = currentList[currentIndex];
+  ytPlayer.loadVideoById(vid.id);
+  document.getElementById('channelKnob').value = currentIndex;
+  document.getElementById('knobLabel').textContent = `Canal ${currentIndex}`;
+}
+
+// 6️⃣ Próximo canal
+function nextChannel() {
+  loadChannel(currentIndex + 1);
+}
+
+// 7️⃣ Canal anterior
+function prevChannel() {
+  loadChannel(currentIndex - 1 + currentList.length);
+}
+
+// 8️⃣ Shuffle geral (qualquer vídeo do catálogo)
+function playRandom() {
+  const rnd = Math.floor(Math.random() * catalog.length);
+  ytPlayer.loadVideoById(catalog[rnd].id);
+  // opcional: resetar currentList/knob para refletir mudança
 }
 
 // 9️⃣ Liga controles
 function initControls() {
   document.getElementById('categorySelect')
-    .addEventListener('change', e => {
-      populateSubcategories(e.target.value);
-      updateKnob();
-    });
+    .addEventListener('change', updateChannelList);
 
   document.getElementById('subCategorySelect')
-    .addEventListener('change', updateKnob);
+    .addEventListener('change', updateChannelList);
 
   document.getElementById('channelKnob')
-    .addEventListener('input', e => {
-      currentIndex = +e.target.value;
-      loadCurrentVideo();
-    });
+    .addEventListener('input', e => loadChannel(+e.target.value));
 
-  document.getElementById('nextBtn')
+  document.getElementById('nextInline')
     .addEventListener('click', nextChannel);
 
-  document.getElementById('prevBtn')
-    .addEventListener('click', prevChannel);
-
-  document.getElementById('shuffleBtn')
-    .addEventListener('click', toggleShuffle);
+  document.getElementById('shuffleAll')
+    .addEventListener('click', playRandom);
 }
 
 // 🔧 Boot
