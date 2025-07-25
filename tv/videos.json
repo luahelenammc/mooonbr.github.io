@@ -1,17 +1,5 @@
 [
-  {
-    "cat": "nostalgia",
-    "sub": "jogos",
-    "id": "edgyYJBI_s4"
-  },
-  {
-   "cat": "nostalgia",
-    "sub": "jogos",
-    "id": "UGe_1MLec9E"
-  },
-    {
-   "cat": "nostalgia",
-    "sub": "outros",
-    "id": "Ge6hzHV74nM"
-  }
+  { "cat": "nostalgia", "sub": "jogos",  "id": "edgyYJBI_s4" },
+  { "cat": "nostalgia", "sub": "jogos",  "id": "UGe_1MLec9E" },
+  { "cat": "nostalgia", "sub": "outros", "id": "Ge6hzHV74nM" }
 ]
