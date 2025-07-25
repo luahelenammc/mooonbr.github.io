@@ -1,139 +1,31 @@
-:root {
-  --wood-bg: url('/materiais/madeira/color.jpg') center/cover no-repeat;
-  --metal-fosco: url('/materiais/metal-fosco/color.jpg');
-  --accent: #e0c097;
-  --accent-hover: #d4b67a;
-  --text: #f4ece1;
-  --ctrl-bg: rgba(0,0,0,0.4);
-  --font-retro: 'VT323', monospace;
-}
+/* ...todo o seu CSS anterior... */
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  background: #222;
+.inline-btn {
+  position: absolute;
+  z-index: 2;
+  width: 36px; height: 36px;
+  border: 2px solid #4b3821;
+  border-radius: 50%;
+  background: #e0c097;
+  color: #222;
+  font-size: 1.2rem;
+  cursor: pointer;
   display: flex;
+  align-items: center;
   justify-content: center;
-  padding: 40px 0;
-  font-family: var(--font-retro);
-  color: var(--text);
+  pointer-events: auto;
+  transition: background .2s;
+}
+.inline-btn:hover {
+  background: #d4b67a;
+}
+.inline-btn.next {
+  bottom: 16px;
+  right: 16px;
+}
+.inline-btn.random {
+  bottom: 16px;
+  left: 16px;
 }
 
-.RetroShell {
-  position: relative;
-  width: 680px;
-  padding: 16px;
-  background: var(--wood-bg);
-  border: 6px solid #4b3821;
-  border-radius: 12px;
-  box-shadow: inset 0 0 0 4px #3e2a16;
-  overflow: hidden;
-}
-
-.screen {
-  position: relative;
-  width: 100%;
-  padding-top: 75%;
-  background: #000;
-  border: 4px solid #111;
-  border-radius: 6px / 4px;
-  overflow: hidden;
-}
-.screen iframe, .screen #player {
-  position: absolute; top: 0; left: 0;
-  width: 100%; height: 100%;
-  transform: perspective(800px) rotateX(2deg);
-  transform-origin: center bottom;
-}
-.screen::after {
-  content: '';
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse at center,
-      rgba(255,255,255,0.05) 0%,
-      rgba(0,0,0,0.6) 70%,
-      rgba(0,0,0,0.9) 100%),
-    repeating-linear-gradient(
-      to bottom,
-      rgba(0,0,0,0) 0px, rgba(0,0,0,0) 1px,
-      rgba(0,0,0,0.05) 2px
-    );
-  mix-blend-mode: overlay;
-  animation: flicker 3s infinite;
-}
-@keyframes flicker {
-  0%,19%,21%,23%,25%,54%,56%,100% { opacity:1 }
-  20%,24%,55% { opacity:0.95 }
-}
-.scanlines {
-  position: absolute; inset: 0;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(0,0,0,0) 0, rgba(0,0,0,0) 1px,
-    rgba(0,0,0,0.05) 2px
-  );
-  mix-blend-mode: multiply;
-  pointer-events: none;
-}
-.static {
-  position: absolute; inset: 0;
-  background: url('/assets/static.gif') center/cover;
-  opacity: 0.03;
-  animation: staticDance 0.2s steps(2) infinite;
-}
-@keyframes staticDance {
-  0% { background-position: 0 0; }
-  100% { background-position: -100% -100%; }
-}
-
-.controls {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: var(--ctrl-bg);
-  display: flex; align-items: center; gap: 12px;
-  padding: 8px 12px;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-}
-.selectors {
-  display: flex; gap: 12px;
-}
-.selectors select {
-  appearance: none;
-  background: #222; color: var(--text);
-  border: 1px solid #555; border-radius: 4px;
-  padding: 4px 28px 4px 8px;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23ccc'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 8px center;
-}
-.knob {
-  display: flex; align-items: center; gap: 8px;
-}
-.knob input[type=range] {
-  -webkit-appearance: none; width: 120px; background: transparent;
-}
-.knob input[type=range]::-webkit-slider-runnable-track {
-  height: 6px; background: var(--accent); border-radius: 3px;
-}
-.knob input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 18px; height: 18px;
-  background: var(--metal-fosco);
-  border: 2px solid #4b3821; border-radius: 50%;
-  margin-top: -6px; box-shadow: 0 0 2px rgba(0,0,0,0.6);
-}
-.knob span {
-  font-family: var(--font-retro);
-}
-
-.extra-buttons {
-  display: flex; gap: 8px;
-}
-.extra-buttons button {
-  background: var(--accent); border: none;
-  padding: 4px 8px; border-radius: 4px;
-  cursor: pointer; font-size: 1.2rem;
-}
-.extra-buttons button:hover {
-  background: var(--accent-hover);
-}
+/* scanlines e static já têm pointer-events: none; logo, os botões pegam o clique */
