@@ -1,5 +1,11 @@
 let catalog = [];
 
+// instâncias para embed
+const providers = [
+  id => `https://piped.kavin.rocks/embed/${id}?autoplay=1`,
+  id => `https://yewtu.eu/embed/${id}?autoplay=1`
+];
+
 async function fetchCatalog() {
   const res = await fetch('videos.json');
   catalog = await res.json();
@@ -7,23 +13,50 @@ async function fetchCatalog() {
 
 function populateCategories() {
   const cats = [...new Set(catalog.map(v => v.cat))];
-  const catSel = document.getElementById('categorySelect');
-  cats.forEach(c => catSel.add(new Option(c, c)));
+  const sel = document.getElementById('categorySelect');
+  cats.forEach(c => sel.add(new Option(c, c)));
 }
 
 function populateSubcategories(cat) {
   const subs = [...new Set(catalog.filter(v => v.cat === cat).map(v => v.sub))];
-  const subSel = document.getElementById('subCategorySelect');
-  subSel.innerHTML = '';
-  subs.forEach(s => subSel.add(new Option(s, s)));
+  const sel = document.getElementById('subCategorySelect');
+  sel.innerHTML = '';
+  subs.forEach(s => sel.add(new Option(s, s)));
 }
 
-// Carrega via Piped (piped.kavin.rocks), embed sem login.
+// tenta carregar em cada provider até funcionar
 function loadVideo(id) {
   const player = document.getElementById('player');
-  // URL de embed do Piped:
-  // https://piped.kavin.rocks/embed/ID
-  player.src = `https://piped.kavin.rocks/embed/${id}?autoplay=1`;
+  const errorMsg = document.getElementById('errorMsg');
+  errorMsg.style.display = 'none';
+
+  let attempt = 0;
+  let loaded = false;
+
+  // limpa src anterior
+  player.src = 'about:blank';
+
+  // event listener para detectar carga
+  const onLoad = () => {
+    loaded = true;
+    player.removeEventListener('load', onLoad);
+  };
+  player.addEventListener('load', onLoad);
+
+  function tryNext() {
+    if (loaded) return;
+    if (attempt >= providers.length) {
+      // todos falharam
+      errorMsg.style.display = 'block';
+      return;
+    }
+    const url = providers[attempt++](id);
+    player.src = url;
+    // se não carregar em 5s, tenta próximo
+    setTimeout(tryNext, 5000);
+  }
+
+  tryNext();
 }
 
 function updateKnob() {
