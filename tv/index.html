@@ -14,15 +14,13 @@
       <div class="scanlines"></div>
       <div class="static"></div>
 
-      <!-- NOTE: removido o shuffleAll inline -->
-      <div class="screen-controls">
-        <button id="prevInline" class="inline-btn" title="Canal anterior">⏮️</button>
-        <button id="nextInline" class="inline-btn" title="Próximo canal">▶️</button>
-      </div>
+      <!-- Inline: apenas botão “anterior” -->
+      <button id="prevInline" class="inline-btn" title="Canal anterior">⏮️</button>
     </div>
 
-    <!-- Painel de controles embaixo -->
+    <!-- Painel de controles -->
     <div class="controls">
+      <!-- Categoria / Subcategoria -->
       <div class="selectors">
         <label>
           Categoria
@@ -34,17 +32,23 @@
         </label>
       </div>
 
+      <!-- Knob -->
       <div class="knob">
         <input type="range" id="channelKnob" min="0" max="0" />
         <span id="knobLabel">Canal 0</span>
       </div>
 
-      <div class="extra-buttons" style="display:flex; justify-content:space-between;">
-        <div class="left-controls">
-          <button id="prevBtn" class="control-btn" title="Canal anterior">⏮️</button>
-          <button id="nextBtn" class="control-btn" title="Próximo canal">⏭️</button>
+      <!-- Botões externos: prev à esquerda, shuffle no meio, next à direita -->
+      <div class="extra-buttons" style="display:flex; justify-content:space-between; width:100%;">
+        <div>
+          <button id="prevBtn"    class="control-btn" title="Canal anterior">⏮️</button>
         </div>
-        <button id="shuffleBtn" class="control-btn" title="Aleatório geral">🔀</button>
+        <div>
+          <button id="shuffleBtn" class="control-btn" title="Aleatório geral">🔀</button>
+        </div>
+        <div>
+          <button id="nextBtn"    class="control-btn" title="Próximo canal">⏭️</button>
+        </div>
       </div>
     </div>
   </div>
