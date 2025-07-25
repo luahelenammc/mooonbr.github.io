@@ -1,178 +1,224 @@
+/* styles.css — Moon TV Skeuomorphic 70s */
+
 :root {
-  --tv-body: #1a1a1a;
-  --accent: #e0c097;
-  --accent-hover: #d4b67a;
-  --border: #4b3821;
-  --font: 'Courier New', monospace;
+  --wood-bg: url('/materiais/madeira/color.jpg') center/cover no-repeat;
+  --wood-normal: url('/materiais/madeira/normal.jpg');
+  --wood-rough: url('/materiais/madeira/roughness.jpg');
+  --metal-fosco-bg: url('/materiais/metal-fosco/color.jpg') center/cover no-repeat;
+  --metal-fosco-normal: url('/materiais/metal-fosco/normal.jpg');
+  --metal-fosco-rough: url('/materiais/metal-fosco/roughness.jpg');
+  --metal-reflect-bg: url('/materiais/metal-espelhado/color.jpg') center/cover no-repeat;
+  --accent-color: #d4b67a;
+  --border-dark: #3b2e1a;
+  --font-retro: 'Courier New', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  background: #000;
-  font-family: var(--font);
-  color: #fff;
+  background: #111;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  overflow: hidden;
+  font-family: var(--font-retro);
+  color: #eee;
 }
 
+/* TV Cabinet */
 .RetroShell {
-  background: url('/materiais/madeira/color.jpg') no-repeat center center;
-  background-size: cover;
-  padding: 20px;
-  border: 8px solid var(--border);
+  position: relative;
+  width: 760px;
+  padding: 24px 48px;
+  background: var(--wood-bg);
+  border: 8px solid var(--border-dark);
   border-radius: 12px;
-  box-shadow: 0 0 20px #000;
+  box-shadow: inset 0 0 0 4px #2e2110, 0 8px 20px rgba(0,0,0,0.7);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  width: 800px;
-  max-width: 100%;
+  gap: 16px;
 }
 
+/* Speaker Grilles */
+.RetroShell::before,
+.RetroShell::after {
+  content: '';
+  position: absolute;
+  top: 60px;
+  width: 48px;
+  height: 200px;
+  background: var(--metal-fosco-bg);
+  background-size: cover;
+  border: 2px solid var(--border-dark);
+  border-radius: 4px;
+}
+.RetroShell::before { left: 16px; }
+.RetroShell::after  { right: 16px; }
+
+/* Screen */
 .screen {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #111;
-  border: 6px solid var(--border);
-  border-radius: 10px;
+  padding-top: 75%; /* 4:3 CRT aspect */
+  background: #000;
+  border: 6px solid var(--border-dark);
+  border-radius: 8px/6px;
   overflow: hidden;
-  box-shadow: inset 0 0 60px rgba(0,0,0,0.8);
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
 }
 
-/* Vídeo / IFrame */
-#player,
-.screen iframe {
+/* YouTube IFrame */
+#player {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  inset: 0;
   z-index: 1;
   pointer-events: auto;
+}
+
+/* Curvature & Glow */
+.screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center,
+      rgba(255,255,255,0.05) 0%,
+      rgba(0,0,0,0.6) 70%,
+      rgba(0,0,0,0.9) 100%
+    );
+  mix-blend-mode: overlay;
+  z-index: 2;
+  pointer-events: none;
 }
 
 /* Scanlines */
 .scanlines {
   position: absolute;
   inset: 0;
-  background-image: repeating-linear-gradient(
+  background: repeating-linear-gradient(
     to bottom,
-    rgba(255,255,255,0.02) 0px,
-    rgba(0,0,0,0.1) 1px,
-    transparent 2px
+    rgba(0,0,0,0) 0px,
+    rgba(0,0,0,0) 1px,
+    rgba(255,255,255,0.02) 2px
   );
-  mix-blend-mode: overlay;
-  z-index: 2;
+  mix-blend-mode: multiply;
+  z-index: 3;
   pointer-events: none;
 }
 
-/* Estática */
+/* Static Noise */
 .static {
   position: absolute;
   inset: 0;
-  background: url('/materiais/metal-espelhado/roughness.jpg') center/cover;
-  opacity: 0.07;
-  animation: noise 0.3s infinite;
-  z-index: 2;
+  background: var(--metal-reflect-bg);
+  opacity: 0.06;
+  animation: static-jitter 0.2s steps(2) infinite;
+  z-index: 3;
   pointer-events: none;
 }
-
-@keyframes noise {
-  0%   { transform: translate(0,0); }
-  20%  { transform: translate(-1px, 1px); }
-  40%  { transform: translate(1px, -1px); }
-  60%  { transform: translate(-1px, -1px); }
-  80%  { transform: translate(1px, 1px); }
-  100% { transform: translate(0,0); }
+@keyframes static-jitter {
+  from { transform: translate(0,0); }
+  to   { transform: translate(-2px,2px); }
 }
 
-/* Botões inline dentro da tela */
+/* Inline Controls Over Screen */
 .inline-btn {
   position: absolute;
-  width: 34px;
-  height: 34px;
-  background: var(--accent);
-  border: 2px solid var(--border);
+  width: 38px;
+  height: 38px;
+  background: var(--accent-color);
+  border: 3px solid var(--border-dark);
   border-radius: 50%;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: #222;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 3;
+  z-index: 4;
   user-select: none;
-  pointer-events: auto;
 }
-.inline-btn.shuffle { bottom: 18px; left: 18px; }
-.inline-btn.next    { bottom: 18px; right: 18px; }
-.inline-btn:hover   { background: var(--accent-hover); }
+.inline-btn:hover {
+  background: lighten(var(--accent-color), 10%);
+}
+.inline-btn.prev { top: 16px; left: 50%; transform: translateX(-150%); }
+.inline-btn.next { top: 16px; right: 50%; transform: translateX(150%); }
 
-/* Controles externos (baixo) */
+/* Controls Panel */
 .controls {
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
+/* Dropdowns */
 .selectors {
   display: flex;
-  justify-content: space-between;
-  gap: 12px;
+  gap: 16px;
 }
-
-label {
-  display: flex;
-  flex-direction: column;
-  font-size: 0.9rem;
-}
-
-select {
-  background: var(--accent);
+.selectors select {
+  appearance: none;
+  background: var(--metal-fosco-bg);
   color: #222;
-  border: 2px solid var(--border);
-  border-radius: 4px;
-  padding: 4px 8px;
-  font-family: var(--font);
+  border: 3px solid var(--border-dark);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-family: var(--font-retro);
+  font-size: 0.95rem;
+  background-size: cover;
 }
 
+/* Knob Slider */
 .knob {
   display: flex;
   align-items: center;
   gap: 12px;
 }
-
 #channelKnob {
   flex: 1;
-  accent-color: var(--accent);
+  -webkit-appearance: none;
+  height: 8px;
+  background: var(--metal-fosco-bg);
+  border-radius: 4px;
+  border: 2px solid var(--border-dark);
+  background-size: cover;
 }
-
+#channelKnob::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  background: var(--metal-reflect-bg);
+  border: 3px solid var(--border-dark);
+  border-radius: 50%;
+  margin-top: -8px;
+  cursor: pointer;
+}
 #knobLabel {
-  min-width: 70px;
-  font-size: 1rem;
+  min-width: 60px;
+  text-align: center;
 }
 
+/* Extra Buttons */
 .extra-buttons {
   display: flex;
-  justify-content: center;
-  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
 }
-
-.extra-buttons button {
-  padding: 8px 12px;
-  font-size: 1.1rem;
-  background: var(--accent);
+.control-btn {
+  background: var(--metal-fosco-bg);
   color: #222;
-  border: 2px solid var(--border);
+  border: 3px solid var(--border-dark);
   border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 1.1rem;
   cursor: pointer;
-  font-family: var(--font);
+  background-size: cover;
 }
-
-.extra-buttons button:hover {
-  background: var(--accent-hover);
+.control-btn:hover {
+  background: var(--metal-espelhado-bg);
+  background-size: cover;
 }
