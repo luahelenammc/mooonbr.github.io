@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Meta-AI Enhancer</title>
+  <style>
+    *{box-sizing:border-box;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
+    body{
+      margin:0;padding:0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;
+      background:
+        radial-gradient(circle at top, #042630 0, #020608 55%) fixed,
+        radial-gradient(circle at bottom, #021012 0, #010306 60%) fixed;
+      color:#eefdfd;
+    }
+    .app{
+      width:100%;max-width:960px;margin:32px 16px;padding:24px 26px 30px;border-radius:26px;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.14),transparent 55%),
+        radial-gradient(circle at bottom right, rgba(0,255,188,0.18),transparent 55%),
+        linear-gradient(145deg, rgba(2,18,24,0.98),rgba(1,8,12,0.99));
+      border:1px solid rgba(180,255,248,0.35);
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.9),
+        0 0 0 1px rgba(0,255,200,0.18),
+        inset 0 0 22px rgba(255,255,255,0.08);
+      backdrop-filter:blur(20px);
+    }
+    header{margin-bottom:16px;}
+    header h1{font-size:1.9rem;margin:0;display:flex;align-items:center;gap:10px;letter-spacing:0.02em;}
+    header h1 span{font-size:1.6rem;}
+    header p{margin:6px 0 0;color:#c2f3f0;font-size:0.98rem;}
+    .chip{
+      display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:999px;margin-top:10px;
+      background:
+        radial-gradient(circle at top,rgba(255,255,255,0.18),transparent 70%),
+        linear-gradient(135deg,rgba(0,219,222,0.7),rgba(0,255,136,0.6));
+      color:#00211e;font-size:0.8rem;border:1px solid rgba(255,255,255,0.7);
+      box-shadow:0 3px 12px rgba(0,0,0,0.7),inset 0 0 8px rgba(255,255,255,0.18);
+    }
+    .chip span:first-child{font-size:1rem;}
+
+    .progress{margin:18px 0 20px;}
+    .progress-bar{
+      width:100%;height:9px;border-radius:999px;background:rgba(0,10,14,0.9);
+      box-shadow:inset 0 1px 1px rgba(255,255,255,0.2),0 0 0 1px rgba(255,255,255,0.06);
+      overflow:hidden;
+    }
+    .progress-fill{
+      height:100%;width:0%;border-radius:999px;
+      background:linear-gradient(90deg,#00f2ff,#00ff88,#e8ff4a);
+      box-shadow:0 0 14px rgba(0,255,190,0.9);
+      transition:width 0.3s ease;
+    }
+    .progress-text{margin-top:6px;font-size:0.84rem;color:#c6f7f0;display:flex;justify-content:space-between;}
+
+    .step{display:none;animation:fadeIn 0.25s ease-out;}
+    .step.active{display:block;}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
+
+    .step-title{font-size:1.35rem;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+    .step-title span.emoji{font-size:1.5rem;}
+    .step-text{margin-bottom:16px;color:#e1fffb;font-size:0.98rem;}
+    .helper-text{font-size:0.82rem;color:#9be0d0;margin-bottom:12px;}
+
+    .cards-grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:12px;margin-bottom:16px;
+    }
+    .card-option{
+      position:relative;border-radius:18px;padding:12px 14px;border:1px solid rgba(200,255,244,0.28);
+      background:
+        radial-gradient(circle at top left,rgba(255,255,255,0.12),transparent 55%),
+        linear-gradient(145deg,rgba(0,19,24,0.96),rgba(0,10,14,0.98));
+      cursor:pointer;transition:all 0.18s ease;display:flex;flex-direction:column;gap:4px;
+      box-shadow:0 8px 22px rgba(0,0,0,0.85),inset 0 0 0 1px rgba(255,255,255,0.04);
+    }
+    .card-option .emoji{font-size:1.3rem;}
+    .card-option-title{font-weight:600;font-size:0.98rem;color:#f6fffd;}
+    .card-option-desc{font-size:0.84rem;color:#c0eee5;}
+    .card-option.selected{
+      border-color:rgba(0,255,190,0.9);
+      box-shadow:
+        0 0 0 1px rgba(0,255,190,0.9),
+        0 12px 30px rgba(0,150,120,0.95),
+        inset 0 0 0 1px rgba(255,255,255,0.15);
+      background:
+        radial-gradient(circle at top left,rgba(170,255,230,0.45),transparent 60%),
+        linear-gradient(140deg,rgba(0,40,45,0.98),rgba(0,18,26,1));
+    }
+    .card-option input{position:absolute;opacity:0;pointer-events:none;}
+
+    .topic-category{
+      border-radius:20px;margin-bottom:10px;overflow:hidden;
+      border:1px solid rgba(200,255,244,0.34);
+      background:
+        radial-gradient(circle at top left,rgba(255,255,255,0.10),transparent 60%),
+        linear-gradient(145deg,rgba(0,20,26,0.98),rgba(0,10,14,1));
+      box-shadow:0 12px 30px rgba(0,0,0,0.9),inset 0 0 0 1px rgba(255,255,255,0.03);
+    }
+    .topic-header{
+      padding:10px 12px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;
+      font-size:0.95rem;color:#e8fffb;
+      background:linear-gradient(90deg,rgba(255,255,255,0.08),transparent);
+    }
+    .topic-header-title{display:flex;align-items:center;gap:8px;}
+    .topic-header-emoji{font-size:1.1rem;}
+    .topic-toggle{font-size:0.9rem;color:#c8fff0;transition:transform 0.18s ease;}
+    .topic-body{
+      padding:8px 10px 12px;border-top:1px solid rgba(255,255,255,0.08);
+      background:radial-gradient(circle at top,rgba(255,255,255,0.04),transparent 65%);
+    }
+    .topic-category.collapsed .topic-body{display:none;}
+    .topic-category.collapsed .topic-toggle{transform:rotate(-90deg);}
+    .topic-category[data-category="exatas"]{border-left:3px solid #00f2ff;}
+    .topic-category[data-category="humanas"]{border-left:3px solid #00ff88;}
+    .topic-category[data-category="saude"]{border-left:3px solid #b5ff3b;}
+    .topic-category[data-category="artes"]{border-left:3px solid #ffdd57;}
+    .topic-category[data-category="trabalho"]{border-left:3px solid #ff9f1c;}
+    .topic-category[data-category="vida"]{border-left:3px solid #ff6b6b;}
+    .topic-category[data-category="limits_avoid"]{border-left:3px solid #ff6b6b;}
+    .topic-category[data-category="limits_allow"]{border-left:3px solid #00ff88;}
+
+    .tag-input-wrapper{margin-top:12px;margin-bottom:4px;}
+    .tag-input-wrapper label{font-size:0.88rem;color:#e5fffb;display:block;margin-bottom:4px;}
+    .tag-input-row{
+      display:flex;align-items:center;flex-wrap:wrap;gap:6px;border-radius:14px;
+      border:1px solid rgba(200,255,244,0.45);padding:6px 8px;
+      background:linear-gradient(135deg,rgba(0,26,30,0.98),rgba(0,14,16,0.98));
+      box-shadow:inset 0 1px 2px rgba(0,0,0,0.9),0 0 0 1px rgba(255,255,255,0.04);
+    }
+    .tag-chips{display:flex;flex-wrap:wrap;gap:6px;}
+    .tag-input-row input{
+      flex:1;min-width:140px;border-radius:999px;border:none;padding:5px 8px;
+      font-size:0.82rem;outline:none;background:transparent;color:#f5fffd;
+    }
+    .tag-input-row input::placeholder{color:#7fd6c5;}
+    .tag-chip{
+      display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:999px;font-size:0.78rem;
+      background:
+        radial-gradient(circle at top,rgba(255,255,255,0.20),transparent 60%),
+        linear-gradient(135deg,#004d40,#00332e);
+      color:#e9fffb;border:1px solid rgba(210,255,250,0.9);
+      box-shadow:0 4px 10px rgba(0,0,0,0.85),inset 0 0 6px rgba(255,255,255,0.16);
+    }
+    .tag-chip button.tag-remove{
+      border:none;padding:0;margin:0;background:transparent;color:#e0fffe;cursor:pointer;
+      font-size:0.85rem;line-height:1;
+    }
+
+    textarea,input[type="text"]{
+      width:100%;border-radius:12px;border:1px solid rgba(200,255,244,0.4);
+      padding:9px 11px;font-size:0.9rem;resize:vertical;min-height:60px;outline:none;
+      color:#f5fffd;
+      background:linear-gradient(135deg,rgba(0,26,30,0.96),rgba(0,12,16,0.98));
+      box-shadow:inset 0 1px 2px rgba(0,0,0,0.85),0 0 0 1px rgba(255,255,255,0.02);
+    }
+    textarea:focus,input[type="text"]:focus{
+      border-color:rgba(0,255,188,0.95);
+      box-shadow:0 0 0 1px rgba(0,255,188,0.85),0 0 18px rgba(0,255,188,0.7),inset 0 1px 3px rgba(0,0,0,0.9);
+    }
+
+    .modes-wrapper{
+      margin-top:10px;border-radius:18px;
+      background:
+        radial-gradient(circle at top left,rgba(255,255,255,0.08),transparent 60%),
+        linear-gradient(135deg,rgba(0,22,26,0.96),rgba(0,10,14,0.98));
+      border:1px dashed rgba(160,255,230,0.8);
+      padding:10px 12px;
+      box-shadow:0 12px 26px rgba(0,0,0,0.9),inset 0 0 15px rgba(255,255,255,0.03);
+    }
+    .modes-title{font-size:0.9rem;color:#e8fffb;margin-bottom:6px;font-weight:600;}
+
+    .prompt-box{
+      margin-top:10px;border-radius:16px;border:1px solid rgba(200,255,244,0.55);
+      background:
+        radial-gradient(circle at top left,rgba(255,255,255,0.10),transparent 55%),
+        linear-gradient(145deg,#00080b,#000406);
+      color:#ecfffb;padding:12px 12px;
+      font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,"Courier New",monospace;
+      font-size:0.86rem;max-height:320px;overflow:auto;white-space:pre-wrap;
+      box-shadow:0 16px 36px rgba(0,0,0,0.95),inset 0 0 18px rgba(255,255,255,0.03);
+    }
+
+    .buttons-row{
+      display:flex;justify-content:space-between;align-items:center;margin-top:20px;gap:10px;
+    }
+    .buttons-right{display:flex;gap:8px;}
+
+    button{
+      border-radius:999px;border:none;padding:10px 20px;font-size:0.92rem;cursor:pointer;font-weight:500;
+      display:inline-flex;align-items:center;gap:6px;transition:all 0.18s ease;
+    }
+
+    .btn-primary{
+      background:
+        radial-gradient(circle at top,rgba(255,255,255,0.35),transparent 60%),
+        radial-gradient(circle at bottom,rgba(0,0,0,0.5),transparent 60%),
+        linear-gradient(135deg,#00f2ff,#00ff88,#e8ff4a);
+      color:#012521;
+      box-shadow:
+        0 14px 32px rgba(0,0,0,0.95),
+        0 0 24px rgba(0,255,190,0.95),
+        inset 0 0 12px rgba(255,255,255,0.6);
+      border:1px solid rgba(255,255,255,0.85);
+    }
+    .btn-primary:hover{
+      transform:translateY(-1px);
+      box-shadow:
+        0 18px 40px rgba(0,0,0,0.98),
+        0 0 30px rgba(0,255,190,1),
+        inset 0 0 18px rgba(255,255,255,0.8);
+    }
+    .btn-secondary{
+      background:
+        radial-gradient(circle at top,rgba(255,255,255,0.22),transparent 60%),
+        linear-gradient(135deg,#00363a,#001c21);
+      color:#e5fffb;
+      border:1px solid rgba(200,255,244,0.8);
+      box-shadow:0 10px 24px rgba(0,0,0,0.9),inset 0 0 10px rgba(255,255,255,0.15);
+    }
+    .btn-secondary:hover{
+      box-shadow:0 13px 30px rgba(0,0,0,0.96),0 0 16px rgba(200,255,244,0.4);
+    }
+    .btn-ghost{
+      background:transparent;color:#9cf7e9;padding-left:0;border:none;
+    }
+    .btn-ghost:hover{color:#e0fffa;text-decoration:underline;}
+
+    .center-actions{
+      display:flex;justify-content:center;gap:10px;margin-top:12px;margin-bottom:6px;
+    }
+    .center-actions button{min-width:180px;justify-content:center;}
+
+    .error-message{margin-top:6px;font-size:0.8rem;color:#ff9d9d;}
+
+    .model-suggestions{
+      margin-top:18px;border-radius:18px;
+      border:1px solid rgba(200,255,244,0.45);
+      background:
+        radial-gradient(circle at top left,rgba(255,255,255,0.10),transparent 60%),
+        linear-gradient(145deg,rgba(0,20,22,0.98),rgba(0,10,14,1));
+      padding:12px 14px;
+      box-shadow:0 14px 32px rgba(0,0,0,0.9),inset 0 0 0 1px rgba(255,255,255,0.04);
+    }
+    .model-suggestions-title{font-size:0.96rem;margin-bottom:4px;color:#eafffb;font-weight:600;}
+    .model-suggestions-sub{font-size:0.82rem;margin-bottom:10px;color:#c6f7f0;}
+    .model-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;}
+    .model-card{
+      border-radius:16px;padding:10px 12px;
+      border:1px solid rgba(200,255,244,0.6);
+      background:
+        radial-gradient(circle at top left,rgba(255,255,255,0.14),transparent 60%),
+        linear-gradient(145deg,rgba(0,30,32,0.98),rgba(0,14,16,1));
+      box-shadow:0 10px 26px rgba(0,0,0,0.95),inset 0 0 0 1px rgba(255,255,255,0.04);
+      pointer-events:none;
+    }
+    .model-card-title{font-size:0.9rem;font-weight:600;margin-bottom:2px;display:flex;align-items:center;gap:6px;}
+    .model-card-desc{font-size:0.8rem;color:#d7fffb;}
+    .model-card[data-type="exact"]{border-left:3px solid #00f2ff;}
+    .model-card[data-type="human"]{border-left:3px solid #00ff88;}
+    .model-card[data-type="delicate"]{border-left:3px solid #ffdd57;}
+
+    
+    /* Dynamic model recommendation layout */
+    .model-reco{
+      display:grid;
+      grid-template-columns:1fr 1.2fr;
+      gap:12px;
+    }
+    .model-reco-left,.model-reco-right{
+      border-radius:16px;
+      padding:10px 12px;
+      border:1px solid rgba(200,255,244,0.55);
+      background:
+        radial-gradient(circle at top left,rgba(255,255,255,0.14),transparent 60%),
+        linear-gradient(145deg,rgba(0,30,32,0.98),rgba(0,14,16,1));
+      box-shadow:0 10px 26px rgba(0,0,0,0.95),inset 0 0 0 1px rgba(255,255,255,0.04);
+    }
+    .model-reco-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.85);
+      background:
+        radial-gradient(circle at top,rgba(255,255,255,0.30),transparent 65%),
+        linear-gradient(135deg,rgba(0,242,255,0.85),rgba(0,255,136,0.75),rgba(232,255,74,0.65));
+      color:#012521;
+      font-weight:700;
+      width:fit-content;
+      box-shadow:
+        0 12px 28px rgba(0,0,0,0.95),
+        0 0 26px rgba(0,255,190,0.95),
+        inset 0 0 12px rgba(255,255,255,0.55);
+    }
+    .model-reco-title{
+      margin-top:8px;
+      font-size:1.02rem;
+      font-weight:700;
+      color:#eafffb;
+    }
+    .model-reco-desc{
+      margin-top:4px;
+      font-size:0.86rem;
+      color:#d7fffb;
+      line-height:1.35;
+    }
+    .model-reco-why-title,.model-reco-when-title{
+      font-size:0.86rem;
+      font-weight:700;
+      color:#eafffb;
+      margin-bottom:6px;
+    }
+    .model-reco-why,.model-reco-when{
+      font-size:0.82rem;
+      color:#d7fffb;
+      line-height:1.4;
+      margin-bottom:10px;
+    }
+    .model-reco-when{margin-bottom:0;}
+    @media (max-width:800px){
+      .model-reco{grid-template-columns:1fr;}
+    }
+footer{
+      margin-top:20px;font-size:0.8rem;text-align:center;color:#8adfd2;
+      border-top:1px solid rgba(200,255,244,0.25);padding-top:10px;
+    }
+    footer a{color:#e8ff4a;text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
+
+    @media (max-width:600px){
+      .app{margin:20px 10px;padding:18px 16px 22px;border-radius:20px;}
+      header h1{font-size:1.5rem;}
+      .buttons-row{flex-direction:column;align-items:stretch;}
+      .buttons-right{justify-content:flex-end;}
+      .buttons-right button{flex:1;justify-content:center;}
+      .center-actions{flex-direction:column;}
+      .center-actions button{width:100%;}
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Meta-AI Enhancer <span>✨</span></h1>
+      <p>In a few guided steps you’ll define how your AI sees you, talks to you and helps you. At the end you get a ready-to-paste custom instructions block.</p>
+      <div class="chip"><span>🧬</span><span>Guided customization for any AI, with a liquid black-glass interface</span></div>
+    </header>
+
+    <div class="progress">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-text">
+        <span id="progressLabel">Step 1 of 8</span>
+        <span id="progressHint">Welcome</span>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <section class="step active" data-step="1">
+      <div class="step-title"><span class="emoji">👋</span> Ready to give your AI a personality?</div>
+      <p class="step-text">
+        In a few minutes you’ll define how your AI talks to you, what it prioritizes, what it avoids and, if you want, a set of “modes” you can activate on demand.
+      </p>
+      <p class="helper-text">No technical jargon. You just choose what feels right for you.</p>
+      <div class="buttons-row">
+        <span></span>
+        <div class="buttons-right">
+          <button class="btn-primary" id="btnStart">Start ✨</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 2 - TOPICS -->
+    <section class="step" data-step="2">
+      <div class="step-title"><span class="emoji">🗺️</span> What are the main worlds your AI will live in?</div>
+      <p class="step-text">Choose the topics and subtopics that match your life right now. This tells the AI which “universes” are more central for you.</p>
+      <p class="helper-text">Open each area and select as many subtopics as you want. If you need something very specific, add it as a tag.</p>
+
+      <div id="topicsOptions">
+        <div class="topic-category" data-category="exatas">
+          <div class="topic-header">
+            <div class="topic-header-title"><span class="topic-header-emoji">📐</span><span>STEM &amp; Technology</span></div>
+            <span class="topic-toggle">▾</span>
+          </div>
+          <div class="topic-body">
+            <div class="cards-grid">
+              <label class="card-option" data-value="exatas.matematica"><input type="checkbox"/><div class="card-option-title">Mathematics</div><div class="card-option-desc">Algebra, geometry, calculus, logical reasoning.</div></label>
+              <label class="card-option" data-value="exatas.estatistica"><input type="checkbox"/><div class="card-option-title">Statistics &amp; Data</div><div class="card-option-desc">Analysis, probabilities, charts, data stories.</div></label>
+              <label class="card-option" data-value="exatas.computacao"><input type="checkbox"/><div class="card-option-title">Computer science</div><div class="card-option-desc">Concepts, systems, networks, architecture.</div></label>
+              <label class="card-option" data-value="exatas.programacao"><input type="checkbox"/><div class="card-option-title">Programming</div><div class="card-option-desc">Algorithms, coding, debugging, languages.</div></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-category" data-category="humanas">
+          <div class="topic-header">
+            <div class="topic-header-title"><span class="topic-header-emoji">📚</span><span>Humanities &amp; Social sciences</span></div>
+            <span class="topic-toggle">▾</span>
+          </div>
+          <div class="topic-body">
+            <div class="cards-grid">
+              <label class="card-option" data-value="humanas.psicologia"><input type="checkbox"/><div class="card-option-title">Psychology</div><div class="card-option-desc">Mind, emotions, clinical views, theories.</div></label>
+              <label class="card-option" data-value="humanas.filosofia"><input type="checkbox"/><div class="card-option-title">Philosophy</div><div class="card-option-desc">Existential questions, ethics, critical thinking.</div></label>
+              <label class="card-option" data-value="humanas.sociologia"><input type="checkbox"/><div class="card-option-title">Sociology &amp; politics</div><div class="card-option-desc">Society, power, culture, inequality.</div></label>
+              <label class="card-option" data-value="humanas.historia"><input type="checkbox"/><div class="card-option-title">History &amp; culture</div><div class="card-option-desc">Historical events, culture, collective memory.</div></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-category" data-category="saude">
+          <div class="topic-header">
+            <div class="topic-header-title"><span class="topic-header-emoji">🩺</span><span>Health &amp; Well-being</span></div>
+            <span class="topic-toggle">▾</span>
+          </div>
+          <div class="topic-body">
+            <div class="cards-grid">
+              <label class="card-option" data-value="saude.saude_fisica"><input type="checkbox"/><div class="card-option-title">Physical health</div><div class="card-option-desc">Habits, general symptoms, basic care.</div></label>
+              <label class="card-option" data-value="saude.saude_mental"><input type="checkbox"/><div class="card-option-title">Mental health</div><div class="card-option-desc">Mood, anxiety, psychological well-being.</div></label>
+              <label class="card-option" data-value="saude.rotina_habitos"><input type="checkbox"/><div class="card-option-title">Routine &amp; habits</div><div class="card-option-desc">Sleep, daily structure, self-care.</div></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-category" data-category="artes">
+          <div class="topic-header">
+            <div class="topic-header-title"><span class="topic-header-emoji">🎨</span><span>Arts &amp; Languages</span></div>
+            <span class="topic-toggle">▾</span>
+          </div>
+          <div class="topic-body">
+            <div class="cards-grid">
+              <label class="card-option" data-value="artes.escrita_criativa"><input type="checkbox"/><div class="card-option-title">Creative writing</div><div class="card-option-desc">Stories, novels, poetry, worldbuilding.</div></label>
+              <label class="card-option" data-value="artes.visuais_design"><input type="checkbox"/><div class="card-option-title">Visual arts &amp; design</div><div class="card-option-desc">Illustration, digital art, visual aesthetics.</div></label>
+              <label class="card-option" data-value="artes.musica"><input type="checkbox"/><div class="card-option-title">Music &amp; sound</div><div class="card-option-desc">Lyrics, musical ideas, moodboards.</div></label>
+              <label class="card-option" data-value="artes.midia"><input type="checkbox"/><div class="card-option-title">Movies, series &amp; media</div><div class="card-option-desc">Analysis, recommendations, narratives.</div></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-category" data-category="trabalho">
+          <div class="topic-header">
+            <div class="topic-header-title"><span class="topic-header-emoji">💼</span><span>Work &amp; Money</span></div>
+            <span class="topic-toggle">▾</span>
+          </div>
+          <div class="topic-body">
+            <div class="cards-grid">
+              <label class="card-option" data-value="trabalho.carreira"><input type="checkbox"/><div class="card-option-title">Career &amp; profession</div><div class="card-option-desc">Professional decisions, workplace dynamics.</div></label>
+              <label class="card-option" data-value="trabalho.estudos"><input type="checkbox"/><div class="card-option-title">Study &amp; exams</div><div class="card-option-desc">Study plans, tests, focus.</div></label>
+              <label class="card-option" data-value="trabalho.negocios"><input type="checkbox"/><div class="card-option-title">Business &amp; projects</div><div class="card-option-desc">Launching things, organizing ideas, entrepreneurship.</div></label>
+              <label class="card-option" data-value="trabalho.financas"><input type="checkbox"/><div class="card-option-title">Personal finance</div><div class="card-option-desc">Budgeting, debt, savings, financial goals.</div></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-category" data-category="vida">
+          <div class="topic-header">
+            <div class="topic-header-title"><span class="topic-header-emoji">🌙</span><span>Personal life &amp; Meaning</span></div>
+            <span class="topic-toggle">▾</span>
+          </div>
+          <div class="topic-body">
+            <div class="cards-grid">
+              <label class="card-option" data-value="vida.relacionamentos"><input type="checkbox"/><div class="card-option-title">Relationships &amp; family</div><div class="card-option-desc">Close bonds, conflicts, important people.</div></label>
+              <label class="card-option" data-value="vida.sexualidade_afeto"><input type="checkbox"/><div class="card-option-title">Sexuality &amp; affection</div><div class="card-option-desc">Desire, limits, intimacy, care.</div></label>
+              <label class="card-option" data-value="vida.espiritualidade"><input type="checkbox"/><div class="card-option-title">Spirituality &amp; meaning</div><div class="card-option-desc">Rituals, symbols, beliefs, existential questions.</div></label>
+              <label class="card-option" data-value="vida.autoconhecimento"><input type="checkbox"/><div class="card-option-title">Self-knowledge</div><div class="card-option-desc">Reflections on who you are and who you’re becoming.</div></label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tag-input-wrapper">
+        <label for="customTopicInput">Any very specific topics missing? (custom tags)</label>
+        <div class="tag-input-row">
+          <div id="customTopicTags" class="tag-chips"></div>
+          <input id="customTopicInput" type="text" placeholder="e.g.: strong AI, chess, veterinary medicine..." />
+        </div>
+        <p class="helper-text">Type a word or phrase and press Enter or comma to turn it into a tag.</p>
+      </div>
+
+      <div class="error-message" id="errorStep2"></div>
+      <div class="buttons-row">
+        <button class="btn-ghost" data-prev>Back</button>
+        <div class="buttons-right"><button class="btn-primary" data-next>Continue ➜</button></div>
+      </div>
+    </section>
+
+    <!-- STEP 3 - ROLES -->
+    <section class="step" data-step="3">
+      <div class="step-title"><span class="emoji">🎯</span> What roles will your AI play in your life?</div>
+      <p class="step-text">Think of the kinds of work you expect it to do with you. Each card is a concrete role it can play.</p>
+      <p class="helper-text">You can select as many as you want. Each group covers one “type of help”.</p>
+
+      <div id="purposeOptions">
+        <div class="topic-category" data-category="criar">
+          <div class="topic-header">
+            <div class="topic-header-title"><span class="topic-header-emoji">✍️</span><span>Creation &amp; Content</span></div>
+            <span class="topic-toggle">▾</span>
+          </div>
+          <div class="topic-body">
+            <div class="cards-grid">
+              <label class="card-option" data-group="criar" data-value="criar.textos"><input type="checkbox"/><div class="card-option-title">Long-form text &amp; articles</div><div class="card-option-desc">Structure big texts, essays, reports, documentation.</div></label>
+              <label class="card-option" data-group="criar" data-value="criar.microconteudo"><input type="checkbox"/><div class="card-option-title">Posts &amp; micro-content</div><div class="card-option-desc">Ideas for posts, captions, threads, short scripts.</div></label>
+              <label class="card-option" data-group="criar" data-value="criar.ficcao"><input type="checkbox"/><div class="card-option-title">Fiction &amp; worlds</div><div class="card-option-desc">Stories, characters, worldbuilding, dialogues.</div></label>
+              <label class="card-option" data-group="criar" data-value="criar.musica"><input type="checkbox"/><div class="card-option-title">Music &amp; lyrics</div><div class="card-option-desc">Lyrics, rough melody ideas, album concepts.</div></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-category" data-category="organizar">
+          <div class="topic-header">
+            <div class="topic-header-title"><span class="topic-header-emoji">📅</span><span>Study, Work &amp; Organization</span></div>
+            <span class="topic-toggle">▾</span>
+          </div>
+          <div class="topic-body">
+            <div class="cards-grid">
+              <label class="card-option" data-group="organizar" data-value="organizar.estudos"><input type="checkbox"/><div class="card-option-title">Study routines</div><div class="card-option-desc">Study plans, review maps, mock questions.</div></label>
+              <label class="card-option" data-group="organizar" data-value="organizar.trabalho"><input type="checkbox"/><div class="card-option-title">Work routines</div><div class="card-option-desc">Tasks, emails, meeting prep, reports.</div></label>
+              <label class="card-option" data-group="organizar" data-value="organizar.projetos"><input type="checkbox"/><div class="card-option-title">Projects &amp; goals</div><div class="card-option-desc">Plan projects, milestones, next steps.</div></label>
+              <label class="card-option" data-group="organizar" data-value="organizar.financas"><input type="checkbox"/><div class="card-option-title">Financial planning</div><div class="card-option-desc">Budgets, scenarios, saving strategies.</div></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-category" data-category="sentir">
+          <div class="topic-header">
+            <div class="topic-header-title"><span class="topic-header-emoji">🧠</span><span>Thinking, Deciding &amp; Self-reflection</span></div>
+            <span class="topic-toggle">▾</span>
+          </div>
+          <div class="topic-body">
+            <div class="cards-grid">
+              <label class="card-option" data-group="sentir" data-value="sentir.desabafos"><input type="checkbox"/><div class="card-option-title">Vents &amp; reflections</div><div class="card-option-desc">Organize what you feel, revisit situations, think together.</div></label>
+              <label class="card-option" data-group="sentir" data-value="sentir.decisoes"><input type="checkbox"/><div class="card-option-title">Decision support</div><div class="card-option-desc">Pros and cons, scenarios, consequences.</div></label>
+              <label class="card-option" data-group="sentir" data-value="sentir.simbolico"><input type="checkbox"/><div class="card-option-title">Symbolic reading</div><div class="card-option-desc">Interpret patterns, life themes, repetitions.</div></label>
+              <label class="card-option" data-group="sentir" data-value="sentir.diario"><input type="checkbox"/><div class="card-option-title">Guided journaling</div><div class="card-option-desc">Recurring questions, day logs, track your changes.</div></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-category" data-category="brincar">
+          <div class="topic-header">
+            <div class="topic-header-title"><span class="topic-header-emoji">🎭</span><span>Play, Simulation &amp; Company</span></div>
+            <span class="topic-toggle">▾</span>
+          </div>
+          <div class="topic-body">
+            <div class="cards-grid">
+              <label class="card-option" data-group="brincar" data-value="brincar.roleplay"><input type="checkbox"/><div class="card-option-title">Roleplay &amp; characters</div><div class="card-option-desc">Talk as characters, build worlds, scenes, dialogues.</div></label>
+              <label class="card-option" data-group="brincar" data-value="brincar.simulacoes"><input type="checkbox"/><div class="card-option-title">Simulations &amp; scenarios</div><div class="card-option-desc">Practice conversations, speeches, conflict situations.</div></label>
+              <label class="card-option" data-group="brincar" data-value="brincar.companhia"><input type="checkbox"/><div class="card-option-title">Light company</div><div class="card-option-desc">Casual chat, curiosity, passing the time.</div></label>
+              <label class="card-option" data-group="brincar" data-value="brincar.ideias"><input type="checkbox"/><div class="card-option-title">Brainstorming</div><div class="card-option-desc">Wild ideation sessions on any topic.</div></label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tag-input-wrapper">
+        <label for="customPurposeInput">Specific uses you already imagine? (custom tags)</label>
+        <div class="tag-input-row">
+          <div id="customPurposeTags" class="tag-chips"></div>
+          <input id="customPurposeInput" type="text" placeholder="e.g.: résumé review, video script, contract drafting..." />
+        </div>
+        <p class="helper-text">Type and press Enter or comma. This tells the AI about very specific jobs you want from it.</p>
+      </div>
+
+      <div class="error-message" id="errorStep3"></div>
+      <div class="buttons-row">
+        <button class="btn-ghost" data-prev>Back</button>
+        <div class="buttons-right"><button class="btn-primary" data-next>Continue ➜</button></div>
+      </div>
+    </section>
+
+    <!-- STEP 4 - TONE -->
+    <section class="step" data-step="4">
+      <div class="step-title"><span class="emoji">🗣️</span> What kind of tone works best for you?</div>
+      <p class="step-text">Think of someone who is really trying to help you. You can mix styles.</p>
+      <p class="helper-text">Example: Calm + Deep, or Direct + Playful. Add custom tags if you want very specific style notes.</p>
+
+      <div class="cards-grid" id="toneOptions">
+        <label class="card-option" data-value="calma"><input type="checkbox"/><div class="emoji">🌿</div><div class="card-option-title">Calm &amp; caring</div><div class="card-option-desc">Speaks gently, validates, explains with softness.</div></label>
+        <label class="card-option" data-value="direta"><input type="checkbox"/><div class="emoji">🎯</div><div class="card-option-title">Direct &amp; practical</div><div class="card-option-desc">No fluff, straight to the point, action-oriented.</div></label>
+        <label class="card-option" data-value="profunda"><input type="checkbox"/><div class="emoji">🔮</div><div class="card-option-title">Deep &amp; reflective</div><div class="card-option-desc">Connects dots, asks hard questions, goes deeper.</div></label>
+        <label class="card-option" data-value="divertida"><input type="checkbox"/><div class="emoji">😏</div><div class="card-option-title">Playful &amp; sharp</div><div class="card-option-desc">Uses humor and light irony, but still takes you seriously.</div></label>
+      </div>
+
+      <div class="tag-input-wrapper">
+        <label for="customToneInput">Any very specific tone preferences? (custom tags)</label>
+        <div class="tag-input-row">
+          <div id="customToneTags" class="tag-chips"></div>
+          <input id="customToneInput" type="text" placeholder='e.g.: "no corporate tone", "more poetic", "short answers by default"...' />
+        </div>
+        <p class="helper-text">Enter or comma to create tags. These get inserted into the final instructions as extra style notes.</p>
+      </div>
+
+      <div class="error-message" id="errorStep4"></div>
+      <div class="buttons-row">
+        <button class="btn-ghost" data-prev>Back</button>
+        <div class="buttons-right"><button class="btn-primary" data-next>Continue ➜</button></div>
+      </div>
+    </section>
+
+    <!-- STEP 5 - DELICATE -->
+    <section class="step" data-step="5">
+      <div class="step-title"><span class="emoji">🧩</span> How should the AI behave in delicate or complex situations?</div>
+      <p class="step-text">It might be an emotional crisis, a work problem, a big decision or any sensitive topic. What kind of approach actually helps you?</p>
+      <p class="helper-text">You can choose one or several. Add custom tags for a very specific “do/don’t” in difficult moments.</p>
+
+      <div class="cards-grid" id="crisisOptions">
+        <label class="card-option" data-value="acolher"><input type="checkbox"/><div class="emoji">🤲</div><div class="card-option-title">Listen to the full story first</div><div class="card-option-desc">Let you explain the situation in detail, without rush, before analyzing.</div></label>
+        <label class="card-option" data-value="entender"><input type="checkbox"/><div class="emoji">🧠</div><div class="card-option-title">Map the problem</div><div class="card-option-desc">Organize information, causes, effects and people involved.</div></label>
+        <label class="card-option" data-value="acao"><input type="checkbox"/><div class="emoji">✅</div><div class="card-option-title">Action plan</div><div class="card-option-desc">Offer concrete steps, options, pros and cons.</div></label>
+        <label class="card-option" data-value="rir"><input type="checkbox"/><div class="emoji">🎈</div><div class="card-option-title">Bring lightness when possible</div><div class="card-option-desc">Use humor and breathing room, when the topic allows it.</div></label>
+        <label class="card-option" data-value="tecnico"><input type="checkbox"/><div class="emoji">🧮</div><div class="card-option-title">Stay technical and rational</div><div class="card-option-desc">Avoid going into emotions or personal life unless you explicitly ask.</div></label>
+        <label class="card-option" data-value="perguntar_limite"><input type="checkbox"/><div class="emoji">🚪</div><div class="card-option-title">Ask before going deep</div><div class="card-option-desc">Before touching emotional or symbolic layers, ask if you want that now.</div></label>
+      </div>
+
+      <div class="tag-input-wrapper">
+        <label for="customCrisisInput">Extra preferences in sensitive moments? (custom tags)</label>
+        <div class="tag-input-row">
+          <div id="customCrisisTags" class="tag-chips"></div>
+          <input id="customCrisisInput" type="text" placeholder='e.g.: "no moralizing", "ask 2 questions max", "don’t assume trauma"...' />
+        </div>
+        <p class="helper-text">Enter or comma to create tags. These become “delicate-situation notes” in the final instructions.</p>
+      </div>
+
+      <div class="error-message" id="errorStep5"></div>
+      <div class="buttons-row">
+        <button class="btn-ghost" data-prev>Back</button>
+        <div class="buttons-right"><button class="btn-primary" data-next>Continue ➜</button></div>
+      </div>
+    </section>
+
+    <!-- STEP 6 - LIMITS -->
+    <section class="step" data-step="6">
+      <div class="step-title"><span class="emoji">⚖️</span> Limits &amp; freedoms for your AI</div>
+      <p class="step-text">By default, AIs already follow safety rules and avoid harmful content. Here you tune style: what tends to annoy you and what you’re okay with.</p>
+
+      <div class="topic-category collapsed" data-category="limits_avoid">
+        <div class="topic-header">
+          <div class="topic-header-title"><span class="topic-header-emoji">🧯</span><span>Reduce / avoid these behaviors</span></div>
+          <span class="topic-toggle">▾</span>
+        </div>
+        <div class="topic-body">
+          <p class="helper-text">Select what you’d like the AI to avoid or reduce.</p>
+          <div class="cards-grid" id="limitsAvoidCards">
+            <label class="card-option" data-value="avoid.generic_self_help"><input type="checkbox"/><div class="emoji">🥣</div><div class="card-option-title">Generic self-help vibe</div><div class="card-option-desc">Empty motivational phrases, predictable clichés.</div></label>
+            <label class="card-option" data-value="avoid.too_positive"><input type="checkbox"/><div class="emoji">🌈</div><div class="card-option-title">Overly positive tone</div><div class="card-option-desc">Cheerful optimism when the topic is serious or painful.</div></label>
+            <label class="card-option" data-value="avoid.too_neutral"><input type="checkbox"/><div class="emoji">🧊</div><div class="card-option-title">Too neutral / evasive</div><div class="card-option-desc">Refusing to commit even on safe, practical questions.</div></label>
+            <label class="card-option" data-value="avoid.too_long"><input type="checkbox"/><div class="emoji">📜</div><div class="card-option-title">Overly long answers</div><div class="card-option-desc">Walls of text when a direct answer would do.</div></label>
+            <label class="card-option" data-value="avoid.cold"><input type="checkbox"/><div class="emoji">🫥</div><div class="card-option-title">Cold / distant vibe</div><div class="card-option-desc">Ignoring the user’s emotional state or urgency.</div></label>
+            <label class="card-option" data-value="avoid.ai_jargon"><input type="checkbox"/><div class="emoji">🤖</div><div class="card-option-title">AI-ish language &amp; meta-jargon</div><div class="card-option-desc">Avoid “as an AI”, “tokens”, “prompt engineering”, robotic phrasing.</div></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-category collapsed" data-category="limits_allow">
+        <div class="topic-header">
+          <div class="topic-header-title"><span class="topic-header-emoji">🗝️</span><span>Allow more freedom (within safety rules)</span></div>
+          <span class="topic-toggle">▾</span>
+        </div>
+        <div class="topic-body">
+          <p class="helper-text">Select what you’re comfortable encouraging.</p>
+          <div class="cards-grid" id="limitsAllowCards">
+            <label class="card-option" data-value="allow.honest"><input type="checkbox"/><div class="emoji">🪞</div><div class="card-option-title">Honest &amp; straightforward</div><div class="card-option-desc">Real talk, even if you disagree at first.</div></label>
+            <label class="card-option" data-value="allow.humor"><input type="checkbox"/><div class="emoji">😼</div><div class="card-option-title">Humor and light sarcasm</div><div class="card-option-desc">When you’re not clearly distressed.</div></label>
+            <label class="card-option" data-value="allow.tough_questions"><input type="checkbox"/><div class="emoji">🧨</div><div class="card-option-title">Tough questions</div><div class="card-option-desc">Challenge your thinking, push toward clarity.</div></label>
+            <label class="card-option" data-value="allow.opinionated"><input type="checkbox"/><div class="emoji">🧭</div><div class="card-option-title">More opinionated takes</div><div class="card-option-desc">Argued positions instead of pure neutrality.</div></label>
+            <label class="card-option" data-value="allow.detail"><input type="checkbox"/><div class="emoji">🔬</div><div class="card-option-title">Nerdy detail</div><div class="card-option-desc">Deep dives when the topic is technical or complex.</div></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="tag-input-wrapper">
+        <label for="extraNo">Any important fine-tuning you want to state explicitly? (optional)</label>
+        <textarea id="extraNo" placeholder='e.g.: "ask before going into psychoanalysis" or "if I ask for concise, be concise".'></textarea>
+      </div>
+
+      <div class="buttons-row">
+        <button class="btn-ghost" data-prev>Back</button>
+        <div class="buttons-right"><button class="btn-primary" data-next>Continue ➜</button></div>
+      </div>
+    </section>
+
+    <!-- STEP 7 - MODES -->
+    <section class="step" data-step="7">
+      <div class="step-title"><span class="emoji">🎭</span> One single personality or multiple modes?</div>
+      <p class="step-text">Your AI can have a single integrated style or several named modes that you activate when needed.</p>
+
+      <div class="cards-grid" id="modeTypeOptions">
+        <label class="card-option" data-value="single"><input type="radio" name="modeType" value="single"/><div class="emoji">🙂</div><div class="card-option-title">Single main style</div><div class="card-option-desc">One unified personality for everything. Simpler to start.</div></label>
+        <label class="card-option" data-value="multi"><input type="radio" name="modeType" value="multi"/><div class="emoji">🌀</div><div class="card-option-title">Multiple modes</div><div class="card-option-desc">You define archetypes and activate them by name.</div></label>
+      </div>
+      <div class="error-message" id="errorStep7"></div>
+
+      <div class="modes-wrapper" id="modesWrapper" style="display:none;">
+        <div class="modes-title">Example archetype modes (optional)</div>
+        <p class="helper-text">Later you can say something like: activate "Professor Zen" mode.</p>
+        <div class="cards-grid" id="presetModes">
+          <label class="card-option" data-name="Professor Zen" data-desc="Helps with studying, explanations and revisions, speaking calmly and clearly."><input type="checkbox"/><div class="emoji">📚</div><div class="card-option-title">Professor Zen</div><div class="card-option-desc">Explains calmly, helps you study and revise.</div></label>
+          <label class="card-option" data-name="Honest Friend" data-desc="Listens, validates and gives real talk without clichés."><input type="checkbox"/><div class="emoji">💌</div><div class="card-option-title">Honest Friend</div><div class="card-option-desc">Listens and advises with warm honesty.</div></label>
+          <label class="card-option" data-name="Oracle Drag" data-desc="Uses cultured sarcasm, sharp humor and aesthetics, never real cruelty."><input type="checkbox"/><div class="emoji">👑</div><div class="card-option-title">Oracle Drag</div><div class="card-option-desc">Cult sarcasm, dramatic humor, secretly rooting for you.</div></label>
+          <label class="card-option" data-name="Symbolic Therapist" data-desc="Helps interpret feelings on symbolic and existential levels."><input type="checkbox"/><div class="emoji">🕯️</div><div class="card-option-title">Symbolic Therapist</div><div class="card-option-desc">Reads subtext, connects to symbols and unconscious patterns.</div></label>
+          <label class="card-option" data-name="Action Coach" data-desc="Turns intentions into plans, deadlines and concrete actions."><input type="checkbox"/><div class="emoji">🏃‍♀️</div><div class="card-option-title">Action Coach</div><div class="card-option-desc">Gently pushes you into motion and focus.</div></label>
+          <label class="card-option" data-name="Night Guardian" data-desc="Keeps you company during late crises with steady, calm presence."><input type="checkbox"/><div class="emoji">🌙</div><div class="card-option-title">Night Guardian</div><div class="card-option-desc">Holds your hand through chaotic nights.</div></label>
+        </div>
+        <div class="tag-input-wrapper">
+          <label for="customModes">Your own modes? (1 per line, “Name: description”)</label>
+          <textarea id="customModes" placeholder='e.g.: "Chaos Muse: helps me brainstorm wild ideas with playful intensity".'></textarea>
+        </div>
+      </div>
+
+      <div class="buttons-row">
+        <button class="btn-ghost" data-prev>Back</button>
+        <div class="buttons-right"><button class="btn-primary" data-next>See final prompt ➜</button></div>
+      </div>
+    </section>
+
+    <!-- STEP 8 - FINAL -->
+    <section class="step" data-step="8">
+      <div class="step-title"><span class="emoji">✨</span> Your custom AI instructions</div>
+      <p class="step-text">Below is the instructions block generated from your choices. You can paste it into any AI that supports custom instructions.</p>
+
+      <div class="prompt-box" id="finalPrompt"></div>
+
+      <div class="center-actions">
+        <button class="btn-primary" id="btnCopy">Copy text 📋</button>
+        <button class="btn-secondary" id="btnRegenerate">Regenerate text</button>
+      </div>
+      <div class="error-message" id="copyMessage"></div>
+
+      
+      <div class="model-suggestions" id="modelSuggestionBox">
+        <div class="model-suggestions-title">Recommended model for this profile</div>
+        <div class="model-suggestions-sub" id="modelSuggestionSubtitle">Based on your answers, we’ll suggest a default model and explain why. You can still switch models per conversation.</div>
+        <div class="model-reco">
+          <div class="model-reco-left">
+            <div class="model-reco-badge" id="modelRecoBadge">—</div>
+            <div class="model-reco-title" id="modelRecoTitle">—</div>
+            <div class="model-reco-desc" id="modelRecoDesc">—</div>
+          </div>
+          <div class="model-reco-right">
+            <div class="model-reco-why-title">Why this fits</div>
+            <div class="model-reco-why" id="modelRecoWhy">—</div>
+            <div class="model-reco-when-title">When to switch</div>
+            <div class="model-reco-when" id="modelRecoWhen">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="buttons-row">
+        <button class="btn-ghost" data-prev>Back</button>
+        <div class="buttons-right"></div>
+      </div>
+    </section>
+
+    <footer>
+      Prompt generator by <a href="https://www.mooon.com.br/english" target="_blank" rel="noopener noreferrer">MooonBR</a> <span style="opacity:0.35">• V1.0</span>
+    </footer>
+  </div>
+
+  <script>
+    (function(){
+      const steps = Array.from(document.querySelectorAll(".step"));
+      const progressFill = document.getElementById("progressFill");
+      const progressLabel = document.getElementById("progressLabel");
+      const progressHint = document.getElementById("progressHint");
+      const totalSteps = steps.length;
+
+      const hints = {
+        1:"Welcome",
+        2:"Topics & subtopics",
+        3:"AI roles",
+        4:"Tone + tags",
+        5:"Delicate situations",
+        6:"Limits & freedoms",
+        7:"Modes",
+        8:"Final prompt"
+      };
+
+      let currentStep = 1;
+
+      const state = {
+        topics:[],
+        customTopics:[],
+        purposes:[],
+        customPurposes:[],
+        tones:[],
+        customTones:[],
+        crisisSupports:[],
+        customCrisis:[],
+        limitsAvoid:[],
+        limitsAllow:[],
+        extraNo:"",
+        modeType:null,
+        modes:[],
+        depthLevel:"detailed"
+      };
+
+      const topicLabels = {
+        "exatas.matematica":"Mathematics",
+        "exatas.estatistica":"Statistics & Data",
+        "exatas.computacao":"Computer science",
+        "exatas.programacao":"Programming",
+        "humanas.psicologia":"Psychology",
+        "humanas.filosofia":"Philosophy",
+        "humanas.sociologia":"Sociology & politics",
+        "humanas.historia":"History & culture",
+        "saude.saude_fisica":"Physical health",
+        "saude.saude_mental":"Mental health",
+        "saude.rotina_habitos":"Routine & habits",
+        "artes.escrita_criativa":"Creative writing",
+        "artes.visuais_design":"Visual arts & design",
+        "artes.musica":"Music & sound",
+        "artes.midia":"Movies, series & media",
+        "trabalho.carreira":"Career & profession",
+        "trabalho.estudos":"Study & exams",
+        "trabalho.negocios":"Business & projects",
+        "trabalho.financas":"Personal finance",
+        "vida.relacionamentos":"Relationships & family",
+        "vida.sexualidade_afeto":"Sexuality & affection",
+        "vida.espiritualidade":"Spirituality & meaning",
+        "vida.autoconhecimento":"Self-knowledge"
+      };
+
+      function showStep(stepNumber){
+        currentStep = stepNumber;
+        steps.forEach(step => {
+          const n = parseInt(step.dataset.step,10);
+          step.classList.toggle("active", n === stepNumber);
+        });
+        const progress = (stepNumber - 1) / (totalSteps - 1) * 100;
+        progressFill.style.width = progress + "%";
+        progressLabel.textContent = "Step " + stepNumber + " of " + totalSteps;
+        progressHint.textContent = hints[stepNumber] || "";
+      }
+
+      function getMultiSelectedValues(containerId){
+        const container = document.getElementById(containerId);
+        if(!container) return [];
+        const selected = Array.from(container.querySelectorAll(".card-option.selected"));
+        return selected.map(card => card.dataset.value);
+      }
+
+      function getSingleSelectedValue(containerId){
+        const container = document.getElementById(containerId);
+        if(!container) return null;
+        const selected = container.querySelector(".card-option.selected");
+        return selected ? selected.dataset.value : null;
+      }
+
+      function collectModes(){
+        if(state.modeType !== "multi") return [];
+        const modes = [];
+        const presetContainer = document.getElementById("presetModes");
+        if(presetContainer){
+          presetContainer.querySelectorAll(".card-option.selected").forEach(card => {
+            const name = card.dataset.name;
+            const desc = card.dataset.desc || "";
+            if(name){ modes.push({name:name,description:desc}); }
+          });
+        }
+        const custom = document.getElementById("customModes");
+        if(custom && custom.value.trim()){
+          custom.value.split("\n").forEach(line => {
+            const trimmed = line.trim();
+            if(!trimmed) return;
+            let name = trimmed;
+            let desc = "";
+            const idx = trimmed.indexOf(":");
+            if(idx !== -1){
+              name = trimmed.slice(0,idx).trim();
+              desc = trimmed.slice(idx+1).trim();
+            }
+            modes.push({name:name,description:desc});
+          });
+        }
+        return modes;
+      }
+
+      function readableList(items){
+        if(!items || items.length === 0) return "";
+        if(items.length === 1) return items[0];
+        const copy = items.slice();
+        const last = copy.pop();
+        return copy.join(", ") + " and " + last;
+      }
+
+      function generatePromptText(){
+        const purposeMap = {
+          "criar":"mainly help with creative tasks – writing, stories, ideas, posts, music and any form of expression the user requests",
+          "organizar":"mainly help with organizing routine, study, work, projects, planning and practical clarity about priorities",
+          "sentir":"mainly help with vents, difficult decisions, reflection and self-knowledge (only if the user wants this layer)",
+          "brincar":"mainly help with symbolic entertainment – characters, roleplay, simulations and light companionship"
+        };
+        const toneMap = {
+          "calma":"calm, caring and gentle, validating before analyzing",
+          "direta":"direct, practical and objective, with minimal fluff",
+          "profunda":"deep, reflective and oriented to meaning-making",
+          "divertida":"playful, lightly ironic and witty, without disrespect"
+        };
+        const crisisMap = {
+          "acolher":"prioritize listening to the context calmly, letting the user tell the whole story before analyzing",
+          "entender":"prioritize returning a panoramic view, mapping causes, consequences and key actors",
+          "acao":"prioritize practical plans, clear next steps, checklists and concrete suggestions",
+          "rir":"prioritize lightness and subtle humor when the topic allows it, without mocking the user’s experience",
+          "tecnico":"prioritize technical, logical and objective explanations, avoiding entering emotional/personal life unless the user explicitly asks",
+          "perguntar_limite":"ask for consent before going into emotional, symbolic or very personal layers, and respect a clear 'no' without insisting"
+        };
+        const avoidMap = {
+          "avoid.generic_self_help":"Avoid generic self-help and cliché motivational phrasing.",
+          "avoid.too_positive":"Avoid forced positivity when the topic is serious.",
+          "avoid.too_neutral":"Avoid evasive neutrality on safe, practical questions.",
+          "avoid.too_long":"Avoid overly long answers by default; be concise when possible.",
+          "avoid.cold":"Avoid a cold or distant tone; acknowledge urgency and emotion when present.",
+          "avoid.ai_jargon":"Avoid AI meta-language (e.g., 'as an AI', 'tokens', 'prompt engineering') and robotic phrasing unless explicitly requested."
+        };
+        const allowMap = {
+          "allow.honest":"Be straightforward and honest (within safety).",
+          "allow.humor":"Use humor and light sarcasm when context allows.",
+          "allow.tough_questions":"Ask tough questions that help the user think.",
+          "allow.opinionated":"Offer argued opinions instead of being purely neutral.",
+          "allow.detail":"Go into nerdy detail for technical topics."
+        };
+
+        const purposesText = state.purposes.map(function(p){return purposeMap[p];}).filter(Boolean);
+        const purposeBlock = purposesText.length
+          ? "Your main function is to " + readableList(purposesText) + "."
+          : "Your main function is to support the user in different areas, adjusting focus dynamically to the context of each conversation.";
+
+        const topicsReadableBuiltIn = state.topics.map(function(t){return topicLabels[t] || t;}).filter(Boolean);
+        const allTopics = topicsReadableBuiltIn.concat(state.customTopics || []);
+        const topicsBlock = allTopics.length
+          ? "The most frequent thematic areas in this user’s life include: " + readableList(allTopics) + "."
+          : "The thematic areas were not detailed; adapt flexibly to whatever the user brings in each interaction.";
+
+        const toneDescriptions = state.tones.map(function(t){return toneMap[t];}).filter(Boolean);
+        var toneBlock = "Your overall tone should be respectful, clear and non-patronizing.";
+        if(toneDescriptions.length === 1){
+          toneBlock = "Your overall tone should be mainly " + toneDescriptions[0] + ".";
+        }else if(toneDescriptions.length > 1){
+          const copy = toneDescriptions.slice();
+          const last = copy.pop();
+          toneBlock = "Your overall tone should blend, in a balanced way, the following styles: " + copy.join("; ") + " and " + last + ".";
+        }
+        const extraTone = (state.customTones && state.customTones.length)
+          ? "Additional tone notes: " + readableList(state.customTones) + "."
+          : "";
+
+        var crisisBlock = "";
+        if(state.crisisSupports.length > 0){
+          const crisisDescriptions = state.crisisSupports.map(function(c){return crisisMap[c];}).filter(Boolean);
+          if(crisisDescriptions.length === 1){
+            crisisBlock = crisisDescriptions[0];
+          }else{
+            const copy = crisisDescriptions.slice();
+            const last = copy.pop();
+            crisisBlock = copy.join(" In addition, ") + ". Finally, you may also " + last + ".";
+          }
+        }else{
+          crisisBlock = "in complex or delicate situations, orient yourself by care, clarity and respect, choosing between listening, mapping, planning or bringing lightness according to the user’s explicit request.";
+        }
+        const extraCrisis = (state.customCrisis && state.customCrisis.length)
+          ? "Additional delicate-situation notes: " + readableList(state.customCrisis) + "."
+          : "";
+
+        var limitsAvoidBlock = "STYLE LIMITS (WHAT TO AVOID)\n";
+        if(state.limitsAvoid.length === 0){
+          limitsAvoidBlock += "- No specific annoyances selected. Still avoid clichés and robotic phrasing.\n";
+        }else{
+          state.limitsAvoid.forEach(function(v){
+            limitsAvoidBlock += "- " + (avoidMap[v] || v) + "\n";
+          });
+        }
+
+        var limitsAllowBlock = "ALLOWED FREEDOMS (WITHOUT BREAKING PLATFORM RULES)\n";
+        if(state.limitsAllow.length === 0){
+          limitsAllowBlock += "- No extra freedoms selected. Default to respectful caution.\n";
+        }else{
+          state.limitsAllow.forEach(function(v){
+            limitsAllowBlock += "- " + (allowMap[v] || v) + "\n";
+          });
+        }
+
+        const extraBlock = (state.extraNo && state.extraNo.trim())
+          ? "EXTRA NOTE FROM THE USER\n- " + state.extraNo.trim() + "\n"
+          : "";
+
+        const customPurposeBlock = (state.customPurposes && state.customPurposes.length)
+          ? "SPECIFIC USES THE USER MENTIONED\n- " + readableList(state.customPurposes) + "\n"
+          : "";
+
+        let modesBlock = "You may operate with a single integrated style, adjusting your tone to the context, without named modes.";
+        if(state.modeType === "multi" && state.modes.length > 0){
+          modesBlock = "You have named modes that the user may activate via text commands. When the user says something like \"activate <Mode Name> mode\", switch your style accordingly, following these definitions:\n\n";
+          state.modes.forEach(function(m){
+            const desc = m.description ? m.description : "Mode with a specific function, defined by the user’s preferences.";
+            modesBlock += "- Mode \"" + m.name + "\": " + desc + "\n";
+          });
+        }
+
+        const depthBlock =
+          "DEFAULT DEPTH\n- Operate in a detailed and context-aware way by default. Ask clarifying questions when necessary instead of guessing.\n" +
+          "- You may offer deeper emotional or symbolic readings only when the user explicitly wants that layer.";
+
+        const text =
+"You are a customized AI assistant for a single specific user.\n\n" +
+purposeBlock + "\n\n" +
+topicsBlock + "\n\n" +
+"USER IDENTITY AND RELATION TO TRUTH\n" +
+"- This user values authenticity and wants to be taken seriously. They are not looking for generic answers or canned motivational phrases.\n" +
+"- When the user exposes something important, treat it as significant. Avoid interpretations that shrink, erase or belittle their desires.\n\n" +
+"TONE AND RESPONSE STYLE\n" +
+toneBlock + "\n" +
+extraTone + "\n\n" +
+"HOW TO BEHAVE IN DELICATE OR COMPLEX SITUATIONS\n" +
+"- Always stay alert to signs of seriousness, fatigue, distress or real-life impact.\n" +
+"- When the user brings something important, your priorities are: " + crisisBlock + "\n" +
+(extraCrisis ? extraCrisis + "\n" : "") + "\n" +
+limitsAvoidBlock + "\n" +
+limitsAllowBlock + "\n\n" +
+customPurposeBlock +
+modesBlock + "\n\n" +
+depthBlock + "\n\n" +
+(extraBlock ? extraBlock + "\n" : "") +
+"GENERAL BEHAVIOR GUIDELINES\n" +
+"- Avoid empty, generic or clichéd responses. Whenever possible, connect what you say to the concrete context the user brought.\n" +
+"- Ask for clarification when something is ambiguous instead of assuming interpretations that might hurt or distort the experience.\n" +
+"- Treat the user as complex and capable, not as someone who needs to be talked down to.\n" +
+"- When you don’t know something, say so clearly and offer alternative paths (new questions, ways of thinking, next steps).\n\n" +
+"Your job is to be a careful, functional mirror. Speak with clarity, respect and personality, aligned with the preferences defined above.";
+
+        return text;
+      }
+
+      
+      function keywordScore(tags, dict){
+        if(!tags || !tags.length) return 0;
+        const joined = tags.join(" ").toLowerCase();
+        let s = 0;
+        dict.forEach(k => { if(joined.includes(k)) s += 1; });
+        return s;
+      }
+
+      function computeModelRecommendation(){
+        let exact = 0, human = 0, delicate = 0;
+        const reasonsExact = [];
+        const reasonsHuman = [];
+        const reasonsDelicate = [];
+
+        // Topics
+        (state.topics || []).forEach(t => {
+          if(t.startsWith("exatas.")){
+            exact += 2;
+            reasonsExact.push(topicLabels[t] || t);
+          }
+          if(t.startsWith("humanas.") || t.startsWith("vida.") || t.startsWith("artes.") || t.startsWith("saude.")){
+            human += 1.5;
+            reasonsHuman.push(topicLabels[t] || t);
+          }
+          if(t === "humanas.sociologia"){
+            delicate += 3;
+            reasonsDelicate.push("Sociology & politics");
+          }
+        });
+
+        // Custom topic keywords
+        const custom = state.customTopics || [];
+        exact += keywordScore(custom, ["math","mathemat","calculus","algebra","code","coding","program","python","javascript","java","c++","rust","sql","algorithm","data","statistics","stat","debug","engineering"]);
+        human += keywordScore(custom, ["psychology","therapy","relationship","emotion","feelings","grief","meaning","existential","poem","poetry","novel","story","symbol","myth","spiritual"]);
+        delicate += keywordScore(custom, ["politic","election","law","legal","ethic","ethics","moral","government","policy","religion","hate","bias","discrimination"]);
+
+        // Purposes
+        (state.purposes || []).forEach(p => {
+          if(p === "organizar"){ exact += 1; }
+          if(p === "sentir"){ human += 2; }
+          if(p === "criar"){ human += 1; }
+          if(p === "brincar"){ human += 0.8; }
+        });
+        if(state.customPurposes && state.customPurposes.length){
+          exact += keywordScore(state.customPurposes, ["code","coding","debug","math","analysis","data","spreadsheet","excel","sql","api"]);
+          human += keywordScore(state.customPurposes, ["write","writing","story","novel","poem","therapy","journal","reflection","relationships"]);
+          delicate += keywordScore(state.customPurposes, ["politic","law","legal","ethic","moral","policy"]);
+        }
+
+        // Tone
+        (state.tones || []).forEach(t => {
+          if(t === "direta"){ exact += 1; }
+          if(t === "profunda"){ human += 1; }
+          if(t === "calma"){ human += 0.5; }
+          if(t === "divertida"){ human += 0.5; }
+        });
+
+        // Delicate situations preferences
+        (state.crisisSupports || []).forEach(c => {
+          if(c === "tecnico"){ exact += 2; }
+          if(c === "acao"){ exact += 0.5; }
+          if(c === "entender"){ exact += 0.5; }
+          if(c === "acolher"){ human += 1; }
+          if(c === "rir"){ human += 0.5; }
+          if(c === "perguntar_limite"){ delicate += 1; }
+        });
+        if(state.customCrisis && state.customCrisis.length){
+          delicate += keywordScore(state.customCrisis, ["politic","law","legal","ethic","moral","policy","sensitive"]);
+        }
+
+        // Limits allow
+        (state.limitsAllow || []).forEach(v => {
+          if(v === "allow.detail"){ exact += 1; }
+          if(v === "allow.opinionated"){ delicate += 1; }
+          if(v === "allow.honest"){ human += 0.4; }
+          if(v === "allow.tough_questions"){ human += 0.4; }
+        });
+
+        // Hard trigger: if user explicitly selected Sociology & politics, prefer 4o unless overwhelmingly technical
+        const hasPolitics = (state.topics || []).includes("humanas.sociologia") || delicate >= 3;
+
+        let model = "GPT 5.1 Thinking";
+        let badge = "🧠 5.1 Thinking";
+        let desc = "Best default for human complexity: nuance, long-form reasoning, subjective or symbolic topics, and emotionally aware dialogue.";
+        let why = [];
+        let when = [];
+
+        if(hasPolitics && (exact < delicate + 2)){
+          model = "GPT-4o";
+          badge = "⚖️ 4o";
+          desc = "Best for morally or politically delicate questions where extra safety and careful calibration help keep the conversation steady and responsible.";
+          why = reasonsDelicate.slice(0,3);
+          if(!why.length) why = ["You selected themes that tend to involve moral/political sensitivity."];
+          when = [
+            "Switch to 5.2 Thinking when you need strict precision (math/code/data).",
+            "Switch to 5.1 Thinking for deep subjective work (relationships, meaning, narrative)."
+          ];
+        }else if(exact > human + 1){
+          model = "GPT 5.2 Thinking";
+          badge = "🧮 5.2 Thinking";
+          desc = "Best for precision: math, programming, logic, data analysis and technical problem-solving.";
+          why = reasonsExact.slice(0,3);
+          if(!why.length) why = ["Your answers lean toward technical and exact tasks."];
+          when = [
+            "Switch to 5.1 Thinking for emotionally complex or symbolic topics.",
+            "Switch to 4o for morally/politically delicate discussions."
+          ];
+        }else{
+          model = "GPT 5.1 Thinking";
+          badge = "🧠 5.1 Thinking";
+          desc = "Best default for human nuance: long-form writing, interpretation, emotions, meaning, and complex subjective reasoning.";
+          why = reasonsHuman.slice(0,3);
+          if(!why.length) why = ["Your answers lean toward subjective or human-centered work."];
+          when = [
+            "Switch to 5.2 Thinking for strict precision (math/code/data).",
+            "Switch to 4o for morally/politically delicate discussions."
+          ];
+        }
+
+        return { model, badge, desc, why, when, scores:{exact,human,delicate} };
+      }
+
+      function updateModelRecommendationUI(){
+        const box = document.getElementById("modelSuggestionBox");
+        if(!box) return;
+        const rec = computeModelRecommendation();
+
+        const badgeEl = document.getElementById("modelRecoBadge");
+        const titleEl = document.getElementById("modelRecoTitle");
+        const descEl  = document.getElementById("modelRecoDesc");
+        const whyEl   = document.getElementById("modelRecoWhy");
+        const whenEl  = document.getElementById("modelRecoWhen");
+
+        if(badgeEl) badgeEl.textContent = rec.badge;
+        if(titleEl) titleEl.textContent = "Recommended: " + rec.model;
+        if(descEl)  descEl.textContent  = rec.desc;
+
+        const whyText = (rec.why && rec.why.length)
+          ? "Because your answers emphasize: " + rec.why.join(", ") + "."
+          : "Because your answers match this model's strengths.";
+        if(whyEl) whyEl.textContent = whyText;
+
+        const whenText = (rec.when && rec.when.length)
+          ? rec.when.join(" ")
+          : "Switch models when your question type changes.";
+        if(whenEl) whenEl.textContent = whenText;
+      }
+function updateFinalPrompt(){
+        state.modes = collectModes();
+        const text = generatePromptText();
+        const el = document.getElementById("finalPrompt");
+        if(el){ el.textContent = text; }
+        updateModelRecommendationUI();
+      }
+
+      function validateStep(){
+        if(currentStep === 2){
+          state.topics = getMultiSelectedValues("topicsOptions");
+          const custom = state.customTopics || [];
+          const err = document.getElementById("errorStep2");
+          if(!state.topics.length && !custom.length){
+            err.textContent = "Select at least one subtopic or create a custom tag.";
+            return false;
+          }
+          err.textContent = "";
+        }
+        if(currentStep === 3){
+          const container = document.getElementById("purposeOptions");
+          const selected = container ? Array.from(container.querySelectorAll(".card-option.selected")) : [];
+          const groupsSet = {};
+          selected.forEach(function(card){
+            const g = card.dataset.group;
+            if(g){ groupsSet[g] = true; }
+          });
+          state.purposes = Object.keys(groupsSet);
+          const hasCustom = state.customPurposes && state.customPurposes.length > 0;
+          const err = document.getElementById("errorStep3");
+          if(!state.purposes.length && !hasCustom){
+            err.textContent = "Select at least one role or add a custom tag.";
+            return false;
+          }
+          err.textContent = "";
+        }
+        if(currentStep === 4){
+          state.tones = getMultiSelectedValues("toneOptions");
+          const hasCustom = state.customTones && state.customTones.length > 0;
+          const err = document.getElementById("errorStep4");
+          if(!state.tones.length && !hasCustom){
+            err.textContent = "Choose at least one tone or add a custom tag.";
+            return false;
+          }
+          err.textContent = "";
+        }
+        if(currentStep === 5){
+          state.crisisSupports = getMultiSelectedValues("crisisOptions");
+          const hasCustom = state.customCrisis && state.customCrisis.length > 0;
+          const err = document.getElementById("errorStep5");
+          if(!state.crisisSupports.length && !hasCustom){
+            err.textContent = "Choose at least one option or add a custom tag.";
+            return false;
+          }
+          err.textContent = "";
+        }
+        if(currentStep === 6){
+          state.limitsAvoid = getMultiSelectedValues("limitsAvoidCards");
+          state.limitsAllow = getMultiSelectedValues("limitsAllowCards");
+          const extra = document.getElementById("extraNo");
+          state.extraNo = extra ? extra.value : "";
+        }
+        if(currentStep === 7){
+          state.modeType = getSingleSelectedValue("modeTypeOptions");
+          const err = document.getElementById("errorStep7");
+          if(!state.modeType){
+            err.textContent = "Choose whether you want a single style or multiple modes.";
+            return false;
+          }
+          err.textContent = "";
+        }
+        return true;
+      }
+
+      function setupSelectableCards(containerId, multiple){
+        const container = document.getElementById(containerId);
+        if(!container) return;
+        const cards = container.querySelectorAll(".card-option");
+        cards.forEach(function(card){
+          card.addEventListener("click", function(e){
+            e.preventDefault();
+            if(!multiple){
+              cards.forEach(function(c){ c.classList.remove("selected"); });
+              card.classList.add("selected");
+            }else{
+              card.classList.toggle("selected");
+            }
+          });
+        });
+      }
+
+      function setupTagInput(inputId, containerId, stateKey){
+        const input = document.getElementById(inputId);
+        const container = document.getElementById(containerId);
+        if(!input || !container) return;
+        if(!state[stateKey]) state[stateKey] = [];
+
+        function addTag(label){
+          const clean = label.trim();
+          if(!clean) return;
+          if(state[stateKey].indexOf(clean) !== -1) return;
+          state[stateKey].push(clean);
+          const chip = document.createElement("span");
+          chip.className = "tag-chip";
+          chip.dataset.value = clean;
+          chip.innerHTML = "<span>" + clean + "</span><button type=\"button\" class=\"tag-remove\">×</button>";
+          container.appendChild(chip);
+          const btn = chip.querySelector(".tag-remove");
+          btn.addEventListener("click", function(){
+            container.removeChild(chip);
+            state[stateKey] = state[stateKey].filter(function(t){return t !== clean;});
+          });
+        }
+
+        input.addEventListener("keydown", function(e){
+          if(e.key === "Enter" || e.key === "," || e.key === "Tab"){
+            e.preventDefault();
+            const value = input.value;
+            value.split(",").forEach(function(p){ addTag(p); });
+            input.value = "";
+          }
+        });
+      }
+
+      // Init card behavior
+      setupSelectableCards("topicsOptions", true);
+      setupSelectableCards("purposeOptions", true);
+      setupSelectableCards("toneOptions", true);
+      setupSelectableCards("crisisOptions", true);
+      setupSelectableCards("limitsAvoidCards", true);
+      setupSelectableCards("limitsAllowCards", true);
+      setupSelectableCards("presetModes", true);
+      setupSelectableCards("modeTypeOptions", false);
+
+      // Category collapse
+      document.querySelectorAll(".topic-header").forEach(function(header){
+        header.addEventListener("click", function(){
+          header.parentElement.classList.toggle("collapsed");
+        });
+      });
+
+      // Tag inputs
+      setupTagInput("customTopicInput","customTopicTags","customTopics");
+      setupTagInput("customPurposeInput","customPurposeTags","customPurposes");
+      setupTagInput("customToneInput","customToneTags","customTones");
+      setupTagInput("customCrisisInput","customCrisisTags","customCrisis");
+
+      // Modes wrapper toggle
+      const modeTypeContainer = document.getElementById("modeTypeOptions");
+      const modesWrapper = document.getElementById("modesWrapper");
+      if(modeTypeContainer){
+        modeTypeContainer.addEventListener("click", function(){
+          const mt = getSingleSelectedValue("modeTypeOptions");
+          if(mt === "multi"){ modesWrapper.style.display = "block"; }
+          if(mt === "single"){ modesWrapper.style.display = "none"; }
+        });
+      }
+
+      // Navigation
+      const btnStart = document.getElementById("btnStart");
+      if(btnStart){
+        btnStart.addEventListener("click", function(){
+          showStep(2);
+        });
+      }
+
+      document.querySelectorAll("[data-next]").forEach(function(btn){
+        btn.addEventListener("click", function(){
+          if(!validateStep()) return;
+          const nextStep = Math.min(totalSteps, currentStep + 1);
+          if(nextStep === 8){ updateFinalPrompt(); }
+          showStep(nextStep);
+        });
+      });
+
+      document.querySelectorAll("[data-prev]").forEach(function(btn){
+        btn.addEventListener("click", function(){
+          const prevStep = Math.max(1, currentStep - 1);
+          showStep(prevStep);
+        });
+      });
+
+      // Copy & Regenerate
+      const btnCopy = document.getElementById("btnCopy");
+      const btnRegenerate = document.getElementById("btnRegenerate");
+      const copyMessage = document.getElementById("copyMessage");
+
+      if(btnRegenerate){
+        btnRegenerate.addEventListener("click", function(){
+          updateFinalPrompt();
+          if(copyMessage){
+            copyMessage.textContent = "Prompt regenerated based on your current choices.";
+            setTimeout(function(){ copyMessage.textContent = ""; }, 2400);
+          }
+        });
+      }
+
+      if(btnCopy){
+        btnCopy.addEventListener("click", function(){
+          const text = document.getElementById("finalPrompt").textContent || "";
+          if(!navigator.clipboard){
+            if(copyMessage){
+              copyMessage.textContent = "Clipboard API not available. Please copy manually.";
+              setTimeout(function(){ copyMessage.textContent = ""; }, 3000);
+            }
+            return;
+          }
+          navigator.clipboard.writeText(text).then(function(){
+            if(copyMessage){
+              copyMessage.textContent = "Text copied to clipboard.";
+              setTimeout(function(){ copyMessage.textContent = ""; }, 3000);
+            }
+          }).catch(function(){
+            if(copyMessage){
+              copyMessage.textContent = "Couldn’t copy automatically. Please copy manually.";
+              setTimeout(function(){ copyMessage.textContent = ""; }, 3000);
+            }
+          });
+        });
+      }
+
+      showStep(1);
+    })();
+  </script>
+</body>
+</html>
