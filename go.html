@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokémon GO — Meus Pokémons (IV + Tipos)</title>
+  <link rel="icon" type="image/x-icon" href="images/pokeball.png">
+  <style>
+    body{
+      font-family:'General Sans', sans-serif;
+      font-size:12px;
+      background:#f7f7f7 url("images/pokebg.png") repeat;
+      color:#000;
+      margin:0;
+      padding:0;
+    }
+
+    ::-webkit-scrollbar{ width:8px; }
+    ::-webkit-scrollbar-track{ box-shadow: inset 0 0 5px grey; border-radius:10px; }
+    ::-webkit-scrollbar-thumb{ background:#00ff99; border-radius:10px; }
+    ::-webkit-scrollbar-thumb:hover{ background:#00cc99; }
+
+    #wrapper{ text-align:center; width:100%; }
+    #top{ margin:10px 0; font-size:20px; }
+    #topblock{
+      background:#000;
+      color:#fff;
+      padding:10px 14px;
+      display:inline-block;
+      border-radius:15px;
+      margin-bottom:10px;
+    }
+
+    #filter-buttons{ margin:16px 12px 10px; }
+    .filter-button{
+      padding:8px 16px;
+      margin:4px;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+      font-size:12px;
+      background-color:#ddd;
+    }
+    .filter-button.active,.filter-button:hover{ background-color:#bbb; }
+
+    #tools{
+      max-width:1100px;
+      margin:0 auto 8px;
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      padding:0 12px;
+    }
+    #search{
+      width:min(520px, 92vw);
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid rgba(0,0,0,0.15);
+      outline:none;
+      background:#fff;
+      font-size:12px;
+    }
+    #search:focus{
+      box-shadow:0 0 0 4px rgba(0,255,153,0.22);
+      border-color:#00cc99;
+    }
+
+    #table-wrap{
+      max-width:1200px;
+      margin:10px auto 18px;
+      padding:0 12px;
+    }
+
+    table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      background:rgba(255,255,255,0.86);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 10px 28px rgba(0,0,0,0.08);
+    }
+
+    thead th{
+      position:sticky;
+      top:0;
+      background:#000;
+      color:#fff;
+      font-weight:600;
+      text-align:left;
+      padding:12px 12px;
+      font-size:12px;
+      z-index:1;
+    }
+
+    tbody tr{
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    tbody tr:hover{
+      background: rgba(0,255,153,0.10);
+    }
+
+    td{
+      padding:10px 12px;
+      border-bottom:1px solid rgba(0,0,0,0.08);
+      vertical-align:middle;
+      text-align:left;
+    }
+
+    .col-rank{ width:70px; font-variant-numeric: tabular-nums; }
+    .col-iv{ width:80px; font-variant-numeric: tabular-nums; }
+    .col-name{ width:auto; }
+    .col-types{ width:360px; }
+
+    .mon{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:240px;
+    }
+    .mon img{
+      width:34px;
+      height:34px;
+      object-fit:contain;
+      image-rendering:auto;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.14));
+    }
+    .mon .name{
+      font-size:14px;
+      font-weight:700;
+      line-height:1.1;
+    }
+    .mon .sub{
+      font-size:10px;
+      opacity:0.65;
+      margin-top:2px;
+    }
+
+    .pokemon-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      justify-content:flex-start;
+      align-items:center;
+    }
+    .pokemon-tag{
+      padding:6px 8px;
+      border-radius:7px;
+      font-size:10px;
+      color:#fff;
+      white-space:nowrap;
+      letter-spacing:0.2px;
+    }
+
+    .tag-Normal{ background-color:#A8A77A; }
+    .tag-Fire{ background-color:#EE8130; }
+    .tag-Water{ background-color:#6390F0; }
+    .tag-Electric{ background-color:#F7D02C; color:#000; }
+    .tag-Grass{ background-color:#7AC74C; }
+    .tag-Ice{ background-color:#96D9D6; color:#000; }
+    .tag-Fighting{ background-color:#C22E28; }
+    .tag-Poison{ background-color:#A33EA1; }
+    .tag-Ground{ background-color:#E2BF65; color:#000; }
+    .tag-Flying{ background-color:#A98FF3; color:#000; }
+    .tag-Psychic{ background-color:#F95587; }
+    .tag-Bug{ background-color:#A6B91A; color:#000; }
+    .tag-Rock{ background-color:#B6A136; color:#000; }
+    .tag-Ghost{ background-color:#735797; }
+    .tag-Dragon{ background-color:#6F35FC; }
+    .tag-Dark{ background-color:#705746; }
+    .tag-Steel{ background-color:#B7B7CE; color:#000; }
+    .tag-Fairy{ background-color:#D685AD; }
+    .tag-Stellar{ background-color:#E0DFFF; color:#000; }
+
+    #bottom{ text-align:center; margin-bottom:20px; }
+    #bottomblock{
+      background:#fff;
+      color:#000;
+      padding:10px;
+      display:inline-block;
+      border-radius:15px;
+      margin:10px auto;
+    }
+    a:link,a:visited{ text-decoration:none; color:#cf0000; }
+    a:hover,a:active{ text-decoration:none; color:#f50808; text-shadow:0 0 50px #f50808, 0 0 5px #f50808; }
+
+    @keyframes fadeIn{
+      from{ opacity:0; transform:translateY(12px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+    .fade-in{ animation: fadeIn 0.35s ease-out; }
+
+    @media (max-width: 820px){
+      .col-types{ width:260px; }
+      .mon{ min-width:180px; }
+    }
+    @media (max-width: 620px){
+      thead th:nth-child(4), td:nth-child(4){ display:none; } /* esconde tipos no mobile (fica no filtro ainda) */
+      .col-types{ width:auto; }
+    }
+  </style>
+</head>
+<body>
+  <a name="top"></a>
+  <div id="wrapper">
+
+    <div id="top">
+      <img src="images/pokeshelf.png" style="max-width:100%;" alt="Poké Shelf">
+      <br>
+      <div id="topblock">Pokémon GO • Minha lista (IV + Tipos)</div>
+      <br>
+      <img src="images/vortex.png" style="max-width:150px; opacity:0.9;" alt="Logo">
+    </div>
+
+    <div id="filter-buttons">
+      <button class="filter-button active" data-filter="todos">Ver Todos</button>
+      <button class="filter-button" data-filter="Normal">Normal</button>
+      <button class="filter-button" data-filter="Fire">Fire</button>
+      <button class="filter-button" data-filter="Water">Water</button>
+      <button class="filter-button" data-filter="Electric">Electric</button>
+      <button class="filter-button" data-filter="Grass">Grass</button>
+      <button class="filter-button" data-filter="Ice">Ice</button>
+      <button class="filter-button" data-filter="Fighting">Fighting</button>
+      <button class="filter-button" data-filter="Poison">Poison</button>
+      <button class="filter-button" data-filter="Ground">Ground</button>
+      <button class="filter-button" data-filter="Flying">Flying</button>
+      <button class="filter-button" data-filter="Psychic">Psychic</button>
+      <button class="filter-button" data-filter="Bug">Bug</button>
+      <button class="filter-button" data-filter="Rock">Rock</button>
+      <button class="filter-button" data-filter="Ghost">Ghost</button>
+      <button class="filter-button" data-filter="Dragon">Dragon</button>
+      <button class="filter-button" data-filter="Dark">Dark</button>
+      <button class="filter-button" data-filter="Steel">Steel</button>
+      <button class="filter-button" data-filter="Fairy">Fairy</button>
+    </div>
+
+    <div id="tools">
+      <input id="search" type="text" placeholder="Buscar por nome… (ex.: ekans, cetitan, medicham)" />
+    </div>
+
+    <div id="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th class="col-rank">Rank</th>
+            <th class="col-name">Pokémon</th>
+            <th class="col-iv">IV</th>
+            <th class="col-types">Tipos</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+
+    <div id="bottom">
+      <div id="bottomblock"><a href="#top">↑ Retornar ao topo da página</a></div>
+      <br>
+      <div id="bottomblock"><a href="/outros.html">« Retornar ao site principal</a></div>
+    </div>
+  </div>
+
+  <script>
+    /*
+      Lista completa baseada no que você listou no chat.
+      Mostra apenas IV, e os tipos são usados para tags + filtro.
+      Imagens seguem o padrão do seu template: images/pokemon/<Nome>.png
+      Se alguma imagem não existir, cai no fallback pokeball.png.
+    */
+
+    const mons = [
+      // topo “utilidade” (ajustável à vontade)
+      { name: "Cetitan", iv: 100, types: ["Ice"] },
+      { name: "Medicham", iv: 97, types: ["Fighting","Psychic"] },
+      { name: "Wobbuffet", iv: 95, types: ["Psychic"] },
+      { name: "Nidorina", iv: 100, types: ["Poison"] },
+      { name: "Arcanine", iv: 93, types: ["Fire"] },
+      { name: "Cetoddle", iv: 97, types: ["Ice"] },
+      { name: "Scyther", iv: 91, types: ["Bug","Flying"] },
+      { name: "Leafeon", iv: 93, types: ["Grass"] },
+      { name: "Snorlax", iv: 82, types: ["Normal"] },
+      { name: "Chansey", iv: 77, types: ["Normal"] },
+      { name: "Miltank", iv: 82, types: ["Normal"] },
+
+      // elétricos/úteis
+      { name: "Electabuzz", iv: 82, types: ["Electric"] },
+      { name: "Flaaffy", iv: 88, types: ["Electric"] },
+      { name: "Electrike (A)", iv: 86, types: ["Electric"] },
+      { name: "Electrike (B)", iv: 86, types: ["Electric"] },
+      { name: "Pikachu (Natal)", iv: 86, types: ["Electric"] },
+
+      // psíquicos e afins
+      { name: "Kadabra", iv: 86, types: ["Psychic"] },
+      { name: "Gothorita", iv: 82, types: ["Psychic"] },
+      { name: "Indeedee", iv: 93, types: ["Psychic","Normal"] },
+      { name: "Indeedee (2)", iv: 86, types: ["Psychic","Normal"] },
+      { name: "Claydol", iv: 84, types: ["Ground","Psychic"] },
+      { name: "Metang", iv: 86, types: ["Steel","Psychic"] },
+
+      // grama & companhia
+      { name: "Exeggutor", iv: 91, types: ["Grass","Psychic"] },
+      { name: "Bulbasaur", iv: 84, types: ["Grass","Poison"] },
+      { name: "Grookey", iv: 84, types: ["Grass"] },
+      { name: "Skiploom", iv: 84, types: ["Grass","Flying"] },
+      { name: "Petilil", iv: 84, types: ["Grass"] },
+      { name: "Pumpkaboo", iv: 91, types: ["Ghost","Grass"] },
+
+      // gelo
+      { name: "Beartic", iv: 82, types: ["Ice"] },
+      { name: "Bergmite", iv: 82, types: ["Ice"] },
+      { name: "Glalie", iv: 84, types: ["Ice"] },
+      { name: "Sandshrew (Alola)", iv: 94, types: ["Ice","Steel"] },
+
+      // lutadores
+      { name: "Makuhita", iv: 91, types: ["Fighting"] },
+      { name: "Throh", iv: 51, types: ["Fighting"] },
+
+      // veneno/fantasma
+      { name: "Gastly", iv: 84, types: ["Ghost","Poison"] },
+      { name: "Gastly (2)", iv: 82, types: ["Ghost","Poison"] },
+      { name: "Muk", iv: 86, types: ["Poison"] },
+      { name: "Weezing", iv: 82, types: ["Poison"] },
+      { name: "Ekans", iv: 93, types: ["Poison"] },
+      { name: "Ekans (2)", iv: 91, types: ["Poison"] },
+      { name: "Ekans (3)", iv: 75, types: ["Poison"] },
+      { name: "Dusclops", iv: 82, types: ["Ghost"] },
+      { name: "Doublade", iv: 75, types: ["Steel","Ghost"] },
+
+      // voadores/bug
+      { name: "Masquerain", iv: 86, types: ["Bug","Flying"] },
+      { name: "Parasect", iv: 93, types: ["Bug","Grass"] },
+      { name: "Tarountula", iv: 82, types: ["Bug"] },
+      { name: "Kakuna", iv: 84, types: ["Bug","Poison"] },
+      { name: "Swablu", iv: 86, types: ["Normal","Flying"] },
+      { name: "Pidgey", iv: 82, types: ["Normal","Flying"] },
+
+      // rocha/terra/água
+      { name: "Hippopotas", iv: 84, types: ["Ground"] },
+      { name: "Larvitar", iv: 77, types: ["Rock","Ground"] },
+      { name: "Omanyte", iv: 77, types: ["Rock","Water"] },
+      { name: "Marcargo", iv: 91, types: ["Fire","Rock"] },
+      { name: "Slugma", iv: 86, types: ["Fire"] },
+      { name: "Krabby", iv: 75, types: ["Water"] },
+      { name: "Wimpod", iv: 91, types: ["Bug","Water"] },
+
+      // normal variados
+      { name: "Herdier", iv: 84, types: ["Normal"] },
+      { name: "Igglybuff", iv: 84, types: ["Normal","Fairy"] },
+      { name: "Snubbull", iv: 84, types: ["Fairy"] },
+      { name: "Snubbull (2)", iv: 91, types: ["Fairy"] },
+      { name: "Lechonk", iv: 86, types: ["Normal"] },
+      { name: "Glameow", iv: 86, types: ["Normal"] },
+      { name: "Yungoos", iv: 91, types: ["Normal"] },
+      { name: "Porygon", iv: 84, types: ["Normal"] },
+
+      // starters recentes
+      { name: "Fuecoco", iv: 84, types: ["Fire"] },
+      { name: "Scorbunny", iv: 88, types: ["Fire"] },
+
+      // dark
+      { name: "Liepard", iv: 84, types: ["Dark"] }
+    ];
+
+    // “utilidade” simples (pode ajustar: quanto maior, mais sobe no ranking)
+    const baseUtility = (name) => {
+      const n = name.toLowerCase();
+      if (n.includes("cetitan")) return 90;
+      if (n.includes("medicham")) return 86;
+      if (n.includes("metang")) return 82;           // futuro metagross
+      if (n.includes("wobbuffet")) return 78;        // ginásio chato
+      if (n.includes("chansey")) return 76;          // ginásio chato
+      if (n.includes("snorlax")) return 74;          // ginásio + raids ok
+      if (n.includes("arcanine")) return 72;         // fogo decente
+      if (n.includes("sandshrew (alola)")) return 70;// gelo/aço útil
+      if (n.includes("scyther")) return 68;          // scizor futuro
+      if (n.includes("electabuzz")) return 66;       // electivire futuro
+      if (n.includes("flaaffy")) return 64;          // ampharos futuro
+      if (n.includes("electrike")) return 62;        // manectric futuro
+      if (n.includes("exeggutor")) return 58;
+      if (n.includes("gastly")) return 58;           // gengar futuro
+      if (n.includes("bulbasaur")) return 55;        // venusaur futuro
+      if (n.includes("larvitar")) return 55;         // tyranitar futuro (caro)
+      if (n.includes("dusclops")) return 50;         // dusknoir futuro (nicho)
+      if (n.includes("wimpod")) return 50;           // golisopod futuro (caro)
+      if (n.includes("claydol")) return 46;
+      if (n.includes("indeedee")) return 44;
+      if (n.includes("miltank")) return 42;
+      if (n.includes("masquerain")) return 36;
+      if (n.includes("parasect")) return 34;
+      if (n.includes("marcargo")) return 32;
+      if (n.includes("slugma")) return 30;
+      if (n.includes("pidgey")) return 24;
+      if (n.includes("swablu")) return 26;
+      if (n.includes("porygon")) return 26;
+      if (n.includes("kakuna")) return 18;
+      if (n.includes("tarountula")) return 14;
+      if (n.includes("throh")) return 10;
+      return 22;
+    };
+
+    function score(mon){
+      return baseUtility(mon.name) + (mon.iv / 100) * 12;
+    }
+
+    // monta o caminho da imagem com base no nome (tentando combinar com o padrão da sua pasta)
+    function imagePath(name){
+      // remove sufixos (A), (B), (2), etc para tentar achar o arquivo real
+      const clean = name
+        .replace(/\s*\(A\)|\s*\(B\)|\s*\(2\)|\s*\(3\)/g, "")
+        .replace(/\s*\(Natal\)/g, "")
+        .replace(/\s*\(Alola\)/g, " (Alola)")
+        .trim();
+
+      // encode para lidar com espaços
+      return "images/pokemon/" + encodeURIComponent(clean) + ".png";
+    }
+
+    function tagSpan(type){
+      const s = document.createElement("span");
+      s.className = "pokemon-tag tag-" + type;
+      s.textContent = type;
+      return s;
+    }
+
+    function render(filterType="todos", query=""){
+      const tbody = document.getElementById("rows");
+      tbody.innerHTML = "";
+
+      const q = query.trim().toLowerCase();
+
+      let list = mons.slice();
+
+      // filtro por tipo
+      if(filterType !== "todos"){
+        list = list.filter(m => m.types.includes(filterType));
+      }
+
+      // busca por nome
+      if(q){
+        list = list.filter(m => m.name.toLowerCase().includes(q));
+      }
+
+      // ordena por score desc
+      list.sort((a,b) => score(b) - score(a));
+
+      list.forEach((m, idx) => {
+        const tr = document.createElement("tr");
+        tr.classList.add("fade-in");
+        tr.setAttribute("data-types", m.types.join(","));
+
+        // Rank
+        const tdRank = document.createElement("td");
+        tdRank.className = "col-rank";
+        tdRank.textContent = "#" + (idx + 1);
+
+        // Nome + imagem
+        const tdName = document.createElement("td");
+        tdName.className = "col-name";
+        const wrap = document.createElement("div");
+        wrap.className = "mon";
+
+        const img = document.createElement("img");
+        img.src = imagePath(m.name);
+        img.alt = m.name;
+        img.onerror = () => { img.src = "images/pokeball.png"; };
+
+        const text = document.createElement("div");
+        const nm = document.createElement("div");
+        nm.className = "name";
+        nm.textContent = m.name;
+
+        const sub = document.createElement("div");
+        sub.className = "sub";
+        sub.textContent = "Tipos: " + m.types.join(" / ");
+
+        text.appendChild(nm);
+        text.appendChild(sub);
+
+        wrap.appendChild(img);
+        wrap.appendChild(text);
+        tdName.appendChild(wrap);
+
+        // IV
+        const tdIv = document.createElement("td");
+        tdIv.className = "col-iv";
+        tdIv.textContent = m.iv;
+
+        // Tipos (tags)
+        const tdTypes = document.createElement("td");
+        tdTypes.className = "col-types";
+        const tags = document.createElement("div");
+        tags.className = "pokemon-tags";
+        m.types.forEach(t => tags.appendChild(tagSpan(t)));
+        tdTypes.appendChild(tags);
+
+        tr.appendChild(tdRank);
+        tr.appendChild(tdName);
+        tr.appendChild(tdIv);
+        tr.appendChild(tdTypes);
+        tbody.appendChild(tr);
+      });
+    }
+
+    function setActiveButton(btn){
+      document.querySelectorAll(".filter-button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+    }
+
+    let currentFilter = "todos";
+
+    document.querySelectorAll(".filter-button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        currentFilter = btn.getAttribute("data-filter");
+        setActiveButton(btn);
+        render(currentFilter, document.getElementById("search").value);
+      });
+    });
+
+    document.getElementById("search").addEventListener("input", (e) => {
+      render(currentFilter, e.target.value);
+    });
+
+    render("todos", "");
+  </script>
+</body>
+</html>
