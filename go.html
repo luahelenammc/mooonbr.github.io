@@ -1,426 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Pokémon GO · Minha lista (IV + Tipos)</title>
-
-  <!-- Importante: sem "/" no começo, pra funcionar em /go no GitHub Pages -->
-  <link rel="icon" type="image/x-icon" href="images/pokeball.png">
-
   <style>
+    :root{
+      --bg1:#0b0f14;
+      --bg2:#111827;
+      --card:rgba(17,24,39,.72);
+      --card2:rgba(2,6,23,.62);
+      --stroke:rgba(255,255,255,.14);
+      --stroke2:rgba(255,255,255,.10);
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --accent:#60a5fa;
+      --accent2:#22c55e;
+      --danger:#fb7185;
+      --chip:rgba(255,255,255,.08);
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius:20px;
+      --radius2:14px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      font-size: 13px;
-      background: #f7f7f7 url("images/pokebg.png") repeat;
-      color:#111;
       margin:0;
-      padding:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 900px at 15% 5%, rgba(96,165,250,.20), transparent 55%),
+        radial-gradient(900px 700px at 85% 10%, rgba(34,197,94,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      padding:22px 14px 36px;
     }
 
-    #wrapper{ width:100%; text-align:center; }
-    #top{ margin: 10px 0 0; }
-    #top img{ max-width: 100%; }
-
-    .title-pill{
-      display:inline-block;
-      background:#000;
-      color:#fff;
-      padding: 12px 16px;
-      border-radius: 18px;
-      margin: 14px 10px 8px;
-      font-size: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.20);
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
     }
 
-    #filter-buttons{
-      margin: 10px auto 8px;
-      padding: 0 10px;
-      max-width: 1100px;
-    }
-    .filter-button{
-      padding: 9px 14px;
-      margin: 4px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 13px;
-      background: rgba(255,255,255,.75);
-      box-shadow: 0 10px 25px rgba(0,0,0,.12);
-      backdrop-filter: blur(8px);
-    }
-    .filter-button.active{
-      background: #111;
-      color:#fff;
-    }
-
-    #search-wrap{
-      max-width: 920px;
-      margin: 10px auto 12px;
-      padding: 0 12px;
-    }
-    #search{
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(0,0,0,.15);
-      outline: none;
-      font-size: 14px;
-      box-shadow: 0 10px 25px rgba(0,0,0,.10);
-      background: rgba(255,255,255,.85);
-      backdrop-filter: blur(8px);
-    }
-
-    .table-wrap{
-      max-width: 1100px;
-      margin: 0 auto 18px;
-      padding: 0 12px;
-    }
-
-    table{
-      width:100%;
-      border-collapse: collapse;
+    .panel{
+      border:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
       overflow:hidden;
-      border-radius: 18px;
-      box-shadow: 0 16px 45px rgba(0,0,0,.18);
-      background: rgba(255,255,255,.9);
-      backdrop-filter: blur(8px);
     }
 
-    thead th{
-      background:#000;
-      color:#fff;
-      font-weight:700;
-      text-align:left;
-      padding: 14px 12px;
-      font-size: 13px;
-      position: sticky;
-      top: 0;
-      z-index: 2;
+    header{
+      padding:22px 18px 16px;
+      background:
+        radial-gradient(700px 240px at 40% 0%, rgba(255,255,255,.10), transparent 60%),
+        linear-gradient(180deg, rgba(0,0,0,.22), rgba(0,0,0,.08));
+      border-bottom:1px solid var(--stroke2);
     }
 
-    tbody td{
-      padding: 10px 12px;
-      border-bottom: 1px solid rgba(0,0,0,.08);
-      vertical-align: middle;
-      text-align:left;
-    }
-    tbody tr:hover{
-      background: rgba(0,0,0,.035);
-    }
-
-    .poke-cell{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap: wrap;
-    }
-
-    .poke-img{
-      width: 42px;
-      height: 42px;
-      image-rendering: pixelated;
-      filter: drop-shadow(0 10px 18px rgba(0,0,0,.20));
-    }
-
-    .poke-name{
-      font-weight: 800;
-      font-size: 14px;
-      line-height: 1.1;
-    }
-
-    .poke-tags{
-      display:flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-top: 4px;
-    }
-
-    .pokemon-tag{
-      padding: 6px 8px;
-      border-radius: 9px;
-      font-size: 11px;
-      color:#fff;
-      white-space: nowrap;
-      box-shadow: 0 10px 18px rgba(0,0,0,.12);
-    }
-
-    /* Paleta por tipo */
-    .tag-Normal   { background-color: #A8A77A; }
-    .tag-Fire     { background-color: #EE8130; }
-    .tag-Water    { background-color: #6390F0; }
-    .tag-Electric { background-color: #F7D02C; color:#111; }
-    .tag-Grass    { background-color: #7AC74C; }
-    .tag-Ice      { background-color: #96D9D6; color:#111; }
-    .tag-Fighting { background-color: #C22E28; }
-    .tag-Poison   { background-color: #A33EA1; }
-    .tag-Ground   { background-color: #E2BF65; color:#111; }
-    .tag-Flying   { background-color: #A98FF3; }
-    .tag-Psychic  { background-color: #F95587; }
-    .tag-Bug      { background-color: #A6B91A; }
-    .tag-Rock     { background-color: #B6A136; color:#111; }
-    .tag-Ghost    { background-color: #735797; }
-    .tag-Dragon   { background-color: #6F35FC; }
-    .tag-Dark     { background-color: #705746; }
-    .tag-Steel    { background-color: #B7B7CE; color:#111; }
-    .tag-Fairy    { background-color: #D685AD; }
-    .tag-Stellar  { background-color: #E0DFFF; color:#111; }
-
-    .iv-pill{
-      display:inline-block;
-      background:#111;
-      color:#fff;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-weight:800;
-      min-width: 52px;
-      text-align:center;
-    }
-
-    #empty{
-      display:none;
-      margin: 14px auto 0;
-      max-width: 900px;
-      background: rgba(255,255,255,.85);
-      border: 1px solid rgba(0,0,0,.10);
-      border-radius: 16px;
-      padding: 14px 12px;
-      box-shadow: 0 12px 30px rgba(0,0,0,.12);
-    }
-
-    #bottom{
-      text-align:center;
-      margin: 18px 0 26px;
-    }
-    .bottom-btn{
-      display:inline-block;
-      background: rgba(255,255,255,.86);
-      color:#cf0000;
-      padding: 12px 14px;
-      border-radius: 16px;
-      margin: 8px 10px;
-      text-decoration:none;
-      box-shadow: 0 12px 30px rgba(0,0,0,.12);
-      font-weight: 700;
-    }
-  </style>
-</head>
-
-<body>
-  <a id="top"></a>
-
-  <div id="wrapper">
-    <div id="top">
-      <img src="images/pokeshelf.png" alt="Poké Shelf">
-      <div class="title-pill">Pokémon GO · Minha lista (IV + Tipos)</div>
-    </div>
-
-    <div id="filter-buttons">
-      <button class="filter-button active" data-filter="todos">Ver Todos</button>
-      <button class="filter-button" data-filter="Normal">Normal</button>
-      <button class="filter-button" data-filter="Fire">Fire</button>
-      <button class="filter-button" data-filter="Water">Water</button>
-      <button class="filter-button" data-filter="Electric">Electric</button>
-      <button class="filter-button" data-filter="Grass">Grass</button>
-      <button class="filter-button" data-filter="Ice">Ice</button>
-      <button class="filter-button" data-filter="Fighting">Fighting</button>
-      <button class="filter-button" data-filter="Poison">Poison</button>
-      <button class="filter-button" data-filter="Ground">Ground</button>
-      <button class="filter-button" data-filter="Flying">Flying</button>
-      <button class="filter-button" data-filter="Psychic">Psychic</button>
-      <button class="filter-button" data-filter="Bug">Bug</button>
-      <button class="filter-button" data-filter="Rock">Rock</button>
-      <button class="filter-button" data-filter="Ghost">Ghost</button>
-      <button class="filter-button" data-filter="Dragon">Dragon</button>
-      <button class="filter-button" data-filter="Dark">Dark</button>
-      <button class="filter-button" data-filter="Steel">Steel</button>
-      <button class="filter-button" data-filter="Fairy">Fairy</button>
-    </div>
-
-    <div id="search-wrap">
-      <input id="search" type="text" placeholder="Buscar por nome... (ex.: ekans, cetitan, medicham)" />
-    </div>
-
-    <div class="table-wrap">
-      <table aria-label="Tabela de Pokémons">
-        <thead>
-          <tr>
-            <th style="width: 70px;">Rank</th>
-            <th>Pokémon</th>
-            <th style="width: 90px;">IV</th>
-          </tr>
-        </thead>
-        <tbody id="rows"></tbody>
-      </table>
-
-      <div id="empty">Nada apareceu porque esse filtro/busca não bateu em nenhum pokémon. (O que é bom: significa que o filtro funciona.)</div>
-    </div>
-
-    <div id="bottom">
-      <a class="bottom-btn" href="#top">↑ Retornar ao topo da página</a>
-      <!-- Se sua home estiver no mesmo nível do /go, use ../ -->
-      <a class="bottom-btn" href="../index.html">« Retornar ao site principal</a>
-    </div>
-  </div>
-
-  <script>
-    // Sprites online por nome (não precisa baixar nada)
-    // Ex.: https://play.pokemonshowdown.com/sprites/ani/snorlax.gif
-    const SPRITE_BASE = "https://play.pokemonshowdown.com/sprites/ani/";
-    const FALLBACK_BASE = "https://img.pokemondb.net/sprites/home/normal/";
-
-    // Pequeno “normalizador” de nomes pra URL de sprite
-    // (GO costuma ser simples; quando tiver forma, a gente ajusta aqui)
-    function slugify(name){
-      return String(name)
-        .toLowerCase()
-        .trim()
-        .replace(/♀/g, "-f")
-        .replace(/♂/g, "-m")
-        .replace(/[\.\']/g, "")
-        .replace(/\s+/g, "-");
-    }
-
-    // Sua lista (com duplicados preservados)
-    const pokemons = [
-      { name:"Cetitan",   iv:100, types:["Ice"] },
-      { name:"Nidorina",  iv:100, types:["Poison"] },
-
-      { name:"Medicham",  iv:97,  types:["Fighting","Psychic"] },
-      { name:"Cetoddle",  iv:97,  types:["Ice"] },
-
-      { name:"Wobbuffet", iv:95,  types:["Psychic"] },
-
-      { name:"Growlithe", iv:93,  types:["Fire"] },
-      { name:"Indeedee",  iv:93,  types:["Psychic","Normal"] },
-      { name:"Jigglypuff",iv:93,  types:["Normal","Fairy"] },
-      { name:"Parasect",  iv:93,  types:["Bug","Grass"] },
-      { name:"Leafeon",   iv:93,  types:["Grass"] },
-      { name:"Ekans",     iv:93,  types:["Poison"] },
-
-      { name:"Pidgey",    iv:92,  types:["Normal","Flying"] },
-
-      { name:"Ekans",     iv:91,  types:["Poison"] },
-      { name:"Pumpkaboo", iv:91,  types:["Ghost","Grass"] },
-      { name:"Yungoos",   iv:91,  types:["Normal"] },
-      { name:"Wimpod",    iv:91,  types:["Bug","Water"] },
-      { name:"Exeggutor", iv:91,  types:["Grass","Psychic"] },
-      { name:"Makuhita",  iv:91,  types:["Fighting"] },
-      { name:"Magcargo",  iv:91,  types:["Fire","Rock"] },
-      { name:"Snubbull",  iv:91,  types:["Fairy"] },
-
-      { name:"Scorbunny", iv:88,  types:["Fire"] },
-      { name:"Flaaffy",   iv:88,  types:["Electric"] },
-      { name:"Charcadet", iv:88,  types:["Fire"] },
-
-      { name:"Electrike", iv:86,  types:["Electric"] },
-      { name:"Electrike", iv:86,  types:["Electric"] },
-      { name:"Glameow",   iv:86,  types:["Normal"] },
-      { name:"Slugma",    iv:86,  types:["Fire"] },
-      { name:"Slugma",    iv:86,  types:["Fire"] },
-      { name:"Indeedee",  iv:86,  types:["Psychic","Normal"] },
-      { name:"Muk",       iv:86,  types:["Poison"] },
-      { name:"Meditite",  iv:86,  types:["Fighting","Psychic"] },
-      { name:"Metang",    iv:86,  types:["Steel","Psychic"] },
-      { name:"Pikachu",   iv:86,  types:["Electric"] }, // temática natal (sprite padrão mesmo)
-
-      { name:"Gastly",    iv:84,  types:["Ghost","Poison"] },
-      { name:"Hippopotas",iv:84,  types:["Ground"] },
-      { name:"Igglybuff", iv:84,  types:["Normal","Fairy"] },
-      { name:"Bulbasaur", iv:84,  types:["Grass","Poison"] },
-      { name:"Grookey",   iv:84,  types:["Grass"] },
-      { name:"Porygon",   iv:84,  types:["Normal"] },
-      { name:"Petilil",   iv:84,  types:["Grass"] },
-      { name:"Kakuna",    iv:84,  types:["Bug","Poison"] },
-      { name:"Liepard",   iv:84,  types:["Dark"] },
-      { name:"Claydol",   iv:84,  types:["Ground","Psychic"] },
-      { name:"Krokorok",  iv:84,  types:["Ground","Dark"] },
-      { name:"Fuecoco",   iv:84,  types:["Fire"] },
-      { name:"Smoochum",  iv:84,  types:["Ice","Psychic"] },
-      { name:"Mega Glalie", iv:84, types:["Ice"] }, // sprite pode falhar; tem fallback
-
-      { name:"Miltank",   iv:82,  types:["Normal"] },
-      { name:"Snorlax",   iv:82,  types:["Normal"] },
-      { name:"Beartic",   iv:82,  types:["Ice"] },
-      { name:"Scyther",   iv:82,  types:["Bug","Flying"] },
-      { name:"Weezing",   iv:82,  types:["Poison"] },
-      { name:"Tarountula",iv:82,  types:["Bug"] },
-      { name:"Dusclops",  iv:82,  types:["Ghost"] },
-      { name:"Electabuzz",iv:82,  types:["Electric"] },
-      { name:"Masquerain",iv:86,  types:["Bug","Flying"] }, // (da tua atualização)
-      { name:"Swablu",    iv:86,  types:["Normal","Flying"] },
-      { name:"Kadabra",   iv:86,  types:["Psychic"] },
-      { name:"Gothorita", iv:82,  types:["Psychic"] },
-
-      { name:"Larvitar",  iv:77,  types:["Rock","Ground"] },
-      { name:"Omanyte",   iv:77,  types:["Rock","Water"] },
-      { name:"Chansey",   iv:77,  types:["Normal"] },
-
-      { name:"Doublade",  iv:75,  types:["Steel","Ghost"] },
-      { name:"Krabby",    iv:75,  types:["Water"] },
-      { name:"Ekans",     iv:75,  types:["Poison"] },
-
-      { name:"Throh",     iv:51,  types:["Fighting"] },
-
-      // Extras que apareceram na tua lista e não cabiam acima
-      { name:"Skiploom",  iv:84,  types:["Grass","Flying"] },
-      { name:"Lechonk",   iv:86,  types:["Normal"] },
-      { name:"Bergmite",  iv:82,  types:["Ice"] },
-      { name:"Sandshrew", iv:94,  types:["Ice","Steel"] }, // “branco com neve” (Alolan)
-      { name:"Arcanine",  iv:93,  types:["Fire"] },
-      { name:"Herdier",   iv:84,  types:["Normal"] }
-    ];
-
-    // Ajustes pontuais pra sprites (formas / nomes “compostos”)
-    function spriteKey(p){
-      const n = p.name.toLowerCase();
-
-      // Mega Glalie: showdown usa "glalie-mega"
-      if(n === "mega glalie") return "glalie-mega";
-
-      // Sandshrew branco (alolan): showdown usa "sandshrew-alola"
-      if(n === "sandshrew" && p.types.includes("Steel")) return "sandshrew-alola";
-
-      // Indeedee: showdown tem indeedee e indeedee-f; vamos usar base
-      if(n === "indeedee") return "indeedee";
-
-      return slugify(p.name);
-    }
-
-    // Ordena por IV desc, depois nome
-    const sorted = pokemons
-      .map((p, idx) => ({...p, _id: idx}))
-      .sort((a,b) => (b.iv - a.iv) || a.name.localeCompare(b.name));
-
-    // Rank fixo (na lista completa)
-    sorted.forEach((p, i) => p.rank = i + 1);
-
-    const rowsEl = document.getElementById("rows");
-    const emptyEl = document.getElementById("empty");
-    const searchEl = document.getElementById("search");
-
-    let activeFilter = "todos";
-    let searchTerm = "";
-
-    function matches(p){
-      const typeOk = (activeFilter === "todos") || p.types.includes(activeFilter);
-      const nameOk = !searchTerm || p.name.toLowerCase().includes(searchTerm);
-      return typeOk && nameOk;
-    }
-
-    function makeTag(type){
-      const span = document.createElement("span");
-      span.className = `pokemon-tag tag-${type}`;
-      span.textContent = type;
-      return span;
-    }
-
-    function makeSpriteImg(p){
-      const key = spriteKey(p);
-      const img = document.createElement("img");
-      img.className = "poke-img";
-      img.alt = p.name;
-      img.loading = "lazy";
-      img.referrerPolicy = "no-referrer";
-
-      const primary = `${
+    h1{
+      margin:0;
+      font-size: 20px;
+      line-height:1.2;
+      letter-spacing
