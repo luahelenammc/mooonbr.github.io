@@ -52,7 +52,7 @@ export const RAW = [
   { name:"makuhita", iv:91, types:["Fighting"] },
   { name:"magcargo", iv:91, types:["Fire","Rock"] },
   { name:"scyther", iv:91, types:["Bug","Flying"] },
-  { name:"snubbull", iv:91, types:["Fairy"] },
+  { name:"granbull", iv:91, types:["Fairy"] },
 
   { name:"scorbunny", iv:88, types:["Fire"] },
   { name:"flaaffy", iv:88, types:["Electric"] },
