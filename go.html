@@ -1,268 +1,467 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pokémon GO • Lista (IV + Tipos) — LuaHMoonMC</title>
+  <title>Pokémon GO • LuaHMoonMC</title>
 
   <style>
     :root{
-      --bg1:#0b1020;
-      --bg2:#0a2a3a;
-      --panel: rgba(0,0,0,.58);
-      --panel2: rgba(255,255,255,.08);
-      --text:#f2f5ff;
-      --muted: rgba(242,245,255,.72);
-      --accent:#ff4d7d;
-      --chip:#e9e9e9;
-      --chipText:#141414;
-      --chipActive:#111;
-      --chipActiveText:#fff;
-      --shadow: 0 18px 55px rgba(0,0,0,.45);
+      --bgA:#0a1433;
+      --bgB:#0b3a5f;
+      --card: rgba(255,255,255,.10);
+      --card2: rgba(0,0,0,.28);
+      --stroke: rgba(255,255,255,.16);
+      --text: #f7fbff;
+      --muted: rgba(247,251,255,.72);
+      --shadow: 0 22px 70px rgba(0,0,0,.45);
       --radius: 22px;
+      --radius2: 16px;
+      --yellow: #ffcc00;
+      --blue: #2a75bb;
+      --red: #ee1515;
     }
 
-    *{box-sizing:border-box}
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+
     body{
       margin:0;
-      color:var(--text);
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
       background:
-        radial-gradient(1200px 600px at 10% 10%, rgba(255,77,125,.22), transparent 60%),
-        radial-gradient(900px 600px at 90% 30%, rgba(90,220,255,.18), transparent 65%),
-        linear-gradient(160deg, var(--bg1), var(--bg2));
-      min-height:100vh;
+        radial-gradient(1200px 700px at 10% 10%, rgba(255,204,0,.18), transparent 60%),
+        radial-gradient(900px 650px at 90% 18%, rgba(42,117,187,.22), transparent 62%),
+        radial-gradient(900px 700px at 60% 120%, rgba(238,21,21,.12), transparent 55%),
+        linear-gradient(160deg, var(--bgA), var(--bgB));
+      overflow-x:hidden;
     }
 
-    .wrap{max-width:980px;margin:0 auto;padding:18px 14px 40px}
+    /* Pokéball pattern */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:-120px;
+      pointer-events:none;
+      opacity:.22;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.10) 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,.08) 0 2px, transparent 3px),
+        radial-gradient(circle at 65% 75%, rgba(255,255,255,.09) 0 2px, transparent 3px),
+        radial-gradient(circle at 28% 80%, rgba(255,255,255,.07) 0 2px, transparent 3px);
+      filter: blur(.2px);
+      transform: rotate(-7deg);
+    }
+
+    .wrap{
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 18px 14px 40px;
+      position:relative;
+      z-index:1;
+    }
 
     header{
       position:relative;
       border-radius: var(--radius);
       overflow:hidden;
       box-shadow: var(--shadow);
-      background: linear-gradient(135deg, rgba(255,77,125,.20), rgba(90,220,255,.12));
-      border: 1px solid rgba(255,255,255,.12);
+      border: 1px solid var(--stroke);
+      background:
+        radial-gradient(900px 280px at 10% 0%, rgba(255,255,255,.16), transparent 65%),
+        linear-gradient(135deg, rgba(255,204,0,.14), rgba(42,117,187,.14));
     }
+
     .hero{
-      padding:22px 18px 18px;
-      background: radial-gradient(900px 260px at 15% 0%, rgba(255,255,255,.16), transparent 62%);
-      backdrop-filter: blur(8px);
+      padding: 18px 18px 16px;
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,.18);
     }
-    .title{
+
+    .topline{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 260px;
+    }
+
+    .pokeball{
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      background:
+        linear-gradient(180deg, var(--red) 0 48%, #0b0b0b 48% 52%, #ffffff 52% 100%);
+      border: 2px solid rgba(255,255,255,.22);
+      box-shadow: 0 16px 40px rgba(0,0,0,.35);
+      position:relative;
+      flex: 0 0 48px;
+    }
+    .pokeball::after{
+      content:"";
+      position:absolute;
+      inset: 18px;
+      border-radius:999px;
+      background:#ffffff;
+      border: 3px solid #0b0b0b;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.25);
+    }
+
+    h1{
       margin:0;
-      font-size: clamp(20px, 3.6vw, 34px);
-      letter-spacing:.2px;
-      line-height:1.06;
+      font-size: clamp(20px, 3.5vw, 34px);
+      line-height: 1.05;
+      letter-spacing: .2px;
     }
-    .subtitle{
-      margin:10px 0 0;
-      color:var(--muted);
+
+    .tagline{
+      margin: 8px 0 0;
+      color: var(--muted);
       font-size: 14px;
     }
+
     .idbar{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
-      margin-top:14px;
       align-items:center;
+      justify-content:flex-end;
     }
+
     .pill{
-      background: rgba(0,0,0,.55);
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: 999px;
-      padding:10px 12px;
       display:flex;
       gap:10px;
       align-items:center;
-      box-shadow: 0 10px 30px rgba(0,0,0,.22);
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.35);
+      box-shadow: 0 12px 30px rgba(0,0,0,.20);
+      white-space: nowrap;
+      font-size: 13px;
     }
-    .pill strong{font-weight:800}
+    .pill strong{ font-weight: 900; letter-spacing:.2px; }
+
     .copy{
       appearance:none;
-      border:0;
+      border: 1px solid rgba(255,255,255,.18);
       border-radius: 999px;
-      padding:10px 12px;
-      background: rgba(255,255,255,.12);
+      padding: 10px 12px;
+      background: rgba(255,204,0,.18);
       color: var(--text);
       cursor:pointer;
-      font-weight:700;
+      font-weight: 900;
+      box-shadow: 0 12px 30px rgba(0,0,0,.22);
     }
-    .copy:active{transform: translateY(1px)}
-    .copy:hover{background: rgba(255,255,255,.16)}
+    .copy:hover{ background: rgba(255,204,0,.24); }
+    .copy:active{ transform: translateY(1px); }
 
-    .controls{
-      margin-top:14px;
-      background: var(--panel);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius: var(--radius);
-      padding:14px;
-      box-shadow: var(--shadow);
-    }
-
-    .btnrow{
+    .metaRow{
+      margin-top: 14px;
       display:flex;
       gap:10px;
       flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+
+    .counts{
+      color: rgba(247,251,255,.80);
+      font-size: 13px;
+    }
+    .counts b{ color: #fff; }
+
+    .controls{
+      margin-top: 14px;
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--stroke);
+      background: rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
+    }
+
+    .filters{
+      padding: 12px 12px 10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
       justify-content:center;
-      margin:10px 0 12px;
     }
-    .chip{
-      border:0;
+
+    .tbtn{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 999px;
       cursor:pointer;
-      background: var(--chip);
-      color: var(--chipText);
-      padding:10px 14px;
-      border-radius: 14px;
-      font-weight:800;
-      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+      font-weight: 900;
+      font-size: 13px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      box-shadow: 0 10px 26px rgba(0,0,0,.20);
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
     }
-    .chip.active{
-      background: var(--chipActive);
-      color: var(--chipActiveText);
-      box-shadow: 0 12px 30px rgba(0,0,0,.28);
+
+    .tbtn .dot{
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--c, rgba(255,255,255,.6));
+      box-shadow: 0 0 0 2px rgba(0,0,0,.20), 0 0 18px rgba(255,255,255,.10);
+    }
+
+    .tbtn.active{
+      background: color-mix(in srgb, var(--c) 26%, rgba(0,0,0,.30));
+      border-color: color-mix(in srgb, var(--c) 45%, rgba(255,255,255,.18));
+      box-shadow: 0 14px 34px rgba(0,0,0,.30);
+    }
+
+    .searchRow{
+      padding: 0 12px 14px;
+      display:flex;
+      justify-content:center;
     }
 
     .search{
-      width:100%;
+      width: min(860px, 100%);
       border-radius: 16px;
       border: 1px solid rgba(255,255,255,.16);
       background: rgba(255,255,255,.10);
       color: var(--text);
-      padding:14px 14px;
+      padding: 14px 14px;
       outline:none;
-      font-size:15px;
+      font-size: 15px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.20);
     }
-    .search::placeholder{color: rgba(242,245,255,.55)}
+    .search::placeholder{ color: rgba(247,251,255,.56); }
 
     .tableWrap{
-      margin-top:14px;
-      background: var(--panel);
-      border:1px solid rgba(255,255,255,.10);
+      margin-top: 14px;
       border-radius: var(--radius);
       overflow:hidden;
       box-shadow: var(--shadow);
+      border: 1px solid var(--stroke);
+      background: rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
     }
-    table{width:100%; border-collapse: collapse}
+
+    table{ width:100%; border-collapse: collapse; }
     thead th{
       text-align:left;
-      padding:14px 14px;
-      background: rgba(0,0,0,.65);
-      font-weight:900;
+      padding: 14px 14px;
+      background: rgba(0,0,0,.55);
+      font-weight: 1000;
       font-size: 14px;
-      letter-spacing:.4px;
+      letter-spacing:.3px;
+      position: sticky;
+      top: 0;
+      z-index: 2;
     }
+
     tbody td{
-      padding:12px 14px;
+      padding: 12px 14px;
       border-top: 1px solid rgba(255,255,255,.08);
-      vertical-align:middle;
-      font-size:15px;
+      vertical-align: middle;
+      font-size: 15px;
     }
+
+    tbody tr{
+      background: rgba(255,255,255,.02);
+    }
+    tbody tr:nth-child(2n){
+      background: rgba(255,255,255,.04);
+    }
+    tbody tr:hover{
+      background: rgba(255,255,255,.06);
+    }
+
     .rank{
-      width:74px;
-      color: rgba(255,255,255,.85);
-      font-weight:800;
+      width: 72px;
+      font-weight: 1000;
+      color: rgba(255,255,255,.86);
     }
+
     .pokeCell{
       display:flex;
       gap:12px;
       align-items:center;
-      min-height:42px;
+      min-height: 44px;
     }
+
     .icon{
-      width:40px;height:40px;
-      border-radius: 12px;
-      background: rgba(255,255,255,.10);
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background:
+        radial-gradient(18px 18px at 30% 25%, rgba(255,255,255,.28), transparent 60%),
+        rgba(255,255,255,.10);
       border: 1px solid rgba(255,255,255,.14);
       display:grid;
       place-items:center;
       overflow:hidden;
-      flex:0 0 40px;
+      flex: 0 0 46px;
+      box-shadow: 0 12px 28px rgba(0,0,0,.24);
+      position:relative;
     }
+
     .icon img{
-      width:40px;height:40px;
+      width: 46px;
+      height: 46px;
       image-rendering: pixelated;
+      transform: translateY(1px);
     }
+
+    .stack{
+      position:absolute;
+      right: -6px;
+      top: -6px;
+      background: rgba(0,0,0,.58);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 999px;
+      padding: 5px 8px;
+      font-size: 12px;
+      font-weight: 1000;
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(0,0,0,.25);
+    }
+
     .name{
-      font-weight:900;
+      font-weight: 1000;
+      line-height:1.1;
     }
     .meta{
-      color: rgba(255,255,255,.70);
-      font-size:12px;
-      margin-top:2px;
+      color: rgba(247,251,255,.72);
+      font-size: 12px;
+      margin-top: 3px;
     }
+
+    .chips{
+      display:flex;
+      gap: 6px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .chip{
+      font-size: 12px;
+      font-weight: 900;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.92);
+      white-space:nowrap;
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    .chip .dot{
+      width: 10px; height: 10px; border-radius: 999px;
+      background: var(--c, rgba(255,255,255,.55));
+      box-shadow: 0 0 0 2px rgba(0,0,0,.20);
+    }
+
     .iv{
+      width: 90px;
       text-align:right;
-      width:90px;
-      font-weight:900;
+      font-weight: 1000;
+      font-variant-numeric: tabular-nums;
     }
+    .iv.good{ color: #86efac; }
+    .iv.mid{ color: #93c5fd; }
+    .iv.low{ color: #fda4af; }
 
     .footerBtns{
       display:flex;
       gap:10px;
       justify-content:center;
       flex-wrap:wrap;
-      margin-top:14px;
+      margin-top: 14px;
     }
     .linkBtn{
       text-decoration:none;
       color: var(--text);
       border: 1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.35);
-      padding:12px 14px;
+      background: rgba(0,0,0,.30);
+      padding: 12px 14px;
       border-radius: 16px;
-      font-weight:800;
+      font-weight: 1000;
       box-shadow: 0 12px 30px rgba(0,0,0,.18);
     }
-    .linkBtn:hover{background: rgba(0,0,0,.45)}
+    .linkBtn:hover{ background: rgba(0,0,0,.42); }
+
     .tiny{
-      margin-top:10px;
-      color: rgba(255,255,255,.55);
-      font-size:12px;
+      margin-top: 10px;
+      color: rgba(247,251,255,.55);
+      font-size: 12px;
       text-align:center;
+    }
+
+    @media (max-width: 640px){
+      .pill{ width:100%; justify-content:space-between; }
+      .idbar{ width:100%; justify-content:stretch; }
+      .copy{ width:100%; }
+      thead th:nth-child(4), tbody td:nth-child(4){ display:none; } /* esconde coluna tipos na ultra-apertada? */
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
+  <div class="wrap" id="top">
 
     <header>
       <div class="hero">
-        <h1 class="title">Pokémon GO • Minha lista (IV + Tipos)</h1>
-        <p class="subtitle">Meu inventário “3* / 4*” organizado por tipo, com ranking decrescente por IV.</p>
+        <div class="topline">
+          <div class="brand">
+            <div class="pokeball" aria-hidden="true"></div>
+            <div>
+              <h1>Pokémon GO da Lua</h1>
+              <div class="tagline">Meus bonitos, clássicos e prontos pra fazer guarda em ginásio. 💛</div>
+            </div>
+          </div>
 
-        <div class="idbar">
-          <div class="pill">
-            <span>Treinadora:</span> <strong>LuaHMoonMC</strong>
+          <div class="idbar">
+            <div class="pill"><span>Treinadora</span> <strong>LuaHMoonMC</strong></div>
+            <div class="pill"><span>Me adiciona</span> <strong id="friendCode">1612 5521 0803</strong></div>
+            <button class="copy" id="copyBtn" type="button">Copiar código</button>
           </div>
-          <div class="pill">
-            <span>Código:</span> <strong id="friendCode">1612 5521 0803</strong>
-          </div>
-          <button class="copy" id="copyBtn" type="button">Copiar código</button>
+        </div>
+
+        <div class="metaRow">
+          <div class="counts" id="counts">Carregando…</div>
+          <div class="counts" id="hint">Dica: filtra por tipo e busca pelo nome.</div>
         </div>
       </div>
     </header>
 
-    <section class="controls" aria-label="Filtros">
-      <div class="btnrow" id="typeButtons"></div>
-
-      <input
-        class="search"
-        id="search"
-        type="search"
-        placeholder="Buscar por nome... (ex.: ekans, cetitan, medicham)"
-        autocomplete="off"
-      />
+    <section class="controls" aria-label="Filtros e busca">
+      <div class="filters" id="typeButtons"></div>
+      <div class="searchRow">
+        <input class="search" id="search" type="search" placeholder="Buscar pokémon… (ex.: ekans, cetitan, medicham)" autocomplete="off" />
+      </div>
     </section>
 
-    <section class="tableWrap">
+    <section class="tableWrap" aria-label="Tabela">
       <table>
         <thead>
           <tr>
-            <th style="width:74px">Rank</th>
+            <th style="width:72px">Rank</th>
             <th>Pokémon</th>
             <th style="text-align:right;width:90px">IV</th>
+            <th style="width:260px">Tipos</th>
           </tr>
         </thead>
         <tbody id="tbody"></tbody>
@@ -270,66 +469,87 @@
     </section>
 
     <div class="footerBtns">
-      <a class="linkBtn" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ Retornar ao topo</a>
-      <a class="linkBtn" href="https://mooon.com.br" target="_blank" rel="noopener noreferrer">« Retornar ao site principal</a>
+      <a class="linkBtn" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ Topo</a>
+      <a class="linkBtn" href="https://mooon.com.br" target="_blank" rel="noopener noreferrer">« Site principal</a>
     </div>
 
-    <div class="tiny">Sprites: Pokémon Showdown • Página estática (GitHub Pages friendly).</div>
+    <div class="tiny">Sprites: Pokémon Showdown • Página estática friendly (GitHub Pages).</div>
   </div>
 
 <script>
-  // --- DADOS (edite aqui quando quiser) ---
-  // name: use nome simples; para formas, use o slug do Showdown (ex.: sandshrew-alola)
-  const POKEMON = [
+  // ===== Tipos em PT-BR + cores (estilo “tipo Pokémon”) =====
+  const TYPE = {
+    Normal:   { pt:"Normal",   c:"#A8A77A" },
+    Fire:     { pt:"Fogo",     c:"#EE8130" },
+    Water:    { pt:"Água",     c:"#6390F0" },
+    Electric: { pt:"Elétrico", c:"#F7D02C" },
+    Grass:    { pt:"Planta",   c:"#7AC74C" },
+    Ice:      { pt:"Gelo",     c:"#96D9D6" },
+    Fighting: { pt:"Lutador",  c:"#C22E28" },
+    Poison:   { pt:"Venenoso", c:"#A33EA1" },
+    Ground:   { pt:"Terra",    c:"#E2BF65" },
+    Flying:   { pt:"Voador",   c:"#A98FF3" },
+    Psychic:  { pt:"Psíquico", c:"#F95587" },
+    Bug:      { pt:"Inseto",   c:"#A6B91A" },
+    Rock:     { pt:"Pedra",    c:"#B6A136" },
+    Ghost:    { pt:"Fantasma", c:"#735797" },
+    Dragon:   { pt:"Dragão",   c:"#6F35FC" },
+    Dark:     { pt:"Sombrio",  c:"#705746" },
+    Steel:    { pt:"Aço",      c:"#B7B7CE" },
+    Fairy:    { pt:"Fada",     c:"#D685AD" }
+  };
+
+  const TYPE_ORDER = [
+    "All","Normal","Fire","Water","Electric","Grass","Ice","Fighting","Poison","Ground",
+    "Flying","Psychic","Bug","Rock","Ghost","Dragon","Dark","Steel","Fairy"
+  ];
+
+  // ===== Lista bruta (tudo no JS) =====
+  // name: use slug do Showdown quando for forma (ex.: sandshrew-alola, glalie-mega)
+  const RAW = [
     { name:"cetitan", iv:100, types:["Ice"] },
     { name:"nidorina", iv:100, types:["Poison"] },
     { name:"cetoddle", iv:97, types:["Ice"] },
     { name:"medicham", iv:97, types:["Fighting","Psychic"] },
     { name:"wobbuffet", iv:95, types:["Psychic"] },
     { name:"sandshrew-alola", iv:94, types:["Ice","Steel"] },
+
     { name:"arcanine", iv:93, types:["Fire"] },
     { name:"indeedee", iv:93, types:["Psychic","Normal"] },
     { name:"jigglypuff", iv:93, types:["Normal","Fairy"] },
-    { name:"ekans", iv:93, types:["Poison"], note:"(o do ginásio)" },
+    { name:"leafeon", iv:93, types:["Grass"] },
+    { name:"parasect", iv:93, types:["Bug","Grass"] },
+    { name:"ekans", iv:93, types:["Poison"], note:"(ginásio)" },
+
     { name:"pidgey", iv:92, types:["Normal","Flying"] },
+
     { name:"ekans", iv:91, types:["Poison"], note:"(falta 1 doce)" },
     { name:"pumpkaboo", iv:91, types:["Ghost","Grass"] },
-    { name:"wimpod", iv:91, types:["Bug","Water"] },
     { name:"yungoos", iv:91, types:["Normal"] },
+    { name:"wimpod", iv:91, types:["Bug","Water"] },
     { name:"exeggutor", iv:91, types:["Grass","Psychic"] },
     { name:"makuhita", iv:91, types:["Fighting"] },
     { name:"magcargo", iv:91, types:["Fire","Rock"] },
-    { name:"parasect", iv:93, types:["Bug","Grass"] }, // (você listou 93; mantive perto do topo por IV)
+    { name:"scyther", iv:91, types:["Bug","Flying"] },
+    { name:"snubbull", iv:91, types:["Fairy"], note:"(outro)" },
+
     { name:"scorbunny", iv:88, types:["Fire"] },
     { name:"flaaffy", iv:88, types:["Electric"] },
     { name:"charcadet", iv:88, types:["Fire"] },
-    { name:"metang", iv:86, types:["Steel","Psychic"] },
+
     { name:"electrike", iv:86, types:["Electric"] },
     { name:"electrike", iv:86, types:["Electric"], note:"(outro)" },
     { name:"glameow", iv:86, types:["Normal"] },
     { name:"slugma", iv:86, types:["Fire"] },
+    { name:"muk", iv:86, types:["Poison"] },
+    { name:"indeedee", iv:86, types:["Psychic","Normal"], note:"(outro)" },
+    { name:"metang", iv:86, types:["Steel","Psychic"] },
     { name:"masquerain", iv:86, types:["Bug","Flying"] },
     { name:"swablu", iv:86, types:["Normal","Flying"] },
     { name:"kadabra", iv:86, types:["Psychic"] },
-    { name:"indeedee", iv:86, types:["Psychic","Normal"], note:"(outro)" },
+    { name:"meditite", iv:86, types:["Fighting","Psychic"] },
     { name:"lechonk", iv:86, types:["Normal"] },
-    { name:"muk", iv:86, types:["Poison"] },
-    { name:"pikachu", iv:86, types:["Electric"], note:"(temático de Natal)" },
-    { name:"gastly", iv:84, types:["Ghost","Poison"] },
-    { name:"hippopotas", iv:84, types:["Ground"] },
-    { name:"igglybuff", iv:84, types:["Normal","Fairy"] },
-    { name:"bulbasaur", iv:84, types:["Grass","Poison"] },
-    { name:"herdier", iv:84, types:["Normal"] },
-    { name:"grookey", iv:84, types:["Grass"] },
-    { name:"porygon", iv:84, types:["Normal"] },
-    { name:"skiploom", iv:84, types:["Grass","Flying"] },
-    { name:"petilil", iv:84, types:["Grass"] },
-    { name:"kakuna", iv:84, types:["Bug","Poison"] },
-    { name:"liepard", iv:84, types:["Dark"] },
-    { name:"claydol", iv:84, types:["Ground","Psychic"] },
-    { name:"fuecoco", iv:84, types:["Fire"] },
-    { name:"smoochum", iv:84, types:["Ice","Psychic"] },
-    { name:"glalie-mega", iv:84, types:["Ice"], note:"(Mega)" },
+    { name:"pikachu", iv:86, types:["Electric"], note:"(Natal)" },
 
     { name:"miltank", iv:82, types:["Normal"] },
     { name:"snorlax", iv:82, types:["Normal"] },
@@ -340,82 +560,197 @@
     { name:"gothorita", iv:82, types:["Psychic"] },
     { name:"gastly", iv:82, types:["Ghost","Poison"], note:"(outro)" },
 
+    { name:"grookey", iv:84, types:["Grass"] },
+    { name:"bulbasaur", iv:84, types:["Grass","Poison"] },
+    { name:"herdier", iv:84, types:["Normal"] },
+    { name:"porygon", iv:84, types:["Normal"] },
+    { name:"skiploom", iv:84, types:["Grass","Flying"] },
+    { name:"petilil", iv:84, types:["Grass"] },
+    { name:"kakuna", iv:84, types:["Bug","Poison"] },
+    { name:"liepard", iv:84, types:["Dark"] },
+    { name:"claydol", iv:84, types:["Ground","Psychic"] },
+    { name:"fuecoco", iv:84, types:["Fire"] },
+    { name:"smoochum", iv:84, types:["Ice","Psychic"] },
+    { name:"hippopotas", iv:84, types:["Ground"] },
+    { name:"igglybuff", iv:84, types:["Normal","Fairy"] },
+    { name:"gastly", iv:84, types:["Ghost","Poison"] },
+
     { name:"omanyte", iv:77, types:["Rock","Water"] },
     { name:"chansey", iv:77, types:["Normal"] },
     { name:"larvitar", iv:77, types:["Rock","Ground"] },
 
     { name:"krabby", iv:75, types:["Water"] },
     { name:"doublade", iv:75, types:["Steel","Ghost"] },
-    { name:"ekans", iv:75, types:["Poison"], note:"(o IV baixo)" },
+    { name:"ekans", iv:75, types:["Poison"], note:"(IV baixo)" },
 
-    { name:"throh", iv:51, types:["Fighting"] },
+    { name:"glalie-mega", iv:84, types:["Ice"], note:"(Mega)" },
+
+    { name:"throh", iv:51, types:["Fighting"] }
   ];
 
-  // --- CONFIG / UTIL ---
-  const TYPE_ORDER = [
-    "All","Normal","Fire","Water","Electric","Grass","Ice","Fighting","Poison","Ground",
-    "Flying","Psychic","Bug","Rock","Ghost","Dragon","Dark","Steel","Fairy"
-  ];
+  // ===== Sprites =====
+  const spriteGif = (slug) => `https://play.pokemonshowdown.com/sprites/xyani/${slug}.gif`;
+  const spritePng = (slug) => `https://play.pokemonshowdown.com/sprites/gen8/${slug}.png`;
 
-  const showdownSprite = (name) => {
-    // Sprites animados do Pokémon Showdown
-    // (funciona super bem em GitHub Pages sem API)
-    return `https://play.pokemonshowdown.com/sprites/xyani/${name}.gif`;
-  };
+  // ===== Nome bonito (PT) =====
+  function prettyName(slug){
+    // slug pode ter hífen pra formas. Ex: sandshrew-alola, glalie-mega
+    if(!slug.includes("-")){
+      return slug.charAt(0).toUpperCase() + slug.slice(1);
+    }
+    const parts = slug.split("-");
+    const base = parts[0].charAt(0).toUpperCase() + parts[0].slice(1);
+    const form = parts.slice(1).join("-");
 
-  const prettyName = (n) => {
-    // nome bonitinho (ex.: sandshrew-alola -> Sandshrew (Alola))
-    if (!n.includes("-")) return n.charAt(0).toUpperCase()+n.slice(1);
-    const parts = n.split("-");
-    const base = parts[0].charAt(0).toUpperCase()+parts[0].slice(1);
-    const form = parts.slice(1).join(" ").replace(/\b\w/g, m => m.toUpperCase());
-    return `${base} (${form})`;
-  };
+    if(form === "alola") return `${base} de Alola`;
+    if(form === "galar") return `${base} de Galar`;
+    if(form === "hisui") return `${base} de Hisui`;
+    if(form === "mega")  return `Mega ${base}`;
 
-  let activeType = "All";
+    // fallback genérico: Sandshrew (Forma)
+    const formNice = form.replace(/\b\w/g, m => m.toUpperCase()).replace(/-/g, " ");
+    return `${base} (${formNice})`;
+  }
 
+  // ===== Agregação de repetidos =====
+  // Junta por espécie/forma (slug). Guarda IVs e quantidade.
+  function aggregate(raw){
+    const map = new Map();
+
+    for(const p of raw){
+      const key = p.name; // slug é a identidade da espécie/forma
+      if(!map.has(key)){
+        map.set(key, {
+          name: key,
+          types: p.types || [],
+          ivs: [p.iv ?? 0],
+          notes: p.note ? [p.note] : []
+        });
+      }else{
+        const item = map.get(key);
+        item.ivs.push(p.iv ?? 0);
+        if(p.note) item.notes.push(p.note);
+      }
+    }
+
+    const list = [];
+    for(const v of map.values()){
+      v.count = v.ivs.length;
+      v.maxIv = Math.max(...v.ivs);
+      v.ivsSorted = v.ivs.slice().sort((a,b)=>b-a);
+      v.noteCompact = [...new Set(v.notes)].join(" ");
+      list.push(v);
+    }
+
+    // ranking por melhor IV desc, depois nome
+    list.sort((a,b)=>{
+      if(b.maxIv !== a.maxIv) return b.maxIv - a.maxIv;
+      return prettyName(a.name).localeCompare(prettyName(b.name), "pt-BR", { sensitivity:"base" });
+    });
+
+    return list;
+  }
+
+  function ivClass(iv){
+    if(iv >= 90) return "good";
+    if(iv >= 85) return "mid";
+    return "low";
+  }
+
+  // ===== UI =====
   const typeButtons = document.getElementById("typeButtons");
   const tbody = document.getElementById("tbody");
   const search = document.getElementById("search");
+  const counts = document.getElementById("counts");
+
+  let activeType = "All";
+  let query = "";
+
+  const AGG = aggregate(RAW);
 
   function renderButtons(){
-    TYPE_ORDER.forEach(t=>{
-      const b = document.createElement("button");
-      b.className = "chip" + (t===activeType ? " active" : "");
-      b.type = "button";
-      b.textContent = (t==="All" ? "Ver Todos" : t);
-      b.addEventListener("click", ()=>{
+    typeButtons.innerHTML = "";
+    for(const t of TYPE_ORDER){
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "tbtn" + (t===activeType ? " active" : "");
+
+      const label = (t === "All") ? "Ver todos" : (TYPE[t]?.pt || t);
+      const color = (t === "All") ? "rgba(255,255,255,.55)" : (TYPE[t]?.c || "rgba(255,255,255,.55)");
+      btn.style.setProperty("--c", color);
+
+      const dot = document.createElement("span");
+      dot.className = "dot";
+
+      const text = document.createElement("span");
+      text.textContent = label;
+
+      btn.appendChild(dot);
+      btn.appendChild(text);
+
+      btn.addEventListener("click", ()=>{
         activeType = t;
-        [...typeButtons.children].forEach(x=>x.classList.remove("active"));
-        b.classList.add("active");
+        renderButtons();
         renderTable();
       });
-      typeButtons.appendChild(b);
+
+      typeButtons.appendChild(btn);
+    }
+  }
+
+  function filteredList(){
+    const q = query.trim().toLowerCase();
+
+    return AGG.filter(p=>{
+      const typeOk = (activeType === "All") ? true : (p.types || []).includes(activeType);
+
+      const namePT = prettyName(p.name).toLowerCase();
+      const slug = p.name.toLowerCase();
+      const notes = (p.noteCompact || "").toLowerCase();
+
+      const ivLine = p.ivsSorted.join(" ");
+      const textOk = q ? (namePT.includes(q) || slug.includes(q) || notes.includes(q) || ivLine.includes(q)) : true;
+
+      return typeOk && textOk;
     });
   }
 
-  function getFiltered(){
-    const q = (search.value || "").trim().toLowerCase();
-    return POKEMON
-      .filter(p => activeType==="All" ? true : p.types.includes(activeType))
-      .filter(p => {
-        const full = `${p.name} ${prettyName(p.name)} ${p.note||""}`.toLowerCase();
-        return q ? full.includes(q) : true;
-      })
-      .sort((a,b)=> b.iv - a.iv); // ranking por IV desc
+  function typeChip(type){
+    const span = document.createElement("span");
+    span.className = "chip";
+    const c = TYPE[type]?.c || "rgba(255,255,255,.55)";
+    const pt = TYPE[type]?.pt || type;
+
+    span.style.setProperty("--c", c);
+
+    const dot = document.createElement("span");
+    dot.className = "dot";
+    dot.style.background = c;
+
+    const label = document.createElement("span");
+    label.textContent = pt;
+
+    span.appendChild(dot);
+    span.appendChild(label);
+    return span;
   }
 
   function renderTable(){
-    const rows = getFiltered();
+    const list = filteredList();
     tbody.innerHTML = "";
 
-    rows.forEach((p, idx)=>{
+    const totalRaw = RAW.length;
+    const totalAgg = AGG.length;
+    const showing = list.length;
+
+    counts.innerHTML = `Mostrando <b>${showing}</b> (de <b>${totalAgg}</b> espécies) • total de capturas nessa lista: <b>${totalRaw}</b>`;
+
+    list.forEach((p, idx)=>{
       const tr = document.createElement("tr");
 
       const tdRank = document.createElement("td");
       tdRank.className = "rank";
       tdRank.textContent = `#${idx+1}`;
-      tr.appendChild(tdRank);
 
       const tdPoke = document.createElement("td");
       const wrap = document.createElement("div");
@@ -423,36 +758,59 @@
 
       const icon = document.createElement("div");
       icon.className = "icon";
+
       const img = document.createElement("img");
       img.loading = "lazy";
       img.alt = p.name;
-      img.src = showdownSprite(p.name);
-      img.onerror = () => {
-        // fallback: sprite estático gen 8 (geralmente cobre quase tudo)
-        img.src = `https://play.pokemonshowdown.com/sprites/gen8/${p.name}.png`;
-      };
+      img.src = spriteGif(p.name);
+      img.onerror = () => { img.src = spritePng(p.name); };
+
       icon.appendChild(img);
 
+      if(p.count > 1){
+        const stack = document.createElement("div");
+        stack.className = "stack";
+        stack.textContent = `×${p.count}`;
+        icon.appendChild(stack);
+      }
+
       const info = document.createElement("div");
+
       const nm = document.createElement("div");
       nm.className = "name";
-      nm.textContent = prettyName(p.name) + (p.note ? ` ${p.note}` : "");
-      const mt = document.createElement("div");
-      mt.className = "meta";
-      mt.textContent = p.types.join(" • ");
+      nm.textContent = prettyName(p.name);
+
+      const meta = document.createElement("div");
+      meta.className = "meta";
+
+      const ivsText = (p.count > 1)
+        ? `IVs: ${p.ivsSorted.join(" / ")}`
+        : `IV: ${p.maxIv}`;
+
+      const noteText = p.noteCompact ? ` ${p.noteCompact}` : "";
+      meta.textContent = `${ivsText}${noteText}`;
 
       info.appendChild(nm);
-      info.appendChild(mt);
+      info.appendChild(meta);
 
       wrap.appendChild(icon);
       wrap.appendChild(info);
       tdPoke.appendChild(wrap);
-      tr.appendChild(tdPoke);
 
       const tdIV = document.createElement("td");
-      tdIV.className = "iv";
-      tdIV.textContent = p.iv;
+      tdIV.className = "iv " + ivClass(p.maxIv);
+      tdIV.textContent = p.maxIv;
+
+      const tdTypes = document.createElement("td");
+      const chips = document.createElement("div");
+      chips.className = "chips";
+      (p.types || []).forEach(t => chips.appendChild(typeChip(t)));
+      tdTypes.appendChild(chips);
+
+      tr.appendChild(tdRank);
+      tr.appendChild(tdPoke);
       tr.appendChild(tdIV);
+      tr.appendChild(tdTypes);
 
       tbody.appendChild(tr);
     });
@@ -461,21 +819,35 @@
   // Copy friend code
   document.getElementById("copyBtn").addEventListener("click", async ()=>{
     const code = document.getElementById("friendCode").textContent.replace(/\s+/g," ").trim();
+    const btn = document.getElementById("copyBtn");
+    const old = btn.textContent;
+
     try{
       await navigator.clipboard.writeText(code);
-      const b = document.getElementById("copyBtn");
-      const old = b.textContent;
-      b.textContent = "Copiado ✅";
-      setTimeout(()=> b.textContent = old, 1100);
+      btn.textContent = "Copiado ✅";
+      setTimeout(()=> btn.textContent = old, 1100);
     }catch(e){
-      alert("Não consegui copiar automaticamente 😅\n\nCódigo: " + code);
+      // fallback: seleciona texto
+      const r = document.createRange();
+      const el = document.getElementById("friendCode");
+      r.selectNodeContents(el);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(r);
+      btn.textContent = "Selecionei o código ✨";
+      setTimeout(()=> btn.textContent = old, 1200);
     }
+  });
+
+  // Search
+  search.addEventListener("input", ()=>{
+    query = search.value || "";
+    renderTable();
   });
 
   // Init
   renderButtons();
   renderTable();
-  search.addEventListener("input", renderTable);
 </script>
 </body>
 </html>
