@@ -356,15 +356,17 @@
       box-shadow: 0 0 0 2px rgba(0,0,0,.20);
     }
 
-    .iv{
-      width: 90px;
-      text-align:right;
-      font-weight: 1000;
-      font-variant-numeric: tabular-nums;
-    }
-    .iv.good{ color: #86efac; }
-    .iv.mid{ color: #93c5fd; }
-    .iv.low{ color: #fda4af; }
+   .iv{
+    width: 90px;
+    text-align:right;
+    font-weight: 1000;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ✅ NOVAS CORES */
+  .iv.good{ color: #a3ff12; }   /* 90+ verde-lima */
+  .iv.mid{  color: #34d7ff; }   /* 80+ azul-ciano */
+  .iv.low{  color: #ffffff; }   /* <=79 branco */
 
     .footerBtns{
       display:flex;
@@ -476,7 +478,7 @@
 
   // ===== Lista (tudo no JS) =====
   // Removidas as notes (ginásio / falta doce / outro / IV baixo).
-  const RAW = [
+   const RAW = [
     { name:"cetitan", iv:100, types:["Ice"] },
     { name:"nidorina", iv:100, types:["Poison"] },
     { name:"cetoddle", iv:97, types:["Ice"] },
@@ -521,6 +523,9 @@
     { name:"lechonk", iv:86, types:["Normal"] },
     { name:"pikachu", iv:86, types:["Electric"] },
 
+    /* ✅ NOVOS */
+    { name:"kirlia", iv:86, types:["Psychic","Fairy"] },
+
     { name:"miltank", iv:82, types:["Normal"] },
     { name:"snorlax", iv:82, types:["Normal"] },
     { name:"beartic", iv:82, types:["Ice"] },
@@ -539,19 +544,27 @@
     { name:"kakuna", iv:84, types:["Bug","Poison"] },
     { name:"liepard", iv:84, types:["Dark"] },
     { name:"claydol", iv:84, types:["Ground","Psychic"] },
-    { name:"fuecoco", iv:84, types:["Fire"] },
-    { name:"smoochum", iv:84, types:["Ice","Psychic"] },
     { name:"hippopotas", iv:84, types:["Ground"] },
     { name:"igglybuff", iv:84, types:["Normal","Fairy"] },
-    { name:"gastly", iv:84, types:["Ghost","Poison"] },
+
+    /* ✅ EVOLUÇÕES */
+    { name:"jynx", iv:84, types:["Ice","Psychic"] },        // era smoochum 84
+    { name:"crocalor", iv:84, types:["Fire"] },             // era fuecoco 84
+    { name:"haunter", iv:84, types:["Ghost","Poison"] },    // era gastly 84
 
     { name:"omanyte", iv:77, types:["Rock","Water"] },
     { name:"chansey", iv:77, types:["Normal"] },
     { name:"larvitar", iv:77, types:["Rock","Ground"] },
 
+    /* ✅ NOVO IV 75 */
+    { name:"jigglypuff", iv:75, types:["Normal","Fairy"] },
+
     { name:"krabby", iv:75, types:["Water"] },
     { name:"doublade", iv:75, types:["Steel","Ghost"] },
     { name:"ekans", iv:75, types:["Poison"] },
+
+    /* ✅ NOVO */
+    { name:"maractus", iv:80, types:["Grass"] },
 
     { name:"glalie-mega", iv:84, types:["Ice"] },
 
