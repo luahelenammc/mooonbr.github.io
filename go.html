@@ -157,9 +157,18 @@
       cursor:pointer;
       font-weight: 900;
       box-shadow: 0 12px 30px rgba(0,0,0,.22);
+      white-space: nowrap;
     }
     .copy:hover{ background: rgba(238,21,21,.34); }
     .copy:active{ transform: translateY(1px); }
+
+    /* botão de alternar visualização (mesmo DNA do copy) */
+    .viewBtn{
+      background: rgba(255,255,255,.10);
+    }
+    .viewBtn:hover{
+      background: rgba(255,255,255,.16);
+    }
 
     .controls{
       margin-top: 14px;
@@ -276,8 +285,7 @@
       align-items:center;
     }
 
-    /* Agora o “quadradinho” NÃO força tamanho fixo do gif.
-       Ele se adapta ao tamanho natural, com um teto pra não quebrar tudo. */
+    /* quadradinho que respeita o sprite */
     .icon{
       display:inline-grid;
       place-items:center;
@@ -301,8 +309,8 @@
       display:block;
       width: auto;
       height: auto;
-      max-width: 76px;  /* teto pra não estourar a linha */
-      max-height: 76px; /* teto pra não estourar a linha */
+      max-width: 76px;
+      max-height: 76px;
       image-rendering: pixelated;
     }
 
@@ -356,18 +364,79 @@
       box-shadow: 0 0 0 2px rgba(0,0,0,.20);
     }
 
-   .iv{
-    width: 90px;
-    text-align:right;
-    font-weight: 1000;
-    font-variant-numeric: tabular-nums;
-  }
+    .iv{
+      width: 90px;
+      text-align:right;
+      font-weight: 1000;
+      font-variant-numeric: tabular-nums;
+    }
 
-  /* ✅ NOVAS CORES */
-  .iv.good{ color: #a3ff12; }   /* 90+ verde-lima */
-.iv.mid{  color: #34d7ff; }   /* 80–89 azul-ciano */
-.iv.low{  color: #ffffff; }   /* 60–79 branco */
-.iv.bad{  color: #ff3b3b; }   /* <60 vermelho */
+    /* ✅ CORES DE IV */
+    .iv.good{ color: #a3ff12; }   /* 90+ verde-lima */
+    .iv.mid{  color: #34d7ff; }   /* 80–89 azul-ciano */
+    .iv.low{  color: #ffffff; }   /* 60–79 branco */
+    .iv.bad{  color: #ff3b3b; }   /* <60 vermelho */
+
+    /* ===== GRADE (modo Pokédex visual) ===== */
+    .gridWrap{
+      margin-top: 14px;
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--stroke);
+      background: rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
+    }
+
+    .grid{
+      padding: 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      justify-content:center;
+    }
+
+    .gItem{
+      position:relative;
+      display:inline-grid;
+      place-items:center;
+      padding: 8px;
+      border-radius: 16px;
+      background:
+        radial-gradient(18px 18px at 30% 25%, rgba(255,255,255,.22), transparent 60%),
+        rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 12px 28px rgba(0,0,0,.22);
+      width: fit-content;
+      height: fit-content;
+      max-width: 96px;
+      max-height: 96px;
+      overflow:hidden;
+    }
+
+    .gItem img{
+      display:block;
+      width:auto;
+      height:auto;
+      max-width: 88px;
+      max-height: 88px;
+      image-rendering: pixelated;
+    }
+
+    /* IV discreto */
+    .gIV{
+      position:absolute;
+      right: 8px;
+      bottom: 7px;
+      font-size: 12px;
+      font-weight: 1000;
+      letter-spacing: .2px;
+      padding: 4px 7px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.50);
+      border: 1px solid rgba(255,255,255,.14);
+      font-variant-numeric: tabular-nums;
+    }
 
     .footerBtns{
       display:flex;
@@ -416,6 +485,7 @@
             <div class="pill"><span>Treinadora</span> <strong>LuaHMoonMC</strong></div>
             <div class="pill"><span>Código</span> <strong id="friendCode">1612 5521 0803</strong></div>
             <button class="copy" id="copyBtn" type="button">Copiar</button>
+            <button class="copy viewBtn" id="viewBtn" type="button">Ver em grade</button>
           </div>
         </div>
       </div>
@@ -440,6 +510,10 @@
         </thead>
         <tbody id="tbody"></tbody>
       </table>
+    </section>
+
+    <section class="gridWrap" id="gridWrap" aria-label="Grade" style="display:none;">
+      <div class="grid" id="grid"></div>
     </section>
 
     <div class="footerBtns">
@@ -507,24 +581,43 @@
     return list;
   }
 
-  // ===== IV cores (como você pediu) =====
-function ivClass(iv){
-  if(iv >= 90) return "good";
-  if(iv >= 80) return "mid";
-  if(iv >= 60) return "low";
-  return "bad";
-}
-
+  // ===== IV cores =====
+  function ivClass(iv){
+    if(iv >= 90) return "good";
+    if(iv >= 80) return "mid";
+    if(iv >= 60) return "low";
+    return "bad";
+  }
 
   // ===== UI =====
   const typeButtons = document.getElementById("typeButtons");
   const tbody = document.getElementById("tbody");
   const search = document.getElementById("search");
 
+  const tableWrap = document.querySelector(".tableWrap");
+  const gridWrap = document.getElementById("gridWrap");
+  const grid = document.getElementById("grid");
+  const viewBtn = document.getElementById("viewBtn");
+
   let activeType = "All";
   let query = "";
+  let viewMode = "table"; // "table" | "grid"
 
   const AGG = aggregate(RAW);
+
+  function filteredList(){
+    const q = query.trim().toLowerCase();
+    return AGG.filter(p=>{
+      const typeOk = (activeType === "All") ? true : (p.types || []).includes(activeType);
+      if(!typeOk) return false;
+
+      if(!q) return true;
+
+      const namePT = prettyName(p.name).toLowerCase();
+      const slug = p.name.toLowerCase();
+      return namePT.includes(q) || slug.includes(q);
+    });
+  }
 
   function renderButtons(){
     typeButtons.innerHTML = "";
@@ -553,25 +646,11 @@ function ivClass(iv){
       btn.addEventListener("click", ()=>{
         activeType = t;
         renderButtons();
-        renderTable();
+        renderActive();
       });
 
       typeButtons.appendChild(btn);
     }
-  }
-
-  function filteredList(){
-    const q = query.trim().toLowerCase();
-    return AGG.filter(p=>{
-      const typeOk = (activeType === "All") ? true : (p.types || []).includes(activeType);
-      if(!typeOk) return false;
-
-      if(!q) return true;
-
-      const namePT = prettyName(p.name).toLowerCase();
-      const slug = p.name.toLowerCase();
-      return namePT.includes(q) || slug.includes(q);
-    });
   }
 
   function typeChip(type){
@@ -623,7 +702,7 @@ function ivClass(iv){
 
       icon.appendChild(img);
 
-      // Stack badge
+      // Stack badge (mantém como estava na tabela)
       if(p.count > 1){
         const stack = document.createElement("div");
         stack.className = "stack";
@@ -673,6 +752,44 @@ function ivClass(iv){
     });
   }
 
+  // ===== Grade: só gif + IV discreto (aglutinado por espécie) =====
+  function renderGrid(){
+    const list = filteredList();
+    grid.innerHTML = "";
+
+    list.forEach((p)=>{
+      const item = document.createElement("div");
+      item.className = "gItem";
+
+      const img = document.createElement("img");
+      img.loading = "lazy";
+      img.alt = p.name;
+      img.src = spriteGif(p.name);
+      img.onerror = () => { img.src = spritePng(p.name); };
+
+      const iv = document.createElement("div");
+      iv.className = "gIV iv " + ivClass(p.maxIv);
+      iv.textContent = p.maxIv;
+
+      item.appendChild(img);
+      item.appendChild(iv);
+
+      grid.appendChild(item);
+    });
+  }
+
+  function renderActive(){
+    if(viewMode === "grid"){
+      tableWrap.style.display = "none";
+      gridWrap.style.display = "";
+      renderGrid();
+    }else{
+      gridWrap.style.display = "none";
+      tableWrap.style.display = "";
+      renderTable();
+    }
+  }
+
   // ===== Copy friend code =====
   document.getElementById("copyBtn").addEventListener("click", async ()=>{
     const code = document.getElementById("friendCode").textContent.replace(/\s+/g," ").trim();
@@ -695,15 +812,22 @@ function ivClass(iv){
     }
   });
 
+  // ===== Toggle view =====
+  viewBtn.addEventListener("click", ()=>{
+    viewMode = (viewMode === "table") ? "grid" : "table";
+    viewBtn.textContent = (viewMode === "table") ? "Ver em grade" : "Ver em tabela";
+    renderActive();
+  });
+
   // ===== Search =====
   search.addEventListener("input", ()=>{
     query = search.value || "";
-    renderTable();
+    renderActive();
   });
 
   // Init
   renderButtons();
-  renderTable();
+  renderActive();
 </script>
 
 </body>
