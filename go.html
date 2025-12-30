@@ -365,8 +365,9 @@
 
   /* ✅ NOVAS CORES */
   .iv.good{ color: #a3ff12; }   /* 90+ verde-lima */
-  .iv.mid{  color: #34d7ff; }   /* 80+ azul-ciano */
-  .iv.low{  color: #ffffff; }   /* <=79 branco */
+.iv.mid{  color: #34d7ff; }   /* 80–89 azul-ciano */
+.iv.low{  color: #ffffff; }   /* 60–79 branco */
+.iv.bad{  color: #ff3b3b; }   /* <60 vermelho */
 
     .footerBtns{
       display:flex;
@@ -507,11 +508,13 @@
   }
 
   // ===== IV cores (como você pediu) =====
-  function ivClass(iv){
-    if(iv >= 90) return "good"; // verde-lima
-    if(iv >= 80) return "mid";  // azul-ciano
-    return "low";               // branco
-  }
+function ivClass(iv){
+  if(iv >= 90) return "good";
+  if(iv >= 80) return "mid";
+  if(iv >= 60) return "low";
+  return "bad";
+}
+
 
   // ===== UI =====
   const typeButtons = document.getElementById("typeButtons");
