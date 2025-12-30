@@ -7,19 +7,19 @@
 
   <style>
     :root{
-      --bgA:#0a1433;
-      --bgB:#0b3a5f;
+      /* Pokémon GO vibe (vermelho suave + brancos + azul discreto) */
+      --goRed:#ee1515;
+      --goRedSoft: rgba(238,21,21,.22);
+      --goBlue: rgba(42,117,187,.18);
+      --bg1:#0b0f16;
+      --bg2:#1a0b12;
+
       --card: rgba(255,255,255,.10);
-      --card2: rgba(0,0,0,.28);
       --stroke: rgba(255,255,255,.16);
       --text: #f7fbff;
       --muted: rgba(247,251,255,.72);
       --shadow: 0 22px 70px rgba(0,0,0,.45);
       --radius: 22px;
-      --radius2: 16px;
-      --yellow: #ffcc00;
-      --blue: #2a75bb;
-      --red: #ee1515;
     }
 
     *{ box-sizing:border-box; }
@@ -30,20 +30,19 @@
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(1200px 700px at 10% 10%, rgba(255,204,0,.18), transparent 60%),
-        radial-gradient(900px 650px at 90% 18%, rgba(42,117,187,.22), transparent 62%),
-        radial-gradient(900px 700px at 60% 120%, rgba(238,21,21,.12), transparent 55%),
-        linear-gradient(160deg, var(--bgA), var(--bgB));
+        radial-gradient(1100px 700px at 12% 10%, var(--goRedSoft), transparent 60%),
+        radial-gradient(900px 650px at 90% 18%, var(--goBlue), transparent 62%),
+        linear-gradient(160deg, var(--bg1), var(--bg2));
       overflow-x:hidden;
     }
 
-    /* Pokéball pattern */
+    /* pattern bem leve */
     body::before{
       content:"";
       position:fixed;
-      inset:-120px;
+      inset:-140px;
       pointer-events:none;
-      opacity:.22;
+      opacity:.16;
       background:
         radial-gradient(circle at 20% 30%, rgba(255,255,255,.10) 0 2px, transparent 3px),
         radial-gradient(circle at 80% 20%, rgba(255,255,255,.08) 0 2px, transparent 3px),
@@ -68,8 +67,8 @@
       box-shadow: var(--shadow);
       border: 1px solid var(--stroke);
       background:
-        radial-gradient(900px 280px at 10% 0%, rgba(255,255,255,.16), transparent 65%),
-        linear-gradient(135deg, rgba(255,204,0,.14), rgba(42,117,187,.14));
+        radial-gradient(900px 280px at 10% 0%, rgba(255,255,255,.14), transparent 65%),
+        linear-gradient(135deg, rgba(238,21,21,.20), rgba(0,0,0,.10));
     }
 
     .hero{
@@ -98,7 +97,7 @@
       height: 48px;
       border-radius: 999px;
       background:
-        linear-gradient(180deg, var(--red) 0 48%, #0b0b0b 48% 52%, #ffffff 52% 100%);
+        linear-gradient(180deg, var(--goRed) 0 48%, #0b0b0b 48% 52%, #ffffff 52% 100%);
       border: 2px solid rgba(255,255,255,.22);
       box-shadow: 0 16px 40px rgba(0,0,0,.35);
       position:relative;
@@ -120,9 +119,8 @@
       line-height: 1.05;
       letter-spacing: .2px;
     }
-
-    .tagline{
-      margin: 8px 0 0;
+    .sub{
+      margin: 7px 0 0;
       color: var(--muted);
       font-size: 14px;
     }
@@ -154,31 +152,14 @@
       border: 1px solid rgba(255,255,255,.18);
       border-radius: 999px;
       padding: 10px 12px;
-      background: rgba(255,204,0,.18);
+      background: rgba(238,21,21,.26);
       color: var(--text);
       cursor:pointer;
       font-weight: 900;
       box-shadow: 0 12px 30px rgba(0,0,0,.22);
     }
-    .copy:hover{ background: rgba(255,204,0,.24); }
+    .copy:hover{ background: rgba(238,21,21,.34); }
     .copy:active{ transform: translateY(1px); }
-
-    .metaRow{
-      margin-top: 14px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-      padding-top: 12px;
-      border-top: 1px solid rgba(255,255,255,.12);
-    }
-
-    .counts{
-      color: rgba(247,251,255,.80);
-      font-size: 13px;
-    }
-    .counts b{ color: #fff; }
 
     .controls{
       margin-top: 14px;
@@ -278,50 +259,51 @@
       font-size: 15px;
     }
 
-    tbody tr{
-      background: rgba(255,255,255,.02);
-    }
-    tbody tr:nth-child(2n){
-      background: rgba(255,255,255,.04);
-    }
-    tbody tr:hover{
-      background: rgba(255,255,255,.06);
-    }
+    tbody tr{ background: rgba(255,255,255,.02); }
+    tbody tr:nth-child(2n){ background: rgba(255,255,255,.04); }
+    tbody tr:hover{ background: rgba(255,255,255,.06); }
 
     .rank{
       width: 72px;
       font-weight: 1000;
       color: rgba(255,255,255,.86);
+      white-space:nowrap;
     }
 
     .pokeCell{
       display:flex;
       gap:12px;
       align-items:center;
-      min-height: 44px;
     }
 
+    /* Agora o “quadradinho” NÃO força tamanho fixo do gif.
+       Ele se adapta ao tamanho natural, com um teto pra não quebrar tudo. */
     .icon{
-      width: 46px;
-      height: 46px;
+      display:inline-grid;
+      place-items:center;
+      padding: 6px;
       border-radius: 14px;
       background:
-        radial-gradient(18px 18px at 30% 25%, rgba(255,255,255,.28), transparent 60%),
+        radial-gradient(18px 18px at 30% 25%, rgba(255,255,255,.26), transparent 60%),
         rgba(255,255,255,.10);
       border: 1px solid rgba(255,255,255,.14);
-      display:grid;
-      place-items:center;
-      overflow:hidden;
-      flex: 0 0 46px;
       box-shadow: 0 12px 28px rgba(0,0,0,.24);
       position:relative;
+      width: fit-content;
+      height: fit-content;
+      max-width: 88px;
+      max-height: 88px;
+      overflow: hidden;
+      flex: 0 0 auto;
     }
 
     .icon img{
-      width: 46px;
-      height: 46px;
+      display:block;
+      width: auto;
+      height: auto;
+      max-width: 76px;  /* teto pra não estourar a linha */
+      max-height: 76px; /* teto pra não estourar a linha */
       image-rendering: pixelated;
-      transform: translateY(1px);
     }
 
     .stack{
@@ -403,18 +385,12 @@
     }
     .linkBtn:hover{ background: rgba(0,0,0,.42); }
 
-    .tiny{
-      margin-top: 10px;
-      color: rgba(247,251,255,.55);
-      font-size: 12px;
-      text-align:center;
-    }
-
     @media (max-width: 640px){
       .pill{ width:100%; justify-content:space-between; }
       .idbar{ width:100%; justify-content:stretch; }
       .copy{ width:100%; }
-      thead th:nth-child(4), tbody td:nth-child(4){ display:none; } /* esconde coluna tipos na ultra-apertada? */
+      thead th:nth-child(4), tbody td:nth-child(4){ display:none; }
+      .iv{ width: 70px; }
     }
   </style>
 </head>
@@ -428,21 +404,16 @@
           <div class="brand">
             <div class="pokeball" aria-hidden="true"></div>
             <div>
-              <h1>Pokémon GO da Lua</h1>
-              <div class="tagline">Meus bonitos, clássicos e prontos pra fazer guarda em ginásio. 💛</div>
+              <h1>Pokémon GO</h1>
+              <div class="sub">Lista da <strong>LuaHMoonMC</strong></div>
             </div>
           </div>
 
           <div class="idbar">
             <div class="pill"><span>Treinadora</span> <strong>LuaHMoonMC</strong></div>
-            <div class="pill"><span>Me adiciona</span> <strong id="friendCode">1612 5521 0803</strong></div>
-            <button class="copy" id="copyBtn" type="button">Copiar código</button>
+            <div class="pill"><span>Código</span> <strong id="friendCode">1612 5521 0803</strong></div>
+            <button class="copy" id="copyBtn" type="button">Copiar</button>
           </div>
-        </div>
-
-        <div class="metaRow">
-          <div class="counts" id="counts">Carregando…</div>
-          <div class="counts" id="hint">Dica: filtra por tipo e busca pelo nome.</div>
         </div>
       </div>
     </header>
@@ -450,7 +421,7 @@
     <section class="controls" aria-label="Filtros e busca">
       <div class="filters" id="typeButtons"></div>
       <div class="searchRow">
-        <input class="search" id="search" type="search" placeholder="Buscar pokémon… (ex.: ekans, cetitan, medicham)" autocomplete="off" />
+        <input class="search" id="search" type="search" placeholder="Buscar pokémon…" autocomplete="off" />
       </div>
     </section>
 
@@ -473,11 +444,10 @@
       <a class="linkBtn" href="https://mooon.com.br" target="_blank" rel="noopener noreferrer">« Site principal</a>
     </div>
 
-    <div class="tiny">Sprites: Pokémon Showdown • Página estática friendly (GitHub Pages).</div>
   </div>
 
 <script>
-  // ===== Tipos em PT-BR + cores (estilo “tipo Pokémon”) =====
+  // ===== Tipos em PT-BR + cores =====
   const TYPE = {
     Normal:   { pt:"Normal",   c:"#A8A77A" },
     Fire:     { pt:"Fogo",     c:"#EE8130" },
@@ -504,8 +474,8 @@
     "Flying","Psychic","Bug","Rock","Ghost","Dragon","Dark","Steel","Fairy"
   ];
 
-  // ===== Lista bruta (tudo no JS) =====
-  // name: use slug do Showdown quando for forma (ex.: sandshrew-alola, glalie-mega)
+  // ===== Lista (tudo no JS) =====
+  // Removidas as notes (ginásio / falta doce / outro / IV baixo).
   const RAW = [
     { name:"cetitan", iv:100, types:["Ice"] },
     { name:"nidorina", iv:100, types:["Poison"] },
@@ -519,11 +489,11 @@
     { name:"jigglypuff", iv:93, types:["Normal","Fairy"] },
     { name:"leafeon", iv:93, types:["Grass"] },
     { name:"parasect", iv:93, types:["Bug","Grass"] },
-    { name:"ekans", iv:93, types:["Poison"], note:"(ginásio)" },
+    { name:"ekans", iv:93, types:["Poison"] },
 
     { name:"pidgey", iv:92, types:["Normal","Flying"] },
 
-    { name:"ekans", iv:91, types:["Poison"], note:"(falta 1 doce)" },
+    { name:"ekans", iv:91, types:["Poison"] },
     { name:"pumpkaboo", iv:91, types:["Ghost","Grass"] },
     { name:"yungoos", iv:91, types:["Normal"] },
     { name:"wimpod", iv:91, types:["Bug","Water"] },
@@ -531,25 +501,25 @@
     { name:"makuhita", iv:91, types:["Fighting"] },
     { name:"magcargo", iv:91, types:["Fire","Rock"] },
     { name:"scyther", iv:91, types:["Bug","Flying"] },
-    { name:"snubbull", iv:91, types:["Fairy"], note:"(outro)" },
+    { name:"snubbull", iv:91, types:["Fairy"] },
 
     { name:"scorbunny", iv:88, types:["Fire"] },
     { name:"flaaffy", iv:88, types:["Electric"] },
     { name:"charcadet", iv:88, types:["Fire"] },
 
     { name:"electrike", iv:86, types:["Electric"] },
-    { name:"electrike", iv:86, types:["Electric"], note:"(outro)" },
+    { name:"electrike", iv:86, types:["Electric"] },
     { name:"glameow", iv:86, types:["Normal"] },
     { name:"slugma", iv:86, types:["Fire"] },
     { name:"muk", iv:86, types:["Poison"] },
-    { name:"indeedee", iv:86, types:["Psychic","Normal"], note:"(outro)" },
+    { name:"indeedee", iv:86, types:["Psychic","Normal"] },
     { name:"metang", iv:86, types:["Steel","Psychic"] },
     { name:"masquerain", iv:86, types:["Bug","Flying"] },
     { name:"swablu", iv:86, types:["Normal","Flying"] },
     { name:"kadabra", iv:86, types:["Psychic"] },
     { name:"meditite", iv:86, types:["Fighting","Psychic"] },
     { name:"lechonk", iv:86, types:["Normal"] },
-    { name:"pikachu", iv:86, types:["Electric"], note:"(Natal)" },
+    { name:"pikachu", iv:86, types:["Electric"] },
 
     { name:"miltank", iv:82, types:["Normal"] },
     { name:"snorlax", iv:82, types:["Normal"] },
@@ -558,7 +528,7 @@
     { name:"dusclops", iv:82, types:["Ghost"] },
     { name:"electabuzz", iv:82, types:["Electric"] },
     { name:"gothorita", iv:82, types:["Psychic"] },
-    { name:"gastly", iv:82, types:["Ghost","Poison"], note:"(outro)" },
+    { name:"gastly", iv:82, types:["Ghost","Poison"] },
 
     { name:"grookey", iv:84, types:["Grass"] },
     { name:"bulbasaur", iv:84, types:["Grass","Poison"] },
@@ -581,9 +551,9 @@
 
     { name:"krabby", iv:75, types:["Water"] },
     { name:"doublade", iv:75, types:["Steel","Ghost"] },
-    { name:"ekans", iv:75, types:["Poison"], note:"(IV baixo)" },
+    { name:"ekans", iv:75, types:["Poison"] },
 
-    { name:"glalie-mega", iv:84, types:["Ice"], note:"(Mega)" },
+    { name:"glalie-mega", iv:84, types:["Ice"] },
 
     { name:"throh", iv:51, types:["Fighting"] }
   ];
@@ -592,9 +562,8 @@
   const spriteGif = (slug) => `https://play.pokemonshowdown.com/sprites/xyani/${slug}.gif`;
   const spritePng = (slug) => `https://play.pokemonshowdown.com/sprites/gen8/${slug}.png`;
 
-  // ===== Nome bonito (PT) =====
+  // ===== Nome bonito =====
   function prettyName(slug){
-    // slug pode ter hífen pra formas. Ex: sandshrew-alola, glalie-mega
     if(!slug.includes("-")){
       return slug.charAt(0).toUpperCase() + slug.slice(1);
     }
@@ -607,29 +576,24 @@
     if(form === "hisui") return `${base} de Hisui`;
     if(form === "mega")  return `Mega ${base}`;
 
-    // fallback genérico: Sandshrew (Forma)
     const formNice = form.replace(/\b\w/g, m => m.toUpperCase()).replace(/-/g, " ");
     return `${base} (${formNice})`;
   }
 
   // ===== Agregação de repetidos =====
-  // Junta por espécie/forma (slug). Guarda IVs e quantidade.
   function aggregate(raw){
     const map = new Map();
 
     for(const p of raw){
-      const key = p.name; // slug é a identidade da espécie/forma
+      const key = p.name;
       if(!map.has(key)){
         map.set(key, {
           name: key,
           types: p.types || [],
-          ivs: [p.iv ?? 0],
-          notes: p.note ? [p.note] : []
+          ivs: [p.iv ?? 0]
         });
       }else{
-        const item = map.get(key);
-        item.ivs.push(p.iv ?? 0);
-        if(p.note) item.notes.push(p.note);
+        map.get(key).ivs.push(p.iv ?? 0);
       }
     }
 
@@ -638,11 +602,9 @@
       v.count = v.ivs.length;
       v.maxIv = Math.max(...v.ivs);
       v.ivsSorted = v.ivs.slice().sort((a,b)=>b-a);
-      v.noteCompact = [...new Set(v.notes)].join(" ");
       list.push(v);
     }
 
-    // ranking por melhor IV desc, depois nome
     list.sort((a,b)=>{
       if(b.maxIv !== a.maxIv) return b.maxIv - a.maxIv;
       return prettyName(a.name).localeCompare(prettyName(b.name), "pt-BR", { sensitivity:"base" });
@@ -661,7 +623,6 @@
   const typeButtons = document.getElementById("typeButtons");
   const tbody = document.getElementById("tbody");
   const search = document.getElementById("search");
-  const counts = document.getElementById("counts");
 
   let activeType = "All";
   let query = "";
@@ -675,8 +636,8 @@
       btn.type = "button";
       btn.className = "tbtn" + (t===activeType ? " active" : "");
 
-      const label = (t === "All") ? "Ver todos" : (TYPE[t]?.pt || t);
-      const color = (t === "All") ? "rgba(255,255,255,.55)" : (TYPE[t]?.c || "rgba(255,255,255,.55)");
+      const label = (t === "All") ? "Todos" : (TYPE[t]?.pt || t);
+      const color = (t === "All") ? "rgba(238,21,21,.55)" : (TYPE[t]?.c || "rgba(255,255,255,.55)");
       btn.style.setProperty("--c", color);
 
       const dot = document.createElement("span");
@@ -700,17 +661,11 @@
 
   function filteredList(){
     const q = query.trim().toLowerCase();
-
     return AGG.filter(p=>{
       const typeOk = (activeType === "All") ? true : (p.types || []).includes(activeType);
-
       const namePT = prettyName(p.name).toLowerCase();
       const slug = p.name.toLowerCase();
-      const notes = (p.noteCompact || "").toLowerCase();
-
-      const ivLine = p.ivsSorted.join(" ");
-      const textOk = q ? (namePT.includes(q) || slug.includes(q) || notes.includes(q) || ivLine.includes(q)) : true;
-
+      const textOk = q ? (namePT.includes(q) || slug.includes(q)) : true;
       return typeOk && textOk;
     });
   }
@@ -738,12 +693,6 @@
   function renderTable(){
     const list = filteredList();
     tbody.innerHTML = "";
-
-    const totalRaw = RAW.length;
-    const totalAgg = AGG.length;
-    const showing = list.length;
-
-    counts.innerHTML = `Mostrando <b>${showing}</b> (de <b>${totalAgg}</b> espécies) • total de capturas nessa lista: <b>${totalRaw}</b>`;
 
     list.forEach((p, idx)=>{
       const tr = document.createElement("tr");
@@ -782,16 +731,11 @@
 
       const meta = document.createElement("div");
       meta.className = "meta";
-
-      const ivsText = (p.count > 1)
-        ? `IVs: ${p.ivsSorted.join(" / ")}`
-        : `IV: ${p.maxIv}`;
-
-      const noteText = p.noteCompact ? ` ${p.noteCompact}` : "";
-      meta.textContent = `${ivsText}${noteText}`;
+      // sem "IV:" repetido, só mostra a lista quando tiver stack
+      meta.textContent = (p.count > 1) ? `${p.ivsSorted.join(" / ")}` : "";
 
       info.appendChild(nm);
-      info.appendChild(meta);
+      if(meta.textContent) info.appendChild(meta);
 
       wrap.appendChild(icon);
       wrap.appendChild(info);
@@ -827,14 +771,13 @@
       btn.textContent = "Copiado ✅";
       setTimeout(()=> btn.textContent = old, 1100);
     }catch(e){
-      // fallback: seleciona texto
       const r = document.createRange();
       const el = document.getElementById("friendCode");
       r.selectNodeContents(el);
       const sel = window.getSelection();
       sel.removeAllRanges();
       sel.addRange(r);
-      btn.textContent = "Selecionei o código ✨";
+      btn.textContent = "Selecionado ✨";
       setTimeout(()=> btn.textContent = old, 1200);
     }
   });
