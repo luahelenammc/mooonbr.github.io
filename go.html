@@ -61,4 +61,601 @@
       margin:0;
       font-size: 20px;
       line-height:1.2;
-      letter-spacing
+      letter-spacing:.2px;
+    }
+    .sub{
+      margin:8px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .controls{
+      padding:14px 18px 18px;
+      border-bottom:1px solid var(--stroke2);
+      background: linear-gradient(180deg, rgba(2,6,23,.35), rgba(2,6,23,.15));
+    }
+
+    .filters{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:0 0 14px;
+    }
+
+    .fbtn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius: 14px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      text-decoration:none;
+      font-size: 13px;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .fbtn:active{ transform: translateY(1px); }
+    .fbtn[data-active="true"]{
+      border-color: rgba(96,165,250,.55);
+      background: rgba(96,165,250,.18);
+    }
+
+    .search{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .search input{
+      width:100%;
+      padding:12px 14px;
+      border-radius: 14px;
+      border:1px solid var(--stroke);
+      background: rgba(0,0,0,.25);
+      color: var(--text);
+      outline:none;
+      font-size: 14px;
+    }
+    .search input::placeholder{ color: rgba(229,231,235,.55); }
+
+    .status{
+      position: fixed;
+      right: 12px;
+      bottom: 12px;
+      z-index: 9999;
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid var(--stroke);
+      background: rgba(0,0,0,.55);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.45);
+      font-size: 12px;
+      color: var(--muted);
+      max-width: 92vw;
+    }
+    .status b{ color: var(--text); }
+    .status .ok{ color: #86efac; }
+    .status .bad{ color: #fda4af; }
+
+    table{
+      width:100%;
+      border-collapse: collapse;
+    }
+    thead th{
+      text-align:left;
+      font-size: 12px;
+      letter-spacing:.6px;
+      text-transform: uppercase;
+      color: rgba(229,231,235,.8);
+      padding: 12px 18px;
+      background: rgba(0,0,0,.35);
+      border-bottom:1px solid var(--stroke2);
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+    tbody td{
+      padding: 12px 18px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      vertical-align: middle;
+    }
+
+    .row{
+      background: rgba(255,255,255,.02);
+    }
+    .row:nth-child(2n){
+      background: rgba(255,255,255,.04);
+    }
+
+    .poke{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 240px;
+    }
+    .poke img{
+      width: 44px;
+      height: 44px;
+      image-rendering: pixelated;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,.55));
+      border-radius: 12px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      padding: 4px;
+    }
+    .poke .name{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+    .poke .name strong{
+      font-size: 14px;
+      line-height:1.15;
+    }
+    .poke .name small{
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+    }
+    .chip{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--chip);
+      border: 1px solid rgba(255,255,255,.10);
+      color: rgba(229,231,235,.92);
+      white-space:nowrap;
+    }
+
+    .iv{
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .iv.good{ color: #86efac; }
+    .iv.mid{ color: #93c5fd; }
+    .iv.low{ color: #fda4af; }
+
+    .empty{
+      display:none;
+      padding: 18px;
+      color: var(--muted);
+      text-align:center;
+    }
+
+    footer{
+      padding: 14px 18px 18px;
+      color: rgba(229,231,235,.55);
+      font-size: 12px;
+      background: rgba(0,0,0,.18);
+    }
+    footer a{ color: rgba(229,231,235,.75); text-decoration:none; border-bottom:1px dotted rgba(229,231,235,.35); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="panel" id="top">
+      <header>
+        <h1>Pokémon GO · Minha lista (IV + Tipos)</h1>
+        <p class="sub">Ordenado por IV (desc). Os filtros e a busca ligam sozinhos quando o JS estiver ativo.</p>
+      </header>
+
+      <section class="controls">
+        <nav class="filters" id="filters">
+          <a class="fbtn" href="#all" data-filter="all" data-active="true">Ver Todos</a>
+          <a class="fbtn" href="#normal" data-filter="Normal">Normal</a>
+          <a class="fbtn" href="#fire" data-filter="Fire">Fire</a>
+          <a class="fbtn" href="#water" data-filter="Water">Water</a>
+          <a class="fbtn" href="#electric" data-filter="Electric">Electric</a>
+          <a class="fbtn" href="#grass" data-filter="Grass">Grass</a>
+          <a class="fbtn" href="#ice" data-filter="Ice">Ice</a>
+          <a class="fbtn" href="#fighting" data-filter="Fighting">Fighting</a>
+          <a class="fbtn" href="#poison" data-filter="Poison">Poison</a>
+          <a class="fbtn" href="#ground" data-filter="Ground">Ground</a>
+          <a class="fbtn" href="#flying" data-filter="Flying">Flying</a>
+          <a class="fbtn" href="#psychic" data-filter="Psychic">Psychic</a>
+          <a class="fbtn" href="#bug" data-filter="Bug">Bug</a>
+          <a class="fbtn" href="#rock" data-filter="Rock">Rock</a>
+          <a class="fbtn" href="#ghost" data-filter="Ghost">Ghost</a>
+          <a class="fbtn" href="#dragon" data-filter="Dragon">Dragon</a>
+          <a class="fbtn" href="#dark" data-filter="Dark">Dark</a>
+          <a class="fbtn" href="#steel" data-filter="Steel">Steel</a>
+          <a class="fbtn" href="#fairy" data-filter="Fairy">Fairy</a>
+        </nav>
+
+        <div class="search">
+          <input id="search" type="search" placeholder="Buscar por nome… (ex.: ekans, cetitan, medicham)" />
+        </div>
+      </section>
+
+      <div class="empty" id="empty">Nada apareceu com esse filtro/busca. (Ou teu JS morreu no caminho.)</div>
+
+      <table aria-label="Tabela de Pokémons">
+        <thead>
+          <tr>
+            <th style="width:72px">Rank</th>
+            <th>Pokémon</th>
+            <th style="width:120px">IV</th>
+            <th style="width:260px">Tipos</th>
+          </tr>
+        </thead>
+        <tbody id="rows">
+          <!-- A tabela abaixo já vem preenchida (pra nunca ficar “vazia” se o JS falhar).
+               O JS só faz: filtrar por tipo + buscar por nome + ativar estado dos botões. -->
+
+          <tr class="row" data-name="cetitan" data-types="Ice" data-iv="100">
+            <td>1</td>
+            <td class="poke">
+              <img alt="Cetitan" src="https://play.pokemonshowdown.com/sprites/ani/cetitan.gif"
+                   onerror="this.onerror=null;this.src='https://play.pokemonshowdown.com/sprites/gen5/cetitan.png'">
+              <span class="name"><strong>Cetitan</strong><small>100 IV</small></span>
+            </td>
+            <td class="iv good">100</td>
+            <td><div class="chips"><span class="chip">Ice</span></div></td>
+          </tr>
+
+          <tr class="row" data-name="nidorina" data-types="Poison" data-iv="100">
+            <td>2</td>
+            <td class="poke">
+              <img alt="Nidorina" src="https://play.pokemonshowdown.com/sprites/ani/nidorina.gif"
+                   onerror="this.onerror=null;this.src='https://play.pokemonshowdown.com/sprites/gen5/nidorina.png'">
+              <span class="name"><strong>Nidorina</strong><small>100 IV</small></span>
+            </td>
+            <td class="iv good">100</td>
+            <td><div class="chips"><span class="chip">Poison</span></div></td>
+          </tr>
+
+          <tr class="row" data-name="medicham" data-types="Fighting Psychic" data-iv="97">
+            <td>3</td>
+            <td class="poke">
+              <img alt="Medicham" src="https://play.pokemonshowdown.com/sprites/ani/medicham.gif"
+                   onerror="this.onerror=null;this.src='https://play.pokemonshowdown.com/sprites/gen5/medicham.png'">
+              <span class="name"><strong>Medicham</strong><small>97 IV</small></span>
+            </td>
+            <td class="iv good">97</td>
+            <td><div class="chips"><span class="chip">Fighting</span><span class="chip">Psychic</span></div></td>
+          </tr>
+
+          <tr class="row" data-name="cetoddle" data-types="Ice" data-iv="97">
+            <td>4</td>
+            <td class="poke">
+              <img alt="Cetoddle" src="https://play.pokemonshowdown.com/sprites/ani/cetoddle.gif"
+                   onerror="this.onerror=null;this.src='https://play.pokemonshowdown.com/sprites/gen5/cetoddle.png'">
+              <span class="name"><strong>Cetoddle</strong><small>97 IV</small></span>
+            </td>
+            <td class="iv good">97</td>
+            <td><div class="chips"><span class="chip">Ice</span></div></td>
+          </tr>
+
+          <tr class="row" data-name="wobbuffet" data-types="Psychic" data-iv="95">
+            <td>5</td>
+            <td class="poke">
+              <img alt="Wobbuffet" src="https://play.pokemonshowdown.com/sprites/ani/wobbuffet.gif"
+                   onerror="this.onerror=null;this.src='https://play.pokemonshowdown.com/sprites/gen5/wobbuffet.png'">
+              <span class="name"><strong>Wobbuffet</strong><small>95 IV</small></span>
+            </td>
+            <td class="iv good">95</td>
+            <td><div class="chips"><span class="chip">Psychic</span></div></td>
+          </tr>
+
+          <tr class="row" data-name="sandshrew (alola)" data-types="Ice Steel" data-iv="94">
+            <td>6</td>
+            <td class="poke">
+              <img alt="Sandshrew (Alola)" src="https://play.pokemonshowdown.com/sprites/ani/sandshrewalola.gif"
+                   onerror="this.onerror=null;this.src='https://play.pokemonshowdown.com/sprites/gen5/sandshrew-alola.png'">
+              <span class="name"><strong>Sandshrew (Alola)</strong><small>94 IV</small></span>
+            </td>
+            <td class="iv good">94</td>
+            <td><div class="chips"><span class="chip">Ice</span><span class="chip">Steel</span></div></td>
+          </tr>
+
+          <tr class="row" data-name="arcanine" data-types="Fire" data-iv="93">
+            <td>7</td>
+            <td class="poke">
+              <img alt="Arcanine" src="https://play.pokemonshowdown.com/sprites/ani/arcanine.gif"
+                   onerror="this.onerror=null;this.src='https://play.pokemonshowdown.com/sprites/gen5/arcanine.png'">
+              <span class="name"><strong>Arcanine</strong><small>93 IV</small></span>
+            </td>
+            <td class="iv good">93</td>
+            <td><div class="chips"><span class="chip">Fire</span></div></td>
+          </tr>
+
+          <tr class="row" data-name="ekans #1" data-types="Poison" data-iv="93">
+            <td>8</td>
+            <td class="poke">
+              <img alt="Ekans" src="https://play.pokemonshowdown.com/sprites/ani/ekans.gif"
+                   onerror="this.onerror=null;this.src='https://play.pokemonshowdown.com/sprites/gen5/ekans.png'">
+              <span class="name"><strong>Ekans (2)</strong><small>93 IV</small></span>
+            </td>
+            <td class="iv good">93</td>
+            <td><div class="chips"><span class="chip">Poison</span></div></td>
+          </tr>
+
+          <tr class="row" data-name="indeedee #2" data-types="Psychic Normal" data-iv="93">
+            <td>9</td>
+            <td class="poke">
+              <img alt="Indeedee" src="https://play.pokemonshowdown.com/sprites/ani/indeedee.gif"
+                   onerror="this.onerror=null;this.src='https://play.pokemonshowdown.com/sprites/gen5/indeedee.png'">
+              <span class="name"><strong>Indeedee</strong><small>93 IV</small></span>
+            </td>
+            <td class="iv good">93</td>
+            <td><div class="chips"><span class="chip">Psychic</span><span class="chip">Normal</span></div></td>
+          </tr>
+
+          <tr class="row" data-name="jigglypuff" data-types="Normal Fairy" data-iv="93">
+            <td>10</td>
+            <td class="poke">
+              <img alt="Jigglypuff" src="https://play.pokemonshowdown.com/sprites/ani/jigglypuff.gif"
+                   onerror="this.onerror=null;this.src='https://play.pokemonshowdown.com/sprites/gen5/jigglypuff.png'">
+              <span class="name"><strong>Jigglypuff</strong><small>93 IV</small></span>
+            </td>
+            <td class="iv good">93</td>
+            <td><div class="chips"><span class="chip">Normal</span><span class="chip">Fairy</span></div></td>
+          </tr>
+
+          <tr class="row" data-name="leafeon" data-types="Grass" data-iv="93">
+            <td>11</td>
+            <td class="poke">
+              <img alt="Leafeon" src="https://play.pokemonshowdown.com/sprites/ani/leafeon.gif"
+                   onerror="this.onerror=null;this.src='https://play.pokemonshowdown.com/sprites/gen5/leafeon.png'">
+              <span class="name"><strong>Leafeon</strong><small>93 IV</small></span>
+            </td>
+            <td class="iv good">93</td>
+            <td><div class="chips"><span class="chip">Grass</span></div></td>
+          </tr>
+
+          <tr class="row" data-name="parasect" data-types="Bug Grass" data-iv="93">
+            <td>12</td>
+            <td class="poke">
+              <img alt="Parasect" src="https://play.pokemonshowdown.com/sprites/ani/parasect.gif"
+                   onerror="this.onerror=null;this.src='https://play.pokemonshowdown.com/sprites/gen5/parasect.png'">
+              <span class="name"><strong>Parasect</strong><small>93 IV</small></span>
+            </td>
+            <td class="iv good">93</td>
+            <td><div class="chips"><span class="chip">Bug</span><span class="chip">Grass</span></div></td>
+          </tr>
+
+          <tr class="row" data-name="pidgey" data-types="Normal Flying" data-iv="82">
+            <td>—</td>
+            <td class="poke">
+              <img alt="Pidgey" src="https://play.pokemonshowdown.com/sprites/ani/pidgey.gif"
+                   onerror="this.onerror=null;this.src='https://play.pokemonshowdown.com/sprites/gen5/pidgey.png'">
+              <span class="name"><strong>Pidgey</strong><small>82 IV</small></span>
+            </td>
+            <td class="iv low">82</td>
+            <td><div class="chips"><span class="chip">Normal</span><span class="chip">Flying</span></div></td>
+          </tr>
+
+          <!-- IMPORTANTE:
+               Eu deixei o resto da tua lista no JS abaixo (pra não virar um arquivo infinito no chat).
+               Quando o JS estiver ON, ele recalcula o ranking certinho e preenche tudo (com toda a lista). -->
+        </tbody>
+      </table>
+
+      <footer>
+        Prompt generator by <a href="https://www.mooon.com.br/english" target="_blank" rel="noopener noreferrer">MooonBR</a>
+        <span style="opacity:.35">• GO List</span>
+        <span style="opacity:.35">• (Se o selo “JS: OFF” ficar pra sempre, teu host está bloqueando script.)</span>
+      </footer>
+    </div>
+  </div>
+
+  <div class="status" id="status">
+    <b>JS:</b> <span class="bad" id="jsState">OFF</span>
+    <span style="opacity:.55"> · </span>
+    <span id="msg">Se nada filtrar, mas a tabela aparecer, o HTML tá ok.</span>
+  </div>
+
+  <script>
+    // Se você estiver publicando num lugar que BLOQUEIA JS, esse script não roda.
+    // E aí: o selo vai ficar "OFF" e os filtros só vão "navegar" pra âncoras.
+    (function(){
+      const jsState = document.getElementById("jsState");
+      const msg = document.getElementById("msg");
+      jsState.textContent = "ON";
+      jsState.className = "ok";
+      msg.textContent = "Filtros e busca ativos.";
+
+      // ============
+      // TUA LISTA (completa) — o JS vai renderizar e corrigir ranking automaticamente
+      // ============
+      const pokemons = [
+        { name:"Cetitan", iv:100, types:["Ice"] },
+        { name:"Nidorina", iv:100, types:["Poison"] },
+        { name:"Medicham", iv:97, types:["Fighting","Psychic"] },
+        { name:"Cetoddle", iv:97, types:["Ice"] },
+        { name:"Wobbuffet", iv:95, types:["Psychic"] },
+        { name:"Sandshrew (Alola)", iv:94, types:["Ice","Steel"], sprite:"sandshrewalola" },
+        { name:"Arcanine", iv:93, types:["Fire"] },
+        { name:"Ekans (2)", iv:93, types:["Poison"], sprite:"ekans" },
+        { name:"Indeedee", iv:93, types:["Psychic","Normal"] },
+        { name:"Jigglypuff", iv:93, types:["Normal","Fairy"] },
+        { name:"Leafeon", iv:93, types:["Grass"] },
+        { name:"Parasect", iv:93, types:["Bug","Grass"] },
+
+        { name:"Ekans", iv:91, types:["Poison"], sprite:"ekans" },
+        { name:"Pumpkaboo", iv:91, types:["Ghost","Grass"] },
+        { name:"Yungoos", iv:91, types:["Normal"] },
+        { name:"Wimpod", iv:91, types:["Bug","Water"] },
+        { name:"Exeggutor", iv:91, types:["Grass","Psychic"] },
+        { name:"Makuhita", iv:91, types:["Fighting"] },
+        { name:"Snubbull (2)", iv:91, types:["Fairy"], sprite:"snubbull" },
+        { name:"Magcargo", iv:91, types:["Fire","Rock"], sprite:"magcargo" },
+        { name:"Scyther", iv:91, types:["Bug","Flying"] },
+
+        { name:"Scorbunny", iv:88, types:["Fire"] },
+        { name:"Flaaffy", iv:88, types:["Electric"] },
+        { name:"Charcadet", iv:88, types:["Fire"] },
+
+        { name:"Electrike", iv:86, types:["Electric"] },
+        { name:"Electrike (2)", iv:86, types:["Electric"], sprite:"electrike" },
+        { name:"Metang", iv:86, types:["Steel","Psychic"] },
+        { name:"Glameow", iv:86, types:["Normal"] },
+        { name:"Slugma", iv:86, types:["Fire"] },
+        { name:"Slugma (2)", iv:86, types:["Fire"], sprite:"slugma" },
+        { name:"Indeedee (2)", iv:86, types:["Psychic","Normal"], sprite:"indeedee" },
+        { name:"Lechonk", iv:86, types:["Normal"] },
+        { name:"Muk", iv:86, types:["Poison"] },
+        { name:"Masquerain", iv:86, types:["Bug","Flying"] },
+        { name:"Swablu", iv:86, types:["Normal","Flying"] },
+        { name:"Kadabra", iv:86, types:["Psychic"] },
+        { name:"Meditite", iv:86, types:["Fighting","Psychic"] },
+        { name:"Pikachu (Natal)", iv:86, types:["Electric"], sprite:"pikachu" },
+
+        { name:"Grookey", iv:84, types:["Grass"] },
+        { name:"Bulbasaur", iv:84, types:["Grass","Poison"] },
+        { name:"Hippopotas", iv:84, types:["Ground"] },
+        { name:"Igglybuff", iv:84, types:["Normal","Fairy"] },
+        { name:"Gastly", iv:84, types:["Ghost","Poison"] },
+        { name:"Skiploom", iv:84, types:["Grass","Flying"] },
+        { name:"Petilil", iv:84, types:["Grass"] },
+        { name:"Kakuna", iv:84, types:["Bug","Poison"] },
+        { name:"Liepard", iv:84, types:["Dark"] },
+        { name:"Claydol", iv:84, types:["Ground","Psychic"] },
+        { name:"Krokorok", iv:84, types:["Ground","Dark"] },
+        { name:"Fuecoco", iv:84, types:["Fire"] },
+        { name:"Smoochum", iv:84, types:["Ice","Psychic"] },
+        { name:"Porygon", iv:84, types:["Normal"] },
+        { name:"Herdier", iv:84, types:["Normal"] },
+        { name:"Mega Glalie", iv:84, types:["Ice"], sprite:"glalie-mega" },
+
+        { name:"Snorlax", iv:82, types:["Normal"] },
+        { name:"Miltank", iv:82, types:["Normal"] },
+        { name:"Beartic", iv:82, types:["Ice"] },
+        { name:"Bergmite", iv:82, types:["Ice"] },
+        { name:"Weezing", iv:82, types:["Poison"] },
+        { name:"Dusclops", iv:82, types:["Ghost"] },
+        { name:"Tarountula", iv:82, types:["Bug"] },
+        { name:"Electabuzz", iv:82, types:["Electric"] },
+        { name:"Scyther (2)", iv:82, types:["Bug","Flying"], sprite:"scyther" },
+        { name:"Gastly (2)", iv:82, types:["Ghost","Poison"], sprite:"gastly" },
+        { name:"Pidgey", iv:82, types:["Normal","Flying"] },
+        { name:"Doublade", iv:75, types:["Steel","Ghost"] },
+        { name:"Krabby", iv:75, types:["Water"] },
+        { name:"Ekans (3)", iv:75, types:["Poison"], sprite:"ekans" },
+        { name:"Larvitar", iv:77, types:["Rock","Ground"] },
+        { name:"Chansey", iv:77, types:["Normal"] },
+        { name:"Omanyte", iv:77, types:["Rock","Water"] },
+        { name:"Throh", iv:51, types:["Fighting"] }
+      ];
+
+      const rowsEl = document.getElementById("rows");
+      const emptyEl = document.getElementById("empty");
+      const searchEl = document.getElementById("search");
+      const filterBar = document.getElementById("filters");
+
+      function slugify(psName){
+        // Se você quiser “só nome.gif”, Showdown precisa de slug.
+        // Aqui eu padronizo minimamente. Casos especiais: já passo via `sprite`.
+        return psName
+          .toLowerCase()
+          .replace(/\(.*?\)/g,"")
+          .replace(/\./g,"")
+          .replace(/[^a-z0-9]+/g,"")
+          .trim();
+      }
+
+      function spriteUrl(p){
+        const slug = p.sprite ? p.sprite : slugify(p.name);
+        return {
+          gif: `https://play.pokemonshowdown.com/sprites/ani/${slug}.gif`,
+          png: `https://play.pokemonshowdown.com/sprites/gen5/${slug}.png`
+        };
+      }
+
+      function ivClass(iv){
+        if(iv >= 90) return "good";
+        if(iv >= 85) return "mid";
+        return "low";
+      }
+
+      function render(list){
+        rowsEl.innerHTML = "";
+        list.forEach((p, i)=>{
+          const types = p.types || [];
+          const tChips = types.map(t=>`<span class="chip">${t}</span>`).join("");
+          const s = spriteUrl(p);
+          const tr = document.createElement("tr");
+          tr.className = "row";
+          tr.dataset.name = (p.name || "").toLowerCase();
+          tr.dataset.types = types.join(" ");
+          tr.dataset.iv = String(p.iv ?? 0);
+
+          tr.innerHTML = `
+            <td>${i+1}</td>
+            <td class="poke">
+              <img alt="${p.name}" src="${s.gif}" onerror="this.onerror=null;this.src='${s.png}'">
+              <span class="name"><strong>${p.name}</strong><small>${p.iv} IV</small></span>
+            </td>
+            <td class="iv ${ivClass(p.iv)}">${p.iv}</td>
+            <td><div class="chips">${tChips}</div></td>
+          `;
+          rowsEl.appendChild(tr);
+        });
+
+        emptyEl.style.display = list.length ? "none" : "block";
+      }
+
+      // ranking por IV desc, depois nome
+      const sorted = pokemons
+        .slice()
+        .sort((a,b)=>{
+          if((b.iv ?? 0) !== (a.iv ?? 0)) return (b.iv ?? 0) - (a.iv ?? 0);
+          return (a.name || "").localeCompare(b.name || "", "pt-BR");
+        });
+
+      let activeType = "all";
+      let q = "";
+
+      function apply(){
+        const qn = (q || "").toLowerCase().trim();
+        const out = sorted.filter(p=>{
+          const nameOk = !qn || (p.name || "").toLowerCase().includes(qn);
+          const typeOk = activeType === "all" || (p.types || []).includes(activeType);
+          return nameOk && typeOk;
+        });
+        render(out);
+      }
+
+      function setActiveButton(type){
+        [...filterBar.querySelectorAll(".fbtn")].forEach(a=>{
+          a.dataset.active = (a.dataset.filter === type) ? "true" : "false";
+        });
+      }
+
+      filterBar.addEventListener("click", (e)=>{
+        const a = e.target.closest("a.fbtn");
+        if(!a) return;
+        e.preventDefault();
+        activeType = a.dataset.filter || "all";
+        setActiveButton(activeType);
+        apply();
+        window.scrollTo({top:0, behavior:"smooth"});
+      });
+
+      searchEl.addEventListener("input", ()=>{
+        q = searchEl.value || "";
+        apply();
+      });
+
+      // primeira renderização
+      setActiveButton("all");
+      render(sorted);
+
+      // painel de erro visível (pra você não ficar no escuro no mobile)
+      window.addEventListener("error", (ev)=>{
+        jsState.textContent = "ON (com erro)";
+        jsState.className = "bad";
+        msg.textContent = "Erro JS: " + (ev.message || "desconhecido");
+      });
+    })();
+  </script>
+</body>
+</html>
