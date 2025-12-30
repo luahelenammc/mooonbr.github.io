@@ -448,128 +448,8 @@
 
   </div>
 
-<script>
-  // ===== Tipos em PT-BR + cores =====
-  const TYPE = {
-    Normal:   { pt:"Normal",   c:"#A8A77A" },
-    Fire:     { pt:"Fogo",     c:"#EE8130" },
-    Water:    { pt:"Água",     c:"#6390F0" },
-    Electric: { pt:"Elétrico", c:"#F7D02C" },
-    Grass:    { pt:"Planta",   c:"#7AC74C" },
-    Ice:      { pt:"Gelo",     c:"#96D9D6" },
-    Fighting: { pt:"Lutador",  c:"#C22E28" },
-    Poison:   { pt:"Venenoso", c:"#A33EA1" },
-    Ground:   { pt:"Terra",    c:"#E2BF65" },
-    Flying:   { pt:"Voador",   c:"#A98FF3" },
-    Psychic:  { pt:"Psíquico", c:"#F95587" },
-    Bug:      { pt:"Inseto",   c:"#A6B91A" },
-    Rock:     { pt:"Pedra",    c:"#B6A136" },
-    Ghost:    { pt:"Fantasma", c:"#735797" },
-    Dragon:   { pt:"Dragão",   c:"#6F35FC" },
-    Dark:     { pt:"Sombrio",  c:"#705746" },
-    Steel:    { pt:"Aço",      c:"#B7B7CE" },
-    Fairy:    { pt:"Fada",     c:"#D685AD" }
-  };
-
-  const TYPE_ORDER = [
-    "All","Normal","Fire","Water","Electric","Grass","Ice","Fighting","Poison","Ground",
-    "Flying","Psychic","Bug","Rock","Ghost","Dragon","Dark","Steel","Fairy"
-  ];
-
-  // ===== Lista (tudo no JS) =====
-  // Removidas as notes (ginásio / falta doce / outro / IV baixo).
-   const RAW = [
-    { name:"cetitan", iv:100, types:["Ice"] },
-    { name:"nidorina", iv:100, types:["Poison"] },
-    { name:"cetoddle", iv:97, types:["Ice"] },
-    { name:"medicham", iv:97, types:["Fighting","Psychic"] },
-    { name:"wobbuffet", iv:95, types:["Psychic"] },
-    { name:"sandshrew-alola", iv:94, types:["Ice","Steel"] },
-
-    { name:"arcanine", iv:93, types:["Fire"] },
-    { name:"indeedee", iv:93, types:["Psychic","Normal"] },
-    { name:"jigglypuff", iv:93, types:["Normal","Fairy"] },
-    { name:"leafeon", iv:93, types:["Grass"] },
-    { name:"parasect", iv:93, types:["Bug","Grass"] },
-    { name:"ekans", iv:93, types:["Poison"] },
-
-    { name:"pidgey", iv:92, types:["Normal","Flying"] },
-
-    { name:"ekans", iv:91, types:["Poison"] },
-    { name:"pumpkaboo", iv:91, types:["Ghost","Grass"] },
-    { name:"yungoos", iv:91, types:["Normal"] },
-    { name:"wimpod", iv:91, types:["Bug","Water"] },
-    { name:"exeggutor", iv:91, types:["Grass","Psychic"] },
-    { name:"makuhita", iv:91, types:["Fighting"] },
-    { name:"magcargo", iv:91, types:["Fire","Rock"] },
-    { name:"scyther", iv:91, types:["Bug","Flying"] },
-    { name:"snubbull", iv:91, types:["Fairy"] },
-
-    { name:"scorbunny", iv:88, types:["Fire"] },
-    { name:"flaaffy", iv:88, types:["Electric"] },
-    { name:"charcadet", iv:88, types:["Fire"] },
-
-    { name:"electrike", iv:86, types:["Electric"] },
-    { name:"electrike", iv:86, types:["Electric"] },
-    { name:"glameow", iv:86, types:["Normal"] },
-    { name:"slugma", iv:86, types:["Fire"] },
-    { name:"muk", iv:86, types:["Poison"] },
-    { name:"indeedee", iv:86, types:["Psychic","Normal"] },
-    { name:"metang", iv:86, types:["Steel","Psychic"] },
-    { name:"masquerain", iv:86, types:["Bug","Flying"] },
-    { name:"swablu", iv:86, types:["Normal","Flying"] },
-    { name:"kadabra", iv:86, types:["Psychic"] },
-    { name:"meditite", iv:86, types:["Fighting","Psychic"] },
-    { name:"lechonk", iv:86, types:["Normal"] },
-    { name:"pikachu", iv:86, types:["Electric"] },
-
-    /* ✅ NOVOS */
-    { name:"kirlia", iv:86, types:["Psychic","Fairy"] },
-
-    { name:"miltank", iv:82, types:["Normal"] },
-    { name:"snorlax", iv:82, types:["Normal"] },
-    { name:"beartic", iv:82, types:["Ice"] },
-    { name:"weezing", iv:82, types:["Poison"] },
-    { name:"dusclops", iv:82, types:["Ghost"] },
-    { name:"electabuzz", iv:82, types:["Electric"] },
-    { name:"gothorita", iv:82, types:["Psychic"] },
-    { name:"gastly", iv:82, types:["Ghost","Poison"] },
-
-    { name:"grookey", iv:84, types:["Grass"] },
-    { name:"bulbasaur", iv:84, types:["Grass","Poison"] },
-    { name:"herdier", iv:84, types:["Normal"] },
-    { name:"porygon", iv:84, types:["Normal"] },
-    { name:"skiploom", iv:84, types:["Grass","Flying"] },
-    { name:"petilil", iv:84, types:["Grass"] },
-    { name:"kakuna", iv:84, types:["Bug","Poison"] },
-    { name:"liepard", iv:84, types:["Dark"] },
-    { name:"claydol", iv:84, types:["Ground","Psychic"] },
-    { name:"hippopotas", iv:84, types:["Ground"] },
-    { name:"igglybuff", iv:84, types:["Normal","Fairy"] },
-
-    /* ✅ EVOLUÇÕES */
-    { name:"jynx", iv:84, types:["Ice","Psychic"] },        // era smoochum 84
-    { name:"crocalor", iv:84, types:["Fire"] },             // era fuecoco 84
-    { name:"haunter", iv:84, types:["Ghost","Poison"] },    // era gastly 84
-
-    { name:"omanyte", iv:77, types:["Rock","Water"] },
-    { name:"chansey", iv:77, types:["Normal"] },
-    { name:"larvitar", iv:77, types:["Rock","Ground"] },
-
-    /* ✅ NOVO IV 75 */
-    { name:"jigglypuff", iv:75, types:["Normal","Fairy"] },
-
-    { name:"krabby", iv:75, types:["Water"] },
-    { name:"doublade", iv:75, types:["Steel","Ghost"] },
-    { name:"ekans", iv:75, types:["Poison"] },
-
-    /* ✅ NOVO */
-    { name:"maractus", iv:80, types:["Grass"] },
-
-    { name:"glalie-mega", iv:84, types:["Ice"] },
-
-    { name:"throh", iv:51, types:["Fighting"] }
-  ];
+<script type="module">
+  import { RAW, TYPE, TYPE_ORDER } from "/pokemon-data.js";
 
   // ===== Sprites =====
   const spriteGif = (slug) => `https://play.pokemonshowdown.com/sprites/xyani/${slug}.gif`;
@@ -626,10 +506,11 @@
     return list;
   }
 
-   function ivClass(iv){
-    if(iv >= 90) return "good";
-    if(iv >= 80) return "mid";
-    return "low";
+  // ===== IV cores (como você pediu) =====
+  function ivClass(iv){
+    if(iv >= 90) return "good"; // verde-lima
+    if(iv >= 80) return "mid";  // azul-ciano
+    return "low";               // branco
   }
 
   // ===== UI =====
@@ -644,13 +525,17 @@
 
   function renderButtons(){
     typeButtons.innerHTML = "";
+
     for(const t of TYPE_ORDER){
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.className = "tbtn" + (t===activeType ? " active" : "");
+      btn.className = "tbtn" + (t === activeType ? " active" : "");
 
       const label = (t === "All") ? "Todos" : (TYPE[t]?.pt || t);
-      const color = (t === "All") ? "rgba(238,21,21,.55)" : (TYPE[t]?.c || "rgba(255,255,255,.55)");
+      const color = (t === "All")
+        ? "rgba(238,21,21,.55)"
+        : (TYPE[t]?.c || "rgba(255,255,255,.55)");
+
       btn.style.setProperty("--c", color);
 
       const dot = document.createElement("span");
@@ -676,16 +561,20 @@
     const q = query.trim().toLowerCase();
     return AGG.filter(p=>{
       const typeOk = (activeType === "All") ? true : (p.types || []).includes(activeType);
+      if(!typeOk) return false;
+
+      if(!q) return true;
+
       const namePT = prettyName(p.name).toLowerCase();
       const slug = p.name.toLowerCase();
-      const textOk = q ? (namePT.includes(q) || slug.includes(q)) : true;
-      return typeOk && textOk;
+      return namePT.includes(q) || slug.includes(q);
     });
   }
 
   function typeChip(type){
     const span = document.createElement("span");
     span.className = "chip";
+
     const c = TYPE[type]?.c || "rgba(255,255,255,.55)";
     const pt = TYPE[type]?.pt || type;
 
@@ -710,10 +599,12 @@
     list.forEach((p, idx)=>{
       const tr = document.createElement("tr");
 
+      // Rank
       const tdRank = document.createElement("td");
       tdRank.className = "rank";
       tdRank.textContent = `#${idx+1}`;
 
+      // Pokémon cell
       const tdPoke = document.createElement("td");
       const wrap = document.createElement("div");
       wrap.className = "pokeCell";
@@ -729,6 +620,7 @@
 
       icon.appendChild(img);
 
+      // Stack badge
       if(p.count > 1){
         const stack = document.createElement("div");
         stack.className = "stack";
@@ -742,22 +634,27 @@
       nm.className = "name";
       nm.textContent = prettyName(p.name);
 
-      const meta = document.createElement("div");
-      meta.className = "meta";
-      // sem "IV:" repetido, só mostra a lista quando tiver stack
-      meta.textContent = (p.count > 1) ? `${p.ivsSorted.join(" / ")}` : "";
-
-      info.appendChild(nm);
-      if(meta.textContent) info.appendChild(meta);
+      // Subinfo só quando existe stack (sem "IV:" repetido)
+      if(p.count > 1){
+        const meta = document.createElement("div");
+        meta.className = "meta";
+        meta.textContent = p.ivsSorted.join(" / ");
+        info.appendChild(nm);
+        info.appendChild(meta);
+      }else{
+        info.appendChild(nm);
+      }
 
       wrap.appendChild(icon);
       wrap.appendChild(info);
       tdPoke.appendChild(wrap);
 
+      // IV column
       const tdIV = document.createElement("td");
       tdIV.className = "iv " + ivClass(p.maxIv);
       tdIV.textContent = p.maxIv;
 
+      // Types column
       const tdTypes = document.createElement("td");
       const chips = document.createElement("div");
       chips.className = "chips";
@@ -773,7 +670,7 @@
     });
   }
 
-  // Copy friend code
+  // ===== Copy friend code =====
   document.getElementById("copyBtn").addEventListener("click", async ()=>{
     const code = document.getElementById("friendCode").textContent.replace(/\s+/g," ").trim();
     const btn = document.getElementById("copyBtn");
@@ -795,7 +692,7 @@
     }
   });
 
-  // Search
+  // ===== Search =====
   search.addEventListener("input", ()=>{
     query = search.value || "";
     renderTable();
@@ -805,5 +702,6 @@
   renderButtons();
   renderTable();
 </script>
+
 </body>
 </html>
