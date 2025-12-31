@@ -76,6 +76,7 @@ export const RAW = [
   { name:"kirlia", iv:86, types:["Psychic","Fairy"] },
   { name:"charcadet", iv:86, types:["Fire"] },
 
+  { name:"grovyle", iv:82, types:["Grass"] },
   { name:"miltank", iv:82, types:["Normal"] },
   { name:"snorlax", iv:82, types:["Normal"] },
   { name:"beartic", iv:82, types:["Ice"] },
@@ -105,10 +106,11 @@ export const RAW = [
   { name:"clamperl", iv:84, types:["Water"] },
   { name:"electrike", iv:84, types:["Electric"] },
 
+  { name:"smoliv", iv:80, types:["Plant","Normal"] },
   { name:"ralts", iv:80, types:["Psychic","Fairy"] },
   { name:"munna", iv:80, types:["Psychic"] },
 
-  { name:"gastly-shiny", slug:"gastly", iv:77, types:["Ghost","Poison"] },
+  { name:"gastly", iv:77, types:["Ghost","Poison"], shiny:true },
   { name:"omanyte", iv:77, types:["Rock","Water"] },
   { name:"chansey", iv:77, types:["Normal"] },
   { name:"larvitar", iv:77, types:["Rock","Ground"] },
