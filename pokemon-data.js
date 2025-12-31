@@ -1,5 +1,5 @@
 // pokemon-data.js
-// Dados da LuaHMoonMC (RAW) + mapa de tipos (se você quiser deixar tudo bem separado)
+// Dados da LuaHMoonMC (RAW) + mapa de tipos
 
 export const TYPE = {
   Normal:   { pt:"Normal",   c:"#A8A77A" },
@@ -41,6 +41,7 @@ export const RAW = [
   { name:"leafeon", iv:93, types:["Grass"] },
   { name:"parasect", iv:93, types:["Bug","Grass"] },
   { name:"ekans", iv:93, types:["Poison"] },
+  { name:"wingull", iv:93, types:["Water","Flying"] }, // ✅ novo
 
   { name:"pidgey", iv:92, types:["Normal","Flying"] },
 
@@ -57,6 +58,7 @@ export const RAW = [
   { name:"scorbunny", iv:88, types:["Fire"] },
   { name:"flaaffy", iv:88, types:["Electric"] },
   { name:"charcadet", iv:88, types:["Fire"] },
+  { name:"durant", iv:88, types:["Bug","Steel"] }, // ✅ novo
 
   { name:"electrike", iv:86, types:["Electric"] },
   { name:"electrike", iv:86, types:["Electric"] },
@@ -72,6 +74,7 @@ export const RAW = [
   { name:"lechonk", iv:86, types:["Normal"] },
   { name:"pikachu", iv:86, types:["Electric"] },
   { name:"kirlia", iv:86, types:["Psychic","Fairy"] },
+  { name:"charcadet", iv:86, types:["Fire"] }, // ✅ novo
 
   { name:"miltank", iv:82, types:["Normal"] },
   { name:"snorlax", iv:82, types:["Normal"] },
@@ -81,6 +84,8 @@ export const RAW = [
   { name:"electabuzz", iv:82, types:["Electric"] },
   { name:"gothorita", iv:82, types:["Psychic"] },
   { name:"gastly", iv:82, types:["Ghost","Poison"] },
+  { name:"lunatone", iv:82, types:["Rock","Psychic"] }, // ✅ novo
+  { name:"tinkatuff", iv:82, types:["Fairy","Steel"] }, // ✅ novo
 
   { name:"grookey", iv:84, types:["Grass"] },
   { name:"bulbasaur", iv:84, types:["Grass","Poison"] },
@@ -93,12 +98,15 @@ export const RAW = [
   { name:"claydol", iv:84, types:["Ground","Psychic"] },
   { name:"hippopotas", iv:84, types:["Ground"] },
   { name:"igglybuff", iv:84, types:["Normal","Fairy"] },
-
   { name:"jynx", iv:84, types:["Ice","Psychic"] },
   { name:"crocalor", iv:84, types:["Fire"] },
   { name:"haunter", iv:84, types:["Ghost","Poison"] },
+  { name:"clamperl", iv:84, types:["Water"] }, // ✅ novo
+  { name:"electrike", iv:84, types:["Electric"] }, // ✅ novo
 
   { name:"maractus", iv:80, types:["Grass"] },
+  { name:"ralts", iv:80, types:["Psychic","Fairy"] }, // ✅ novo
+  { name:"munna", iv:80, types:["Psychic"] }, // ✅ novo
 
   { name:"omanyte", iv:77, types:["Rock","Water"] },
   { name:"chansey", iv:77, types:["Normal"] },
@@ -109,6 +117,10 @@ export const RAW = [
   { name:"doublade", iv:75, types:["Steel","Ghost"] },
   { name:"ekans", iv:75, types:["Poison"] },
 
+  { name:"ditto", iv:73, types:["Normal"] }, // ✅ novo
+  { name:"jynx", iv:71, types:["Ice","Psychic"] }, // ✅ novo (separado do 84)
+
   { name:"glalie-mega", iv:84, types:["Ice"] },
+
   { name:"throh", iv:51, types:["Fighting"] }
 ];
