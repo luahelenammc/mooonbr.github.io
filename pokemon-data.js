@@ -30,6 +30,9 @@ export const TYPE_ORDER = [
 
 export const RAW = [
 
+
+{ name:"abra", iv:95, types:["Psychic] },
+  { name:"jigglypuff", iv:66, types:["Normal","Fairy"], xmas:true, shiny:true },
   { name:"wartortle", iv:91, types:["Water"], xmas:true },  
 { name:"shelmet", iv:84, types:["Bug"] },  
 { name:"jigglypuff", iv:91, types:["Normal","Fairy"], xmas:true },  
@@ -38,7 +41,6 @@ export const RAW = [
 { name:"rhyhorn", iv:88, types:["Ground", "Rock"] },
 { name:"jigglypuff", iv:88, types:["Normal","Fairy"], xmas:true },
   { name:"jigglypuff", iv:84, types:["Normal","Fairy"], xmas:true },
-{ name:"charmander", iv:73, types:["Fire"], xmas:true },
 { name:"pikachu", iv:86, types:["Electric"], xmas:true },
   { name:"pikachu", iv:62, types:["Electric"], xmas:true, shiny:true },
   
