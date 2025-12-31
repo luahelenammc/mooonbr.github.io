@@ -7,7 +7,6 @@
 
   <style>
     :root{
-      /* Pokémon GO vibe (vermelho suave + brancos + azul discreto) */
       --goRed:#ee1515;
       --goRedSoft: rgba(238,21,21,.22);
       --goBlue: rgba(42,117,187,.18);
@@ -36,7 +35,6 @@
       overflow-x:hidden;
     }
 
-    /* pattern bem leve */
     body::before{
       content:"";
       position:fixed;
@@ -162,7 +160,6 @@
     .copy:hover{ background: rgba(238,21,21,.34); }
     .copy:active{ transform: translateY(1px); }
 
-    /* botão de alternar visualização (mesmo DNA do copy) */
     .viewBtn{
       background: rgba(255,255,255,.10);
     }
@@ -285,7 +282,6 @@
       align-items:center;
     }
 
-    /* quadradinho que respeita o sprite */
     .icon{
       display:inline-grid;
       place-items:center;
@@ -371,13 +367,13 @@
       font-variant-numeric: tabular-nums;
     }
 
-    /* ✅ CORES DE IV */
+    /* ✅ CORES DE IV (mantém para a TABELA) */
     .iv.good{ color: #a3ff12; }   /* 90+ verde-lima */
     .iv.mid{  color: #34d7ff; }   /* 80–89 azul-ciano */
     .iv.low{  color: #ffffff; }   /* 60–79 branco */
     .iv.bad{  color: #ff3b3b; }   /* <60 vermelho */
 
-    /* ===== GRADE (modo Pokédex visual) ===== */
+    /* ===== GRADE (modo visual) ===== */
     .gridWrap{
       margin-top: 14px;
       border-radius: var(--radius);
@@ -405,7 +401,7 @@
       background:
         radial-gradient(18px 18px at 30% 25%, rgba(255,255,255,.22), transparent 60%),
         rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.14);
+      border: 2px solid rgba(255,255,255,.14); /* base */
       box-shadow: 0 12px 28px rgba(0,0,0,.22);
       width: fit-content;
       height: fit-content;
@@ -413,6 +409,12 @@
       max-height: 96px;
       overflow:hidden;
     }
+
+    /* ✅ BORDAS POR IV (APENAS NO MODO GRADE) */
+    .gItem.good{ border-color: #a3ff12; }  /* 90+ */
+    .gItem.mid{  border-color: #34d7ff; }  /* 80–89 */
+    .gItem.low{  border-color: #ffffff; }  /* 60–79 */
+    .gItem.bad{  border-color: #ff3b3b; }  /* <60 */
 
     .gItem img{
       display:block;
@@ -422,23 +424,6 @@
       max-height: 88px;
       image-rendering: pixelated;
     }
-
-    /* IV discreto */
-   .gIV{
-  position:absolute;
-  right: 8px;
-  bottom: 7px;
-  font-size: 12px;
-  font-weight: 1000;
-  letter-spacing: .2px;
-  padding: 0;
-  border: none;
-  background: transparent;
-  border-radius: 0;
-  font-variant-numeric: tabular-nums;
-  text-shadow: 0 2px 6px rgba(0,0,0,.85); /* pra ler em cima do gif */
-}
-
 
     .footerBtns{
       display:flex;
@@ -526,13 +511,12 @@
   </div>
 
 <script type="module">
-  import { RAW, TYPE, TYPE_ORDER } from "/pokemon-data.js";
+  /* Se der 404 no GitHub Pages, troque "/pokemon-data.js" por "./pokemon-data.js" */
+  import { RAW, TYPE, TYPE_ORDER } from "./pokemon-data.js";
 
-  // ===== Sprites =====
   const spriteGif = (slug) => `https://play.pokemonshowdown.com/sprites/xyani/${slug}.gif`;
   const spritePng = (slug) => `https://play.pokemonshowdown.com/sprites/gen8/${slug}.png`;
 
-  // ===== Nome bonito =====
   function prettyName(slug){
     if(!slug.includes("-")){
       return slug.charAt(0).toUpperCase() + slug.slice(1);
@@ -550,18 +534,12 @@
     return `${base} (${formNice})`;
   }
 
-  // ===== Agregação de repetidos =====
   function aggregate(raw){
     const map = new Map();
-
     for(const p of raw){
       const key = p.name;
       if(!map.has(key)){
-        map.set(key, {
-          name: key,
-          types: p.types || [],
-          ivs: [p.iv ?? 0]
-        });
+        map.set(key, { name:key, types:p.types||[], ivs:[p.iv??0] });
       }else{
         map.get(key).ivs.push(p.iv ?? 0);
       }
@@ -583,7 +561,7 @@
     return list;
   }
 
-  // ===== IV cores =====
+  /* ⚠️ Continua valendo para a TABELA (texto colorido). No modo grade vira borda colorida. */
   function ivClass(iv){
     if(iv >= 90) return "good";
     if(iv >= 80) return "mid";
@@ -591,7 +569,6 @@
     return "bad";
   }
 
-  // ===== UI =====
   const typeButtons = document.getElementById("typeButtons");
   const tbody = document.getElementById("tbody");
   const search = document.getElementById("search");
@@ -603,7 +580,7 @@
 
   let activeType = "All";
   let query = "";
-  let viewMode = "table"; // "table" | "grid"
+  let viewMode = "table";
 
   const AGG = aggregate(RAW);
 
@@ -612,7 +589,6 @@
     return AGG.filter(p=>{
       const typeOk = (activeType === "All") ? true : (p.types || []).includes(activeType);
       if(!typeOk) return false;
-
       if(!q) return true;
 
       const namePT = prettyName(p.name).toLowerCase();
@@ -683,12 +659,10 @@
     list.forEach((p, idx)=>{
       const tr = document.createElement("tr");
 
-      // Rank
       const tdRank = document.createElement("td");
       tdRank.className = "rank";
       tdRank.textContent = `#${idx+1}`;
 
-      // Pokémon cell
       const tdPoke = document.createElement("td");
       const wrap = document.createElement("div");
       wrap.className = "pokeCell";
@@ -701,10 +675,8 @@
       img.alt = p.name;
       img.src = spriteGif(p.name);
       img.onerror = () => { img.src = spritePng(p.name); };
-
       icon.appendChild(img);
 
-      // Stack badge (mantém como estava na tabela)
       if(p.count > 1){
         const stack = document.createElement("div");
         stack.className = "stack";
@@ -718,7 +690,6 @@
       nm.className = "name";
       nm.textContent = prettyName(p.name);
 
-      // Subinfo só quando existe stack (sem "IV:" repetido)
       if(p.count > 1){
         const meta = document.createElement("div");
         meta.className = "meta";
@@ -733,12 +704,10 @@
       wrap.appendChild(info);
       tdPoke.appendChild(wrap);
 
-      // IV column
       const tdIV = document.createElement("td");
       tdIV.className = "iv " + ivClass(p.maxIv);
       tdIV.textContent = p.maxIv;
 
-      // Types column
       const tdTypes = document.createElement("td");
       const chips = document.createElement("div");
       chips.className = "chips";
@@ -754,14 +723,14 @@
     });
   }
 
-  // ===== Grade: só gif + IV discreto (aglutinado por espécie) =====
+  /* ✅ MODO GRADE: sem número. Borda colorida por IV. */
   function renderGrid(){
     const list = filteredList();
     grid.innerHTML = "";
 
     list.forEach((p)=>{
       const item = document.createElement("div");
-      item.className = "gItem";
+      item.className = "gItem " + ivClass(p.maxIv);
 
       const img = document.createElement("img");
       img.loading = "lazy";
@@ -769,13 +738,7 @@
       img.src = spriteGif(p.name);
       img.onerror = () => { img.src = spritePng(p.name); };
 
-      const iv = document.createElement("div");
-      iv.className = "gIV iv " + ivClass(p.maxIv);
-      iv.textContent = p.maxIv;
-
       item.appendChild(img);
-      item.appendChild(iv);
-
       grid.appendChild(item);
     });
   }
@@ -792,7 +755,6 @@
     }
   }
 
-  // ===== Copy friend code =====
   document.getElementById("copyBtn").addEventListener("click", async ()=>{
     const code = document.getElementById("friendCode").textContent.replace(/\s+/g," ").trim();
     const btn = document.getElementById("copyBtn");
@@ -814,20 +776,17 @@
     }
   });
 
-  // ===== Toggle view =====
   viewBtn.addEventListener("click", ()=>{
     viewMode = (viewMode === "table") ? "grid" : "table";
     viewBtn.textContent = (viewMode === "table") ? "Ver em grade" : "Ver em tabela";
     renderActive();
   });
 
-  // ===== Search =====
   search.addEventListener("input", ()=>{
     query = search.value || "";
     renderActive();
   });
 
-  // Init
   renderButtons();
   renderActive();
 </script>
