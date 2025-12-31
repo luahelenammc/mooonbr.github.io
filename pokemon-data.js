@@ -31,7 +31,7 @@ export const TYPE_ORDER = [
 export const RAW = [
 // ACRESCENTAR ABAIXO!
 
-
+{ name:"slowpoke", iv:82, types:["Psychic"] },
   { name:"beedrill", iv:84, types:["Bug","Poison"] },
 { name:"rhydon", iv:88, types:["Ground", "Rock"] },
 { name:"ivysaur", iv:86, types:["Grass", "Poison"], xmas:true },  
@@ -143,7 +143,7 @@ export const RAW = [
   { name:"omanyte", iv:77, types:["Rock","Water"], dynamax:true },
   { name:"chansey", iv:77, types:["Normal"], dynamax:true },
   { name:"larvitar", iv:77, types:["Rock","Ground"] },
-
+{ name:"krabby", iv:80, types:["Water"], dynamax:true },
     { name:"krabby", iv:75, types:["Water"], dynamax:true },
   { name:"doublade", iv:75, types:["Steel","Ghost"] },
 
