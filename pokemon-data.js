@@ -108,7 +108,7 @@ export const RAW = [
   { name:"ralts", iv:80, types:["Psychic","Fairy"] },
   { name:"munna", iv:80, types:["Psychic"] },
 
-  { name:"gastly", iv:77, types:["Ghost","Poison"], shiny:true },
+  { name:"gastly-shiny", slug:"gastly", iv:77, types:["Ghost","Poison"] },
   { name:"omanyte", iv:77, types:["Rock","Water"] },
   { name:"chansey", iv:77, types:["Normal"] },
   { name:"larvitar", iv:77, types:["Rock","Ground"] },
