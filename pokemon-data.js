@@ -1,6 +1,6 @@
 // pokemon-data.js
-// Dados da LuaHMoonMC (RAW) + mapa de tipos (se você quiser deixar tudo bem separado)
-// 31.12.25 - 13h48
+// Dados da LuaHMoonMC
+// 31.12.25 - 13h55
 
 export const TYPE = {
   Normal:   { pt:"Normal",   c:"#A8A77A" },
@@ -33,6 +33,7 @@ export const RAW = [
 { name:"bellsprout", iv:82, types:["Grass", "Poison"] },  
 { name:"rhyhorn", iv:88, types:["Ground", "Rock"] },
 { name:"jigglypuff", iv:88, types:["Normal","Fairy"], xmas:true },
+  { name:"jigglypuff", iv:84, types:["Normal","Fairy"], xmas:true },
 { name:"charmander", iv:73, types:["Fire"], xmas:true },
 { name:"pikachu", iv:86, types:["Electric"], xmas:true },
   { name:"pikachu", iv:62, types:["Electric"], xmas:true, shiny:true },
