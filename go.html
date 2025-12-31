@@ -545,8 +545,10 @@
 function displayName(p){
   const x = p.xmas ? " 🎄" : "";
   const s = p.shiny ? " ✨" : "";
-  return prettyName(p.name) + x + s;
+  const d = p.dynamax ? " 💥" : "";
+  return prettyName(p.name) + x + s + d;
 }
+
 
 
   function aggregate(raw){
@@ -554,16 +556,19 @@ function displayName(p){
 
     for(const p of raw){
       const isShiny = !!p.shiny;
-const key = `${p.name}|${p.shiny ? 1 : 0}|${p.xmas ? 1 : 0}`;
+const key = `${p.name}|${p.shiny ? 1 : 0}|${p.xmas ? 1 : 0}|${p.dynamax ? 1 : 0}`;
+
 
       if(!map.has(key)){
-      map.set(key, {
+ map.set(key, {
   name: p.name,
   shiny: !!p.shiny,
   xmas: !!p.xmas,
+  dynamax: !!p.dynamax,
   types: p.types || [],
   ivs: [p.iv ?? 0]
 });
+
 
       }else{
         map.get(key).ivs.push(p.iv ?? 0);
