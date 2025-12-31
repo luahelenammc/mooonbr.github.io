@@ -514,8 +514,14 @@
   /* Se der 404 no GitHub Pages, troque "/pokemon-data.js" por "./pokemon-data.js" */
   import { RAW, TYPE, TYPE_ORDER } from "./pokemon-data.js";
 
-  const spriteGif = (slug) => `https://play.pokemonshowdown.com/sprites/xyani/${slug}.gif`;
+const spriteGif = (p) => {
+  const slug = p.slug || p.name;
+  const folder = p.shiny || String(p.name).endsWith("-shiny") ? "xyani-shiny" : "xyani";
+  return `https://play.pokemonshowdown.com/sprites/${folder}/${slug}.gif`;
+};
+
   const spritePng = (slug) => `https://play.pokemonshowdown.com/sprites/gen8/${slug}.png`;
+  
 
   function prettyName(slug){
     if(!slug.includes("-")){
@@ -537,7 +543,9 @@
   function aggregate(raw){
     const map = new Map();
     for(const p of raw){
-      const key = p.name;
+  const key = (p.shiny || String(p.name).endsWith("-shiny")) ? `${p.name}` : p.name;
+// (na prática, só garantir que gastly-shiny e gastly não virem a mesma chave)
+
       if(!map.has(key)){
         map.set(key, { name:key, types:p.types||[], ivs:[p.iv??0] });
       }else{
