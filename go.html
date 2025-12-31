@@ -514,14 +514,16 @@
   /* Se der 404 no GitHub Pages, troque "/pokemon-data.js" por "./pokemon-data.js" */
   import { RAW, TYPE, TYPE_ORDER } from "./pokemon-data.js";
 
-const spriteGif = (p) => {
-  const slug = p.slug || p.name;
-  const folder = p.shiny || String(p.name).endsWith("-shiny") ? "xyani-shiny" : "xyani";
-  return `https://play.pokemonshowdown.com/sprites/${folder}/${slug}.gif`;
-};
+  // ✅ Agora suporta shiny sem quebrar sprites nem agregação
+  const spriteGif = (slug, shiny=false) =>
+    shiny
+      ? `https://play.pokemonshowdown.com/sprites/xyani-shiny/${slug}.gif`
+      : `https://play.pokemonshowdown.com/sprites/xyani/${slug}.gif`;
 
-  const spritePng = (slug) => `https://play.pokemonshowdown.com/sprites/gen8/${slug}.png`;
-  
+  const spritePng = (slug, shiny=false) =>
+    shiny
+      ? `https://play.pokemonshowdown.com/sprites/gen8-shiny/${slug}.png`
+      : `https://play.pokemonshowdown.com/sprites/gen8/${slug}.png`;
 
   function prettyName(slug){
     if(!slug.includes("-")){
@@ -540,14 +542,24 @@ const spriteGif = (p) => {
     return `${base} (${formNice})`;
   }
 
+  function displayName(p){
+    return prettyName(p.name) + (p.shiny ? " ✨" : "");
+  }
+
   function aggregate(raw){
     const map = new Map();
+
     for(const p of raw){
-  const key = (p.shiny || String(p.name).endsWith("-shiny")) ? `${p.name}` : p.name;
-// (na prática, só garantir que gastly-shiny e gastly não virem a mesma chave)
+      const isShiny = !!p.shiny;
+      const key = `${p.name}|${isShiny ? 1 : 0}`;
 
       if(!map.has(key)){
-        map.set(key, { name:key, types:p.types||[], ivs:[p.iv??0] });
+        map.set(key, {
+          name: p.name,
+          shiny: isShiny,
+          types: p.types || [],
+          ivs: [p.iv ?? 0]
+        });
       }else{
         map.get(key).ivs.push(p.iv ?? 0);
       }
@@ -563,7 +575,11 @@ const spriteGif = (p) => {
 
     list.sort((a,b)=>{
       if(b.maxIv !== a.maxIv) return b.maxIv - a.maxIv;
-      return prettyName(a.name).localeCompare(prettyName(b.name), "pt-BR", { sensitivity:"base" });
+
+      // Se tiver empate, deixa shiny aparecer levemente acima (opcional, mas elegante)
+      if(!!b.shiny !== !!a.shiny) return (b.shiny ? 1 : 0) - (a.shiny ? 1 : 0);
+
+      return displayName(a).localeCompare(displayName(b), "pt-BR", { sensitivity:"base" });
     });
 
     return list;
@@ -593,13 +609,27 @@ const spriteGif = (p) => {
   const AGG = aggregate(RAW);
 
   function filteredList(){
-    const q = query.trim().toLowerCase();
+    let q = query.trim().toLowerCase();
+
+    // ✅ “shiny”, “brilhante” ou “✨” funcionam como filtro extra
+    let wantsShiny = false;
+    if(q.includes("✨") || q.includes("shiny") || q.includes("brilhante")){
+      wantsShiny = true;
+      q = q.replaceAll("✨","")
+           .replaceAll("shiny","")
+           .replaceAll("brilhante","")
+           .trim();
+    }
+
     return AGG.filter(p=>{
       const typeOk = (activeType === "All") ? true : (p.types || []).includes(activeType);
       if(!typeOk) return false;
+
+      if(wantsShiny && !p.shiny) return false;
+
       if(!q) return true;
 
-      const namePT = prettyName(p.name).toLowerCase();
+      const namePT = displayName(p).toLowerCase();
       const slug = p.name.toLowerCase();
       return namePT.includes(q) || slug.includes(q);
     });
@@ -660,6 +690,14 @@ const spriteGif = (p) => {
     return span;
   }
 
+  function wireSprite(img, slug, shiny){
+    img.src = spriteGif(slug, shiny);
+    img.onerror = () => {
+      img.onerror = () => { img.src = spritePng(slug, false); }; // fallback final: normal
+      img.src = spritePng(slug, shiny);
+    };
+  }
+
   function renderTable(){
     const list = filteredList();
     tbody.innerHTML = "";
@@ -680,9 +718,8 @@ const spriteGif = (p) => {
 
       const img = document.createElement("img");
       img.loading = "lazy";
-      img.alt = p.name;
-      img.src = spriteGif(p.name);
-      img.onerror = () => { img.src = spritePng(p.name); };
+      img.alt = p.shiny ? `${p.name} shiny` : p.name;
+      wireSprite(img, p.name, p.shiny);
       icon.appendChild(img);
 
       if(p.count > 1){
@@ -696,7 +733,7 @@ const spriteGif = (p) => {
 
       const nm = document.createElement("div");
       nm.className = "name";
-      nm.textContent = prettyName(p.name);
+      nm.textContent = displayName(p);
 
       if(p.count > 1){
         const meta = document.createElement("div");
@@ -742,9 +779,8 @@ const spriteGif = (p) => {
 
       const img = document.createElement("img");
       img.loading = "lazy";
-      img.alt = p.name;
-      img.src = spriteGif(p.name);
-      img.onerror = () => { img.src = spritePng(p.name); };
+      img.alt = p.shiny ? `${p.name} shiny` : p.name;
+      wireSprite(img, p.name, p.shiny);
 
       item.appendChild(img);
       grid.appendChild(item);
