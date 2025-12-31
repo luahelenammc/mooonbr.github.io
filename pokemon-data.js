@@ -1,6 +1,6 @@
 // pokemon-data.js
 // Dados da LuaHMoonMC
-// 31.12.25 - 13h55
+// 31.12.25 - 14h23
 
 export const TYPE = {
   Normal:   { pt:"Normal",   c:"#A8A77A" },
