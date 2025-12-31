@@ -30,6 +30,9 @@ export const TYPE_ORDER = [
 
 export const RAW = [
 // ACRESCENTAR ABAIXO!
+
+
+  { name:"beedrill", iv:84, types:["Bug","Poison"] },
 { name:"rhydon", iv:88, types:["Ground", "Rock"] },
 { name:"ivysaur", iv:86, types:["Grass", "Poison"], xmas:true },  
 { name:"venusaur", iv:86, types:["Grass", "Poison"], xmas:true },  
@@ -123,7 +126,6 @@ export const RAW = [
   { name:"porygon", iv:84, types:["Normal"] },
   { name:"skiploom", iv:84, types:["Grass","Flying"] },
   { name:"petilil", iv:84, types:["Grass"] },
-  { name:"kakuna", iv:84, types:["Bug","Poison"] },
   { name:"liepard", iv:84, types:["Dark"] },
   { name:"claydol", iv:84, types:["Ground","Psychic"] },
   { name:"hippopotas", iv:84, types:["Ground"] },
