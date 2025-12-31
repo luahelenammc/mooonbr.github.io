@@ -35,6 +35,7 @@ export const RAW = [
 { name:"jigglypuff", iv:88, types:["Normal","Fairy"], xmas:true },
 { name:"charmander", iv:73, types:["Fire"], xmas:true },
 { name:"pikachu", iv:86, types:["Electric"], xmas:true },
+  { name:"pikachu", iv:62, types:["Electric"], xmas:true, shiny:true },
   
   { name:"cetitan", iv:100, types:["Ice"] },
   { name:"nidorina", iv:100, types:["Poison"] },
