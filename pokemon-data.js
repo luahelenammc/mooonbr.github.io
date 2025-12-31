@@ -31,7 +31,7 @@ export const TYPE_ORDER = [
 export const RAW = [
 
 
-{ name:"abra", iv:95, types:["Psychic] },
+{ name:"abra", iv:95, types:["Psychic"] },
   { name:"jigglypuff", iv:66, types:["Normal","Fairy"], xmas:true, shiny:true },
   { name:"wartortle", iv:91, types:["Water"], xmas:true },  
 { name:"shelmet", iv:84, types:["Bug"] },  
