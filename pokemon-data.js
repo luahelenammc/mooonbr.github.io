@@ -1,6 +1,6 @@
 // pokemon-data.js
 // Dados da LuaHMoonMC (RAW) + mapa de tipos (se você quiser deixar tudo bem separado)
-// 31.12.25 - 13h21
+// 31.12.25 - 13h43
 
 export const TYPE = {
   Normal:   { pt:"Normal",   c:"#A8A77A" },
@@ -45,7 +45,7 @@ export const RAW = [
 
   { name:"arcanine", iv:93, types:["Fire"] },
   { name:"indeedee", iv:93, types:["Psychic","Normal"] },
-  { name:"wigglypuff", iv:93, types:["Normal","Fairy"] },
+  { name:"wigglytuff", iv:93, types:["Normal","Fairy"] },
   { name:"leafeon", iv:93, types:["Grass"] },
   { name:"parasect", iv:93, types:["Bug","Grass"] },
   { name:"ekans", iv:93, types:["Poison"] },
