@@ -1,6 +1,6 @@
 // pokemon-data.js
 // Dados da LuaHMoonMC (RAW) + mapa de tipos (se você quiser deixar tudo bem separado)
-// 31.12.25 - 13h43
+// 31.12.25 - 13h48
 
 export const TYPE = {
   Normal:   { pt:"Normal",   c:"#A8A77A" },
