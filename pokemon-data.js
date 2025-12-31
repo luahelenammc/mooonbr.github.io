@@ -31,6 +31,10 @@ export const TYPE_ORDER = [
 export const RAW = [
 // ACRESCENTAR ABAIXO!
 
+
+  { name:"sudowoodo", iv:86, types:["Rock"] },
+  { name:"spheal", iv:82, types:["Ice","Water"] },
+  { name:"snom", iv:86, types:["Ice","Bug"] },
 { name:"slowpoke", iv:82, types:["Psychic"] },
   { name:"beedrill", iv:84, types:["Bug","Poison"] },
 { name:"rhydon", iv:88, types:["Ground", "Rock"] },
@@ -51,7 +55,7 @@ export const RAW = [
   { name:"persian", iv:91, types:["Normal"] },  
   { name:"squirtle", iv:88, types:["Water"], xmas:true },  
   { name:"blastoise", iv:91, types:["Water"], xmas:true },  
-    { name:"elgyem", iv:80, types:["Psychic"] },
+    { name:"elgyem", iv:86, types:["Psychic"] },
   { name:"pikachu", iv:93, types:["Electric"], xmas:true },
 { name:"abra", iv:95, types:["Psychic"] },
   { name:"jigglypuff", iv:66, types:["Normal","Fairy"], xmas:true, shiny:true },
