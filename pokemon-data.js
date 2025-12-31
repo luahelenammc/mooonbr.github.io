@@ -1,6 +1,6 @@
 // pokemon-data.js
 // Dados da LuaHMoonMC
-// 31.12.25 - 16:13
+// 31.12.25 - 19h - pós sudowoodo
 
 export const TYPE = {
   Normal:   { pt:"Normal",   c:"#A8A77A" },
