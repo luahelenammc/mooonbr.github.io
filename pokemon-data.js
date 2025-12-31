@@ -31,8 +31,8 @@ export const TYPE_ORDER = [
 export const RAW = [
 // ACRESCENTAR ABAIXO!
 
-{ name:"ivysaur", iv:86, tyes:["Grass", "Poison"], xmas:true },  
-{ name:"venusaur", iv:86, tyes:["Grass", "Poison"], xmas:true },  
+{ name:"ivysaur", iv:86, types:["Grass", "Poison"], xmas:true },  
+{ name:"venusaur", iv:86, types:["Grass", "Poison"], xmas:true },  
   { name:"charmeleon", iv:88, types:["Fire"], xmas:true },  
 { name:"charizard", iv:86, types:["Fire"], xmas:true },  
 { name:"wingull", iv:86, types:["Water","Flying"] },
@@ -55,7 +55,7 @@ export const RAW = [
   { name:"jigglypuff", iv:66, types:["Normal","Fairy"], xmas:true, shiny:true },
 { name:"shelmet", iv:84, types:["Bug"] },  
 { name:"jigglypuff", iv:91, types:["Normal","Fairy"], xmas:true },  
-  { name:"bulbasaur", iv:82, tyes:["Grass", "Poison"], xmas:true },  
+  { name:"bulbasaur", iv:82, types:["Grass", "Poison"], xmas:true },  
   { name:"bellsprout", iv:82, types:["Grass", "Poison"] },
 { name:"rhyhorn", iv:88, types:["Ground", "Rock"] },
 { name:"jigglypuff", iv:88, types:["Normal","Fairy"], xmas:true },
