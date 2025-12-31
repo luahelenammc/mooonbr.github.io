@@ -32,7 +32,11 @@ export const RAW = [
 // ACRESCENTAR ABAIXO!
 
 
-
+{ name:"wingull", iv:86, types:["Water","Flying"] },
+  { name:"magneton", iv:82, types:["Electric"] },  
+{ name:"squirtle", iv:82, types:["Water"], xmas:true },  
+  { name:"wartortle", iv:91, types:["Water"], xmas:true },  
+{ name:"venonat", iv:82, types:["Bug", "Poison"] },  
   { name:"sliggoo", iv:91, types:["Dragon"] },  
 { name:"charmander", iv:88, types:["Fire"], xmas:true },  
   { name:"swampert", iv:86, types:["Water","Ground"] },  
