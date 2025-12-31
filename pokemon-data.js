@@ -1,6 +1,6 @@
 // pokemon-data.js
 // Dados da LuaHMoonMC
-// 31.12.25 - 16:08
+// 31.12.25 - 16:13
 
 export const TYPE = {
   Normal:   { pt:"Normal",   c:"#A8A77A" },
@@ -31,8 +31,8 @@ export const TYPE_ORDER = [
 export const RAW = [
 // ACRESCENTAR ABAIXO!
 
-
-
+{ name:"ivysaur", iv:86, tyes:["Grass", "Poison"], xmas:true },  
+{ name:"venusaur", iv:86, tyes:["Grass", "Poison"], xmas:true },  
   { name:"charmeleon", iv:88, types:["Fire"], xmas:true },  
 { name:"charizard", iv:86, types:["Fire"], xmas:true },  
 { name:"wingull", iv:86, types:["Water","Flying"] },
@@ -51,7 +51,6 @@ export const RAW = [
   { name:"jigglypuff", iv:84, types:["Normal","Fairy"], xmas:true },  
   { name:"elgyem", iv:80, types:["Psychic"] },
   { name:"pikachu", iv:93, types:["Electric"], xmas:true },
-{ name:"bulbasaur", iv:86, tyes:["Grass", "Poison"], xmas:true },  
 { name:"abra", iv:95, types:["Psychic"] },
   { name:"jigglypuff", iv:66, types:["Normal","Fairy"], xmas:true, shiny:true },
 { name:"shelmet", iv:84, types:["Bug"] },  
@@ -157,6 +156,6 @@ export const RAW = [
   { name:"ditto", iv:73, types:["Normal"] },
   { name:"jynx", iv:71, types:["Ice","Psychic"] },
 
-  { name:"glalie-mega", iv:84, types:["Ice"] },
+  { name:"glalie", iv:84, types:["Ice"] },
   { name:"throh", iv:51, types:["Fighting"] }
 ];
