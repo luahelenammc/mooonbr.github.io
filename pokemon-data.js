@@ -1,6 +1,6 @@
 // pokemon-data.js
 // Dados da LuaHMoonMC
-// 31.12.25 - 15h22
+// 31.12.25 - 16:08
 
 export const TYPE = {
   Normal:   { pt:"Normal",   c:"#A8A77A" },
@@ -32,13 +32,15 @@ export const RAW = [
 // ACRESCENTAR ABAIXO!
 
 
+
+  { name:"charmeleon", iv:88, types:["Fire"], xmas:true },  
+{ name:"charizard", iv:86, types:["Fire"], xmas:true },  
 { name:"wingull", iv:86, types:["Water","Flying"] },
   { name:"magneton", iv:82, types:["Electric"] },  
 { name:"squirtle", iv:82, types:["Water"], xmas:true },  
   { name:"wartortle", iv:91, types:["Water"], xmas:true },  
 { name:"venonat", iv:82, types:["Bug", "Poison"] },  
   { name:"sliggoo", iv:91, types:["Dragon"] },  
-{ name:"charmander", iv:88, types:["Fire"], xmas:true },  
   { name:"swampert", iv:86, types:["Water","Ground"] },  
   { name:"squirtle", iv:66, types:["Water"], xmas:true, shiny:true },  
   { name:"sentret", iv:93, types:["Normal"] },  
