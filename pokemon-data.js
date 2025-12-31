@@ -87,6 +87,7 @@ export const RAW = [
   { name:"tinkatuff", iv:82, types:["Fairy","Steel"] },
   { name:"lunatone", iv:82, types:["Rock","Psychic"] },
 
+  { name:"hitmontop", iv:84, types:["Fighting"] },
   { name:"grookey", iv:84, types:["Grass"] },
   { name:"bulbasaur", iv:84, types:["Grass","Poison"] },
   { name:"herdier", iv:84, types:["Normal"] },
@@ -104,7 +105,6 @@ export const RAW = [
   { name:"clamperl", iv:84, types:["Water"] },
   { name:"electrike", iv:84, types:["Electric"] },
 
-  { name:"maractus", iv:80, types:["Grass"] },
   { name:"ralts", iv:80, types:["Psychic","Fairy"] },
   { name:"munna", iv:80, types:["Psychic"] },
 
