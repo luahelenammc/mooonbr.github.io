@@ -30,7 +30,8 @@ export const TYPE_ORDER = [
 
 export const RAW = [
 
-
+{ name:"bellsprout", iv:82, types:["Grass", "Poison"] },  
+{ name:"rhyhorn", iv:88, types:["Ground", "Rock"] },
 { name:"jigglypuff", iv:88, types:["Normal","Fairy"], xmas:true },
 { name:"charmander", iv:73, types:["Fire"], xmas:true },
 { name:"pikachu", iv:86, types:["Electric"], xmas:true },
@@ -44,7 +45,7 @@ export const RAW = [
 
   { name:"arcanine", iv:93, types:["Fire"] },
   { name:"indeedee", iv:93, types:["Psychic","Normal"] },
-  { name:"jigglypuff", iv:93, types:["Normal","Fairy"] },
+  { name:"wigglypuff", iv:93, types:["Normal","Fairy"] },
   { name:"leafeon", iv:93, types:["Grass"] },
   { name:"parasect", iv:93, types:["Bug","Grass"] },
   { name:"ekans", iv:93, types:["Poison"] },
@@ -112,7 +113,7 @@ export const RAW = [
   { name:"clamperl", iv:84, types:["Water"] },
   { name:"electrike", iv:84, types:["Electric"] },
 
-  { name:"smoliv", iv:80, types:["Plant","Normal"] },
+  { name:"smoliv", iv:80, types:["Grass","Normal"] },
   { name:"ralts", iv:80, types:["Psychic","Fairy"] },
   { name:"munna", iv:80, types:["Psychic"] },
 
