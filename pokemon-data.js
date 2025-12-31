@@ -30,7 +30,7 @@ export const TYPE_ORDER = [
 
 export const RAW = [
 // ACRESCENTAR ABAIXO!
-
+{ name:"rhydon", iv:88, types:["Ground", "Rock"] },
 { name:"ivysaur", iv:86, types:["Grass", "Poison"], xmas:true },  
 { name:"venusaur", iv:86, types:["Grass", "Poison"], xmas:true },  
   { name:"charmeleon", iv:88, types:["Fire"], xmas:true },  
@@ -48,8 +48,7 @@ export const RAW = [
   { name:"persian", iv:91, types:["Normal"] },  
   { name:"squirtle", iv:88, types:["Water"], xmas:true },  
   { name:"blastoise", iv:91, types:["Water"], xmas:true },  
-  { name:"jigglypuff", iv:84, types:["Normal","Fairy"], xmas:true },  
-  { name:"elgyem", iv:80, types:["Psychic"] },
+    { name:"elgyem", iv:80, types:["Psychic"] },
   { name:"pikachu", iv:93, types:["Electric"], xmas:true },
 { name:"abra", iv:95, types:["Psychic"] },
   { name:"jigglypuff", iv:66, types:["Normal","Fairy"], xmas:true, shiny:true },
@@ -57,9 +56,6 @@ export const RAW = [
 { name:"jigglypuff", iv:91, types:["Normal","Fairy"], xmas:true },  
   { name:"bulbasaur", iv:82, types:["Grass", "Poison"], xmas:true },  
   { name:"bellsprout", iv:82, types:["Grass", "Poison"] },
-{ name:"rhyhorn", iv:88, types:["Ground", "Rock"] },
-{ name:"jigglypuff", iv:88, types:["Normal","Fairy"], xmas:true },
-  { name:"jigglypuff", iv:84, types:["Normal","Fairy"], xmas:true },
 { name:"pikachu", iv:86, types:["Electric"], xmas:true },
   { name:"pikachu", iv:62, types:["Electric"], xmas:true, shiny:true },
   
@@ -96,7 +92,6 @@ export const RAW = [
   { name:"durant", iv:88, types:["Bug","Steel"] },
 
   { name:"electrike", iv:86, types:["Electric"] },
-  { name:"electrike", iv:86, types:["Electric"] },
   { name:"glameow", iv:86, types:["Normal"] },
   { name:"slugma", iv:86, types:["Fire"] },
   { name:"muk", iv:86, types:["Poison"] },
@@ -108,7 +103,6 @@ export const RAW = [
   { name:"meditite", iv:86, types:["Fighting","Psychic"] },
   { name:"lechonk", iv:86, types:["Normal"] },
     { name:"kirlia", iv:86, types:["Psychic","Fairy"] },
-  { name:"charcadet", iv:86, types:["Fire"] },
 
   { name:"grovyle", iv:82, types:["Grass"] },
   { name:"miltank", iv:82, types:["Normal"] },
@@ -138,7 +132,6 @@ export const RAW = [
   { name:"crocalor", iv:84, types:["Fire"] },
   { name:"haunter", iv:84, types:["Ghost","Poison"] },
   { name:"clamperl", iv:84, types:["Water"] },
-  { name:"electrike", iv:84, types:["Electric"] },
 
   { name:"smoliv", iv:80, types:["Grass","Normal"] },
   { name:"ralts", iv:80, types:["Psychic","Fairy"] },
@@ -151,10 +144,8 @@ export const RAW = [
 
     { name:"krabby", iv:75, types:["Water"], dynamax:true },
   { name:"doublade", iv:75, types:["Steel","Ghost"] },
-  { name:"ekans", iv:75, types:["Poison"] },
 
   { name:"ditto", iv:73, types:["Normal"] },
-  { name:"jynx", iv:71, types:["Ice","Psychic"] },
 
   { name:"glalie", iv:84, types:["Ice"] },
   { name:"throh", iv:51, types:["Fighting"] }
