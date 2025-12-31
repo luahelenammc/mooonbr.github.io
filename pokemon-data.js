@@ -30,7 +30,11 @@ export const TYPE_ORDER = [
 
 export const RAW = [
 
-{ name:"bellsprout", iv:82, types:["Grass", "Poison"] },  
+  { name:"wartortle", iv:91, types:["Water"], xmas:true },  
+{ name:"shelmet", iv:84, types:["Bug"] },  
+{ name:"jigglypuff", iv:91, types:["Normal","Fairy"], xmas:true },  
+  { name:"bulbasaur", iv:82, tyes:["Grass", "Poison"], xmas:true },  
+  { name:"bellsprout", iv:82, types:["Grass", "Poison"] },  
 { name:"rhyhorn", iv:88, types:["Ground", "Rock"] },
 { name:"jigglypuff", iv:88, types:["Normal","Fairy"], xmas:true },
   { name:"jigglypuff", iv:84, types:["Normal","Fairy"], xmas:true },
@@ -124,8 +128,7 @@ export const RAW = [
   { name:"chansey", iv:77, types:["Normal"] },
   { name:"larvitar", iv:77, types:["Rock","Ground"] },
 
-  { name:"jigglypuff", iv:75, types:["Normal","Fairy"] },
-  { name:"krabby", iv:75, types:["Water"] },
+    { name:"krabby", iv:75, types:["Water"] },
   { name:"doublade", iv:75, types:["Steel","Ghost"] },
   { name:"ekans", iv:75, types:["Poison"] },
 
