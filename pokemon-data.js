@@ -1,6 +1,7 @@
 // pokemon-data.js
 // Dados da LuaHMoonMC (RAW) + mapa de tipos (se você quiser deixar tudo bem separado)
-// 31.12.25 - 09H18
+// 31.12.25 - 13h21
+
 export const TYPE = {
   Normal:   { pt:"Normal",   c:"#A8A77A" },
   Fire:     { pt:"Fogo",     c:"#EE8130" },
@@ -28,6 +29,12 @@ export const TYPE_ORDER = [
 ];
 
 export const RAW = [
+
+
+{ name:"jigglypuff", iv:88, types:["Normal","Fairy"], xmas:true },
+{ name:"charmander", iv:73, types:["Fire"], xmas:true },
+{ name:"pikachu", iv:86, types:["Electric"], xmas:true },
+  
   { name:"cetitan", iv:100, types:["Ice"] },
   { name:"nidorina", iv:100, types:["Poison"] },
   { name:"cetoddle", iv:97, types:["Ice"] },
@@ -72,8 +79,7 @@ export const RAW = [
   { name:"kadabra", iv:86, types:["Psychic"] },
   { name:"meditite", iv:86, types:["Fighting","Psychic"] },
   { name:"lechonk", iv:86, types:["Normal"] },
-  { name:"pikachu", iv:86, types:["Electric"] },
-  { name:"kirlia", iv:86, types:["Psychic","Fairy"] },
+    { name:"kirlia", iv:86, types:["Psychic","Fairy"] },
   { name:"charcadet", iv:86, types:["Fire"] },
 
   { name:"grovyle", iv:82, types:["Grass"] },
