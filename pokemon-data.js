@@ -1,6 +1,6 @@
 // pokemon-data.js
 // Dados da LuaHMoonMC (RAW) + mapa de tipos (se você quiser deixar tudo bem separado)
-
+// 31.12.25 - 09H18
 export const TYPE = {
   Normal:   { pt:"Normal",   c:"#A8A77A" },
   Fire:     { pt:"Fogo",     c:"#EE8130" },
