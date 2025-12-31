@@ -1,6 +1,6 @@
 // pokemon-data.js
 // Dados da LuaHMoonMC
-// 31.12.25 - 15h12
+// 31.12.25 - 15h22
 
 export const TYPE = {
   Normal:   { pt:"Normal",   c:"#A8A77A" },
@@ -29,22 +29,26 @@ export const TYPE_ORDER = [
 ];
 
 export const RAW = [
+// ACRESCENTAR ABAIXO!
 
+
+  
+  { name:"squirtle", iv:66, types:["Water"], xmas:true, shiny:true },  
+  { name:"sentret", iv:93, types:["Normal"] },  
   { name:"minun", iv:88, types:["Electric"] },  
   { name:"persian", iv:91, types:["Normal"] },  
-  { name:"squirtle", iv:86, types:["Water"], xmas:true },  
   { name:"squirtle", iv:88, types:["Water"], xmas:true },  
   { name:"blastoise", iv:91, types:["Water"], xmas:true },  
   { name:"jigglypuff", iv:84, types:["Normal","Fairy"], xmas:true },  
   { name:"elgyem", iv:80, types:["Psychic"] },
-  { name:"pikachu", iv:82, types:["Electric"], xmas:true },
+  { name:"pikachu", iv:93, types:["Electric"], xmas:true },
 { name:"bulbasaur", iv:86, tyes:["Grass", "Poison"], xmas:true },  
 { name:"abra", iv:95, types:["Psychic"] },
   { name:"jigglypuff", iv:66, types:["Normal","Fairy"], xmas:true, shiny:true },
 { name:"shelmet", iv:84, types:["Bug"] },  
 { name:"jigglypuff", iv:91, types:["Normal","Fairy"], xmas:true },  
   { name:"bulbasaur", iv:82, tyes:["Grass", "Poison"], xmas:true },  
-  { name:"bellsprout", iv:82, types:["Grass", "Poison"] },  f
+  { name:"bellsprout", iv:82, types:["Grass", "Poison"] },
 { name:"rhyhorn", iv:88, types:["Ground", "Rock"] },
 { name:"jigglypuff", iv:88, types:["Normal","Fairy"], xmas:true },
   { name:"jigglypuff", iv:84, types:["Normal","Fairy"], xmas:true },
