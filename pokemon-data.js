@@ -1,6 +1,6 @@
 // pokemon-data.js
 // Dados da LuaHMoonMC
-// 31.12.25 - 14h26
+// 31.12.25 - 15h12
 
 export const TYPE = {
   Normal:   { pt:"Normal",   c:"#A8A77A" },
@@ -30,7 +30,10 @@ export const TYPE_ORDER = [
 
 export const RAW = [
 
+  { name:"minun", iv:88, types:["Electric"] },  
   { name:"persian", iv:91, types:["Normal"] },  
+  { name:"squirtle", iv:86, types:["Water"], xmas:true },  
+  { name:"squirtle", iv:88, types:["Water"], xmas:true },  
   { name:"blastoise", iv:91, types:["Water"], xmas:true },  
   { name:"jigglypuff", iv:84, types:["Normal","Fairy"], xmas:true },  
   { name:"elgyem", iv:80, types:["Psychic"] },
@@ -41,7 +44,7 @@ export const RAW = [
 { name:"shelmet", iv:84, types:["Bug"] },  
 { name:"jigglypuff", iv:91, types:["Normal","Fairy"], xmas:true },  
   { name:"bulbasaur", iv:82, tyes:["Grass", "Poison"], xmas:true },  
-  { name:"bellsprout", iv:82, types:["Grass", "Poison"] },  
+  { name:"bellsprout", iv:82, types:["Grass", "Poison"] },  f
 { name:"rhyhorn", iv:88, types:["Ground", "Rock"] },
 { name:"jigglypuff", iv:88, types:["Normal","Fairy"], xmas:true },
   { name:"jigglypuff", iv:84, types:["Normal","Fairy"], xmas:true },
@@ -58,7 +61,7 @@ export const RAW = [
   { name:"arcanine", iv:93, types:["Fire"] },
   { name:"indeedee", iv:93, types:["Psychic","Normal"] },
   { name:"wigglytuff", iv:93, types:["Normal","Fairy"] },
-  { name:"leafeon", iv:93, types:["Grass"] },
+  { name:"leafeon", iv:93, types:["Grass"], dynamax:true },
   { name:"parasect", iv:93, types:["Bug","Grass"] },
   { name:"ekans", iv:93, types:["Poison"] },
   { name:"wingull", iv:93, types:["Water","Flying"] },
@@ -130,11 +133,11 @@ export const RAW = [
   { name:"munna", iv:80, types:["Psychic"] },
 
   { name:"gastly", iv:77, types:["Ghost","Poison"], shiny:true },
-  { name:"omanyte", iv:77, types:["Rock","Water"] },
-  { name:"chansey", iv:77, types:["Normal"] },
+  { name:"omanyte", iv:77, types:["Rock","Water"], dynamax:true },
+  { name:"chansey", iv:77, types:["Normal"], dynamax:true },
   { name:"larvitar", iv:77, types:["Rock","Ground"] },
 
-    { name:"krabby", iv:75, types:["Water"] },
+    { name:"krabby", iv:75, types:["Water"], dynamax:true },
   { name:"doublade", iv:75, types:["Steel","Ghost"] },
   { name:"ekans", iv:75, types:["Poison"] },
 
