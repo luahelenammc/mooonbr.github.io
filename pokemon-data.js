@@ -32,7 +32,10 @@ export const RAW = [
 // ACRESCENTAR ABAIXO!
 
 
-  
+
+  { name:"sliggoo", iv:91, types:["Dragon"] },  
+{ name:"charmander", iv:88, types:["Fire"], xmas:true },  
+  { name:"swampert", iv:86, types:["Water","Ground"] },  
   { name:"squirtle", iv:66, types:["Water"], xmas:true, shiny:true },  
   { name:"sentret", iv:93, types:["Normal"] },  
   { name:"minun", iv:88, types:["Electric"] },  
