@@ -161,3 +161,8 @@ export const RAW = [
   { name:"glalie", iv:84, types:["Ice"] },
   { name:"throh", iv:51, types:["Fighting"] }
 ];
+
+export const GYM_STATS = {
+  gymsDefeated: 116,      // aqui você coloca quantos ginásios já derrotou
+  minutesLeader: 187      // aqui você coloca o total de minutos liderando ginásios
+};
