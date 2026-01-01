@@ -20,7 +20,13 @@
     }
 
     *{ box-sizing:border-box; }
-    html,body{ height:100%; }
+html{ min-height:100%; }
+
+body{
+  min-height:100vh;
+  height:auto;
+  align-items:flex-start; /* em vez de stretch */
+}
 
     body{
       margin:0;
@@ -163,42 +169,110 @@
     }
     .search::placeholder{ color:rgba(247,251,255,.55); }
 
-    .typeRow{
-  margin:8px auto 2px;
+  /* =========================
+   TAGS (Todos / Shiny / Natal / Dynamax)
+   ========================= */
+
+.tagRow{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  margin: 6px 0 10px;
+}
+
+/* botão “pílula” das tags especiais */
+.tagBtn{
+  appearance:none;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(0,0,0,.26);
+  color: rgba(255,255,255,.92);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: .2px;
+  cursor: pointer;
+  user-select:none;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow:
+    0 10px 20px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.10);
+  transition: transform .12s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.tagBtn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,.24);
+  background: rgba(0,0,0,.34);
+}
+
+.tagBtn:active{
+  transform: translateY(0px) scale(.99);
+}
+
+/* estado ativo (quando o filtro está selecionado) */
+.tagBtn.active{
+  background: linear-gradient(180deg, rgba(238,21,21,.35), rgba(238,21,21,.14));
+  border-color: rgba(238,21,21,.55);
+  box-shadow:
+    0 14px 28px rgba(238,21,21,.18),
+    inset 0 1px 0 rgba(255,255,255,.14);
+}
+
+
+/* =========================
+   TIPOS (Normal / Fogo / Água / etc.)
+   ========================= */
+
+.typeRow{
   display:flex;
   flex-wrap:wrap;
-  gap:6px;
+  gap:8px;
   justify-content:center;
-}
-
-.typeBtn{
-  --typeColor: rgba(255,255,255,.35);
-  appearance:none;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.22);
-  background:rgba(0,0,0,.52);
-  color:var(--muted);
-  padding:5px 11px;
-  font-size:12px;
-  cursor:pointer;
-  display:flex;
   align-items:center;
-  gap:6px;
-  box-shadow:0 8px 22px rgba(0,0,0,.6);
+  margin: 6px 0 12px;
 }
 
-.typeBtn span{
-  font-weight:700;
-  letter-spacing:.04em;
-  text-transform:uppercase;
-  font-size:11px;
+/* botão redondinho de tipo */
+.typeBtn{
+  appearance:none;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.88);
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 12px;
+  cursor:pointer;
+  user-select:none;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow:
+    0 8px 18px rgba(0,0,0,.22),
+    inset 0 1px 0 rgba(255,255,255,.08);
+  transition: transform .12s ease, background .18s ease, border-color .18s ease;
+}
+
+.typeBtn:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.09);
+  border-color: rgba(255,255,255,.22);
 }
 
 .typeBtn.active{
-  background:linear-gradient(135deg,var(--typeColor), color-mix(in oklab, var(--typeColor) 55%, transparent));
-  color:#fff;
-  border-color:rgba(255,255,255,.7);
+  background: rgba(42,117,187,.22);
+  border-color: rgba(42,117,187,.55);
 }
+
+/* opcional: visual do botão “TIPOS” (título) se você usa um */
+.typeBtn.isLabel{
+  cursor: default;
+  opacity: .85;
+  background: rgba(0,0,0,.22);
+  border-color: rgba(255,255,255,.12);
+}
+
 
     .statsRow{
       margin:10px auto 4px;
@@ -470,15 +544,37 @@
       <input id="search" class="search" type="search" placeholder="Buscar pelo nome, ✨, 🎄, 💥…" autocomplete="off">
     </div>
 
-    <div class="tagRow">
-      <button class="tagBtn active" data-tag="all"><span>Todos</span></button>
-      <button class="tagBtn" data-tag="shiny">✨ <span>Shiny</span></button>
-      <button class="tagBtn" data-tag="xmas">🎄 <span>Natal</span></button>
-      <button class="tagBtn" data-tag="dynamax">💥 <span>Dynamax</span></button>
-    </div>
+   <div class="tagRow">
+  <button class="tagBtn active" data-tag="all">Todos</button>
+  <button class="tagBtn" data-tag="shiny">✨ Shiny</button>
+  <button class="tagBtn" data-tag="xmas">🎄 Natal</button>
+  <button class="tagBtn" data-tag="dynamax">💥 Dynamax</button>
+</div>
 
-    <!-- NOVO: filtros por tipo -->
-<div class="typeRow" id="typeRow"></div>
+<div class="typeRow">
+  <button class="typeBtn isLabel" type="button">TIPOS</button>
+
+  <button class="typeBtn active" data-type="all" type="button">Todos</button>
+
+  <button class="typeBtn" data-type="Normal" type="button">⭐ Normal</button>
+  <button class="typeBtn" data-type="Fire" type="button">🔥 Fogo</button>
+  <button class="typeBtn" data-type="Water" type="button">💧 Água</button>
+  <button class="typeBtn" data-type="Electric" type="button">⚡ Elétrico</button>
+  <button class="typeBtn" data-type="Grass" type="button">🌿 Planta</button>
+  <button class="typeBtn" data-type="Ice" type="button">❄️ Gelo</button>
+  <button class="typeBtn" data-type="Fighting" type="button">🥊 Lutador</button>
+  <button class="typeBtn" data-type="Poison" type="button">☠️ Veneno</button>
+  <button class="typeBtn" data-type="Ground" type="button">🌍 Terrestre</button>
+  <button class="typeBtn" data-type="Flying" type="button">🪽 Voador</button>
+  <button class="typeBtn" data-type="Psychic" type="button">🔮 Psíquico</button>
+  <button class="typeBtn" data-type="Bug" type="button">🐛 Inseto</button>
+  <button class="typeBtn" data-type="Rock" type="button">🪨 Pedra</button>
+  <button class="typeBtn" data-type="Ghost" type="button">👻 Fantasma</button>
+  <button class="typeBtn" data-type="Dragon" type="button">🐉 Dragão</button>
+  <button class="typeBtn" data-type="Dark" type="button">🌑 Sombrio</button>
+  <button class="typeBtn" data-type="Steel" type="button">⚙️ Aço</button>
+  <button class="typeBtn" data-type="Fairy" type="button">🧚 Fada</button>
+</div>
 
     
 
