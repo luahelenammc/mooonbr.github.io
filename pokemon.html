@@ -771,51 +771,37 @@ const TYPE_META = [
 ];
 
 function setupTypeFilters(){
-  const row = document.getElementById("typeRow");
+  const row = document.querySelector(".typeRow"); // <- era getElementById
   if(!row) return;
 
-  row.innerHTML = "";
-
-  const all = document.createElement("button");
-  all.className = "typeBtn active";
-  all.dataset.type = "all";
-  all.innerHTML = `<span>Tipos</span>`;
-  row.appendChild(all);
-
-  for(const t of TYPE_META){
-    const btn = document.createElement("button");
-    btn.className = "typeBtn";
-    btn.dataset.type = t.type;
-    btn.style.setProperty("--typeColor", t.color);
-    btn.innerHTML = `${typeEmoji(t.type)} <span>${t.pt}</span>`;
-    row.appendChild(btn);
-  }
+  const allBtn = row.querySelector('.typeBtn[data-type="all"]');
 
   row.addEventListener("click", (ev)=>{
     const btn = ev.target.closest(".typeBtn");
-    if(!btn) return;
+    if(!btn || btn.classList.contains("isLabel")) return;
 
     const tp = btn.dataset.type;
 
     if(tp === "all"){
       typeState.clear();
-      row.querySelectorAll(".typeBtn").forEach(b=>b.classList.remove("active"));
-      all.classList.add("active");
+      row.querySelectorAll('.typeBtn[data-type]').forEach(b=>b.classList.remove("active"));
+      allBtn?.classList.add("active");
       renderDock();
       return;
     }
 
-    all.classList.remove("active");
+    allBtn?.classList.remove("active");
 
     btn.classList.toggle("active");
     if(btn.classList.contains("active")) typeState.add(tp);
     else typeState.delete(tp);
 
-    if(typeState.size === 0) all.classList.add("active");
+    if(typeState.size === 0) allBtn?.classList.add("active");
 
     renderDock();
   });
 }
+
 
 
   function filtered(){
@@ -932,8 +918,8 @@ function renderFlipStat(id, value, minDigits){
 
   function renderStats(){
     const gyms = GYM_STATS?.gymsDefeated ?? 0;
-    const mins = GYM_STATS?.hoursLeader ?? 0;
-    renderFlipStat("gymsDefeated", gyms, 3);
+    const mins = GYM_STATS?.hoursLeading ?? 0;
+    renderFlipStat("gymsDefeated", gyms, 7);
     renderFlipStat("hoursLeading", hours, 5);
   }
 
@@ -999,7 +985,8 @@ function renderLastUpdated(){
   el.textContent = `Atualizado pela última vez em ${formatBR(META?.lastUpdated)}`;
 }
 
-  setupTagFilters();
+setupTagFilters();
+setupTypeFilters();   // <- faltava
 renderStats();
 renderLastUpdated();
 renderDock();
