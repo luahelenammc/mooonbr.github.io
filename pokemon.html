@@ -198,7 +198,7 @@
 
     .statsRow{
       margin:10px auto 4px;
-      display:flex;
+      display:ruby;
       flex-wrap:wrap;
       gap:14px;
       justify-content:center;
@@ -217,6 +217,7 @@
       display:flex;
       flex-direction:column;
       gap:6px;
+      margin: 0 5px;
     }
     .statLabel{
       font-size:11px;
@@ -443,8 +444,8 @@
       <div class="brand">
         <div class="pokeball" aria-hidden="true"></div>
         <div>
-          <h1>Pokédex de Ginásio</h1>
-          <p class="sub">Inventário 3★ / 4★ de <strong>LuaHMoonMC</strong></p>
+          <h1>Meus Pokémons</h1>
+          <p class="sub">no Pokémon GO</p>
         </div>
       </div>
 
@@ -472,16 +473,7 @@
       <button class="tagBtn" data-tag="dynamax">💥 <span>Dynamax</span></button>
     </div>
 
-    <div class="statsRow">
-      <div class="statBlock">
-        <div class="statLabel">Ginásios derrotados</div>
-        <div class="flipDigits" id="gymsDefeated"></div>
-      </div>
-      <div class="statBlock">
-        <div class="statLabel">Minutos liderando ginásios</div>
-        <div class="flipDigits" id="minutesLeader"></div>
-      </div>
-    </div>
+    
 
     <div class="dockShell">
       <div class="dock">
@@ -489,6 +481,17 @@
       </div>
     </div>
 
+    <div class="statsRow">
+      <div class="statBlock">
+        <div class="statLabel">Ginásios derrotados</div>
+        <div class="flipDigits" id="gymsDefeated"></div>
+      </div>
+      <div class="statBlock">
+        <div class="statLabel">Horas liderando ginásios</div>
+        <div class="flipDigits" id="minutesLeader"></div>
+      </div>
+    </div>
+    
   </div>
 
 <script type="module">
