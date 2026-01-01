@@ -2,9 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" type="image/x-icon" href="/images/pokeball.png">
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Meus Pokémons no P:GO</title>
+  <title>Pokémon GO • LuaHMoonMC</title>
 
   <style>
     :root{
@@ -15,6 +14,7 @@
       --text:#f7fbff;
       --muted:rgba(247,251,255,.76);
       --accent:#ee1515;
+      --accentSoft:rgba(238,21,21,.25);
       --shadowDock:0 28px 80px rgba(0,0,0,.75);
       --radiusDock:26px;
     }
@@ -162,6 +162,111 @@
       box-shadow:0 18px 40px rgba(0,0,0,.55);
     }
     .search::placeholder{ color:rgba(247,251,255,.55); }
+
+    .tagRow{
+      margin:8px auto 2px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      justify-content:center;
+    }
+    .tagBtn{
+      appearance:none;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(0,0,0,.52);
+      color:var(--muted);
+      padding:5px 11px;
+      font-size:12px;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      gap:6px;
+      box-shadow:0 8px 22px rgba(0,0,0,.6);
+    }
+    .tagBtn span{
+      font-weight:700;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      font-size:11px;
+    }
+    .tagBtn.active{
+      background:linear-gradient(135deg,var(--accent),rgba(238,21,21,.55));
+      color:#fff;
+      border-color:rgba(255,255,255,.7);
+    }
+
+    .statsRow{
+      margin:10px auto 4px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      justify-content:center;
+      max-width:720px;
+    }
+    .statBlock{
+      flex:1 1 260px;
+      max-width:330px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.26);
+      background:
+        radial-gradient(600px 280px at 0 0, rgba(255,255,255,.12), transparent 60%),
+        linear-gradient(145deg,rgba(0,0,0,.78),rgba(0,0,0,.96));
+      box-shadow:0 20px 50px rgba(0,0,0,.7);
+      padding:10px 14px 12px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .statLabel{
+      font-size:11px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:rgba(247,251,255,.8);
+    }
+    .flipDigits{
+      display:flex;
+      gap:4px;
+      margin-top:4px;
+    }
+    .digitStat{
+      position:relative;
+      width:40px;
+      height:56px;
+      border-radius:10px;
+      filter:drop-shadow(0 10px 24px rgba(0,0,0,.7));
+      overflow:hidden;
+    }
+    .digitFace{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.7rem;
+      font-weight:900;
+      font-variant-numeric:tabular-nums;
+      color:var(--text);
+      background:
+        radial-gradient(140% 90% at 50% 0%, rgba(255,255,255,.16), transparent 60%),
+        linear-gradient(180deg,#1b2028,#12151b 52%,#0a0c11 100%),
+        repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,rgba(255,255,255,0) 1px 4px);
+      border:1px solid rgba(255,255,255,.24);
+      box-shadow:
+        inset 0 14px 28px rgba(255,255,255,.06),
+        inset 0 -18px 36px rgba(0,0,0,.78),
+        inset 0 0 0 1px rgba(0,0,0,.7),
+        0 0 0 2px color-mix(in oklab,var(--accent) 24%,transparent);
+    }
+    .digitFace::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:10px;
+      background:
+        linear-gradient(180deg,transparent calc(50% - 1px),rgba(255,255,255,.12) 50%,rgba(0,0,0,.7) calc(50% + 1px),transparent calc(50% + 2px));
+      pointer-events:none;
+    }
 
     .dockShell{
       margin-top:auto;
@@ -324,6 +429,10 @@
         max-width:72px;
       }
       .emojiRow{ font-size:12px; }
+      .digitStat{
+        width:34px;
+        height:50px;
+      }
     }
   </style>
 </head>
@@ -334,8 +443,8 @@
       <div class="brand">
         <div class="pokeball" aria-hidden="true"></div>
         <div>
-          <h1>Meus Pokémons</h1>
-          <p class="sub"><strong>no Pokémon:GO</strong></p>
+          <h1>Pokédex de Ginásio</h1>
+          <p class="sub">Inventário 3★ / 4★ de <strong>LuaHMoonMC</strong></p>
         </div>
       </div>
 
@@ -356,6 +465,24 @@
       <input id="search" class="search" type="search" placeholder="Buscar pelo nome, ✨, 🎄, 💥…" autocomplete="off">
     </div>
 
+    <div class="tagRow">
+      <button class="tagBtn active" data-tag="all"><span>Todos</span></button>
+      <button class="tagBtn" data-tag="shiny">✨ <span>Shiny</span></button>
+      <button class="tagBtn" data-tag="xmas">🎄 <span>Natal</span></button>
+      <button class="tagBtn" data-tag="dynamax">💥 <span>Dynamax</span></button>
+    </div>
+
+    <div class="statsRow">
+      <div class="statBlock">
+        <div class="statLabel">Ginásios derrotados</div>
+        <div class="flipDigits" id="gymsDefeated"></div>
+      </div>
+      <div class="statBlock">
+        <div class="statLabel">Minutos liderando ginásios</div>
+        <div class="flipDigits" id="minutesLeader"></div>
+      </div>
+    </div>
+
     <div class="dockShell">
       <div class="dock">
         <div id="dockGrid" class="dockGrid"></div>
@@ -365,7 +492,7 @@
   </div>
 
 <script type="module">
-  import { RAW } from "./pokemon-data.js";
+  import { RAW, GYM_STATS } from "./pokemon-data.js";
 
   const spriteGif = (slug, shiny=false) =>
     shiny
@@ -471,8 +598,7 @@
 
   function typesToEmoji(types){
     if(!types || !types.length) return "";
-    const em = types.map(typeEmoji).join(" ");
-    return em;
+    return types.map(typeEmoji).join(" ");
   }
 
   function wireSprite(img, slug, shiny){
@@ -487,14 +613,18 @@
   const dockGrid = document.getElementById("dockGrid");
   const search = document.getElementById("search");
 
-  let query = "";
+  const tagState = {
+    shiny:false,
+    xmas:false,
+    dynamax:false
+  };
 
   function filtered(){
-    let q = query.trim().toLowerCase();
+    let q = (search.value || "").trim().toLowerCase();
 
     let wantsShiny = false;
-    let wantsXmas = false;
-    let wantsDyna = false;
+    let wantsXmas  = false;
+    let wantsDyna  = false;
 
     if(q.includes("✨") || q.includes("shiny") || q.includes("brilhante")){
       wantsShiny = true;
@@ -509,10 +639,14 @@
       q = q.replaceAll("💥","").replaceAll("dynamax","").replaceAll("dyna","").trim();
     }
 
+    wantsShiny = wantsShiny || tagState.shiny;
+    wantsXmas  = wantsXmas  || tagState.xmas;
+    wantsDyna  = wantsDyna  || tagState.dynamax;
+
     return AGG.filter(p=>{
-      if(wantsShiny && !p.shiny) return false;
-      if(wantsXmas && !p.xmas)   return false;
-      if(wantsDyna && !p.dynamax)return false;
+      if(wantsShiny && !p.shiny)   return false;
+      if(wantsXmas  && !p.xmas)    return false;
+      if(wantsDyna  && !p.dynamax) return false;
 
       if(!q) return true;
 
@@ -567,8 +701,58 @@
     });
   }
 
+  function renderFlipStat(id, value, minDigits){
+    const el = document.getElementById(id);
+    if(!el) return;
+    const s = String(value ?? 0).padStart(minDigits,"0");
+    el.innerHTML = "";
+    for(const ch of s){
+      const d = document.createElement("div");
+      d.className = "digitStat";
+      const face = document.createElement("div");
+      face.className = "digitFace";
+      face.textContent = ch;
+      d.appendChild(face);
+      el.appendChild(d);
+    }
+  }
+
+  function renderStats(){
+    const gyms = GYM_STATS?.gymsDefeated ?? 0;
+    const mins = GYM_STATS?.minutesLeader ?? 0;
+    renderFlipStat("gymsDefeated", gyms, 3);
+    renderFlipStat("minutesLeader", mins, 5);
+  }
+
+  function setupTagFilters(){
+    const btns = document.querySelectorAll(".tagBtn");
+    const allBtn = document.querySelector('.tagBtn[data-tag="all"]');
+
+    btns.forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        const tag = btn.dataset.tag;
+        if(tag === "all"){
+          tagState.shiny = tagState.xmas = tagState.dynamax = false;
+          btns.forEach(b=>b.classList.remove("active"));
+          allBtn.classList.add("active");
+        }else{
+          const isActive = btn.classList.toggle("active");
+          if(tag === "shiny")   tagState.shiny   = isActive;
+          if(tag === "xmas")    tagState.xmas    = isActive;
+          if(tag === "dynamax") tagState.dynamax = isActive;
+
+          if(tagState.shiny || tagState.xmas || tagState.dynamax){
+            allBtn.classList.remove("active");
+          }else{
+            allBtn.classList.add("active");
+          }
+        }
+        renderDock();
+      });
+    });
+  }
+
   search.addEventListener("input", ()=>{
-    query = search.value || "";
     renderDock();
   });
 
@@ -586,6 +770,8 @@
     }
   });
 
+  setupTagFilters();
+  renderStats();
   renderDock();
 </script>
 
