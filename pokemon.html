@@ -163,38 +163,42 @@
     }
     .search::placeholder{ color:rgba(247,251,255,.55); }
 
-    .tagRow{
-      margin:8px auto 2px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:6px;
-      justify-content:center;
-    }
-    .tagBtn{
-      appearance:none;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.22);
-      background:rgba(0,0,0,.52);
-      color:var(--muted);
-      padding:5px 11px;
-      font-size:12px;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      gap:6px;
-      box-shadow:0 8px 22px rgba(0,0,0,.6);
-    }
-    .tagBtn span{
-      font-weight:700;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-      font-size:11px;
-    }
-    .tagBtn.active{
-      background:linear-gradient(135deg,var(--accent),rgba(238,21,21,.55));
-      color:#fff;
-      border-color:rgba(255,255,255,.7);
-    }
+    .typeRow{
+  margin:8px auto 2px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  justify-content:center;
+}
+
+.typeBtn{
+  --typeColor: rgba(255,255,255,.35);
+  appearance:none;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(0,0,0,.52);
+  color:var(--muted);
+  padding:5px 11px;
+  font-size:12px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  box-shadow:0 8px 22px rgba(0,0,0,.6);
+}
+
+.typeBtn span{
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  font-size:11px;
+}
+
+.typeBtn.active{
+  background:linear-gradient(135deg,var(--typeColor), color-mix(in oklab, var(--typeColor) 55%, transparent));
+  color:#fff;
+  border-color:rgba(255,255,255,.7);
+}
 
     .statsRow{
       margin:10px auto 4px;
@@ -217,7 +221,7 @@
       display:flex;
       flex-direction:column;
       gap:6px;
-      margin: 0 5px;
+      margin: 5px 5px;
     }
     .statLabel{
       font-size:11px;
@@ -473,6 +477,9 @@
       <button class="tagBtn" data-tag="dynamax">💥 <span>Dynamax</span></button>
     </div>
 
+    <!-- NOVO: filtros por tipo -->
+<div class="typeRow" id="typeRow"></div>
+
     
 
     <div class="dockShell">
@@ -488,7 +495,7 @@
       </div>
       <div class="statBlock">
         <div class="statLabel">Horas liderando ginásios</div>
-        <div class="flipDigits" id="minutesLeader"></div>
+        <div class="flipDigits" id="hoursLeader"></div>
       </div>
     </div>
     
@@ -622,6 +629,77 @@
     dynamax:false
   };
 
+  const typeState = new Set(); // guarda tipos selecionados (em inglês, igual no data.js)
+
+const TYPE_META = [
+  { type:"Normal",   pt:"Normal",   color:"#A8A878" },
+  { type:"Fire",     pt:"Fogo",     color:"#F08030" },
+  { type:"Water",    pt:"Água",     color:"#6890F0" },
+  { type:"Electric", pt:"Elétrico", color:"#F8D030" },
+  { type:"Grass",    pt:"Planta",   color:"#78C850" },
+  { type:"Ice",      pt:"Gelo",     color:"#98D8D8" },
+  { type:"Fighting", pt:"Lutador",  color:"#C03028" },
+  { type:"Poison",   pt:"Veneno",   color:"#A040A0" },
+  { type:"Ground",   pt:"Terra",    color:"#E0C068" },
+  { type:"Flying",   pt:"Voador",   color:"#A890F0" },
+  { type:"Psychic",  pt:"Psíquico", color:"#F85888" },
+  { type:"Bug",      pt:"Inseto",   color:"#A8B820" },
+  { type:"Rock",     pt:"Pedra",    color:"#B8A038" },
+  { type:"Ghost",    pt:"Fantasma", color:"#705898" },
+  { type:"Dragon",   pt:"Dragão",   color:"#7038F8" },
+  { type:"Dark",     pt:"Sombrio",  color:"#705848" },
+  { type:"Steel",    pt:"Aço",      color:"#B8B8D0" },
+  { type:"Fairy",    pt:"Fada",     color:"#EE99AC" },
+];
+
+function setupTypeFilters(){
+  const row = document.getElementById("typeRow");
+  if(!row) return;
+
+  row.innerHTML = "";
+
+  const all = document.createElement("button");
+  all.className = "typeBtn active";
+  all.dataset.type = "all";
+  all.innerHTML = `<span>Tipos</span>`;
+  row.appendChild(all);
+
+  for(const t of TYPE_META){
+    const btn = document.createElement("button");
+    btn.className = "typeBtn";
+    btn.dataset.type = t.type;
+    btn.style.setProperty("--typeColor", t.color);
+    btn.innerHTML = `${typeEmoji(t.type)} <span>${t.pt}</span>`;
+    row.appendChild(btn);
+  }
+
+  row.addEventListener("click", (ev)=>{
+    const btn = ev.target.closest(".typeBtn");
+    if(!btn) return;
+
+    const tp = btn.dataset.type;
+
+    if(tp === "all"){
+      typeState.clear();
+      row.querySelectorAll(".typeBtn").forEach(b=>b.classList.remove("active"));
+      all.classList.add("active");
+      renderDock();
+      return;
+    }
+
+    all.classList.remove("active");
+
+    btn.classList.toggle("active");
+    if(btn.classList.contains("active")) typeState.add(tp);
+    else typeState.delete(tp);
+
+    if(typeState.size === 0) all.classList.add("active");
+
+    renderDock();
+  });
+}
+
+
   function filtered(){
     let q = (search.value || "").trim().toLowerCase();
 
@@ -646,17 +724,24 @@
     wantsXmas  = wantsXmas  || tagState.xmas;
     wantsDyna  = wantsDyna  || tagState.dynamax;
 
-    return AGG.filter(p=>{
-      if(wantsShiny && !p.shiny)   return false;
-      if(wantsXmas  && !p.xmas)    return false;
-      if(wantsDyna  && !p.dynamax) return false;
+  return AGG.filter(p=>{
+  if(wantsShiny && !p.shiny)   return false;
+  if(wantsXmas  && !p.xmas)    return false;
+  if(wantsDyna  && !p.dynamax) return false;
 
-      if(!q) return true;
+  // NOVO: filtro por tipo (OR: se selecionou vários, basta bater em um)
+  if(typeState.size){
+    const types = p.types || [];
+    if(!types.some(t => typeState.has(t))) return false;
+  }
 
-      const namePT = displayName(p).toLowerCase();
-      const slug = p.name.toLowerCase();
-      return namePT.includes(q) || slug.includes(q);
-    });
+  if(!q) return true;
+
+  const namePT = displayName(p).toLowerCase();
+  const slug = p.name.toLowerCase();
+  return namePT.includes(q) || slug.includes(q);
+});
+
   }
 
   function renderDock(){
@@ -704,27 +789,34 @@
     });
   }
 
-  function renderFlipStat(id, value, minDigits){
-    const el = document.getElementById(id);
-    if(!el) return;
-    const s = String(value ?? 0).padStart(minDigits,"0");
-    el.innerHTML = "";
-    for(const ch of s){
-      const d = document.createElement("div");
-      d.className = "digitStat";
-      const face = document.createElement("div");
-      face.className = "digitFace";
-      face.textContent = ch;
-      d.appendChild(face);
-      el.appendChild(d);
-    }
+function renderFlipStat(id, value, minDigits){
+  const el = document.getElementById(id);
+  if(!el) return;
+
+  const raw = String(value ?? 0);
+  const padded = (minDigits ? raw.padStart(minDigits,"0") : raw);
+
+  // remove zeros à esquerda, mas mantém pelo menos 1 dígito
+  const s = padded.replace(/^0+(?=\d)/, "");
+
+  el.innerHTML = "";
+  for(const ch of s){
+    const d = document.createElement("div");
+    d.className = "digitStat";
+    const face = document.createElement("div");
+    face.className = "digitFace";
+    face.textContent = ch;
+    d.appendChild(face);
+    el.appendChild(d);
   }
+}
+
 
   function renderStats(){
     const gyms = GYM_STATS?.gymsDefeated ?? 0;
-    const mins = GYM_STATS?.minutesLeader ?? 0;
+    const mins = GYM_STATS?.hoursLeader ?? 0;
     renderFlipStat("gymsDefeated", gyms, 3);
-    renderFlipStat("minutesLeader", mins, 5);
+    renderFlipStat("hoursLeader", mins, 5);
   }
 
   function setupTagFilters(){
@@ -773,9 +865,11 @@
     }
   });
 
-  setupTagFilters();
-  renderStats();
-  renderDock();
+setupTagFilters();
+setupTypeFilters(); // <-- novo
+renderStats();
+renderDock();
+
 </script>
 
 </body>
