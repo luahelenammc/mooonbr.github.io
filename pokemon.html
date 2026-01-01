@@ -1,0 +1,850 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pokémon GO • LuaHMoonMC</title>
+
+  <style>
+    :root{
+      --goRed:#ee1515;
+      --goRedSoft: rgba(238,21,21,.22);
+      --goBlue: rgba(42,117,187,.18);
+      --bg1:#0b0f16;
+      --bg2:#1a0b12;
+
+      --card: rgba(255,255,255,.10);
+      --stroke: rgba(255,255,255,.16);
+      --text: #f7fbff;
+      --muted: rgba(247,251,255,.72);
+      --shadow: 0 22px 70px rgba(0,0,0,.45);
+      --radius: 22px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1100px 700px at 12% 10%, var(--goRedSoft), transparent 60%),
+        radial-gradient(900px 650px at 90% 18%, var(--goBlue), transparent 62%),
+        linear-gradient(160deg, var(--bg1), var(--bg2));
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:-140px;
+      pointer-events:none;
+      opacity:.16;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.10) 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,.08) 0 2px, transparent 3px),
+        radial-gradient(circle at 65% 75%, rgba(255,255,255,.09) 0 2px, transparent 3px),
+        radial-gradient(circle at 28% 80%, rgba(255,255,255,.07) 0 2px, transparent 3px);
+      filter: blur(.2px);
+      transform: rotate(-7deg);
+    }
+
+    .wrap{
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 18px 14px 40px;
+      position:relative;
+      z-index:1;
+    }
+
+    header{
+      position:relative;
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--stroke);
+      background:
+        radial-gradient(900px 280px at 10% 0%, rgba(255,255,255,.14), transparent 65%),
+        linear-gradient(135deg, rgba(238,21,21,.20), rgba(0,0,0,.10));
+    }
+
+    .hero{
+      padding: 18px 18px 16px;
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,.18);
+    }
+
+    .topline{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 260px;
+    }
+
+    .pokeball{
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      background:
+        linear-gradient(180deg, var(--goRed) 0 48%, #0b0b0b 48% 52%, #ffffff 52% 100%);
+      border: 2px solid rgba(255,255,255,.22);
+      box-shadow: 0 16px 40px rgba(0,0,0,.35);
+      position:relative;
+      flex: 0 0 48px;
+    }
+    .pokeball::after{
+      content:"";
+      position:absolute;
+      inset: 18px;
+      border-radius:999px;
+      background:#ffffff;
+      border: 3px solid #0b0b0b;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.25);
+    }
+
+    h1{
+      margin:0;
+      font-size: clamp(20px, 3.5vw, 34px);
+      line-height: 1.05;
+      letter-spacing: .2px;
+    }
+    .sub{
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .idbar{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    .pill{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.35);
+      box-shadow: 0 12px 30px rgba(0,0,0,.20);
+      white-space: nowrap;
+      font-size: 13px;
+    }
+    .pill strong{ font-weight: 900; letter-spacing:.2px; }
+
+    .copy{
+      appearance:none;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 999px;
+      padding: 10px 12px;
+      background: rgba(238,21,21,.26);
+      color: var(--text);
+      cursor:pointer;
+      font-weight: 900;
+      box-shadow: 0 12px 30px rgba(0,0,0,.22);
+      white-space: nowrap;
+    }
+    .copy:hover{ background: rgba(238,21,21,.34); }
+    .copy:active{ transform: translateY(1px); }
+
+    .viewBtn{
+      background: rgba(255,255,255,.10);
+    }
+    .viewBtn:hover{
+      background: rgba(255,255,255,.16);
+    }
+
+    .controls{
+      margin-top: 14px;
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--stroke);
+      background: rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
+    }
+
+    .filters{
+      padding: 12px 12px 10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      justify-content:center;
+    }
+
+    .tbtn{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 999px;
+      cursor:pointer;
+      font-weight: 900;
+      font-size: 13px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      box-shadow: 0 10px 26px rgba(0,0,0,.20);
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .tbtn .dot{
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--c, rgba(255,255,255,.6));
+      box-shadow: 0 0 0 2px rgba(0,0,0,.20), 0 0 18px rgba(255,255,255,.10);
+    }
+
+    .tbtn.active{
+      background: color-mix(in srgb, var(--c) 26%, rgba(0,0,0,.30));
+      border-color: color-mix(in srgb, var(--c) 45%, rgba(255,255,255,.18));
+      box-shadow: 0 14px 34px rgba(0,0,0,.30);
+    }
+
+    .searchRow{
+      padding: 0 12px 14px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .search{
+      width: min(860px, 100%);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.10);
+      color: var(--text);
+      padding: 14px 14px;
+      outline:none;
+      font-size: 15px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.20);
+    }
+    .search::placeholder{ color: rgba(247,251,255,.56); }
+
+    .tableWrap{
+      margin-top: 14px;
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--stroke);
+      background: rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
+    }
+
+    table{ width:100%; border-collapse: collapse; }
+    thead th{
+      text-align:left;
+      padding: 14px 14px;
+      background: rgba(0,0,0,.55);
+      font-weight: 1000;
+      font-size: 14px;
+      letter-spacing:.3px;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    tbody td{
+      padding: 12px 14px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      vertical-align: middle;
+      font-size: 15px;
+    }
+
+    tbody tr{ background: rgba(255,255,255,.02); }
+    tbody tr:nth-child(2n){ background: rgba(255,255,255,.04); }
+    tbody tr:hover{ background: rgba(255,255,255,.06); }
+
+    .rank{
+      width: 72px;
+      font-weight: 1000;
+      color: rgba(255,255,255,.86);
+      white-space:nowrap;
+    }
+
+    .pokeCell{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    .icon{
+      display:inline-grid;
+      place-items:center;
+      padding: 6px;
+      border-radius: 14px;
+      background:
+        radial-gradient(18px 18px at 30% 25%, rgba(255,255,255,.26), transparent 60%),
+        rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 12px 28px rgba(0,0,0,.24);
+      position:relative;
+      width: fit-content;
+      height: fit-content;
+      max-width: 88px;
+      max-height: 88px;
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    .icon img{
+      display:block;
+      width: auto;
+      height: auto;
+      max-width: 76px;
+      max-height: 76px;
+      image-rendering: pixelated;
+    }
+
+    .stack{
+      position:absolute;
+      right: -6px;
+      top: -6px;
+      background: rgba(0,0,0,.58);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 999px;
+      padding: 5px 8px;
+      font-size: 12px;
+      font-weight: 1000;
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(0,0,0,.25);
+    }
+
+    .name{
+      font-weight: 1000;
+      line-height:1.1;
+    }
+    .meta{
+      color: rgba(247,251,255,.72);
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    .chips{
+      display:flex;
+      gap: 6px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .chip{
+      font-size: 12px;
+      font-weight: 900;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.92);
+      white-space:nowrap;
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    .chip .dot{
+      width: 10px; height: 10px; border-radius: 999px;
+      background: var(--c, rgba(255,255,255,.55));
+      box-shadow: 0 0 0 2px rgba(0,0,0,.20);
+    }
+
+    .iv{
+      width: 90px;
+      text-align:right;
+      font-weight: 1000;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ✅ CORES DE IV (mantém para a TABELA) */
+    .iv.good{ color: #93FE37; }   /* 90+ verde-lima */
+    .iv.mid{  color: #3CFFFF; }   /* 80–89 azul-ciano */
+    .iv.low{  color: #ffffff; }   /* 60–79 branco */
+    .iv.bad{  color: #ff3b3b; }   /* <60 vermelho */
+
+    /* ===== GRADE (modo visual) ===== */
+    .gridWrap{
+      margin-top: 14px;
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--stroke);
+      background: rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
+    }
+
+    .grid{
+      padding: 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      justify-content:center;
+    }
+
+    .gItem{
+      position:relative;
+      display:inline-grid;
+      place-items:center;
+      padding: 8px;
+      border-radius: 16px;
+      background:
+        radial-gradient(18px 18px at 30% 25%, rgba(255,255,255,.22), transparent 60%),
+        rgba(255,255,255,.08);
+      border: 2px solid rgba(255,255,255,.14); /* base */
+      box-shadow: 0 12px 28px rgba(0,0,0,.22);
+      width: fit-content;
+      height: fit-content;
+      max-width: 96px;
+      max-height: 96px;
+      overflow:hidden;
+    }
+
+    /* ✅ BORDAS POR IV (APENAS NO MODO GRADE) */
+    .gItem.good{ border-color: #a3ff12; }  /* 90+ */
+    .gItem.mid{  border-color: #34d7ff; }  /* 80–89 */
+    .gItem.low{  border-color: #ffffff; }  /* 60–79 */
+    .gItem.bad{  border-color: #ff3b3b; }  /* <60 */
+
+    .gItem img{
+      display:block;
+      width:auto;
+      height:auto;
+      max-width: 88px;
+      max-height: 88px;
+      image-rendering: pixelated;
+    }
+
+    .footerBtns{
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top: 14px;
+    }
+    .linkBtn{
+      text-decoration:none;
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.30);
+      padding: 12px 14px;
+      border-radius: 16px;
+      font-weight: 1000;
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+    }
+    .linkBtn:hover{ background: rgba(0,0,0,.42); }
+
+    @media (max-width: 640px){
+      .pill{ width:100%; justify-content:space-between; }
+      .idbar{ width:100%; justify-content:stretch; }
+      .copy{ width:100%; }
+      thead th:nth-child(4), tbody td:nth-child(4){ display:none; }
+      .iv{ width: 70px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap" id="top">
+
+    <header>
+      <div class="hero">
+        <div class="topline">
+          <div class="brand">
+            <div class="pokeball" aria-hidden="true"></div>
+            <div>
+              <h1>Pokémon GO</h1>
+              <div class="sub">Lista da <strong>LuaHMoonMC</strong></div>
+            </div>
+          </div>
+
+          <div class="idbar">
+            <div class="pill"><span>Treinadora</span> <strong>LuaHMoonMC</strong></div>
+            <div class="pill"><span>Código</span> <strong id="friendCode">1612 5521 0803</strong></div>
+            <button class="copy" id="copyBtn" type="button">Copiar</button>
+            <button class="copy viewBtn" id="viewBtn" type="button">Ver em grade</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="controls" aria-label="Filtros e busca">
+      <div class="filters" id="typeButtons"></div>
+      <div class="searchRow">
+        <input class="search" id="search" type="search" placeholder="Buscar pokémon…" autocomplete="off" />
+      </div>
+    </section>
+
+    <section class="tableWrap" aria-label="Tabela">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:72px">Rank</th>
+            <th>Pokémon</th>
+            <th style="text-align:right;width:90px">IV</th>
+            <th style="width:260px">Tipos</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </section>
+
+    <section class="gridWrap" id="gridWrap" aria-label="Grade" style="display:none;">
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <div class="footerBtns">
+      <a class="linkBtn" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ Topo</a>
+      <a class="linkBtn" href="https://mooon.com.br" target="_blank" rel="noopener noreferrer">« Site principal</a>
+    </div>
+
+  </div>
+
+<script type="module">
+  /* Se der 404 no GitHub Pages, troque "/pokemon-data.js" por "./pokemon-data.js" */
+  import { RAW, TYPE, TYPE_ORDER } from "./pokemon-data.js";
+
+  // ✅ Agora suporta shiny sem quebrar sprites nem agregação
+  const spriteGif = (slug, shiny=false) =>
+    shiny
+      ? `https://play.pokemonshowdown.com/sprites/xyani-shiny/${slug}.gif`
+      : `https://play.pokemonshowdown.com/sprites/xyani/${slug}.gif`;
+
+  const spritePng = (slug, shiny=false) =>
+    shiny
+      ? `https://play.pokemonshowdown.com/sprites/gen8-shiny/${slug}.png`
+      : `https://play.pokemonshowdown.com/sprites/gen8/${slug}.png`;
+
+  function prettyName(slug){
+    if(!slug.includes("-")){
+      return slug.charAt(0).toUpperCase() + slug.slice(1);
+    }
+    const parts = slug.split("-");
+    const base = parts[0].charAt(0).toUpperCase() + parts[0].slice(1);
+    const form = parts.slice(1).join("-");
+
+    if(form === "alola") return `${base} de Alola`;
+    if(form === "galar") return `${base} de Galar`;
+    if(form === "hisui") return `${base} de Hisui`;
+    if(form === "mega")  return `Mega ${base}`;
+
+    const formNice = form.replace(/\b\w/g, m => m.toUpperCase()).replace(/-/g, " ");
+    return `${base} (${formNice})`;
+  }
+
+function displayName(p){
+  const x = p.xmas ? " 🎄" : "";
+  const s = p.shiny ? " ✨" : "";
+  const d = p.dynamax ? " 💥" : "";
+  return prettyName(p.name) + x + s + d;
+}
+
+
+
+  function aggregate(raw){
+    const map = new Map();
+
+    for(const p of raw){
+      const isShiny = !!p.shiny;
+const key = `${p.name}|${p.shiny ? 1 : 0}|${p.xmas ? 1 : 0}|${p.dynamax ? 1 : 0}`;
+
+
+      if(!map.has(key)){
+ map.set(key, {
+  name: p.name,
+  shiny: !!p.shiny,
+  xmas: !!p.xmas,
+  dynamax: !!p.dynamax,
+  types: p.types || [],
+  ivs: [p.iv ?? 0]
+});
+
+
+      }else{
+        map.get(key).ivs.push(p.iv ?? 0);
+      }
+    }
+
+    const list = [];
+    for(const v of map.values()){
+      v.count = v.ivs.length;
+      v.maxIv = Math.max(...v.ivs);
+      v.ivsSorted = v.ivs.slice().sort((a,b)=>b-a);
+      list.push(v);
+    }
+
+    list.sort((a,b)=>{
+      if(b.maxIv !== a.maxIv) return b.maxIv - a.maxIv;
+
+      // Se tiver empate, deixa shiny aparecer levemente acima (opcional, mas elegante)
+      if(!!b.shiny !== !!a.shiny) return (b.shiny ? 1 : 0) - (a.shiny ? 1 : 0);
+
+      return displayName(a).localeCompare(displayName(b), "pt-BR", { sensitivity:"base" });
+    });
+
+    return list;
+  }
+
+  /* ⚠️ Continua valendo para a TABELA (texto colorido). No modo grade vira borda colorida. */
+  function ivClass(iv){
+    if(iv >= 90) return "good";
+    if(iv >= 80) return "mid";
+    if(iv >= 60) return "low";
+    return "bad";
+  }
+
+  const typeButtons = document.getElementById("typeButtons");
+  const tbody = document.getElementById("tbody");
+  const search = document.getElementById("search");
+
+  const tableWrap = document.querySelector(".tableWrap");
+  const gridWrap = document.getElementById("gridWrap");
+  const grid = document.getElementById("grid");
+  const viewBtn = document.getElementById("viewBtn");
+
+  let activeType = "All";
+  let query = "";
+  let viewMode = "table";
+
+  const AGG = aggregate(RAW);
+
+  function filteredList(){
+    let q = query.trim().toLowerCase();
+
+    // ✅ “shiny”, “brilhante” ou “✨” funcionam como filtro extra
+    let wantsShiny = false;
+    if(q.includes("✨") || q.includes("shiny") || q.includes("brilhante")){
+      wantsShiny = true;
+      q = q.replaceAll("✨","")
+           .replaceAll("shiny","")
+           .replaceAll("brilhante","")
+           .trim();
+    }
+
+    return AGG.filter(p=>{
+      const typeOk = (activeType === "All") ? true : (p.types || []).includes(activeType);
+      if(!typeOk) return false;
+
+      if(wantsShiny && !p.shiny) return false;
+
+      if(!q) return true;
+
+      const namePT = displayName(p).toLowerCase();
+      const slug = p.name.toLowerCase();
+      return namePT.includes(q) || slug.includes(q);
+    });
+  }
+
+  function renderButtons(){
+    typeButtons.innerHTML = "";
+
+    for(const t of TYPE_ORDER){
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "tbtn" + (t === activeType ? " active" : "");
+
+      const label = (t === "All") ? "Todos" : (TYPE[t]?.pt || t);
+      const color = (t === "All")
+        ? "rgba(238,21,21,.55)"
+        : (TYPE[t]?.c || "rgba(255,255,255,.55)");
+
+      btn.style.setProperty("--c", color);
+
+      const dot = document.createElement("span");
+      dot.className = "dot";
+
+      const text = document.createElement("span");
+      text.textContent = label;
+
+      btn.appendChild(dot);
+      btn.appendChild(text);
+
+      btn.addEventListener("click", ()=>{
+        activeType = t;
+        renderButtons();
+        renderActive();
+      });
+
+      typeButtons.appendChild(btn);
+    }
+  }
+
+  function typeChip(type){
+    const span = document.createElement("span");
+    span.className = "chip";
+
+    const c = TYPE[type]?.c || "rgba(255,255,255,.55)";
+    const pt = TYPE[type]?.pt || type;
+
+    span.style.setProperty("--c", c);
+
+    const dot = document.createElement("span");
+    dot.className = "dot";
+    dot.style.background = c;
+
+    const label = document.createElement("span");
+    label.textContent = pt;
+
+    span.appendChild(dot);
+    span.appendChild(label);
+    return span;
+  }
+
+  function wireSprite(img, slug, shiny){
+    img.src = spriteGif(slug, shiny);
+    img.onerror = () => {
+      img.onerror = () => { img.src = spritePng(slug, false); }; // fallback final: normal
+      img.src = spritePng(slug, shiny);
+    };
+  }
+
+  function renderTable(){
+    const list = filteredList();
+    tbody.innerHTML = "";
+
+    list.forEach((p, idx)=>{
+      const tr = document.createElement("tr");
+
+      const tdRank = document.createElement("td");
+      tdRank.className = "rank";
+      tdRank.textContent = `#${idx+1}`;
+
+      const tdPoke = document.createElement("td");
+      const wrap = document.createElement("div");
+      wrap.className = "pokeCell";
+
+      const icon = document.createElement("div");
+      icon.className = "icon";
+
+      const img = document.createElement("img");
+      img.loading = "lazy";
+      img.alt = p.shiny ? `${p.name} shiny` : p.name;
+      wireSprite(img, p.name, p.shiny);
+      icon.appendChild(img);
+
+      if(p.count > 1){
+        const stack = document.createElement("div");
+        stack.className = "stack";
+        stack.textContent = `×${p.count}`;
+        icon.appendChild(stack);
+      }
+
+      const info = document.createElement("div");
+
+      const nm = document.createElement("div");
+      nm.className = "name";
+      nm.textContent = displayName(p);
+
+      if(p.count > 1){
+        const meta = document.createElement("div");
+        meta.className = "meta";
+        meta.textContent = p.ivsSorted.join(" / ");
+        info.appendChild(nm);
+        info.appendChild(meta);
+      }else{
+        info.appendChild(nm);
+      }
+
+      wrap.appendChild(icon);
+      wrap.appendChild(info);
+      tdPoke.appendChild(wrap);
+
+      const tdIV = document.createElement("td");
+      tdIV.className = "iv " + ivClass(p.maxIv);
+      tdIV.textContent = p.maxIv;
+
+      const tdTypes = document.createElement("td");
+      const chips = document.createElement("div");
+      chips.className = "chips";
+      (p.types || []).forEach(t => chips.appendChild(typeChip(t)));
+      tdTypes.appendChild(chips);
+
+      tr.appendChild(tdRank);
+      tr.appendChild(tdPoke);
+      tr.appendChild(tdIV);
+      tr.appendChild(tdTypes);
+
+      tbody.appendChild(tr);
+    });
+  }
+
+  /* ✅ MODO GRADE: sem número. Borda colorida por IV. */
+  function renderGrid(){
+    const list = filteredList();
+    grid.innerHTML = "";
+
+    list.forEach((p)=>{
+      const item = document.createElement("div");
+      item.className = "gItem " + ivClass(p.maxIv);
+
+      const img = document.createElement("img");
+      img.loading = "lazy";
+      img.alt = p.shiny ? `${p.name} shiny` : p.name;
+      wireSprite(img, p.name, p.shiny);
+
+      item.appendChild(img);
+      grid.appendChild(item);
+    });
+  }
+
+  function renderActive(){
+    if(viewMode === "grid"){
+      tableWrap.style.display = "none";
+      gridWrap.style.display = "";
+      renderGrid();
+    }else{
+      gridWrap.style.display = "none";
+      tableWrap.style.display = "";
+      renderTable();
+    }
+  }
+
+  document.getElementById("copyBtn").addEventListener("click", async ()=>{
+    const code = document.getElementById("friendCode").textContent.replace(/\s+/g," ").trim();
+    const btn = document.getElementById("copyBtn");
+    const old = btn.textContent;
+
+    try{
+      await navigator.clipboard.writeText(code);
+      btn.textContent = "Copiado ✅";
+      setTimeout(()=> btn.textContent = old, 1100);
+    }catch(e){
+      const r = document.createRange();
+      const el = document.getElementById("friendCode");
+      r.selectNodeContents(el);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(r);
+      btn.textContent = "Selecionado ✨";
+      setTimeout(()=> btn.textContent = old, 1200);
+    }
+  });
+
+  viewBtn.addEventListener("click", ()=>{
+    viewMode = (viewMode === "table") ? "grid" : "table";
+    viewBtn.textContent = (viewMode === "table") ? "Ver em grade" : "Ver em tabela";
+    renderActive();
+  });
+
+  search.addEventListener("input", ()=>{
+    query = search.value || "";
+    renderActive();
+  });
+
+  renderButtons();
+  renderActive();
+</script>
+
+</body>
+</html>
