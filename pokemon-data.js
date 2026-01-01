@@ -164,5 +164,5 @@ export const RAW = [
 
 export const GYM_STATS = {
   gymsDefeated: 116,      // aqui você coloca quantos ginásios já derrotou
-  minutesLeader: 187      // aqui você coloca o total de minutos liderando ginásios
+  hoursLeader: 187      // aqui você coloca o total de minutos liderando ginásios
 };
