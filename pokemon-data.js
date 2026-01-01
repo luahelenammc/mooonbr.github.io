@@ -166,3 +166,8 @@ export const GYM_STATS = {
   gymsDefeated: 116,      // aqui você coloca quantos ginásios já derrotou
   hoursLeader: 187      // aqui você coloca o total de minutos liderando ginásios
 };
+
+
+export const META = {
+  lastUpdated: "2026-01-01" // ISO: ANO-MÊS-DIA
+};
