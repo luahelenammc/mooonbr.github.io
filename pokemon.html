@@ -428,7 +428,16 @@ body{
       box-shadow:0 8px 20px rgba(0,0,0,.65);
       pointer-events:none;
     }
+    
+.ivLabel{
+  color:#fff;
+  opacity:.95;
+  font-weight:900;
+  margin-right:6px;
+}
+.ivNum{ color:inherit; }
 
+    
     .ivTag.good{ color:#93FE37; }
     .ivTag.mid{ color:#3CFFFF; }
     .ivTag.low{ color:#ffffff; }
@@ -513,6 +522,15 @@ body{
         height:50px;
       }
     }
+
+      .lastUpdated{
+    margin: 14px auto 0;
+    text-align:center;
+    font-size: 12px;
+    letter-spacing:.06em;
+    color: rgba(247,251,255,.70);
+    opacity:.95;
+  }
   </style>
 </head>
 <body>
@@ -594,11 +612,15 @@ body{
         <div class="flipDigits" id="hoursLeader"></div>
       </div>
     </div>
+
+    <div id="lastUpdated" class="lastUpdated"></div>
+
     
   </div>
 
 <script type="module">
-  import { RAW, GYM_STATS } from "./pokemon-data.js";
+  import { RAW, GYM_STATS, META } from "./pokemon-data.js";
+
 
   const spriteGif = (slug, shiny=false) =>
     shiny
@@ -850,7 +872,7 @@ function setupTypeFilters(){
 
       const ivTag = document.createElement("div");
       ivTag.className = "ivTag " + ivClass(p.maxIv);
-      ivTag.textContent = p.maxIv;
+ivTag.innerHTML = `<span class="ivLabel">IV</span><span class="ivNum">${p.maxIv}</span>`;
       card.appendChild(ivTag);
 
       const shell = document.createElement("div");
