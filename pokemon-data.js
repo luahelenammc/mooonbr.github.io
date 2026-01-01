@@ -1,6 +1,6 @@
 // pokemon-data.js
 // Dados da LuaHMoonMC
-// 31.12.25 - 19h - pós sudowoodo
+// 01.01.25 - 19h - pós charmeleon iv82
 
 export const TYPE = {
   Normal:   { pt:"Normal",   c:"#A8A77A" },
@@ -31,7 +31,12 @@ export const TYPE_ORDER = [
 export const RAW = [
 // ACRESCENTAR ABAIXO!
 
-
+  
+{ name:"wartortle", iv:93, types:["Water"], xmas:true },
+{ name:"golbat", iv:88, types:["Poison","Flying"] },
+{ name:"wingull", iv:88, types:["Water","Flying"] },
+{ name:"oshawott", iv:84, types:["Water"] },
+{ name:"charmeleon", iv:82, types:["Fire"] },
   { name:"sudowoodo", iv:86, types:["Rock"] },
   { name:"spheal", iv:82, types:["Ice","Water"] },
   { name:"snom", iv:86, types:["Ice","Bug"] },
