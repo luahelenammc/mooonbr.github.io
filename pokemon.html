@@ -983,9 +983,25 @@ function renderFlipStat(id, value, minDigits){
     }
   });
 
-setupTagFilters();
-setupTypeFilters(); // <-- novo
+
+
+  function formatBR(iso){
+  if(!iso) return "??/??/??";
+  // aceita "2026-01-01"
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+  if(m) return `${m[3]}/${m[2]}/${m[1].slice(2)}`; // DD/MM/AA
+  return iso; // se você já mandar "01/01/26", ele mostra como vier
+}
+
+function renderLastUpdated(){
+  const el = document.getElementById("lastUpdated");
+  if(!el) return;
+  el.textContent = `Atualizado pela última vez em ${formatBR(META?.lastUpdated)}`;
+}
+
+  setupTagFilters();
 renderStats();
+renderLastUpdated();
 renderDock();
 
 </script>
