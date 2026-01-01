@@ -163,11 +163,10 @@ export const RAW = [
 ];
 
 export const GYM_STATS = {
-  gymsDefeated: 116,      // aqui você coloca quantos ginásios já derrotou
-  hoursLeader: 187      // aqui você coloca o total de minutos liderando ginásios
+  gymsDefeated: 6,        // quantos ginásios você já derrotou
+  hoursLeading: 0       // total em minutos liderando ginásios
 };
 
-
 export const META = {
-  lastUpdated: "2026-01-01" // ISO: ANO-MÊS-DIA
+  lastUpdated: "2026-01-01" // YYYY-MM-DD (ou a data que você quiser)
 };
