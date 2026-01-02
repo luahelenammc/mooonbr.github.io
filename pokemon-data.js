@@ -30,8 +30,8 @@ export const TYPE_ORDER = [
 export const RAW = [
 // ACRESCENTAR ABAIXO!
 
-
-{ name:"skarmory", iv:95, types:["steel","flying"] },
+{ name:"misdreavus", iv:95, types:["Ghost"] }, 
+{ name:"skarmory", iv:95, types:["Steel","Flying"] },
 { name:"dugtrio-alola", iv:93, types:["ground"] }, 
   { name:"oricorio", iv:91, types:["Fire","Flying"] },
 
