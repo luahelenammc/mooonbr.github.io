@@ -65,7 +65,7 @@ export const TYPE_ORDER = [
 { name:"medicham", iv:97, types:["Fighting","Psychic"] },
 
     { name:"mismagius", iv:95, types:["Ghost"] },
-{ name:"abra", iv:95, types:["Psychic"] },
+{ name:"kadabra", iv:95, types:["Psychic"] },
 { name:"arbok", iv:93, types:["Poison"] },
 { name:"charmeleon", iv:95, types:["Fire"] },
 { name:"haunter", iv:95, types:["Ghost","Poison"] },
