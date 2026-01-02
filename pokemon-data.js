@@ -31,7 +31,7 @@ export const RAW = [
 // ACRESCENTAR ABAIXO!
 
 { name:"stufful", iv:100, types:["Normal","Fighting"] }, 
-  { name:"nidoran-m", iv:93, types:["Poison"] },
+  { name:"nidoran", iv:93, types:["Poison"] },
 { name:"wigglytuff", iv:100, types:["Normal","Fairy"] }, 
 { name:"misdreavus", iv:95, types:["Ghost"] }, 
 { name:"skarmory", iv:95, types:["Steel","Flying"] },
