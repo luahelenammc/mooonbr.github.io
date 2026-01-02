@@ -30,12 +30,14 @@ export const TYPE_ORDER = [
   export const RAW = [
 // ACRESCENTAR ABAIXO!
 
+
+{ name:"venipede", iv:97, types:["Bug","Poison"] },
 { name:"flaaffy", iv:97, types:["Electric"] },
 { name:"venomoth", iv:93, types:["Bug","Poison"] },
 { name:"flareon", iv:93, types:["Fire"] },
 { name:"baltoy", iv:97, types:["Ground","Psychic"] },
 { name:"xatu", iv:97, types:["Psychic","Flying"] },
-{ name:"hoothoot", iv:97, types:["Normal","Flying"] },
+{ name:"noctowl", iv:97, types:["Normal","Flying"], xmas:true },
 { name:"ralts", iv:86, types:["Psychic","Fairy"], dynamax:true }  , 
 { name:"cetitan", iv:100, types:["Ice"] },
 { name:"nidorina", iv:100, types:["Poison"] },
