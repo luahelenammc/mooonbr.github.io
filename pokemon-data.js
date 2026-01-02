@@ -32,26 +32,27 @@ export const RAW = [
 // ACRESCENTAR ABAIXO!
 
 
+{ name:"skarmory", iv:95, types:["steel","flying"] },
+{ name:"dugtrio", iv:93, types:["ground"] }, 
+  { name:"oricorio", iv:91, types:["Fire","Flying"] },
 
-  { name:"Oricorio", iv:91, types:["Fire","Flying"] },
-{ name:"Scyther", iv:46, types:["Bug","Flying"] },
-{ name:"Kirlia", iv:95, types:["Psychic","Fairy"] },
+{ name:"kirlia", iv:95, types:["Psychic","Fairy"] },
 
-{ name:"Gulpin", iv:97, types:["Poison"] },
-{ name:"Ivysaur", iv:91, types:["Grass","Poison"] },
-{ name:"Pikachu", iv:91, types:["Electric"] },
+{ name:"gulpin", iv:97, types:["Poison"] },
+{ name:"ivysaur", iv:91, types:["Grass","Poison"] },
+{ name:"pikachu", iv:91, types:["Electric"], xmas:true },
 
-{ name:"Swalot", iv:95, types:["Poison"] },
-{ name:"Charmeleon", iv:95, types:["Fire"] },
-{ name:"Magikarp", iv:93, types:["Water"] },
+{ name:"swalot", iv:95, types:["Poison"] },
+{ name:"charmeleon", iv:95, types:["Fire"] },
+{ name:"magikarp", iv:93, types:["Water"] },
 
-{ name:"Kakuna", iv:93, types:["Bug","Poison"] },
-{ name:"Jigglypuff", iv:100, types:["Normal","Fairy"] },
-{ name:"Throh", iv:91, types:["Fighting"] },
+{ name:"kakuna", iv:93, types:["Bug","Poison"] },
+{ name:"jigglypuff", iv:100, types:["Normal","Fairy"] },
+{ name:"throh", iv:91, types:["Fighting"] },
 
-{ name:"Shelmet", iv:91, types:["Bug"] },
-{ name:"Haunter", iv:95, types:["Ghost","Poison"] },
-{ name:"Charmeleon", iv:82, types:["Fire"] }, 
+{ name:"shelmet", iv:91, types:["Bug"] },
+{ name:"haunter", iv:95, types:["Ghost","Poison"] },
+{ name:"charmeleon", iv:82, types:["Fire"] }, 
 { name:"wartortle", iv:93, types:["Water"], xmas:true },
 { name:"golbat", iv:88, types:["Poison","Flying"] },
 { name:"wingull", iv:88, types:["Water","Flying"] },
