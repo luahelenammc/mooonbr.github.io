@@ -91,7 +91,7 @@ export const TYPE_ORDER = [
 { name:"persian", iv:91, types:["Normal"] },
 { name:"pikachu", iv:93, types:["Electric"], xmas:true },
 { name:"pumpkaboo", iv:91, types:["Ghost","Grass"] },
-{ name:"scyther", iv:91, types:["Bug","Flying"] },
+{ name:"scizor", iv:91, types:["Bug","Flying"] },
 { name:"sliggoo", iv:91, types:["Dragon"] },
 { name:"shelmet", iv:91, types:["Bug"] },
 { name:"wartortle", iv:91, types:["Water"], xmas:true },
