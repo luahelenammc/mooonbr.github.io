@@ -31,7 +31,27 @@ export const TYPE_ORDER = [
 export const RAW = [
 // ACRESCENTAR ABAIXO!
 
-  
+
+
+  { name:"Oricorio", iv:91, types:["Fire","Flying"] },
+{ name:"Scyther", iv:46, types:["Bug","Flying"] },
+{ name:"Kirlia", iv:95, types:["Psychic","Fairy"] },
+
+{ name:"Gulpin", iv:97, types:["Poison"] },
+{ name:"Ivysaur", iv:91, types:["Grass","Poison"] },
+{ name:"Pikachu", iv:91, types:["Electric"] },
+
+{ name:"Swalot", iv:95, types:["Poison"] },
+{ name:"Charmeleon", iv:95, types:["Fire"] },
+{ name:"Magikarp", iv:93, types:["Water"] },
+
+{ name:"Kakuna", iv:93, types:["Bug","Poison"] },
+{ name:"Jigglypuff", iv:100, types:["Normal","Fairy"] },
+{ name:"Throh", iv:91, types:["Fighting"] },
+
+{ name:"Shelmet", iv:91, types:["Bug"] },
+{ name:"Haunter", iv:95, types:["Ghost","Poison"] },
+{ name:"Charmeleon", iv:82, types:["Fire"] }, 
 { name:"wartortle", iv:93, types:["Water"], xmas:true },
 { name:"golbat", iv:88, types:["Poison","Flying"] },
 { name:"wingull", iv:88, types:["Water","Flying"] },
