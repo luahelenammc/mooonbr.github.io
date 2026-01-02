@@ -30,7 +30,14 @@ export const TYPE_ORDER = [
   export const RAW = [
 // ACRESCENTAR ABAIXO!
 
-
+{ name:"haunter", iv:97, types:["Ghost","Poison"] },
+{ name:"typhlosion", iv:95, types:["Fire"] },
+{ name:"eevee", iv:91, types:["Normal"] },
+{ name:"graveler", iv:91, types:["Rock","Ground"] },
+{ name:"skitty", iv:93, types:["Normal"] },
+{ name:"koffing", iv:95, types:["Poison"] },
+{ name:"eevee", iv:93, types:["Normal"], dynamax:true }, 
+    
 { name:"pelipper", iv:97, types:["Water","Flying"] },    
 { name:"electrode", iv:97, types:["Electric"] },    
 { name:"panpour", iv:93, types:["Water"] },    
@@ -161,7 +168,7 @@ export const TYPE_ORDER = [
 const HOURS_LEADING_SINCE = new Date(2025, 11, 28, 12, 0, 0); // 28/12/2025 12:00 (mês 11 = dezembro)
 
 export const GYM_STATS = {
-  gymsDefeated: 142, // quantos ginásios você já derrotou
+  gymsDefeated: 177, // quantos ginásios você já derrotou
   get hoursLeading(){
     const ms = Date.now() - HOURS_LEADING_SINCE.getTime();
     return Math.max(0, Math.floor(ms / 36e5)); // horas inteiras desde o horário acima
