@@ -30,6 +30,9 @@ export const TYPE_ORDER = [
   export const RAW = [
 // ACRESCENTAR ABAIXO!
 
+
+    { name:"drowzee", iv:95, types:["Psychic"] }, 
+{ name:"psyduck", iv:93, types:["Water"] }, 
     { name:"heracross", iv:93, types:["Bug","Fighting"], shiny:true }, 
 { name:"haunter", iv:97, types:["Ghost","Poison"] },
 { name:"typhlosion", iv:95, types:["Fire"] },
