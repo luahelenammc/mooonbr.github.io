@@ -30,6 +30,7 @@ export const TYPE_ORDER = [
   export const RAW = [
 // ACRESCENTAR ABAIXO!
 
+    { name:"heracross", iv:93, types:["Bug","Fighting"], shiny:true }, 
 { name:"haunter", iv:97, types:["Ghost","Poison"] },
 { name:"typhlosion", iv:95, types:["Fire"] },
 { name:"eevee", iv:91, types:["Normal"] },
