@@ -275,7 +275,7 @@ body{
 
 
     .statsRow{
-      margin:10px auto 4px;
+      margin:-10px auto -20px;
       display:ruby;
       flex-wrap:wrap;
       gap:14px;
@@ -524,7 +524,7 @@ body{
     }
 
       .lastUpdated{
-    margin: 14px auto 0;
+    margin: 0;
     text-align:center;
     font-size: 12px;
     letter-spacing:.06em;
@@ -574,7 +574,7 @@ body{
 
   <button class="typeBtn active" data-type="all" type="button">Todos</button>
 
-  <button class="typeBtn" data-type="Normal" type="button">⭐ Normal</button>
+  <button class="typeBtn" data-type="Normal" type="button">🟤 Normal</button>
   <button class="typeBtn" data-type="Fire" type="button">🔥 Fogo</button>
   <button class="typeBtn" data-type="Water" type="button">💧 Água</button>
   <button class="typeBtn" data-type="Electric" type="button">⚡ Elétrico</button>
@@ -719,7 +719,7 @@ body{
       case "Fighting":return "🥊";
       case "Poison":  return "☠️";
       case "Bug":     return "🐛";
-      case "Normal":  return "⭐";
+      case "Normal":  return "🟤";
       default:        return "◽";
     }
   }
