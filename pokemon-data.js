@@ -31,6 +31,11 @@ export const TYPE_ORDER = [
 // ACRESCENTAR ABAIXO!
 
 
+
+{ name:"electrode", iv:97, types:["Electric"] },    
+{ name:"panpour", iv:93, types:["Water"] },    
+{ name:"ledian", iv:91, types:["Bug","Flying"] },    
+{ name:"butterfree", iv:93, types:["Bug"] },
 { name:"venipede", iv:97, types:["Bug","Poison"] },
 { name:"flaaffy", iv:97, types:["Electric"] },
 { name:"venomoth", iv:93, types:["Bug","Poison"] },
@@ -113,19 +118,11 @@ export const TYPE_ORDER = [
 { name:"venusaur", iv:86, types:["Grass", "Poison"], xmas:true },
 
 { name:"beedrill", iv:84, types:["Bug","Poison"] },
-{ name:"bulbasaur", iv:84, types:["Grass","Poison"] },
 { name:"claydol", iv:84, types:["Ground","Psychic"] },
-{ name:"clamperl", iv:84, types:["Water"] },
-{ name:"hitmontop", iv:84, types:["Fighting"] },
 { name:"jynx", iv:84, types:["Ice","Psychic"] },
-{ name:"oshawott", iv:84, types:["Water"] },
-{ name:"petilil", iv:84, types:["Grass"] },
-{ name:"porygon", iv:84, types:["Normal"] },
-{ name:"skiploom", iv:84, types:["Grass","Flying"] },
 
 { name:"beartic", iv:82, types:["Ice"] },
 { name:"bellsprout", iv:82, types:["Grass", "Poison"] },
-{ name:"bulbasaur", iv:82, types:["Grass", "Poison"], xmas:true },
 { name:"charmeleon", iv:82, types:["Fire"] },
 { name:"dusclops", iv:82, types:["Ghost"] },
 { name:"electabuzz", iv:82, types:["Electric"] },
