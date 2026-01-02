@@ -100,8 +100,7 @@ export const TYPE_ORDER = [
 { name:"charizard", iv:86, types:["Fire"], xmas:true },
 { name:"crocalor", iv:84, types:["Fire"] },
 { name:"elgyem", iv:86, types:["Psychic"] },
-{ name:"electrike", iv:86, types:["Electric"] },
-{ name:"glameow", iv:86, types:["Normal"] },
+{ name:"electrike", iv:86, types:["Electric"] }, 
 { name:"glalie", iv:84, types:["Ice"] },
 { name:"indeedee", iv:86, types:["Psychic","Normal"] },
 { name:"indeedee", iv:93, types:["Psychic","Normal"] },
@@ -162,7 +161,7 @@ export const TYPE_ORDER = [
 const HOURS_LEADING_SINCE = new Date(2025, 11, 28, 12, 0, 0); // 28/12/2025 12:00 (mês 11 = dezembro)
 
 export const GYM_STATS = {
-  gymsDefeated: 136, // quantos ginásios você já derrotou
+  gymsDefeated: 142, // quantos ginásios você já derrotou
   get hoursLeading(){
     const ms = Date.now() - HOURS_LEADING_SINCE.getTime();
     return Math.max(0, Math.floor(ms / 36e5)); // horas inteiras desde o horário acima
