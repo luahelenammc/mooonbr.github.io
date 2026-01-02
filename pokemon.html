@@ -916,12 +916,14 @@ function renderFlipStat(id, value, minDigits){
 }
 
 
-  function renderStats(){
-    const gyms = GYM_STATS?.gymsDefeated ?? 0;
-    const mins = GYM_STATS?.hoursLeading ?? 0;
-    renderFlipStat("gymsDefeated", gyms, 7);
-    renderFlipStat("hoursLeading", hours, 5);
-  }
+function renderStats(){
+  const gyms = Number(GYM_STATS?.gymsDefeated ?? 0);
+  const hours = Number(GYM_STATS?.hoursLeading ?? 0);
+
+  renderFlipStat("gymsDefeated", gyms, { minDigits: 3 });
+  renderFlipStat("hoursLeading", hours, { minDigits: 3 });
+}
+
 
   function setupTagFilters(){
     const btns = document.querySelectorAll(".tagBtn");
