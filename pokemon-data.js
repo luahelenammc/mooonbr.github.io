@@ -185,8 +185,8 @@ export const RAW = [
 ];
 
 export const GYM_STATS = {
-  gymsDefeated: 116,        // quantos ginásios você já derrotou
-  hoursLeading: 187       // total em horas liderando ginásios
+  gymsDefeated: 120,        // quantos ginásios você já derrotou
+  hoursLeading: 212       // total em horas liderando ginásios
 };
 
 export const META = {
