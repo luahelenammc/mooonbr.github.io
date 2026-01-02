@@ -47,7 +47,7 @@ export const TYPE_ORDER = [
 { name:"panpour", iv:93, types:["Water"] },    
 { name:"ledian", iv:91, types:["Bug","Flying"] },    
 { name:"butterfree", iv:93, types:["Bug"] },
-{ name:"venipede", iv:97, types:["Bug","Poison"] },
+{ name:"whirlipede", iv:97, types:["Bug","Poison"] },
 { name:"flaaffy", iv:97, types:["Electric"] },
 { name:"venomoth", iv:93, types:["Bug","Poison"] },
 { name:"flareon", iv:93, types:["Fire"] },
