@@ -443,6 +443,12 @@ body{
     .ivTag.mid{ color:#3CFFFF; }
     .ivTag.low{ color:#ffffff; }
     .ivTag.bad{ color:#ff5151; }
+    .ivTag.epic{
+  color:#E9D5FF;
+  border-color: rgba(199,125,255,.75);
+  background: linear-gradient(180deg, rgba(199,125,255,.28), rgba(0,0,0,.72));
+  box-shadow: 0 10px 24px rgba(199,125,255,.16), 0 8px 20px rgba(0,0,0,.65);
+    }
 
     .spriteShell{
       width:70px;
@@ -695,10 +701,11 @@ body{
   }
 
   function ivClass(iv){
-    if(iv >= 90) return "good";
-    if(iv >= 80) return "mid";
-    if(iv >= 60) return "low";
-    return "bad";
+  if(iv >= 95) return "epic";
+  if(iv >= 90) return "good";
+  if(iv >= 80) return "mid";
+  if(iv >= 60) return "low";
+  return "bad";
   }
 
   function typeEmoji(type){
