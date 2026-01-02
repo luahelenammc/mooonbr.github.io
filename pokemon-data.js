@@ -30,6 +30,9 @@ export const TYPE_ORDER = [
 export const RAW = [
 // ACRESCENTAR ABAIXO!
 
+
+  { name:"nidoran-m", iv:93, types:["Poison"] },
+{ name:"wigglytuff", iv:100, types:["Normal","Fairy"] }, 
 { name:"misdreavus", iv:95, types:["Ghost"] }, 
 { name:"skarmory", iv:95, types:["Steel","Flying"] },
 { name:"dugtrio-alola", iv:93, types:["ground"] }, 
@@ -46,7 +49,6 @@ export const RAW = [
 { name:"magikarp", iv:93, types:["Water"] },
 
 { name:"kakuna", iv:93, types:["Bug","Poison"] },
-{ name:"jigglypuff", iv:100, types:["Normal","Fairy"] },
 { name:"throh", iv:91, types:["Fighting"] },
 
 { name:"shelmet", iv:91, types:["Bug"] },
