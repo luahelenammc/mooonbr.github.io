@@ -54,7 +54,7 @@ export const TYPE_ORDER = [
 { name:"kirlia", iv:95, types:["Psychic","Fairy"] },
 { name:"wobbuffet", iv:95, types:["Psychic"] },
 
-{ name:"sandshrew-alola", iv:94, types:["Ice","Steel"] },
+{ name:"sandslash-alola", iv:91, types:["Ice","Steel"] },
 
 { name:"arcanine", iv:93, types:["Fire"] },
 { name:"dugtrio-alola", iv:93, types:["ground"] },
