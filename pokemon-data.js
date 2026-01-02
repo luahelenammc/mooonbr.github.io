@@ -67,7 +67,7 @@ export const TYPE_ORDER = [
 { name:"ivysaur", iv:91, types:["Grass","Poison"] },
 { name:"makuhita", iv:91, types:["Fighting"] },
 { name:"magcargo", iv:91, types:["Fire","Rock"] },
-{ name:"oricorio", iv:91, types:["Fire","Flying"] },
+{ name:"oricorio-alola", iv:91, types:["Fire","Flying"] },
 { name:"persian", iv:91, types:["Normal"] },
 { name:"pikachu", iv:93, types:["Electric"], xmas:true },
 { name:"pumpkaboo", iv:91, types:["Ghost","Grass"] },
