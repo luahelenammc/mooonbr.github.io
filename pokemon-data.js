@@ -31,7 +31,7 @@ export const TYPE_ORDER = [
 // ACRESCENTAR ABAIXO!
 
 
-
+{ name:"pelipper", iv:97, types:["Water","Flying"] },    
 { name:"electrode", iv:97, types:["Electric"] },    
 { name:"panpour", iv:93, types:["Water"] },    
 { name:"ledian", iv:91, types:["Bug","Flying"] },    
@@ -71,7 +71,6 @@ export const TYPE_ORDER = [
 { name:"sentret", iv:93, types:["Normal"] },
 { name:"skarmory", iv:95, types:["Steel","Flying"] },
 { name:"throh", iv:91, types:["Fighting"] },
-{ name:"wingull", iv:93, types:["Water","Flying"] },
 { name:"wigglytuff", iv:93, types:["Normal","Fairy"] },
 
 { name:"pidgey", iv:92, types:["Normal","Flying"] },
@@ -89,7 +88,6 @@ export const TYPE_ORDER = [
 { name:"sliggoo", iv:91, types:["Dragon"] },
 { name:"shelmet", iv:91, types:["Bug"] },
 { name:"wartortle", iv:91, types:["Water"], xmas:true },
-{ name:"wimpod", iv:91, types:["Bug","Water"] },
 { name:"yungoos", iv:91, types:["Normal"] },
 { name:"jigglypuff", iv:91, types:["Normal","Fairy"], xmas:true },
 
