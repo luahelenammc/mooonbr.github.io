@@ -30,6 +30,11 @@ export const TYPE_ORDER = [
   export const RAW = [
 // ACRESCENTAR ABAIXO!
 
+    { name:"meowth", iv:88, types:["Normal"] },
+{ name:"natu", iv:97, types:["Psychic","Flying"] },
+{ name:"hoothoot", iv:97, types:["Normal","Flying"] },
+{ name:"ralts", iv:86, types:["Psychic","Fairy"], dynamax:true }
+  , 
 { name:"cetitan", iv:100, types:["Ice"] },
 { name:"nidorina", iv:100, types:["Poison"] },
 { name:"stufful", iv:100, types:["Normal","Fighting"] },
@@ -160,11 +165,17 @@ export const TYPE_ORDER = [
 { name:"venusaur", iv:86, types:["Grass", "Poison"], xmas:true }
 ];
 
+const HOURS_LEADING_SINCE = new Date(2025, 11, 28, 12, 0, 0); // 28/12/2025 12:00 (mês 11 = dezembro)
+
 export const GYM_STATS = {
-  gymsDefeated: 126,        // quantos ginásios você já derrotou
-  hoursLeading: 685       // total em horas liderando ginásios
+  gymsDefeated: 120, // quantos ginásios você já derrotou
+  get hoursLeading(){
+    const ms = Date.now() - HOURS_LEADING_SINCE.getTime();
+    return Math.max(0, Math.floor(ms / 36e5)); // horas inteiras desde o horário acima
+  }
 };
 
+
 export const META = {
-  lastUpdated: "2026-01-01" // YYYY-MM-DD (ou a data que você quiser)
+  lastUpdated: "2026-01-02" // YYYY-MM-DD (ou a data que você quiser)
 };
