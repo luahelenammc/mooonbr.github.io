@@ -30,11 +30,13 @@ export const TYPE_ORDER = [
   export const RAW = [
 // ACRESCENTAR ABAIXO!
 
-    { name:"meowth", iv:88, types:["Normal"] },
-{ name:"natu", iv:97, types:["Psychic","Flying"] },
+{ name:"flaaffy", iv:97, types:["Electric"] },
+{ name:"venomoth", iv:93, types:["Bug","Poison"] },
+{ name:"flareon", iv:93, types:["Fire"] },
+{ name:"baltoy", iv:97, types:["Ground","Psychic"] },
+{ name:"xatu", iv:97, types:["Psychic","Flying"] },
 { name:"hoothoot", iv:97, types:["Normal","Flying"] },
-{ name:"ralts", iv:86, types:["Psychic","Fairy"], dynamax:true }
-  , 
+{ name:"ralts", iv:86, types:["Psychic","Fairy"], dynamax:true }  , 
 { name:"cetitan", iv:100, types:["Ice"] },
 { name:"nidorina", iv:100, types:["Poison"] },
 { name:"stufful", iv:100, types:["Normal","Fighting"] },
@@ -44,12 +46,12 @@ export const TYPE_ORDER = [
 { name:"gulpin", iv:97, types:["Poison"] },
 { name:"medicham", iv:97, types:["Fighting","Psychic"] },
 
+    { name:"mismagius", iv:95, types:["Ghost"] },
 { name:"abra", iv:95, types:["Psychic"] },
 { name:"arbok", iv:93, types:["Poison"] },
 { name:"charmeleon", iv:95, types:["Fire"] },
 { name:"haunter", iv:95, types:["Ghost","Poison"] },
 { name:"kirlia", iv:95, types:["Psychic","Fairy"] },
-{ name:"misdreavus", iv:95, types:["Ghost"] },
 { name:"wobbuffet", iv:95, types:["Psychic"] },
 
 { name:"sandshrew-alola", iv:94, types:["Ice","Steel"] },
@@ -86,7 +88,6 @@ export const TYPE_ORDER = [
 
 { name:"charcadet", iv:88, types:["Fire"] },
 { name:"durant", iv:88, types:["Bug","Steel"] },
-{ name:"flaaffy", iv:88, types:["Electric"] },
 { name:"golbat", iv:88, types:["Poison","Flying"] },
 { name:"minun", iv:88, types:["Electric"] },
 { name:"scorbunny", iv:88, types:["Fire"] },
@@ -134,12 +135,8 @@ export const TYPE_ORDER = [
 { name:"spheal", iv:82, types:["Ice","Water"] },
 { name:"squirtle", iv:82, types:["Water"], xmas:true },
 { name:"tinkatuff", iv:82, types:["Fairy","Steel"] },
-{ name:"venonat", iv:82, types:["Bug", "Poison"] },
-{ name:"weezing", iv:82, types:["Poison"] },
 
 { name:"krabby", iv:80, types:["Water"], dynamax:true },
-{ name:"munna", iv:80, types:["Psychic"] },
-{ name:"ralts", iv:80, types:["Psychic","Fairy"] },
 { name:"smoliv", iv:80, types:["Grass","Normal"] },
 
 { name:"chansey", iv:77, types:["Normal"], dynamax:true },
@@ -168,7 +165,7 @@ export const TYPE_ORDER = [
 const HOURS_LEADING_SINCE = new Date(2025, 11, 28, 12, 0, 0); // 28/12/2025 12:00 (mês 11 = dezembro)
 
 export const GYM_STATS = {
-  gymsDefeated: 120, // quantos ginásios você já derrotou
+  gymsDefeated: 136, // quantos ginásios você já derrotou
   get hoursLeading(){
     const ms = Date.now() - HOURS_LEADING_SINCE.getTime();
     return Math.max(0, Math.floor(ms / 36e5)); // horas inteiras desde o horário acima
