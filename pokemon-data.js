@@ -102,8 +102,6 @@ export const TYPE_ORDER = [
 { name:"durant", iv:88, types:["Bug","Steel"] },
 { name:"golbat", iv:88, types:["Poison","Flying"] },
 { name:"minun", iv:88, types:["Electric"] },
-{ name:"scorbunny", iv:88, types:["Fire"] },
-
 { name:"charizard", iv:86, types:["Fire"], xmas:true },
 { name:"crocalor", iv:84, types:["Fire"] },
 { name:"elgyem", iv:86, types:["Psychic"] },
