@@ -448,6 +448,18 @@ body{
   border-color: rgba(199,125,255,.75);
   background: linear-gradient(180deg, rgba(199,125,255,.28), rgba(0,0,0,.72));
   box-shadow: 0 10px 24px rgba(199,125,255,.16), 0 8px 20px rgba(0,0,0,.65);
+    } 
+    .ivTag.perfect{
+  color:#FFE8C2;
+  border-color: rgba(255,159,28,.85);
+  background: linear-gradient(
+    180deg,
+    rgba(255,159,28,.38),
+    rgba(0,0,0,.78)
+  );
+  box-shadow:
+    0 10px 26px rgba(255,159,28,.22),
+    0 8px 22px rgba(0,0,0,.65);
     }
 
     .spriteShell{
@@ -701,10 +713,11 @@ body{
   }
 
   function ivClass(iv){
-  if(iv >= 95) return "epic";
-  if(iv >= 90) return "good";
-  if(iv >= 80) return "mid";
-  if(iv >= 60) return "low";
+  if(iv === 100) return "perfect";
+  if(iv >= 95)  return "epic";
+  if(iv >= 90)  return "good";
+  if(iv >= 80)  return "mid";
+  if(iv >= 60)  return "low";
   return "bad";
   }
 
