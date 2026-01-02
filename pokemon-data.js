@@ -100,7 +100,6 @@ export const TYPE_ORDER = [
 { name:"masquerain", iv:86, types:["Bug","Flying"] },
 { name:"metang", iv:86, types:["Steel","Psychic"] },
 { name:"muk", iv:86, types:["Poison"] },
-{ name:"slugma", iv:86, types:["Fire"] },
 { name:"sudowoodo", iv:86, types:["Rock"] },
 { name:"swampert", iv:86, types:["Water","Ground"] },
 { name:"venusaur", iv:86, types:["Grass", "Poison"], xmas:true },
@@ -162,8 +161,8 @@ export const TYPE_ORDER = [
 ];
 
 export const GYM_STATS = {
-  gymsDefeated: 120,        // quantos ginásios você já derrotou
-  hoursLeading: 212       // total em horas liderando ginásios
+  gymsDefeated: 126,        // quantos ginásios você já derrotou
+  hoursLeading: 685       // total em horas liderando ginásios
 };
 
 export const META = {
