@@ -1,6 +1,5 @@
 // pokemon-data.js
 // Dados da LuaHMoonMC
-// 01.01.25 - 19h - pós charmeleon iv82
 
 export const TYPE = {
   Normal:   { pt:"Normal",   c:"#A8A77A" },
@@ -33,7 +32,7 @@ export const RAW = [
 
 
 { name:"skarmory", iv:95, types:["steel","flying"] },
-{ name:"dugtrio", iv:93, types:["ground"] }, 
+{ name:"dugtrio-alola", iv:93, types:["ground"] }, 
   { name:"oricorio", iv:91, types:["Fire","Flying"] },
 
 { name:"kirlia", iv:95, types:["Psychic","Fairy"] },
