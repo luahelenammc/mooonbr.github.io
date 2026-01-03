@@ -32,7 +32,7 @@ export const TYPE_ORDER = [
 
     { name:"magneton", iv:100, types:["Electric","Steel"] },
 { name:"weepinbell", iv:93, types:["Grass","Poison"] },
-{ name:"machoke", iv:100, types:["Fighting"] },
+{ name:"machamp", iv:100, types:["Fighting"] },
 { name:"gothita", iv:95, types:["Psychic"] }, 
 
     { name:"drowzee", iv:95, types:["Psychic"] }, 
