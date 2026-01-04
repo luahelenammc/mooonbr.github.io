@@ -173,7 +173,7 @@ export const TYPE_ORDER = [
 const HOURS_LEADING_SINCE = new Date(2025, 11, 28, 12, 0, 0); // 28/12/2025 12:00 (mês 11 = dezembro)
 
 export const GYM_STATS = {
-  gymsDefeated: 177, // quantos ginásios você já derrotou
+  gymsDefeated: 200, // quantos ginásios você já derrotou
   get hoursLeading(){
     const ms = Date.now() - HOURS_LEADING_SINCE.getTime();
     return Math.max(0, Math.floor(ms / 36e5)); // horas inteiras desde o horário acima
