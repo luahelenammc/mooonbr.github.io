@@ -31,7 +31,11 @@ export const TYPE_ORDER = [
 // ACRESCENTAR ABAIXO!
 
 
-    
+    { name:"pancham", iv:93, types:["Fighting"] },
+{ name:"lapras", iv:82, types:["Water","Ice"] },
+{ name:"avalugg", iv:95, types:["Ice"] },
+{ name:"spoink", iv:91, types:["Psychic"] },
+{ name:"dusclops", iv:91, types:["Ghost"] },
     { name:"swellow", iv:97, types:["Normal","Flying"] },
 { name:"lapras", iv:93, types:["Water","Ice"] },
 { name:"toxel", iv:91, types:["Electric","Poison"] },
