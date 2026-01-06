@@ -46,7 +46,7 @@ export const TYPE_ORDER = [
 { name:"pelipper", iv:97, types:["Water","Flying"] },
 { name:"haunter", iv:97, types:["Ghost","Poison"] },
 { name:"swellow", iv:97, types:["Normal","Flying"] },
-{ name:"minum", iv:97, types:["Electric"] },
+{ name:"minun", iv:97, types:["Electric"] },
 { name:"drifblim", iv:97, types:["Ghost","Flying"] },
 { name:"wobbuffet", iv:95, types:["Psychic"] },
 { name:"avalugg", iv:95, types:["Ice"] },
@@ -133,7 +133,7 @@ export const TYPE_ORDER = [
 { name:"misdreavus", iv:91, types:["Ghost"] },
     
 { name:"charcadet", iv:88, types:["Fire"] },
-{ name:"minum", iv:88, types:["Electric"] },
+{ name:"minun", iv:88, types:["Electric"] },
 { name:"lechonk", iv:86, types:["Normal"] },
 { name:"kadabra", iv:86, types:["Psychic"], dynamax:true },
 { name:"ralts", iv:86, types:["Psychic","Fairy"], dynamax:true },
