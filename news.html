@@ -140,8 +140,8 @@
       height: 0.4rem;
       border-radius: 999px;
       margin-right: 0.25rem;
-      background: var(--accent);
-      box-shadow: 0 0 0 3px rgba(79, 209, 197, 0.28);
+background: var(--feed-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--feed-accent), transparent 72%);
     }
 
     .feed-meta[data-status="loading"] .dot {
@@ -173,16 +173,29 @@ ul.news-list a {
   text-decoration: none;
   font-size: 0.88rem;
   line-height: 1.25;
-  border-left: 3px solid rgba(79, 209, 197, 0.55); /* seu accent */
-  background: linear-gradient(to right, rgba(79, 209, 197, 0.08), transparent 40%);
+
+  /* AQUI: cor por feed */
+  border-left: 3px solid color-mix(in srgb, var(--feed-accent), transparent 45%);
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--feed-accent), transparent 88%),
+    transparent 40%
+  );
+
   transition: transform 0.1s ease, background 0.12s ease, color 0.12s ease;
 }
 
 ul.news-list a:hover {
-  color: var(--accent);
-  background: linear-gradient(to right, rgba(79, 209, 197, 0.16), rgba(15, 23, 42, 0.35) 55%, transparent 100%);
+  color: var(--feed-accent);
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--feed-accent), transparent 78%),
+    rgba(15, 23, 42, 0.35) 55%,
+    transparent 100%
+  );
   transform: translateX(2px);
 }
+
 
 
     .feed-footer {
@@ -265,6 +278,28 @@ ul.news-list a:hover {
 
   const MAX_ITEMS_PER_FEED = 10;
 
+  const FEEDS = [
+  {
+    id: "g1_globo",
+    name: "Globo / G1 – Mundo",
+    rssUrl: "https://g1.globo.com/rss/g1/mundo/",
+    accent: "#ff2d2d" // vermelho
+  },
+  {
+    id: "revista_forum",
+    name: "Revista Fórum",
+    rssUrl: "https://revistaforum.com.br/feed/",
+    accent: "#3b82f6" // azul
+  },
+  {
+    id: "rapido_no_ar",
+    name: "Rápido no Ar (Limeira)",
+    rssUrl: "https://rapidonoar.com.br/feed/",
+    accent: "#a3ff12" // verde-lima
+  }
+];
+
+  
   // Proxy CORS (AllOrigins)
   const PROXY = "https://api.allorigins.win/raw?url=";
 
@@ -297,29 +332,33 @@ ul.news-list a:hover {
     });
   }
 
-  function createFeedColumn(feed) {
-    const col = document.createElement("section");
-    col.className = "feed-column";
-    col.id = `feed-${feed.id}`;
+ function createFeedColumn(feed) {
+  const col = document.createElement("section");
+  col.className = "feed-column";
+  col.id = `feed-${feed.id}`;
 
-    col.innerHTML = `
-      <div class="feed-header">
-        <div class="feed-name">${feed.name}</div>
-        <div class="feed-meta" data-status="loading">
-          <span class="dot"></span><span>carregando…</span>
-        </div>
-      </div>
-      <ul class="news-list"></ul>
-      <div class="feed-footer">
-        <span>Fonte oficial</span>
-        <span>
-          <a href="${feed.rssUrl}" target="_blank" rel="noopener noreferrer">RSS</a>
-        </span>
-      </div>
-    `;
+  // define a cor do feed na coluna
+  col.style.setProperty("--feed-accent", feed.accent || "var(--accent)");
 
-    return col;
-  }
+  col.innerHTML = `
+    <div class="feed-header">
+      <div class="feed-name">${feed.name}</div>
+      <div class="feed-meta" data-status="loading">
+        <span class="dot"></span><span>carregando…</span>
+      </div>
+    </div>
+    <ul class="news-list"></ul>
+    <div class="feed-footer">
+      <span>Fonte oficial</span>
+      <span>
+        <a href="${feed.rssUrl}" target="_blank" rel="noopener noreferrer">RSS</a>
+      </span>
+    </div>
+  `;
+
+  return col;
+}
+
 
   function renderFeedItems(feed, items) {
     const col = document.getElementById(`feed-${feed.id}`);
