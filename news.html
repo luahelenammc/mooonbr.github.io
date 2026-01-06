@@ -257,51 +257,32 @@ ul.news-list a:hover {
     </div>
   </main>
 <script>
-  // Mapeamento das fontes que você quer exibir
+  // Proxy CORS (AllOrigins)
+  const PROXY = "https://api.allorigins.win/raw?url=";
+
+  const MAX_ITEMS_PER_FEED = 10;
+
+  // Mapeamento das fontes (com cor por feed)
   const FEEDS = [
     {
       id: "g1_globo",
       name: "Globo / G1 – Mundo",
-      rssUrl: "https://g1.globo.com/rss/g1/mundo/"
+      rssUrl: "https://g1.globo.com/rss/g1/mundo/",
+      accent: "#ff2d2d" // vermelho
     },
     {
       id: "revista_forum",
       name: "Revista Fórum",
-      rssUrl: "https://revistaforum.com.br/feed/"
+      rssUrl: "https://revistaforum.com.br/feed/",
+      accent: "#3b82f6" // azul
     },
     {
       id: "rapido_no_ar",
-      name: "Rápido no Ar",
-      rssUrl: "https://rapidonoar.com.br/feed/"
+      name: "Rápido no Ar (Limeira)",
+      rssUrl: "https://rapidonoar.com.br/feed/",
+      accent: "#a3ff12" // verde-lima
     }
   ];
-
-  const MAX_ITEMS_PER_FEED = 10;
-
-  const FEEDS = [
-  {
-    id: "g1_globo",
-    name: "Globo / G1 – Mundo",
-    rssUrl: "https://g1.globo.com/rss/g1/mundo/",
-    accent: "#ff2d2d" // vermelho
-  },
-  {
-    id: "revista_forum",
-    name: "Revista Fórum",
-    rssUrl: "https://revistaforum.com.br/feed/",
-    accent: "#3b82f6" // azul
-  },
-  {
-    id: "rapido_no_ar",
-    name: "Rápido no Ar (Limeira)",
-    rssUrl: "https://rapidonoar.com.br/feed/",
-    accent: "#a3ff12" // verde-lima
-  }
-];
-
-  
-  // Proxy CORS (AllOrigins)
-  const PROXY = "https://api.allorigins.win/raw?url=";
 
   /**
    * Faz o fetch do RSS via proxy e retorna um array de { title, link }
@@ -320,7 +301,14 @@ ul.news-list a:hover {
     const parser = new DOMParser();
     const xml = parser.parseFromString(text, "text/xml");
 
+    // Se houver erro de parse (RSS quebrado ou HTML de erro), isso ajuda a detectar
+    const parserError = xml.querySelector("parsererror");
+    if (parserError) {
+      throw new Error("XML inválido (parsererror).");
+    }
+
     const items = Array.from(xml.querySelectorAll("channel > item"));
+
     return items.slice(0, MAX_ITEMS_PER_FEED).map(item => {
       const titleEl = item.querySelector("title");
       const linkEl = item.querySelector("link");
@@ -332,33 +320,32 @@ ul.news-list a:hover {
     });
   }
 
- function createFeedColumn(feed) {
-  const col = document.createElement("section");
-  col.className = "feed-column";
-  col.id = `feed-${feed.id}`;
+  function createFeedColumn(feed) {
+    const col = document.createElement("section");
+    col.className = "feed-column";
+    col.id = `feed-${feed.id}`;
 
-  // define a cor do feed na coluna
-  col.style.setProperty("--feed-accent", feed.accent || "var(--accent)");
+    // define a cor do feed na coluna (CSS lê var(--feed-accent))
+    col.style.setProperty("--feed-accent", feed.accent || "var(--accent)");
 
-  col.innerHTML = `
-    <div class="feed-header">
-      <div class="feed-name">${feed.name}</div>
-      <div class="feed-meta" data-status="loading">
-        <span class="dot"></span><span>carregando…</span>
+    col.innerHTML = `
+      <div class="feed-header">
+        <div class="feed-name">${feed.name}</div>
+        <div class="feed-meta" data-status="loading">
+          <span class="dot"></span><span>carregando…</span>
+        </div>
       </div>
-    </div>
-    <ul class="news-list"></ul>
-    <div class="feed-footer">
-      <span>Fonte oficial</span>
-      <span>
-        <a href="${feed.rssUrl}" target="_blank" rel="noopener noreferrer">RSS</a>
-      </span>
-    </div>
-  `;
+      <ul class="news-list"></ul>
+      <div class="feed-footer">
+        <span>Fonte oficial</span>
+        <span>
+          <a href="${feed.rssUrl}" target="_blank" rel="noopener noreferrer">RSS</a>
+        </span>
+      </div>
+    `;
 
-  return col;
-}
-
+    return col;
+  }
 
   function renderFeedItems(feed, items) {
     const col = document.getElementById(`feed-${feed.id}`);
@@ -370,6 +357,7 @@ ul.news-list a:hover {
     if (items.length === 0) {
       metaEl.innerHTML = `<span class="dot"></span><span>sem itens</span>`;
       metaEl.dataset.status = "empty";
+      listEl.innerHTML = "";
       return;
     }
 
@@ -396,6 +384,9 @@ ul.news-list a:hover {
     const metaEl = col.querySelector(".feed-meta");
     metaEl.innerHTML = `<span class="dot"></span><span>erro</span>`;
     metaEl.dataset.status = "error";
+
+    const listEl = col.querySelector(".news-list");
+    listEl.innerHTML = "";
 
     const errorDiv = document.createElement("div");
     errorDiv.className = "error-msg";
@@ -426,9 +417,7 @@ ul.news-list a:hover {
 
   document.addEventListener("DOMContentLoaded", () => {
     const refreshBtn = document.getElementById("refresh");
-    refreshBtn.addEventListener("click", () => {
-      loadAllFeeds();
-    });
+    refreshBtn.addEventListener("click", loadAllFeeds);
 
     // primeira carga (equivalente a F5)
     loadAllFeeds();
