@@ -242,165 +242,157 @@
       <!-- colunas vão ser inseridas via JS -->
     </div>
   </main>
+<script>
+  // Mapeamento das fontes que você quer exibir
+  const FEEDS = [
+    {
+      id: "g1_globo",
+      name: "Globo / G1 – Mundo",
+      rssUrl: "https://g1.globo.com/rss/g1/mundo/"
+    },
+    {
+      id: "revista_forum",
+      name: "Revista Fórum",
+      rssUrl: "https://revistaforum.com.br/feed/"
+    },
+    {
+      id: "rapido_no_ar",
+      name: "Rápido no Ar",
+      rssUrl: "https://rapidonoar.com.br/feed/"
+    }
+  ];
 
-  <script>
-    // Mapeamento das fontes que você quer exibir
-    const FEEDS = [
-      {
-        id: "g1_globo",
-        name: "Globo / G1 – Mundo",
-        rssUrl: "https://g1.globo.com/rss/g1/mundo/"
-      },
-      {
-        id: "revista_forum",
-        name: "Revista Fórum",
-        rssUrl: "https://revistaforum.com.br/feed/"
-      },
-      {
-        id: "rapido_no_ar",
-        name: "Rápido no Ar",
-        rssUrl: "https://rapidonoar.com.br/feed/"
-      }
-    ];
+  const MAX_ITEMS_PER_FEED = 10;
 
-    const MAX_ITEMS_PER_FEED = 10;
+  // Proxy CORS (AllOrigins)
+  const PROXY = "https://api.allorigins.win/raw?url=";
 
-    /**
-     * Faz o fetch do RSS e retorna um array de { title, link }
-     */
-    async function fetchRssItems(feed) {
-      const response = await fetch(feed.rssUrl);
-      if (!response.ok) {
-        throw new Error("HTTP " + response.status);
-      }
+  /**
+   * Faz o fetch do RSS via proxy e retorna um array de { title, link }
+   */
+  async function fetchRssItems(feed) {
+    const proxiedUrl = PROXY + encodeURIComponent(feed.rssUrl);
 
-      const text = await response.text();
-
-      // Alguns servidores retornam 'text/plain', mas o conteúdo é XML válido.
-      const parser = new DOMParser();
-      const xml = parser.parseFromString(text, "text/xml");
-
-      const items = Array.from(xml.querySelectorAll("channel > item"));
-      return items.slice(0, MAX_ITEMS_PER_FEED).map(item => {
-        const titleEl = item.querySelector("title");
-        const linkEl = item.querySelector("link");
-
-        const title = titleEl ? titleEl.textContent.trim() : "(sem título)";
-        const link = linkEl ? linkEl.textContent.trim() : "#";
-
-        return { title, link };
-      });
+    const response = await fetch(proxiedUrl);
+    if (!response.ok) {
+      throw new Error("HTTP " + response.status);
     }
 
-    /**
-     * Cria a coluna visual de um feed
-     */
-    function createFeedColumn(feed) {
-      const col = document.createElement("section");
-      col.className = "feed-column";
-      col.id = `feed-${feed.id}`;
+    const text = await response.text();
 
-      col.innerHTML = `
-        <div class="feed-header">
-          <div class="feed-name">${feed.name}</div>
-          <div class="feed-meta" data-status="loading">
-            <span class="dot"></span><span>carregando…</span>
-          </div>
+    // Alguns servidores retornam 'text/plain', mas o conteúdo é XML válido.
+    const parser = new DOMParser();
+    const xml = parser.parseFromString(text, "text/xml");
+
+    const items = Array.from(xml.querySelectorAll("channel > item"));
+    return items.slice(0, MAX_ITEMS_PER_FEED).map(item => {
+      const titleEl = item.querySelector("title");
+      const linkEl = item.querySelector("link");
+
+      const title = titleEl ? titleEl.textContent.trim() : "(sem título)";
+      const link = linkEl ? linkEl.textContent.trim() : "#";
+
+      return { title, link };
+    });
+  }
+
+  function createFeedColumn(feed) {
+    const col = document.createElement("section");
+    col.className = "feed-column";
+    col.id = `feed-${feed.id}`;
+
+    col.innerHTML = `
+      <div class="feed-header">
+        <div class="feed-name">${feed.name}</div>
+        <div class="feed-meta" data-status="loading">
+          <span class="dot"></span><span>carregando…</span>
         </div>
-        <ul class="news-list"></ul>
-        <div class="feed-footer">
-          <span>Fonte oficial</span>
-          <span>
-            <a href="${feed.rssUrl}" target="_blank" rel="noopener noreferrer">RSS</a>
-          </span>
-        </div>
-      `;
+      </div>
+      <ul class="news-list"></ul>
+      <div class="feed-footer">
+        <span>Fonte oficial</span>
+        <span>
+          <a href="${feed.rssUrl}" target="_blank" rel="noopener noreferrer">RSS</a>
+        </span>
+      </div>
+    `;
 
-      return col;
+    return col;
+  }
+
+  function renderFeedItems(feed, items) {
+    const col = document.getElementById(`feed-${feed.id}`);
+    if (!col) return;
+
+    const metaEl = col.querySelector(".feed-meta");
+    const listEl = col.querySelector(".news-list");
+
+    if (items.length === 0) {
+      metaEl.innerHTML = `<span class="dot"></span><span>sem itens</span>`;
+      metaEl.dataset.status = "empty";
+      return;
     }
 
-    /**
-     * Atualiza o conteúdo de uma coluna com os itens carregados
-     */
-    function renderFeedItems(feed, items) {
-      const col = document.getElementById(`feed-${feed.id}`);
-      if (!col) return;
+    metaEl.innerHTML = `<span class="dot"></span><span>${items.length} itens</span>`;
+    metaEl.dataset.status = "ok";
 
-      const metaEl = col.querySelector(".feed-meta");
-      const listEl = col.querySelector(".news-list");
+    listEl.innerHTML = "";
+    items.forEach(item => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = item.link;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.textContent = item.title;
+      li.appendChild(a);
+      listEl.appendChild(li);
+    });
+  }
 
-      if (items.length === 0) {
-        metaEl.innerHTML = `<span class="dot"></span><span>sem itens</span>`;
-        metaEl.dataset.status = "empty";
-        return;
-      }
+  function markFeedError(feed, error) {
+    const col = document.getElementById(`feed-${feed.id}`);
+    if (!col) return;
 
-      metaEl.innerHTML = `<span class="dot"></span><span>${items.length} itens</span>`;
-      metaEl.dataset.status = "ok";
+    const metaEl = col.querySelector(".feed-meta");
+    metaEl.innerHTML = `<span class="dot"></span><span>erro</span>`;
+    metaEl.dataset.status = "error";
 
-      listEl.innerHTML = "";
-      items.forEach(item => {
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.href = item.link;
-        a.target = "_blank";
-        a.rel = "noopener noreferrer";
-        a.textContent = item.title;
-        li.appendChild(a);
-        listEl.appendChild(li);
-      });
-    }
+    const errorDiv = document.createElement("div");
+    errorDiv.className = "error-msg";
+    errorDiv.textContent = "Não foi possível carregar este feed.";
+    col.appendChild(errorDiv);
 
-    /**
-     * Marca o feed como erro na UI
-     */
-    function markFeedError(feed, error) {
-      const col = document.getElementById(`feed-${feed.id}`);
-      if (!col) return;
+    console.error("Erro ao carregar feed", feed.id, error);
+  }
 
-      const metaEl = col.querySelector(".feed-meta");
-      metaEl.innerHTML = `<span class="dot"></span><span>erro</span>`;
-      metaEl.dataset.status = "error";
+  async function loadAllFeeds() {
+    const grid = document.getElementById("feeds-grid");
+    grid.innerHTML = "";
 
-      const errorDiv = document.createElement("div");
-      errorDiv.className = "error-msg";
-      errorDiv.textContent = "Não foi possível carregar este feed.";
-      col.appendChild(errorDiv);
+    FEEDS.forEach(feed => {
+      const col = createFeedColumn(feed);
+      grid.appendChild(col);
+    });
 
-      console.error("Erro ao carregar feed", feed.id, error);
-    }
-
-    /**
-     * Carrega todos os feeds, um por vez
-     */
-    async function loadAllFeeds() {
-      const grid = document.getElementById("feeds-grid");
-      grid.innerHTML = "";
-
-      FEEDS.forEach(feed => {
-        const col = createFeedColumn(feed);
-        grid.appendChild(col);
-      });
-
-      for (const feed of FEEDS) {
-        try {
-          const items = await fetchRssItems(feed);
-          renderFeedItems(feed, items);
-        } catch (err) {
-          markFeedError(feed, err);
-        }
+    for (const feed of FEEDS) {
+      try {
+        const items = await fetchRssItems(feed);
+        renderFeedItems(feed, items);
+      } catch (err) {
+        markFeedError(feed, err);
       }
     }
+  }
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const refreshBtn = document.getElementById("refresh");
-      refreshBtn.addEventListener("click", () => {
-        loadAllFeeds();
-      });
-
-      // primeira carga (equivalente a F5)
+  document.addEventListener("DOMContentLoaded", () => {
+    const refreshBtn = document.getElementById("refresh");
+    refreshBtn.addEventListener("click", () => {
       loadAllFeeds();
     });
-  </script>
+
+    // primeira carga (equivalente a F5)
+    loadAllFeeds();
+  });
+</script>
 </body>
 </html>
