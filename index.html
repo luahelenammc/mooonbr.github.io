@@ -1009,21 +1009,9 @@ button {
 /* =========================
    PATCH mooon.com.br (mínimo)
    - Ícones do desktop são gerados via JS
-   - Menu iniciar / taskbar permanecem intactos
+   - Menu iniciar / taskbar / comportamento original permanecem intactos
    ========================= */
 
-      const IS_MOBILE = window.matchMedia("(max-width: 900px)").matches
-  || window.matchMedia("(pointer: coarse)").matches;
-
-const GRID = {
-  marginX: IS_MOBILE ? 18 : 14,
-  marginY: IS_MOBILE ? 18 : 14,
-  stepX:   IS_MOBILE ? 165 : 110,   // <-- aumenta o espaçamento horizontal
-  stepY:   IS_MOBILE ? 195 : 135    // <-- aumenta o espaçamento vertical
-};
-
-      
-      
 const DESKTOP_ICONS = [
 
   // Conteúdo do mooon.com.br (links podem ser ajustados depois)
@@ -1048,18 +1036,25 @@ function renderDesktopIcons() {
   const $desktop = $(".area-de-trabalho");
   if (!$desktop.length) return;
 
-  // Limpa qualquer resíduo de ícone hardcoded (se houver)
+  // remove qualquer ícone anterior
   $desktop.find(".desktop-icon").remove();
 
-  // Grid base (estilo XP, sem mexer no resto)
-const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  const isMobile =
+    window.matchMedia("(max-width: 900px)").matches ||
+    window.matchMedia("(pointer: coarse)").matches;
 
-const GRID = {
-  marginX: isMobile ? 18 : 18,
-  marginY: isMobile ? 18 : 18,
-  stepX:   isMobile ? 165 : 92,
-  stepY:   isMobile ? 195 : 98
-};
+  // grid de posicionamento (ajuste fino aqui, sem mexer no layout do XP)
+  const GRID = {
+    marginX: isMobile ? 18 : 14,
+    marginY: isMobile ? 18 : 14,
+    stepX:   isMobile ? 165 : 110,
+    stepY:   isMobile ? 195 : 135
+  };
+
+  const marginLeft = GRID.marginX;
+  const marginTop  = GRID.marginY;
+  const colGap     = GRID.stepX;
+  const rowGap     = GRID.stepY;
 
   for (const icon of DESKTOP_ICONS) {
     const $icon = $(`
@@ -1069,13 +1064,10 @@ const GRID = {
       </div>
     `);
 
-    // Posicionamento em “linhas”
-const left = marginLeft + (icon.col || 0) * colGap;
-const top  = marginTop  + (icon.row || 0) * rowGap;
-
+    const left = marginLeft + (icon.col || 0) * colGap;
+    const top  = marginTop  + (icon.row || 0) * rowGap;
 
     $icon.css({ left: `${left}px`, top: `${top}px` });
-
     $desktop.append($icon);
   }
 }
@@ -1083,21 +1075,11 @@ const top  = marginTop  + (icon.row || 0) * rowGap;
 // Renderiza assim que o DOM já existe (script no final do body)
 renderDesktopIcons();
 
-      window.addEventListener("resize", () => renderDesktopIcons(), { passive: true });
+// Recalcula em resize/orientação (mobile)
+window.addEventListener("resize", () => renderDesktopIcons(), { passive: true });
 window.addEventListener("orientationchange", () => renderDesktopIcons(), { passive: true });
 
-      
-/* Abertura genérica de ícones com link (não interfere nos ícones “sistema”) */
-$(document).on("dblclick", ".desktop-icon", function () {
-  const action = $(this).data("action");
-  if (action !== "link") return;
 
-  const link = ($(this).data("link") || "").toString().trim();
-  if (!link || link === "#") return;
-
-  // Mantém o desktop aberto, abre em nova aba
-  window.open(link, "_blank", "noopener,noreferrer");
-});
 
 //EVENTO DE CLICK NO BOTÃO INICIAR
 $("#iniciar").on("click", function () {
@@ -1351,6 +1333,7 @@ $(".prog").click(function () {
     }
   }
 });
+
 </script>
 </body>
   
