@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="UTF-8">
-    <title>mooon.com.br</title>
+    <title>Portal da Moon</title>
     <link rel='stylesheet' href='https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css'><style>
 @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
 
@@ -790,19 +790,29 @@ button {
   </div>
 
   <!-- MENU DO CLIQUE COM BOTÃO DIREITO -->
-  <div id="botaoDireito">
-    <a class="item-menu" href="#">Item Menu</a>
-    <a class="item-menu" href="#">Item Menu</a>
-    <a class="item-menu" href="#">Item Menu</a>
-    <a class="item-menu bder-b" href="#">Item Menu</a>
-    <a class="item-menu bder-b" href="#">Item Menu</a>
-    <a class="item-menu" href="#">Item Menu</a>
-    <a class="sub-menu" href="#">Sub Menu</a>
-    <div class="menuExtra">
-      <a class="extraItem-menu" href="#">Item Menu</a>
-      <a class="extraItem-menu" href="#">Item Menu</a>
-    </div>
+<div id="botaoDireito">
+  <!-- PRIMEIRA LINHA (Nostalgia) -->
+  <a class="item-menu" href="https://nostalgia.mooon.com.br" target="_blank" rel="noopener">BLOG NOSTALGIA</a>
+  <a class="item-menu" href="https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html" target="_blank" rel="noopener">Habbo Hotel</a>
+  <a class="item-menu" href="https://nostalgia.mooon.com.br/search/label/PlayStation%201" target="_blank" rel="noopener">Playstation 1</a>
+  <a class="item-menu bder-b" href="https://nostalgia.mooon.com.br/search/label/PlayStation%202" target="_blank" rel="noopener">Playstation 2</a>
+  <a class="item-menu bder-b" href="https://nostalgia.mooon.com.br/search/label/Super%20Nintendo" target="_blank" rel="noopener">Super Nintendo</a>
+
+  <!-- SEGUNDA LINHA (Redes) -->
+  <a class="item-menu" href="https://instagram.com/mooon.br" target="_blank" rel="noopener">Instagram</a>
+  <a class="item-menu" href="https://tiktok.com/@mooon.br" target="_blank" rel="noopener">Tiktok</a>
+  <a class="item-menu" href="https://twitch.tv/mooonbr" target="_blank" rel="noopener">Twitch</a>
+  <a class="item-menu" href="https://youtube.com/channel/UCst0jXP1CRb-_1S00F1NMgQ" target="_blank" rel="noopener">Youtube</a>
+
+  <!-- TERCEIRA LINHA (Extras) -->
+  <a class="sub-menu" href="#" onclick="return false;">Extras</a>
+  <div class="menuExtra">
+    <a class="extraItem-menu" href="/musicas.html">Playlists nostálgicas</a>
+    <a class="extraItem-menu" href="/aimusic.html">Músicas geradas por IA</a>
+    <a class="extraItem-menu" href="/tv/index.html">Moon TV</a>
+    <a class="extraItem-menu" href="/pokemon.html">Meus Pokémon</a>
   </div>
+</div>
 
   <!-- BARRA DE TAREFAS -->
   <div class="barra-de-tarefas">
@@ -945,10 +955,10 @@ const DESKTOP_ICONS = [
   { id: "twitch",         label: "Twitch",          img: "/images/twitch.png",    link: "https://twitch.tv/mooonbr",    action: "link", row: 2, col: 3 },
   { id: "youtube",        label: "Youtube",         img: "/images/youtube.png",   link: "https://youtube.com/channel/UCst0jXP1CRb-_1S00F1NMgQ",   action: "link", row: 2, col: 4 },
 
-  { id: "playlists",      label: "Playlists nostálgicas", img: "/images/ringtone.png", link: "/musicas.html", action: "link", row: 3, col: 1 },
-  { id: "musicas_ia",     label: "Músicas geradas por IA", img: "/images/music_icon_trophy.png", link: "/aimusic.html", action: "link", row: 3, col: 2 },
-  { id: "moon_tv",        label: "Moon TV",         img: "/images/series.png",  link: "/tv/index.html",   action: "link", row: 3, col: 3 },
-  { id: "pokemon",        label: "Meus Pokémon",         img: "/images/pokeshelf.png",  link: "/pokemon.html",   action: "link", row: 3, col: 4 }
+  { id: "playlists",      label: "Playlists nostálgicas", img: "/images/ringtone.png", link: "/musicas.html", action: "link", row: 4, col: 1 },
+  { id: "musicas_ia",     label: "Músicas geradas por IA", img: "/images/music_icon_trophy.png", link: "/aimusic.html", action: "link", row: 4, col: 2 },
+  { id: "moon_tv",        label: "Moon TV",         img: "/images/series.png",  link: "/tv/index.html",   action: "link", row: 4, col: 3 },
+  { id: "pokemon",        label: "Meus Pokémon",         img: "/images/pokeshelf.png",  link: "/pokemon.html",   action: "link", row: 4, col: 4 }
 ];
 
 function renderDesktopIcons() {
