@@ -1032,53 +1032,98 @@ const DESKTOP_ICONS = [
   { id: "pokemon",        label: "Meus Pokémon",         img: "/images/pokeshelf.png",  link: "/pokemon.html",   action: "link", row: 4, col: 4 }
 ];
 
-function renderDesktopIcons() {
-  const $desktop = $(".area-de-trabalho");
-  if (!$desktop.length) return;
+      // ===== OVERRIDE FINAL: renderDesktopIcons (mobile reempacota, desktop respeita row/col) =====
+(function () {
+  function renderDesktopIconsFixed() {
+    const $desktop = $(".area-de-trabalho");
+    if (!$desktop.length) return;
 
-  // remove qualquer ícone anterior
-  $desktop.find(".desktop-icon").remove();
+    $desktop.find(".desktop-icon").remove();
 
-  const isMobile =
-    window.matchMedia("(max-width: 900px)").matches ||
-    window.matchMedia("(pointer: coarse)").matches;
+    const isMobile =
+      window.matchMedia("(max-width: 900px)").matches ||
+      window.matchMedia("(pointer: coarse)").matches;
 
-  // grid de posicionamento (ajuste fino aqui, sem mexer no layout do XP)
-  const GRID = {
-    marginX: isMobile ? 18 : 14,
-    marginY: isMobile ? 18 : 14,
-    stepX:   isMobile ? 165 : 110,
-    stepY:   isMobile ? 195 : 135
-  };
+    // ---- GRID DESKTOP (seu comportamento atual) ----
+    const DESKTOP_GRID = {
+      marginX: 14,
+      marginY: 14,
+      stepX: 110,
+      stepY: 135
+    };
 
-  const marginLeft = GRID.marginX;
-  const marginTop  = GRID.marginY;
-  const colGap     = GRID.stepX;
-  const rowGap     = GRID.stepY;
+    // ---- GRID MOBILE (reempacota por índice, sem depender de col 3,5,6 etc) ----
+    const taskbarH = $(".barra-de-tarefas").outerHeight() || 62;
+    const usableW = Math.max(280, window.innerWidth);
+    const usableH = Math.max(320, window.innerHeight - taskbarH);
 
-  for (const icon of DESKTOP_ICONS) {
-    const $icon = $(`
-      <div id="${icon.id}" class="desktop-icon" data-action="${icon.action || ""}" data-link="${icon.link || ""}">
-        <img alt="${icon.label}" src="${icon.img}">
-        <span>${icon.label}</span>
-      </div>
-    `);
+    // 2 colunas em celulares, 3 em telas um pouco mais largas
+    const cols = usableW >= 520 ? 3 : 2;
 
-    const left = marginLeft + (icon.col || 0) * colGap;
-    const top  = marginTop  + (icon.row || 0) * rowGap;
+    const marginX = 18;
+    const marginY = 18;
 
-    $icon.css({ left: `${left}px`, top: `${top}px` });
-    $desktop.append($icon);
+    // tamanhos aproximados do "slot" do ícone no mobile
+    const slotW = Math.floor((usableW - marginX * 2) / cols);
+
+    // calcula linhas para caber na altura sem scroll
+    const total = DESKTOP_ICONS.length;
+    const rows = Math.max(1, Math.ceil(total / cols));
+    const slotH = Math.floor((usableH - marginY * 2) / rows);
+
+    for (let i = 0; i < DESKTOP_ICONS.length; i++) {
+      const icon = DESKTOP_ICONS[i];
+
+      const $icon = $(`
+        <div id="${icon.id}" class="desktop-icon" data-action="${icon.action || ""}" data-link="${icon.link || ""}">
+          <img alt="${icon.label}" src="${icon.img}">
+          <span>${icon.label}</span>
+        </div>
+      `);
+
+      let left, top;
+
+      if (isMobile) {
+        // mobile: ignora row/col do objeto e reempacota
+        const r = Math.floor(i / cols);
+        const c = i % cols;
+
+        left = marginX + c * slotW;
+        top  = marginY + r * slotH;
+      } else {
+        // desktop: respeita row/col como você já faz
+        left = DESKTOP_GRID.marginX + (icon.col || 0) * DESKTOP_GRID.stepX;
+        top  = DESKTOP_GRID.marginY + (icon.row || 0) * DESKTOP_GRID.stepY;
+      }
+
+      $icon.css({ left: `${left}px`, top: `${top}px` });
+      $desktop.append($icon);
+    }
+
+    // draggable só no desktop (mobile com touch vira dor)
+    if (!isMobile && $.fn.draggable) {
+      $(".desktop-icon").draggable({ containment: ".area-de-trabalho" });
+    }
   }
-}
 
-// Renderiza assim que o DOM já existe (script no final do body)
-renderDesktopIcons();
+  // Substitui qualquer versão anterior
+  window.renderDesktopIcons = renderDesktopIconsFixed;
 
-// Recalcula em resize/orientação (mobile)
-window.addEventListener("resize", () => renderDesktopIcons(), { passive: true });
-window.addEventListener("orientationchange", () => renderDesktopIcons(), { passive: true });
+  // Roda agora
+  renderDesktopIconsFixed();
 
+  // Debounce pra resize/orientation não virar metralhadora
+  let t = null;
+  window.addEventListener("resize", () => {
+    clearTimeout(t);
+    t = setTimeout(renderDesktopIconsFixed, 120);
+  }, { passive: true });
+
+  window.addEventListener("orientationchange", () => {
+    clearTimeout(t);
+    t = setTimeout(renderDesktopIconsFixed, 200);
+  }, { passive: true });
+})();
 
 
 //EVENTO DE CLICK NO BOTÃO INICIAR
