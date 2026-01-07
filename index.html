@@ -745,6 +745,132 @@ button {
     opacity: 1;
   }
 }
+
+/* =========================
+   MOBILE PATCH (XP layout)
+   - Desktop icons: ~2x
+   - Start menu: ~1.6x
+   - No scrolling: layout fits viewport (100dvh)
+   ========================= */
+
+@media (max-width: 768px) {
+
+  /* 1) Viewport height real, sem “página maior que o celular” */
+  html, body {
+    height: 100%;
+    min-height: 100%;
+  }
+
+  body {
+    /* 100dvh evita o bug da barra de endereço no mobile */
+    height: 100dvh;
+    min-height: 100dvh;
+  }
+
+  /* fallback caso algum navegador antigo ignore dvh */
+  @supports not (height: 100dvh) {
+    body { height: 100vh; min-height: 100vh; }
+  }
+
+  /* garanta que seu “OS” também obedece a altura do viewport */
+  #windowsXP {
+    height: 100dvh;
+    min-height: 100dvh;
+  }
+
+  /* a área de trabalho tem que caber no que sobra da taskbar */
+  .area-de-trabalho {
+    height: calc(100dvh - 50px);
+    min-height: calc(100dvh - 50px);
+  }
+
+  @supports not (height: 100dvh) {
+    #windowsXP { height: 100vh; min-height: 100vh; }
+    .area-de-trabalho { height: calc(100vh - 50px); min-height: calc(100vh - 50px); }
+  }
+
+  /* 2) ÍCONES DO DESKTOP: ~2x (imagem + legenda) */
+  .desktop-icon {
+    /* se o template usa width fixa, isso dá espaço pra “crescer” */
+    width: 120px; /* ajuste fino se quiser mais/menos */
+  }
+
+  .desktop-icon img {
+    /* sem forçar proporção fixa, só limites maiores */
+    max-width: 96px;
+    max-height: 96px;
+    width: auto;
+    height: auto;
+
+    /* remove qualquer sombra que exista no tema original */
+    box-shadow: none !important;
+    filter: none !important;
+  }
+
+  .desktop-icon span {
+    font-size: 22px;        /* legenda maior */
+    line-height: 1.15;
+    padding: 6px 8px;       /* “hit area” + estética */
+    max-width: 120px;       /* acompanha o container do ícone */
+  }
+
+  /* 3) MENU INICIAR: ~1.6x (sem quebrar o layout) */
+  #menuIniciar {
+    /* em vez de transformar tudo (que pode distorcer), aumentamos fontes e tamanhos */
+    font-size: 1.6em;
+  }
+
+  /* itens do menu mais “tocáveis” */
+  .itemIniciar {
+    padding: 10px 12px;
+  }
+
+  .itemIniciar img {
+    width: 64px;
+    height: 64px;
+  }
+
+  /* nome do usuário / header do iniciar */
+  .userName {
+    font-size: 1.1em;
+  }
+
+  .avatarIniciar {
+    width: 64px;
+    height: 64px;
+  }
+
+  /* botões do rodapé do menu iniciar */
+  .rodape a,
+  .rodapeBtn,
+  .rodape .item {
+    font-size: 1em;
+    padding: 10px 12px;
+  }
+
+  /* 4) Pequeno ajuste: taskbar mais alta pra caber tudo grande */
+  .barra-de-tarefas {
+    height: 64px;
+  }
+
+  .area-de-trabalho {
+    height: calc(100dvh - 64px);
+    min-height: calc(100dvh - 64px);
+  }
+
+  @supports not (height: 100dvh) {
+    .area-de-trabalho { height: calc(100vh - 64px); min-height: calc(100vh - 64px); }
+  }
+
+  /* relógio legível */
+  #relogio {
+    font-size: 1.2em;
+  }
+}
+
+
+
+      
 </style>
 </head>
     
