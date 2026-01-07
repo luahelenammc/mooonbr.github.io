@@ -3,6 +3,7 @@
 
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Portal da Moon</title>
     <link rel='stylesheet' href='https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css'><style>
 @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
@@ -745,129 +746,99 @@ button {
     opacity: 1;
   }
 }
+/* ===== MOBILE PATCH (cole no FINAL do <style>) ===== */
+@media (max-width: 900px), (pointer: coarse) {
 
-/* =========================
-   MOBILE PATCH (XP layout)
-   - Desktop icons: ~2x
-   - Start menu: ~1.6x
-   - No scrolling: layout fits viewport (100dvh)
-   ========================= */
-
-@media (max-width: 768px) {
-
-  /* 1) Viewport height real, sem “página maior que o celular” */
+  /* ✅ Nada de página maior que a tela (sem “bloquear scroll na marra”: ajusta altura real) */
   html, body {
     height: 100%;
-    min-height: 100%;
+    margin: 0;
   }
 
-  body {
-    /* 100dvh evita o bug da barra de endereço no mobile */
-    height: 100dvh;
-    min-height: 100dvh;
-  }
-
-  /* fallback caso algum navegador antigo ignore dvh */
-  @supports not (height: 100dvh) {
-    body { height: 100vh; min-height: 100vh; }
-  }
-
-  /* garanta que seu “OS” também obedece a altura do viewport */
+  /* dvh/svh = viewport real no mobile (evita scroll por causa da barra do navegador) */
   #windowsXP {
     height: 100dvh;
-    min-height: 100dvh;
+    min-height: 100svh;
+    width: 100vw;
   }
 
-  /* a área de trabalho tem que caber no que sobra da taskbar */
   .area-de-trabalho {
-    height: calc(100dvh - 50px);
-    min-height: calc(100dvh - 50px);
+    height: 100dvh;
+    min-height: 100svh;
+    width: 100vw;
+    overflow: hidden;
+    background-position: center;
   }
 
-  @supports not (height: 100dvh) {
-    #windowsXP { height: 100vh; min-height: 100vh; }
-    .area-de-trabalho { height: calc(100vh - 50px); min-height: calc(100vh - 50px); }
-  }
-
-  /* 2) ÍCONES DO DESKTOP: ~2x (imagem + legenda) */
+  /* ✅ ÍCONES: “dobrados” (imagem + legenda) */
   .desktop-icon {
-    /* se o template usa width fixa, isso dá espaço pra “crescer” */
-    width: 120px; /* ajuste fino se quiser mais/menos */
+    width: 240px !important;      /* era ~120 */
+    height: 280px !important;     /* era ~140 */
+    padding: 22px !important;
   }
 
   .desktop-icon img {
-    /* sem forçar proporção fixa, só limites maiores */
-    max-width: 96px;
-    max-height: 96px;
-    width: auto;
-    height: auto;
-
-    /* remove qualquer sombra que exista no tema original */
+    max-width: 140px !important;  /* era 72 */
+    max-height: 140px !important; /* era 72 */
+    width: auto !important;
+    height: auto !important;
     box-shadow: none !important;
-    filter: none !important;
   }
 
   .desktop-icon span {
-    font-size: 22px;        /* legenda maior */
-    line-height: 1.15;
-    padding: 6px 8px;       /* “hit area” + estética */
-    max-width: 120px;       /* acompanha o container do ícone */
+    font-size: 28px !important;   /* era 15 */
+    line-height: 1.05 !important;
+    text-shadow: 2px 2px 10px rgba(0,0,0,.85) !important;
   }
 
-  /* 3) MENU INICIAR: ~1.6x (sem quebrar o layout) */
+  /* ✅ MENU INICIAR: +60%, mas sem estourar a tela */
   #menuIniciar {
-    /* em vez de transformar tudo (que pode distorcer), aumentamos fontes e tamanhos */
-    font-size: 1.6em;
+    width: min(94vw, 800px) !important;      /* 500 * 1.6 = 800 */
+    height: min(85dvh, 960px) !important;    /* 600 * 1.6 = 960 */
+    bottom: 80px !important;                 /* dá respiro acima da taskbar maior/touch */
   }
 
-  /* itens do menu mais “tocáveis” */
-  .itemIniciar {
-    padding: 10px 12px;
-  }
-
-  .itemIniciar img {
-    width: 64px;
-    height: 64px;
-  }
-
-  /* nome do usuário / header do iniciar */
-  .userName {
-    font-size: 1.1em;
+  .topoIniciar {
+    height: 160px !important;                /* 100 * 1.6 */
   }
 
   .avatarIniciar {
-    width: 64px;
-    height: 64px;
+    width: 112px !important;                 /* 70 * 1.6 */
+    height: 112px !important;                /* 70 * 1.6 */
+    border-radius: 14px !important;
   }
 
-  /* botões do rodapé do menu iniciar */
-  .rodape a,
-  .rodapeBtn,
-  .rodape .item {
-    font-size: 1em;
-    padding: 10px 12px;
+  .userName {
+    font-size: 28px !important;
   }
 
-  /* 4) Pequeno ajuste: taskbar mais alta pra caber tudo grande */
+  .itemIniciar {
+    height: 96px !important;                 /* 60 * 1.6 */
+    padding: 24px !important;
+  }
+
+  .itemIniciar span {
+    font-size: 22px !important;
+  }
+
+  .footerIniciar {
+    height: 96px !important;                 /* 60 * 1.6 */
+  }
+
+  .btnFooter a {
+    font-size: 22px !important;
+  }
+
+  /* Opcional: taskbar um pouco maior pra dedo */
   .barra-de-tarefas {
-    height: 64px;
+    height: 70px !important;
   }
 
-  .area-de-trabalho {
-    height: calc(100dvh - 64px);
-    min-height: calc(100dvh - 64px);
-  }
-
-  @supports not (height: 100dvh) {
-    .area-de-trabalho { height: calc(100vh - 64px); min-height: calc(100vh - 64px); }
-  }
-
-  /* relógio legível */
-  #relogio {
-    font-size: 1.2em;
+  #iniciar {
+    width: 240px !important;
+    font-size: 2.1rem !important;
   }
 }
-
 
 
       
