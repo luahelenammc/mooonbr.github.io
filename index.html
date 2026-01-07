@@ -1007,56 +1007,111 @@ button {
     
     <script>
 /* ==========================================================
-   mooon.com.br XP Desktop - script.js (v0.0.3)
-   - UMA única renderDesktopIcons()
+   mooon.com.br XP Desktop - script.js (v0.1.0)
+   - Ícones do desktop vindos de DESKTOP_ICONS (abaixo)
    - Desktop: respeita row/col (grid original XP)
-   - Mobile: reempacota ícones em grid responsivo (2–3 colunas)
+   - Mobile: reorganiza em grid responsivo (2–3 colunas)
    - Links: desktop abre com duplo clique, mobile abre com 1 toque
-   - Mantém resto do comportamento original (menu iniciar, janelas, etc.)
+   - Start menu + relógio básicos
    ========================================================== */
+
+/* -------------------------
+   1) ÍCONES (edite aqui)
+   ------------------------- */
 
 const DESKTOP_ICONS = [
+  // PRIMEIRA LINHA:
+  { id: "blog_nostalgia", label: "BLOG NOSTALGIA",       img: "/images/snes.png",                  link: "https://nostalgia.mooon.com.br",                                         action: "link", row: 0, col: 1 },
+  { id: "habbo",          label: "Habbo Hotel",          img: "/images/habbo%20hc.fw.png",         link: "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",              action: "link", row: 0, col: 2 },
+  { id: "ps1",            label: "Playstation 1",        img: "/images/ps1.png",                   link: "https://nostalgia.mooon.com.br/search/label/PlayStation%201",          action: "link", row: 0, col: 3 },
+  { id: "ps2",            label: "Playstation 2",        img: "/images/ps2.png",                   link: "https://nostalgia.mooon.com.br/search/label/PlayStation%202",          action: "link", row: 0, col: 4 },
+  { id: "snes",           label: "Super Nintendo",       img: "/images/supern.png",                link: "https://nostalgia.mooon.com.br/search/label/Super%20Nintendo",         action: "link", row: 0, col: 5 },
 
-  // Conteúdo do mooon.com.br (links podem ser ajustados depois)
-  { id: "blog_nostalgia", label: "BLOG NOSTALGIA", img: "/images/blog_snes.png", link: "https://nostalgia.mooon.com.br", action: "link", row: 0, col: 1 },
-  { id: "habbo",          label: "Habbo Hotel",     img: "/images/habbo_hc.fw.png", link: "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",   action: "link", row: 0, col: 2 },
-  { id: "ps1",            label: "Playstation 1",   img: "/images/ps1.png",   link: "https://nostalgia.mooon.com.br/search/label/PlayStation%201", action: "link", row: 0, col: 3 },
-  { id: "ps2",            label: "Playstation 2",   img: "/images/ps2.png",   link: "https://nostalgia.mooon.com.br/search/label/PlayStation%202", action: "link", row: 0, col: 4 },
-  { id: "snes",           label: "Super Nintendo",  img: "/images/supern.png",  link: "https://nostalgia.mooon.com.br/search/label/Super%20Nintendo",action: "link", row: 0, col: 5 },
+  // SEGUNDA LINHA:
+  { id: "instagram",      label: "Instagram",            img: "/images/insta.png",                 link: "https://instagram.com/mooon.br",                                         action: "link", row: 2, col: 1 },
+  { id: "tiktok",         label: "Tiktok",               img: "/images/tiktok.png",                link: "https://tiktok.com/@mooon.br",                                           action: "link", row: 2, col: 2 },
+  { id: "twitch",         label: "Twitch",               img: "/images/twitch.png",                link: "https://twitch.tv/mooonbr",                                              action: "link", row: 2, col: 3 },
+  { id: "youtube",        label: "Youtube",              img: "/images/youtube.png",               link: "https://youtube.com/channel/UCst0jXP1CRb-_1S00F1NMgQ",                 action: "link", row: 2, col: 4 },
 
-  { id: "instagram",      label: "Instagram",       img: "/images/insta.png", link: "https://instagram.com/mooon.br", action: "link", row: 2, col: 1 },
-  { id: "tiktok",         label: "Tiktok",          img: "/images/tiktok.png",    link: "https://tiktok.com/@mooon.br",    action: "link", row: 2, col: 2 },
-  { id: "twitch",         label: "Twitch",          img: "/images/twitch.png",    link: "https://twitch.tv/mooonbr",    action: "link", row: 2, col: 3 },
-  { id: "youtube",        label: "Youtube",         img: "/images/youtube.png",   link: "https://youtube.com/channel/UCst0jXP1CRb-_1S00F1NMgQ",   action: "link", row: 2, col: 4 },
-
-  { id: "playlists",      label: "Playlists nostálgicas", img: "/images/ringtone.png", link: "/musicas.html", action: "link", row: 3, col: 1 },
-  { id: "musicas_ia",     label: "Músicas geradas por IA", img: "/images/music_icon_trophy.png", link: "/aimusic.html", action: "link", row: 3, col: 2 },
-  { id: "moon_tv",        label: "Moon TV",         img: "/images/series.png",  link: "/tv/index.html",   action: "link", row: 3, col: 3 },
-  { id: "pokemon",        label: "Meus Pokémon",    img: "/images/pokeshelf.png",  link: "/pokemon.html",   action: "link", row: 3, col: 4 }
+  // TERCEIRA LINHA:
+  { id: "playlists",      label: "Playlists nostálgicas",img: "/images/ringtone.png",             link: "/musicas.html",                                                          action: "link", row: 3, col: 1 },
+  { id: "musicas_ia",     label: "Músicas geradas por IA",img: "/images/music_icon_trophy.png",   link: "/aimusic.html",                                                          action: "link", row: 3, col: 2 },
+  { id: "moon_tv",        label: "Moon TV",              img: "/images/series.png",               link: "/tv/index.html",                                                         action: "link", row: 3, col: 3 },
+  { id: "pokemon",        label: "Meus Pokémon",         img: "/images/pokeshelf.png",            link: "/pokemon.html",                                                          action: "link", row: 3, col: 4 }
 ];
 
-/* ==========================================================
-   1) Renderização dos ícones de desktop (desktop + mobile)
-   ========================================================== */
+/* -------------------------
+   2) Helpers
+   ------------------------- */
+
+function isMobileEnv() {
+  return (
+    window.matchMedia("(max-width: 900px)").matches ||
+    window.matchMedia("(pointer: coarse)").matches
+  );
+}
+
+function normalizeLink(raw) {
+  const link = (raw || "").toString().trim();
+  if (!link || link === "#") return "";
+  return link;
+}
+
+function openLinkSmart(link) {
+  const url = normalizeLink(link);
+  if (!url) return;
+
+  // links relativos (começam com /) abrem na mesma aba: bom pra mobile
+  if (url.startsWith("/")) {
+    window.location.assign(url);
+    return;
+  }
+
+  // externos vão pra outra aba
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
+function measureIconBox($desktop) {
+  const $tmp = $(`
+    <div class="desktop-icon" style="visibility:hidden; position:absolute; left:-9999px; top:-9999px;">
+      <img alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==">
+      <span>tmp</span>
+    </div>
+  `);
+  $desktop.append($tmp);
+
+  const w = $tmp.outerWidth() || 120;
+  const h = $tmp.outerHeight() || 140;
+
+  $tmp.remove();
+  return { w, h };
+}
+
+/* -------------------------
+   3) Desktop icons renderer (ÚNICO)
+   ------------------------- */
 
 function renderDesktopIcons() {
   const $desktop = $(".area-de-trabalho");
   if (!$desktop.length) return;
 
-  // Remove ícones anteriores
   $desktop.find(".desktop-icon").remove();
 
-  const isMobile =
-    window.matchMedia("(max-width: 900px)").matches ||
-    window.matchMedia("(pointer: coarse)").matches;
+  const mobile = isMobileEnv();
+  const desktopRect = $desktop[0].getBoundingClientRect();
+  const availW = Math.max(280, desktopRect.width);
+  const availH = Math.max(320, desktopRect.height);
 
-  const marginTop = 18;
-  const marginLeft = 18;
+  const { w: iconW, h: iconH } = measureIconBox($desktop);
 
-  if (!isMobile) {
-    // GRID DESKTOP – usa row/col originais do tema
-    const colGap = 92;
-    const rowGap = 98;
+  if (!mobile) {
+    // -------- DESKTOP: respeita row/col “XP style” --------
+    const GRID = {
+      marginX: 14,
+      marginY: 14,
+      stepX: 110,
+      stepY: 135
+    };
 
     for (const icon of DESKTOP_ICONS) {
       const $icon = $(`
@@ -1066,285 +1121,165 @@ function renderDesktopIcons() {
         </div>
       `);
 
-      const left = marginLeft + (icon.col || 0) * colGap;
-      const top  = marginTop  + (icon.row || 0) * rowGap;
+      const left = GRID.marginX + (icon.col || 0) * GRID.stepX;
+      const top  = GRID.marginY + (icon.row || 0) * GRID.stepY;
 
-      $icon.css({ left: left + "px", top: top + "px" });
+      $icon.css({ left: `${left}px`, top: `${top}px` });
       $desktop.append($icon);
     }
 
-    // Draggable só no desktop
+    // arrastar só no desktop
     if ($.fn.draggable) {
-      $(".desktop-icon").draggable({
-        containment: ".area-de-trabalho"
-      });
+      $(".desktop-icon").draggable({ containment: ".area-de-trabalho" });
     }
-  } else {
-    // GRID MOBILE – reempacota automaticamente em colunas
-    const taskbarH = $(".barra-de-tarefas").outerHeight() || 62;
-    const usableW = Math.max(280, window.innerWidth - marginLeft * 2);
-    const usableH = Math.max(320, window.innerHeight - taskbarH - marginTop - 10);
 
-    const totalIcons = DESKTOP_ICONS.length;
-    const cols = usableW >= 520 ? 3 : 2; // 3 colunas em telas maiores, senão 2
-    const rows = Math.max(1, Math.ceil(totalIcons / cols));
+    return;
+  }
 
-    const slotW = usableW / cols;
-    const slotH = usableH / rows;
+  // -------- MOBILE: reempacota em grid 2–3 colunas --------
+  const MARGIN_X = 16;
+  const MARGIN_Y = 18;
 
-    for (let i = 0; i < totalIcons; i++) {
-      const icon = DESKTOP_ICONS[i];
+  const minSlotW = Math.max(iconW + 12, 120);
+  let cols = Math.floor((availW - MARGIN_X * 2) / minSlotW);
+  cols = Math.max(2, Math.min(3, cols)); // 2 ou 3 colunas, nunca 1
 
-      const $icon = $(`
-        <div id="${icon.id}" class="desktop-icon" data-action="${icon.action || ""}" data-link="${icon.link || ""}">
-          <img alt="${icon.label}" src="${icon.img}">
-          <span>${icon.label}</span>
-        </div>
-      `);
+  const total = DESKTOP_ICONS.length;
+  const rows = Math.max(1, Math.ceil(total / cols));
 
-      const r = Math.floor(i / cols);
-      const c = i % cols;
+  // slot vertical: pelo menos ícone + respiro
+  let slotH = iconH + 24;
 
-      const left = marginLeft + c * slotW;
-      const top  = marginTop  + r * slotH;
+  const usedH = rows * slotH + MARGIN_Y * 2;
+  if (usedH > availH) {
+    slotH = Math.floor((availH - MARGIN_Y * 2) / rows);
+    slotH = Math.max(iconH + 8, slotH);
+  }
 
-      $icon.css({ left: left + "px", top: top + "px" });
-      $desktop.append($icon);
-    }
+  const slotW = Math.floor((availW - MARGIN_X * 2) / cols);
+  const offsetX = Math.max(0, Math.floor((slotW - iconW) / 2));
+
+  for (let i = 0; i < total; i++) {
+    const icon = DESKTOP_ICONS[i];
+
+    const r = Math.floor(i / cols);
+    const c = i % cols;
+
+    const left = MARGIN_X + c * slotW + offsetX;
+    const top  = MARGIN_Y + r * slotH;
+
+    const $icon = $(`
+      <div id="${icon.id}" class="desktop-icon" data-action="${icon.action || ""}" data-link="${icon.link || ""}">
+        <img alt="${icon.label}" src="${icon.img}">
+        <span>${icon.label}</span>
+      </div>
+    `);
+
+    $icon.css({ left: `${left}px`, top: `${top}px` });
+    $desktop.append($icon);
   }
 }
 
-// Render inicial
-renderDesktopIcons();
+/* -------------------------
+   4) Eventos dos ícones
+   ------------------------- */
 
-// Re-render em resize / mudança de orientação
-let __xpResizeTimer = null;
-window.addEventListener("resize", () => {
-  clearTimeout(__xpResizeTimer);
-  __xpResizeTimer = setTimeout(renderDesktopIcons, 120);
-});
-window.addEventListener("orientationchange", () => {
-  clearTimeout(__xpResizeTimer);
-  __xpResizeTimer = setTimeout(renderDesktopIcons, 200);
-});
+function bindDesktopIconEvents() {
+  // limpa eventos antigos pra não acumular
+  $(document).off(".xpicons");
 
-/* ==========================================================
-   2) Abertura de links (desktop x mobile)
-   ========================================================== */
+  // clique: seleciona; em mobile também abre link
+  $(document).on("click.xpicons", ".desktop-icon", function (e) {
+    const $icon = $(this);
+    const action = ($icon.data("action") || "").toString();
 
-function isMobileEnv() {
-  return (
-    window.matchMedia("(max-width: 900px)").matches ||
-    window.matchMedia("(pointer: coarse)").matches
-  );
-}
+    $(".desktop-icon").removeClass("selected");
+    $icon.addClass("selected");
 
-function openLinkFromIcon($icon) {
-  const action = ($icon.data("action") || "").toString();
-  if (action !== "link") return;
+    if (!isMobileEnv()) return;
 
-  const link = ($icon.data("link") || "").toString().trim();
-  if (!link || link === "#") return;
-
-  window.open(link, "_blank", "noopener,noreferrer");
-}
-
-// Desktop – duplo clique
-$(document).on("dblclick", ".desktop-icon", function () {
-  if (isMobileEnv()) return; // evita abrir duas vezes em devices híbridos
-  openLinkFromIcon($(this));
-});
-
-// Mobile / touch – 1 toque
-$(document).on("click", ".desktop-icon", function () {
-  if (!isMobileEnv()) return;
-  // deixa o handler de seleção original rodar também
-  openLinkFromIcon($(this));
-});
-
-/* ==========================================================
-   3) Comportamentos originais do tema XP
-   (copiados do script original, sem mexer)
-   ========================================================== */
-
-//EVENTO DE CLICK NO BOTÃO INICIAR
-$("#iniciar").on("click", function () {
-  //MODO ATIVO OU NÃO (TOOGLE)
-  $("#iniciar").toggleClass("active");
-  $("#menuIniciar").toggleClass("active");
-});
-
-//LIGAR O RELÓGIO PRIMEIRA VEZ
-setTimeout(() => {
-  var hora = new Date().toLocaleTimeString("pt-BR", {
-    hour: "2-digit",
-    minute: "2-digit"
-  });
-
-  $("#relogio").html(hora);
-}, 100);
-
-//CONTAR RELOGIO CADA SEGUNDO
-setInterval(() => {
-  var hora = new Date().toLocaleTimeString("pt-BR", {
-    hour: "2-digit",
-    minute: "2-digit"
-  });
-
-  $("#relogio").html(hora);
-}, 60000);
-
-//PREVINIR QUE ABRA O MENU PADRÃO DO NAVEGADOR (BOTÃO DIREITO)
-$(document).contextmenu(function () {
-  return false;
-});
-
-//CLICOU EM ALGUMA PARTE DA ÁREA DE TRABALHO
-$(".area-de-trabalho").click(function () {
-  $("#botaoDireito").hide();
-  $("#menuIniciar").removeClass("active");
-  $(".desktop-icon").each(function () {
-    $(this).removeClass("selected");
-  });
-});
-
-//CLICOU NO SEGREDO
-$("#segredo").dblclick(function () {
-  window.open("https://curso.programacaoweb.com.br/black/");
-});
-
-//CLICOU COM BOTÃO DIREITO NA AREA DE TRABALHO
-//MENU ESPECIAL
-$(".area-de-trabalho").mousedown(function (event) {
-  //APERTANDO BOTÃO DIREITO
-  if (event.button == 2) {
-    var top = event.clientY;
-    var left = event.clientX;
-
-    $("#botaoDireito").css("top", top);
-    $("#botaoDireito").css("left", left);
-
-    $("#botaoDireito").show();
-  }
-});
-
-//SE ESTIVER COM MOUSE SOBRE SUB-MENU
-$(".sub-menu").hover(function () {
-  $(".menuExtra").css("display", "block");
-});
-
-//SE O MOUSE NÃO ESTIVER SOBRE SUBMENU
-$(".menuExtra").hover(
-  function () {},
-  function () {
-    $(".menuExtra").css("display", "none");
-  }
-);
-
-//CLICOU EM ALGUMA PARTE DA ÁREA DE TRABALHO
-//FECHAR MENU BOTÃO DIREITO
-$(".area-de-trabalho").click(function () {
-  $("#botaoDireito").hide();
-});
-
-//BOTÃO RECARREGAR
-$("#recarregar").click(function () {
-  location.reload();
-});
-
-//CLICOU EM LIXEIRA
-$("#iconeLixeira").dblclick(function () {
-  $(".janela").show();
-  $(".prog").show();
-});
-
-//BOTÃO ABRIR NO NAVEGADOR
-$("#abrirNavegador").click(function () {
-  window.open("https://www.google.com/", "_blank");
-});
-
-/* DRAGGABLE / RESIZABLE – JANELA & ÍCONES */
-
-//JANELA ARRASTÁVEL
-$(".janela").draggable({
-  containment: ".area-de-trabalho"
-});
-
-//ICONES DA ÁREA DE TRABALHO ARRASTÁVEIS (comportamento extra do tema)
-$(".desktop-icon").draggable({
-  containment: ".area-de-trabalho",
-  stop: function () {
-    $(this).removeClass("selected");
-    $(this).addClass("selected");
-  }
-});
-
-//CLICOU UMA VEZ SELECIONA / DESELECIONA
-$(".desktop-icon").click(function () {
-  if ($(this).hasClass("selected")) {
-    $(this).removeClass("selected");
-  } else {
-    $(this).addClass("selected");
-  }
-});
-
-//CLICOU NO BOTÃO DE FECHAR DA JANELA
-$("button[aria-label=Close]").click(function () {
-  $(".janela").hide();
-  $(".prog").hide();
-});
-
-//CLICOU EM MINIMIZAR
-$("button[aria-label=Minimize]").click(function () {
-  $(".janela").animate(
-    {
-      height: 0,
-      width: "20px",
-      top: $(window).height(),
-      left: "140px"
-    },
-    200,
-    function () {
-      $(this).hide();
-      $(".prog").removeClass("active");
+    if (action === "link") {
+      const link = $icon.data("link");
+      openLinkSmart(link);
     }
-  );
-});
+  });
 
-//CLICOU NO PROGRAMA ABERTO
-$(".prog").click(function () {
-  if ($(".janela").is(":visible")) {
-    //SE TIVER VISIVEL ENTÃO ESCONDE
-    $(".janela").animate(
-      {
-        height: 0,
-        width: "20px",
-        top: $(window).height(),
-        left: "140px"
-      },
-      200,
-      function () {
-        $(this).hide();
-        $(".prog").removeClass("active");
-      }
-    );
-  } else {
-    //SE NÃO TIVER VISIVEL, MOSTRA
-    $(".janela").show();
-    $(".prog").addClass("active");
-    $(".janela").animate(
-      {
-        height: "100%",
-        width: "100%",
-        top: 0,
-        left: 0
-      },
-      200,
-      function () {
-        $(".prog").addClass("active");
-      }
-    );
-  }
+  // duplo clique: abre link no desktop
+  $(document).on("dblclick.xpicons", ".desktop-icon", function () {
+    if (isMobileEnv()) return;
+
+    const $icon = $(this);
+    const action = ($icon.data("action") || "").toString();
+    if (action !== "link") return;
+
+    const link = $icon.data("link");
+    openLinkSmart(link);
+  });
+}
+
+/* -------------------------
+   5) Start menu + relógio
+   ------------------------- */
+
+function initStartMenu() {
+  $("#iniciar").off(".xpstart").on("click.xpstart", function (e) {
+    e.stopPropagation();
+    $("#iniciar").toggleClass("active");
+    $("#menuIniciar").toggleClass("active");
+  });
+
+  $(document).off("click.xpstartclose").on("click.xpstartclose", function (e) {
+    const $t = $(e.target);
+    const insideStart = $t.closest("#menuIniciar").length || $t.closest("#iniciar").length;
+    if (insideStart) return;
+
+    $("#iniciar").removeClass("active");
+    $("#menuIniciar").removeClass("active");
+  });
+}
+
+function initClock() {
+  const $clock = $("#relogio");
+  if (!$clock.length) return;
+
+  const tick = () => {
+    const hora = new Date().toLocaleTimeString("pt-BR", {
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+    $clock.text(hora);
+  };
+
+  tick();
+  setInterval(tick, 1000);
+}
+
+/* -------------------------
+   6) Boot
+   ------------------------- */
+
+function bootXP() {
+  renderDesktopIcons();
+  bindDesktopIconEvents();
+  initStartMenu();
+  initClock();
+}
+
+// jQuery ready
+$(function () {
+  bootXP();
+
+  let resizeTimer = null;
+  const handleResize = () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      renderDesktopIcons();
+      bindDesktopIconEvents();
+    }, 150);
+  };
+
+  window.addEventListener("resize", handleResize, { passive: true });
+  window.addEventListener("orientationchange", handleResize, { passive: true });
 });
 
 </script>
