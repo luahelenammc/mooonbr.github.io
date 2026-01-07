@@ -746,98 +746,70 @@ button {
     opacity: 1;
   }
 }
-/* ===== MOBILE PATCH (cole no FINAL do <style>) ===== */
+/* ===== MOBILE PATCH v2 (menos Godzilla, mais usável) ===== */
 @media (max-width: 900px), (pointer: coarse) {
 
-  /* ✅ Nada de página maior que a tela (sem “bloquear scroll na marra”: ajusta altura real) */
-  html, body {
-    height: 100%;
-    margin: 0;
-  }
-
-  /* dvh/svh = viewport real no mobile (evita scroll por causa da barra do navegador) */
+  /* viewport real no mobile */
+  html, body { height: 100%; margin: 0; }
   #windowsXP {
     height: 100dvh;
     min-height: 100svh;
     width: 100vw;
   }
 
+  /* taskbar um pouquinho maior pra dedo */
+  .barra-de-tarefas { height: 62px; }
   .area-de-trabalho {
-    height: 100dvh;
-    min-height: 100svh;
+    height: calc(100dvh - 62px);
+    min-height: calc(100svh - 62px);
     width: 100vw;
     overflow: hidden;
     background-position: center;
+    background-size: cover;
   }
 
-  /* ✅ ÍCONES: “dobrados” (imagem + legenda) */
+  /* ÍCONES: cresce ~1.35x, sem sombra, mantendo proporção livre */
   .desktop-icon {
-    width: 240px !important;      /* era ~120 */
-    height: 280px !important;     /* era ~140 */
-    padding: 22px !important;
+    width: 150px;              /* antes você tinha deixado gigante */
+    height: 175px;
+    padding: 12px;
   }
 
   .desktop-icon img {
-    max-width: 140px !important;  /* era 72 */
-    max-height: 140px !important; /* era 72 */
-    width: auto !important;
-    height: auto !important;
+    max-width: 92px;
+    max-height: 92px;
+    width: auto;
+    height: auto;
     box-shadow: none !important;
+    filter: none !important;
   }
 
   .desktop-icon span {
-    font-size: 28px !important;   /* era 15 */
-    line-height: 1.05 !important;
-    text-shadow: 2px 2px 10px rgba(0,0,0,.85) !important;
+    font-size: 20px;
+    line-height: 1.05;
+    padding: 4px 6px;
   }
 
-  /* ✅ MENU INICIAR: +60%, mas sem estourar a tela */
+  /* MENU INICIAR: +25% (aprox), mas cabendo na tela */
   #menuIniciar {
-    width: min(94vw, 800px) !important;      /* 500 * 1.6 = 800 */
-    height: min(85dvh, 960px) !important;    /* 600 * 1.6 = 960 */
-    bottom: 80px !important;                 /* dá respiro acima da taskbar maior/touch */
+    width: min(92vw, 640px);
+    height: min(78dvh, 760px);
+    bottom: 74px; /* acima da taskbar */
   }
 
-  .topoIniciar {
-    height: 160px !important;                /* 100 * 1.6 */
-  }
+  .topoIniciar { height: 128px; }
+  .avatarIniciar { width: 88px; height: 88px; }
+  .userName { font-size: 22px; }
 
-  .avatarIniciar {
-    width: 112px !important;                 /* 70 * 1.6 */
-    height: 112px !important;                /* 70 * 1.6 */
-    border-radius: 14px !important;
-  }
+  .itemIniciar { height: 78px; padding: 16px; }
+  .itemIniciar img { width: 54px; height: 54px; }
+  .itemIniciar span { font-size: 18px; }
 
-  .userName {
-    font-size: 28px !important;
-  }
+  .footerIniciar { height: 78px; }
+  .btnFooter a { font-size: 18px; }
 
-  .itemIniciar {
-    height: 96px !important;                 /* 60 * 1.6 */
-    padding: 24px !important;
-  }
-
-  .itemIniciar span {
-    font-size: 22px !important;
-  }
-
-  .footerIniciar {
-    height: 96px !important;                 /* 60 * 1.6 */
-  }
-
-  .btnFooter a {
-    font-size: 22px !important;
-  }
-
-  /* Opcional: taskbar um pouco maior pra dedo */
-  .barra-de-tarefas {
-    height: 70px !important;
-  }
-
-  #iniciar {
-    width: 240px !important;
-    font-size: 2.1rem !important;
-  }
+  #relogio { font-size: 1.15em; }
+  #iniciar { width: 210px; font-size: 1.9rem; }
 }
 
 
@@ -1031,13 +1003,27 @@ button {
 
 </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js'></script>
-<script src='https://code.jquery.com/ui/1.13.2/jquery-ui.js'></script><script>
+<script src='https://code.jquery.com/ui/1.13.2/jquery-ui.js'></script>
+    
+    <script>
 /* =========================
    PATCH mooon.com.br (mínimo)
    - Ícones do desktop são gerados via JS
    - Menu iniciar / taskbar permanecem intactos
    ========================= */
 
+      const IS_MOBILE = window.matchMedia("(max-width: 900px)").matches
+  || window.matchMedia("(pointer: coarse)").matches;
+
+const GRID = {
+  marginX: IS_MOBILE ? 18 : 14,
+  marginY: IS_MOBILE ? 18 : 14,
+  stepX:   IS_MOBILE ? 165 : 110,   // <-- aumenta o espaçamento horizontal
+  stepY:   IS_MOBILE ? 195 : 135    // <-- aumenta o espaçamento vertical
+};
+
+      
+      
 const DESKTOP_ICONS = [
 
   // Conteúdo do mooon.com.br (links podem ser ajustados depois)
@@ -1066,10 +1052,14 @@ function renderDesktopIcons() {
   $desktop.find(".desktop-icon").remove();
 
   // Grid base (estilo XP, sem mexer no resto)
-  const marginTop = 18;
-  const marginLeft = 18;
-  const colGap = 92;
-  const rowGap = 98;
+const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+const GRID = {
+  marginX: isMobile ? 18 : 18,
+  marginY: isMobile ? 18 : 18,
+  stepX:   isMobile ? 165 : 92,
+  stepY:   isMobile ? 195 : 98
+};
 
   for (const icon of DESKTOP_ICONS) {
     const $icon = $(`
@@ -1080,8 +1070,9 @@ function renderDesktopIcons() {
     `);
 
     // Posicionamento em “linhas”
-    const left = marginLeft + (icon.col || 0) * colGap;
-    const top  = marginTop  + (icon.row || 0) * rowGap;
+const left = marginLeft + (icon.col || 0) * colGap;
+const top  = marginTop  + (icon.row || 0) * rowGap;
+
 
     $icon.css({ left: `${left}px`, top: `${top}px` });
 
@@ -1092,6 +1083,10 @@ function renderDesktopIcons() {
 // Renderiza assim que o DOM já existe (script no final do body)
 renderDesktopIcons();
 
+      window.addEventListener("resize", () => renderDesktopIcons(), { passive: true });
+window.addEventListener("orientationchange", () => renderDesktopIcons(), { passive: true });
+
+      
 /* Abertura genérica de ícones com link (não interfere nos ícones “sistema”) */
 $(document).on("dblclick", ".desktop-icon", function () {
   const action = $(this).data("action");
