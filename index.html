@@ -5,7 +5,7 @@
   <title>Portal da Moon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-  <!-- jQuery (para facilitar a vida do JS do template) -->
+  <!-- jQuery para o script original do template -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
 
@@ -25,28 +25,29 @@
       padding: 0;
       font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       background: #000;
-      overflow-y: auto; /* deixa scroll disponível se o conteúdo passar da tela */
+      overflow-y: auto;
     }
 
     #windowsXP {
       display: flex;
       width: 100vw;
-      min-height: 100vh; /* altura mínima = viewport, mas pode crescer se os ícones precisarem */
+      min-height: 100vh;
     }
 
     .area-de-trabalho {
       position: relative;
       flex: 1;
-      min-height: 100vh;
       width: 100vw;
-      background: url("https://images2.alphacoders.com/941/941898.jpg") center/cover no-repeat fixed;
+      min-height: calc(100vh - 50px);
+      background: url("https://images2.alphacoders.com/941/941898.jpg") center/cover no-repeat;
+      overflow: hidden;
     }
 
-    /* Ícones do desktop */
+    /* Ícones do desktop - base desktop */
     .desktop-icon {
       position: absolute;
-      width: 120px;
-      height: 140px;
+      width: 110px;
+      height: 135px;
       padding: 12px 6px 4px;
       text-align: center;
       overflow: hidden;
@@ -56,8 +57,8 @@
     }
 
     .desktop-icon img {
-      max-width: 72px;
-      max-height: 72px;
+      max-width: 68px;
+      max-height: 68px;
       width: auto;
       height: auto;
       display: block;
@@ -73,7 +74,7 @@
       overflow: hidden;
       white-space: normal;
       color: #fff;
-      font-size: 14px;
+      font-size: 13px;
       text-shadow: 2px 2px 8px #000;
     }
 
@@ -106,7 +107,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 180px;
+      width: 170px;
       padding: 0 16px;
       border: none;
       margin-right: 12px;
@@ -122,7 +123,7 @@
       border-bottom-right-radius: 15px;
       cursor: pointer;
       color: #fff;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: bold;
       text-shadow: 2px 2px 8px #003d00;
     }
@@ -179,14 +180,14 @@
     }
 
     .tray-icons img {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
     }
 
     #relogio {
       margin-right: 4px;
       color: #fff;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: bold;
     }
 
@@ -328,36 +329,54 @@
       height: 18px;
     }
 
-    /* Responsivo - mobile */
+    /* MOBILE */
     @media (max-width: 900px), (pointer: coarse) {
+      .barra-de-tarefas {
+        height: 56px;
+      }
+
+      .area-de-trabalho {
+        min-height: calc(100vh - 56px);
+        background-attachment: scroll;
+      }
+
       .desktop-icon {
-        width: 120px;
-        height: 140px;
-        padding: 10px 6px 4px;
+        width: 135px;
+        height: 155px;
+        padding: 12px 6px 4px;
       }
 
       .desktop-icon img {
-        max-width: 80px;
-        max-height: 80px;
+        max-width: 88px;
+        max-height: 88px;
       }
 
       .desktop-icon span {
-        font-size: 14px;
+        font-size: 17px;
       }
 
       #menuIniciar {
-        width: 92vw;
-        left: 4vw;
+        width: min(94vw, 520px);
+        height: min(78vh, 720px);
+        bottom: 60px;
       }
+
+      .avatarIniciar { width: 82px; height: 82px; }
+      .userName { font-size: 22px; }
+      .itemIniciar { height: 72px; padding: 14px; }
+      .itemIniciar img { width: 48px; height: 48px; }
+      .itemIniciar span { font-size: 17px; }
+
+      #iniciar { width: 190px; font-size: 1.7rem; }
+      #relogio { font-size: 1.1rem; }
     }
   </style>
 </head>
 <body>
   <div id="windowsXP">
     <div class="area-de-trabalho" id="desktopArea">
-      <!-- Ícones são renderizados via JS -->
+      <!-- Ícones via JS -->
 
-      <!-- Menu Iniciar -->
       <div id="menuIniciar">
         <div class="topoIniciar">
           <div class="avatarIniciar"></div>
@@ -453,9 +472,7 @@
           Iniciar
         </button>
 
-        <div class="programas-abertos">
-          <!-- ícones de programas abertos, se um dia você quiser -->
-        </div>
+        <div class="programas-abertos"></div>
 
         <div class="area-de-notificacao">
           <div class="tray-icons">
@@ -470,28 +487,25 @@
   </div>
 
   <script>
-    // --------------------------
-    // Configuração dos ícones
-    // --------------------------
     const DESKTOP_ICONS = [
-      { id: "blog_nostalgia", label: "BLOG NOSTALGIA", img: "/images/snes.png", link: "https://nostalgia.mooon.com.br", row: 0, col: 0 },
-      { id: "habbo",          label: "Habbo Hotel",     img: "/images/habbo hc.fw.png", link: "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",   row: 0, col: 1 },
-      { id: "ps1",            label: "Playstation 1",   img: "/images/ps1.png",   link: "https://nostalgia.mooon.com.br/search/label/PlayStation%201", row: 0, col: 2 },
-      { id: "ps2",            label: "Playstation 2",   img: "/images/ps2.png",   link: "https://nostalgia.mooon.com.br/search/label/PlayStation%202", row: 0, col: 3 },
-      { id: "snes",           label: "Super Nintendo",  img: "/images/supern.png",  link: "https://nostalgia.mooon.com.br/search/label/Super%20Nintendo",row: 0, col: 4 },
+      { id: "blog_nostalgia", label: "BLOG NOSTALGIA",       img: "/images/snes.png",                 link: "https://nostalgia.mooon.com.br",                                          row: 0, col: 0 },
+      { id: "habbo",          label: "Habbo Hotel",          img: "/images/habbo hc.fw.png",          link: "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",                row: 0, col: 1 },
+      { id: "ps1",            label: "Playstation 1",        img: "/images/ps1.png",                  link: "https://nostalgia.mooon.com.br/search/label/PlayStation%201",           row: 0, col: 2 },
+      { id: "ps2",            label: "Playstation 2",        img: "/images/ps2.png",                  link: "https://nostalgia.mooon.com.br/search/label/PlayStation%202",           row: 0, col: 3 },
+      { id: "snes",           label: "Super Nintendo",       img: "/images/supern.png",               link: "https://nostalgia.mooon.com.br/search/label/Super%20Nintendo",         row: 0, col: 4 },
 
-      { id: "instagram",      label: "Instagram",       img: "/images/insta.png", link: "https://instagram.com/mooon.br", row: 1, col: 0 },
-      { id: "tiktok",         label: "Tiktok",          img: "/images/tiktok.png",    link: "https://tiktok.com/@mooon.br",    row: 1, col: 1 },
-      { id: "twitch",         label: "Twitch",          img: "/images/twitch.png",    link: "https://twitch.tv/mooonbr",    row: 1, col: 2 },
-      { id: "youtube",        label: "Youtube",         img: "/images/youtube.png",   link: "https://youtube.com/channel/UCst0jXP1CRb-_1S00F1NMgQ",   row: 1, col: 3 },
+      { id: "instagram",      label: "Instagram",            img: "/images/insta.png",                link: "https://instagram.com/mooon.br",                                        row: 1, col: 0 },
+      { id: "tiktok",         label: "Tiktok",               img: "/images/tiktok.png",               link: "https://tiktok.com/@mooon.br",                                          row: 1, col: 1 },
+      { id: "twitch",         label: "Twitch",               img: "/images/twitch.png",               link: "https://twitch.tv/mooonbr",                                            row: 1, col: 2 },
+      { id: "youtube",        label: "Youtube",              img: "/images/youtube.png",              link: "https://youtube.com/channel/UCst0jXP1CRb-_1S00F1NMgQ",                 row: 1, col: 3 },
 
-      { id: "playlists",      label: "Playlists nostálgicas", img: "/images/ringtone.png", link: "/musicas.html", row: 2, col: 0 },
-      { id: "musicas_ia",     label: "Músicas geradas por IA", img: "/images/music_icon_trophy.png", link: "/aimusic.html", row: 2, col: 1 },
-      { id: "moon_tv",        label: "Moon TV",         img: "/images/series.png",  link: "/tv/index.html",   row: 2, col: 2 },
-      { id: "pokemon",        label: "Meus Pokémon",    img: "/images/pokeshelf.png",  link: "/pokemon.html",   row: 2, col: 3 }
+      { id: "playlists",      label: "Playlists nostálgicas", img: "/images/ringtone.png",            link: "/musicas.html",                                                        row: 2, col: 0 },
+      { id: "musicas_ia",     label: "Músicas geradas por IA", img: "/images/music_icon_trophy.png",  link: "/aimusic.html",                                                        row: 2, col: 1 },
+      { id: "moon_tv",        label: "Moon TV",              img: "/images/series.png",               link: "/tv/index.html",                                                      row: 2, col: 2 },
+      { id: "pokemon",        label: "Meus Pokémon",         img: "/images/pokeshelf.png",            link: "/pokemon.html",                                                       row: 2, col: 3 }
     ];
 
-    function isMobileLayout() {
+    function isMobile() {
       return window.matchMedia("(max-width: 900px)").matches ||
              window.matchMedia("(pointer: coarse)").matches;
     }
@@ -500,90 +514,110 @@
       const desktop = document.getElementById("desktopArea");
       if (!desktop) return;
 
-      // remove ícones antigos
       desktop.querySelectorAll(".desktop-icon").forEach(el => el.remove());
 
-      const mobile = isMobileLayout();
+      const mobile = isMobile();
+      const rect = desktop.getBoundingClientRect();
+      const availW = rect.width || window.innerWidth || 360;
+      const availH = rect.height || window.innerHeight || 640;
 
-      // Configuração básica da grade
-      let marginX = mobile ? 26 : 20;
-      let marginY = mobile ? 40 : 30;
-      let stepX   = mobile ? 140 : 110;
-      let stepY   = mobile ? 165 : 135;
+      let iconW = mobile ? 135 : 110;
+      let iconH = mobile ? 155 : 135;
 
-      // Em mobile, comprimimos as linhas (0,2,3 -> 0,1,2) pra caber melhor
-      function normalizeRow(row) {
-        if (!mobile) return row;
-        if (row === 2) return 1;
-        if (row === 3) return 2;
-        return row;
+      if (!mobile) {
+        const marginX = 26;
+        const marginY = 40;
+        const stepX = 120;
+        const stepY = 155;
+
+        let maxBottom = 0;
+
+        DESKTOP_ICONS.forEach(icon => {
+          const el = document.createElement("div");
+          el.className = "desktop-icon";
+          el.id = icon.id;
+          el.innerHTML = `<img src="${icon.img}" alt="${icon.label}"><span>${icon.label}</span>`;
+          el.dataset.link = icon.link || "";
+
+          const left = marginX + (icon.col || 0) * stepX;
+          const top  = marginY + (icon.row || 0) * stepY;
+
+          el.style.left = left + "px";
+          el.style.top  = top + "px";
+
+          desktop.appendChild(el);
+
+          const bottom = top + iconH;
+          if (bottom > maxBottom) maxBottom = bottom;
+        });
+
+        const minHeight = Math.max(availH, maxBottom + 40);
+        desktop.style.height = minHeight + "px";
+        document.getElementById("windowsXP").style.minHeight = minHeight + "px";
+        return;
       }
 
-      // descobre quantas linhas teremos depois da normalização
-      const rowsUsed = new Set(DESKTOP_ICONS.map(i => normalizeRow(i.row)));
-      const rowCount = rowsUsed.size;
+      // MOBILE: reempacota em grid
+      const marginX = 12;
+      const marginY = 16;
 
-      if (mobile) {
-        const viewportHeight = window.innerHeight || 700;
-        const taskbarHeight = 50;
-        const iconHeightEst = 140;
+      // tenta 3 colunas; se ficar apertado, cai pra 2
+      let cols = 3;
+      if (availW < (cols * iconW + (cols + 1) * marginX)) {
+        cols = 2;
+      }
 
-        const available = viewportHeight - taskbarHeight - 40; // margem top+bottom
-        // recalcula stepY pra caber confortável
-        stepY = Math.min(170, Math.max(120, Math.floor((available - iconHeightEst) / Math.max(1, rowCount - 1))));
-        marginY = Math.max(20, Math.floor((available - (rowCount - 1) * stepY - iconHeightEst) / 2));
+      const total = DESKTOP_ICONS.length;
+      const rows = Math.max(1, Math.ceil(total / cols));
+
+      let stepX = (availW - marginX * 2) / cols;
+      stepX = Math.max(iconW + 4, stepX);
+
+      let stepY = iconH + 16;
+      const usedH = rows * stepY + marginY * 2;
+      if (usedH > availH) {
+        stepY = Math.floor((availH - marginY * 2) / rows);
+        stepY = Math.max(iconH + 4, stepY);
       }
 
       let maxBottom = 0;
 
-      DESKTOP_ICONS.forEach(icon => {
-        const iconDiv = document.createElement("div");
-        iconDiv.className = "desktop-icon";
-        iconDiv.id = icon.id;
-        iconDiv.dataset.link = icon.link || "";
-        iconDiv.innerHTML = `
-          <img src="${icon.img}" alt="${icon.label}">
-          <span>${icon.label}</span>
-        `;
+      for (let i = 0; i < total; i++) {
+        const icon = DESKTOP_ICONS[i];
+        const row = Math.floor(i / cols);
+        const col = i % cols;
 
-        const row = normalizeRow(icon.row);
-        const col = icon.col || 0;
+        const el = document.createElement("div");
+        el.className = "desktop-icon";
+        el.id = icon.id;
+        el.innerHTML = `<img src="${icon.img}" alt="${icon.label}"><span>${icon.label}</span>`;
+        el.dataset.link = icon.link || "";
 
-        const left = marginX + col * stepX;
+        const slotLeft = marginX + col * stepX;
+        const left = slotLeft + (stepX - iconW) / 2;
         const top  = marginY + row * stepY;
 
-        iconDiv.style.left = left + "px";
-        iconDiv.style.top  = top + "px";
+        el.style.left = left + "px";
+        el.style.top  = top + "px";
 
-        // clique = abre link
-        iconDiv.addEventListener("click", (ev) => {
-          ev.preventDefault();
-          const href = icon.link;
-          if (href) {
-            window.location.href = href;
-          }
-        });
+        desktop.appendChild(el);
 
-        desktop.appendChild(iconDiv);
-
-        const bottom = top + 140; // altura estimada do bloco
+        const bottom = top + iconH;
         if (bottom > maxBottom) maxBottom = bottom;
-      });
+      }
 
-      // garante que a área de trabalho tenha altura suficiente pra permitir scroll
-      const minHeight = Math.max(window.innerHeight || 0, maxBottom + 40);
+      const minHeight = Math.max(availH, maxBottom + 40);
       desktop.style.height = minHeight + "px";
       document.getElementById("windowsXP").style.minHeight = minHeight + "px";
     }
 
-    // Atualiza relógio da barra
     function atualizarRelogio() {
-      const relogio = document.getElementById("relogio");
-      if (!relogio) return;
+      const rel = document.getElementById("relogio");
+      if (!rel) return;
       const agora = new Date();
       const hh = String(agora.getHours()).padStart(2, "0");
       const mm = String(agora.getMinutes()).padStart(2, "0");
-      relogio.textContent = hh + ":" + mm;
+      rel.textContent = hh + ":" + mm;
     }
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -591,27 +625,32 @@
       atualizarRelogio();
       setInterval(atualizarRelogio, 30000);
 
-      // redimensionamento / orientação
       window.addEventListener("resize", renderDesktopIcons, { passive: true });
       window.addEventListener("orientationchange", renderDesktopIcons, { passive: true });
 
-      // botão iniciar
       const btnIniciar = document.getElementById("iniciar");
       const menuIniciar = document.getElementById("menuIniciar");
 
-      btnIniciar.addEventListener("click", (ev) => {
+      btnIniciar.addEventListener("click", ev => {
         ev.stopPropagation();
         const ativo = menuIniciar.classList.toggle("active");
         btnIniciar.classList.toggle("active", ativo);
       });
 
-      // fechar menu ao clicar fora
-      document.addEventListener("click", (ev) => {
-        const menu = document.getElementById("menuIniciar");
-        const btn = document.getElementById("iniciar");
-        if (!menu.contains(ev.target) && !btn.contains(ev.target)) {
-          menu.classList.remove("active");
-          btn.classList.remove("active");
+      document.addEventListener("click", ev => {
+        if (!menuIniciar.contains(ev.target) && !btnIniciar.contains(ev.target)) {
+          menuIniciar.classList.remove("active");
+          btnIniciar.classList.remove("active");
+        }
+      });
+
+      // clique nos ícones abre link
+      document.addEventListener("click", ev => {
+        const icon = ev.target.closest(".desktop-icon");
+        if (!icon) return;
+        const href = icon.dataset.link;
+        if (href) {
+          window.location.href = href;
         }
       });
     });
