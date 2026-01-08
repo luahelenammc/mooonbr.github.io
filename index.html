@@ -812,6 +812,30 @@ button {
   #iniciar { width: 210px; font-size: 1.9rem; }
 }
 
+/* ===== MOBILE PATCH v3 – solta o scroll, mantém proporção ===== */
+@media (max-width: 900px), (pointer: coarse) {
+
+  html, body {
+    height: auto;
+    min-height: 100dvh;
+  }
+
+  #windowsXP {
+    height: auto;
+    min-height: 100dvh;
+    width: 100vw;
+  }
+
+  .area-de-trabalho {
+    /* deixa crescer se precisar, mas garante ao menos a altura da tela - taskbar */
+    height: auto;
+    min-height: calc(100dvh - 62px);
+    width: 100vw;
+    overflow: visible; /* nada de bloquear scroll aqui */
+    background-position: center;
+    background-size: cover;
+  }
+}
 
       
 </style>
@@ -1136,24 +1160,24 @@ function renderDesktopIcons() {
     return;
   }
 
-  // -------- MOBILE: reempacota em grid 2–3 colunas --------
-  const MARGIN_X = 16;
-  const MARGIN_Y = 18;
+   // -------- MOBILE: reempacota em grid 2–3 colunas (menos espaçado) --------
+  const MARGIN_X = 12;
+  const MARGIN_Y = 8;
 
-  const minSlotW = Math.max(iconW + 12, 120);
+  const minSlotW = Math.max(iconW + 8, 110);
   let cols = Math.floor((availW - MARGIN_X * 2) / minSlotW);
-  cols = Math.max(2, Math.min(3, cols)); // 2 ou 3 colunas, nunca 1
+  cols = Math.max(2, Math.min(3, cols)); // 2 ou 3 colunas
 
   const total = DESKTOP_ICONS.length;
   const rows = Math.max(1, Math.ceil(total / cols));
 
-  // slot vertical: pelo menos ícone + respiro
-  let slotH = iconH + 24;
+  // slot vertical: pouco respiro, sem virar campo de futebol
+  let slotH = iconH + 10;
 
   const usedH = rows * slotH + MARGIN_Y * 2;
   if (usedH > availH) {
     slotH = Math.floor((availH - MARGIN_Y * 2) / rows);
-    slotH = Math.max(iconH + 8, slotH);
+    slotH = Math.max(iconH + 4, slotH);
   }
 
   const slotW = Math.floor((availW - MARGIN_X * 2) / cols);
@@ -1167,6 +1191,17 @@ function renderDesktopIcons() {
 
     const left = MARGIN_X + c * slotW + offsetX;
     const top  = MARGIN_Y + r * slotH;
+
+    const $icon = $(`
+      <div id="${icon.id}" class="desktop-icon" data-action="${icon.action || ""}" data-link="${icon.link || ""}">
+        <img alt="${icon.label}" src="${icon.img}">
+        <span>${icon.label}</span>
+      </div>
+    `);
+
+    $icon.css({ left: `${left}px`, top: `${top}px` });
+    $desktop.append($icon);
+  }
 
     const $icon = $(`
       <div id="${icon.id}" class="desktop-icon" data-action="${icon.action || ""}" data-link="${icon.link || ""}">
