@@ -5,6 +5,8 @@
   <title>Portal da Moon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
+  <link rel="stylesheet" type="text/css" href="/common.css">
+
   <!-- jQuery para o script original do template -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
@@ -436,32 +438,11 @@
           <div class="userName">Moon</div>
         </div>
 
+        
         <div class="mioloIniciar">
           <div class="col">
-            <div class="tituloColuna">Programas</div>
+            <div class="tituloColuna">Redes sociais</div>
 
-            <div class="itemIniciar">
-              <img src="https://files.tecnoblog.net/wp-content/uploads/2009/03/internet-explorer-8.png" alt="IE" />
-              <span><strong>Internet</strong><br/>Internet Explorer</span>
-            </div>
-            <div class="itemIniciar">
-              <img src="https://icons.iconarchive.com/icons/hopstarter/software/256/Windows-Media-Player-icon.png" alt="WMP" />
-              <span><strong>Windows Media Player</strong></span>
-            </div>
-            <div class="itemIniciar">
-              <img src="https://www.pngkit.com/png/full/341-3415120_msn-logo-png.png" alt="MSN" />
-              <span><strong>Windows Messenger</strong></span>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="tituloColuna">Links</div>
-
-            <div class="itemIniciar">
-              <img src="/images/snes.png" alt="Blog Nostalgia" />
-              <span><strong>BLOG NOSTALGIA</strong></span>
-            </div>
-          
             <div class="itemIniciar">
               <img src="/images/insta.png" alt="Instagram" />
               <span><strong>Instagram</strong></span>
@@ -478,13 +459,34 @@
               <img src="/images/youtube.png" alt="YouTube" />
               <span><strong>Youtube</strong></span>
             </div>
-           
+          </div>
+
+          <div class="col">
+            <div class="tituloColuna">Links</div>
+
+            <div class="itemIniciar">
+              <img src="/images/snes.png" alt="Blog Nostalgia" />
+              <span><strong>BLOG NOSTALGIA</strong></span>
+            </div>
+            <div class="itemIniciar">
+              <img src="/images/ringtone.png" alt="Playlists nostálgicas" />
+              <span><strong>Playlists nostálgicas</strong></span>
+            </div>
+            <div class="itemIniciar">
+              <img src="/images/music_icon_trophy.png" alt="Músicas geradas por IA" />
+              <span><strong>Músicas geradas por IA</strong></span>
+            </div>
+            <div class="itemIniciar">
+              <img src="/images/series.png" alt="Moon TV" />
+              <span><strong>Moon TV</strong></span>
+            </div>
+            <div class="itemIniciar">
+              <img src="/images/pokeshelf.png" alt="Meus Pokémon" />
+              <span><strong>Meus Pokémon</strong></span>
+            </div>
           </div>
         </div>
-
-        <div class="footerIniciar">
-          <span><img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-03-System-Lock-icon.png" alt="Logoff" />Fazer Logoff</span>
-          <span><img src="https://icons.iconarchive.com/icons/alecive/flatwoken/128/Apps-Dialog-Shutdown-icon.png" alt="Desligar" />Desligar</span>
+ve/flatwoken/128/Apps-Dialog-Shutdown-icon.png" alt="Desligar" />Desligar</span>
         </div>
       </div>
 
@@ -793,7 +795,7 @@
 
         menuIniciar.classList.remove("active");
         btnIniciar.classList.remove("active");
-        window.location.href = href;
+        window.open(href, '_blank');
       });
 
       // clique nos ícones abre link
@@ -802,7 +804,7 @@
         if (!icon) return;
         const href = icon.dataset.link;
         if (href) {
-          window.location.href = href;
+          window.open(href, '_blank');
         }
       });
     });
