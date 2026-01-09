@@ -43,7 +43,50 @@
       overflow: hidden;
     }
 
-    /* Ícones do desktop - base desktop */
+    
+    /* Clippy: destaque e labels */
+    #clippy-fun {
+      position: absolute;
+      right: 24px;
+      bottom: 74px; /* acima da barra de tarefas */
+      z-index: 9;
+      pointer-events: none;
+    }
+
+    #clippy-fun img {
+      display: block;
+      width: 160px; /* ~2x um ícone de desktop */
+      height: auto;
+    }
+
+    .desktop-icon .clippy-label {
+      position: absolute;
+      right: -6px;
+      top: -6px;
+      width: 38px;
+      height: auto;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    @media (max-width: 900px), (pointer: coarse) {
+      #clippy-fun {
+        right: 10px;
+        bottom: 70px;
+      }
+
+      #clippy-fun img {
+        width: 200px; /* 1.5x do ícone mobile aproximado */
+      }
+
+      .desktop-icon .clippy-label {
+        width: 42px;
+        right: -4px;
+        top: -4px;
+      }
+    }
+
+/* Ícones do desktop - base desktop */
     .desktop-icon {
       position: absolute;
       width: 110px;
@@ -487,23 +530,39 @@
   </div>
 
   <script>
-    const DESKTOP_ICONS = [
-      { id: "blog_nostalgia", label: "BLOG NOSTALGIA",       img: "/images/snes.png",                 link: "https://nostalgia.mooon.com.br",                                          row: 0, col: 0 },
-      { id: "habbo",          label: "Habbo Hotel",          img: "/images/habbo hc.fw.png",          link: "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",                row: 0, col: 1 },
-      { id: "ps1",            label: "Playstation 1",        img: "/images/ps1.png",                  link: "https://nostalgia.mooon.com.br/search/label/PlayStation%201",           row: 0, col: 2 },
-      { id: "ps2",            label: "Playstation 2",        img: "/images/ps2.png",                  link: "https://nostalgia.mooon.com.br/search/label/PlayStation%202",           row: 0, col: 3 },
-      { id: "snes",           label: "Super Nintendo",       img: "/images/supern.png",               link: "https://nostalgia.mooon.com.br/search/label/Super%20Nintendo",         row: 0, col: 4 },
+    const CLIPPY_LABELS = {
+      reading: "/images/clippy/reading.gif",
+      music: "/images/clippy/music.gif"
+    };
 
-      { id: "instagram",      label: "Instagram",            img: "/images/insta.png",                link: "https://instagram.com/mooon.br",                                        row: 1, col: 0 },
-      { id: "tiktok",         label: "Tiktok",               img: "/images/tiktok.png",               link: "https://tiktok.com/@mooon.br",                                          row: 1, col: 1 },
-      { id: "twitch",         label: "Twitch",               img: "/images/twitch.png",               link: "https://twitch.tv/mooonbr",                                            row: 1, col: 2 },
-      { id: "youtube",        label: "Youtube",              img: "/images/youtube.png",              link: "https://youtube.com/channel/UCst0jXP1CRb-_1S00F1NMgQ",                 row: 1, col: 3 },
-
-      { id: "playlists",      label: "Playlists nostálgicas", img: "/images/ringtone.png",            link: "/musicas.html",                                                        row: 2, col: 0 },
-      { id: "musicas_ia",     label: "Músicas geradas por IA", img: "/images/music_icon_trophy.png",  link: "/aimusic.html",                                                        row: 2, col: 1 },
-      { id: "moon_tv",        label: "Moon TV",              img: "/images/series.png",               link: "/tv/index.html",                                                      row: 2, col: 2 },
-      { id: "pokemon",        label: "Meus Pokémon",         img: "/images/pokeshelf.png",            link: "/pokemon.html",                                                       row: 2, col: 3 }
+    const CLIPPY_FUN = [
+      "/images/clippy/fun/bicicle.gif",
+      "/images/clippy/fun/check.gif",
+      "/images/clippy/fun/coçando cabeça.gif",
+      "/images/clippy/fun/eyebrow suggestive.gif",
+      "/images/clippy/fun/luneta.gif",
+      "/images/clippy/fun/melting down.gif",
+      "/images/clippy/fun/toc toc.gif"
     ];
+
+    const DESKTOP_ICONS = [
+      { id: "blog_nostalgia", label: "BLOG NOSTALGIA",       img: "/images/snes.png",                  link: "https://nostalgia.mooon.com.br",                                         row: 0, col: 0, clippy: "reading" },
+      { id: "habbo",          label: "Habbo Hotel",          img: "/images/habbo hc.fw.png",          link: "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",              row: 0, col: 1, clippy: "reading" },
+      { id: "ps1",            label: "Playstation 1",        img: "/images/ps1.png",                   link: "https://nostalgia.mooon.com.br/search/label/PlayStation%201",          row: 0, col: 2, clippy: "reading" },
+      { id: "ps2",            label: "Playstation 2",        img: "/images/ps2.png",                   link: "https://nostalgia.mooon.com.br/search/label/PlayStation%202",          row: 0, col: 3, clippy: "reading" },
+      { id: "snes",           label: "Super Nintendo",       img: "/images/supern.png",                link: "https://nostalgia.mooon.com.br/search/label/Super%20Nintendo",         row: 0, col: 4 },
+
+      { id: "instagram",      label: "Instagram",            img: "/images/insta.png",                 link: "https://instagram.com/mooon.br",                                         row: 1, col: 0 },
+      { id: "tiktok",         label: "Tiktok",               img: "/images/tiktok.png",                link: "https://tiktok.com/@mooon.br",                                           row: 1, col: 1 },
+      { id: "twitch",         label: "Twitch",               img: "/images/twitch.png",                link: "https://twitch.tv/mooonbr",                                              row: 1, col: 2 },
+      { id: "youtube",        label: "Youtube",              img: "/images/youtube.png",               link: "https://youtube.com/channel/UCst0jXP1CRb-_1S00F1NMgQ",                 row: 1, col: 3 },
+
+      { id: "playlists",      label: "Playlists nostálgicas", img: "/images/ringtone.png",            link: "/musicas.html",                                                          row: 2, col: 0, clippy: "music" },
+      { id: "musicas_ia",     label: "Músicas geradas por IA", img: "/images/music_icon_trophy.png",  link: "/aimusic.html",                                                          row: 2, col: 1, clippy: "music" },
+      { id: "moon_tv",        label: "Moon TV",              img: "/images/series.png",                link: "/tv/index.html",                                                         row: 2, col: 2 },
+      { id: "pokemon",        label: "Meus Pokémon",         img: "/images/pokeshelf.png",             link: "/pokemon.html",                                                          row: 2, col: 3 }
+    ];
+
 
     function isMobile() {
       return window.matchMedia("(max-width: 900px)").matches ||
@@ -536,7 +595,7 @@
           const el = document.createElement("div");
           el.className = "desktop-icon";
           el.id = icon.id;
-          el.innerHTML = `<img src="${icon.img}" alt="${icon.label}"><span>${icon.label}</span>`;
+          el.innerHTML = `${icon.clippy && CLIPPY_LABELS[icon.clippy] ? `<img class="clippy-label" src="${CLIPPY_LABELS[icon.clippy]}" alt="Clippy">` : ""}<img src="${icon.img}" alt="${icon.label}"><span>${icon.label}</span>`;
           el.dataset.link = icon.link || "";
 
           const left = marginX + (icon.col || 0) * stepX;
@@ -590,7 +649,7 @@
         const el = document.createElement("div");
         el.className = "desktop-icon";
         el.id = icon.id;
-        el.innerHTML = `<img src="${icon.img}" alt="${icon.label}"><span>${icon.label}</span>`;
+        el.innerHTML = `${icon.clippy && CLIPPY_LABELS[icon.clippy] ? `<img class="clippy-label" src="${CLIPPY_LABELS[icon.clippy]}" alt="Clippy">` : ""}<img src="${icon.img}" alt="${icon.label}"><span>${icon.label}</span>`;
         el.dataset.link = icon.link || "";
 
         const slotLeft = marginX + col * stepX;
@@ -609,7 +668,30 @@
       const minHeight = Math.max(availH, maxBottom + 40);
       desktop.style.height = minHeight + "px";
       document.getElementById("windowsXP").style.minHeight = minHeight + "px";
+    
+
+    function renderClippyFun() {
+      const desktop = document.getElementById("desktopArea");
+      if (!desktop) return;
+
+      // tenta reaproveitar o container
+      let box = document.getElementById("clippy-fun");
+      if (!box) {
+        box = document.createElement("div");
+        box.id = "clippy-fun";
+        desktop.appendChild(box);
+      }
+
+      if (!CLIPPY_FUN || !CLIPPY_FUN.length) {
+        box.innerHTML = "";
+        return;
+      }
+
+      const idx = Math.floor(Math.random() * CLIPPY_FUN.length);
+      const src = CLIPPY_FUN[idx];
+      box.innerHTML = `<img src="${src}" alt="Clippy animado">`;
     }
+}
 
     function atualizarRelogio() {
       const rel = document.getElementById("relogio");
@@ -622,11 +704,12 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       renderDesktopIcons();
+      renderClippyFun();
       atualizarRelogio();
       setInterval(atualizarRelogio, 30000);
 
-      window.addEventListener("resize", renderDesktopIcons, { passive: true });
-      window.addEventListener("orientationchange", renderDesktopIcons, { passive: true });
+      window.addEventListener("resize", () => { renderDesktopIcons(); renderClippyFun(); }, { passive: true });
+      window.addEventListener("orientationchange", () => { renderDesktopIcons(); renderClippyFun(); }, { passive: true });
 
       const btnIniciar = document.getElementById("iniciar");
       const menuIniciar = document.getElementById("menuIniciar");
