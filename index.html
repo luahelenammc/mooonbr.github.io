@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-   <link rel="stylesheet" type="text/css" href="/common.css">
   <meta charset="UTF-8" />
   <title>Portal da Moon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -416,11 +415,11 @@
     }
   
     /* Start menu - itens com link */
-    #menuIniciar .itemIniciar[data-link]{
+    #menuIniciar .itemIniciar.has-link {
       cursor: pointer;
     }
-    #menuIniciar .itemIniciar[data-link]:hover{
-      background: rgba(255,255,255,0.25);
+    #menuIniciar .itemIniciar.has-link:hover {
+      background: rgba(255, 255, 255, 0.25);
     }
 </style>
 </head>
@@ -458,9 +457,53 @@
           <div class="col">
             <div class="tituloColuna">Links</div>
 
-            <div id="startLinks"></div>
-
+            <div class="itemIniciar">
+              <img src="/images/snes.png" alt="Blog Nostalgia" />
+              <span><strong>BLOG NOSTALGIA</strong></span>
             </div>
+          
+            <div class="itemIniciar">
+              <img src="/images/insta.png" alt="Instagram" />
+              <span><strong>Instagram</strong></span>
+            </div>
+            <div class="itemIniciar">
+              <img src="/images/tiktok.png" alt="Tiktok" />
+              <span><strong>Tiktok</strong></span>
+            </div>
+            <div class="itemIniciar">
+              <img src="/images/twitch.png" alt="Twitch" />
+              <span><strong>Twitch</strong></span>
+            </div>
+            <div class="itemIniciar">
+              <img src="/images/youtube.png" alt="YouTube" />
+              <span><strong>Youtube</strong></span>
+            </div>
+           
+          </div>
+        </div>
+
+        <div class="footerIniciar">
+          <span><img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-03-System-Lock-icon.png" alt="Logoff" />Fazer Logoff</span>
+          <span><img src="https://icons.iconarchive.com/icons/alecive/flatwoken/128/Apps-Dialog-Shutdown-icon.png" alt="Desligar" />Desligar</span>
+        </div>
+      </div>
+
+      <!-- Barra de tarefas -->
+      <div class="barra-de-tarefas">
+        <button id="iniciar">
+          <img src="https://icons.iconarchive.com/icons/tatice/operating-systems/128/Windows-icon.png" alt="Windows" />
+          Iniciar
+        </button>
+
+        <div class="programas-abertos"></div>
+
+        <div class="area-de-notificacao">
+          <div class="tray-icons">
+            <img src="https://img.ibxk.com.br/2014/3/programas/7868525214145846.png" alt="Volume" />
+            <img src="https://icons.iconarchive.com/icons/hopstarter/software/256/Windows-Media-Player-icon.png" alt="Media" />
+            <img src="https://1.bp.blogspot.com/_8H6ayPA2iRw/R4Sp5ZVhUnI/AAAAAAAAAJk/Sv91jzKzPZs/s320/cat_icon_security_256.png" alt="Segurança" />
+          </div>
+          <div id="relogio">00:00</div>
         </div>
       </div>
     </div>
@@ -503,37 +546,35 @@
       { id: "pokemon",        label: "Meus Pokémon",          img: "/images/pokeshelf.png",            link: "/pokemon.html",                                                          row: 2, col: 3 }
     ];
 
-    // Quais ícones entram no "Links" do Menu Iniciar
-    const START_MENU_LINK_IDS = [
-      "blog_nostalgia",
-      "instagram",
-      "tiktok",
-      "twitch",
-      "youtube"
-    ];
+    // Mapeia itens do Menu Iniciar -> ícones do desktop
+    const START_MENU_MAP = {
+      blog_nostalgia: "blog nostalgia",
+      instagram: "instagram",
+      tiktok: "tiktok",
+      twitch: "twitch",
+      youtube: "youtube"
+    };
 
-    function renderStartMenuLinks() {
-      const container = document.getElementById("startLinks");
-      if (!container) return;
+    function wireStartMenuLinks() {
+      const menu = document.getElementById("menuIniciar");
+      if (!menu) return;
 
-      // limpa
-      container.innerHTML = "";
+      const items = menu.querySelectorAll(".itemIniciar");
+      if (!items.length) return;
 
-      // monta a partir do DESKTOP_ICONS (fonte única de verdade)
-      const byId = Object.fromEntries(DESKTOP_ICONS.map(i => [i.id, i]));
+      const byId = Object.fromEntries(
+        DESKTOP_ICONS.map(icon => [icon.id, icon])
+      );
 
-      for (const id of START_MENU_LINK_IDS) {
-        const icon = byId[id];
-        if (!icon) continue;
-
-        const item = document.createElement("div");
-        item.className = "itemIniciar";
-        item.setAttribute("data-link", icon.link || "");
-        item.innerHTML = `
-          <img src="${icon.img}" alt="${icon.label}">
-          <span><strong>${icon.label}</strong></span>
-        `;
-        container.appendChild(item);
+      for (const item of items) {
+        const text = (item.innerText || "").toLowerCase();
+        for (const [id, needle] of Object.entries(START_MENU_MAP)) {
+          if (!text.includes(needle)) continue;
+          const icon = byId[id];
+          if (!icon || !icon.link) continue;
+          item.dataset.link = icon.link;
+          item.classList.add("has-link");
+        }
       }
     }
 
@@ -700,9 +741,9 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       renderDesktopIcons();
-      renderStartMenuLinks();
       applyClippyLabels();
       renderClippyFun();
+      wireStartMenuLinks();
       if (window.jQuery && $.fn.draggable) {
         $(".desktop-icon").draggable();
       }
@@ -711,7 +752,6 @@
 
       window.addEventListener("resize", () => {
         renderDesktopIcons();
-        renderStartMenuLinks();
         applyClippyLabels();
         renderClippyFun();
         if (window.jQuery && $.fn.draggable) {
@@ -720,7 +760,6 @@
       }, { passive: true });
       window.addEventListener("orientationchange", () => {
         renderDesktopIcons();
-        renderStartMenuLinks();
         applyClippyLabels();
         renderClippyFun();
         if (window.jQuery && $.fn.draggable) {
@@ -745,15 +784,13 @@
       });
 
 
-
       // clique nos itens de "Links" do Menu Iniciar
       menuIniciar.addEventListener("click", ev => {
         const item = ev.target.closest(".itemIniciar[data-link]");
         if (!item) return;
-        const href = item.getAttribute("data-link");
+        const href = item.dataset.link;
         if (!href) return;
 
-        // fecha menu e navega
         menuIniciar.classList.remove("active");
         btnIniciar.classList.remove("active");
         window.location.href = href;
