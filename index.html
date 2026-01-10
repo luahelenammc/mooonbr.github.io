@@ -372,16 +372,21 @@ a:active {
       height: auto;
     }
 
-    /* Hover correto do menu Iniciar */
-#menuIniciar .itemIniciar:hover {
-  /* fundo azul estilo XP */
-  background: linear-gradient(90deg, #316ac5 0%, #2853a3 100%);
+/* ✅ FIX: Hover do Start Menu (fundo aparece + texto não some) */
+#menuIniciar .itemIniciar{
+  width: 100%;               /* garante que o highlight ocupe a coluna */
+  border-radius: 6px;        /* visual XP bonitinho */
+}
+
+#menuIniciar .itemIniciar:hover{
+  background: linear-gradient(90deg, #316ac5 0%, #2853a3 100%) !important;
 }
 
 #menuIniciar .itemIniciar:hover span,
-#menuIniciar .itemIniciar:hover span strong {
-  color: #fff;
+#menuIniciar .itemIniciar:hover span strong{
+  color: #fff !important;
 }
+
 
 
     @media (max-width: 900px), (pointer: coarse) {
