@@ -338,6 +338,12 @@ a:hover {
   cursor: url("/images/select.png"), pointer;
 }
 
+    .desktop-icon:hover,
+#menuIniciar .itemIniciar.has-link:hover,
+a:active {
+  cursor: url("/images/wheel.png"), pointer;
+}
+
     
     /* MOBILE */
     
@@ -346,7 +352,7 @@ a:hover {
       position: absolute;
       right: -4px;
       top: -4px;
-      width: 52px;      /* maior que antes, visível no desktop */
+      width: 65px;      /* maior que antes, visível no desktop */
       height: auto;
       pointer-events: none;
       z-index: 2;
@@ -362,9 +368,21 @@ a:hover {
 
     #clippy-fun img {
       display: block;
-      width: 200px;     /* ~2x um ícone de desktop */
+      width: 180px;     /* ~2x um ícone de desktop */
       height: auto;
     }
+
+    /* Hover correto do menu Iniciar */
+#menuIniciar .itemIniciar:hover {
+  /* fundo azul estilo XP */
+  background: linear-gradient(90deg, #316ac5 0%, #2853a3 100%);
+}
+
+#menuIniciar .itemIniciar:hover span,
+#menuIniciar .itemIniciar:hover span strong {
+  color: #fff;
+}
+
 
     @media (max-width: 900px), (pointer: coarse) {
       .desktop-icon .clippy-label {
