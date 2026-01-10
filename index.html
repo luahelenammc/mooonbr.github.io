@@ -331,6 +331,14 @@
       height: 18px;
     }
 
+    /* Cursor especial para "links" (desktop, menu e anchors) */
+.desktop-icon:hover,
+#menuIniciar .itemIniciar.has-link:hover,
+a:hover {
+  cursor: url("/images/select.png"), pointer;
+}
+
+    
     /* MOBILE */
     
     /* Clippy labels e Clippy destaque */
@@ -551,14 +559,20 @@
       { id: "pokemon",        label: "Meus Pokémon",          img: "/images/pokeshelf.png",            link: "/pokemon.html",                                                          row: 2, col: 3 }
     ];
 
-    // Mapeia itens do Menu Iniciar -> ícones do desktop
-    const START_MENU_MAP = {
-      blog_nostalgia: "blog nostalgia",
-      instagram: "instagram",
-      tiktok: "tiktok",
-      twitch: "twitch",
-      youtube: "youtube"
-    };
+   const START_MENU_MAP = {
+  // coluna "Redes sociais"
+  blog_nostalgia: "blog nostalgia",
+  instagram: "instagram",
+  tiktok: "tiktok",
+  twitch: "twitch",
+  youtube: "youtube",
+
+  // coluna "Links"
+  playlists:      "playlists nostálgicas",
+  musicas_ia:     "músicas geradas por ia",
+  moon_tv:        "moon tv",
+  pokemon:        "meus pokémon"
+};
 
     function wireStartMenuLinks() {
       const menu = document.getElementById("menuIniciar");
