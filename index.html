@@ -372,6 +372,16 @@ a:active {
       height: auto;
     }
 
+    /* Clippy Fun arrastável */
+#clippy-fun {
+  pointer-events: auto; /* antes estava none, isso impede arrastar/clicar */
+  cursor: move;
+}
+#clippy-fun img {
+  pointer-events: none; /* o drag pega no container, não no GIF */
+}
+
+
 /* ✅ FIX: Hover do Start Menu (fundo aparece + texto não some) */
 #menuIniciar .itemIniciar{
   width: 100%;               /* garante que o highlight ocupe a coluna */
@@ -405,6 +415,7 @@ a:active {
         width: 120px;   /* ~1.5x ícone mobile */
       }
     }
+  
 
 @media (max-width: 900px), (pointer: coarse) {
       .barra-de-tarefas {
@@ -546,6 +557,22 @@ a:active {
   </div>
 
   <script>
+
+    // Habbo icon alternativo (random por refresh)
+const HABBO_ICON_POOL = [
+  "/images/habbo%20hc.fw.png", // o que já existia
+  "/images/console.webp",
+  "/images/hand.png"
+];
+
+function randomizeHabboIcon() {
+  const habbo = DESKTOP_ICONS.find(i => i.id === "habbo");
+  if (!habbo) return;
+
+  const pick = HABBO_ICON_POOL[Math.floor(Math.random() * HABBO_ICON_POOL.length)];
+  habbo.img = pick;
+}
+
     
     const CLIPPY_LABELS = {
       reading: "/images/clippy/reading.gif",
@@ -782,13 +809,17 @@ a:active {
     }
 
     document.addEventListener("DOMContentLoaded", () => {
+      randomizeHabboIcon();   // <-- ADICIONE ESTA LINHA
       renderDesktopIcons();
       applyClippyLabels();
       renderClippyFun();
       wireStartMenuLinks();
-      if (window.jQuery && $.fn.draggable) {
-        $(".desktop-icon").draggable();
-      }
+      
+     if (window.jQuery && $.fn.draggable) {
+  $("#clippy-fun").draggable({
+    containment: "#desktopArea"  // fica preso dentro do desktop
+  });
+}
       atualizarRelogio();
       setInterval(atualizarRelogio, 30000);
 
