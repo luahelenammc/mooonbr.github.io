@@ -30,6 +30,9 @@ export const TYPE_ORDER = [
   export const RAW = [
 // ACRESCENTAR ABAIXO!
 
+    { name:"hitmontop", iv:97, types:["Fighting"] },
+{ name:"pansear", iv:91, types:["Fire"] },
+{ name:"numel", iv:93, types:["Fire","Ground"] },
     
 { name:"solrock", iv:93, types:["Rock","Psychic"] },
 { name:"lombre", iv:93, types:["Water","Grass"] },
