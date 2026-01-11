@@ -358,13 +358,14 @@ a:active {
       z-index: 2;
     }
 
-    #clippy-fun {
-      position: absolute;
-      right: 24px;
-      bottom: 74px;     /* acima da barra de tarefas */
-      z-index: 3;
-      pointer-events: none;
-    }
+/* Clippy Fun: posição por left/top (draggable funciona melhor) */
+#clippy-fun {
+  right: auto !important;
+  bottom: auto !important;
+
+  left: calc(100vw - 220px); /* inicia perto da direita */
+  top:  calc(100vh - 300px); /* inicia acima da barra */
+}
 
     #clippy-fun img {
       display: block;
@@ -819,10 +820,11 @@ function randomizeHabboIcon() {
   $(".desktop-icon").draggable();
 }
       
-     if (window.jQuery && $.fn.draggable) {
-  $("#clippy-fun").draggable({
-    containment: "#desktopArea"  // fica preso dentro do desktop
-  });
+$("#clippy-fun").draggable({
+  containment: "window",
+  scroll: false
+});
+
 }
       atualizarRelogio();
       setInterval(atualizarRelogio, 30000);
