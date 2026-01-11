@@ -30,7 +30,35 @@ export const TYPE_ORDER = [
   export const RAW = [
 // ACRESCENTAR ABAIXO!
 
+{ name:"staryu", iv:100, types:["Water"] },
 
+{ name:"vibrava", iv:97, types:["Ground","Dragon"] },
+{ name:"corphish", iv:97, types:["Water"] },
+
+{ name:"jolteon", iv:95, types:["Electric"] },
+{ name:"bayleef", iv:95, types:["Grass"] },
+{ name:"panpour", iv:95, types:["Water"] },
+{ name:"dratini", iv:95, types:["Dragon"] },
+{ name:"tentacruel", iv:95, types:["Water","Poison"] },
+{ name:"dustox", iv:95, types:["Bug","Poison"] },
+
+{ name:"eevee", iv:94, types:["Normal"] },
+
+{ name:"sandshrew", iv:93, types:["Ground"] },
+{ name:"dolliv", iv:93, types:["Grass","Normal"] },
+
+{ name:"onix", iv:95, types:["Rock","Ground"] },
+{ name:"onix", iv:91, types:["Rock","Ground"] },
+
+{ name:"hitmonlee", iv:91, types:["Fighting"] },
+{ name:"lunatone", iv:91, types:["Rock","Psychic"] },
+{ name:"crawdaunt", iv:91, types:["Water","Dark"] },
+{ name:"duskull", iv:91, types:["Ghost"] },
+
+{ name:"leafeon", iv:84, types:["Grass"] },
+
+{ name:"gyarados", iv:62, types:["Water","Flying"] },
+{ name:"starmie", iv:60, types:["Water","Psychic"] },
 { name:"cetitan", iv:100, types:["Ice"] },
 { name:"nidorina", iv:100, types:["Poison"] },
 { name:"wigglytuff", iv:100, types:["Normal","Fairy"], xmas:true },
@@ -141,7 +169,6 @@ export const TYPE_ORDER = [
 { name:"charizard", iv:86, types:["Fire","Flying"], xmas:true },
 { name:"venusaur", iv:86, types:["Grass","Poison"], xmas:true },
 { name:"crocalor", iv:84, types:["Fire"] },
-{ name:"dusclops", iv:82, types:["Ghost"] },
 { name:"granbull", iv:82, types:["Fairy"] },
 { name:"lapras", iv:82, types:["Water","Ice"] },
 { name:"spheal", iv:82, types:["Ice","Water"], dynamax:true },
