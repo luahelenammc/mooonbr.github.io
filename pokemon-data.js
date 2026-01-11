@@ -29,6 +29,8 @@ export const TYPE_ORDER = [
 
   export const RAW = [
 // ACRESCENTAR ABAIXO!
+
+    
 { name:"solrock", iv:93, types:["Rock","Psychic"] },
 { name:"lombre", iv:93, types:["Water","Grass"] },
 { name:"piplup", iv:91, types:["Water"] },
