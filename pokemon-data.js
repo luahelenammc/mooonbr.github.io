@@ -40,7 +40,7 @@ export const TYPE_ORDER = [
 
 { name:"eevee", iv:0, types:["Normal"] },
 
-{ name:"castform", iv:97, types:["Normal"] },
+{ name:"castform-rainy", iv:97, types:["Normal"] },
 
 { name:"ponyta", iv:35, types:["Fire"], shiny:true },
 
