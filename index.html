@@ -408,8 +408,8 @@ a:active {
       }
 
       #clippy-fun {
-        right: 10px;
-        bottom: 70px;
+        left: calc(100vw - 160px) !important;
+        top:  calc(100vh - 240px) !important;
       }
 
       #clippy-fun img {
@@ -594,7 +594,7 @@ function randomizeHabboIcon() {
 
     const DESKTOP_ICONS = [
       { id: "blog_nostalgia", label: "BLOG NOSTALGIA",        img: "/images/snes.png",                 link: "https://nostalgia.mooon.com.br",                                         row: 0, col: 0, clippy: "reading" },
-      { id: "habbo",          label: "Habbo Hotel",           img: "/images/habbo hc.fw.png",         link: "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",              row: 0, col: 1, clippy: "reading" },
+      { id: "habbo",          label: "Habbo Hotel",           img: "/images/habbo%20hc.fw.png",         link: "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",              row: 0, col: 1, clippy: "reading" },
       { id: "ps1",            label: "Playstation 1",         img: "/images/ps1.png",                  link: "https://nostalgia.mooon.com.br/search/label/PlayStation%201",          row: 0, col: 2, clippy: "reading" },
       { id: "ps2",            label: "Playstation 2",         img: "/images/ps2.png",                  link: "https://nostalgia.mooon.com.br/search/label/PlayStation%202",          row: 0, col: 3, clippy: "reading" },
       { id: "snes",           label: "Super Nintendo",        img: "/images/supern.png",               link: "https://nostalgia.mooon.com.br/search/label/Super%20Nintendo",         row: 0, col: 4, clippy: "reading" },
@@ -800,7 +800,25 @@ function randomizeHabboIcon() {
     }
 
 
-    function atualizarRelogio() {
+    
+    function enableDraggables() {
+      if (!(window.jQuery && window.$ && $.fn && $.fn.draggable)) return;
+
+      // Ícones do desktop
+      $(".desktop-icon").draggable({
+        containment: "#desktopArea",
+        scroll: false
+      });
+
+      // Clippy fun: arrastável no viewport (sem brigar com a barra)
+      $("#clippy-fun").draggable({
+        containment: "window",
+        scroll: false,
+        cancel: "img"
+      });
+    }
+
+function atualizarRelogio() {
       const rel = document.getElementById("relogio");
       if (!rel) return;
       const agora = new Date();
@@ -810,22 +828,14 @@ function randomizeHabboIcon() {
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-      randomizeHabboIcon();   // <-- ADICIONE ESTA LINHA
+      randomizeHabboIcon();
       renderDesktopIcons();
       applyClippyLabels();
       renderClippyFun();
       wireStartMenuLinks();
 
-      if (window.jQuery && $.fn.draggable) {
-  $(".desktop-icon").draggable();
-}
-      
-$("#clippy-fun").draggable({
-  containment: "window",
-  scroll: false
-});
+      enableDraggables();
 
-}
       atualizarRelogio();
       setInterval(atualizarRelogio, 30000);
 
@@ -833,17 +843,16 @@ $("#clippy-fun").draggable({
         renderDesktopIcons();
         applyClippyLabels();
         renderClippyFun();
-        if (window.jQuery && $.fn.draggable) {
-          $(".desktop-icon").draggable();
-        }
+        wireStartMenuLinks();
+        enableDraggables();
       }, { passive: true });
+
       window.addEventListener("orientationchange", () => {
         renderDesktopIcons();
         applyClippyLabels();
         renderClippyFun();
-        if (window.jQuery && $.fn.draggable) {
-          $(".desktop-icon").draggable();
-        }
+        wireStartMenuLinks();
+        enableDraggables();
       }, { passive: true });
 
       const btnIniciar = document.getElementById("iniciar");
@@ -862,8 +871,7 @@ $("#clippy-fun").draggable({
         }
       });
 
-
-      // clique nos itens de "Links" do Menu Iniciar
+      // clique nos itens do Menu Iniciar que têm link
       menuIniciar.addEventListener("click", ev => {
         const item = ev.target.closest(".itemIniciar[data-link]");
         if (!item) return;
@@ -872,18 +880,17 @@ $("#clippy-fun").draggable({
 
         menuIniciar.classList.remove("active");
         btnIniciar.classList.remove("active");
-        window.open(href, '_blank');
+        window.open(href, "_blank");
       });
 
-      // clique nos ícones abre link
+      // clique nos ícones do desktop abre link
       document.addEventListener("click", ev => {
         const icon = ev.target.closest(".desktop-icon");
         if (!icon) return;
         const href = icon.dataset.link;
-        if (href) {
-          window.open(href, '_blank');
-        }
+        if (href) window.open(href, "_blank");
       });
+
     });
   </script>
 </body>
