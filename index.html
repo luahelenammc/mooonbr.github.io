@@ -466,6 +466,29 @@ a:active {
     #menuIniciar .itemIniciar.has-link:hover {
       background: rgba(255, 255, 255, 0.25);
     }
+
+
+    /* MOBILE: fixa o Clippy Fun no canto inferior esquerdo (acima da barra/relógio) */
+@media (max-width: 900px), (pointer: coarse) {
+  #clippy-fun{
+    right: auto !important;
+    left: 10px !important;
+
+    bottom: auto !important;
+    top: auto !important;
+
+    /* acima da barra inferior */
+    transform: translateY(0);
+    z-index: 6;
+  }
+
+  /* garante que ele fique acima dos ícones */
+  #clippy-fun img{
+    width: 200px; /* mantém seu tamanho mobile */
+    height: auto;
+  }
+}
+
 </style>
 </head>
 <body>
