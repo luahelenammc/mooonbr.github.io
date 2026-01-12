@@ -468,26 +468,26 @@ a:active {
     }
 
 
-    /* MOBILE: fixa o Clippy Fun no canto inferior esquerdo (acima da barra/relógio) */
+    /* MOBILE: fixa o Clippy Fun no canto inferior direito (acima da barra/relógio) */
 @media (max-width: 900px), (pointer: coarse) {
   #clippy-fun{
-    right: auto !important;
-    left: 10px !important;
-
-    bottom: auto !important;
+    left: auto !important;
     top: auto !important;
 
-    /* acima da barra inferior */
-    transform: translateY(0);
-    z-index: 6;
+    right: 10px !important;
+    bottom: 64px !important;  /* acima da barra/relógio */
+
+   ín
+    z-index: 1;               /* atrás dos ícones */
+    pointer-events: none;     /* não “rouba” toque no mobile */
   }
 
-  /* garante que ele fique acima dos ícones */
   #clippy-fun img{
-    width: 200px; /* mantém seu tamanho mobile */
+    width: 200px;
     height: auto;
   }
 }
+
 
 </style>
 </head>
