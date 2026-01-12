@@ -31,6 +31,18 @@ export const TYPE_ORDER = [
 // ACRESCENTAR ABAIXO!
 
 
+    { name:"ditto", iv:64, types:["Normal"], shiny:true },
+
+{ name:"pansage", iv:91, types:["Grass"] },
+{ name:"chimecho", iv:91, types:["Psychic"] },
+
+{ name:"eevee", iv:0, types:["Normal"] },
+
+{ name:"castform", iv:97, types:["Normal"] },
+
+{ name:"ponyta", iv:35, types:["Fire"], shiny:true },
+
+{ name:"seel", iv:95, types:["Water","Ice"] }, 
     { name:"girafarig", iv:93, types:["Normal","Psychic"] },
     { name:"hitmontop", iv:97, types:["Fighting"] },
 { name:"pansear", iv:91, types:["Fire"] },
