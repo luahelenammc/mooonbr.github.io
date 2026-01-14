@@ -31,6 +31,13 @@ export const TYPE_ORDER = [
   export const RAW = [
 // ACRESCENTAR ABAIXO!
 
+{ name:"krabby", iv:82, types:["Water"], dynamax:true },
+    { name:"jigglypuff", iv:91, types:["Normal","Fairy"] },
+{ name:"mr-mime", iv:100, types:["Psychic","Fairy"] },
+{ name:"lapras", iv:80, types:["Water","Ice"] },
+{ name:"sharpedo", iv:100, types:["Water","Dark"] },
+{ name:"lucario", iv:100, types:["Fighting","Steel"] },
+    
 { name:"silcoon", iv:91, types:["Bug"] },
 { name:"meditite", iv:93, types:["Fighting","Psychic"] },
 { name:"wurmple", iv:93, types:["Bug"] },
@@ -186,13 +193,11 @@ export const TYPE_ORDER = [
     
 { name:"charcadet", iv:88, types:["Fire"] },
 { name:"minun", iv:88, types:["Electric"] },
-{ name:"lechonk", iv:86, types:["Normal"] },
 { name:"kadabra", iv:86, types:["Psychic"], dynamax:true },
 { name:"ralts", iv:86, types:["Psychic","Fairy"], dynamax:true },
 { name:"swampert", iv:86, types:["Water","Ground"] },
 { name:"charizard", iv:86, types:["Fire","Flying"], xmas:true },
 { name:"venusaur", iv:86, types:["Grass","Poison"], xmas:true },
-{ name:"crocalor", iv:84, types:["Fire"] },
 { name:"granbull", iv:82, types:["Fairy"] },
 { name:"lapras", iv:82, types:["Water","Ice"] },
 { name:"spheal", iv:82, types:["Ice","Water"], dynamax:true },
@@ -208,7 +213,7 @@ export const TYPE_ORDER = [
 const HOURS_LEADING_SINCE = new Date(2025, 11, 28, 12, 0, 0); // 28/12/2025 12:00 (mês 11 = dezembro)
 
 export const GYM_STATS = {
-  gymsDefeated: 344, // quantos ginásios você já derrotou
+  gymsDefeated: 369, // quantos ginásios você já derrotou
   get hoursLeading(){
     const ms = Date.now() - HOURS_LEADING_SINCE.getTime();
     return Math.max(0, Math.floor(ms / 36e5)); // horas inteiras desde o horário acima
@@ -217,5 +222,5 @@ export const GYM_STATS = {
 
 
 export const META = {
-  lastUpdated: "2026-01-12" // YYYY-MM-DD (ou a data que você quiser)
+  lastUpdated: "2026-01-14" // YYYY-MM-DD (ou a data que você quiser)
 };
