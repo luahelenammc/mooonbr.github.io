@@ -31,6 +31,10 @@ export const TYPE_ORDER = [
   export const RAW = [
 // ACRESCENTAR ABAIXO!
 
+{ name:"umbreon", iv:91, types:["Dark"] },
+{ name:"meditite", iv:97, types:["Fighting","Psychic"] },
+{ name:"absol", iv:91, types:["Dark"] },
+    
 { name:"krabby", iv:82, types:["Water"], dynamax:true },
     { name:"jigglypuff", iv:91, types:["Normal","Fairy"] },
 { name:"mr-mime", iv:100, types:["Psychic","Fairy"] },
@@ -60,7 +64,7 @@ export const TYPE_ORDER = [
     
 { name:"solrock", iv:93, types:["Rock","Psychic"] },
 { name:"lombre", iv:93, types:["Water","Grass"] },
-{ name:"piplup", iv:91, types:["Water"] },
+{ name:"prinplup", iv:91, types:["Water"] },
 { name:"staryu", iv:100, types:["Water"] },
 
 { name:"vibrava", iv:97, types:["Ground","Dragon"] },
@@ -181,7 +185,6 @@ export const TYPE_ORDER = [
 { name:"munna", iv:91, types:["Psychic"] },
 { name:"ledian", iv:91, types:["Bug","Flying"] },
 { name:"graveler", iv:91, types:["Rock","Ground"] },
-{ name:"eevee", iv:91, types:["Normal"] },
 { name:"spoink", iv:91, types:["Psychic"] },
 { name:"dusclops", iv:91, types:["Ghost"] },
 { name:"ponyta-galar", iv:91, types:["Psychic"] },
@@ -213,7 +216,7 @@ export const TYPE_ORDER = [
 const HOURS_LEADING_SINCE = new Date(2025, 11, 28, 12, 0, 0); // 28/12/2025 12:00 (mês 11 = dezembro)
 
 export const GYM_STATS = {
-  gymsDefeated: 369, // quantos ginásios você já derrotou
+  gymsDefeated: 370, // quantos ginásios você já derrotou
   get hoursLeading(){
     const ms = Date.now() - HOURS_LEADING_SINCE.getTime();
     return Math.max(0, Math.floor(ms / 36e5)); // horas inteiras desde o horário acima
