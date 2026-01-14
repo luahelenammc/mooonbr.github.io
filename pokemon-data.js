@@ -31,6 +31,9 @@ export const TYPE_ORDER = [
   export const RAW = [
 // ACRESCENTAR ABAIXO!
 
+{ name:"voltorb", iv:91, types:["Electric"] },
+{ name:"turtonator", iv:73, types:["Fire","Dragon"] },
+    { name:"gengar", iv:97, types:["Ghost","Poison"] },
 { name:"umbreon", iv:91, types:["Dark"] },
 { name:"meditite", iv:97, types:["Fighting","Psychic"] },
 { name:"absol", iv:91, types:["Dark"] },
@@ -107,7 +110,6 @@ export const TYPE_ORDER = [
 { name:"flaaffy", iv:97, types:["Electric"] },
 { name:"electrode", iv:97, types:["Electric"] },
 { name:"pelipper", iv:97, types:["Water","Flying"] },
-{ name:"haunter", iv:97, types:["Ghost","Poison"] },
 { name:"swellow", iv:97, types:["Normal","Flying"] },
 { name:"minun", iv:97, types:["Electric"] },
 { name:"drifblim", iv:97, types:["Ghost","Flying"] },
