@@ -31,8 +31,24 @@ export const TYPE_ORDER = [
   export const RAW = [
 // ACRESCENTAR ABAIXO!
 
+    { name:"seaking", iv:100, types:["Water"] },
+    { name:"squirtle", iv:91, types:["Water"] },
+{ name:"shinx", iv:100, types:["Electric"] },
+{ name:"pawmo", iv:93, types:["Electric","Fighting"] },
+{ name:"eevee", iv:100, types:["Normal"] },
+{ name:"grovyle", iv:100, types:["Grass"] },
+{ name:"tauros", iv:100, types:["Normal"] },
+{ name:"pumpkaboo", iv:100, types:["Ghost","Grass"] },
+{ name:"ekans", iv:91, types:["Poison"] },
+{ name:"monferno", iv:95, types:["Fire","Fighting"] },
+{ name:"combusken", iv:100, types:["Fire","Fighting"] },
+{ name:"duskull", iv:91, types:["Ghost"] },
+{ name:"clefable", iv:100, types:["Fairy"] },
+{ name:"shaymin", iv:71, types:["Grass"] },
+{ name:"ponyta", iv:100, types:["Fire"] },
+{ name:"raichu", iv:100, types:["Electric"] },
+
 { name:"voltorb", iv:91, types:["Electric"] },
-{ name:"turtonator", iv:73, types:["Fire","Dragon"] },
     { name:"gengar", iv:97, types:["Ghost","Poison"] },
 { name:"umbreon", iv:91, types:["Dark"] },
 { name:"meditite", iv:97, types:["Fighting","Psychic"] },
@@ -119,13 +135,13 @@ export const TYPE_ORDER = [
 { name:"haunter", iv:95, types:["Ghost","Poison"] },
 { name:"charmeleon", iv:95, types:["Fire"], xmas:true },
 { name:"swalot", iv:95, types:["Poison"] },
-{ name:"kirlia", iv:95, types:["Psychic","Fairy"] },
+{ name:"gardevoir", iv:95, types:["Psychic","Fairy"] },
 { name:"skarmory", iv:95, types:["Steel","Flying"] },
 { name:"mismagius", iv:95, types:["Ghost"] },
 { name:"whirlipede", iv:95, types:["Bug","Poison"] },
 { name:"koffing", iv:95, types:["Poison"] },
 { name:"typhlosion", iv:95, types:["Fire"] },
-{ name:"drowzee", iv:95, types:["Psychic"] },
+{ name:"hypnos", iv:95, types:["Psychic"] },
 { name:"gothorita", iv:95, types:["Psychic"] },
 { name:"hitmonchan", iv:95, types:["Fighting"] },
 { name:"metapod", iv:95, types:["Bug"] },
@@ -139,7 +155,7 @@ export const TYPE_ORDER = [
 { name:"sentret", iv:93, types:["Normal"] },
 { name:"pikachu", iv:93, types:["Electric"], xmas:true },
 { name:"wartortle", iv:93, types:["Water"] },
-{ name:"kakuna", iv:93, types:["Bug","Poison"] },
+{ name:"beedrill", iv:93, types:["Bug","Poison"] },
 { name:"dugtrio-alola", iv:93, types:["Ground","Steel"] },
 { name:"indeedee", iv:93, types:["Psychic","Normal"] },
 { name:"nidoran", iv:93, types:["Poison"] },
@@ -150,7 +166,7 @@ export const TYPE_ORDER = [
 { name:"espeon", iv:93, types:["Psychic"] },
 { name:"skitty", iv:93, types:["Normal"] },
 { name:"heracross", iv:93, types:["Bug","Fighting"] },
-{ name:"psyduck", iv:93, types:["Water"] },
+{ name:"golduck", iv:93, types:["Water"] },
 { name:"weepinbell", iv:93, types:["Grass","Poison"] },
 { name:"magneton", iv:93, types:["Electric","Steel"] },
 { name:"lapras", iv:93, types:["Water","Ice"] },
@@ -165,7 +181,7 @@ export const TYPE_ORDER = [
 { name:"gastly", iv:93, types:["Ghost","Poison"] },
 { name:"vanillite", iv:93, types:["Ice"] },
 { name:"voltorb", iv:93, types:["Electric"] },
-{ name:"gloom", iv:93, types:["Grass","Poison"] },
+{ name:"vileplume", iv:93, types:["Grass","Poison"] },
 { name:"poliwag", iv:93, types:["Water"] },
 { name:"roggenrola", iv:93, types:["Rock"] },
 { name:"nidoran", iv:93, types:["Poison"] },
@@ -218,7 +234,7 @@ export const TYPE_ORDER = [
 const HOURS_LEADING_SINCE = new Date(2025, 11, 28, 12, 0, 0); // 28/12/2025 12:00 (mês 11 = dezembro)
 
 export const GYM_STATS = {
-  gymsDefeated: 370, // quantos ginásios você já derrotou
+  gymsDefeated: 443, // quantos ginásios você já derrotou
   get hoursLeading(){
     const ms = Date.now() - HOURS_LEADING_SINCE.getTime();
     return Math.max(0, Math.floor(ms / 36e5)); // horas inteiras desde o horário acima
