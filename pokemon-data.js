@@ -31,6 +31,11 @@ export const TYPE_ORDER = [
   export const RAW = [
 // ACRESCENTAR ABAIXO!
 
+{ name:"solrock", iv:100, types:["Rock","Psychic"] },
+    { name:"swablu", iv:95, types:["Normal","Flying"] },
+{ name:"goldeen", iv:91, types:["Water"] },
+{ name:"swablu", iv:95, types:["Normal","Flying"] },
+{ name:"roselia", iv:84, types:["Grass","Poison"] },
     { name:"seaking", iv:100, types:["Water"] },
     { name:"squirtle", iv:91, types:["Water"] },
 { name:"shinx", iv:100, types:["Electric"] },
@@ -45,7 +50,7 @@ export const TYPE_ORDER = [
 { name:"duskull", iv:91, types:["Ghost"] },
 { name:"clefable", iv:100, types:["Fairy"] },
 { name:"shaymin", iv:71, types:["Grass"] },
-{ name:"ponyta", iv:100, types:["Fire"] },
+{ name:"rapidash", iv:100, types:["Fire"] },
 { name:"raichu", iv:100, types:["Electric"] },
 
 { name:"voltorb", iv:91, types:["Electric"] },
@@ -56,7 +61,7 @@ export const TYPE_ORDER = [
     
 { name:"krabby", iv:82, types:["Water"], dynamax:true },
     { name:"jigglypuff", iv:91, types:["Normal","Fairy"] },
-{ name:"mr-mime", iv:100, types:["Psychic","Fairy"] },
+{ name:"mr mime", iv:100, types:["Psychic","Fairy"] },
 { name:"lapras", iv:80, types:["Water","Ice"] },
 { name:"sharpedo", iv:100, types:["Water","Dark"] },
 { name:"lucario", iv:100, types:["Fighting","Steel"] },
@@ -212,7 +217,6 @@ export const TYPE_ORDER = [
 { name:"nosepass", iv:91, types:["Rock"] },
 { name:"misdreavus", iv:91, types:["Ghost"] },
     
-{ name:"charcadet", iv:88, types:["Fire"] },
 { name:"minun", iv:88, types:["Electric"] },
 { name:"kadabra", iv:86, types:["Psychic"], dynamax:true },
 { name:"ralts", iv:86, types:["Psychic","Fairy"], dynamax:true },
@@ -243,5 +247,5 @@ export const GYM_STATS = {
 
 
 export const META = {
-  lastUpdated: "2026-01-14" // YYYY-MM-DD (ou a data que você quiser)
+  lastUpdated: "2026-01-21" // YYYY-MM-DD (ou a data que você quiser)
 };
