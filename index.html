@@ -358,15 +358,14 @@ a:active {
       z-index: 2;
     }
 
-/* Clippy Fun: posição por left/top (draggable funciona melhor) */
-#clippy-fun {
-  right: auto !important;
-  bottom: auto !important;
-
-  left: calc(100vw - 220px); /* inicia perto da direita */
-  top:  calc(100vh - 300px); /* inicia acima da barra */
+/* Clippy Fun: posição correta (referência = desktopArea) */
+#clippy-fun{
+  position: absolute;
+  left: calc(100% - 220px);
+  top:  calc(100% - 300px);
+  right: auto;
+  bottom: auto;
 }
-
     #clippy-fun img {
       display: block;
       width: 180px;     /* ~2x um ícone de desktop */
