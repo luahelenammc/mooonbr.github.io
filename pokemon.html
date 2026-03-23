@@ -20,13 +20,13 @@
     }
 
     *{ box-sizing:border-box; }
-html{ min-height:100%; }
+    html{ min-height:100%; }
 
-body{
-  min-height:100vh;
-  height:auto;
-  align-items:flex-start; /* em vez de stretch */
-}
+    body{
+      min-height:100vh;
+      height:auto;
+      align-items:flex-start;
+    }
 
     body{
       margin:0;
@@ -169,120 +169,106 @@ body{
     }
     .search::placeholder{ color:rgba(247,251,255,.55); }
 
-  /* =========================
-   TAGS (Todos / Shiny / Natal / Dynamax)
-   ========================= */
+    .tagRow{
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      margin: 6px 0 10px;
+    }
 
-.tagRow{
-  display:flex;
-  gap:10px;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
-  margin: 6px 0 10px;
-}
+    .tagBtn{
+      appearance:none;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.26);
+      color: rgba(255,255,255,.92);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: .2px;
+      cursor: pointer;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+      box-shadow:
+        0 10px 20px rgba(0,0,0,.28),
+        inset 0 1px 0 rgba(255,255,255,.10);
+      transition: transform .12s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
 
-/* botão “pílula” das tags especiais */
-.tagBtn{
-  appearance:none;
-  border: 1px solid rgba(255,255,255,.16);
-  background: rgba(0,0,0,.26);
-  color: rgba(255,255,255,.92);
-  padding: 8px 14px;
-  border-radius: 999px;
-  font-weight: 800;
-  font-size: 13px;
-  letter-spacing: .2px;
-  cursor: pointer;
-  user-select:none;
-  -webkit-tap-highlight-color: transparent;
-  box-shadow:
-    0 10px 20px rgba(0,0,0,.28),
-    inset 0 1px 0 rgba(255,255,255,.10);
-  transition: transform .12s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
-}
+    .tagBtn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.24);
+      background: rgba(0,0,0,.34);
+    }
 
-.tagBtn:hover{
-  transform: translateY(-1px);
-  border-color: rgba(255,255,255,.24);
-  background: rgba(0,0,0,.34);
-}
+    .tagBtn:active{
+      transform: translateY(0px) scale(.99);
+    }
 
-.tagBtn:active{
-  transform: translateY(0px) scale(.99);
-}
+    .tagBtn.active{
+      background: linear-gradient(180deg, rgba(238,21,21,.35), rgba(238,21,21,.14));
+      border-color: rgba(238,21,21,.55);
+      box-shadow:
+        0 14px 28px rgba(238,21,21,.18),
+        inset 0 1px 0 rgba(255,255,255,.14);
+    }
 
-/* estado ativo (quando o filtro está selecionado) */
-.tagBtn.active{
-  background: linear-gradient(180deg, rgba(238,21,21,.35), rgba(238,21,21,.14));
-  border-color: rgba(238,21,21,.55);
-  box-shadow:
-    0 14px 28px rgba(238,21,21,.18),
-    inset 0 1px 0 rgba(255,255,255,.14);
-}
+    .typeRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      justify-content:center;
+      align-items:center;
+      margin: 6px 0 12px;
+    }
 
+    .typeBtn{
+      appearance:none;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.88);
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 12px;
+      cursor:pointer;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+      box-shadow:
+        0 8px 18px rgba(0,0,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.08);
+      transition: transform .12s ease, background .18s ease, border-color .18s ease;
+    }
 
-/* =========================
-   TIPOS (Normal / Fogo / Água / etc.)
-   ========================= */
+    .typeBtn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.22);
+    }
 
-.typeRow{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  justify-content:center;
-  align-items:center;
-  margin: 6px 0 12px;
-}
+    .typeBtn.active{
+      background: rgba(42,117,187,.22);
+      border-color: rgba(42,117,187,.55);
+    }
 
-/* botão redondinho de tipo */
-.typeBtn{
-  appearance:none;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.06);
-  color: rgba(255,255,255,.88);
-  padding: 7px 12px;
-  border-radius: 999px;
-  font-weight: 800;
-  font-size: 12px;
-  cursor:pointer;
-  user-select:none;
-  -webkit-tap-highlight-color: transparent;
-  box-shadow:
-    0 8px 18px rgba(0,0,0,.22),
-    inset 0 1px 0 rgba(255,255,255,.08);
-  transition: transform .12s ease, background .18s ease, border-color .18s ease;
-}
-
-.typeBtn:hover{
-  transform: translateY(-1px);
-  background: rgba(255,255,255,.09);
-  border-color: rgba(255,255,255,.22);
-}
-
-.typeBtn.active{
-  background: rgba(42,117,187,.22);
-  border-color: rgba(42,117,187,.55);
-}
-
-/* opcional: visual do botão “TIPOS” (título) se você usa um */
-.typeBtn.isLabel{
-  cursor: default;
-  opacity: .85;
-  background: rgba(0,0,0,.22);
-  border-color: rgba(255,255,255,.12);
-}
-
+    .typeBtn.isLabel{
+      cursor: default;
+      opacity: .85;
+      background: rgba(0,0,0,.22);
+      border-color: rgba(255,255,255,.12);
+    }
 
     .statsRow{
-  margin:10px auto 4px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:14px;
-  max-width:720px;
+      margin:10px auto 4px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:14px;
+      max-width:720px;
     }
-    
+
     .statBlock{
       flex:1 1 260px;
       max-width:330px;
@@ -386,6 +372,37 @@ body{
       gap:10px;
     }
 
+    .sectionTitle{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin:4px 0 8px;
+      text-align:center;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.24em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.92);
+    }
+
+    .sectionTitle::before,
+    .sectionTitle::after{
+      content:"";
+      height:1px;
+      flex:1 1 auto;
+      max-width:180px;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.24), transparent);
+    }
+
+    .sectionTitle span{
+      padding:0 12px;
+      border-radius:999px;
+      background:rgba(238,21,21,.12);
+      border:1px solid rgba(238,21,21,.24);
+      box-shadow:0 10px 24px rgba(0,0,0,.25);
+    }
+
     .card{
       position:relative;
       width:86px;
@@ -398,20 +415,20 @@ body{
       flex-direction:column;
       align-items:center;
       gap:4px;
-      transform-origin:50% 80%;
       transition:
-        transform .16s ease-out,
         box-shadow .16s ease-out,
         background .16s ease-out,
-        z-index .0s;
+        border-color .16s ease-out;
       cursor:default;
     }
 
     .card:hover{
-      transform:scale(1.32) translateY(-8px);
-      z-index:5;
-      background:linear-gradient(150deg,rgba(255,255,255,.12),rgba(0,0,0,.50));
-      box-shadow:0 26px 80px rgba(0,0,0,.85);
+      border-color:rgba(238,21,21,.34);
+      background:linear-gradient(150deg,rgba(255,255,255,.11),rgba(0,0,0,.54));
+      box-shadow:
+        0 24px 56px rgba(0,0,0,.82),
+        0 0 0 1px rgba(238,21,21,.12),
+        0 0 26px rgba(238,21,21,.14);
     }
 
     .ivTag{
@@ -429,37 +446,32 @@ body{
       box-shadow:0 8px 20px rgba(0,0,0,.65);
       pointer-events:none;
     }
-    
-.ivLabel{
-  color:#fff;
-  opacity:.95;
-  font-weight:900;
-  margin-right:6px;
-}
-.ivNum{ color:inherit; }
 
-    
+    .ivLabel{
+      color:#fff;
+      opacity:.95;
+      font-weight:900;
+      margin-right:6px;
+    }
+    .ivNum{ color:inherit; }
+
     .ivTag.good{ color:#93FE37; }
     .ivTag.mid{ color:#3CFFFF; }
     .ivTag.low{ color:#ffffff; }
     .ivTag.bad{ color:#ff5151; }
     .ivTag.epic{
-  color:#E9D5FF;
-  border-color: rgba(199,125,255,.75);
-  background: linear-gradient(180deg, rgba(199,125,255,.28), rgba(0,0,0,.72));
-  box-shadow: 0 10px 24px rgba(199,125,255,.16), 0 8px 20px rgba(0,0,0,.65);
-    } 
+      color:#E9D5FF;
+      border-color: rgba(199,125,255,.75);
+      background: linear-gradient(180deg, rgba(199,125,255,.28), rgba(0,0,0,.72));
+      box-shadow: 0 10px 24px rgba(199,125,255,.16), 0 8px 20px rgba(0,0,0,.65);
+    }
     .ivTag.perfect{
-  color:#FFE8C2;
-  border-color: rgba(255,159,28,.85);
-  background: linear-gradient(
-    180deg,
-    rgba(255,159,28,.38),
-    rgba(0,0,0,.78)
-  );
-  box-shadow:
-    0 10px 26px rgba(255,159,28,.22),
-    0 8px 22px rgba(0,0,0,.65);
+      color:#FFE8C2;
+      border-color: rgba(255,159,28,.85);
+      background: linear-gradient(180deg, rgba(255,159,28,.38), rgba(0,0,0,.78));
+      box-shadow:
+        0 10px 26px rgba(255,159,28,.22),
+        0 8px 22px rgba(0,0,0,.65);
     }
 
     .spriteShell{
@@ -540,16 +552,20 @@ body{
         width:34px;
         height:50px;
       }
+      .sectionTitle::before,
+      .sectionTitle::after{
+        max-width:90px;
+      }
     }
 
-      .lastUpdated{
-    margin: 0;
-    text-align:center;
-    font-size: 12px;
-    letter-spacing:.06em;
-    color: rgba(247,251,255,.70);
-    opacity:.95;
-  }
+    .lastUpdated{
+      margin:0;
+      text-align:center;
+      font-size:12px;
+      letter-spacing:.06em;
+      color:rgba(247,251,255,.70);
+      opacity:.95;
+    }
   </style>
 </head>
 <body>
@@ -581,39 +597,37 @@ body{
       <input id="search" class="search" type="search" placeholder="Buscar pelo nome, ✨, 🎄, 💥…" autocomplete="off">
     </div>
 
-   <div class="tagRow">
-  <button class="tagBtn active" data-tag="all">Todos</button>
-  <button class="tagBtn" data-tag="shiny">✨ Shiny</button>
-  <button class="tagBtn" data-tag="xmas">🎄 Natal</button>
-  <button class="tagBtn" data-tag="dynamax">💥 Dynamax</button>
-</div>
+    <div class="tagRow">
+      <button class="tagBtn active" data-tag="all">Todos</button>
+      <button class="tagBtn" data-tag="shiny">✨ Shiny</button>
+      <button class="tagBtn" data-tag="xmas">🎄 Natal</button>
+      <button class="tagBtn" data-tag="dynamax">💥 Dynamax</button>
+    </div>
 
-<div class="typeRow">
-  <button class="typeBtn isLabel" type="button">TIPOS</button>
+    <div class="typeRow">
+      <button class="typeBtn isLabel" type="button">TIPOS</button>
 
-  <button class="typeBtn active" data-type="all" type="button">Todos</button>
+      <button class="typeBtn active" data-type="all" type="button">Todos</button>
 
-  <button class="typeBtn" data-type="Normal" type="button">🟤 Normal</button>
-  <button class="typeBtn" data-type="Fire" type="button">🔥 Fogo</button>
-  <button class="typeBtn" data-type="Water" type="button">💧 Água</button>
-  <button class="typeBtn" data-type="Electric" type="button">⚡ Elétrico</button>
-  <button class="typeBtn" data-type="Grass" type="button">🌿 Planta</button>
-  <button class="typeBtn" data-type="Ice" type="button">❄️ Gelo</button>
-  <button class="typeBtn" data-type="Fighting" type="button">🥊 Lutador</button>
-  <button class="typeBtn" data-type="Poison" type="button">☠️ Veneno</button>
-  <button class="typeBtn" data-type="Ground" type="button">🌍 Terrestre</button>
-  <button class="typeBtn" data-type="Flying" type="button">🕊️ Voador</button>
-  <button class="typeBtn" data-type="Psychic" type="button">🔮 Psíquico</button>
-  <button class="typeBtn" data-type="Bug" type="button">🐛 Inseto</button>
-  <button class="typeBtn" data-type="Rock" type="button">🗿 Pedra</button>
-  <button class="typeBtn" data-type="Ghost" type="button">👻 Fantasma</button>
-  <button class="typeBtn" data-type="Dragon" type="button">🐉 Dragão</button>
-  <button class="typeBtn" data-type="Dark" type="button">🌑 Sombrio</button>
-  <button class="typeBtn" data-type="Steel" type="button">⚙️ Aço</button>
-  <button class="typeBtn" data-type="Fairy" type="button">🧚 Fada</button>
-</div>
-
-    
+      <button class="typeBtn" data-type="Normal" type="button">🟤 Normal</button>
+      <button class="typeBtn" data-type="Fire" type="button">🔥 Fogo</button>
+      <button class="typeBtn" data-type="Water" type="button">💧 Água</button>
+      <button class="typeBtn" data-type="Electric" type="button">⚡ Elétrico</button>
+      <button class="typeBtn" data-type="Grass" type="button">🌿 Planta</button>
+      <button class="typeBtn" data-type="Ice" type="button">❄️ Gelo</button>
+      <button class="typeBtn" data-type="Fighting" type="button">🥊 Lutador</button>
+      <button class="typeBtn" data-type="Poison" type="button">☠️ Veneno</button>
+      <button class="typeBtn" data-type="Ground" type="button">🌍 Terrestre</button>
+      <button class="typeBtn" data-type="Flying" type="button">🕊️ Voador</button>
+      <button class="typeBtn" data-type="Psychic" type="button">🔮 Psíquico</button>
+      <button class="typeBtn" data-type="Bug" type="button">🐛 Inseto</button>
+      <button class="typeBtn" data-type="Rock" type="button">🗿 Pedra</button>
+      <button class="typeBtn" data-type="Ghost" type="button">👻 Fantasma</button>
+      <button class="typeBtn" data-type="Dragon" type="button">🐉 Dragão</button>
+      <button class="typeBtn" data-type="Dark" type="button">🌑 Sombrio</button>
+      <button class="typeBtn" data-type="Steel" type="button">⚙️ Aço</button>
+      <button class="typeBtn" data-type="Fairy" type="button">🧚 Fada</button>
+    </div>
 
     <div class="dockShell">
       <div class="dock">
@@ -633,13 +647,10 @@ body{
     </div>
 
     <div id="lastUpdated" class="lastUpdated"></div>
-
-    
   </div>
 
 <script type="module">
   import { RAW, GYM_STATS, META } from "./pokemon-data.js";
-
 
   const spriteGif = (slug, shiny=false) =>
     shiny
@@ -687,11 +698,14 @@ body{
           shiny: !!p.shiny,
           xmas: !!p.xmas,
           dynamax: !!p.dynamax,
+          favorite: !!p.favorite,
           types: p.types || [],
           ivs: [p.iv ?? 0]
         });
       }else{
-        map.get(key).ivs.push(p.iv ?? 0);
+        const existing = map.get(key);
+        existing.ivs.push(p.iv ?? 0);
+        if(p.favorite) existing.favorite = true;
       }
     }
 
@@ -704,6 +718,7 @@ body{
     }
 
     list.sort((a,b)=>{
+      if(!!b.favorite !== !!a.favorite) return (b.favorite ? 1 : 0) - (a.favorite ? 1 : 0);
       if(b.maxIv !== a.maxIv) return b.maxIv - a.maxIv;
       if(!!b.shiny !== !!a.shiny) return (b.shiny ? 1 : 0) - (a.shiny ? 1 : 0);
       return displayName(a).localeCompare(displayName(b),"pt-BR",{sensitivity:"base"});
@@ -713,12 +728,12 @@ body{
   }
 
   function ivClass(iv){
-  if(iv === 100) return "perfect";
-  if(iv >= 95)  return "epic";
-  if(iv >= 90)  return "good";
-  if(iv >= 80)  return "mid";
-  if(iv >= 60)  return "low";
-  return "bad";
+    if(iv === 100) return "perfect";
+    if(iv >= 95)  return "epic";
+    if(iv >= 90)  return "good";
+    if(iv >= 80)  return "mid";
+    if(iv >= 60)  return "low";
+    return "bad";
   }
 
   function typeEmoji(type){
@@ -768,62 +783,39 @@ body{
     dynamax:false
   };
 
-  const typeState = new Set(); // guarda tipos selecionados (em inglês, igual no data.js)
+  const typeState = new Set();
 
-const TYPE_META = [
-  { type:"Normal",   pt:"Normal",   color:"#A8A878" },
-  { type:"Fire",     pt:"Fogo",     color:"#F08030" },
-  { type:"Water",    pt:"Água",     color:"#6890F0" },
-  { type:"Electric", pt:"Elétrico", color:"#F8D030" },
-  { type:"Grass",    pt:"Planta",   color:"#78C850" },
-  { type:"Ice",      pt:"Gelo",     color:"#98D8D8" },
-  { type:"Fighting", pt:"Lutador",  color:"#C03028" },
-  { type:"Poison",   pt:"Veneno",   color:"#A040A0" },
-  { type:"Ground",   pt:"Terra",    color:"#E0C068" },
-  { type:"Flying",   pt:"Voador",   color:"#A890F0" },
-  { type:"Psychic",  pt:"Psíquico", color:"#F85888" },
-  { type:"Bug",      pt:"Inseto",   color:"#A8B820" },
-  { type:"Rock",     pt:"Pedra",    color:"#B8A038" },
-  { type:"Ghost",    pt:"Fantasma", color:"#705898" },
-  { type:"Dragon",   pt:"Dragão",   color:"#7038F8" },
-  { type:"Dark",     pt:"Sombrio",  color:"#705848" },
-  { type:"Steel",    pt:"Aço",      color:"#B8B8D0" },
-  { type:"Fairy",    pt:"Fada",     color:"#EE99AC" },
-];
+  function setupTypeFilters(){
+    const row = document.querySelector(".typeRow");
+    if(!row) return;
 
-function setupTypeFilters(){
-  const row = document.querySelector(".typeRow"); // <- era getElementById
-  if(!row) return;
+    const allBtn = row.querySelector('.typeBtn[data-type="all"]');
 
-  const allBtn = row.querySelector('.typeBtn[data-type="all"]');
+    row.addEventListener("click", (ev)=>{
+      const btn = ev.target.closest(".typeBtn");
+      if(!btn || btn.classList.contains("isLabel")) return;
 
-  row.addEventListener("click", (ev)=>{
-    const btn = ev.target.closest(".typeBtn");
-    if(!btn || btn.classList.contains("isLabel")) return;
+      const tp = btn.dataset.type;
 
-    const tp = btn.dataset.type;
+      if(tp === "all"){
+        typeState.clear();
+        row.querySelectorAll('.typeBtn[data-type]').forEach(b=>b.classList.remove("active"));
+        allBtn?.classList.add("active");
+        renderDock();
+        return;
+      }
 
-    if(tp === "all"){
-      typeState.clear();
-      row.querySelectorAll('.typeBtn[data-type]').forEach(b=>b.classList.remove("active"));
-      allBtn?.classList.add("active");
+      allBtn?.classList.remove("active");
+
+      btn.classList.toggle("active");
+      if(btn.classList.contains("active")) typeState.add(tp);
+      else typeState.delete(tp);
+
+      if(typeState.size === 0) allBtn?.classList.add("active");
+
       renderDock();
-      return;
-    }
-
-    allBtn?.classList.remove("active");
-
-    btn.classList.toggle("active");
-    if(btn.classList.contains("active")) typeState.add(tp);
-    else typeState.delete(tp);
-
-    if(typeState.size === 0) allBtn?.classList.add("active");
-
-    renderDock();
-  });
-}
-
-
+    });
+  }
 
   function filtered(){
     let q = (search.value || "").trim().toLowerCase();
@@ -849,102 +841,118 @@ function setupTypeFilters(){
     wantsXmas  = wantsXmas  || tagState.xmas;
     wantsDyna  = wantsDyna  || tagState.dynamax;
 
-  return AGG.filter(p=>{
-  if(wantsShiny && !p.shiny)   return false;
-  if(wantsXmas  && !p.xmas)    return false;
-  if(wantsDyna  && !p.dynamax) return false;
+    return AGG.filter(p=>{
+      if(wantsShiny && !p.shiny)   return false;
+      if(wantsXmas  && !p.xmas)    return false;
+      if(wantsDyna  && !p.dynamax) return false;
 
-  // NOVO: filtro por tipo (OR: se selecionou vários, basta bater em um)
-  if(typeState.size){
-    const types = p.types || [];
-    if(!types.some(t => typeState.has(t))) return false;
+      if(typeState.size){
+        const types = p.types || [];
+        if(!types.some(t => typeState.has(t))) return false;
+      }
+
+      if(!q) return true;
+
+      const namePT = displayName(p).toLowerCase();
+      const slug = p.name.toLowerCase();
+      return namePT.includes(q) || slug.includes(q);
+    });
   }
 
-  if(!q) return true;
+  function makeSectionTitle(text){
+    const title = document.createElement("div");
+    title.className = "sectionTitle";
+    title.innerHTML = `<span>${text}</span>`;
+    return title;
+  }
 
-  const namePT = displayName(p).toLowerCase();
-  const slug = p.name.toLowerCase();
-  return namePT.includes(q) || slug.includes(q);
-});
+  function makeCard(p){
+    const card = document.createElement("div");
+    card.className = "card";
 
+    const ivTag = document.createElement("div");
+    ivTag.className = "ivTag " + ivClass(p.maxIv);
+    ivTag.innerHTML = `<span class="ivLabel">IV</span><span class="ivNum">${p.maxIv}</span>`;
+    card.appendChild(ivTag);
+
+    const shell = document.createElement("div");
+    shell.className = "spriteShell";
+
+    const img = document.createElement("img");
+    img.loading = "lazy";
+    img.alt = p.shiny ? `${p.name} shiny` : p.name;
+    wireSprite(img, p.name, p.shiny);
+    shell.appendChild(img);
+
+    card.appendChild(shell);
+
+    const nm = document.createElement("div");
+    nm.className = "name";
+    nm.textContent = displayName(p);
+    card.appendChild(nm);
+
+    const emojiRow = document.createElement("div");
+    emojiRow.className = "emojiRow";
+    emojiRow.textContent = typesToEmoji(p.types || []);
+    card.appendChild(emojiRow);
+
+    if(p.count > 1){
+      const countTag = document.createElement("div");
+      countTag.className = "countTag";
+      countTag.textContent = `×${p.count}`;
+      card.appendChild(countTag);
+    }
+
+    return card;
   }
 
   function renderDock(){
     const list = filtered();
     dockGrid.innerHTML = "";
 
-    list.forEach(p=>{
-      const card = document.createElement("div");
-      card.className = "card";
+    const favorites = list.filter(p => p.favorite);
+    const others = list.filter(p => !p.favorite);
 
-      const ivTag = document.createElement("div");
-      ivTag.className = "ivTag " + ivClass(p.maxIv);
-ivTag.innerHTML = `<span class="ivLabel">IV</span><span class="ivNum">${p.maxIv}</span>`;
-      card.appendChild(ivTag);
+    if(favorites.length){
+      dockGrid.appendChild(makeSectionTitle("FAVORITOS"));
+      favorites.forEach(p => dockGrid.appendChild(makeCard(p)));
+    }
 
-      const shell = document.createElement("div");
-      shell.className = "spriteShell";
-
-      const img = document.createElement("img");
-      img.loading = "lazy";
-      img.alt = p.shiny ? `${p.name} shiny` : p.name;
-      wireSprite(img, p.name, p.shiny);
-      shell.appendChild(img);
-
-      card.appendChild(shell);
-
-      const nm = document.createElement("div");
-      nm.className = "name";
-      nm.textContent = displayName(p);
-      card.appendChild(nm);
-
-      const emojiRow = document.createElement("div");
-      emojiRow.className = "emojiRow";
-      emojiRow.textContent = typesToEmoji(p.types || []);
-      card.appendChild(emojiRow);
-
-      if(p.count > 1){
-        const countTag = document.createElement("div");
-        countTag.className = "countTag";
-        countTag.textContent = `×${p.count}`;
-        card.appendChild(countTag);
-      }
-
-      dockGrid.appendChild(card);
-    });
+    others.forEach(p => dockGrid.appendChild(makeCard(p)));
   }
 
-function renderFlipStat(id, value, minDigits){
-  const el = document.getElementById(id);
-  if(!el) return;
+  function renderFlipStat(id, value, minDigits){
+    const el = document.getElementById(id);
+    if(!el) return;
 
-  const raw = String(value ?? 0);
-  const padded = (minDigits ? raw.padStart(minDigits,"0") : raw);
+    const raw = String(value ?? 0);
+    const digits =
+      typeof minDigits === "number"
+        ? minDigits
+        : (minDigits && typeof minDigits === "object" ? Number(minDigits.minDigits || 0) : 0);
 
-  // remove zeros à esquerda, mas mantém pelo menos 1 dígito
-  const s = padded.replace(/^0+(?=\d)/, "");
+    const padded = digits ? raw.padStart(digits, "0") : raw;
+    const s = padded.replace(/^0+(?=\d)/, "");
 
-  el.innerHTML = "";
-  for(const ch of s){
-    const d = document.createElement("div");
-    d.className = "digitStat";
-    const face = document.createElement("div");
-    face.className = "digitFace";
-    face.textContent = ch;
-    d.appendChild(face);
-    el.appendChild(d);
+    el.innerHTML = "";
+    for(const ch of s){
+      const d = document.createElement("div");
+      d.className = "digitStat";
+      const face = document.createElement("div");
+      face.className = "digitFace";
+      face.textContent = ch;
+      d.appendChild(face);
+      el.appendChild(d);
+    }
   }
-}
 
+  function renderStats(){
+    const gyms = Number(GYM_STATS?.gymsDefeated ?? 0);
+    const hours = Number(GYM_STATS?.hoursLeading ?? 0);
 
-function renderStats(){
-  const gyms = Number(GYM_STATS?.gymsDefeated ?? 0);
-  const hours = Number(GYM_STATS?.hoursLeading ?? 0);
-
-  renderFlipStat("gymsDefeated", gyms, { minDigits: 3 });
-  renderFlipStat("hoursLeading", hours, { minDigits: 3 });
-}
-
+    renderFlipStat("gymsDefeated", gyms, 3);
+    renderFlipStat("hoursLeading", hours, 3);
+  }
 
   function setupTagFilters(){
     const btns = document.querySelectorAll(".tagBtn");
@@ -992,28 +1000,24 @@ function renderStats(){
     }
   });
 
-
-
   function formatBR(iso){
-  if(!iso) return "??/??/??";
-  // aceita "2026-01-01"
-  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
-  if(m) return `${m[3]}/${m[2]}/${m[1].slice(2)}`; // DD/MM/AA
-  return iso; // se você já mandar "01/01/26", ele mostra como vier
-}
+    if(!iso) return "??/??/??";
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+    if(m) return `${m[3]}/${m[2]}/${m[1].slice(2)}`;
+    return iso;
+  }
 
-function renderLastUpdated(){
-  const el = document.getElementById("lastUpdated");
-  if(!el) return;
-  el.textContent = `Atualizado pela última vez em ${formatBR(META?.lastUpdated)}`;
-}
+  function renderLastUpdated(){
+    const el = document.getElementById("lastUpdated");
+    if(!el) return;
+    el.textContent = `Atualizado pela última vez em ${formatBR(META?.lastUpdated)}`;
+  }
 
-setupTagFilters();
-setupTypeFilters();   // <- faltava
-renderStats();
-renderLastUpdated();
-renderDock();
-
+  setupTagFilters();
+  setupTypeFilters();
+  renderStats();
+  renderLastUpdated();
+  renderDock();
 </script>
 
 </body>
