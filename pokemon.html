@@ -3,18 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pokémon GO</title>
+  <title>Pokémon GO • LuaHMoonMC</title>
 
   <style>
     :root{
       --bg1:#05060b;
       --bg2:#101522;
-      --glass:#10131f;
-      --stroke:rgba(255,255,255,.20);
       --text:#f7fbff;
       --muted:rgba(247,251,255,.76);
       --accent:#ee1515;
-      --accentSoft:rgba(238,21,21,.25);
       --shadowDock:0 28px 80px rgba(0,0,0,.75);
       --radiusDock:26px;
     }
@@ -23,14 +20,9 @@
     html{ min-height:100%; }
 
     body{
-      min-height:100vh;
-      height:auto;
-      align-items:flex-start;
-    }
-
-    body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      min-height:100vh;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--text);
       background:
         radial-gradient(1200px 700px at 10% 0%, rgba(238,21,21,.22), transparent 60%),
@@ -38,7 +30,7 @@
         linear-gradient(160deg, var(--bg1), var(--bg2));
       overflow-x:hidden;
       display:flex;
-      align-items:stretch;
+      align-items:flex-start;
       justify-content:center;
     }
 
@@ -92,6 +84,7 @@
       position:relative;
       flex:0 0 46px;
     }
+
     .pokeball::after{
       content:"";
       position:absolute;
@@ -134,6 +127,7 @@
       font-size:13px;
       white-space:nowrap;
     }
+
     .pill strong{ font-weight:900; }
 
     .copy{
@@ -148,6 +142,7 @@
       box-shadow:0 16px 40px rgba(0,0,0,.65);
       font-size:13px;
     }
+
     .copy:hover{ filter:brightness(1.1); }
     .copy:active{ transform:translateY(1px); }
 
@@ -156,6 +151,7 @@
       justify-content:center;
       margin-top:4px;
     }
+
     .search{
       width:min(520px,100%);
       border-radius:999px;
@@ -167,6 +163,7 @@
       font-size:14px;
       box-shadow:0 18px 40px rgba(0,0,0,.55);
     }
+
     .search::placeholder{ color:rgba(247,251,255,.55); }
 
     .tagRow{
@@ -180,36 +177,34 @@
 
     .tagBtn{
       appearance:none;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(0,0,0,.26);
-      color: rgba(255,255,255,.92);
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 13px;
-      letter-spacing: .2px;
-      cursor: pointer;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(0,0,0,.26);
+      color:rgba(255,255,255,.92);
+      padding:8px 14px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:13px;
+      letter-spacing:.2px;
+      cursor:pointer;
       user-select:none;
-      -webkit-tap-highlight-color: transparent;
+      -webkit-tap-highlight-color:transparent;
       box-shadow:
         0 10px 20px rgba(0,0,0,.28),
         inset 0 1px 0 rgba(255,255,255,.10);
-      transition: transform .12s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+      transition:transform .12s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
     }
 
     .tagBtn:hover{
-      transform: translateY(-1px);
-      border-color: rgba(255,255,255,.24);
-      background: rgba(0,0,0,.34);
+      transform:translateY(-1px);
+      border-color:rgba(255,255,255,.24);
+      background:rgba(0,0,0,.34);
     }
 
-    .tagBtn:active{
-      transform: translateY(0px) scale(.99);
-    }
+    .tagBtn:active{ transform:translateY(0) scale(.99); }
 
     .tagBtn.active{
-      background: linear-gradient(180deg, rgba(238,21,21,.35), rgba(238,21,21,.14));
-      border-color: rgba(238,21,21,.55);
+      background:linear-gradient(180deg, rgba(238,21,21,.35), rgba(238,21,21,.14));
+      border-color:rgba(238,21,21,.55);
       box-shadow:
         0 14px 28px rgba(238,21,21,.18),
         inset 0 1px 0 rgba(255,255,255,.14);
@@ -226,38 +221,38 @@
 
     .typeBtn{
       appearance:none;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color: rgba(255,255,255,.88);
-      padding: 7px 12px;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:rgba(255,255,255,.88);
+      padding:7px 12px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:12px;
       cursor:pointer;
       user-select:none;
-      -webkit-tap-highlight-color: transparent;
+      -webkit-tap-highlight-color:transparent;
       box-shadow:
         0 8px 18px rgba(0,0,0,.22),
         inset 0 1px 0 rgba(255,255,255,.08);
-      transition: transform .12s ease, background .18s ease, border-color .18s ease;
+      transition:transform .12s ease, background .18s ease, border-color .18s ease;
     }
 
     .typeBtn:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.09);
-      border-color: rgba(255,255,255,.22);
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.09);
+      border-color:rgba(255,255,255,.22);
     }
 
     .typeBtn.active{
-      background: rgba(42,117,187,.22);
-      border-color: rgba(42,117,187,.55);
+      background:rgba(42,117,187,.22);
+      border-color:rgba(42,117,187,.55);
     }
 
     .typeBtn.isLabel{
-      cursor: default;
-      opacity: .85;
-      background: rgba(0,0,0,.22);
-      border-color: rgba(255,255,255,.12);
+      cursor:default;
+      opacity:.85;
+      background:rgba(0,0,0,.22);
+      border-color:rgba(255,255,255,.12);
     }
 
     .statsRow{
@@ -267,6 +262,8 @@
       align-items:center;
       gap:14px;
       max-width:720px;
+      width:100%;
+      flex-wrap:wrap;
     }
 
     .statBlock{
@@ -282,19 +279,22 @@
       display:flex;
       flex-direction:column;
       gap:6px;
-      margin: 5px 5px;
+      margin:5px 5px;
     }
+
     .statLabel{
       font-size:11px;
       letter-spacing:.16em;
       text-transform:uppercase;
       color:rgba(247,251,255,.8);
     }
+
     .flipDigits{
       display:flex;
       gap:4px;
       margin-top:4px;
     }
+
     .digitStat{
       position:relative;
       width:40px;
@@ -303,6 +303,7 @@
       filter:drop-shadow(0 10px 24px rgba(0,0,0,.7));
       overflow:hidden;
     }
+
     .digitFace{
       position:absolute;
       inset:0;
@@ -324,6 +325,7 @@
         inset 0 0 0 1px rgba(0,0,0,.7),
         0 0 0 2px color-mix(in oklab,var(--accent) 24%,transparent);
     }
+
     .digitFace::before{
       content:"";
       position:absolute;
@@ -453,22 +455,25 @@
       font-weight:900;
       margin-right:6px;
     }
+
     .ivNum{ color:inherit; }
 
     .ivTag.good{ color:#93FE37; }
     .ivTag.mid{ color:#3CFFFF; }
     .ivTag.low{ color:#ffffff; }
     .ivTag.bad{ color:#ff5151; }
+
     .ivTag.epic{
       color:#E9D5FF;
-      border-color: rgba(199,125,255,.75);
-      background: linear-gradient(180deg, rgba(199,125,255,.28), rgba(0,0,0,.72));
-      box-shadow: 0 10px 24px rgba(199,125,255,.16), 0 8px 20px rgba(0,0,0,.65);
+      border-color:rgba(199,125,255,.75);
+      background:linear-gradient(180deg, rgba(199,125,255,.28), rgba(0,0,0,.72));
+      box-shadow:0 10px 24px rgba(199,125,255,.16), 0 8px 20px rgba(0,0,0,.65);
     }
+
     .ivTag.perfect{
       color:#FFE8C2;
-      border-color: rgba(255,159,28,.85);
-      background: linear-gradient(180deg, rgba(255,159,28,.38), rgba(0,0,0,.78));
+      border-color:rgba(255,159,28,.85);
+      background:linear-gradient(180deg, rgba(255,159,28,.38), rgba(0,0,0,.78));
       box-shadow:
         0 10px 26px rgba(255,159,28,.22),
         0 8px 22px rgba(0,0,0,.65);
@@ -526,36 +531,12 @@
       opacity:.9;
     }
 
-    @media (max-width:640px){
-      .dock{
-        padding-inline:10px;
-        border-radius:22px;
-      }
-      .card{
-        width:74px;
-        padding-top:22px;
-      }
-      .spriteShell{
-        width:62px;
-        height:62px;
-      }
-      .spriteShell img{
-        max-width:56px;
-        max-height:56px;
-      }
-      .name{
-        font-size:11px;
-        max-width:72px;
-      }
-      .emojiRow{ font-size:12px; }
-      .digitStat{
-        width:34px;
-        height:50px;
-      }
-      .sectionTitle::before,
-      .sectionTitle::after{
-        max-width:90px;
-      }
+    .emptyState{
+      width:100%;
+      padding:28px 16px 24px;
+      text-align:center;
+      color:rgba(247,251,255,.78);
+      font-size:14px;
     }
 
     .lastUpdated{
@@ -565,6 +546,45 @@
       letter-spacing:.06em;
       color:rgba(247,251,255,.70);
       opacity:.95;
+    }
+
+    @media (max-width:640px){
+      .dock{
+        padding-inline:10px;
+        border-radius:22px;
+      }
+
+      .card{
+        width:74px;
+        padding-top:22px;
+      }
+
+      .spriteShell{
+        width:62px;
+        height:62px;
+      }
+
+      .spriteShell img{
+        max-width:56px;
+        max-height:56px;
+      }
+
+      .name{
+        font-size:11px;
+        max-width:72px;
+      }
+
+      .emojiRow{ font-size:12px; }
+
+      .digitStat{
+        width:34px;
+        height:50px;
+      }
+
+      .sectionTitle::before,
+      .sectionTitle::after{
+        max-width:90px;
+      }
     }
   </style>
 </head>
@@ -582,11 +602,11 @@
 
       <div class="idbox">
         <div class="pill">
-          <span>Nome de Treinadora</span>
-          <strong>MooonComBR</strong>
+          <span>Treinadora</span>
+          <strong>MooonComBr</strong>
         </div>
         <div class="pill">
-          <span>Código para me adicionar</span>
+          <span>Código para add</span>
           <strong id="friendCode">1612 5521 0803</strong>
         </div>
         <button class="copy" id="copyBtn" type="button">Copiar código</button>
@@ -606,9 +626,7 @@
 
     <div class="typeRow">
       <button class="typeBtn isLabel" type="button">TIPOS</button>
-
       <button class="typeBtn active" data-type="all" type="button">Todos</button>
-
       <button class="typeBtn" data-type="Normal" type="button">🟤 Normal</button>
       <button class="typeBtn" data-type="Fire" type="button">🔥 Fogo</button>
       <button class="typeBtn" data-type="Water" type="button">💧 Água</button>
@@ -641,7 +659,7 @@
         <div class="flipDigits" id="gymsDefeated"></div>
       </div>
       <div class="statBlock">
-        <div class="statLabel">Horas liderando ginásios</div>
+        <div class="statLabel">Dias liderando ginásios</div>
         <div class="flipDigits" id="hoursLeading"></div>
       </div>
     </div>
@@ -657,15 +675,32 @@
       ? `https://play.pokemonshowdown.com/sprites/xyani-shiny/${slug}.gif`
       : `https://play.pokemonshowdown.com/sprites/xyani/${slug}.gif`;
 
-  const spritePng = (slug, shiny=false) =>
+  const spritePng = (slug, shiny=false, folder="gen5") =>
     shiny
-      ? `https://play.pokemonshowdown.com/sprites/gen8-shiny/${slug}.png`
-      : `https://play.pokemonshowdown.com/sprites/gen8/${slug}.png`;
+      ? `https://play.pokemonshowdown.com/sprites/${folder}-shiny/${slug}.png`
+      : `https://play.pokemonshowdown.com/sprites/${folder}/${slug}.png`;
+
+  function normalizeSpriteSlug(slug){
+    if(slug === "mr-mime") return "mrmime";
+    if(slug === "mr-mime-galar") return "mrmime-galar";
+    return slug;
+  }
+
+  const SPECIAL_DISPLAY_NAMES = {
+    "mr-mime": "Mr. Mime",
+    "mrmime": "Mr. Mime",
+    "mr-mime-galar": "Mr. Mime de Galar",
+    "mrmime-galar": "Mr. Mime de Galar",
+    "porygon2": "Porygon2"
+  };
 
   function prettyName(slug){
+    if(SPECIAL_DISPLAY_NAMES[slug]) return SPECIAL_DISPLAY_NAMES[slug];
+
     if(!slug.includes("-")){
       return slug.charAt(0).toUpperCase() + slug.slice(1);
     }
+
     const parts = slug.split("-");
     const base = parts[0].charAt(0).toUpperCase() + parts[0].slice(1);
     const form = parts.slice(1).join("-");
@@ -673,7 +708,8 @@
     if(form === "alola") return `${base} de Alola`;
     if(form === "galar") return `${base} de Galar`;
     if(form === "hisui") return `${base} de Hisui`;
-    if(form === "mega")  return `Mega ${base}`;
+    if(form === "mega") return `Mega ${base}`;
+    if(form === "origin") return `${base} Origin`;
 
     const formNice = form.replace(/\b\w/g, m => m.toUpperCase()).replace(/-/g," ");
     return `${base} (${formNice})`;
@@ -702,7 +738,7 @@
           types: p.types || [],
           ivs: [p.iv ?? 0]
         });
-      }else{
+      } else {
         const existing = map.get(key);
         existing.ivs.push(p.iv ?? 0);
         if(p.favorite) existing.favorite = true;
@@ -721,7 +757,7 @@
       if(!!b.favorite !== !!a.favorite) return (b.favorite ? 1 : 0) - (a.favorite ? 1 : 0);
       if(b.maxIv !== a.maxIv) return b.maxIv - a.maxIv;
       if(!!b.shiny !== !!a.shiny) return (b.shiny ? 1 : 0) - (a.shiny ? 1 : 0);
-      return displayName(a).localeCompare(displayName(b),"pt-BR",{sensitivity:"base"});
+      return displayName(a).localeCompare(displayName(b), "pt-BR", { sensitivity:"base" });
     });
 
     return list;
@@ -729,34 +765,34 @@
 
   function ivClass(iv){
     if(iv === 100) return "perfect";
-    if(iv >= 95)  return "epic";
-    if(iv >= 90)  return "good";
-    if(iv >= 80)  return "mid";
-    if(iv >= 60)  return "low";
+    if(iv >= 95) return "epic";
+    if(iv >= 90) return "good";
+    if(iv >= 80) return "mid";
+    if(iv >= 60) return "low";
     return "bad";
   }
 
   function typeEmoji(type){
     switch(type){
-      case "Grass":   return "🌿";
-      case "Fire":    return "🔥";
-      case "Water":   return "💧";
-      case "Electric":return "⚡";
+      case "Grass": return "🌿";
+      case "Fire": return "🔥";
+      case "Water": return "💧";
+      case "Electric": return "⚡";
       case "Psychic": return "🔮";
-      case "Ghost":   return "👻";
-      case "Fairy":   return "✨";
-      case "Dark":    return "🌑";
-      case "Steel":   return "⚙️";
-      case "Ice":     return "❄️";
-      case "Dragon":  return "🐉";
-      case "Rock":    return "🗿";
-      case "Ground":  return "🌎";
-      case "Flying":  return "🕊️";
-      case "Fighting":return "🥊";
-      case "Poison":  return "☠️";
-      case "Bug":     return "🐛";
-      case "Normal":  return "🟤";
-      default:        return "◽";
+      case "Ghost": return "👻";
+      case "Fairy": return "✨";
+      case "Dark": return "🌑";
+      case "Steel": return "⚙️";
+      case "Ice": return "❄️";
+      case "Dragon": return "🐉";
+      case "Rock": return "🗿";
+      case "Ground": return "🌎";
+      case "Flying": return "🕊️";
+      case "Fighting": return "🥊";
+      case "Poison": return "☠️";
+      case "Bug": return "🐛";
+      case "Normal": return "🟤";
+      default: return "◽";
     }
   }
 
@@ -766,10 +802,25 @@
   }
 
   function wireSprite(img, slug, shiny){
-    img.src = spriteGif(slug, shiny);
+    const spriteSlug = normalizeSpriteSlug(slug);
+    const sources = [
+      spriteGif(spriteSlug, shiny),
+      spritePng(spriteSlug, shiny, "gen5"),
+      spritePng(spriteSlug, false, "gen5"),
+      spritePng(spriteSlug, shiny, "gen8"),
+      spritePng(spriteSlug, false, "gen8")
+    ];
+
+    let idx = 0;
+    img.src = sources[idx];
+
     img.onerror = () => {
-      img.onerror = () => { img.src = spritePng(slug, false); };
-      img.src = spritePng(slug, shiny);
+      idx += 1;
+      if(idx < sources.length){
+        img.src = sources[idx];
+      } else {
+        img.onerror = null;
+      }
     };
   }
 
@@ -799,7 +850,7 @@
 
       if(tp === "all"){
         typeState.clear();
-        row.querySelectorAll('.typeBtn[data-type]').forEach(b=>b.classList.remove("active"));
+        row.querySelectorAll('.typeBtn[data-type]').forEach(b => b.classList.remove("active"));
         allBtn?.classList.add("active");
         renderDock();
         return;
@@ -821,30 +872,32 @@
     let q = (search.value || "").trim().toLowerCase();
 
     let wantsShiny = false;
-    let wantsXmas  = false;
-    let wantsDyna  = false;
+    let wantsXmas = false;
+    let wantsDyna = false;
 
     if(q.includes("✨") || q.includes("shiny") || q.includes("brilhante")){
       wantsShiny = true;
       q = q.replaceAll("✨","").replaceAll("shiny","").replaceAll("brilhante","").trim();
     }
+
     if(q.includes("🎄") || q.includes("xmas") || q.includes("natal")){
       wantsXmas = true;
       q = q.replaceAll("🎄","").replaceAll("xmas","").replaceAll("natal","").trim();
     }
+
     if(q.includes("💥") || q.includes("dynamax") || q.includes("dyna")){
       wantsDyna = true;
       q = q.replaceAll("💥","").replaceAll("dynamax","").replaceAll("dyna","").trim();
     }
 
     wantsShiny = wantsShiny || tagState.shiny;
-    wantsXmas  = wantsXmas  || tagState.xmas;
-    wantsDyna  = wantsDyna  || tagState.dynamax;
+    wantsXmas = wantsXmas || tagState.xmas;
+    wantsDyna = wantsDyna || tagState.dynamax;
 
     return AGG.filter(p=>{
-      if(wantsShiny && !p.shiny)   return false;
-      if(wantsXmas  && !p.xmas)    return false;
-      if(wantsDyna  && !p.dynamax) return false;
+      if(wantsShiny && !p.shiny) return false;
+      if(wantsXmas && !p.xmas) return false;
+      if(wantsDyna && !p.dynamax) return false;
 
       if(typeState.size){
         const types = p.types || [];
@@ -910,37 +963,46 @@
     const list = filtered();
     dockGrid.innerHTML = "";
 
+    if(!list.length){
+      const empty = document.createElement("div");
+      empty.className = "emptyState";
+      empty.textContent = "Nenhum Pokémon encontrado.";
+      dockGrid.appendChild(empty);
+      return;
+    }
+
     const favorites = list.filter(p => p.favorite);
     const others = list.filter(p => !p.favorite);
 
     if(favorites.length){
-      dockGrid.appendChild(makeSectionTitle("FAVORITOS"));
+      dockGrid.appendChild(makeSectionTitle("Favoritos"));
       favorites.forEach(p => dockGrid.appendChild(makeCard(p)));
+    }
+
+    if(favorites.length && others.length){
+      dockGrid.appendChild(makeSectionTitle("Outros"));
     }
 
     others.forEach(p => dockGrid.appendChild(makeCard(p)));
   }
 
-  function renderFlipStat(id, value, minDigits){
+  function renderFlipStat(id, value, minDigits=0){
     const el = document.getElementById(id);
     if(!el) return;
 
     const raw = String(value ?? 0);
-    const digits =
-      typeof minDigits === "number"
-        ? minDigits
-        : (minDigits && typeof minDigits === "object" ? Number(minDigits.minDigits || 0) : 0);
-
-    const padded = digits ? raw.padStart(digits, "0") : raw;
+    const padded = minDigits ? raw.padStart(minDigits, "0") : raw;
     const s = padded.replace(/^0+(?=\d)/, "");
 
     el.innerHTML = "";
     for(const ch of s){
       const d = document.createElement("div");
       d.className = "digitStat";
+
       const face = document.createElement("div");
       face.className = "digitFace";
       face.textContent = ch;
+
       d.appendChild(face);
       el.appendChild(d);
     }
@@ -949,9 +1011,10 @@
   function renderStats(){
     const gyms = Number(GYM_STATS?.gymsDefeated ?? 0);
     const hours = Number(GYM_STATS?.hoursLeading ?? 0);
+    const days = Math.floor(hours / 24);
 
     renderFlipStat("gymsDefeated", gyms, 3);
-    renderFlipStat("hoursLeading", hours, 3);
+    renderFlipStat("hoursLeading", days, 3);
   }
 
   function setupTagFilters(){
@@ -961,40 +1024,41 @@
     btns.forEach(btn=>{
       btn.addEventListener("click", ()=>{
         const tag = btn.dataset.tag;
+
         if(tag === "all"){
           tagState.shiny = tagState.xmas = tagState.dynamax = false;
-          btns.forEach(b=>b.classList.remove("active"));
+          btns.forEach(b => b.classList.remove("active"));
           allBtn.classList.add("active");
-        }else{
+        } else {
           const isActive = btn.classList.toggle("active");
-          if(tag === "shiny")   tagState.shiny   = isActive;
-          if(tag === "xmas")    tagState.xmas    = isActive;
+          if(tag === "shiny") tagState.shiny = isActive;
+          if(tag === "xmas") tagState.xmas = isActive;
           if(tag === "dynamax") tagState.dynamax = isActive;
 
           if(tagState.shiny || tagState.xmas || tagState.dynamax){
             allBtn.classList.remove("active");
-          }else{
+          } else {
             allBtn.classList.add("active");
           }
         }
+
         renderDock();
       });
     });
   }
 
-  search.addEventListener("input", ()=>{
-    renderDock();
-  });
+  search.addEventListener("input", renderDock);
 
   const copyBtn = document.getElementById("copyBtn");
   copyBtn.addEventListener("click", async ()=>{
-    const code = document.getElementById("friendCode").textContent.replace(/\s+/g," ").trim();
+    const code = document.getElementById("friendCode").textContent.replace(/\s+/g, " ").trim();
     const old = copyBtn.textContent;
+
     try{
       await navigator.clipboard.writeText(code);
       copyBtn.textContent = "Copiado ✅";
       setTimeout(()=> copyBtn.textContent = old, 1100);
-    }catch{
+    } catch {
       copyBtn.textContent = "Selecionei ✨";
       setTimeout(()=> copyBtn.textContent = old, 1100);
     }
