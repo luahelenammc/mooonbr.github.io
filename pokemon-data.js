@@ -92,7 +92,7 @@ export const TYPE_ORDER = [
   { name:"butterfree", iv:93, types:["Bug","Flying"], favorite:true },
   { name:"electrode", iv:97, types:["Electric"] },
   { name:"pelipper", iv:97, types:["Water","Flying"] },
-  { name:"espeon", iv:93, types:["Psychic"], dynamax:true },
+  { name:"espeon", iv:93, types:["Psychic"], dynamax:true, favorite:true },
   { name:"koffing", iv:95, types:["Poison"] },
   { name:"skitty", iv:93, types:["Normal"] },
   { name:"graveler", iv:91, types:["Rock","Ground"] },
