@@ -694,6 +694,39 @@
     "porygon2": "Porygon2"
   };
 
+  const RARITY_RANK = new Map([
+  // míticos
+  ["meloetta", 4],
+  ["shaymin", 4],
+  ["diancie", 4],
+  ["deoxys", 4],
+  ["darkrai", 4],
+
+  // lendários / sublimes cósmicos
+  ["articuno", 3],
+  ["zapdos", 3],
+  ["moltres", 3],
+  ["mesprit", 3],
+  ["azelf", 3],
+  ["uxie", 3],
+  ["regigigas", 3],
+  ["tornadus", 3],
+  ["dialga", 3],
+  ["dialga-origin", 3],
+  ["palkia", 3],
+  ["palkia-origin", 3],
+  ["lunala", 3],
+  ["zacian", 3],
+  ["zamazenta", 3],
+
+  // espaço para futuros ultra-raros / especiais
+  ["zygarde", 2]
+]);
+
+function getRarityRank(name){
+  return RARITY_RANK.get(name) || 0;
+}
+
   function prettyName(slug){
     if(SPECIAL_DISPLAY_NAMES[slug]) return SPECIAL_DISPLAY_NAMES[slug];
 
@@ -753,12 +786,22 @@
       list.push(v);
     }
 
-    list.sort((a,b)=>{
-      if(!!b.favorite !== !!a.favorite) return (b.favorite ? 1 : 0) - (a.favorite ? 1 : 0);
-      if(b.maxIv !== a.maxIv) return b.maxIv - a.maxIv;
-      if(!!b.shiny !== !!a.shiny) return (b.shiny ? 1 : 0) - (a.shiny ? 1 : 0);
-      return displayName(a).localeCompare(displayName(b), "pt-BR", { sensitivity:"base" });
-    });
+   list.sort((a,b)=>{
+  if(!!b.favorite !== !!a.favorite){
+    return (b.favorite ? 1 : 0) - (a.favorite ? 1 : 0);
+  }
+
+  const rarityDiff = getRarityRank(b.name) - getRarityRank(a.name);
+  if(rarityDiff !== 0) return rarityDiff;
+
+  if(b.maxIv !== a.maxIv) return b.maxIv - a.maxIv;
+
+  if(!!b.shiny !== !!a.shiny){
+    return (b.shiny ? 1 : 0) - (a.shiny ? 1 : 0);
+  }
+
+  return displayName(a).localeCompare(displayName(b), "pt-BR", { sensitivity:"base" });
+});
 
     return list;
   }
