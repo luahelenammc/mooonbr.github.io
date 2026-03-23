@@ -689,38 +689,54 @@
   const SPECIAL_DISPLAY_NAMES = {
     "mr-mime": "Mr. Mime",
     "mrmime": "Mr. Mime",
-    "mr-mime-galar": "Mr. Mime de Galar",
-    "mrmime-galar": "Mr. Mime de Galar",
+    "mr-mime-galar": "Mr. Mime (Galar)",
+    "mrmime-galar": "Mr. Mime (Galar)",
     "porygon2": "Porygon2"
   };
 
-  const RARITY_RANK = new Map([
-  // míticos
-  ["meloetta", 4],
-  ["shaymin", 4],
-  ["diancie", 4],
-  ["deoxys", 4],
-  ["darkrai", 4],
+ const RARITY_RANK = new Map([
+  // 1º — míticos
+  
+  ["shaymin-sky", 5],
+  ["diancie", 5],
+  ["deoxys", 5],
+  ["darkrai", 5],
+   ["meloetta", 5],
+  ["shaymin", 5],
 
-  // lendários / sublimes cósmicos
-  ["articuno", 3],
-  ["zapdos", 3],
-  ["moltres", 3],
-  ["mesprit", 3],
-  ["azelf", 3],
-  ["uxie", 3],
-  ["regigigas", 3],
-  ["tornadus", 3],
-  ["dialga", 3],
-  ["dialga-origin", 3],
-  ["palkia", 3],
-  ["palkia-origin", 3],
-  ["lunala", 3],
-  ["zacian", 3],
-  ["zamazenta", 3],
+  // 2º — lendários
+  ["articuno", 4],
+  ["zapdos", 4],
+  ["moltres", 4],
+  ["mesprit", 4],
+  ["azelf", 4],
+  ["uxie", 4],
+  ["regigigas", 4],
+  ["tornadus", 4],
+  ["dialga", 4],
+  ["dialga-origin", 4],
+  ["palkia", 4],
+  ["palkia-origin", 4],
+  ["lunala", 4],
+  ["zacian", 4],
+  ["zamazenta", 4],
 
-  // espaço para futuros ultra-raros / especiais
-  ["zygarde", 2]
+  // 3º — eeveelutions
+  ["vaporeon", 3],
+  ["jolteon", 3],
+  ["flareon", 3],
+  ["espeon", 3],
+  ["umbreon", 3],
+  ["leafeon", 3],
+  ["glaceon", 3],
+  ["sylveon", 3],
+
+  // 4º — outros raros
+  ["zygarde", 2],
+  ["zygarde-10", 2],
+
+  // 5º — não raros
+  // todos os outros ficam em 0 por padrão
 ]);
 
 function getRarityRank(name){
