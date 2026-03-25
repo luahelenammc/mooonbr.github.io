@@ -2,906 +2,1234 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Portal da Moon</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-
-  <link rel="stylesheet" type="text/css" href="/common.css">
-
-  <!-- jQuery para o script original do template -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lojinha da Moon</title>
+  <meta name="description" content="Achados da Moon: coisas úteis, bonitas e deliciosamente recomendáveis." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --azul: #245edb;
-      --azul-medio: #3f8cf3;
-      --azul-claro: #0c8dea;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #000;
-      overflow-y: auto;
-    }
-
-    #windowsXP {
-      display: flex;
-      width: 100vw;
-      min-height: 100vh;
-    }
-
-    .area-de-trabalho {
-      position: relative;
-      flex: 1;
-      width: 100vw;
-      min-height: calc(100vh - 50px);
-      background: url("https://images2.alphacoders.com/941/941898.jpg") center/cover no-repeat;
-      overflow: hidden;
-    }
-
-    /* Ícones do desktop - base desktop */
-    .desktop-icon {
-      position: absolute;
-      width: 110px;
-      height: 135px;
-      padding: 12px 6px 4px;
-      text-align: center;
-      overflow: hidden;
-      z-index: 1;
-      cursor: default;
-      user-select: none;
-    }
-
-    .desktop-icon img {
-      max-width: 68px;
-      max-height: 68px;
-      width: auto;
-      height: auto;
-      display: block;
-      margin: 0 auto 4px;
-      box-shadow: none;
-      pointer-events: none;
-    }
-
-    .desktop-icon span {
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      white-space: normal;
-      color: #fff;
-      font-size: 13px;
-      text-shadow: 2px 2px 8px #000;
-    }
-
-    .desktop-icon.selected span {
-      background: #004E98;
-    }
-
-    /* Barra de tarefas */
-    .barra-de-tarefas {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100vw;
-      height: 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: stretch;
-      background: linear-gradient(
-        to bottom,
-        var(--azul) 0%,
-        var(--azul-claro) 9%,
-        var(--azul) 18%,
-        var(--azul) 92%,
-        #333 100%
-      );
-      z-index: 995;
-    }
-
-    #iniciar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 170px;
-      padding: 0 16px;
-      border: none;
-      margin-right: 12px;
-      background: linear-gradient(
-        to bottom,
-        #3d973d 0%,
-        #6faf72 9%,
-        #3d973d 18%,
-        #3d973d 92%,
-        #666 100%
-      );
-      border-top-right-radius: 15px;
-      border-bottom-right-radius: 15px;
-      cursor: pointer;
-      color: #fff;
-      font-size: 1.4rem;
-      font-weight: bold;
-      text-shadow: 2px 2px 8px #003d00;
-    }
-
-    #iniciar img {
-      width: 26px;
-      height: 26px;
-      margin-right: 8px;
-    }
-
-    #iniciar:hover {
-      background: linear-gradient(
-        to bottom,
-        #3d973d 0%,
-        #6faf72 9%,
-        #3d973d 18%,
-        #37d437 92%,
-        #666 100%
-      );
-    }
-
-    #iniciar.active {
-      box-shadow: inset 0 6px 6px -6px #000;
-    }
-
-    .programas-abertos {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    .area-de-notificacao {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 230px;
-      background: linear-gradient(
-        to bottom,
-        #0fadf4 0%,
-        #0fadf4 9%,
-        #108ae5 18%,
-        #108ae5 92%,
-        #666 100%
-      );
-      padding: 0 8px;
-    }
-
-    .tray-icons {
-      display: flex;
-      gap: 6px;
-      align-items: center;
-      margin-left: 6px;
-    }
-
-    .tray-icons img {
-      width: 20px;
-      height: 20px;
-    }
-
-    #relogio {
-      margin-right: 4px;
-      color: #fff;
-      font-size: 15px;
-      font-weight: bold;
-    }
-
-    /* Menu Iniciar */
-
-    #menuIniciar {
-      position: fixed;
-      left: 0;
-      bottom: 50px;
-      width: 500px;
-      height: 560px;
-      display: none;
-      flex-direction: column;
-      background: #fff;
-      border-top-right-radius: 10px;
-      border-right: 3px solid var(--azul);
-      z-index: 999;
-      box-shadow: 0 0 18px rgba(0,0,0,0.6);
-      overflow: hidden;
-    }
-
-    #menuIniciar.active {
-      display: flex;
-    }
-
-    .topoIniciar {
-      display: flex;
-      align-items: center;
-      height: 90px;
-      background: linear-gradient(
-        to bottom,
-        var(--azul) 0%,
-        var(--azul-claro) 9%,
-        var(--azul) 18%,
-        var(--azul) 92%,
-        var(--azul) 100%
-      );
-    }
-
-    .avatarIniciar {
-      width: 70px;
-      height: 70px;
-      margin-left: 16px;
-      border-radius: 10px;
-      background: #fff url("/images/moonvrjan26.webp") center/cover no-repeat;
-    }
-
-    .userName {
-      margin-left: 18px;
-      color: #fff;
-      font-size: 20px;
-    }
-
-    .mioloIniciar {
-      display: flex;
-      flex: 1;
-      padding: 8px 0;
-    }
-
-    .col {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    .tituloColuna {
-      padding: 4px 10px;
-      font-size: 12px;
-      color: #555;
-      font-weight: bold;
-      border-bottom: 1px solid #ccc;
-      margin-bottom: 2px;
-    }
-
-    .itemIniciar {
-      display: flex;
-      align-items: center;
-      padding: 6px 12px;
-      cursor: default;
-    }
-
-    .itemIniciar img {
-      width: 26px;
-      height: 26px;
-      margin-right: 8px;
-    }
-
-    .itemIniciar span {
-      font-size: 13px;
-      color: #666;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-
-    .itemIniciar span strong {
-      color: #000;
-    }
-
-    .itemIniciar:hover {
-      background: var(--azul-claro);
-    }
-
-    .itemIniciar:hover span,
-    .itemIniciar:hover span strong {
-      color: #fff;
-    }
-
-    .footerIniciar {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      height: 60px;
-      padding-right: 16px;
-      background: linear-gradient(
-        to bottom,
-        var(--azul) 0%,
-        var(--azul-claro) 9%,
-        var(--azul) 18%,
-        var(--azul) 92%,
-        var(--azul) 100%
-      );
-      color: #fff;
-      font-size: 13px;
-      gap: 16px;
-    }
-
-    .footerIniciar span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: default;
-    }
-
-    .footerIniciar img {
-      width: 18px;
-      height: 18px;
-    }
-
-    /* Cursor especial para "links" (desktop, menu e anchors) */
-.desktop-icon:hover,
-#menuIniciar .itemIniciar.has-link:hover,
-a:hover {
-  cursor: url("/images/select.png"), pointer;
-}
-
-    .desktop-icon:active,
-#menuIniciar .itemIniciar.has-link:active,
-a:active {
-  cursor: url("/images/wheel.png"), pointer;
-}
-
-    
-    /* MOBILE */
-    
-    /* Clippy labels e Clippy destaque */
-    .desktop-icon .clippy-label {
-      position: absolute;
-      right: -4px;
-      top: -4px;
-      width: 65px;      /* maior que antes, visível no desktop */
-      height: auto;
-      pointer-events: none;
-      z-index: 2;
-    }
-
-/* Clippy Fun: posição correta (referência = desktopArea) */
-#clippy-fun{
-  position: absolute;
-  left: calc(100% - 220px);
-  top:  calc(100% - 300px);
-  right: auto;
-  bottom: auto;
-}
-    #clippy-fun img {
-      display: block;
-      width: 180px;     /* ~2x um ícone de desktop */
-      height: auto;
-    }
-
-    /* Clippy Fun arrastável */
-#clippy-fun {
-  pointer-events: auto; /* antes estava none, isso impede arrastar/clicar */
-  cursor: move;
-}
-#clippy-fun img {
-  pointer-events: none; /* o drag pega no container, não no GIF */
-}
-
-
-/* ✅ FIX: Hover do Start Menu (fundo aparece + texto não some) */
-#menuIniciar .itemIniciar{
-  width: 100%;               /* garante que o highlight ocupe a coluna */
-  border-radius: 6px;        /* visual XP bonitinho */
-}
-
-#menuIniciar .itemIniciar:hover{
-  background: linear-gradient(90deg, #316ac5 0%, #2853a3 100%) !important;
-}
-
-#menuIniciar .itemIniciar:hover span,
-#menuIniciar .itemIniciar:hover span strong{
-  color: #fff !important;
-}
-
-
-
-    @media (max-width: 900px), (pointer: coarse) {
-      .desktop-icon .clippy-label {
-        width: 60px;
-        right: -2px;
-        top: -2px;
-      }
-
-      #clippy-fun {
-        left: calc(100vw - 160px) !important;
-        top:  calc(100vh - 240px) !important;
-      }
-
-      #clippy-fun img {
-        width: 120px;   /* ~1.5x ícone mobile */
-      }
-    }
-  
-
-@media (max-width: 900px), (pointer: coarse) {
-      .barra-de-tarefas {
-        height: 56px;
-      }
-
-      .area-de-trabalho {
-        min-height: calc(100vh - 56px);
-        background-attachment: scroll;
-      }
-
-      .desktop-icon {
-        width: 135px;
-        height: 155px;
-        padding: 12px 6px 4px;
-      }
-
-      .desktop-icon img {
-        max-width: 88px;
-        max-height: 88px;
-      }
-
-      .desktop-icon span {
-        font-size: 17px;
-      }
-
-      #menuIniciar {
-        width: min(94vw, 520px);
-        height: min(78vh, 720px);
-        bottom: 60px;
-      }
-
-      .avatarIniciar { width: 82px; height: 82px; }
-      .userName { font-size: 22px; }
-      .itemIniciar { height: 72px; padding: 14px; }
-      .itemIniciar img { width: 48px; height: 48px; }
-      .itemIniciar span { font-size: 17px; }
-
-      #iniciar { width: 190px; font-size: 1.7rem; }
-      #relogio { font-size: 1.1rem; }
-    }
-  
-    /* Start menu - itens com link */
-    #menuIniciar .itemIniciar.has-link {
-      cursor: pointer;
-    }
-    #menuIniciar .itemIniciar.has-link:hover {
-      background: rgba(255, 255, 255, 0.25);
-    }
-
-
-  /* MOBILE: desativa o Clippy Fun */
-@media (max-width: 900px), (pointer: coarse) {
-  #clippy-fun {
-    display: none !important;
+  :root {
+    --bg: #fffdf2;
+    --bg-2: #fff7cf;
+    --bg-3: #fff1a8;
+    --text: #20263a;
+    --muted: #5d6782;
+    --line: rgba(32, 38, 58, 0.09);
+    --white: #ffffff;
+    --ml-yellow: #fff159;
+    --ml-yellow-deep: #ffe600;
+    --ml-blue: #3483fa;
+    --ml-blue-deep: #2968c8;
+    --soft-shadow: 0 20px 60px rgba(32, 38, 58, 0.08);
+    --card-shadow: 0 16px 30px rgba(122, 100, 0, 0.06);
+    --card-shadow-hover: 0 22px 42px rgba(122, 100, 0, 0.10);
+    --card-radius: 28px;
+    --pill-radius: 999px;
+    --container: 1160px;
+    --reveal-ease: cubic-bezier(.22,.61,.36,1);
   }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Inter", system-ui, sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(circle at top left, rgba(255, 241, 89, 0.32), transparent 23%),
+      radial-gradient(circle at top right, rgba(52, 131, 250, 0.10), transparent 22%),
+      linear-gradient(180deg, #fffef6 0%, #fff9dc 100%);
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  h1, h2, h3, p {
+    margin: 0;
+  }
+
+  .container {
+    width: min(calc(100% - 32px), var(--container));
+    margin: 0 auto;
+  }
+
+  .site {
+    padding: 28px 0 72px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 12px;
+    z-index: 40;
+    margin-bottom: 24px;
+  }
+
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 14px 18px;
+    border: 1px solid rgba(32, 38, 58, 0.08);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.86);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(32, 38, 58, 0.06);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--ml-yellow), var(--ml-yellow-deep));
+    color: #4c4300;
+    font-size: 18px;
+    font-weight: 800;
+    box-shadow: 0 10px 22px rgba(255, 230, 0, 0.28);
+    flex: 0 0 auto;
+  }
+
+  .brand strong {
+    display: block;
+    line-height: 1;
+    font-size: 0.98rem;
+    letter-spacing: -0.02em;
+  }
+
+  .brand span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.84rem;
+    margin-top: 3px;
+  }
+
+  .nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .nav a {
+    color: var(--muted);
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-weight: 700;
+    transition: 160ms ease;
+    border: 1px solid transparent;
+  }
+
+  .nav a:hover {
+    color: var(--text);
+    border-color: rgba(32, 38, 58, 0.08);
+    background: rgba(255, 241, 89, 0.20);
+  }
+
+  .section-card {
+    position: relative;
+    border-radius: var(--card-radius);
+    background: var(--white);
+    border: 1px solid var(--line);
+    box-shadow: var(--soft-shadow);
+    overflow: hidden;
+    margin-bottom: 22px;
+  }
+
+  .section-inner {
+    padding: 28px;
+  }
+
+  .label {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 0 14px;
+    border-radius: var(--pill-radius);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .label-outline {
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(32, 38, 58, 0.12);
+    color: var(--text);
+  }
+
+  .label-solid-yellow {
+    background: rgba(255, 255, 255, 0.72);
+    color: #7a6400;
+    border: 1px solid rgba(122, 100, 0, 0.12);
+  }
+
+  .featured-card {
+    background: linear-gradient(180deg, #fff9cf 0%, #fff3bb 100%);
+    border-color: rgba(122, 100, 0, 0.12);
+  }
+
+  .featured-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  .title-xl {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.02;
+    letter-spacing: -0.05em;
+    margin-bottom: 14px;
+  }
+
+  .hero-card {
+    min-height: 360px;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .hero-accent {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.60), rgba(255, 255, 255, 0.86)),
+      linear-gradient(135deg, rgba(255, 241, 89, 0.34), rgba(52, 131, 250, 0.08)),
+      url('https://images.pexels.com/photos/3943722/pexels-photo-3943722.jpeg');
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+  }
+
+  .hero-body {
+    position: relative;
+    width: 100%;
+    padding: 32px 28px;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-copy {
+    max-width: 760px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 0.92;
+    letter-spacing: -0.06em;
+    margin-bottom: 14px;
+    max-width: 760px;
+  }
+
+  .hero-copy p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    max-width: 650px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 0 18px;
+    border-radius: 18px;
+    font-weight: 800;
+    transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    transform: translateY(-1px);
+  }
+
+  .button-primary {
+    background: var(--ml-yellow);
+    color: #4f4500;
+    box-shadow: 0 12px 24px rgba(255, 230, 0, 0.22);
+  }
+
+  .button-secondary {
+    background: rgba(255, 255, 255, 0.78);
+    color: var(--text);
+    border-color: rgba(32, 38, 58, 0.10);
+  }
+
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px 0 10px;
+  }
+
+  .toolbar-left,
+  .toolbar-right {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .pill-filter {
+    min-height: 40px;
+    border-radius: 999px;
+    border: 1px solid rgba(122, 100, 0, 0.14);
+    background: rgba(255, 255, 255, 0.72);
+    color: #705d00;
+    padding: 0 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 160ms ease;
+  }
+
+  .pill-filter.active,
+  .pill-filter:hover {
+    background: #fff;
+    border-color: rgba(122, 100, 0, 0.22);
+    box-shadow: 0 8px 18px rgba(122, 100, 0, 0.08);
+  }
+
+  .searchbox,
+  .selectbox {
+    min-height: 46px;
+    border-radius: 16px;
+    border: 1px solid rgba(122, 100, 0, 0.14);
+    background: rgba(255, 255, 255, 0.86);
+    color: var(--text);
+    padding: 0 14px;
+    outline: none;
+    min-width: 220px;
+    font: inherit;
+  }
+
+  .products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+  align-items: stretch;
 }
 
+  /* ===== CARD ATUAL DA LOJINHA ===== */
+  .product-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(122, 100, 0, 0.10);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+    will-change: opacity, transform, filter;
+    transition:
+      opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 180ms ease;
+    isolation: isolate;
+  }
 
+  .product-card.pre-reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(2px);
+  }
 
+  .product-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  .product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  .product-image {
+    display: block;
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.10), rgba(255, 241, 89, 0.10));
+    overflow: hidden;
+    flex: 0 0 auto;
+  }
+
+  .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .product-body {
+    padding: 18px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1 1 auto;
+    background: transparent;
+  }
+
+  .product-topline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .category-badge,
+  .ranking-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    padding: 0 12px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    max-width: 100%;
+  }
+
+  .category-badge {
+    background: rgba(52, 131, 250, 0.10);
+    color: var(--ml-blue-deep);
+    border: 1px solid rgba(52, 131, 250, 0.14);
+    text-transform: uppercase;
+  }
+
+  .ranking-badge {
+  background: rgba(255, 136, 0, 0.84);
+  color: #ffffff;
+  border: 1px solid rgba(255, 136, 0, 0.92);
+  text-transform: uppercase;
+}
+
+  .product-title {
+    font-size: 1.28rem;
+    line-height: 1.16;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  .price-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 12px;
+  }
+
+  .current-price {
+    font-size: 2rem;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    font-weight: 900;
+    color: #1f2437;
+  }
+
+  .original-price {
+    color: rgba(32, 38, 58, 0.40);
+    font-size: 0.94rem;
+    text-decoration: line-through;
+  }
+
+  .buy-button {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 48px;
+    padding: 0 16px;
+    border-radius: 16px;
+    background: var(--ml-yellow);
+    color: #4f4500;
+    font-weight: 800;
+    box-shadow: 0 10px 20px rgba(255, 230, 0, 0.18);
+    transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  }
+
+  .buy-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 26px rgba(255, 230, 0, 0.24);
+  }
+
+  .empty-state {
+    display: none;
+    text-align: center;
+    color: #7c6f00;
+    padding: 26px 12px 4px;
+    font-weight: 600;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+
+  .small {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 0.95rem;
+  }
+
+  /* ===== reveal dos blocos fixos da página ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    filter: blur(4px);
+    transition:
+      opacity 0.75s var(--reveal-ease),
+      transform 0.75s var(--reveal-ease),
+      filter 0.75s var(--reveal-ease);
+    will-change: opacity, transform, filter;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    .reveal,
+    .reveal.is-visible,
+    .product-card,
+    .product-card.pre-reveal,
+    .product-card.is-visible {
+      opacity: 1 !important;
+      transform: none !important;
+      filter: none !important;
+      transition: none !important;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .products-grid,
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .site {
+      padding-top: 18px;
+    }
+
+    .topbar {
+      position: static;
+    }
+
+    .topbar-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      border-radius: 26px;
+    }
+
+    .nav {
+      width: 100%;
+    }
+
+    .nav a {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .section-inner,
+    .hero-body {
+      padding: 20px;
+    }
+
+    .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+   gap: 12px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+    .toolbar-left,
+    .toolbar-right,
+    .searchbox,
+    .selectbox {
+      width: 100%;
+    }
+
+    .searchbox,
+    .selectbox {
+      min-width: 100%;
+    }
+
+    .hero-card {
+      min-height: auto;
+    }
+
+    .hero-copy h1 {
+      line-height: 0.98;
+    }
+
+.product-title { font-size: 0.92rem; }
+.current-price { font-size: 1.22rem; }
+.category-badge, .ranking-badge { font-size: 0.56rem; }
+  }
+
+.reveal,
+.reveal.is-visible {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  transition: none !important;
+}
 </style>
 </head>
 <body>
-  <div id="windowsXP">
-    <div class="area-de-trabalho" id="desktopArea">
-      <!-- Ícones via JS -->
-      <div id="clippy-fun"></div>
-
-
-      <div id="menuIniciar">
-        <div class="topoIniciar">
-          <div class="avatarIniciar"></div>
-          <div class="userName">Moon</div>
+  <div class="site">
+    <div class="container">
+      <header class="topbar reveal" data-reveal>
+        <div class="topbar-inner">
+          <div class="brand">
+            <div class="brand-mark">☾</div>
+            <div>
+              <strong>Lojinha da Moon</strong>
+              <span>achados com curadoria</span>
+            </div>
+          </div>
+          <nav class="nav">
+            <a href="#achados">Achados</a>
+            <a href="#faq">FAQ</a>
+          </nav>
         </div>
+      </header>
 
-        
-        <div class="mioloIniciar">
-          <div class="col">
-            <div class="tituloColuna">Redes sociais</div>
-
-            <div class="itemIniciar">
-              <img src="/images/insta.png" alt="Instagram" />
-              <span><strong>Instagram</strong></span>
-            </div>
-            <div class="itemIniciar">
-              <img src="/images/tiktok.png" alt="Tiktok" />
-              <span><strong>Tiktok</strong></span>
-            </div>
-            <div class="itemIniciar">
-              <img src="/images/twitch.png" alt="Twitch" />
-              <span><strong>Twitch</strong></span>
-            </div>
-            <div class="itemIniciar">
-              <img src="/images/youtube.png" alt="YouTube" />
-              <span><strong>Youtube</strong></span>
+      <section id="achados" class="section-card featured-card reveal" data-reveal>
+        <div class="section-inner">
+          <div class="featured-intro">
+            <div>
+              <div class="label label-solid-yellow">Achados em destaque</div>
+              <h2 class="title-xl">Os favoritos da vez.</h2>
             </div>
           </div>
 
-          <div class="col">
-            <div class="tituloColuna">Links</div>
+          <div class="toolbar reveal" data-reveal>
+            <div class="toolbar-left" id="categoryFilters"></div>
+            <div class="toolbar-right">
+              <input id="searchInput" class="searchbox" type="text" placeholder="Buscar achado..." />
+              <select id="sortSelect" class="selectbox" aria-label="Ordenar produtos">
+                <option value="featured">Ordenar: destaque</option>
+                <option value="discount">Maior desconto</option>
+                <option value="lowPrice">Menor preço</option>
+                <option value="highPrice">Maior preço</option>
+                <option value="name">Nome A-Z</option>
+              </select>
+            </div>
+          </div>
 
-            <div class="itemIniciar">
-              <img src="/images/snes.png" alt="Blog Nostalgia" />
-              <span><strong>BLOG NOSTALGIA</strong></span>
-            </div>
-            <div class="itemIniciar">
-              <img src="/images/ringtone.png" alt="Playlists nostálgicas" />
-              <span><strong>Playlists nostálgicas</strong></span>
-            </div>
-            <div class="itemIniciar">
-              <img src="/images/music_icon_trophy.png" alt="Músicas geradas por IA" />
-              <span><strong>Músicas geradas por IA</strong></span>
-            </div>
-            <div class="itemIniciar">
-              <img src="/images/series.png" alt="Moon TV" />
-              <span><strong>Moon TV</strong></span>
-            </div>
-            <div class="itemIniciar">
-              <img src="/images/pokeshelf.png" alt="Meus Pokémon" />
-              <span><strong>Meus Pokémon</strong></span>
+          <div id="productsGrid" class="products-grid"></div>
+          <div id="emptyState" class="empty-state">Nenhum achado corresponde a esse filtro agora.</div>
+        </div>
+      </section>
+
+      <section class="section-card hero-card reveal" data-reveal>
+        <div class="hero-accent"></div>
+        <div class="hero-body">
+          <div class="hero-copy">
+            <div class="label label-outline">Lojinha da Moon</div>
+            <h1>Achados úteis, bonitos e com preço que chama.</h1>
+            <p>
+              Uma seleção de links do Mercado Livre para quem gosta de bater o olho, entender o valor e ir direto ao que interessa.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#achados">Ver os achados</a>
+              <a class="button button-secondary" href="#faq">FAQ</a>
             </div>
           </div>
         </div>
-        
-    <div class="footerIniciar">
-          <span><img src="https://icons.iconarchive.com/icons/dtafalonso/modern-xp/256/ModernXP-03-System-Lock-icon.png" alt="Logoff" />Fazer Logoff</span>
-          <span><img src="https://icons.iconarchive.com/icons/alecive/flatwoken/128/Apps-Dialog-Shutdown-icon.png" alt="Desligar" />Desligar</span>
-        </div>
-      </div>
+      </section>
 
-      <!-- Barra de tarefas -->
-      <div class="barra-de-tarefas">
-        <button id="iniciar">
-          <img src="https://icons.iconarchive.com/icons/tatice/operating-systems/128/Windows-icon.png" alt="Windows" />
-          Iniciar
-        </button>
-
-        <div class="programas-abertos"></div>
-
-        <div class="area-de-notificacao">
-          <div class="tray-icons">
-            <img src="https://img.ibxk.com.br/2014/3/programas/7868525214145846.png" alt="Volume" />
-            <img src="https://icons.iconarchive.com/icons/hopstarter/software/256/Windows-Media-Player-icon.png" alt="Media" />
-            <img src="https://1.bp.blogspot.com/_8H6ayPA2iRw/R4Sp5ZVhUnI/AAAAAAAAAJk/Sv91jzKzPZs/s320/cat_icon_security_256.png" alt="Segurança" />
+      <section id="faq" class="footer-grid">
+        <article class="section-card reveal" data-reveal>
+          <div class="section-inner">
+            <div class="label label-outline">FAQ</div>
+            <h2 class="title-xl">Como funciona?</h2>
+            <p class="small">
+              Os produtos desta página levam para anúncios do Mercado Livre. Alguns links podem gerar comissão para a curadora, sem custo adicional para você.
+            </p>
           </div>
-          <div id="relogio">00:00</div>
-        </div>
-      </div>
+        </article>
+
+        <article class="section-card reveal" data-reveal>
+          <div class="section-inner">
+            <div class="label label-outline">FAQ</div>
+            <h2 class="title-xl">Os preços mudam?</h2>
+            <p class="small">
+              Sim. Valores e promoções podem variar conforme disponibilidade, vendedor e campanhas da plataforma.
+            </p>
+          </div>
+        </article>
+      </section>
     </div>
   </div>
 
   <script>
+    const BASE_REF_LINK = "https://meli.la/";
 
-    // Habbo icon alternativo (random por refresh)
-const HABBO_ICON_POOL = [
-  "/images/habbo%20hc.fw.png", // o que já existia
-  "/images/console.webp",
-  "/images/hand.png"
-];
-
-function randomizeHabboIcon() {
-  const habbo = DESKTOP_ICONS.find(i => i.id === "habbo");
-  if (!habbo) return;
-
-  const pick = HABBO_ICON_POOL[Math.floor(Math.random() * HABBO_ICON_POOL.length)];
-  habbo.img = pick;
+    const products = [
+      {
+        name: "Projetor portátil HY-300",
+        currentPrice: 157.90,
+        originalPrice: 227.95,
+        code: "1LcwxYK",
+        numero_ranking: 1,
+        nome_geral: "projetor",
+        genero_palavra: "masc",
+        image: "https://tse4.mm.bing.net/th/id/OIP.YFnAH2xIFPU16fdEWti53gHaHM?rs=1&pid=ImgDetMain&o=7&rm=3",
+        category: "tech",
+        tags: ["projetor", "cinema em casa", "favorito"]
+      },
+      {
+        name: "Carregador turbo para Android (fonte + cabo)",
+        currentPrice: 24.90,
+        originalPrice: 44.90,
+        code: "1NMKWL1",
+        numero_ranking: 1,
+        nome_geral: "carregador",
+        genero_palavra: "masc",
+        image: "https://m.media-amazon.com/images/I/61kqS9hXmdL._AC_.jpg",
+        category: "utilidades",
+        tags: ["carregador", "android", "baratinho"]
+      },
+{
+  name: "Protetor térmico capilar defrizante em spray",
+  currentPrice: 20.00,
+  originalPrice: 22.00,
+  code: "1u7kxsU",
+  numero_ranking: 0,
+  nome_geral: "protetor térmico",
+  genero_palavra: "masc",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_755402-MLA109099006267_032026-V.webp",
+  category: "beleza",
+  tags: ["cabelo", "defrizante", "proteção térmica"]
+},
+{
+  name: "Máscara 3D blackout para dormir",
+  currentPrice: 32.99,
+  originalPrice: 49.99,
+  code: "2Wzfju2",
+  numero_ranking: 2,
+  nome_geral: "máscara de dormir",
+  genero_palavra: "fem",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_653616-MLB78145125815_082024-V.webp",
+  category: "casa",
+  tags: ["sono", "blackout", "conforto"]
+},
+{
+  name: "Massageador elétrico tipo travesseiro",
+  currentPrice: 129.99,
+  originalPrice: 129.99,
+  code: "2ec5aLt",
+  numero_ranking: 6,
+  nome_geral: "almofada massageadora",
+  genero_palavra: "fem",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_658494-MLU74871575330_032024-V.webp",
+  category: "casa",
+  tags: ["massagem", "relaxamento", "autocuidado"]
+},
+{
+  name: "Base Payot alta cobertura",
+  currentPrice: 44.07,
+  originalPrice: 56.90,
+  code: "1cT6Jgv",
+  numero_ranking: 0,
+  nome_geral: "base",
+  genero_palavra: "fem",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_648089-MLB89239185961_082025-V-base-matte-alta-cobertura-payot-30ml.webp",
+  category: "beleza",
+  tags: ["maquiagem", "payot", "alta cobertura"]
+},
+{
+  name: "Paleta de sombras cintilantes Ruby Rose, 8 cores",
+  currentPrice: 22.95,
+  originalPrice: 22.95,
+  code: "199tDP6",
+  numero_ranking: 0,
+  nome_geral: "paleta",
+  genero_palavra: "fem",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_878206-MLA107005842481_022026-V.webp",
+  category: "beleza",
+  tags: ["maquiagem", "sombras", "ruby rose"]
+},
+{
+  name: "Câmera de segurança externa com lente dupla",
+  currentPrice: 152.90,
+  originalPrice: 264.90,
+  code: "2R5wuDV",
+  numero_ranking: 0,
+  nome_geral: "câmera",
+  genero_palavra: "fem",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_955553-MLA100001103255_112025-V.webp",
+  category: "tech",
+  tags: ["segurança", "câmera externa", "monitoramento"]
+},
+{
+  name: "Suporte de mesa para celular com ajuste 360°",
+  currentPrice: 19.00,
+  originalPrice: 19.00,
+  code: "1CzUYCD",
+  numero_ranking: 11,
+  nome_geral: "suporte",
+  genero_palavra: "masc",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_678093-MLA99590215702_122025-V.webp",
+  category: "utilidades",
+  tags: ["celular", "mesa", "ajustável"]
+},
+{
+  name: "Fitas de clareamento dental com 14 unidades",
+  currentPrice: 34.99,
+  originalPrice: 37.49,
+  code: "2FXCsfq",
+  numero_ranking: 1,
+  nome_geral: "fita clareadora",
+  genero_palavra: "fem",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_848764-MLA107246382307_022026-V.webp",
+  category: "beleza",
+  tags: ["clareamento dental", "dentes", "autocuidado"]
+},
+{
+  name: "Secador de cabelo Philco",
+  currentPrice: 171.90,
+  originalPrice: 171.90,
+  code: "2D65QDy",
+  numero_ranking: 16,
+  nome_geral: "secador de cabelo",
+  genero_palavra: "masc",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_827702-MLA99503403912_112025-V.webp",
+  category: "beleza",
+  tags: ["cabelo", "secador", "philco"]
+},
+{
+  name: "Pó solto ultrafino rosa translúcido Dailus",
+  currentPrice: 34.54,
+  originalPrice: 49.99,
+  code: "2h3SrpJ",
+  numero_ranking: 0,
+  nome_geral: "pó solto",
+  genero_palavra: "masc",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_677536-MLA84847527505_052025-V.webp",
+  category: "beleza",
+  tags: ["maquiagem", "acabamento", "translúcido"]
+},
+{
+  name: "Bepantol Derma, creme hidratante restaurador 400ml",
+  currentPrice: 78.90,
+  originalPrice: 78.90,
+  code: "1rexY4V",
+  numero_ranking: 0,
+  nome_geral: "creme hidratante",
+  genero_palavra: "masc",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_617485-MLA105444561457_012026-V.webp",
+  category: "beleza",
+  tags: ["hidratação", "pele", "bepantol"]
+},
+{
+  name: "Enzima Lactase 240 cápsulas (9000 FCC)",
+  currentPrice: 61.89,
+  originalPrice: 89.90,
+  code: "1UDTE3U",
+  numero_ranking: 5,
+  nome_geral: "suplemento quantum nutrition",
+  genero_palavra: "masc",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_779911-MLA104918256971_012026-V.webp",
+  category: "saude",
+  tags: ["lactase", "digestão", "equaliv"]
+},
+{
+  name: "Protetor solar Neutrogena FPS 70",
+  currentPrice: 45.66,
+  originalPrice: 73.99,
+  code: "1RP3PsU",
+  numero_ranking: 0,
+  nome_geral: "protetor solar",
+  genero_palavra: "masc",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_952365-MLA99931801277_112025-V.webp",
+  category: "beleza",
+  tags: ["skincare", "fps 70", "neutrogena"]
+},
+{
+  name: "Batom líquido Ruby Rose, cores variadas",
+  currentPrice: 19.00,
+  originalPrice: 39.90,
+  code: "1zpbYbu",
+  numero_ranking: 2,
+  nome_geral: "batom ruby rose",
+  genero_palavra: "masc",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_781854-MLU70115530664_062023-V.webp",
+  category: "beleza",
+  tags: ["maquiagem", "batom", "ruby rose"]
+},
+{
+  name: "Melatonina, 120 comprimidos Essential Nutrition, sabor menta",
+  currentPrice: 64.33,
+  originalPrice: 93.75,
+  code: "2AuPN1V",
+  numero_ranking: 3,
+  nome_geral: "suplemento essential nutrition",
+  genero_palavra: "masc",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_849032-MLA96077185263_102025-V.webp",
+  category: "saude",
+  tags: ["melatonina", "sono", "laranja"]
+},
+{
+  name: "Tend Skin loção importada para foliculite",
+  currentPrice: 159.00,
+  originalPrice: 159.00,
+  code: "2VLB3hN",
+  numero_ranking: 0,
+  nome_geral: "loção",
+  genero_palavra: "fem",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_804101-MLU75006742611_032024-V.webp",
+  category: "beleza",
+  tags: ["foliculite", "pele", "importado"]
+},
+{
+  name: "Hidratante facial Neutrogena",
+  currentPrice: 39.90,
+  originalPrice: 39.90,
+  code: "1bpRmNm",
+  numero_ranking: 0,
+  nome_geral: "hidratante facial",
+  genero_palavra: "masc",
+  image: "https://http2.mlstatic.com/D_Q_NP_2X_838325-MLA99622234680_122025-V.webp",
+  category: "beleza",
+  tags: ["skincare", "hidratação", "neutrogena"]
 }
+    ];
 
-    
-    const CLIPPY_LABELS = {
-      reading: "/images/clippy/reading.gif",
-      music: "/images/clippy/music.gif"
+    const state = {
+      activeCategory: "todos",
+      search: "",
+      sort: "featured"
     };
 
-    const CLIPPY_FUN = [
-      "/images/clippy/fun/bicicle.gif",
-      "/images/clippy/fun/check.gif",
-      "/images/clippy/fun/coçando cabeça.gif",
-      "/images/clippy/fun/luneta.gif",
-      "/images/clippy/fun/melting down.gif",
-      "/images/clippy/fun/toc toc.gif",
-      "/images/clippy/fun/pretendtodie.gif",
-      "/images/clippy/fun/box.gif",
-      "/images/clippy/fun/atom.gif"
-    ];
+    const productsGrid = document.getElementById("productsGrid");
+    const emptyState = document.getElementById("emptyState");
+    const categoryFilters = document.getElementById("categoryFilters");
+    const searchInput = document.getElementById("searchInput");
+    const sortSelect = document.getElementById("sortSelect");
 
-    const DESKTOP_ICONS = [
-      { id: "blog_nostalgia", label: "BLOG NOSTALGIA",        img: "/images/snes.png",                 link: "https://nostalgia.mooon.com.br",                                         row: 0, col: 0, clippy: "reading" },
-      { id: "habbo",          label: "Habbo Hotel",           img: "/images/habbo%20hc.fw.png",         link: "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",              row: 0, col: 1, clippy: "reading" },
-      { id: "ps1",            label: "Playstation 1",         img: "/images/ps1.png",                  link: "https://nostalgia.mooon.com.br/search/label/PlayStation%201",          row: 0, col: 2, clippy: "reading" },
-      { id: "ps2",            label: "Playstation 2",         img: "/images/ps2.png",                  link: "https://nostalgia.mooon.com.br/search/label/PlayStation%202",          row: 0, col: 3, clippy: "reading" },
-      { id: "snes",           label: "Super Nintendo",        img: "/images/supern.png",               link: "https://nostalgia.mooon.com.br/search/label/Super%20Nintendo",         row: 0, col: 4, clippy: "reading" },
+    function formatBRL(value) {
+      return Number(value).toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+      });
+    }
 
-      { id: "instagram",      label: "Instagram",             img: "/images/insta.png",                link: "https://instagram.com/mooon.br",                                         row: 1, col: 0 },
-      { id: "tiktok",         label: "Tiktok",                img: "/images/tiktok.png",               link: "https://tiktok.com/@mooon.br",                                           row: 1, col: 1 },
-      { id: "twitch",         label: "Twitch",                img: "/images/twitch.png",               link: "https://twitch.tv/mooonbr",                                              row: 1, col: 2 },
-      { id: "youtube",        label: "Youtube",               img: "/images/youtube.png",              link: "https://youtube.com/channel/UCst0jXP1CRb-_1S00F1NMgQ",                 row: 1, col: 3 },
-
-      { id: "playlists",      label: "Playlists nostálgicas", img: "/images/ringtone.png",            link: "/musicas.html",                                                          row: 2, col: 0, clippy: "music" },
-      { id: "musicas_ia",     label: "Músicas geradas por IA", img: "/images/music_icon_trophy.png",  link: "/aimusic.html",                                                          row: 2, col: 1, clippy: "music" },
-      { id: "moon_tv",        label: "Moon TV",               img: "/images/series.png",               link: "/tv/index.html",                                                         row: 2, col: 2 },
-      { id: "pokemon",        label: "Meus Pokémon",          img: "/images/pokeshelf.png",            link: "/pokemon.html",                                                          row: 2, col: 3 }
-    ];
-
-   const START_MENU_MAP = {
-  // coluna "Redes sociais"
-  blog_nostalgia: "blog nostalgia",
-  instagram: "instagram",
-  tiktok: "tiktok",
-  twitch: "twitch",
-  youtube: "youtube",
-
-  // coluna "Links"
-  playlists:      "playlists nostálgicas",
-  musicas_ia:     "músicas geradas por ia",
-  moon_tv:        "moon tv",
-  pokemon:        "meus pokémon"
-};
-
-    function wireStartMenuLinks() {
-      const menu = document.getElementById("menuIniciar");
-      if (!menu) return;
-
-      const items = menu.querySelectorAll(".itemIniciar");
-      if (!items.length) return;
-
-      const byId = Object.fromEntries(
-        DESKTOP_ICONS.map(icon => [icon.id, icon])
-      );
-
-      for (const item of items) {
-        const text = (item.innerText || "").toLowerCase();
-        for (const [id, needle] of Object.entries(START_MENU_MAP)) {
-          if (!text.includes(needle)) continue;
-          const icon = byId[id];
-          if (!icon || !icon.link) continue;
-          item.dataset.link = icon.link;
-          item.classList.add("has-link");
-        }
+    function extractCode(product) {
+      if (product.code && String(product.code).trim()) {
+        return String(product.code).trim().replace(/^\/+/, "");
       }
+      if (product.link && String(product.link).trim()) {
+        const clean = String(product.link).trim();
+        const parts = clean.split("/");
+        return parts[parts.length - 1].replace(/^\/+/, "");
+      }
+      return "";
     }
 
-
-
-    function isMobile() {
-      return window.matchMedia("(max-width: 900px)").matches ||
-             window.matchMedia("(pointer: coarse)").matches;
+    function buildProductLink(product) {
+      const code = extractCode(product);
+      return code ? `${BASE_REF_LINK}${code}` : "#";
     }
 
-    function renderDesktopIcons() {
-      const desktop = document.getElementById("desktopArea");
-      if (!desktop) return;
+    function calcDiscount(product) {
+      const current = Number(product.currentPrice);
+      const original = Number(product.originalPrice);
+      if (!original || original <= current) return 0;
+      return Math.round(((original - current) / original) * 100);
+    }
 
-      desktop.querySelectorAll(".desktop-icon").forEach(el => el.remove());
+    function normalizeGender(value) {
+      const raw = String(value || "masc").trim().toLowerCase();
+      if (["fem", "feminino", "f"].includes(raw)) return "fem";
+      return "masc";
+    }
 
-      const mobile = isMobile();
-      const rect = desktop.getBoundingClientRect();
-      const availW = rect.width || window.innerWidth || 360;
-      const availH = rect.height || window.innerHeight || 640;
+    function buildRankingText(product) {
+      const numero = Number(product.numero_ranking || 0);
+      const nomeGeral = String(product.nome_geral || "").trim();
 
-      let iconW = mobile ? 135 : 110;
-      let iconH = mobile ? 155 : 135;
+      if (numero > 0 && nomeGeral) {
+        const genero = normalizeGender(product.genero_palavra);
+        const palavraVendida = genero === "fem" ? "vendida" : "vendido";
+        return `${nomeGeral} nº${numero} mais ${palavraVendida} no Mercado Livre`;
+      }
 
-      if (!mobile) {
-        const marginX = 26;
-        const marginY = 40;
-        const stepX = 120;
-        const stepY = 155;
+      if (product.ranking && String(product.ranking).trim()) {
+        return String(product.ranking).trim();
+      }
 
-        let maxBottom = 0;
+      return "";
+    }
 
-        DESKTOP_ICONS.forEach(icon => {
-          const el = document.createElement("div");
-          el.className = "desktop-icon";
-          el.id = icon.id;
-          el.innerHTML = `<img src="${icon.img}" alt="${icon.label}"><span>${icon.label}</span>`;
-          el.dataset.link = icon.link || "";
+    function normalizeProduct(product, index) {
+      return {
+        ...product,
+        code: extractCode(product),
+        category: product.category ? String(product.category).trim() : "outros",
+        tags: Array.isArray(product.tags) ? product.tags : [],
+        currentPrice: Number(product.currentPrice || 0),
+        originalPrice: Number(product.originalPrice || 0),
+        discount: calcDiscount(product),
+        href: buildProductLink(product),
+        ranking_text: buildRankingText(product),
+        featuredOrder: typeof product.featuredOrder === "number" ? product.featuredOrder : index
+      };
+    }
 
-          const left = marginX + (icon.col || 0) * stepX;
-          const top  = marginY + (icon.row || 0) * stepY;
+    function getCategories(items) {
+      return ["todos", ...new Set(items.map(item => item.category))];
+    }
 
-          el.style.left = left + "px";
-          el.style.top  = top + "px";
+    function renderFilters(items) {
+      const categories = getCategories(items);
+      categoryFilters.innerHTML = categories.map(category => {
+        const active = state.activeCategory === category ? "active" : "";
+        const label = category === "todos"
+          ? "Todos"
+          : category.charAt(0).toUpperCase() + category.slice(1);
+        return `<button class="pill-filter" data-category="${category}" aria-pressed="${active ? 'true' : 'false'}">${label}</button>`;
+      }).join("");
 
-          desktop.appendChild(el);
-
-          const bottom = top + iconH;
-          if (bottom > maxBottom) maxBottom = bottom;
+      categoryFilters.querySelectorAll("[data-category]").forEach(btn => {
+        if (state.activeCategory === btn.dataset.category) btn.classList.add("active");
+        btn.addEventListener("click", () => {
+          state.activeCategory = btn.dataset.category;
+          render();
         });
-
-        const minHeight = Math.max(availH, maxBottom + 40);
-        desktop.style.height = minHeight + "px";
-        document.getElementById("windowsXP").style.minHeight = minHeight + "px";
-        return;
-      }
-
-      // MOBILE: reempacota em grid
-      const marginX = 12;
-      const marginY = 16;
-
-      // tenta 3 colunas; se ficar apertado, cai pra 2
-      let cols = 3;
-      if (availW < (cols * iconW + (cols + 1) * marginX)) {
-        cols = 2;
-      }
-
-      const total = DESKTOP_ICONS.length;
-      const rows = Math.max(1, Math.ceil(total / cols));
-
-      let stepX = (availW - marginX * 2) / cols;
-      stepX = Math.max(iconW + 4, stepX);
-
-      let stepY = iconH + 16;
-      const usedH = rows * stepY + marginY * 2;
-      if (usedH > availH) {
-        stepY = Math.floor((availH - marginY * 2) / rows);
-        stepY = Math.max(iconH + 4, stepY);
-      }
-
-      let maxBottom = 0;
-
-      for (let i = 0; i < total; i++) {
-        const icon = DESKTOP_ICONS[i];
-        const row = Math.floor(i / cols);
-        const col = i % cols;
-
-        const el = document.createElement("div");
-        el.className = "desktop-icon";
-        el.id = icon.id;
-        el.innerHTML = `<img src="${icon.img}" alt="${icon.label}"><span>${icon.label}</span>`;
-        el.dataset.link = icon.link || "";
-
-        const slotLeft = marginX + col * stepX;
-        const left = slotLeft + (stepX - iconW) / 2;
-        const top  = marginY + row * stepY;
-
-        el.style.left = left + "px";
-        el.style.top  = top + "px";
-
-        desktop.appendChild(el);
-
-        const bottom = top + iconH;
-        if (bottom > maxBottom) maxBottom = bottom;
-      }
-
-      const minHeight = Math.max(availH, maxBottom + 40);
-      desktop.style.height = minHeight + "px";
-      document.getElementById("windowsXP").style.minHeight = minHeight + "px";
-    }
-
-    function applyClippyLabels() {
-      if (typeof CLIPPY_LABELS === "undefined") return;
-
-      DESKTOP_ICONS.forEach(icon => {
-        if (!icon.clippy) return;
-        const el = document.getElementById(icon.id);
-        if (!el) return;
-
-        const existing = el.querySelector(".clippy-label");
-        if (existing) existing.remove();
-
-        const src = CLIPPY_LABELS[icon.clippy];
-        if (!src) return;
-
-        const img = document.createElement("img");
-        img.className = "clippy-label";
-        img.src = src;
-        img.alt = "Clippy";
-        el.appendChild(img);
       });
     }
 
-    function renderClippyFun() {
-      if (typeof CLIPPY_FUN === "undefined" || !CLIPPY_FUN.length) return;
+    function filterProducts(items) {
+      return items.filter(item => {
+        const matchesCategory = state.activeCategory === "todos" || item.category === state.activeCategory;
+        const query = state.search.trim().toLowerCase();
+        const haystack = [
+          item.name,
+          item.category,
+          item.ranking_text || "",
+          ...(item.tags || [])
+        ].join(" ").toLowerCase();
+        const matchesSearch = !query || haystack.includes(query);
+        return matchesCategory && matchesSearch;
+      });
+    }
 
-      const desktop = document.getElementById("desktopArea");
-      const box = document.getElementById("clippy-fun");
-      if (!desktop || !box) return;
-
-      const idx = Math.floor(Math.random() * CLIPPY_FUN.length);
-      const src = CLIPPY_FUN[idx];
-      if (!src) {
-        box.innerHTML = "";
-        return;
+    function sortProducts(items) {
+      const sorted = [...items];
+      switch (state.sort) {
+        case "discount":
+          sorted.sort((a, b) => b.discount - a.discount || a.featuredOrder - b.featuredOrder);
+          break;
+        case "lowPrice":
+          sorted.sort((a, b) => a.currentPrice - b.currentPrice || a.featuredOrder - b.featuredOrder);
+          break;
+        case "highPrice":
+          sorted.sort((a, b) => b.currentPrice - a.currentPrice || a.featuredOrder - b.featuredOrder);
+          break;
+        case "name":
+          sorted.sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
+          break;
+        default:
+          sorted.sort((a, b) => a.featuredOrder - b.featuredOrder);
       }
-
-      box.innerHTML = "";
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = "Clippy animado";
-      box.appendChild(img);
+      return sorted;
     }
 
-
-    
-    function enableDraggables() {
-      if (!(window.jQuery && window.$ && $.fn && $.fn.draggable)) return;
-
-      // Ícones do desktop
-      $(".desktop-icon").draggable({
-        containment: "#desktopArea",
-        scroll: false
-      });
-
-      // Clippy fun: arrastável no viewport (sem brigar com a barra)
-      $("#clippy-fun").draggable({
-        containment: "window",
-        scroll: false,
-        cancel: "img"
-      });
+    function renderTags(tags) {
+      if (!tags || !tags.length) return "";
+      return `<div class="tag-list">${tags.map(tag => `<span class="tag">${tag}</span>`).join("")}</div>`;
     }
 
-function atualizarRelogio() {
-      const rel = document.getElementById("relogio");
-      if (!rel) return;
-      const agora = new Date();
-      const hh = String(agora.getHours()).padStart(2, "0");
-      const mm = String(agora.getMinutes()).padStart(2, "0");
-      rel.textContent = hh + ":" + mm;
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      randomizeHabboIcon();
-      renderDesktopIcons();
-      applyClippyLabels();
-      renderClippyFun();
-      wireStartMenuLinks();
-
-      enableDraggables();
-
-      atualizarRelogio();
-      setInterval(atualizarRelogio, 30000);
-
-      window.addEventListener("resize", () => {
-        renderDesktopIcons();
-        applyClippyLabels();
-        renderClippyFun();
-        wireStartMenuLinks();
-        enableDraggables();
-      }, { passive: true });
-
-      window.addEventListener("orientationchange", () => {
-        renderDesktopIcons();
-        applyClippyLabels();
-        renderClippyFun();
-        wireStartMenuLinks();
-        enableDraggables();
-      }, { passive: true });
-
-      const btnIniciar = document.getElementById("iniciar");
-      const menuIniciar = document.getElementById("menuIniciar");
-
-      btnIniciar.addEventListener("click", ev => {
-        ev.stopPropagation();
-        const ativo = menuIniciar.classList.toggle("active");
-        btnIniciar.classList.toggle("active", ativo);
-      });
-
-      document.addEventListener("click", ev => {
-        if (!menuIniciar.contains(ev.target) && !btnIniciar.contains(ev.target)) {
-          menuIniciar.classList.remove("active");
-          btnIniciar.classList.remove("active");
+  function productCardHTML(item, index) {
+  return `
+    <article class="product-card" data-product-card>
+      <a class="product-image" href="https://meli.la/${item.code}" target="_blank" rel="noopener noreferrer">
+        ${
+          item.image && item.image.trim()
+            ? `<img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.remove()" />`
+            : `<div style="width:100%;height:100%;display:grid;place-items:center;color:#8a7a00;font-weight:700;padding:20px;text-align:center;">Imagem em breve</div>`
         }
+      </a>
+
+      <div class="product-body">
+        <div class="product-topline">
+          <span class="category-badge">${item.category || "achado"}</span>
+          ${
+           item.numero_ranking && item.numero_ranking > 0
+  ? `<span class="ranking-badge">${item.numero_ranking}º MAIS VENDID${item.genero_palavra === "fem" ? "A" : "O"} NO MERCADO LIVRE</span>`
+  : ""
+          }
+        </div>
+
+        <h3 class="product-title">${item.name}</h3>
+
+        <div class="price-row">
+          <span class="current-price">R$ ${item.currentPrice.toFixed(2).replace(".", ",")}</span>
+          ${
+            item.originalPrice && item.originalPrice > item.currentPrice
+              ? `<span class="original-price">R$ ${item.originalPrice.toFixed(2).replace(".", ",")}</span>`
+              : ""
+          }
+        </div>
+
+        <a class="buy-button" href="https://meli.la/${item.code}" target="_blank" rel="noopener noreferrer">
+          Ver oferta
+        </a>
+      </div>
+    </article>
+  `;
+}
+
+    function revealElements(scope = document) {
+      const elements = scope.querySelectorAll('[data-reveal]');
+      if (!('IntersectionObserver' in window)) {
+        elements.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -6% 0px'
       });
 
-      // clique nos itens do Menu Iniciar que têm link
-      menuIniciar.addEventListener("click", ev => {
-        const item = ev.target.closest(".itemIniciar[data-link]");
-        if (!item) return;
-        const href = item.dataset.link;
-        if (!href) return;
-
-        menuIniciar.classList.remove("active");
-        btnIniciar.classList.remove("active");
-        window.open(href, "_blank");
+      elements.forEach((el, index) => {
+        if (!el.style.transitionDelay) {
+          el.style.transitionDelay = `${Math.min(index * 40, 240)}ms`;
+        }
+        observer.observe(el);
       });
+    }
 
-      // clique nos ícones do desktop abre link
-      document.addEventListener("click", ev => {
-        const icon = ev.target.closest(".desktop-icon");
-        if (!icon) return;
-        const href = icon.dataset.link;
-        if (href) window.open(href, "_blank");
-      });
+  function renderProducts(items) {
+  if (!items.length) {
+    productsGrid.innerHTML = "";
+    emptyState.style.display = "block";
+    return;
+  }
 
+  emptyState.style.display = "none";
+  productsGrid.innerHTML = items.map((item, index) => productCardHTML(item, index)).join("");
+
+  setupProductReveal();
+}
+
+    function render() {
+      const normalized = products.map(normalizeProduct);
+      renderFilters(normalized);
+      const filtered = filterProducts(normalized);
+      const sorted = sortProducts(filtered);
+      renderProducts(sorted);
+    }
+
+    searchInput.addEventListener("input", (event) => {
+      state.search = event.target.value;
+      render();
     });
+
+    sortSelect.addEventListener("change", (event) => {
+      state.sort = event.target.value;
+      render();
+    });
+
+function setupProductReveal() {
+  const cards = document.querySelectorAll("[data-product-card]");
+
+  if (!cards.length) return;
+
+  if (!("IntersectionObserver" in window)) {
+    cards.forEach(card => {
+      card.classList.remove("pre-reveal");
+      card.classList.add("is-visible");
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove("pre-reveal");
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: "0px 0px -8% 0px"
+  });
+
+  cards.forEach((card, index) => {
+    card.classList.add("pre-reveal");
+    card.style.transitionDelay = `${Math.min(index * 45, 240)}ms`;
+    observer.observe(card);
+  });
+}
+
+
+    render();
+    revealElements();
   </script>
 </body>
 </html>
