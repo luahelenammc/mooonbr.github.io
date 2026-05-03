@@ -82,7 +82,7 @@ In this portable:
 Copy this entire file into a new AI chat.
 After pasting it, write:
 
-Run this bootstrap with me.
+Execute.
 
 You do not need to know how to code.
 You do not need an API.
@@ -552,7 +552,7 @@ Best for: I want to organize and operationalize one specific project.
 Output: PROJECT_SOURCE_PROFILE_V1
 Start with project identity, not personal identity.
 
-PATH D — WRITING VOICE SOURCE
+PATH D — WRITING_VOICE_SOURCE
 Best for: I want the AI to write, revise, or brainstorm in a way that fits my voice.
 Output: WRITING_VOICE_SOURCE_PROFILE_V1
 Ask for a writing sample early, if the user is comfortable.
