@@ -1,0 +1,154 @@
+SYMBIOSEEDS__PORTABLE_INTRO_PACKET__V1 = {
+    "meta": {
+        "id": "symbioseeds__portable_intro_packet__v1",
+        "project": "Symbioseeds",
+        "type": "portable_project_handoff",
+        "status": "active_build",
+        "as_of": "2026-04-19",
+        "container": "SymbAI_Studio",
+        "place": "LAB > builds > symbioseeds",
+        "handoff_role": "intro_packet_for_cofounder_ai"
+    },
+    "identity": {
+        "what_it_is": [
+            "portable_seed_library",
+            "registry_of_reusable_ai_behavior_modules",
+            "lightweight_behavior_architecture_project",
+            "shared_library_for_human_ai_symbiosis_patterns"
+        ],
+        "what_it_is_not": [
+            "full_agent_framework",
+            "universal_one_click_installer",
+            "raw_prompt_dump",
+            "migration_of_private_proprietary_systems"
+        ],
+        "core_definition": (
+            "a seed is a small reusable behavior module for an AI system: "
+            "not a full agent, not a whole persona, not a complete app"
+        )
+    },
+    "mission": {
+        "facts": [
+            "gather real seeds already used or meaningfully prototyped",
+            "turn scattered patches into a clean portable registry",
+            "support versioning, tagging, discovery, and adaptation",
+            "make reusable behavior modules easier to understand and reuse across contexts"
+        ],
+        "interp": [
+            "less prompt sharing, more modular behavioral architecture",
+            "collection first, taxonomy hardening after enough real material exists"
+        ]
+    },
+    "project_logic": {
+        "north_star": (
+            "build a clean, versionable, portable seed library grounded in real data, "
+            "without forcing fake universality too early"
+        ),
+        "design_rules": [
+            "real_examples_first",
+            "portability_over_universality",
+            "small_is_good",
+            "document_dependencies_clearly",
+            "forking_allowed",
+            "messy_real_data_beats_imaginary_perfect_archive"
+        ],
+        "submission_shape": [
+            "name",
+            "short_description",
+            "what_it_does",
+            "when_to_use",
+            "how_to_load",
+            "best_fit_interfaces",
+            "dependencies",
+            "example",
+            "version"
+        ]
+    },
+    "crown_jewels": {
+        "jewels": [
+            {
+                "id": "seed_library_thesis",
+                "value": "frames seeds as portable behavior modules rather than generic prompts"
+            },
+            {
+                "id": "patch_garden_framing",
+                "value": "gives the project identity without overclaiming framework-completeness"
+            },
+            {
+                "id": "multilayer_post_shape",
+                "value": "human-readable intro + copyable seed block works well"
+            },
+            {
+                "id": "layered_behavior_read",
+                "value": "supports hats, control layers, style modules, routing modules, and other small architectures"
+            },
+            {
+                "id": "human_steering_bias",
+                "value": "symbiosis center of gravity favors human-directed loading/layering of behaviors"
+            }
+        ]
+    },
+    "current_state": {
+        "green": [
+            "concept_is_clear",
+            "real_seed_material_exists",
+            "project_has_distinct_identity",
+            "good_community-level framing already emerged"
+        ],
+        "yellow": [
+            "taxonomy_needs_hardening",
+            "export_consistency_needs_spec",
+            "landing_copy_may_be_too_crowded",
+            "onboarding_for_outside_ais_is_not_yet_standardized"
+        ],
+        "red": [
+            "canonical_schema_not_fully_hardened",
+            "classification_rules_not_yet_strict_enough_for_edge_cases"
+        ]
+    },
+    "open_questions": [
+        "what_is_a_seed_formally",
+        "how_should_categories_and_subtypes_be_defined",
+        "how_structured_should_exports_be",
+        "what_sharing_tiers_should_exist_for_partial_or_proprietary systems",
+        "how_to_keep_the_library_useful_without_turning_it_into_grimoire_culture"
+    ],
+    "interop": {
+        "why_this_packet_exists": [
+            "discord posts are good for humans",
+            "portable files are better for onboarding other founders' AIs",
+            "this file is meant to give a clean first read with less dependence on scattered context"
+        ],
+        "best_use": [
+            "drop_into_a_cofounder_ai_as_intro_context",
+            "use_as_project_handoff",
+            "use_as_base_for_future_deeper_packets"
+        ],
+        "how_to_use": [
+            "read_this_first_for_project_identity",
+            "do_not_treat_as_complete_canon",
+            "use_it_as_intro_not_as_total_spec",
+            "ask_for_deeper_layers_if_needed"
+        ]
+    },
+    "boundaries": {
+        "shareable": [
+            "project_identity",
+            "core_thesis",
+            "submission_format",
+            "current_state",
+            "open_questions"
+        ],
+        "not_assumed": [
+            "final_schema_consensus",
+            "finished_productization",
+            "full_alignment_on_export_spec",
+            "full_merge_with_any_external platform"
+        ]
+    },
+    "routing": {
+        "local_home": "LAB > builds > symbioseeds",
+        "related_doctrine": "CORE > company-brain > reusable patterns / playbooks",
+        "reason": "live build with reusable-method implications"
+    }
+}
