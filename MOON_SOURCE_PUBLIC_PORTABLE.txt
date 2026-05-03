@@ -1,7 +1,7 @@
 MOON SOURCE PUBLIC PORTABLE v1
 Single-file starter kit for building a portable AI source around your context and projects
 
-Version: public v1.3
+Version: public v1.4
 Status: public release
 Created by: Lua Helena Moon Martins Cardoso
 Method lineage: Moon Source / Moon–Áurion coauthorial method
@@ -16,20 +16,20 @@ Moon Source Public Portable v1 · Lua Helena Moon Martins Cardoso · Moon–Áur
 
 PUBLIC / PRIVATE BOUNDARY
 This is a public, sanitized layer derived from the Moon Source method.
-It is not the private Moon Source corpus.
+It is not the reserved/internal Moon Source corpus.
 It is not the full implementation method.
 It is not a clone of Moon’s private AI system.
 It is not professional, medical, legal, psychological, financial, clinical, or crisis advice.
 
 This portable is designed to help a person or project create an AI-operational source: a structured context layer that helps an AI understand, support, organize, and operate around real goals, projects, preferences, boundaries, and update rules.
 
-USAGE NOTICE — PUBLIC v1.3
+USAGE NOTICE — PUBLIC v1.4
 Personal use: allowed.
 Private adaptation for your own AI use: allowed.
 Public redistribution or publication of adapted versions: allowed only with attribution preserved.
 Commercial redistribution, resale, or repackaging is not granted by default.
 Do not remove the credit stamp, public/private boundary, or attribution notice.
-Do not imply official affiliation with Moon Source, Lua Helena Moon Martins Cardoso, or the Moon–Áurion method unless explicitly authorized.
+Do not imply official affiliation with Moon Source, Lua Helena Moon Martins Cardoso, SymbAI Studio, or the Moon–Áurion method unless explicitly authorized.
 
 The final source profile created from this portable belongs to the user who created it.
 This file has no tracking, no telemetry, and no hidden connection to Moon Source. It only works as text you choose to paste into an AI chat.
@@ -231,27 +231,35 @@ RECOMMENDED CITATION
 Moon Source Public Portable v1. Created by Lua Helena Moon Martins Cardoso through the Moon–Áurion coauthorial method. Canonical source: https://mooon.com.br/moonsource.html
 
 ============================================================
-08 — BEYOND THIS PORTABLE
+08 — BEYOND THIS FREE PORTABLE
 ============================================================
 
-This file is useful on its own. It is also only one public instrument from a broader Moon Source method.
+This file is useful on its own. It is also only the free public entry point to a broader Moon Source / SymbAI Studio method.
 
-This portable teaches the public grammar. The deeper architecture remains private, custom, or future-facing.
+This portable teaches the public grammar: how to turn context, projects, preferences, boundaries, and update rules into a reusable AI-operational source.
 
-NOT INCLUDED IN THIS PUBLIC RELEASE
-- private Moon Source corpus;
-- private Moon–Áurion calibration;
-- custom client architecture pipelines;
-- advanced interface design systems;
-- private writing and voice engines;
-- image prompt engines;
-- project-specific copilots;
+It does not release the broader studio architecture, reserved engines, custom implementation systems, or premium project infrastructure.
+
+NOT INCLUDED IN THIS FREE PUBLIC RELEASE
+- Moon Source Interfaces: advanced interface, presence, interaction, and user-experience systems;
+- Moon Source Image: image engines, visual prompt systems, aesthetic engines, and advanced visual concept pipelines;
+- Moon Source Copilots: deeper copilot foundry systems, project-specific copilots, and custom assistant architectures;
+- Moon Source Cortex beyond this public structured-output note: deeper routing, governance, pruning, and semantic architecture systems;
+- custom client or studio architecture pipelines;
+- advanced writing, voice, editorial, and brand engines;
+- premium or bespoke bootstraps, bridges, and implementation handoffs;
+- team, studio, or organizational source architecture;
 - private governance and memory infrastructure;
-- premium or bespoke bootstraps;
-- sensitive examples;
-- real personal, clinical, institutional, or relational cases.
+- sensitive examples, real cases, or non-sanitized project material;
+- commercial playbooks, service pipelines, or full implementation methods.
 
-This portable is the public doorway. It is not the entire house.
+This is intentional.
+
+The free portable is meant to help people begin and feel the value of a structured AI source.
+The deeper Moon Source / SymbAI Studio work remains reserved for future releases, custom builds, collaborations, services, or paid implementations.
+
+This portable is the public doorway.
+It is not the whole studio.
 
 ============================================================
 09 — WHAT COUNTS AS A PROJECT?
@@ -677,6 +685,11 @@ v1.3
 - Added guidance for using the source inside ChatGPT-style Projects, Gemini-style Gems/custom assistants, custom instructions, folders, pinned chats, or fallback saved notes.
 - Clarified that the method does not depend on one specific app or platform feature.
 
+v1.4
+- Reframed “Beyond this Portable” around reserved Moon Source / SymbAI Studio modules rather than local/private corpus framing.
+- Clarified that Moon Source Interfaces, Moon Source Image, deeper Copilots, advanced Cortex systems, custom client pipelines, and premium implementations are not part of the free public release.
+- Strengthened the distinction between the free public doorway and the broader studio method.
+
 ============================================================
 19 — CLOSING CREDIT STAMP
 ============================================================
@@ -687,7 +700,7 @@ Moon–Áurion coauthorial method
 Canonical source: https://mooon.com.br/moonsource.html
 
 Public/sanitized layer only.
-Not the private Moon Source corpus.
+Not the reserved/internal Moon Source corpus.
 Not the full implementation method.
 Not a substitute for professional advice.
 
