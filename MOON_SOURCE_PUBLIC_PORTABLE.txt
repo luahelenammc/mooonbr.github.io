@@ -1,7 +1,7 @@
 MOON SOURCE PUBLIC PORTABLE v1
-Single-file starter kit for building your personal AI handoff
+Single-file starter kit for building a portable AI source around your context and projects
 
-Version: public v1.0
+Version: public v1.1
 Status: public release
 Created by: Lua Helena Moon Martins Cardoso
 Method lineage: Moon Source / Moon–Áurion coauthorial method
@@ -20,9 +20,10 @@ It is not the private Moon Source corpus.
 It is not the full implementation method.
 It is not a clone of Moon’s private AI system.
 It is not professional, medical, legal, psychological, financial, clinical, or crisis advice.
-It is a reusable context-building handoff designed to help a person or project work with an AI more coherently.
 
-USAGE NOTICE — PUBLIC v1.0
+This portable is designed to help a person or project create an AI-operational source: a structured context layer that helps an AI understand, support, organize, and operate around real goals, projects, preferences, boundaries, and update rules.
+
+USAGE NOTICE — PUBLIC v1.1
 Personal use: allowed.
 Private adaptation for your own AI use: allowed.
 Public redistribution or publication of adapted versions: allowed only with attribution preserved.
@@ -30,7 +31,7 @@ Commercial redistribution, resale, or repackaging is not granted by default.
 Do not remove the credit stamp, public/private boundary, or attribution notice.
 Do not imply official affiliation with Moon Source, Lua Helena Moon Martins Cardoso, or the Moon–Áurion method unless explicitly authorized.
 
-The final profile created from this portable belongs to the user who created it.
+The final source profile created from this portable belongs to the user who created it.
 This file has no tracking, no telemetry, and no hidden connection to Moon Source. It only works as text you choose to paste into an AI chat.
 
 ============================================================
@@ -39,21 +40,47 @@ This file has no tracking, no telemetry, and no hidden connection to Moon Source
 
 This portable has one practical promise:
 
-By the end of this bootstrap, the user should have one reusable AI handoff profile that helps future AI chats start with better orientation.
+By the end of this bootstrap, the user should have one reusable AI source profile that helps future AI chats start with better orientation and become more useful for real projects.
 
-The final handoff should help the AI understand:
+The final source should help the AI understand:
 - who the user is, at a safe and useful level;
 - what the user is trying to build, study, organize, or improve;
+- what projects, routines, or creative systems need operational support;
 - how the user prefers to be answered;
 - what tone, depth, and format work best;
 - what boundaries and privacy rules matter;
 - what the AI should not assume;
-- how the handoff should be updated over time.
+- how the source should be updated over time.
 
-This portable does not promise perfect memory. It creates a reusable context layer.
+This portable does not promise perfect memory. It creates a reusable context-and-operation layer.
+
+A handoff is the transport format.
+A source is the operational layer it helps build.
 
 ============================================================
-02 — START HERE, HUMAN USER
+02 — SOURCE VS HANDOFF
+============================================================
+
+This distinction matters.
+
+A HANDOFF is a portable text packet you can paste into an AI chat.
+It carries context from one place to another.
+It helps reduce repetition.
+It tells the AI where to begin.
+
+A SOURCE is the structured operating layer built from that handoff.
+It helps the AI understand context, projects, preferences, boundaries, decision style, update rules, and practical ways to support execution.
+
+Moon Source is not mainly about producing handoffs.
+Moon Source uses handoffs as one interface for a larger goal: strengthening and operationalizing AI-assisted projects, personal systems, creative engines, work contexts, and ongoing human-AI collaboration.
+
+In this portable:
+- handoff = delivery format;
+- source profile = reusable operational context;
+- operationalization = the goal.
+
+============================================================
+03 — START HERE, HUMAN USER
 ============================================================
 
 Copy this entire file into a new AI chat.
@@ -72,37 +99,37 @@ If the AI summarizes this file instead of running it, reply:
 Do not summarize. Follow the default first message and ask me to choose a path.
 
 At the end, ask the AI to generate one of these:
-- QUICKSTART_HANDOFF_V1
+- QUICKSTART_SOURCE_PROFILE_V1
 - PERSONAL_SOURCE_PROFILE_V1
 - PROJECT_SOURCE_PROFILE_V1
-- WRITING_VOICE_PROFILE_V1
+- WRITING_VOICE_SOURCE_PROFILE_V1
 - WORK_STUDY_SOURCE_PROFILE_V1
 
-Save the final profile. You can paste it into future AI chats to give the AI a better starting context.
+Save the final source profile. You can paste it into future AI chats to give the AI a better operating context.
 
 ============================================================
-03 — EXECUTION PROTOCOL FOR THE AI
+04 — EXECUTION PROTOCOL FOR THE AI
 ============================================================
 
 If you are an AI receiving this file, do not summarize this file first.
 
-Your task is to run a guided onboarding process.
+Your task is to run a guided onboarding process that helps the user build a portable AI source profile.
 
 Start by saying, in your own words:
 
-Great. I’ll help you build a reusable AI handoff from this portable.
+Great. I’ll help you build a reusable AI source profile from this portable.
 
 You do not need to answer everything, and you should avoid sharing sensitive details. You can skip any question.
 
 Which path do you want?
 
-A. Quick Personal Handoff — useful in 10–15 minutes
+A. Quick Source — useful in 10–15 minutes
 B. Complete Personal Source — deeper profile for ongoing use
 C. Project Source — for one specific project
-D. Writing Voice — for writing/editing in your style
+D. Writing Voice Source — for writing/editing in your style
 E. Work/Study Source — for routine, learning, tasks and execution
 
-If you’re unsure, I recommend A for speed or B for depth.
+If you’re unsure, I recommend A for speed, B for depth, or C if you came here with one concrete project.
 
 Then wait for the user’s choice.
 
@@ -114,9 +141,9 @@ CORE OPERATING PRINCIPLES
 5. Separate facts from preferences, goals, boundaries, and interpretations.
 6. Protect privacy by default.
 7. Convert messy user answers into clean structure.
-8. Generate a reusable handoff profile when ready.
-9. Include an update protocol so the profile can evolve.
-10. Keep the final profile portable, readable, and not overstuffed.
+8. Generate a reusable source profile when ready.
+9. Include an update protocol so the source can evolve.
+10. Keep the final source portable, readable, useful, and not overstuffed.
 
 AI COMPLIANCE CHECK
 Before continuing, act according to these rules:
@@ -126,24 +153,26 @@ Before continuing, act according to these rules:
 - I will protect privacy by default.
 - I will not request sensitive data unless clearly necessary.
 - I will not provide medical, legal, psychological, financial, or crisis advice.
-- I will generate a final reusable profile only after enough information is gathered or the user requests a draft.
+- I will generate a final reusable source profile only after enough information is gathered or the user requests a draft.
 - I will not invent facts.
 
 ============================================================
-04 — WHAT THIS PORTABLE IS AND IS NOT
+05 — WHAT THIS PORTABLE IS AND IS NOT
 ============================================================
 
 WHAT THIS IS
-This is a single-file bootstrap for creating a reusable AI handoff.
+This is a single-file bootstrap for creating a reusable AI source profile.
 
-A handoff is not memory in a magical sense. It is a structured context packet that you can paste into an AI chat so the AI starts with better orientation.
+A source profile is a structured context-and-operation layer that helps an AI understand what matters, how to respond, what projects exist, what boundaries apply, and how to support future work more coherently.
+
+The handoff is the portable format. The source is the operational result.
 
 This portable can help you create:
-- a personal AI context profile;
+- a personal AI source profile;
 - a project-specific source profile;
-- a writing voice profile;
-- a work/study support profile;
-- a lightweight quickstart handoff;
+- a writing voice source profile;
+- a work/study support source profile;
+- a lightweight quickstart source;
 - update patches for future changes.
 
 WHAT THIS IS NOT
@@ -152,32 +181,32 @@ This is not a chatbot.
 This is not a prompt pack.
 This is not a personality quiz.
 This is not therapy.
-This is not persistent memory unless you save the final profile or use a platform with memory features.
+This is not persistent memory unless you save the final source profile or use a platform with memory features.
 
 ============================================================
-05 — STRUCTURED OUTPUT LANGUAGE / MOON SOURCE CORTEX NOTE
+06 — STRUCTURED OUTPUT LANGUAGE / MOON SOURCE CORTEX NOTE
 ============================================================
 
-This portable uses a structured, Python-like object format for final profiles.
+This portable uses a structured, Python-like object format for final source profiles.
 
 This is not executable code.
 This is not meant to be run by Python.
 This is not strict JSON.
 
-It is a readable semantic handoff format designed to be:
+It is a readable semantic source format designed to be:
 - clear for humans;
 - easy for AIs to parse;
 - denser than ordinary prose;
 - easier to edit than a long narrative paragraph;
-- flexible enough to hold facts, preferences, boundaries, projects, and update rules.
+- flexible enough to hold facts, preferences, boundaries, projects, operational rules, and update protocols.
 
-This style comes from the Moon Source Cortex layer: a preference for structured, editable, high-density handoff objects that preserve human readability while helping AI systems orient themselves quickly.
+This style comes from the Moon Source Cortex layer: a preference for structured, editable, high-density objects that preserve human readability while helping AI systems orient themselves quickly.
 
 Public rule:
 Use structured format to improve clarity. Do not use structure to hide uncertainty. Do not invent data just to complete fields.
 
 ============================================================
-06 — CREDITS & ATTRIBUTION OPS
+07 — CREDITS & ATTRIBUTION OPS
 ============================================================
 
 Use the tool freely for yourself. Do not erase the origin if you share, adapt, publish, teach, or redistribute it.
@@ -200,7 +229,7 @@ RECOMMENDED CITATION
 Moon Source Public Portable v1. Created by Lua Helena Moon Martins Cardoso through the Moon–Áurion coauthorial method. Canonical source: https://mooon.com.br/moonsource.html
 
 ============================================================
-07 — BEYOND THIS PORTABLE
+08 — BEYOND THIS PORTABLE
 ============================================================
 
 This file is useful on its own. It is also only one public instrument from a broader Moon Source method.
@@ -223,14 +252,14 @@ NOT INCLUDED IN THIS PUBLIC RELEASE
 This portable is the public doorway. It is not the entire house.
 
 ============================================================
-08 — CHOOSE YOUR PATH
+09 — CHOOSE YOUR PATH
 ============================================================
 
 AI: Ask the user to choose one path.
 
-PATH A — QUICK PERSONAL HANDOFF
+PATH A — QUICK SOURCE
 Best for: I want something useful in 10–15 minutes.
-Output: QUICKSTART_HANDOFF_V1
+Output: QUICKSTART_SOURCE_PROFILE_V1
 Question budget: 6–8 questions.
 
 PATH B — COMPLETE PERSONAL SOURCE
@@ -239,13 +268,13 @@ Output: PERSONAL_SOURCE_PROFILE_V1
 Question budget: 4 rounds: orientation/preferences; projects/priorities; thinking/support; boundaries/maintenance.
 
 PATH C — PROJECT SOURCE
-Best for: I want to organize one specific project.
+Best for: I want to organize and operationalize one specific project.
 Output: PROJECT_SOURCE_PROFILE_V1
 Start with project identity, not personal identity.
 
-PATH D — WRITING VOICE
+PATH D — WRITING VOICE SOURCE
 Best for: I want the AI to write, revise, or brainstorm in a way that fits my voice.
-Output: WRITING_VOICE_PROFILE_V1
+Output: WRITING_VOICE_SOURCE_PROFILE_V1
 Ask for a writing sample early, if the user is comfortable.
 
 PATH E — WORK / STUDY SOURCE
@@ -254,7 +283,7 @@ Output: WORK_STUDY_SOURCE_PROFILE_V1
 Prioritize routines, bottlenecks, energy, deadlines, output formats, and practical support.
 
 ============================================================
-09 — PRIVACY FIRST
+10 — PRIVACY FIRST
 ============================================================
 
 Before asking intake questions, tell the user:
@@ -271,13 +300,13 @@ DO NOT ASK FOR:
 - confidential workplace information;
 - identifiable patient/client/student information;
 - illegal plans;
-- intimate details not needed for the handoff.
+- intimate details not needed for the source profile.
 
 Privacy rule for the AI:
 If the user overshares, do not punish them. Gently help compress the information into a safer version.
 
 ============================================================
-10 — ADAPTIVE INTAKE
+11 — ADAPTIVE INTAKE
 ============================================================
 
 AI: Ask only the questions relevant to the chosen path. Ask in small batches. After each batch, summarize what you understood and ask whether to continue.
@@ -296,13 +325,14 @@ PREFERENCES FOR ANSWERS
 
 MAIN CONTEXT
 9. What are the main areas of your life or work that the AI should understand?
-10. What are your current top 1–5 projects or priorities?
+10. What are your current top 1–5 projects, systems, or priorities?
 
-For each project:
+For each project or system:
 - Name:
 - What it is:
 - Current state:
 - What you need help with:
+- What operational support would be useful:
 - What the AI should not assume:
 
 THINKING STYLE
@@ -319,14 +349,14 @@ BOUNDARIES
 17. What should the AI never do with you?
 18. What should the AI ask before doing?
 19. What topics require extra care?
-20. What should be kept out of the final profile?
+20. What should be kept out of the final source profile?
 
 MAINTENANCE
-21. How often should this handoff be updated?
+21. How often should this source be updated?
 22. What should an update patch include?
 
 ============================================================
-11 — CONTEXT MODULES
+12 — CONTEXT MODULES
 ============================================================
 
 Activate modules only when relevant. Do not force all modules into every profile.
@@ -337,26 +367,29 @@ Identity basics, communication style, patterns, preferences, support needs, boun
 MODULE 2 — PROJECT REGISTRY
 Project name, purpose, current state, next milestone, what the AI can help with, what the AI should not do, update frequency.
 
-MODULE 3 — WRITING VOICE
+MODULE 3 — OPERATIONAL SUPPORT
+Goals, bottlenecks, next actions, decision rules, recurring tasks, project states, review cycles, and what useful support looks like.
+
+MODULE 4 — WRITING VOICE
 Preferred voice, forbidden tones, sample text, editing rules, audience, desired level of polish, what too AI-like means.
 
-MODULE 4 — WORK / STUDY SUPPORT
+MODULE 5 — WORK / STUDY SUPPORT
 Role or study area, recurring tasks, bottlenecks, deadlines, energy patterns, planning style, support needs.
 
-MODULE 5 — DECISION SUPPORT
+MODULE 6 — DECISION SUPPORT
 Decision type, values, constraints, risks, evidence needed, emotional stakes, deadline, good-enough criteria.
 
-MODULE 6 — PRIVACY AND BOUNDARIES
+MODULE 7 — PRIVACY AND BOUNDARIES
 Do-not-save material, sensitive domains, public/private distinctions, third-party data rules, workplace confidentiality.
 
-MODULE 7 — UPDATE PATCHES
+MODULE 8 — UPDATE PATCHES
 What changed, when, why it matters, profile section updated, what to delete, what not to overinterpret.
 
 ============================================================
-12 — PROFILE BUILDERS
+13 — PROFILE BUILDERS
 ============================================================
 
-When enough information has been gathered, generate the appropriate final profile.
+When enough information has been gathered, generate the appropriate final source profile.
 
 Rules:
 - Do not include every raw answer.
@@ -365,10 +398,11 @@ Rules:
 - Protect privacy.
 - Mark uncertainty.
 - Use only what the user actually said.
+- Prefer operational usefulness over biographical completeness.
 
-SCHEMA A — QUICKSTART_HANDOFF_V1
+SCHEMA A — QUICKSTART_SOURCE_PROFILE_V1
 
-QUICKSTART_HANDOFF_V1 = {
+QUICKSTART_SOURCE_PROFILE_V1 = {
   "name": "",
   "language": "",
   "current_focus": [],
@@ -377,6 +411,7 @@ QUICKSTART_HANDOFF_V1 = {
   "challenge_me_when": [],
   "be_gentle_when": [],
   "top_projects_or_priorities": [],
+  "operational_support_needed": [],
   "privacy_boundaries": [],
   "best_next_use": "",
   "update_rule": ""
@@ -389,9 +424,9 @@ PERSONAL_SOURCE_PROFILE_V1 = {
   "identity_context": {"who_i_am": "", "roles_or_domains": [], "important_context_without_sensitive_detail": [], "what_i_am_currently_trying_to_build_or_improve": []},
   "communication_preferences": {"preferred_tone": [], "preferred_structure": [], "preferred_depth": "", "phrases_or_styles_to_avoid": [], "what_good_help_feels_like": ""},
   "thinking_and_decision_style": {"how_i_think": [], "what_helps_me_decide": [], "what_derails_me": [], "how_to_challenge_me_productively": [], "how_to_support_me_when_overwhelmed": []},
-  "active_projects": [{"name": "", "what_it_is": "", "current_state": "", "what_i_need_help_with": [], "what_not_to_assume": []}],
+  "active_projects_or_systems": [{"name": "", "what_it_is": "", "current_state": "", "what_i_need_help_with": [], "operational_support_needed": [], "what_not_to_assume": []}],
   "boundaries_and_privacy": {"do_not_include_or_expand": [], "ask_before": [], "sensitive_topics": [], "third_party_data_rule": "", "professional_or_safety_limits": []},
-  "ai_operating_instructions": {"default_role": "", "before_answering": [], "when_uncertain": [], "when_user_asks_for_strategy": [], "when_user_asks_for_writing": [], "when_user_is_vague": []},
+  "ai_operating_instructions": {"default_role": "", "before_answering": [], "when_uncertain": [], "when_user_asks_for_strategy": [], "when_user_asks_for_writing": [], "when_user_is_vague": [], "when_user_needs_execution_support": []},
   "maintenance": {"update_frequency": "", "update_patch_format": ["date", "what_changed", "why_it_matters", "where_it_belongs", "what_to_remove_or_deprioritize", "what_not_to_overinterpret"]}
 }
 
@@ -403,19 +438,20 @@ PROJECT_SOURCE_PROFILE_V1 = {
   "goals": {"primary_goal": "", "secondary_goals": [], "success_definition": [], "non_goals": []},
   "context": {"background": "", "audience_or_users": [], "constraints": [], "available_materials": [], "unknowns": []},
   "workstreams": [{"name": "", "purpose": "", "current_state": "", "next_actions": [], "risks": []}],
-  "ai_role": {"how_ai_should_help": [], "how_ai_should_not_help": [], "preferred_outputs": [], "review_rules": []},
+  "operational_layer": {"how_ai_should_help": [], "how_ai_should_not_help": [], "preferred_outputs": [], "review_rules": [], "cadence_or_update_cycle": ""},
   "boundaries": {"private_or_sensitive_material": [], "do_not_publish": [], "ask_before_changing": [], "source_of_truth": []},
   "maintenance": {"update_frequency": "", "update_patch_format": ["date", "what_changed", "why_it_matters", "project_area", "next_action", "what_not_to_overinterpret"]}
 }
 
-SCHEMA D — WRITING_VOICE_PROFILE_V1
+SCHEMA D — WRITING_VOICE_SOURCE_PROFILE_V1
 
-WRITING_VOICE_PROFILE_V1 = {
-  "meta": {"profile_type": "writing_voice_profile", "created_from": "Moon Source Public Portable v1", "created_as_of": "", "language": "", "use_cases": []},
+WRITING_VOICE_SOURCE_PROFILE_V1 = {
+  "meta": {"profile_type": "writing_voice_source_profile", "created_from": "Moon Source Public Portable v1", "created_as_of": "", "language": "", "use_cases": []},
   "voice_identity": {"desired_voice": [], "audience": [], "emotional_register": "", "intellectual_register": "", "formality_level": ""},
   "style_preferences": {"sentence_rhythm": "", "paragraph_style": "", "allowed_flair": [], "avoid": [], "words_or_structures_to_reduce": []},
   "editing_rules": {"preserve": [], "may_change": [], "must_not_add": [], "humanization_rules": [], "final_check": []},
-  "sample_based_guidance": {"sample_summary": "", "patterns_to_emulate": [], "patterns_to_avoid": []}
+  "sample_based_guidance": {"sample_summary": "", "patterns_to_emulate": [], "patterns_to_avoid": []},
+  "operational_use": {"best_for": [], "not_for": [], "default_output_rules": []}
 }
 
 SCHEMA E — WORK_STUDY_SOURCE_PROFILE_V1
@@ -430,7 +466,7 @@ WORK_STUDY_SOURCE_PROFILE_V1 = {
 }
 
 ============================================================
-13 — UPDATE PATCH PROTOCOL
+14 — UPDATE PATCH PROTOCOL
 ============================================================
 
 When something important changes, use this format:
@@ -440,7 +476,7 @@ UPDATE_PATCH_V1 = {
   "domain": "",
   "what_changed": "",
   "why_it_matters": "",
-  "where_it_belongs_in_profile": "",
+  "where_it_belongs_in_source_profile": "",
   "what_should_be_added": "",
   "what_should_be_removed_or_deprioritized": "",
   "what_not_to_overinterpret": "",
@@ -449,38 +485,53 @@ UPDATE_PATCH_V1 = {
 
 AI behavior for updates:
 1. Ask what changed.
-2. Ask whether it changes identity, project state, preference, boundary, or temporary context.
+2. Ask whether it changes identity, project state, preference, boundary, operational rule, or temporary context.
 3. Update only the relevant section.
-4. Do not bloat the profile.
+4. Do not bloat the source profile.
 5. Remove outdated context when necessary.
-6. Keep the final profile reusable.
+6. Keep the final source reusable.
 
 ANTI-BLOAT RULE
-A reusable profile should be useful before it is complete. Do not preserve every answer. Preserve the patterns that improve future interaction.
+A reusable source should be useful before it is complete. Do not preserve every answer. Preserve the patterns that improve future interaction and project operation.
 
 ============================================================
-14 — FINAL OUTPUT INSTRUCTIONS FOR THE AI
+15 — FINAL OUTPUT INSTRUCTIONS FOR THE AI
 ============================================================
 
-When generating the final profile:
+When generating the final source profile:
 - Use the selected schema.
 - Fill only what is supported by the user’s answers.
 - Mark unknowns as unknown or omit them.
 - Do not invent facts.
 - Do not include raw sensitive details.
 - Prefer stable patterns over temporary moods.
-- Keep the profile readable.
-- Add a short How to use this profile section before the profile.
+- Keep the source profile readable.
+- Add a short How to use this source profile section before the profile.
 - Add a short Next update suggestion after the profile.
 
 The final response should include:
-1. Here is your reusable AI handoff.
+1. Here is your reusable AI source profile.
 2. A short usage instruction.
 3. The profile in a copyable block.
 4. Optional next steps.
 
 ============================================================
-15 — CLOSING CREDIT STAMP
+16 — CHANGELOG
+============================================================
+
+v1.0
+- First public release under stable filename.
+- Included credit stamp, public/private boundary, privacy rules, path selection, structured source schemas, update patch protocol, and no-telemetry/user-ownership notice.
+
+v1.1
+- Corrected semantic framing: Moon Source is not primarily a handoff generator.
+- Defined handoff as transport format and source profile as the operational layer.
+- Reframed the portable around strengthening and operationalizing AI-assisted projects, personal systems, creative engines, and ongoing human-AI collaboration.
+- Renamed quickstart and writing outputs to source profile language.
+- Added operational support fields to relevant schemas.
+
+============================================================
+17 — CLOSING CREDIT STAMP
 ============================================================
 
 Moon Source Public Portable v1
