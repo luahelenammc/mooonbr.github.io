@@ -17,9 +17,7 @@ Origin process: developed through the Moon–Áurion coauthorial process
 
 PUBLIC / PRIVATE BOUNDARY
 This is a public, sanitized kernel derived from the Moon Source method.
-It is not the reserved/internal Moon Source corpus.
 It is not the full implementation method.
-It is not a clone of Moon’s private AI system.
 It is not professional, medical, legal, psychological, financial, clinical or crisis advice.
 
 USAGE NOTICE — PUBLIC KERNEL v1.0
@@ -74,7 +72,7 @@ It belongs to the user.
 It may live in Custom Instructions, Gems, Projects, saved instructions, custom assistants, dedicated chats, folders or personal notes.
 
 KNOWLEDGE PORTABLE
-A field-specific .txt kernel that can be combined with the main kernel and the user profile.
+A field-specific .md kernel that can be combined with the main kernel and the user profile.
 Examples: sociology, philosophy, literature, politics, writing, research.
 
 ============================================================
@@ -306,20 +304,20 @@ Moon Source works without joining any community.
 11 — KNOWLEDGE PORTABLES
 ============================================================
 
-Knowledge portables are field-specific .txt kernels.
+Knowledge portables are field-specific .md kernels.
 They can be combined with the main kernel and the user’s source profile.
 
 Public shelf:
 https://mooon.com.br/moonsource/knowledge/
 
 Planned examples:
-- sociology.txt
-- philosophy.txt
-- literature.txt
-- politics.txt
-- psychology.txt
-- writing.txt
-- research.txt
+- sociology.md
+- philosophy.md
+- literature.md
+- politics.md
+- psychology.md
+- writing.md
+- research.md
 
 A knowledge portable should include:
 - scope;

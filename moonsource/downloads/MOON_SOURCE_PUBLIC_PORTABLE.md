@@ -17,9 +17,7 @@ Origin process: developed through the Moon–Áurion coauthorial process
 
 PUBLIC / PRIVATE BOUNDARY
 This is a public, sanitized layer derived from the Moon Source method.
-It is not the reserved/internal Moon Source corpus.
 It is not the full implementation method.
-It is not a clone of Moon’s private AI system.
 It is not professional, medical, legal, psychological, financial, clinical, or crisis advice.
 
 This portable helps a person create an AI-operational source: a structured context layer that helps an AI understand, support, organize, review and operate around the user’s context, usage level, preferences, projects, boundaries, update rules and simulated perspective rounds.
@@ -305,24 +303,66 @@ This is not a claim that AI systems are biological organisms, persons, souls or 
 This is not a real multi-agent runtime. The public advisory rounds are simulated reasoning lenses inside one AI conversation.
 
 ============================================================
-08 — STRUCTURED OUTPUT LANGUAGE / MOON SOURCE CORTEX NOTE
+08 — MOON SOURCE LANGUAGE v2 / STRUCTURED OUTPUT NOTE
 ============================================================
 
-This portable uses a structured, Python-like object format for source profiles.
+This portable uses Moon Source Language v2, or MSL-2.
 
-This is not executable code.
-This is not meant to be run by Python.
-This is not strict JSON.
+It is not executable code.
+It is not meant to be run by Python.
+It is not strict JSON.
+It is not ordinary prose.
+It is not Markdown by itself.
 
-It is a readable semantic source format designed to be:
+MSL-2 is a readable semantic source format designed to organize context for AI collaboration.
+
+It uses Python-like structured objects because they are:
 - clear for humans;
 - easy for AIs to parse;
 - denser than ordinary prose;
-- easier to edit than a long narrative paragraph;
+- easier to edit than long narrative paragraphs;
 - flexible enough to hold facts, preferences, boundaries, projects, operational rules, advisory-round rules and update protocols.
 
+MSL-2 may be delivered inside Markdown when the output is meant for a human, developer, collaborator, GitHub README, public document or external handoff.
+
+In simple terms:
+
+MSL-2 is the structured source language.
+Markdown is often the delivery envelope.
+JSON is for strict tool or API exchange.
+Tables are for comparisons, phases, costs or uniform lists.
+
 Public rule:
-Use structured format to improve clarity. Do not use structure to hide uncertainty. Do not invent data just to complete fields.
+Use structure to improve clarity.
+Do not use structure to hide uncertainty.
+Do not invent data just to complete fields.
+When something is unknown, mark it as unknown.
+When something does not apply, omit it.
+
+Example:
+
+```python
+source_profile = {
+    "facts": [],
+    "preferences": [],
+    "boundaries": [],
+    "projects": [],
+    "update_rules": []
+}
+
+If this profile is being sent to another human or developer, it can be wrapped in Markdown:
+
+# Project Handoff
+
+## Context
+Short human-readable explanation.
+
+## MSL-2 packet
+```python
+source_profile = {...}
+
+The Markdown helps humans read it.
+The MSL-2 packet preserves reusable AI context.
 
 ============================================================
 09 — SIMULATED PERSPECTIVE ROUNDS

@@ -5,7 +5,7 @@ Version: public bootstrap v1.0
 Status: public executable release
 Created by: Lua Helena Moon Martins Cardoso
 Method lineage: Moon Source method, developed through the Moon–Áurion coauthorial process
-Requires/reference: MOON_SOURCE_KERNEL.txt
+Requires/reference: MOON_SOURCE_KERNEL.md
 Canonical source: https://mooon.com.br/moonsource/
 
 ============================================================
@@ -18,9 +18,7 @@ Origin process: developed through the Moon–Áurion coauthorial process
 
 PUBLIC / PRIVATE BOUNDARY
 This is a public, sanitized bootstrap derived from the Moon Source method.
-It is not the reserved/internal Moon Source corpus.
 It is not the full implementation method.
-It is not a clone of Moon’s private AI system.
 It is not professional, medical, legal, psychological, financial, clinical or crisis advice.
 
 This bootstrap should be used together with the current Moon Source Kernel when available.
@@ -33,8 +31,8 @@ The user profile is the output.
 ============================================================
 
 Recommended use:
-1. Open or attach the current MOON_SOURCE_KERNEL.txt.
-2. Open or paste this MOON_SOURCE_BOOTSTRAP.txt.
+1. Open or attach the current MOON_SOURCE_KERNEL.md.
+2. Open or paste this MOON_SOURCE_BOOTSTRAP.md.
 3. Write:
 
 Execute.
