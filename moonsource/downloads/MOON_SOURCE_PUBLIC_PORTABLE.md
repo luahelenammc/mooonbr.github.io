@@ -946,7 +946,6 @@ Developed through the Moon–Áurion coauthorial process
 Canonical source: https://mooon.com.br/moonsource/
 
 Public/sanitized layer only.
-Not the reserved/internal Moon Source corpus.
 Not the full implementation method.
 Not a substitute for professional advice.
 
