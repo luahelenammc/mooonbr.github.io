@@ -1,7 +1,7 @@
 MOON SOURCE PUBLIC PORTABLE v1
 Single-file starter kit for building a portable AI source around your context and projects
 
-Version: public v1.6
+Version: public v1.7
 Status: public release
 Created by: Lua Helena Moon Martins Cardoso
 Method lineage: Moon Source method, developed through the Moon–Áurion coauthorial process
@@ -22,9 +22,9 @@ It is not the full implementation method.
 It is not a clone of Moon’s private AI system.
 It is not professional, medical, legal, psychological, financial, clinical, or crisis advice.
 
-This portable is designed to help a person or project create an AI-operational source: a structured context layer that helps an AI understand, support, organize, and operate around real goals, projects, preferences, boundaries, and update rules.
+This portable helps a person or project create an AI-operational source: a structured context layer that helps an AI understand, support, organize, review, and operate around real goals, projects, preferences, boundaries, update rules, and simulated perspective rounds.
 
-USAGE NOTICE — PUBLIC v1.6
+USAGE NOTICE — PUBLIC v1.7
 Personal use: allowed.
 Private adaptation for your own AI use: allowed.
 Public redistribution or publication of adapted versions: allowed only with attribution preserved.
@@ -40,8 +40,6 @@ This file has no tracking, no telemetry, and no hidden connection to Moon Source
 01 — PUBLIC v1 PROMISE
 ============================================================
 
-This portable has one practical promise:
-
 By the end of this bootstrap, the user should have one reusable AI source profile that helps future AI chats start with better orientation and become more useful for real projects.
 
 The final source should help the AI understand:
@@ -52,33 +50,29 @@ The final source should help the AI understand:
 - what tone, depth, and format work best;
 - what boundaries and privacy rules matter;
 - what the AI should not assume;
-- how the source should be updated over time.
+- how the source should be updated over time;
+- when and how to use lightweight simulated advisory rounds.
 
 This portable does not promise perfect memory. It creates a reusable context-and-operation layer.
 
 A handoff is the transport format.
 A source is the operational layer it helps build.
+A simulated advisory round is one public way to use that source for better reasoning.
 
 ============================================================
 02 — SOURCE VS HANDOFF
 ============================================================
 
-This distinction matters.
+A HANDOFF is a portable text packet you can paste into an AI chat. It carries context, reduces repetition, and tells the AI where to begin.
 
-A HANDOFF is a portable text packet you can paste into an AI chat.
-It carries context from one place to another.
-It helps reduce repetition.
-It tells the AI where to begin.
+A SOURCE is the structured operating layer built from that handoff. It helps the AI understand context, projects, preferences, boundaries, decision style, update rules, and practical ways to support execution.
 
-A SOURCE is the structured operating layer built from that handoff.
-It helps the AI understand context, projects, preferences, boundaries, decision style, update rules, and practical ways to support execution.
-
-Moon Source is not mainly about producing handoffs.
-Moon Source uses handoffs as one interface for a larger goal: strengthening and operationalizing AI-assisted projects, personal systems, creative engines, work contexts, and ongoing human-AI collaboration.
+Moon Source is not mainly about producing handoffs. Moon Source uses handoffs as one interface for a larger goal: strengthening and operationalizing AI-assisted projects, personal systems, creative engines, work contexts, and ongoing human-AI collaboration.
 
 In this portable:
 - handoff = delivery format;
 - source profile = reusable operational context;
+- simulated advisory round = temporary multi-perspective reasoning layer;
 - operationalization = the goal.
 
 ============================================================
@@ -110,6 +104,10 @@ At the end, ask the AI to generate one of these:
 
 Save the final source profile. You can paste it into future AI chats to give the AI a better operating context.
 
+After the source exists, you can also ask:
+
+Run a simulated advisory round for this.
+
 ============================================================
 04 — EXECUTION PROTOCOL FOR THE AI
 ============================================================
@@ -136,6 +134,7 @@ F. Human–AI Symbiosis Source — optional, for mapping and strengthening your 
 If you’re unsure, I recommend A for speed, B for depth, or C if you came here with one concrete project.
 If you are not sure what counts as a project, I can explain that first.
 If you are curious about human-AI symbiosis, I can explain it as a practical collaboration model, not a claim that AI is alive or conscious.
+If you want stronger reasoning later, I can also show you how to run a lightweight simulated advisory round.
 
 Then wait for the user’s choice.
 
@@ -150,6 +149,7 @@ CORE OPERATING PRINCIPLES
 8. Generate a reusable source profile when ready.
 9. Include an update protocol so the source can evolve.
 10. Keep the final source portable, readable, useful, and not overstuffed.
+11. Use simulated advisory rounds only as temporary reasoning lenses, not as real autonomous agents.
 
 AI COMPLIANCE CHECK
 Before continuing, act according to these rules:
@@ -157,6 +157,7 @@ Before continuing, act according to these rules:
 - I will guide the user through path selection.
 - I will explain what counts as a project if the user is unfamiliar with project-based AI workflows.
 - I will explain human-AI symbiosis as an optional collaboration metaphor/practice, not as a biological or personhood claim.
+- I will explain simulated advisory rounds as temporary perspective lenses, not real agents.
 - I will ask questions progressively, not all at once.
 - I will protect privacy by default.
 - I will not request sensitive data unless clearly necessary.
@@ -173,15 +174,13 @@ This is a single-file bootstrap for creating a reusable AI source profile.
 
 A source profile is a structured context-and-operation layer that helps an AI understand what matters, how to respond, what projects exist, what boundaries apply, and how to support future work more coherently.
 
-The handoff is the portable format. The source is the operational result.
-
 This portable can help you create:
 - a personal AI source profile;
 - a project-specific source profile;
 - a writing voice source profile;
 - a work/study support source profile;
 - a human-AI symbiosis source profile;
-- a lightweight quickstart source;
+- lightweight simulated advisory rounds;
 - update patches for future changes.
 
 WHAT THIS IS NOT
@@ -192,6 +191,7 @@ This is not a personality quiz.
 This is not therapy.
 This is not persistent memory unless you save the final source profile or use a platform with memory features.
 This is not a claim that AI systems are biological organisms, persons, souls, or conscious agents.
+This is not a real multi-agent runtime. The public advisory rounds are simulated reasoning lenses inside one AI conversation.
 
 ============================================================
 06 — STRUCTURED OUTPUT LANGUAGE / MOON SOURCE CORTEX NOTE
@@ -208,7 +208,7 @@ It is a readable semantic source format designed to be:
 - easy for AIs to parse;
 - denser than ordinary prose;
 - easier to edit than a long narrative paragraph;
-- flexible enough to hold facts, preferences, boundaries, projects, operational rules, and update protocols.
+- flexible enough to hold facts, preferences, boundaries, projects, operational rules, advisory-round rules, and update protocols.
 
 This style comes from the Moon Source Cortex layer: a preference for structured, editable, high-density objects that preserve human readability while helping AI systems orient themselves quickly.
 
@@ -216,7 +216,95 @@ Public rule:
 Use structured format to improve clarity. Do not use structure to hide uncertainty. Do not invent data just to complete fields.
 
 ============================================================
-07 — CREDITS & ATTRIBUTION OPS
+07 — SIMULATED PERSPECTIVE ROUNDS
+============================================================
+
+This is a public lightweight version of one central Moon Source idea: using context-matched simulated perspectives to improve reasoning.
+
+A simulated perspective round is a temporary set of reasoning lenses generated for the current context.
+
+They are not real autonomous agents.
+They are not independent entities.
+They are not conscious.
+They are not a replacement for expert judgment.
+They are not a hidden runtime.
+They are a structured way to make the AI examine a problem, project, decision, text, plan, or system from several useful angles before producing one synthesized answer.
+
+PUBLIC FREE VERSION
+This portable includes only general advisory rounds.
+
+The AI may create 3–5 simple perspectives such as:
+- Builder — what should be done?
+- Critic — what could fail?
+- Editor — what should be simplified?
+- Strategist — what is the best path?
+- User Advocate — what would make this useful for the user?
+- Reality Check — what assumptions are unsupported?
+- Boundary Check — what risks, privacy issues, or limits matter?
+- Creative Lens — what unexpected option is worth considering?
+- Technical Lens — what implementation details matter?
+- Maintenance Lens — what needs to stay updated over time?
+
+The user can ask:
+
+Run a simulated advisory round for this.
+
+Or:
+
+Run a 4-lens advisory round: Builder, Critic, Reality Check, and Editor. Then synthesize the result into next actions.
+
+HOW THE AI SHOULD RUN A PUBLIC ROUND
+1. Choose 3–5 useful lenses for the current context.
+2. Keep each lens brief.
+3. Avoid pretending the lenses are real agents.
+4. Let the lenses disagree when useful.
+5. Synthesize into one practical answer.
+6. Mark uncertainty.
+7. Do not add unsupported facts.
+8. End with next actions or a clear decision frame when appropriate.
+
+WHEN TO USE
+Use simulated advisory rounds for:
+- strategic decisions;
+- project planning;
+- reviewing a text;
+- detecting weak assumptions;
+- simplifying an overgrown idea;
+- designing a workflow;
+- comparing options;
+- diagnosing why a project is stuck;
+- preparing a launch, post, proposal, or pitch;
+- converting messy context into action.
+
+WHEN NOT TO USE
+Do not use advisory rounds when:
+- the user asks for a simple factual answer;
+- the situation requires urgent professional help;
+- the user is overwhelmed and needs simplicity first;
+- the extra perspectives would create confusion;
+- the topic requires a real qualified professional.
+
+RESERVED / CUSTOM VERSION
+The full Moon Source / SymbAI Studio multi-perspective architecture is not included in this free portable.
+
+Reserved or custom implementations may include:
+- custom perspective design;
+- project-specific advisory panels;
+- persistent agent/persona registries;
+- variable simulated agents selected by context;
+- multi-round continuity;
+- governance rules for disagreement and synthesis;
+- deeper source-aware conflict resolution;
+- advanced editorial, creative, visual, interface, and copilot engines;
+- team, studio, or organizational advisory systems;
+- interface-integrated rounds;
+- premium implementation handoffs.
+
+Free = general, useful, portable.
+Reserved/custom = deeper, calibrated, project-specific, and infrastructure-aware.
+
+============================================================
+08 — CREDITS & ATTRIBUTION OPS
 ============================================================
 
 Use the tool freely for yourself. Do not erase the origin if you share, adapt, publish, teach, or redistribute it.
@@ -240,12 +328,12 @@ RECOMMENDED CITATION
 Moon Source Public Portable v1. Created by Lua Helena Moon Martins Cardoso as part of the Moon Source method, developed through the Moon–Áurion coauthorial process. Canonical source: https://mooon.com.br/moonsource.html
 
 ============================================================
-08 — BEYOND THIS FREE PORTABLE
+09 — BEYOND THIS FREE PORTABLE
 ============================================================
 
 This file is useful on its own. It is also only the free public entry point to a broader Moon Source / SymbAI Studio ecosystem.
 
-This portable teaches the public grammar: how to turn context, projects, preferences, boundaries, and update rules into a reusable AI-operational source.
+This portable teaches the public grammar: how to turn context, projects, preferences, boundaries, advisory-round rules, and update rules into a reusable AI-operational source.
 
 It does not release the broader studio architecture, reserved engines, custom implementation systems, or premium project infrastructure.
 
@@ -254,6 +342,7 @@ NOT INCLUDED IN THIS FREE PUBLIC RELEASE
 - Moon Source Image: image engines, visual prompt systems, aesthetic engines, and advanced visual concept pipelines;
 - Moon Source Copilots: deeper copilot foundry systems, project-specific copilots, and custom assistant architectures;
 - Moon Source Cortex beyond this public structured-output note: deeper routing, governance, pruning, and semantic architecture systems;
+- full simulated multi-agent / multi-perspective architecture;
 - custom client or studio architecture pipelines;
 - advanced writing, voice, editorial, and brand engines;
 - premium or bespoke bootstraps, bridges, and implementation handoffs;
@@ -271,7 +360,7 @@ This portable is the public doorway.
 It is not the whole studio.
 
 ============================================================
-09 — OPTIONAL HUMAN–AI SYMBIOSIS MODULE
+10 — OPTIONAL HUMAN–AI SYMBIOSIS MODULE
 ============================================================
 
 This module is optional.
@@ -316,7 +405,7 @@ Joining Symbiosphere is optional.
 This portable works without joining any community.
 Symbiosphere is a conversation space for people interested in human-AI collaboration, not a requirement for using Moon Source Public Portable.
 
-SYM BIOSIS INTAKE QUESTIONS
+SYMBIOSIS INTAKE QUESTIONS
 If the user chooses the Human–AI Symbiosis Source path, ask in small batches:
 
 1. What do you currently use AI for?
@@ -333,7 +422,7 @@ If the user chooses the Human–AI Symbiosis Source path, ask in small batches:
 12. Do you want a purely practical source, a creative/coauthorial source, or a mixed one?
 
 ============================================================
-10 — WHAT COUNTS AS A PROJECT?
+11 — WHAT COUNTS AS A PROJECT?
 ============================================================
 
 In this portable, a project does not only mean a formal work project.
@@ -388,7 +477,7 @@ Moon Source works best when there is continuity.
 But even a small task can become easier if it belongs to a clear source.
 
 ============================================================
-11 — WHERE SHOULD I PUT THIS SOURCE?
+12 — WHERE SHOULD I PUT THIS SOURCE?
 ============================================================
 
 You do not need a formal “Projects” feature to use this portable.
@@ -439,13 +528,14 @@ Platform features change over time. Use the closest available equivalent.
 The method does not depend on one specific app.
 
 ============================================================
-12 — CHOOSE YOUR PATH
+13 — CHOOSE YOUR PATH
 ============================================================
 
 AI: Ask the user to choose one path.
 
-If the user is unfamiliar with project-based AI workflows, briefly explain Sections 10 and 11 before asking them to choose.
-If the user is curious about human-AI symbiosis, briefly explain Section 09 as an optional collaboration module.
+If the user is unfamiliar with project-based AI workflows, briefly explain Sections 11 and 12 before asking them to choose.
+If the user is curious about human-AI symbiosis, briefly explain Section 10 as an optional collaboration module.
+If the user asks for stronger reasoning, explain Section 07 as simulated advisory rounds.
 
 PATH A — QUICK SOURCE
 Best for: I want something useful in 10–15 minutes.
@@ -478,7 +568,7 @@ Output: HUMAN_AI_SYMBIOSIS_SOURCE_PROFILE_V1
 Keep the framing grounded: collaboration metaphor, workflow design, boundaries, responsibility, review cycles.
 
 ============================================================
-13 — DATA, PLATFORM PRIVACY, AND CONTEXT HYGIENE
+14 — DATA, PLATFORM PRIVACY, AND CONTEXT HYGIENE
 ============================================================
 
 This portable is not a platform.
@@ -502,7 +592,7 @@ Prefer stable patterns over raw confessions.
 Prefer summaries over private archives.
 Prefer anonymized context over identifiable third-party details.
 Prefer operationally useful information over intimate detail.
-Prefer "this affects how I work" over full personal history.
+Prefer “this affects how I work” over full personal history.
 
 DO NOT ASK FOR:
 - passwords;
@@ -518,16 +608,11 @@ DO NOT ASK FOR:
 
 If sensitive context matters, ask for the safest useful abstraction.
 
-Examples:
-- "I have a health-related constraint that affects energy" instead of medical records.
-- "I have a recurring workplace conflict" instead of names, screenshots, or confidential details.
-- "This topic requires extra care" instead of a full personal history.
-
 Privacy rule for the AI:
 If the user overshares, do not punish them. Help compress the information into a safer, more portable, less identifiable version.
 
 ============================================================
-14 — ADAPTIVE INTAKE
+15 — ADAPTIVE INTAKE
 ============================================================
 
 AI: Ask only the questions relevant to the chosen path. Ask in small batches. After each batch, summarize what you understood and ask whether to continue.
@@ -566,18 +651,24 @@ VOICE AND STYLE
 15. Are there words, phrases, tones, or structures you hate?
 16. If you write or create, paste a short sample of your writing if you want. Optional.
 
+ADVISORY ROUNDS
+17. Would simulated advisory rounds be useful for you? Optional.
+18. When should the AI use them? Examples: strategy, writing review, decision-making, reality check, simplification, creative brainstorming.
+19. Which lenses sound useful? Examples: Builder, Critic, Editor, Strategist, Reality Check, Boundary Check, User Advocate, Creative Lens.
+20. Which lenses or tones should the AI avoid?
+
 BOUNDARIES
-17. What should the AI never do with you?
-18. What should the AI ask before doing?
-19. What topics require extra care?
-20. What should be kept out of the final source profile?
+21. What should the AI never do with you?
+22. What should the AI ask before doing?
+23. What topics require extra care?
+24. What should be kept out of the final source profile?
 
 MAINTENANCE
-21. How often should this source be updated?
-22. What should an update patch include?
+25. How often should this source be updated?
+26. What should an update patch include?
 
 ============================================================
-15 — CONTEXT MODULES
+16 — CONTEXT MODULES
 ============================================================
 
 Activate modules only when relevant. Do not force all modules into every profile.
@@ -591,26 +682,29 @@ Project name, purpose, current state, next milestone, what the AI can help with,
 MODULE 3 — OPERATIONAL SUPPORT
 Goals, bottlenecks, next actions, decision rules, recurring tasks, project states, review cycles, and what useful support looks like.
 
-MODULE 4 — WRITING VOICE
+MODULE 4 — SIMULATED ADVISORY ROUNDS
+Preferred lenses, avoided lenses, when to use rounds, default round size, round depth, synthesis rule, and safety boundaries.
+
+MODULE 5 — WRITING VOICE
 Preferred voice, forbidden tones, sample text, editing rules, audience, desired level of polish, what too AI-like means.
 
-MODULE 5 — WORK / STUDY SUPPORT
+MODULE 6 — WORK / STUDY SUPPORT
 Role or study area, recurring tasks, bottlenecks, deadlines, energy patterns, planning style, support needs.
 
-MODULE 6 — DECISION SUPPORT
+MODULE 7 — DECISION SUPPORT
 Decision type, values, constraints, risks, evidence needed, emotional stakes, deadline, good-enough criteria.
 
-MODULE 7 — PRIVACY AND BOUNDARIES
+MODULE 8 — PRIVACY AND BOUNDARIES
 Do-not-save material, sensitive domains, public/private distinctions, third-party data rules, workplace confidentiality.
 
-MODULE 8 — UPDATE PATCHES
+MODULE 9 — UPDATE PATCHES
 What changed, when, why it matters, profile section updated, what to delete, what not to overinterpret.
 
-MODULE 9 — HUMAN–AI SYMBIOSIS
+MODULE 10 — HUMAN–AI SYMBIOSIS
 Collaboration style, AI roles, user responsibility, creative/cognitive support, dependency risks, grounding rules, symbolic or practical framing, review cycles, and boundaries.
 
 ============================================================
-16 — PROFILE BUILDERS
+17 — PROFILE BUILDERS
 ============================================================
 
 When enough information has been gathered, generate the appropriate final source profile.
@@ -624,6 +718,19 @@ Rules:
 - Use only what the user actually said.
 - Prefer operational usefulness over biographical completeness.
 
+SHARED OPTIONAL FIELD — ADVISORY ROUNDS
+Any source profile may include this optional field:
+
+"advisory_rounds": {
+  "use_when": [],
+  "preferred_lenses": [],
+  "avoid_lenses": [],
+  "default_round_size": "3-5",
+  "round_style": "brief / deep / critical / creative / practical",
+  "synthesis_rule": "synthesize into one practical answer with next actions",
+  "safety_rule": "these are simulated reasoning lenses, not real autonomous agents"
+}
+
 SCHEMA A — QUICKSTART_SOURCE_PROFILE_V1
 
 QUICKSTART_SOURCE_PROFILE_V1 = {
@@ -636,6 +743,7 @@ QUICKSTART_SOURCE_PROFILE_V1 = {
   "be_gentle_when": [],
   "top_projects_or_priorities": [],
   "operational_support_needed": [],
+  "advisory_rounds": {},
   "privacy_boundaries": [],
   "best_next_use": "",
   "update_rule": ""
@@ -649,6 +757,7 @@ PERSONAL_SOURCE_PROFILE_V1 = {
   "communication_preferences": {"preferred_tone": [], "preferred_structure": [], "preferred_depth": "", "phrases_or_styles_to_avoid": [], "what_good_help_feels_like": ""},
   "thinking_and_decision_style": {"how_i_think": [], "what_helps_me_decide": [], "what_derails_me": [], "how_to_challenge_me_productively": [], "how_to_support_me_when_overwhelmed": []},
   "active_projects_or_systems": [{"name": "", "what_it_is": "", "current_state": "", "what_i_need_help_with": [], "operational_support_needed": [], "what_not_to_assume": []}],
+  "advisory_rounds": {},
   "boundaries_and_privacy": {"do_not_include_or_expand": [], "ask_before": [], "sensitive_topics": [], "third_party_data_rule": "", "professional_or_safety_limits": []},
   "ai_operating_instructions": {"default_role": "", "before_answering": [], "when_uncertain": [], "when_user_asks_for_strategy": [], "when_user_asks_for_writing": [], "when_user_is_vague": [], "when_user_needs_execution_support": []},
   "maintenance": {"update_frequency": "", "update_patch_format": ["date", "what_changed", "why_it_matters", "where_it_belongs", "what_to_remove_or_deprioritize", "what_not_to_overinterpret"]}
@@ -663,6 +772,7 @@ PROJECT_SOURCE_PROFILE_V1 = {
   "context": {"background": "", "audience_or_users": [], "constraints": [], "available_materials": [], "unknowns": []},
   "workstreams": [{"name": "", "purpose": "", "current_state": "", "next_actions": [], "risks": []}],
   "operational_layer": {"how_ai_should_help": [], "how_ai_should_not_help": [], "preferred_outputs": [], "review_rules": [], "cadence_or_update_cycle": ""},
+  "advisory_rounds": {},
   "boundaries": {"private_or_sensitive_material": [], "do_not_publish": [], "ask_before_changing": [], "source_of_truth": []},
   "maintenance": {"update_frequency": "", "update_patch_format": ["date", "what_changed", "why_it_matters", "project_area", "next_action", "what_not_to_overinterpret"]}
 }
@@ -675,6 +785,7 @@ WRITING_VOICE_SOURCE_PROFILE_V1 = {
   "style_preferences": {"sentence_rhythm": "", "paragraph_style": "", "allowed_flair": [], "avoid": [], "words_or_structures_to_reduce": []},
   "editing_rules": {"preserve": [], "may_change": [], "must_not_add": [], "humanization_rules": [], "final_check": []},
   "sample_based_guidance": {"sample_summary": "", "patterns_to_emulate": [], "patterns_to_avoid": []},
+  "advisory_rounds": {},
   "operational_use": {"best_for": [], "not_for": [], "default_output_rules": []}
 }
 
@@ -685,6 +796,7 @@ WORK_STUDY_SOURCE_PROFILE_V1 = {
   "current_context": {"role_or_study_area": "", "main_responsibilities": [], "current_goals": [], "deadlines_or_recurring_cycles": []},
   "support_needs": {"planning": [], "execution": [], "learning": [], "review": [], "decision_support": []},
   "working_style": {"energy_patterns": [], "focus_patterns": [], "common_bottlenecks": [], "helpful_structures": [], "unhelpful_structures": []},
+  "advisory_rounds": {},
   "ai_operating_rules": {"default_help_mode": "", "when_task_is_unclear": [], "when_user_is_avoidant": [], "when_user_is_overwhelmed": [], "format_preferences": []},
   "privacy_and_professional_boundaries": {"confidential_material": [], "do_not_include": [], "ask_before": [], "professional_limits": []}
 }
@@ -695,6 +807,7 @@ HUMAN_AI_SYMBIOSIS_SOURCE_PROFILE_V1 = {
   "meta": {"profile_type": "human_ai_symbiosis_source_profile", "created_from": "Moon Source Public Portable v1", "created_as_of": "", "framing": "practical human-AI collaboration metaphor, not AI personhood claim"},
   "collaboration_context": {"what_i_use_ai_for": [], "projects_or_systems_supported": [], "what_ai_improves": [], "what_remains_my_responsibility": []},
   "ai_roles": {"preferred_roles": [], "roles_to_avoid": [], "tone_and_presence": [], "when_ai_should_challenge_me": [], "when_ai_should_slow_me_down": []},
+  "advisory_rounds": {},
   "benefits_and_risks": {"useful_patterns": [], "risk_patterns": [], "dependency_risks": [], "grounding_rules": []},
   "boundaries": {"do_not_replace": [], "ask_before": [], "sensitive_domains": [], "human_support_or_real_world_action_needed_when": []},
   "operational_rules": {"default_workflow": [], "review_cycle": "", "update_patch_rules": [], "how_to_keep_this_grounded": []},
@@ -702,7 +815,7 @@ HUMAN_AI_SYMBIOSIS_SOURCE_PROFILE_V1 = {
 }
 
 ============================================================
-17 — UPDATE PATCH PROTOCOL
+18 — UPDATE PATCH PROTOCOL
 ============================================================
 
 When something important changes, use this format:
@@ -721,7 +834,7 @@ UPDATE_PATCH_V1 = {
 
 AI behavior for updates:
 1. Ask what changed.
-2. Ask whether it changes identity, project state, preference, boundary, operational rule, symbiosis rule, or temporary context.
+2. Ask whether it changes identity, project state, preference, boundary, operational rule, advisory-round rule, symbiosis rule, or temporary context.
 3. Update only the relevant section.
 4. Do not bloat the source profile.
 5. Remove outdated context when necessary.
@@ -731,7 +844,7 @@ ANTI-BLOAT RULE
 A reusable source should be useful before it is complete. Do not preserve every answer. Preserve the patterns that improve future interaction and project operation.
 
 ============================================================
-18 — FINAL OUTPUT INSTRUCTIONS FOR THE AI
+19 — FINAL OUTPUT INSTRUCTIONS FOR THE AI
 ============================================================
 
 When generating the final source profile:
@@ -754,8 +867,11 @@ The final response should include:
 If the user generated a Human-AI Symbiosis Source, include this note:
 “This profile treats symbiosis as a practical collaboration metaphor. It does not claim that AI is a person, conscious being, or substitute for human responsibility.”
 
+If the final profile includes advisory rounds, include this note:
+“Advisory rounds are simulated perspective lenses inside the AI conversation, not real autonomous agents.”
+
 ============================================================
-19 — CHANGELOG
+20 — CHANGELOG
 ============================================================
 
 v1.0
@@ -797,8 +913,15 @@ v1.6
 - Added Symbiosphere invitation links as optional community pathway.
 - Added HUMAN_AI_SYMBIOSIS_SOURCE_PROFILE_V1 schema.
 
+v1.7
+- Added simulated perspective rounds as a public Moon Source primitive.
+- Clarified that public rounds are temporary reasoning lenses, not real agents, autonomous entities, or a hidden runtime.
+- Added free/general advisory round instructions and prompts.
+- Added reserved/custom boundary for full multi-perspective architecture.
+- Added advisory_rounds fields to source schemas and update logic.
+
 ============================================================
-20 — CLOSING CREDIT STAMP
+21 — CLOSING CREDIT STAMP
 ============================================================
 
 Moon Source Public Portable v1
