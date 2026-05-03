@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Moon Source · Public Kernel + Bootstrap</title>
-  <meta name="description" content="Moon Source is a public AI source system: a living kernel, an executable bootstrap, and portable profiles for configuring your AI around your context, projects and way of working." />
-  <meta property="og:title" content="Moon Source · Public Kernel + Bootstrap" />
-  <meta property="og:description" content="A public AI source system for configuring your AI around your context, projects, preferences and way of working." />
+  <title>Moon Source · Setup + Kernel</title>
+  <meta name="description" content="Moon Source is a public AI source setup for configuring your AI around your context, projects, preferences and way of working — with a refresh kernel for ongoing updates." />
+  <meta property="og:title" content="Moon Source · Setup + Kernel" />
+  <meta property="og:description" content="A guided single-file setup for building your first personal AI source, plus a kernel for refresh and updates." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mooon.com.br/moonsource/" />
   <style>
@@ -162,7 +162,7 @@
     }
 
     .subtitle {
-      max-width: 730px;
+      max-width: 740px;
       margin: 24px 0 0;
       color: var(--muted);
       font-size: clamp(1.08rem, 2vw, 1.28rem);
@@ -171,7 +171,7 @@
 
     .mantra {
       margin: 30px 0 0;
-      max-width: 780px;
+      max-width: 800px;
       font-size: clamp(1.34rem, 3.15vw, 2.1rem);
       line-height: 1.15;
       letter-spacing: -0.045em;
@@ -201,6 +201,21 @@
     .button:hover { transform: translateY(-1px); box-shadow: 0 15px 36px rgba(23, 21, 31, 0.18); background: #000; }
     .button.secondary { color: var(--text); background: rgba(255, 255, 255, 0.44); border-color: rgba(23, 21, 31, 0.13); }
     .button.secondary:hover { border-color: rgba(119, 101, 255, 0.32); background: rgba(255, 255, 255, 0.64); }
+
+    .already {
+      margin-top: 18px;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
+
+    .already a {
+      color: var(--text);
+      font-weight: 820;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
 
     .sections { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 52px; }
 
@@ -243,52 +258,51 @@
             <div class="moon" aria-hidden="true">☾</div>
             <span>Moon Source</span>
           </div>
-          <div class="pill">🌙 Public kernel + bootstrap</div>
+          <div class="pill">🌙 Public setup + kernel</div>
         </div>
 
-        <div class="eyebrow">✨ Free AI source system</div>
+        <div class="eyebrow">✨ Free AI source setup</div>
         <h1 id="title">Moon Source</h1>
-        <div class="headline-note">Kernel + Bootstrap</div>
+        <div class="headline-note">Setup + Kernel</div>
 
         <p class="subtitle">
-          A public AI source system for configuring your AI around you, your context, your projects and your way of working.
+          A guided public setup for building your first personal AI source: context, projects, preferences, boundaries, update rules and better AI collaboration.
         </p>
 
         <p class="mantra">
-          Keep the Kernel as reference. Run the Bootstrap to set up your AI. Say “Execute”.
+          New here? Download the Setup. Already using Moon Source? Refresh it with the Kernel.
         </p>
 
         <div class="badges" aria-label="Moon Source attributes">
           <span class="badge">🌕 100% free</span>
-          <span class="badge">🧬 Living kernel</span>
-          <span class="badge">🪄 Executable bootstrap</span>
+          <span class="badge">📦 Guided setup</span>
+          <span class="badge">🧬 Refresh kernel</span>
           <span class="badge">⚙️ Custom-instructions ready</span>
           <span class="badge">🧭 Platform-independent</span>
         </div>
 
         <div class="actions">
-          <a class="button" href="downloads/MOON_SOURCE_BOOTSTRAP.md" download>🪄 Download Bootstrap</a>
-          <a class="button secondary" href="downloads/MOON_SOURCE_KERNEL.md">🧬 Open Kernel</a>
-          <a class="button secondary" href="downloads/MOON_SOURCE_PUBLIC_PORTABLE.md">📦 All-in-one portable</a>
+          <a class="button" href="downloads/MOON_SOURCE_SETUP.md" download>📦 Download Moon Source Setup</a>
+          <a class="button secondary" href="downloads/MOON_SOURCE_KERNEL.md">🧬 Open MS Kernel</a>
           <a class="button secondary" href="knowledge/">📚 Knowledge portables</a>
         </div>
 
+        <p class="already">
+          Already using Moon Source? Open the <a href="downloads/MOON_SOURCE_KERNEL.md">MS Kernel</a> to refresh, update, audit or repair an existing source profile.
+        </p>
+
         <div class="sections" aria-label="Moon Source public architecture">
           <article class="mini">
+            <h2>📦 Setup</h2>
+            <p>The main public artifact. Paste it into your AI, say “Execute”, and build your first usable source profile or global AI instructions.</p>
+          </article>
+          <article class="mini">
             <h2>🧬 Kernel</h2>
-            <p>The living reference: grammar, boundaries, advisory rounds, updates, symbiosis framing and how Moon Source should be consulted over time.</p>
+            <p>The maintenance layer. Use it after setup to update your source, reduce drift, apply patches, refresh projects and keep continuity clean.</p>
           </article>
           <article class="mini">
-            <h2>🪄 Bootstrap</h2>
-            <ol>
-              <li>Open the Kernel</li>
-              <li>Paste the Bootstrap into your AI</li>
-              <li>Say: “Execute”</li>
-            </ol>
-          </article>
-          <article class="mini">
-            <h2>📦 All-in-one</h2>
-            <p>Prefer one file? The original Public Portable remains available as a convenience bundle while Kernel + Bootstrap become the main architecture.</p>
+            <h2>📚 Knowledge</h2>
+            <p>Optional field-specific portables for topics like writing, research, sociology, philosophy, politics and other reusable knowledge layers.</p>
           </article>
         </div>
       </div>
