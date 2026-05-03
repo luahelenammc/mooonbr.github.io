@@ -3,152 +3,215 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Moon Source Knowledge Portables</title>
-  <meta name="description" content="Downloadable Moon Source knowledge portables: lightweight .txt kernels for fields like sociology, philosophy, literature, politics, and more." />
-  <meta property="og:title" content="Moon Source Knowledge Portables" />
-  <meta property="og:description" content="Lightweight .txt knowledge kernels for AI-assisted thinking, study, writing, and projects." />
+  <title>Moon Source · Knowledge Portables</title>
+  <meta name="description" content="Moon Source Knowledge Portables are lightweight .txt kernels for AI-assisted thinking, study, writing and projects across fields like sociology, philosophy, literature, politics and more." />
+  <meta property="og:title" content="Moon Source · Knowledge Portables" />
+  <meta property="og:description" content="Lightweight .txt knowledge kernels for AI-assisted thinking, study, writing and projects." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mooon.com.br/moonsource/knowledge/" />
   <style>
     :root {
       --bg: #f8f6f0;
-      --paper: rgba(255, 254, 249, 0.74);
+      --paper: rgba(255, 254, 249, 0.79);
+      --paper-strong: rgba(255, 255, 255, 0.58);
       --text: #17151f;
       --muted: #686275;
       --line: rgba(23, 21, 31, 0.12);
       --accent: #7765ff;
+      --accent-line: rgba(119, 101, 255, 0.22);
       --radius: 28px;
-      --shadow: 0 24px 80px rgba(28, 24, 44, 0.10);
+      --shadow: 0 28px 90px rgba(28, 24, 44, 0.12);
     }
+
     * { box-sizing: border-box; }
     html { min-height: 100%; }
+
     body {
       min-height: 100vh;
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 12% 10%, rgba(119, 101, 255, 0.16), transparent 30%),
-        radial-gradient(circle at 88% 80%, rgba(216, 209, 255, 0.42), transparent 34%),
+        radial-gradient(circle at 9% 8%, rgba(119, 101, 255, 0.18), transparent 28%),
+        radial-gradient(circle at 92% 78%, rgba(216, 209, 255, 0.50), transparent 34%),
+        radial-gradient(circle at 50% 102%, rgba(255, 255, 255, 0.74), transparent 38%),
         linear-gradient(180deg, #fbfaf6 0%, var(--bg) 100%);
       display: grid;
       place-items: center;
-      padding: 32px 18px;
+      padding: 34px 18px;
     }
-    main { width: min(100%, 980px); margin: auto; }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.34;
+      background-image: radial-gradient(circle, rgba(23, 21, 31, 0.10) 0.7px, transparent 0.8px);
+      background-size: 26px 26px;
+      mask-image: linear-gradient(to bottom, transparent, black 18%, black 70%, transparent);
+    }
+
+    main { position: relative; width: min(100%, 1040px); margin: auto; }
+
     .card {
       position: relative;
       overflow: hidden;
       border: 1px solid var(--line);
-      border-radius: calc(var(--radius) + 10px);
+      border-radius: calc(var(--radius) + 14px);
       background: var(--paper);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
+      backdrop-filter: blur(20px);
     }
+
     .card::before {
       content: "";
       position: absolute;
       inset: 0;
       pointer-events: none;
       background:
-        linear-gradient(120deg, rgba(255,255,255,0.72), transparent 34%),
-        radial-gradient(circle at top right, rgba(119,101,255,0.12), transparent 32%);
+        linear-gradient(125deg, rgba(255,255,255,0.78), transparent 35%),
+        radial-gradient(circle at top right, rgba(119,101,255,0.14), transparent 36%);
     }
-    .inner { position: relative; padding: clamp(28px, 7vw, 72px); }
+
+    .inner { position: relative; padding: clamp(28px, 7vw, 76px); }
+
+    .topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: clamp(34px, 6vw, 54px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 780;
+    }
+
     .moon {
       width: 46px;
       height: 46px;
+      flex: 0 0 46px;
       border-radius: 999px;
       border: 1px solid rgba(23, 21, 31, 0.16);
       display: grid;
       place-items: center;
-      margin-bottom: 34px;
-      background: rgba(255, 255, 255, 0.44);
+      background: rgba(255, 255, 255, 0.50);
       color: var(--accent);
       font-size: 1.45rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.75);
     }
-    .eyebrow {
+
+    .pill, .badge {
       display: inline-flex;
       align-items: center;
+      gap: 7px;
       min-height: 34px;
       padding: 0 13px;
       border-radius: 999px;
-      border: 1px solid rgba(119, 101, 255, 0.20);
-      background: rgba(255, 255, 255, 0.48);
+      border: 1px solid rgba(23, 21, 31, 0.11);
+      background: rgba(255, 255, 255, 0.52);
+      color: var(--text);
+      font-size: 0.82rem;
+      font-weight: 760;
+      white-space: nowrap;
+    }
+
+    .pill {
+      border-color: var(--accent-line);
       color: #5143c9;
       font-size: 0.76rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
+      font-weight: 830;
+      letter-spacing: 0.075em;
       text-transform: uppercase;
-      margin-bottom: 18px;
     }
-    h1 {
-      max-width: 820px;
-      margin: 0;
-      font-size: clamp(2.6rem, 8vw, 5.9rem);
-      line-height: 0.9;
-      letter-spacing: -0.075em;
-      font-weight: 850;
-    }
-    .subtitle {
-      max-width: 680px;
-      margin: 24px 0 0;
-      color: var(--muted);
-      font-size: clamp(1.06rem, 2vw, 1.25rem);
-      line-height: 1.7;
-    }
-    .free {
+
+    .eyebrow {
       display: inline-flex;
       align-items: center;
-      margin-top: 26px;
-      padding: 9px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(23, 21, 31, 0.12);
-      background: rgba(255, 255, 255, 0.50);
-      color: var(--text);
-      font-weight: 800;
-      letter-spacing: 0.04em;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: #5143c9;
+      font-size: 0.78rem;
+      font-weight: 830;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
     }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+    h1 {
+      max-width: 920px;
+      margin: 0;
+      font-size: clamp(3.6rem, 10vw, 7.4rem);
+      line-height: 0.84;
+      letter-spacing: -0.086em;
+      font-weight: 900;
+    }
+
+    .headline-note {
+      margin-top: 18px;
+      color: var(--text);
+      font-size: clamp(1.22rem, 2.4vw, 1.72rem);
+      line-height: 1.2;
+      letter-spacing: -0.045em;
+      font-weight: 780;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2vw, 1.28rem);
+      line-height: 1.72;
+    }
+
+    .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+
     .button {
-      min-height: 54px;
+      min-height: 56px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0 20px;
+      gap: 8px;
+      padding: 0 22px;
       border-radius: 18px;
       border: 1px solid transparent;
       text-decoration: none;
-      font-weight: 820;
+      font-weight: 840;
       color: #fff;
       background: var(--text);
-      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
     }
-    .button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 34px rgba(23, 21, 31, 0.18);
-      background: #000;
-    }
-    .button.secondary {
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.42);
-      border-color: rgba(23, 21, 31, 0.13);
-    }
+
+    .button:hover { transform: translateY(-1px); box-shadow: 0 15px 36px rgba(23, 21, 31, 0.18); background: #000; }
+    .button.secondary { color: var(--text); background: rgba(255, 255, 255, 0.44); border-color: rgba(23, 21, 31, 0.13); }
+    .button.secondary:hover { border-color: rgba(119, 101, 255, 0.32); background: rgba(255, 255, 255, 0.64); }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 14px;
-      margin-top: 46px;
+      margin-top: 52px;
     }
+
     .mini {
-      min-height: 148px;
+      min-height: 154px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(255,255,255,0.42);
+      background: var(--paper-strong);
       padding: 22px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.62);
     }
+
     .mini h2 { margin: 0 0 10px; font-size: 1rem; letter-spacing: -0.02em; }
     .mini p { margin: 0; color: var(--muted); line-height: 1.55; font-size: 0.95rem; }
+
     .path {
       margin-top: 12px;
       font-size: 0.78rem;
@@ -156,15 +219,21 @@
       overflow-wrap: anywhere;
       font-weight: 720;
     }
+
     footer { margin-top: 28px; color: var(--muted); font-size: 0.86rem; line-height: 1.6; text-align: center; }
     footer span { color: var(--text); }
-    @media (max-width: 880px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+
+    @media (max-width: 920px) { .grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 620px) {
       body { padding: 14px; place-items: start center; }
       .inner { padding: 28px 20px; }
-      .moon { margin-bottom: 26px; }
+      .topline { align-items: flex-start; margin-bottom: 32px; }
+      .brand span { display: none; }
+      .pill { font-size: 0.7rem; padding: 0 11px; }
       .grid { grid-template-columns: 1fr; margin-top: 34px; }
+      .actions { flex-direction: column; }
       .button { width: 100%; }
+      h1 { letter-spacing: -0.075em; }
     }
   </style>
 </head>
@@ -172,61 +241,78 @@
   <main>
     <section class="card" aria-labelledby="title">
       <div class="inner">
-        <div class="moon" aria-hidden="true">☾</div>
-        <div class="eyebrow">Moon Source · knowledge portables</div>
-        <h1 id="title">Knowledge Portables</h1>
-        <p class="subtitle">
-          Downloadable .txt kernels for AI-assisted thinking, study, writing and projects. Inspired by the idea of skills, but portable, readable and platform-independent.
-        </p>
-        <div class="free">[[ Structure ready · Portables coming soon ]]</div>
-        <div class="actions">
-          <a class="button" href="../">Back to Moon Source</a>
-          <a class="button secondary" href="downloads/">Downloads folder</a>
+        <div class="topline">
+          <div class="brand">
+            <div class="moon" aria-hidden="true">☾</div>
+            <span>Moon Source</span>
+          </div>
+          <div class="pill">📚 Knowledge shelf</div>
         </div>
+
+        <div class="eyebrow">✨ Public knowledge kernels</div>
+        <h1 id="title">Moon Source</h1>
+        <div class="headline-note">Knowledge Portables</div>
+
+        <p class="subtitle">
+          Lightweight .txt kernels for AI-assisted thinking, study, writing and projects. Inspired by skills, but portable, readable and platform-independent.
+        </p>
+
+        <div class="badges" aria-label="Knowledge portable status">
+          <span class="badge">🌱 Structure ready</span>
+          <span class="badge">📄 .txt kernels coming soon</span>
+          <span class="badge">🧭 Platform-independent</span>
+        </div>
+
+        <div class="actions">
+          <a class="button" href="../">← 🌙 Back to Moon Source</a>
+          <a class="button secondary" href="downloads/">📁 Downloads folder</a>
+        </div>
+
         <div class="grid" aria-label="Planned knowledge portable categories">
           <article class="mini">
-            <h2>Sociology</h2>
+            <h2>🏛️ Sociology</h2>
             <p>Concepts, lenses, authors and social analysis support.</p>
             <div class="path">downloads/sociology.txt</div>
           </article>
           <article class="mini">
-            <h2>Philosophy</h2>
+            <h2>🌀 Philosophy</h2>
             <p>Questions, traditions, arguments and interpretive frames.</p>
             <div class="path">downloads/philosophy.txt</div>
           </article>
           <article class="mini">
-            <h2>Literature</h2>
+            <h2>📖 Literature</h2>
             <p>Reading, style, narrative, symbolism and critical language.</p>
             <div class="path">downloads/literature.txt</div>
           </article>
           <article class="mini">
-            <h2>Politics</h2>
+            <h2>🏛️ Politics</h2>
             <p>Institutions, discourse, strategy, ideology and reality checks.</p>
             <div class="path">downloads/politics.txt</div>
           </article>
           <article class="mini">
-            <h2>Psychology</h2>
+            <h2>🧠 Psychology</h2>
             <p>Careful conceptual support without replacing professional care.</p>
             <div class="path">downloads/psychology.txt</div>
           </article>
           <article class="mini">
-            <h2>Writing</h2>
+            <h2>✍️ Writing</h2>
             <p>Voice, revision, structure, style and anti-generic writing support.</p>
             <div class="path">downloads/writing.txt</div>
           </article>
           <article class="mini">
-            <h2>Research</h2>
+            <h2>🔎 Research</h2>
             <p>Questions, sources, synthesis, note-making and uncertainty.</p>
             <div class="path">downloads/research.txt</div>
           </article>
           <article class="mini">
-            <h2>More</h2>
+            <h2>🌌 More</h2>
             <p>Future public kernels for specific domains and workflows.</p>
             <div class="path">downloads/</div>
           </article>
         </div>
       </div>
     </section>
+
     <footer>
       <span>Moon Source Knowledge Portables</span><br />
       Public structure only · portable files will be added gradually
