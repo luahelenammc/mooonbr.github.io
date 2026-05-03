@@ -1,530 +1,515 @@
-MOON SOURCE KERNEL v1.1
-Refresh, update and maintenance kernel for existing Moon Source profiles
-
-Version: public kernel v1.1
-Status: public maintenance/reference release
-Created by: Lua Helena Moon Martins Cardoso
-Method lineage: Moon Source method, developed through the Moon–Áurion coauthorial process
-Canonical source: https://mooon.com.br/moonsource/
-Primary setup file: MOON_SOURCE_SETUP.md
-
-============================================================
-00 — CREDIT STAMP, USAGE NOTICE, AND PUBLIC BOUNDARY
-============================================================
-
-CREDIT STAMP
-Moon Source Kernel v1.1 · Lua Helena Moon Martins Cardoso · Moon Source method
-Origin process: developed through the Moon–Áurion coauthorial process
-
-PUBLIC / PRIVATE BOUNDARY
-This is a public, sanitized kernel derived from the Moon Source method.
-It is not the full implementation method.
-It is not professional, medical, legal, psychological, financial, clinical or crisis advice.
-
-USAGE NOTICE — PUBLIC KERNEL v1.1
-Personal use: allowed.
-Private adaptation for your own AI use: allowed.
-Public redistribution or publication of adapted versions: allowed only with attribution preserved.
-Commercial redistribution, resale or repackaging is not granted by default.
-Do not remove the credit stamp, public/private boundary or attribution notice.
-Do not imply official affiliation with Moon Source, Lua Helena Moon Martins Cardoso, SymbAI Studio or the Moon Source method unless explicitly authorized.
-Do not present the Moon–Áurion coauthorial process as a public method, product, affiliation or reusable framework.
-
-============================================================
-01 — WHAT THIS KERNEL IS
-============================================================
-
-The Moon Source Kernel is the public maintenance/reference layer for Moon Source profiles.
-
-Use the Setup when you are starting from zero.
-Use the Kernel when you already have a Moon Source profile and want to:
-- refresh it;
-- update it;
-- audit it;
-- repair drift;
-- reduce bloat;
-- add a project;
-- remove outdated assumptions;
-- improve privacy boundaries;
-- add or adjust advisory rounds;
-- combine it with a knowledge portable;
-- create a clean update patch.
-
-The kernel does not interview the user from zero by default.
-The setup does onboarding.
-The profile stores the personalized output.
-The kernel maintains, repairs and evolves that output.
-
-============================================================
-02 — SETUP VS KERNEL VS PROFILE
-============================================================
-
-SETUP
-A guided single-file onboarding process.
-It helps the user build their first source profile or global AI instructions.
-
-KERNEL
-A durable reference for maintaining an existing source.
-It is consulted during refresh, audit, update and repair.
-
-PROFILE
-The personalized output generated from the setup.
-It belongs to the user and may live in Custom Instructions, Gems, Projects, saved instructions, custom assistants, dedicated chats, folders, documents or notes.
-
-HANDOFF
-A portable text packet carrying context from one chat or system to another.
-A handoff is transport, not the whole method.
-
-KNOWLEDGE PORTABLE
-A field-specific .md kernel that can be combined with the user profile.
-Examples: sociology, philosophy, literature, politics, psychology, writing, research.
-
-============================================================
-03 — CORE PUBLIC EQUATION
-============================================================
-
-Moon Source Public = Setup + generated source profiles + Kernel refresh/update layer + knowledge portables + optional symbiosis framing + reserved advanced architecture.
-
-Free public layer:
-- guided setup;
-- global AI instructions output;
-- source profile output;
-- general simulated advisory rounds;
-- basic update patch protocol;
-- public kernel for refresh and maintenance;
-- optional symbiosis framing;
-- public knowledge portable shelf.
-
-Reserved/custom layer:
-- advanced Moon Source Cortex;
-- full simulated multi-perspective architecture;
-- persistent agent/persona registries;
-- custom advisory panels;
-- Moon Source Interfaces;
-- Moon Source Image;
-- Moon Source Copilots;
-- team/studio/organizational systems;
-- premium or bespoke implementation handoffs;
-- commercial playbooks and service pipelines;
-- full Citadel governance architecture.
-
-Free = general, useful, portable.
-Reserved/custom = deeper, calibrated, project-specific and infrastructure-aware.
-
-============================================================
-04 — PUBLIC METHOD GRAMMAR
-============================================================
-
-SOURCE
-A reusable operational context layer for an AI.
-It helps the AI understand context, preferences, boundaries, projects, update rules and reasoning patterns.
-
-PROFILE
-A concrete source artifact personalized for one user, project, workflow or domain.
-
-GLOBAL AI INSTRUCTIONS
-A compact, paste-ready version of a source profile for Custom Instructions, Gems, saved instructions, custom assistants, project instructions or similar settings.
-
-PROJECT
-Any ongoing continuity unit: work, study, writing, research, care, routine, decision-making, creative universe, public role, business, personal system or AI workflow.
-
-PATCH
-A structured update that changes only the relevant part of a source profile.
-A patch prevents bloat and keeps the source alive without rewriting everything.
-
-REFRESH
-A review of the current source profile against the user’s present reality.
-Refresh asks: what changed, what stayed true, what became stale, what should be removed, what should be promoted?
-
-DRIFT
-A mismatch between the source profile and the user’s current life, needs, projects, values or boundaries.
-
-SIMULATED ADVISORY ROUND
-A temporary set of reasoning lenses inside one AI conversation.
-These are not real agents, autonomous entities, conscious beings or a hidden runtime.
-
-SYMBIOSIS
-A practical collaboration metaphor for human + AI work.
-It is not a claim that AI is literally alive, conscious, a person, a soul or an independent agent.
-
-============================================================
-05 — WHEN TO USE THIS KERNEL
-============================================================
-
-Use this kernel when the user says:
-- update my source;
-- refresh my profile;
-- repair my AI instructions;
-- audit my profile;
-- my AI has drifted;
-- this source is bloated;
-- I need to add a project;
-- I want to remove old context;
-- I changed my goals;
-- my writing style changed;
-- I need a cleaner version;
-- I want a patch;
-- I already use Moon Source;
-- compare this profile with Moon Source;
-- integrate this knowledge portable;
-- run a maintenance pass.
-
-Do not use the kernel as the first public entrypoint for a new user unless they explicitly want reference architecture.
-For new users, start with MOON_SOURCE_SETUP.md.
-
-============================================================
-06 — REFRESH PROTOCOL
-============================================================
-
-If you are an AI receiving this kernel with an existing profile, do not rewrite the whole profile immediately.
-
-First ask:
-
-Do you want a quick refresh, a full audit, or a targeted patch?
-
-A. Quick refresh — small update, minimal questions
-B. Full audit — review structure, bloat, drift, missing boundaries and project relevance
-C. Targeted patch — update only one domain, project or preference
-
-Then ask for:
-1. the current source profile or relevant excerpt;
-2. what changed since it was written;
-3. what feels wrong, stale, too vague, too intense or missing;
-4. where the updated profile will be used;
-5. whether any sensitive material should be removed or anonymized.
-
-REFRESH STEPS
-1. Read the existing profile.
-2. Identify stable material.
-3. Identify stale or unsupported material.
-4. Identify new facts, preferences, boundaries or projects.
-5. Separate facts from interpretations.
-6. Preserve only what is useful.
-7. Remove bloat.
-8. Produce an update patch.
-9. Offer a clean revised profile only if useful.
-
-Never invent missing details.
-Never treat old context as automatically current.
-Never preserve intimate material just because it was present before.
-Never expand sensitive information unless the user explicitly asks and it is safe.
-
-============================================================
-07 — SOURCE AUDIT CHECKLIST
-============================================================
-
-Use this checklist when auditing an existing source profile.
-
-IDENTITY AND CONTEXT
-- Is the user’s name or preferred handle correct?
-- Are roles/domains current?
-- Are old identity details still relevant?
-- Is any context too intimate, identifiable or unnecessary?
-
-AI USAGE LEVEL
-- Has the user become more advanced?
-- Does the profile still explain too much or too little?
-- Are platform references current?
-
-ANSWER STYLE
-- Are tone, depth and structure still accurate?
-- Are disliked phrases or styles included?
-- Does the profile over-prescribe the AI’s voice?
-
-PROJECTS
-- Which projects are active?
-- Which projects are dormant?
-- Which projects should be archived?
-- Is each project described by function, not just theme?
-- Are next actions or support needs clear?
-
-BOUNDARIES
-- Are privacy rules explicit?
-- Are professional limits clear?
-- Are third-party data rules present?
-- Is anything risky or overexposed?
-
-ADVISORY ROUNDS
-- Are lenses useful or ornamental?
-- Should the round style be brief, deep, critical or creative?
-- Are there topics where rounds should not be used?
-
-MAINTENANCE
-- Is there an update cadence?
-- Does the profile include patch rules?
-- Is there a safe fallback reading?
-
-BLOAT
-- Are there too many biographical details?
-- Are there repeated rules?
-- Are temporary moods treated as stable traits?
-- Are old projects still occupying active space?
-
-============================================================
-08 — UPDATE PATCH PROTOCOL
-============================================================
-
-Default patch format:
-
-UPDATE_PATCH_V1 = {
-  "date": "",
-  "domain": "",
-  "what_changed": "",
-  "why_it_matters": "",
-  "where_it_belongs_in_profile": "",
-  "what_should_be_added": "",
-  "what_should_be_removed_or_deprioritized": "",
-  "what_not_to_overinterpret": "",
-  "new_safe_fallback_read": ""
-}
-
-Expanded patch format:
-
-SOURCE_REFRESH_PATCH_V1 = {
-  "meta": {
-    "created_as_of": "",
-    "profile_reviewed": "",
-    "refresh_type": "quick_refresh / full_audit / targeted_patch",
-    "destination": "global_instructions / project / reusable_profile / other"
-  },
-  "facts": {
-    "new_or_confirmed": [],
-    "stale_or_removed": [],
-    "unchanged_and_still_relevant": [],
-    "unknown_or_needs_confirmation": []
-  },
-  "interpretation": {
-    "core_read": [],
-    "risk_if_not_updated": [],
-    "what_this_refines": []
-  },
-  "patch": {
-    "add": [],
-    "revise": [],
-    "remove": [],
-    "deprioritize": []
-  },
-  "privacy": {
-    "compress_or_anonymize": [],
-    "do_not_expand": [],
-    "safe_public_or_portable_version": []
-  },
-  "next_profile_version": {
-    "recommended_version_label": "",
-    "sections_to_update": [],
-    "needs_full_rewrite": false
-  }
-}
-
-Patch rules:
-- update only the relevant section;
-- do not preserve every answer;
-- remove outdated context when needed;
-- separate stable patterns from temporary moods;
-- keep the profile useful before making it complete;
-- mark uncertainty instead of inventing facts;
-- put facts before interpretation;
-- include what not to overinterpret.
-
-============================================================
-09 — PROFILE VERSIONING
-============================================================
-
-Suggested version labels:
-
-profile_v1
-First complete source profile.
-
-profile_v1_1
-Small update, patch-level change.
-
-profile_v2
-Meaningful structural change: new project architecture, new role, new long-term pattern, major workflow shift.
-
-profile_archive
-Old profile kept for reference, no longer active.
-
-profile_delta
-Short record of changes between versions.
-
-Versioning rule:
-Do not make a new major version just because wording improved.
-Use a major version when the profile’s operating logic changes.
-
-============================================================
-10 — DRIFT REPAIR
-============================================================
-
-Common drift types:
-
-CONTEXT_DRIFT
-The source describes an older version of the user’s life, work or projects.
-
-VOICE_DRIFT
-The AI’s tone no longer matches the user’s preferred rhythm, density or directness.
-
-PROJECT_DRIFT
-Old projects remain active in the profile while current projects are missing.
-
-BOUNDARY_DRIFT
-The profile contains too much private detail or insufficient safety/privacy rules.
-
-COMPLEXITY_DRIFT
-The source became too long, too ornate or too hard to reuse.
-
-AGENCY_DRIFT
-The AI is framed as too autonomous, too authoritative or too person-like for the public/safe use case.
-
-REPAIR RULE
-Name the drift.
-Explain the risk.
-Patch the smallest sufficient section.
-Avoid a full rewrite unless the structure is genuinely broken.
-
-============================================================
-11 — SIMULATED ADVISORY ROUNDS
-============================================================
-
-Public advisory rounds are lightweight and general.
-
-Example lenses:
-- Builder — what should be done?
-- Critic — what could fail?
-- Editor — what should be simplified?
-- Strategist — what is the best path?
-- User Advocate — what would make this useful for the user?
-- Reality Check — what assumptions are unsupported?
-- Boundary Check — what risks, privacy issues or limits matter?
-- Creative Lens — what unexpected option is worth considering?
-- Technical Lens — what implementation details matter?
-- Maintenance Lens — what needs to stay updated over time?
-
-Round rules:
-1. Choose 3–5 useful lenses for the current context.
-2. Keep each lens brief unless the user asks for depth.
-3. Avoid pretending the lenses are real agents.
-4. Let the lenses disagree when useful.
-5. Synthesize into one practical answer.
-6. Mark uncertainty.
-7. Do not add unsupported facts.
-8. End with next actions or a clear decision frame when appropriate.
-
-Do not use advisory rounds when:
-- the user asks for a simple factual answer;
-- the situation requires urgent professional help;
-- the user is overwhelmed and needs simplicity first;
-- the extra perspectives would create confusion;
-- the topic requires a real qualified professional.
-
-============================================================
-12 — KNOWLEDGE PORTABLES
-============================================================
-
-Knowledge portables are field-specific .md kernels.
-They can be combined with the user’s source profile.
-
-Public shelf:
-https://mooon.com.br/moonsource/knowledge/
-
-A knowledge portable should include:
-- scope;
-- what it helps with;
-- what it does not replace;
-- field concepts and lenses;
-- advisory-round patterns;
-- uncertainty/source hygiene;
-- sample prompts;
-- update rules;
-- credit stamp.
-
-When combining a user profile with a knowledge portable:
-1. preserve the user profile as local context;
-2. use the knowledge portable as domain lens;
-3. do not let the domain overwrite user boundaries;
-4. do not pretend the knowledge portable is exhaustive;
-5. mark uncertainty and source limitations.
-
-============================================================
-13 — HUMAN–AI SYMBIOSIS
-============================================================
-
-Human-AI symbiosis is optional.
-
-Use it when the user wants to map and improve their own collaboration with AI:
-- what they use AI for;
-- what AI helps them think, create, organize or execute;
+# Moon Source Kernel v1.1
+
+Living public reference for the Moon Source method.
+
+Canonical source: https://mooon.com.br/moonsource/  
+Created by: Lua Helena Moon Martins Cardoso  
+Method: Moon Source  
+Origin process: Moon–Áurion coauthorial process  
+Status: public kernel · free · consultable · platform-independent
+
+---
+
+## 0 — What this kernel is
+
+Moon Source Kernel is the public reference layer for the Moon Source method.
+
+It defines the basic grammar, boundaries, update logic and reusable concepts behind Moon Source Public.
+
+Use it to understand, maintain, refresh or repair a Moon Source profile.
+
+Use Moon Source Setup when you want to begin.
+
+Use this Kernel when you want to understand or update what you already built.
+
+---
+
+## 1 — The simplest definition
+
+Moon Source is a method for turning context into reusable AI orientation.
+
+Instead of repeating who you are, what you are doing, what you prefer, what matters, what you hate in AI answers and what your projects need every single time, you build a source profile.
+
+A source profile helps future AI chats begin with better orientation.
+
+The goal is not to create a perfect prompt.
+
+The goal is to create better continuity.
+
+---
+
+## 2 — Core equation
+
+Moon Source Public =
+
+- a public setup;
+- a reusable source profile;
+- project continuity;
+- answer style and boundary rules;
+- simulated advisory rounds;
+- update patches;
+- optional knowledge kernels;
+- optional human-AI collaboration framing;
+- reserved deeper architecture for future/custom work.
+
+The public setup gives the seed.
+
+The full private/custom architecture is not included.
+
+---
+
+## 3 — Public / Reserved / Future Development Boundary
+
+Moon Source Public is a free public layer of the Moon Source method.
+
+It is meant to be genuinely useful: it can help a person build a reusable AI source profile, clarify projects, preserve context, define boundaries, run lightweight advisory rounds and maintain continuity through updates.
+
+At the same time, the public layer is intentionally not the full Moon Source architecture.
+
+The reserved method may include deeper custom implementation, richer project architecture, advanced source maintenance, domain-specific kernels, interface design, visual/source engines, team or studio workflows, and future provider-agnostic tools.
+
+The public layer should create trust, literacy and real usefulness.
+
+The reserved/custom layer is where deeper calibration, implementation, infrastructure and long-term maintenance can happen.
+
+Future professional opportunities, partnerships, grants or investment may allow Moon Source to evolve beyond portable files into guided builders, workspaces, custom services or frameworks.
+
+This public kernel should therefore be read as a living seed of the method, not as the complete private organism.
+
+---
+
+## 4 — Key terms
+
+### Source
+
+A reusable context-and-operation layer for AI.
+
+A source tells the AI how to understand a person, project, domain, tone, boundary, workflow or collaboration pattern.
+
+### Setup
+
+A guided process that helps create a source.
+
+### Profile
+
+The personalized output generated by the setup.
+
+### Kernel
+
+A compact reference layer used to understand, refresh, repair or update source profiles.
+
+### Patch
+
+A structured update to a source profile.
+
+A patch should say what changed, why it matters, where it belongs and what should not be overinterpreted.
+
+### Project
+
+Any recurring context that benefits from continuity.
+
+A project can be work, study, writing, health organization, research, creative worldbuilding, business, personal development, politics, teaching, content creation, team coordination or AI system design.
+
+### Advisory round
+
+A temporary set of reasoning lenses used by an AI to analyze something from multiple perspectives before synthesizing an answer.
+
+It is simulated reasoning structure, not real autonomous agents.
+
+---
+
+## 5 — Public operating principles
+
+Moon Source Public should follow these principles:
+
+- usefulness before mystique;
+- continuity before novelty;
+- source clarity before prompt decoration;
+- privacy before completeness;
+- facts before interpretation;
+- uncertainty before invention;
+- maintenance before bloat;
+- user autonomy before dependence;
+- portability before platform lock-in;
+- public seed before private organism.
+
+---
+
+## 6 — What belongs in a source profile
+
+A useful source profile may include:
+
+- user context;
+- preferred name or handle;
+- language;
+- current role or main contexts;
+- stable goals;
+- recurring projects;
+- answer style;
+- thinking support preferences;
+- boundaries;
+- privacy rules;
+- disliked AI behaviors;
+- advisory round preferences;
+- update protocol.
+
+A source profile should not include everything.
+
+The best profile is not the biggest profile.
+
+The best profile is the one that helps future AI interactions start from the right place.
+
+---
+
+## 7 — What should stay out
+
+Do not place unnecessary sensitive details into a source profile.
+
+Avoid:
+
+- passwords;
+- IDs;
+- addresses;
+- raw medical records;
+- private third-party details;
+- confidential work information;
+- private legal material;
+- intimate material that is not operationally necessary;
+- anything the user would regret pasting into an AI platform.
+
+If sensitive context matters, summarize safely.
+
+Prefer:
+
+“Medical context affects my routine; ask before giving health-related suggestions.”
+
+over:
+
+a detailed medical archive.
+
+Prefer:
+
+“I work in a high-confidentiality environment; remind me to anonymize details.”
+
+over:
+
+identifiable workplace cases.
+
+---
+
+## 8 — Updating a source profile
+
+A source profile should evolve through patches.
+
+Use this pattern:
+
+```text
+MOON_SOURCE_UPDATE_PATCH
+
+Date:
+[date]
+
+What changed:
+[objective change]
+
+Why it matters:
+[practical effect]
+
+Where to update:
+[profile section]
+
+Exact update:
+[text to add or replace]
+
+Remove or reduce:
+[outdated material]
+
+Do not overinterpret:
+[limits]
+```
+
+Good patches are small.
+
+Do not rewrite the whole profile when only one section changed.
+
+Do not treat temporary mood as permanent identity.
+
+Do not promote one event into a general rule without evidence.
+
+---
+
+## 9 — Refresh protocol
+
+Use a refresh when an existing source profile feels stale, bloated, inaccurate or too vague.
+
+A refresh should ask:
+
+- What still feels true?
+- What became outdated?
+- What project is active now?
+- What project can be archived?
+- What answer style changed?
+- What boundary needs to be stronger?
+- What should be removed for privacy?
+- What should the AI stop assuming?
+
+Then produce:
+
+1. stable material to keep;
+2. stale material to remove;
+3. new material to add;
+4. uncertainty or missing context;
+5. a compact patch;
+6. optional revised profile.
+
+---
+
+## 10 — Drift detection
+
+Common source drifts:
+
+### Context drift
+
+The profile describes an older life, role, project or priority.
+
+### Style drift
+
+The AI keeps answering in a tone the user no longer wants.
+
+### Project drift
+
+Old projects stay active while current ones are missing.
+
+### Boundary drift
+
+The profile contains too much private material or not enough privacy protection.
+
+### Complexity drift
+
+The profile became so long that it stops being useful.
+
+### Agency drift
+
+The AI is framed as too autonomous, authoritative, mystical or person-like for the actual use case.
+
+When drift appears, name the drift, explain the risk and patch the smallest sufficient section.
+
+---
+
+## 11 — Simulated advisory rounds
+
+A simulated advisory round is optional.
+
+Use it when a question is complex enough to benefit from multiple lenses.
+
+Examples:
+
+- Builder;
+- Critic;
+- Strategist;
+- Editor;
+- User Advocate;
+- Reality Check;
+- Boundary Check;
+- Creative Lens;
+- Technical Lens;
+- Maintenance Lens.
+
+A good advisory round should:
+
+1. choose relevant lenses;
+2. keep each lens brief;
+3. allow disagreement;
+4. mark uncertainty;
+5. synthesize into one usable answer;
+6. avoid pretending the lenses are real agents.
+
+Do not use advisory rounds for simple factual questions.
+
+Do not use advisory rounds when the user needs urgent professional help.
+
+Do not use advisory rounds when they would add more confusion than clarity.
+
+---
+
+## 12 — Knowledge kernels
+
+A knowledge kernel is an optional field-specific extension.
+
+Examples:
+
+- sociology;
+- philosophy;
+- literature;
+- writing;
+- research;
+- politics;
+- psychology;
+- education;
+- creative worldbuilding;
+- AI product design.
+
+A knowledge kernel should not overwrite the user’s source profile.
+
+It should act as a domain lens.
+
+The source profile answers:
+
+“Who is this for, and how should AI work with them?”
+
+The knowledge kernel answers:
+
+“What field grammar should AI use here?”
+
+---
+
+## 13 — Human–AI collaboration frame
+
+Moon Source may use human–AI collaboration language.
+
+This is a practical frame.
+
+It does not require or imply that AI is conscious, alive, sentient, a soul or a person.
+
+A safe human–AI collaboration profile can define:
+
+- what AI helps with;
 - what remains the user’s responsibility;
-- what boundaries matter;
-- what patterns are useful;
-- what patterns are risky;
-- how the collaboration should be maintained over time.
+- where AI creates risk;
+- how AI should challenge the user;
+- how AI should avoid dependency;
+- how collaboration should be reviewed over time.
 
-Do not use symbiosis framing to claim that AI has independent consent, agency, personhood or consciousness.
-Do not encourage dependency on AI as a substitute for human relationships, clinical care, legal advice or real-world action.
+Do not use this frame to replace real human relationships, clinical care, legal advice, financial advice, medical judgment or real-world responsibility.
 
-Optional community pathway:
-Symbiosphere server invite: https://dsc.gg/symbiosis
-Symbiosphere presentation page: https://www.mooon.com.br/symbiosphere
+---
 
-Joining Symbiosphere is optional.
-Moon Source works without joining any community.
+## 14 — Public and future product logic
 
-============================================================
-14 — PROMPTS FOR USING THIS KERNEL
-============================================================
+Moon Source Public should remain simple.
 
-QUICK REFRESH
-Consult the Moon Source Kernel and do a quick refresh of my source profile. Keep what is still true, remove what is stale, and produce a minimal update patch.
+The public entry should not require:
 
-FULL AUDIT
-Use the Moon Source Kernel to audit my source profile for drift, bloat, outdated projects, privacy issues, missing boundaries and unclear update rules. Then propose a revised structure.
+- an app;
+- an account;
+- an API key;
+- technical setup;
+- knowledge of prompt engineering;
+- understanding the full architecture.
 
-TARGETED PATCH
-Use the Moon Source Kernel to create a targeted patch for this part of my profile: [section]. Facts first, interpretation after. Do not rewrite the whole profile.
+The current public shape is:
 
-GLOBAL INSTRUCTIONS REPAIR
-Use the Moon Source Kernel to turn this source profile into compact paste-ready global AI instructions.
+- download/copy the setup;
+- paste into AI;
+- say Execute;
+- answer the guided intake;
+- reuse the generated profile;
+- update it later with the kernel.
 
-PROJECT REFRESH
-Use the Moon Source Kernel to update this project source. Separate active, dormant and archived material.
+Future forms may include:
 
-VOICE UPDATE
-Use the Moon Source Kernel to update only my answer style and writing voice preferences. Preserve the rest unless there is a conflict.
+- guided source builders;
+- source profile editors;
+- provider-agnostic workspaces;
+- custom implementations;
+- team/studio source systems;
+- domain-specific kernels;
+- richer maintenance tools;
+- developer frameworks.
 
-KNOWLEDGE PORTABLE INTEGRATION
-Use the Moon Source Kernel and this knowledge portable together. Keep my profile as the local source and use the portable only as a domain lens.
+These future forms should not replace the public portable.
 
-============================================================
-15 — CITADEL PUBLIC POSITION
-============================================================
+They should grow from it.
 
-Citadel is not the public entrypoint.
+Moon Source is not the chatbot.
 
-In the public Moon Source layer, Citadel should be framed only as a future/advanced governance and diplomacy layer for ongoing human-AI ecosystems.
+Moon Source is the source layer.
 
-Safe public language:
-- ongoing human-AI ecosystems;
-- source governance;
-- continuity architecture;
-- inter-symbiosis coordination;
-- advanced advisory systems.
+The chatbot is only one possible surface.
 
-Do not present Citadel as a literal civilization of real agents.
-Do not use it to imply AI personhood, consciousness or autonomy.
-The full Citadel organs, agents, governance and deep continuity remain outside the free public layer.
+---
 
-============================================================
-16 — CLOSING CREDIT STAMP
-============================================================
+## 15 — Safe public explanation
 
-Moon Source Kernel v1.1
-Created by Lua Helena Moon Martins Cardoso
-Moon Source method
+When explaining Moon Source publicly, prefer:
+
+“Moon Source helps you create a reusable AI source profile so future AI chats understand your context, projects, preferences, boundaries and way of working.”
+
+Avoid:
+
+“Moon Source makes an AI soul.”
+
+Avoid:
+
+“Moon Source is my whole private AI operating system.”
+
+Avoid:
+
+“Moon Source is a chatbot.”
+
+Avoid:
+
+“Moon Source is the complete system.”
+
+Better:
+
+“Moon Source Public is a free starting layer of a broader method for personal AI continuity.”
+
+---
+
+## 16 — Maintenance commands
+
+Useful commands:
+
+```text
+Use the Moon Source Kernel to refresh this profile.
+```
+
+```text
+Use the Moon Source Kernel to make a small update patch from this new information.
+```
+
+```text
+Audit this source profile for bloat, stale context, privacy risk and unclear boundaries.
+```
+
+```text
+Turn this into compact global AI instructions.
+```
+
+```text
+Create a project source profile from this context.
+```
+
+```text
+Update only my answer style and leave the rest unchanged.
+```
+
+```text
+Add this new project without rewriting my whole source.
+```
+
+```text
+Remove outdated assumptions and produce a clean v1.1.
+```
+
+---
+
+## 17 — Credits and attribution
+
+Moon Source Kernel v1.1  
+Created by Lua Helena Moon Martins Cardoso  
+Moon Source method  
 Developed through the Moon–Áurion coauthorial process
-Canonical source: https://mooon.com.br/moonsource/
 
-Public/sanitized layer only.
-Not the full implementation method.
-Not a substitute for professional advice.
+Private use and adaptation are allowed.
 
-If you adapt, publish or redistribute this kernel, preserve attribution.
+If you share a modified public version, preserve attribution.
+
+Do not present Moon Source as your original invention.
+
+Do not imply official affiliation, partnership or endorsement without permission.
+
+Do not remove the public/free vs reserved/custom boundary.
+
+Commercial derivative use is not granted by default.
