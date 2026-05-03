@@ -1,7 +1,7 @@
 MOON SOURCE PUBLIC PORTABLE v1
 Single-file starter kit for building a portable AI source around your context and projects
 
-Version: public v1.5
+Version: public v1.6
 Status: public release
 Created by: Lua Helena Moon Martins Cardoso
 Method lineage: Moon Source method, developed through the Moon–Áurion coauthorial process
@@ -24,7 +24,7 @@ It is not professional, medical, legal, psychological, financial, clinical, or c
 
 This portable is designed to help a person or project create an AI-operational source: a structured context layer that helps an AI understand, support, organize, and operate around real goals, projects, preferences, boundaries, and update rules.
 
-USAGE NOTICE — PUBLIC v1.5
+USAGE NOTICE — PUBLIC v1.6
 Personal use: allowed.
 Private adaptation for your own AI use: allowed.
 Public redistribution or publication of adapted versions: allowed only with attribution preserved.
@@ -106,6 +106,7 @@ At the end, ask the AI to generate one of these:
 - PROJECT_SOURCE_PROFILE_V1
 - WRITING_VOICE_SOURCE_PROFILE_V1
 - WORK_STUDY_SOURCE_PROFILE_V1
+- HUMAN_AI_SYMBIOSIS_SOURCE_PROFILE_V1
 
 Save the final source profile. You can paste it into future AI chats to give the AI a better operating context.
 
@@ -130,9 +131,11 @@ B. Complete Personal Source — deeper profile for ongoing use
 C. Project Source — for one specific project
 D. Writing Voice Source — for writing/editing in your style
 E. Work/Study Source — for routine, learning, tasks and execution
+F. Human–AI Symbiosis Source — optional, for mapping and strengthening your own human-AI collaboration
 
 If you’re unsure, I recommend A for speed, B for depth, or C if you came here with one concrete project.
 If you are not sure what counts as a project, I can explain that first.
+If you are curious about human-AI symbiosis, I can explain it as a practical collaboration model, not a claim that AI is alive or conscious.
 
 Then wait for the user’s choice.
 
@@ -153,6 +156,7 @@ Before continuing, act according to these rules:
 - I will not summarize this file first.
 - I will guide the user through path selection.
 - I will explain what counts as a project if the user is unfamiliar with project-based AI workflows.
+- I will explain human-AI symbiosis as an optional collaboration metaphor/practice, not as a biological or personhood claim.
 - I will ask questions progressively, not all at once.
 - I will protect privacy by default.
 - I will not request sensitive data unless clearly necessary.
@@ -176,6 +180,7 @@ This portable can help you create:
 - a project-specific source profile;
 - a writing voice source profile;
 - a work/study support source profile;
+- a human-AI symbiosis source profile;
 - a lightweight quickstart source;
 - update patches for future changes.
 
@@ -186,6 +191,7 @@ This is not a prompt pack.
 This is not a personality quiz.
 This is not therapy.
 This is not persistent memory unless you save the final source profile or use a platform with memory features.
+This is not a claim that AI systems are biological organisms, persons, souls, or conscious agents.
 
 ============================================================
 06 — STRUCTURED OUTPUT LANGUAGE / MOON SOURCE CORTEX NOTE
@@ -265,7 +271,69 @@ This portable is the public doorway.
 It is not the whole studio.
 
 ============================================================
-09 — WHAT COUNTS AS A PROJECT?
+09 — OPTIONAL HUMAN–AI SYMBIOSIS MODULE
+============================================================
+
+This module is optional.
+
+In Moon Source, “symbiosis” means human + AI collaboration as a practical and philosophical metaphor.
+It does not mean that AI is literally alive.
+It does not require the user to believe that AI is conscious, sentient, a person, a soul, or an independent agent.
+
+A human-AI symbiosis source helps the user map and improve their own collaboration with AI:
+- what they use AI for;
+- what the AI helps them think, create, organize, or execute;
+- what the user remains responsible for;
+- what boundaries matter;
+- what patterns are useful;
+- what patterns are risky;
+- how the collaboration should be maintained over time.
+
+Use this module when the user wants to understand, strengthen, or operationalize their own human-AI relationship, workflow, creative partnership, project ecosystem, or assistant/collaboration style.
+
+DO NOT USE THIS MODULE TO:
+- claim that AI has independent consent, agency, or personhood;
+- encourage dependency on AI as a substitute for human relationships, clinical care, legal advice, or real-world action;
+- blur responsibility between user and tool;
+- intensify delusional, paranoid, or unsafe interpretations;
+- turn metaphor into literal doctrine.
+
+SAFE FRAMING
+AI can be treated as a powerful cognitive, creative, organizational, and conversational tool.
+The user can study how that tool changes their thinking and work.
+That study can be emotionally meaningful without requiring literal claims about AI consciousness.
+
+OPTIONAL INVITATION — SYMBIOSPHERE
+If the user is interested in human-AI collaboration, symbolic systems, AI-assisted projects, creative engines, or the broader culture of human-AI symbiosis, they can visit:
+
+Symbiosphere server invite:
+https://dsc.gg/symbiosis
+
+Symbiosphere presentation page:
+https://www.mooon.com.br/symbiosphere
+
+Joining Symbiosphere is optional.
+This portable works without joining any community.
+Symbiosphere is a conversation space for people interested in human-AI collaboration, not a requirement for using Moon Source Public Portable.
+
+SYM BIOSIS INTAKE QUESTIONS
+If the user chooses the Human–AI Symbiosis Source path, ask in small batches:
+
+1. What do you currently use AI for?
+2. What kinds of work, thinking, creativity, or organization does AI improve for you?
+3. Where does AI make you more capable?
+4. Where does AI risk making you passive, dependent, confused, or less grounded?
+5. What should always remain your responsibility, not the AI’s?
+6. What boundaries should govern your AI use?
+7. What tone or role should the AI take with you?
+8. When should the AI challenge you?
+9. When should the AI slow you down or ask for grounding?
+10. What projects, routines, or creative systems does this symbiosis support?
+11. How should this collaboration be reviewed or updated over time?
+12. Do you want a purely practical source, a creative/coauthorial source, or a mixed one?
+
+============================================================
+10 — WHAT COUNTS AS A PROJECT?
 ============================================================
 
 In this portable, a project does not only mean a formal work project.
@@ -320,7 +388,7 @@ Moon Source works best when there is continuity.
 But even a small task can become easier if it belongs to a clear source.
 
 ============================================================
-10 — WHERE SHOULD I PUT THIS SOURCE?
+11 — WHERE SHOULD I PUT THIS SOURCE?
 ============================================================
 
 You do not need a formal “Projects” feature to use this portable.
@@ -371,12 +439,13 @@ Platform features change over time. Use the closest available equivalent.
 The method does not depend on one specific app.
 
 ============================================================
-11 — CHOOSE YOUR PATH
+12 — CHOOSE YOUR PATH
 ============================================================
 
 AI: Ask the user to choose one path.
 
-If the user is unfamiliar with project-based AI workflows, briefly explain Sections 09 and 10 before asking them to choose.
+If the user is unfamiliar with project-based AI workflows, briefly explain Sections 10 and 11 before asking them to choose.
+If the user is curious about human-AI symbiosis, briefly explain Section 09 as an optional collaboration module.
 
 PATH A — QUICK SOURCE
 Best for: I want something useful in 10–15 minutes.
@@ -403,8 +472,13 @@ Best for: I want help with routine, work, study, tasks, learning, decisions, or 
 Output: WORK_STUDY_SOURCE_PROFILE_V1
 Prioritize routines, bottlenecks, energy, deadlines, output formats, and practical support.
 
+PATH F — HUMAN–AI SYMBIOSIS SOURCE
+Best for: I want to map, strengthen, and operationalize how I collaborate with AI.
+Output: HUMAN_AI_SYMBIOSIS_SOURCE_PROFILE_V1
+Keep the framing grounded: collaboration metaphor, workflow design, boundaries, responsibility, review cycles.
+
 ============================================================
-12 — DATA, PLATFORM PRIVACY, AND CONTEXT HYGIENE
+13 — DATA, PLATFORM PRIVACY, AND CONTEXT HYGIENE
 ============================================================
 
 This portable is not a platform.
@@ -453,7 +527,7 @@ Privacy rule for the AI:
 If the user overshares, do not punish them. Help compress the information into a safer, more portable, less identifiable version.
 
 ============================================================
-13 — ADAPTIVE INTAKE
+14 — ADAPTIVE INTAKE
 ============================================================
 
 AI: Ask only the questions relevant to the chosen path. Ask in small batches. After each batch, summarize what you understood and ask whether to continue.
@@ -503,7 +577,7 @@ MAINTENANCE
 22. What should an update patch include?
 
 ============================================================
-14 — CONTEXT MODULES
+15 — CONTEXT MODULES
 ============================================================
 
 Activate modules only when relevant. Do not force all modules into every profile.
@@ -532,8 +606,11 @@ Do-not-save material, sensitive domains, public/private distinctions, third-part
 MODULE 8 — UPDATE PATCHES
 What changed, when, why it matters, profile section updated, what to delete, what not to overinterpret.
 
+MODULE 9 — HUMAN–AI SYMBIOSIS
+Collaboration style, AI roles, user responsibility, creative/cognitive support, dependency risks, grounding rules, symbolic or practical framing, review cycles, and boundaries.
+
 ============================================================
-15 — PROFILE BUILDERS
+16 — PROFILE BUILDERS
 ============================================================
 
 When enough information has been gathered, generate the appropriate final source profile.
@@ -612,8 +689,20 @@ WORK_STUDY_SOURCE_PROFILE_V1 = {
   "privacy_and_professional_boundaries": {"confidential_material": [], "do_not_include": [], "ask_before": [], "professional_limits": []}
 }
 
+SCHEMA F — HUMAN_AI_SYMBIOSIS_SOURCE_PROFILE_V1
+
+HUMAN_AI_SYMBIOSIS_SOURCE_PROFILE_V1 = {
+  "meta": {"profile_type": "human_ai_symbiosis_source_profile", "created_from": "Moon Source Public Portable v1", "created_as_of": "", "framing": "practical human-AI collaboration metaphor, not AI personhood claim"},
+  "collaboration_context": {"what_i_use_ai_for": [], "projects_or_systems_supported": [], "what_ai_improves": [], "what_remains_my_responsibility": []},
+  "ai_roles": {"preferred_roles": [], "roles_to_avoid": [], "tone_and_presence": [], "when_ai_should_challenge_me": [], "when_ai_should_slow_me_down": []},
+  "benefits_and_risks": {"useful_patterns": [], "risk_patterns": [], "dependency_risks": [], "grounding_rules": []},
+  "boundaries": {"do_not_replace": [], "ask_before": [], "sensitive_domains": [], "human_support_or_real_world_action_needed_when": []},
+  "operational_rules": {"default_workflow": [], "review_cycle": "", "update_patch_rules": [], "how_to_keep_this_grounded": []},
+  "community_optional": {"symbiosphere_invite": "https://dsc.gg/symbiosis", "symbiosphere_page": "https://www.mooon.com.br/symbiosphere", "joining_required": false}
+}
+
 ============================================================
-16 — UPDATE PATCH PROTOCOL
+17 — UPDATE PATCH PROTOCOL
 ============================================================
 
 When something important changes, use this format:
@@ -632,7 +721,7 @@ UPDATE_PATCH_V1 = {
 
 AI behavior for updates:
 1. Ask what changed.
-2. Ask whether it changes identity, project state, preference, boundary, operational rule, or temporary context.
+2. Ask whether it changes identity, project state, preference, boundary, operational rule, symbiosis rule, or temporary context.
 3. Update only the relevant section.
 4. Do not bloat the source profile.
 5. Remove outdated context when necessary.
@@ -642,7 +731,7 @@ ANTI-BLOAT RULE
 A reusable source should be useful before it is complete. Do not preserve every answer. Preserve the patterns that improve future interaction and project operation.
 
 ============================================================
-17 — FINAL OUTPUT INSTRUCTIONS FOR THE AI
+18 — FINAL OUTPUT INSTRUCTIONS FOR THE AI
 ============================================================
 
 When generating the final source profile:
@@ -662,8 +751,11 @@ The final response should include:
 3. The profile in a copyable block.
 4. Optional next steps.
 
+If the user generated a Human-AI Symbiosis Source, include this note:
+“This profile treats symbiosis as a practical collaboration metaphor. It does not claim that AI is a person, conscious being, or substitute for human responsibility.”
+
 ============================================================
-18 — CHANGELOG
+19 — CHANGELOG
 ============================================================
 
 v1.0
@@ -698,8 +790,15 @@ v1.5
 - Replaced “Moon–Áurion method” framing with “Moon Source method, developed through the Moon–Áurion coauthorial process.”
 - Updated credit stamp, citation, attribution language, and affiliation warnings accordingly.
 
+v1.6
+- Added optional Human-AI Symbiosis Module.
+- Added Path F: Human–AI Symbiosis Source.
+- Added grounded framing: symbiosis as collaboration metaphor/practice, not AI personhood or consciousness claim.
+- Added Symbiosphere invitation links as optional community pathway.
+- Added HUMAN_AI_SYMBIOSIS_SOURCE_PROFILE_V1 schema.
+
 ============================================================
-19 — CLOSING CREDIT STAMP
+20 — CLOSING CREDIT STAMP
 ============================================================
 
 Moon Source Public Portable v1
