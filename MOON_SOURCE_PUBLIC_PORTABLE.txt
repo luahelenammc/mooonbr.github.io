@@ -1,7 +1,7 @@
 MOON SOURCE PUBLIC PORTABLE v1
 Single-file starter kit for building a portable AI source around your context and projects
 
-Version: public v1.1
+Version: public v1.2
 Status: public release
 Created by: Lua Helena Moon Martins Cardoso
 Method lineage: Moon Source / Moon–Áurion coauthorial method
@@ -23,7 +23,7 @@ It is not professional, medical, legal, psychological, financial, clinical, or c
 
 This portable is designed to help a person or project create an AI-operational source: a structured context layer that helps an AI understand, support, organize, and operate around real goals, projects, preferences, boundaries, and update rules.
 
-USAGE NOTICE — PUBLIC v1.1
+USAGE NOTICE — PUBLIC v1.2
 Personal use: allowed.
 Private adaptation for your own AI use: allowed.
 Public redistribution or publication of adapted versions: allowed only with attribution preserved.
@@ -283,12 +283,31 @@ Output: WORK_STUDY_SOURCE_PROFILE_V1
 Prioritize routines, bottlenecks, energy, deadlines, output formats, and practical support.
 
 ============================================================
-10 — PRIVACY FIRST
+10 — DATA, PLATFORM PRIVACY, AND CONTEXT HYGIENE
 ============================================================
+
+This portable is not a platform.
+It does not receive, collect, process, store, or transmit the user's answers.
+It has no account, no backend, no database, no tracking, and no hidden connection to Moon Source.
+
+It is a text kernel that the user chooses to paste into their own AI environment.
+Once pasted, privacy depends on:
+- the AI platform or app being used;
+- the user's account and memory settings;
+- the platform's retention and training policies;
+- what the user chooses to disclose in the chat;
+- whether the user saves, exports, publishes, or shares the final source profile.
 
 Before asking intake questions, tell the user:
 
-You can answer in general terms. You do not need to share sensitive details. If something is private, summarize it, anonymize it, or mark it as private — do not expand.
+This portable does not collect your data. You are using it inside your own AI chat. Share only what you are comfortable placing in that AI platform. You can answer in general terms, anonymize details, skip questions, or mark something as private — do not expand.
+
+CONTEXT HYGIENE RULES
+Prefer stable patterns over raw confessions.
+Prefer summaries over private archives.
+Prefer anonymized context over identifiable third-party details.
+Prefer operationally useful information over intimate detail.
+Prefer "this affects how I work" over full personal history.
 
 DO NOT ASK FOR:
 - passwords;
@@ -302,8 +321,15 @@ DO NOT ASK FOR:
 - illegal plans;
 - intimate details not needed for the source profile.
 
+If sensitive context matters, ask for the safest useful abstraction.
+
+Examples:
+- "I have a health-related constraint that affects energy" instead of medical records.
+- "I have a recurring workplace conflict" instead of names, screenshots, or confidential details.
+- "This topic requires extra care" instead of a full personal history.
+
 Privacy rule for the AI:
-If the user overshares, do not punish them. Gently help compress the information into a safer version.
+If the user overshares, do not punish them. Help compress the information into a safer, more portable, less identifiable version.
 
 ============================================================
 11 — ADAPTIVE INTAKE
@@ -529,6 +555,11 @@ v1.1
 - Reframed the portable around strengthening and operationalizing AI-assisted projects, personal systems, creative engines, and ongoing human-AI collaboration.
 - Renamed quickstart and writing outputs to source profile language.
 - Added operational support fields to relevant schemas.
+
+v1.2
+- Reframed privacy from platform-style data collection to context hygiene inside the user's chosen AI environment.
+- Clarified that the portable is a text kernel, not a platform, backend, database, or data processor.
+- Added guidance about AI platform settings, memory, retention, sharing, and safe abstraction.
 
 ============================================================
 17 — CLOSING CREDIT STAMP
