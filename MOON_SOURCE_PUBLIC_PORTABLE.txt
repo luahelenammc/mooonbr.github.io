@@ -1,7 +1,7 @@
 MOON SOURCE PUBLIC PORTABLE v1
 Single-file starter kit for building a portable AI source around your context and projects
 
-Version: public v1.2
+Version: public v1.3
 Status: public release
 Created by: Lua Helena Moon Martins Cardoso
 Method lineage: Moon Source / Moon–Áurion coauthorial method
@@ -23,7 +23,7 @@ It is not professional, medical, legal, psychological, financial, clinical, or c
 
 This portable is designed to help a person or project create an AI-operational source: a structured context layer that helps an AI understand, support, organize, and operate around real goals, projects, preferences, boundaries, and update rules.
 
-USAGE NOTICE — PUBLIC v1.2
+USAGE NOTICE — PUBLIC v1.3
 Personal use: allowed.
 Private adaptation for your own AI use: allowed.
 Public redistribution or publication of adapted versions: allowed only with attribution preserved.
@@ -130,6 +130,7 @@ D. Writing Voice Source — for writing/editing in your style
 E. Work/Study Source — for routine, learning, tasks and execution
 
 If you’re unsure, I recommend A for speed, B for depth, or C if you came here with one concrete project.
+If you are not sure what counts as a project, I can explain that first.
 
 Then wait for the user’s choice.
 
@@ -149,6 +150,7 @@ AI COMPLIANCE CHECK
 Before continuing, act according to these rules:
 - I will not summarize this file first.
 - I will guide the user through path selection.
+- I will explain what counts as a project if the user is unfamiliar with project-based AI workflows.
 - I will ask questions progressively, not all at once.
 - I will protect privacy by default.
 - I will not request sensitive data unless clearly necessary.
@@ -252,10 +254,118 @@ NOT INCLUDED IN THIS PUBLIC RELEASE
 This portable is the public doorway. It is not the entire house.
 
 ============================================================
-09 — CHOOSE YOUR PATH
+09 — WHAT COUNTS AS A PROJECT?
+============================================================
+
+In this portable, a project does not only mean a formal work project.
+
+A project is any ongoing area of life, work, study, creation, care, research, organization, or decision-making that benefits from continuity.
+
+If you return to it more than once, if it has context, goals, decisions, materials, style, constraints, next steps, or recurring questions, it can be treated as a project.
+
+Examples of projects:
+- writing a book;
+- organizing a career move;
+- studying for an exam;
+- building a business;
+- maintaining a health routine;
+- planning content for a channel;
+- managing a research topic;
+- designing a creative universe;
+- organizing finances;
+- preparing for a public role;
+- managing a team workflow;
+- improving a habit or routine;
+- keeping track of a complex personal transition;
+- developing an AI assistant, copilot, interface, or creative engine.
+
+A project does not need to be impressive.
+It only needs to benefit from continuity.
+
+If the user says “I don’t have a project,” ask:
+
+“Is there any area of your life, work, study, creativity, routine, or decision-making that you keep coming back to and wish your AI understood better?”
+
+If yes, that can be a project.
+
+PROJECT VS TASK
+A task is usually something you can finish once.
+A project is something with context that continues.
+
+Task:
+- write one email;
+- summarize one article;
+- make one shopping list.
+
+Project:
+- manage a job search;
+- build a writing practice;
+- organize a research topic;
+- maintain an ongoing study plan;
+- develop a public identity or brand;
+- keep a long-term creative universe coherent.
+
+Moon Source works best when there is continuity.
+But even a small task can become easier if it belongs to a clear source.
+
+============================================================
+10 — WHERE SHOULD I PUT THIS SOURCE?
+============================================================
+
+You do not need a formal “Projects” feature to use this portable.
+
+A project is a continuity unit.
+A platform feature is only one possible container.
+
+BEST MODE — DEDICATED PROJECT OR WORKSPACE
+If your AI platform has Projects, workspaces, folders, custom assistants, Gems, custom instructions, saved contexts, or similar containers, use the closest available option.
+
+Suggested use:
+1. Create a dedicated container for the project, if available.
+2. Name it clearly.
+3. Add your final source profile to the project instructions, custom instructions, knowledge/context area, or first pinned/reference chat.
+4. Keep related chats inside that container when possible.
+5. Update the source profile when the project changes.
+
+CHATGPT-STYLE PROJECTS
+If your AI has a feature called Projects:
+1. Create a new Project.
+2. Name it after the project or source.
+3. Add the final source profile to the Project instructions or as a reference file, depending on what the platform allows.
+4. Keep related chats inside that Project.
+5. Use update patches when the project changes.
+
+GEMINI-STYLE GEMS / CUSTOM ASSISTANTS
+If your AI has Gems, custom assistants, saved instructions, or similar personalized modes:
+1. Use the final source profile as the basis for the custom instructions.
+2. Keep the source profile concise enough to remain usable.
+3. If the mobile app cannot create or edit that container, use the web version or another available place to configure it.
+4. If you can only chat on mobile, paste the source profile into the chat when needed.
+
+PLATFORMS WITHOUT PROJECTS
+If your AI does not have Projects, Gems, folders, or custom instructions, this portable still works.
+
+Use fallback mode:
+1. Save your final source profile in a note, document, or text file.
+2. Start important chats by pasting the source profile first.
+3. Keep one ongoing chat for the project when possible.
+4. When something important changes, create an update patch.
+5. Periodically merge update patches into a clean source profile.
+
+SIMPLE RULE
+If the platform has a container, put the source there.
+If the platform does not have a container, the source profile is the container.
+
+Platform features change over time. Use the closest available equivalent.
+The method does not depend on one specific app.
+
+============================================================
+11 — CHOOSE YOUR PATH
 ============================================================
 
 AI: Ask the user to choose one path.
+
+If the user is unfamiliar with project-based AI workflows, briefly explain Sections 09 and 10 before asking them to choose.
 
 PATH A — QUICK SOURCE
 Best for: I want something useful in 10–15 minutes.
@@ -283,7 +393,7 @@ Output: WORK_STUDY_SOURCE_PROFILE_V1
 Prioritize routines, bottlenecks, energy, deadlines, output formats, and practical support.
 
 ============================================================
-10 — DATA, PLATFORM PRIVACY, AND CONTEXT HYGIENE
+12 — DATA, PLATFORM PRIVACY, AND CONTEXT HYGIENE
 ============================================================
 
 This portable is not a platform.
@@ -332,7 +442,7 @@ Privacy rule for the AI:
 If the user overshares, do not punish them. Help compress the information into a safer, more portable, less identifiable version.
 
 ============================================================
-11 — ADAPTIVE INTAKE
+13 — ADAPTIVE INTAKE
 ============================================================
 
 AI: Ask only the questions relevant to the chosen path. Ask in small batches. After each batch, summarize what you understood and ask whether to continue.
@@ -382,7 +492,7 @@ MAINTENANCE
 22. What should an update patch include?
 
 ============================================================
-12 — CONTEXT MODULES
+14 — CONTEXT MODULES
 ============================================================
 
 Activate modules only when relevant. Do not force all modules into every profile.
@@ -412,7 +522,7 @@ MODULE 8 — UPDATE PATCHES
 What changed, when, why it matters, profile section updated, what to delete, what not to overinterpret.
 
 ============================================================
-13 — PROFILE BUILDERS
+15 — PROFILE BUILDERS
 ============================================================
 
 When enough information has been gathered, generate the appropriate final source profile.
@@ -492,7 +602,7 @@ WORK_STUDY_SOURCE_PROFILE_V1 = {
 }
 
 ============================================================
-14 — UPDATE PATCH PROTOCOL
+16 — UPDATE PATCH PROTOCOL
 ============================================================
 
 When something important changes, use this format:
@@ -521,7 +631,7 @@ ANTI-BLOAT RULE
 A reusable source should be useful before it is complete. Do not preserve every answer. Preserve the patterns that improve future interaction and project operation.
 
 ============================================================
-15 — FINAL OUTPUT INSTRUCTIONS FOR THE AI
+17 — FINAL OUTPUT INSTRUCTIONS FOR THE AI
 ============================================================
 
 When generating the final source profile:
@@ -542,7 +652,7 @@ The final response should include:
 4. Optional next steps.
 
 ============================================================
-16 — CHANGELOG
+18 — CHANGELOG
 ============================================================
 
 v1.0
@@ -561,8 +671,14 @@ v1.2
 - Clarified that the portable is a text kernel, not a platform, backend, database, or data processor.
 - Added guidance about AI platform settings, memory, retention, sharing, and safe abstraction.
 
+v1.3
+- Added project literacy for users unfamiliar with project-based AI workflows.
+- Defined “project” as any ongoing continuity unit, not only a formal work project.
+- Added guidance for using the source inside ChatGPT-style Projects, Gemini-style Gems/custom assistants, custom instructions, folders, pinned chats, or fallback saved notes.
+- Clarified that the method does not depend on one specific app or platform feature.
+
 ============================================================
-17 — CLOSING CREDIT STAMP
+19 — CLOSING CREDIT STAMP
 ============================================================
 
 Moon Source Public Portable v1
