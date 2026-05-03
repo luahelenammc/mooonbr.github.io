@@ -3,42 +3,44 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Moon Source · Setup + Kernel</title>
-  <meta name="description" content="Moon Source is a public AI source setup for configuring your AI around your context, projects, preferences and way of working — with a refresh kernel for ongoing updates." />
-  <meta property="og:title" content="Moon Source · Setup + Kernel" />
-  <meta property="og:description" content="A guided single-file setup for building your first personal AI source, plus a kernel for refresh and updates." />
+  <title>Moon Source · Setup</title>
+  <meta name="description" content="Moon Source Setup is a guided single-file setup for building a personal AI source around your context, projects, preferences, boundaries and update rules." />
+  <meta property="og:title" content="Moon Source · Setup" />
+  <meta property="og:description" content="Build a personal AI source in one guided setup." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mooon.com.br/moonsource/" />
+  <meta name="theme-color" content="#0b0b12" />
   <style>
     :root {
-      --bg: #f8f6f0;
-      --paper: rgba(255, 254, 249, 0.79);
-      --paper-strong: rgba(255, 255, 255, 0.58);
-      --text: #17151f;
-      --muted: #686275;
-      --line: rgba(23, 21, 31, 0.12);
-      --accent: #7765ff;
-      --accent-line: rgba(119, 101, 255, 0.22);
+      --bg: #0b0b12;
+      --bg-soft: #11111c;
+      --text: #f4f1ea;
+      --muted: #aaa3b8;
+      --quiet: #7f788e;
+      --line: rgba(244, 241, 234, 0.14);
+      --line-soft: rgba(244, 241, 234, 0.08);
+      --accent: #d9d1ff;
+      --accent-strong: #f6f0ff;
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
       --radius: 28px;
-      --shadow: 0 28px 90px rgba(28, 24, 44, 0.12);
     }
 
     * { box-sizing: border-box; }
+
     html { min-height: 100%; }
 
     body {
       min-height: 100vh;
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at 9% 8%, rgba(119, 101, 255, 0.18), transparent 28%),
-        radial-gradient(circle at 92% 78%, rgba(216, 209, 255, 0.50), transparent 34%),
-        radial-gradient(circle at 50% 102%, rgba(255, 255, 255, 0.74), transparent 38%),
-        linear-gradient(180deg, #fbfaf6 0%, var(--bg) 100%);
+        radial-gradient(circle at 50% 12%, rgba(217, 209, 255, 0.14), transparent 30%),
+        radial-gradient(circle at 88% 84%, rgba(113, 91, 255, 0.11), transparent 32%),
+        linear-gradient(180deg, #08080d 0%, var(--bg) 58%, #090910 100%);
       display: grid;
       place-items: center;
-      padding: 34px 18px;
+      padding: 28px;
     }
 
     body::before {
@@ -46,271 +48,208 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: 0.34;
-      background-image: radial-gradient(circle, rgba(23, 21, 31, 0.10) 0.7px, transparent 0.8px);
-      background-size: 26px 26px;
-      mask-image: linear-gradient(to bottom, transparent, black 18%, black 70%, transparent);
+      opacity: 0.22;
+      background-image: radial-gradient(circle, rgba(244, 241, 234, 0.48) 0.7px, transparent 0.8px);
+      background-size: 31px 31px;
+      mask-image: linear-gradient(to bottom, transparent, black 20%, black 72%, transparent);
     }
 
-    main { position: relative; width: min(100%, 980px); margin: auto; }
-
-    .card {
+    main {
+      width: min(100%, 820px);
       position: relative;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: calc(var(--radius) + 14px);
-      background: var(--paper);
+    }
+
+    .portal {
+      border: 1px solid var(--line-soft);
+      border-radius: calc(var(--radius) + 10px);
+      background: linear-gradient(180deg, rgba(17, 17, 28, 0.78), rgba(11, 11, 18, 0.56));
       box-shadow: var(--shadow);
-      backdrop-filter: blur(20px);
+      backdrop-filter: blur(22px);
+      padding: clamp(28px, 7vw, 72px);
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(125deg, rgba(255,255,255,0.78), transparent 35%),
-        radial-gradient(circle at top right, rgba(119,101,255,0.14), transparent 36%);
-    }
-
-    .inner { position: relative; padding: clamp(28px, 7vw, 76px); }
-
-    .topline {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: clamp(34px, 6vw, 54px);
-    }
-
-    .brand {
+    .mark {
       display: inline-flex;
       align-items: center;
       gap: 12px;
       color: var(--muted);
-      font-size: 0.9rem;
-      font-weight: 780;
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: clamp(44px, 8vw, 72px);
+      letter-spacing: 0.01em;
     }
 
-    .moon {
-      width: 46px;
-      height: 46px;
-      flex: 0 0 46px;
+    .sigil {
+      width: 42px;
+      height: 42px;
       border-radius: 999px;
-      border: 1px solid rgba(23, 21, 31, 0.16);
       display: grid;
       place-items: center;
-      background: rgba(255, 255, 255, 0.50);
+      border: 1px solid var(--line);
       color: var(--accent);
-      font-size: 1.45rem;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.75);
-    }
-
-    .pill, .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      min-height: 34px;
-      padding: 0 13px;
-      border-radius: 999px;
-      border: 1px solid rgba(23, 21, 31, 0.11);
-      background: rgba(255, 255, 255, 0.52);
-      color: var(--text);
-      font-size: 0.82rem;
-      font-weight: 760;
-      white-space: nowrap;
-    }
-
-    .pill {
-      border-color: var(--accent-line);
-      color: #5143c9;
-      font-size: 0.76rem;
-      font-weight: 830;
-      letter-spacing: 0.075em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 18px;
-      color: #5143c9;
-      font-size: 0.78rem;
-      font-weight: 830;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
+      background: rgba(244, 241, 234, 0.035);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      font-size: 1.35rem;
     }
 
     h1 {
-      max-width: 820px;
       margin: 0;
-      font-size: clamp(3.9rem, 11vw, 8rem);
-      line-height: 0.84;
-      letter-spacing: -0.086em;
+      max-width: 760px;
+      font-size: clamp(4rem, 13vw, 8.4rem);
+      line-height: 0.82;
+      letter-spacing: -0.09em;
       font-weight: 900;
     }
 
-    .headline-note {
-      margin-top: 18px;
-      color: var(--text);
-      font-size: clamp(1.22rem, 2.4vw, 1.72rem);
-      line-height: 1.2;
-      letter-spacing: -0.045em;
-      font-weight: 780;
+    .line {
+      width: min(100%, 520px);
+      height: 1px;
+      margin: clamp(28px, 4.5vw, 42px) 0;
+      background: linear-gradient(90deg, var(--line), transparent);
     }
 
-    .subtitle {
-      max-width: 740px;
-      margin: 24px 0 0;
+    .lead {
+      max-width: 680px;
+      margin: 0;
+      color: var(--accent-strong);
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      line-height: 1.18;
+      letter-spacing: -0.045em;
+      font-weight: 760;
+    }
+
+    .sublead {
+      max-width: 620px;
+      margin: 18px 0 0;
       color: var(--muted);
-      font-size: clamp(1.08rem, 2vw, 1.28rem);
-      line-height: 1.72;
+      font-size: clamp(1rem, 1.8vw, 1.16rem);
+      line-height: 1.7;
     }
 
-    .mantra {
-      margin: 30px 0 0;
-      max-width: 800px;
-      font-size: clamp(1.34rem, 3.15vw, 2.1rem);
-      line-height: 1.15;
-      letter-spacing: -0.045em;
-      font-weight: 780;
+    .action-block {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 34px;
     }
-
-    .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 
     .button {
-      min-height: 56px;
+      min-height: 58px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 0 22px;
+      padding: 0 24px;
       border-radius: 18px;
-      border: 1px solid transparent;
-      text-decoration: none;
-      font-weight: 840;
-      color: #fff;
+      border: 1px solid rgba(244, 241, 234, 0.18);
       background: var(--text);
-      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
+      color: #0b0b12;
+      text-decoration: none;
+      font-weight: 860;
+      letter-spacing: -0.01em;
+      transition: transform 170ms ease, box-shadow 170ms ease, background 170ms ease;
     }
 
-    .button:hover { transform: translateY(-1px); box-shadow: 0 15px 36px rgba(23, 21, 31, 0.18); background: #000; }
-    .button.secondary { color: var(--text); background: rgba(255, 255, 255, 0.44); border-color: rgba(23, 21, 31, 0.13); }
-    .button.secondary:hover { border-color: rgba(119, 101, 255, 0.32); background: rgba(255, 255, 255, 0.64); }
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 34px rgba(244, 241, 234, 0.10);
+      background: #fffdf6;
+    }
 
-    .already {
-      margin-top: 18px;
-      max-width: 720px;
-      color: var(--muted);
-      font-size: 0.98rem;
+    .execute {
+      color: var(--quiet);
+      font-size: 0.96rem;
       line-height: 1.55;
     }
 
-    .already a {
-      color: var(--text);
-      font-weight: 820;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
+    .execute code {
+      color: var(--accent-strong);
+      padding: 0.18em 0.46em;
+      border-radius: 999px;
+      border: 1px solid var(--line-soft);
+      background: rgba(244, 241, 234, 0.045);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92em;
     }
 
-    .sections { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 52px; }
-
-    .mini {
-      min-height: 178px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--paper-strong);
-      padding: 22px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.62);
+    .secondary {
+      margin-top: clamp(40px, 7vw, 62px);
+      padding-top: 22px;
+      border-top: 1px solid var(--line-soft);
+      color: var(--quiet);
+      font-size: 0.96rem;
+      line-height: 1.7;
     }
 
-    .mini h2 { margin: 0 0 12px; font-size: 1rem; letter-spacing: -0.025em; }
-    .mini p, .mini ol { margin: 0; color: var(--muted); line-height: 1.62; font-size: 0.98rem; }
-    .mini ol { padding-left: 20px; }
-    .mini a { color: var(--text); font-weight: 760; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .secondary a,
+    footer a {
+      color: var(--accent-strong);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(217, 209, 255, 0.36);
+    }
 
-    footer { margin-top: 28px; color: var(--muted); font-size: 0.86rem; line-height: 1.6; text-align: center; }
-    footer span { color: var(--text); }
+    .secondary a:hover,
+    footer a:hover { border-bottom-color: var(--accent-strong); }
 
-    @media (max-width: 900px) { .sections { grid-template-columns: 1fr; } .mini { min-height: auto; } }
-    @media (max-width: 720px) {
+    footer {
+      margin-top: 24px;
+      color: var(--quiet);
+      text-align: center;
+      font-size: 0.84rem;
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 14px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 640px) {
       body { padding: 14px; place-items: start center; }
-      .inner { padding: 28px 20px; }
-      .topline { align-items: flex-start; margin-bottom: 32px; }
-      .brand span { display: none; }
-      .pill { font-size: 0.7rem; padding: 0 11px; }
-      .actions { flex-direction: column; }
+      .portal { padding: 28px 20px; border-radius: 28px; }
+      .mark { margin-bottom: 42px; }
+      .mark span { display: none; }
       .button { width: 100%; }
-      h1 { letter-spacing: -0.075em; }
+      .action-block { align-items: stretch; }
+      .execute { width: 100%; }
+      h1 { letter-spacing: -0.078em; }
     }
   </style>
 </head>
 <body>
   <main>
-    <section class="card" aria-labelledby="title">
-      <div class="inner">
-        <div class="topline">
-          <div class="brand">
-            <div class="moon" aria-hidden="true">☾</div>
-            <span>Moon Source</span>
-          </div>
-          <div class="pill">🌙 Public setup + kernel</div>
-        </div>
-
-        <div class="eyebrow">✨ Free AI source setup</div>
-        <h1 id="title">Moon Source</h1>
-        <div class="headline-note">Setup + Kernel</div>
-
-        <p class="subtitle">
-          A guided public setup for building your first personal AI source: context, projects, preferences, boundaries, update rules and better AI collaboration.
-        </p>
-
-        <p class="mantra">
-          New here? Download the Setup. Already using Moon Source? Refresh it with the Kernel.
-        </p>
-
-        <div class="badges" aria-label="Moon Source attributes">
-          <span class="badge">🌕 100% free</span>
-          <span class="badge">📦 Guided setup</span>
-          <span class="badge">🧬 Refresh kernel</span>
-          <span class="badge">⚙️ Custom-instructions ready</span>
-          <span class="badge">🧭 Platform-independent</span>
-        </div>
-
-        <div class="actions">
-          <a class="button" href="downloads/MOON_SOURCE_SETUP.md" download>📦 Download Moon Source Setup</a>
-          <a class="button secondary" href="downloads/MOON_SOURCE_KERNEL.md">🧬 Open MS Kernel</a>
-          <a class="button secondary" href="knowledge/">📚 Knowledge portables</a>
-        </div>
-
-        <p class="already">
-          Already using Moon Source? Open the <a href="downloads/MOON_SOURCE_KERNEL.md">MS Kernel</a> to refresh, update, audit or repair an existing source profile.
-        </p>
-
-        <div class="sections" aria-label="Moon Source public architecture">
-          <article class="mini">
-            <h2>📦 Setup</h2>
-            <p>The main public artifact. Paste it into your AI, say “Execute”, and build your first usable source profile or global AI instructions.</p>
-          </article>
-          <article class="mini">
-            <h2>🧬 Kernel</h2>
-            <p>The maintenance layer. Use it after setup to update your source, reduce drift, apply patches, refresh projects and keep continuity clean.</p>
-          </article>
-          <article class="mini">
-            <h2>📚 Knowledge</h2>
-            <p>Optional field-specific portables for topics like writing, research, sociology, philosophy, politics and other reusable knowledge layers.</p>
-          </article>
-        </div>
+    <section class="portal" aria-labelledby="title">
+      <div class="mark">
+        <div class="sigil" aria-hidden="true">☾</div>
+        <span>Moon Source</span>
       </div>
+
+      <h1 id="title">Moon Source</h1>
+      <div class="line" aria-hidden="true"></div>
+
+      <p class="lead">Build a personal AI source in one guided setup.</p>
+      <p class="sublead">A single file for helping your AI understand your context, projects, preferences, boundaries and update rules.</p>
+
+      <div class="action-block">
+        <a class="button" href="downloads/MOON_SOURCE_SETUP.md" download>Download Moon Source Setup</a>
+        <div class="execute">Paste it into your AI and say <code>Execute</code>.</div>
+      </div>
+
+      <p class="secondary">
+        Already using Moon Source?
+        <a href="downloads/MOON_SOURCE_KERNEL.md">Refresh or update it with MS Kernel</a>.
+      </p>
     </section>
 
     <footer>
-      <span>Created by Lua Helena Moon Martins Cardoso</span><br />
-      Moon Source method · developed through the Moon–Áurion coauthorial process
+      Created by Lua Helena Moon Martins Cardoso · Moon Source method
+      <div class="footer-links">
+        <a href="knowledge/">Knowledge portables</a>
+        <a href="downloads/MOON_SOURCE_KERNEL.md">MS Kernel</a>
+      </div>
     </footer>
   </main>
 </body>

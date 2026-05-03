@@ -4,41 +4,43 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Moon Source · Knowledge Portables</title>
-  <meta name="description" content="Moon Source Knowledge Portables are lightweight .md kernels for AI-assisted thinking, study, writing and projects across fields like sociology, philosophy, literature, politics and more." />
+  <meta name="description" content="Moon Source Knowledge Portables are compact field kernels that can be used with Moon Source Setup or an existing AI source." />
   <meta property="og:title" content="Moon Source · Knowledge Portables" />
-  <meta property="og:description" content="Lightweight .md knowledge kernels for AI-assisted thinking, study, writing and projects." />
+  <meta property="og:description" content="Compact field kernels for extending an existing AI source." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mooon.com.br/moonsource/knowledge/" />
+  <meta name="theme-color" content="#0b0b12" />
   <style>
     :root {
-      --bg: #f8f6f0;
-      --paper: rgba(255, 254, 249, 0.79);
-      --paper-strong: rgba(255, 255, 255, 0.58);
-      --text: #17151f;
-      --muted: #686275;
-      --line: rgba(23, 21, 31, 0.12);
-      --accent: #7765ff;
-      --accent-line: rgba(119, 101, 255, 0.22);
+      --bg: #0b0b12;
+      --panel: rgba(17, 17, 28, 0.72);
+      --text: #f4f1ea;
+      --muted: #aaa3b8;
+      --quiet: #7f788e;
+      --line: rgba(244, 241, 234, 0.14);
+      --line-soft: rgba(244, 241, 234, 0.08);
+      --accent: #d9d1ff;
+      --accent-strong: #f6f0ff;
       --radius: 28px;
-      --shadow: 0 28px 90px rgba(28, 24, 44, 0.12);
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
     }
 
     * { box-sizing: border-box; }
+
     html { min-height: 100%; }
 
     body {
       min-height: 100vh;
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at 9% 8%, rgba(119, 101, 255, 0.18), transparent 28%),
-        radial-gradient(circle at 92% 78%, rgba(216, 209, 255, 0.50), transparent 34%),
-        radial-gradient(circle at 50% 102%, rgba(255, 255, 255, 0.74), transparent 38%),
-        linear-gradient(180deg, #fbfaf6 0%, var(--bg) 100%);
+        radial-gradient(circle at 20% 10%, rgba(217, 209, 255, 0.12), transparent 28%),
+        radial-gradient(circle at 92% 82%, rgba(113, 91, 255, 0.10), transparent 34%),
+        linear-gradient(180deg, #08080d 0%, var(--bg) 62%, #090910 100%);
       display: grid;
       place-items: center;
-      padding: 34px 18px;
+      padding: 28px;
     }
 
     body::before {
@@ -46,276 +48,231 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: 0.34;
-      background-image: radial-gradient(circle, rgba(23, 21, 31, 0.10) 0.7px, transparent 0.8px);
-      background-size: 26px 26px;
-      mask-image: linear-gradient(to bottom, transparent, black 18%, black 70%, transparent);
+      opacity: 0.18;
+      background-image: radial-gradient(circle, rgba(244, 241, 234, 0.48) 0.7px, transparent 0.8px);
+      background-size: 31px 31px;
+      mask-image: linear-gradient(to bottom, transparent, black 20%, black 70%, transparent);
     }
 
-    main { position: relative; width: min(100%, 1040px); margin: auto; }
-
-    .card {
+    main {
+      width: min(100%, 860px);
       position: relative;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: calc(var(--radius) + 14px);
-      background: var(--paper);
+    }
+
+    .portal {
+      border: 1px solid var(--line-soft);
+      border-radius: calc(var(--radius) + 10px);
+      background: linear-gradient(180deg, var(--panel), rgba(11, 11, 18, 0.54));
       box-shadow: var(--shadow);
-      backdrop-filter: blur(20px);
+      backdrop-filter: blur(22px);
+      padding: clamp(28px, 7vw, 70px);
     }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(125deg, rgba(255,255,255,0.78), transparent 35%),
-        radial-gradient(circle at top right, rgba(119,101,255,0.14), transparent 36%);
-    }
-
-    .inner { position: relative; padding: clamp(28px, 7vw, 76px); }
 
     .topline {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      margin-bottom: clamp(34px, 6vw, 54px);
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--muted);
-      font-size: 0.9rem;
-      font-weight: 780;
-    }
-
-    .moon {
-      width: 46px;
-      height: 46px;
-      flex: 0 0 46px;
-      border-radius: 999px;
-      border: 1px solid rgba(23, 21, 31, 0.16);
-      display: grid;
-      place-items: center;
-      background: rgba(255, 255, 255, 0.50);
-      color: var(--accent);
-      font-size: 1.45rem;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.75);
-    }
-
-    .pill, .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      min-height: 34px;
-      padding: 0 13px;
-      border-radius: 999px;
-      border: 1px solid rgba(23, 21, 31, 0.11);
-      background: rgba(255, 255, 255, 0.52);
-      color: var(--text);
-      font-size: 0.82rem;
-      font-weight: 760;
-      white-space: nowrap;
-    }
-
-    .pill {
-      border-color: var(--accent-line);
-      color: #5143c9;
-      font-size: 0.76rem;
-      font-weight: 830;
-      letter-spacing: 0.075em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 18px;
-      color: #5143c9;
-      font-size: 0.78rem;
-      font-weight: 830;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      max-width: 920px;
-      margin: 0;
-      font-size: clamp(3.6rem, 10vw, 7.4rem);
-      line-height: 0.84;
-      letter-spacing: -0.086em;
-      font-weight: 900;
-    }
-
-    .headline-note {
-      margin-top: 18px;
-      color: var(--text);
-      font-size: clamp(1.22rem, 2.4vw, 1.72rem);
-      line-height: 1.2;
-      letter-spacing: -0.045em;
-      font-weight: 780;
-    }
-
-    .subtitle {
-      max-width: 760px;
-      margin: 24px 0 0;
-      color: var(--muted);
-      font-size: clamp(1.08rem, 2vw, 1.28rem);
-      line-height: 1.72;
-    }
-
-    .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-
-    .button {
-      min-height: 56px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 0 22px;
-      border-radius: 18px;
-      border: 1px solid transparent;
-      text-decoration: none;
-      font-weight: 840;
-      color: #fff;
-      background: var(--text);
-      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
-    }
-
-    .button:hover { transform: translateY(-1px); box-shadow: 0 15px 36px rgba(23, 21, 31, 0.18); background: #000; }
-    .button.secondary { color: var(--text); background: rgba(255, 255, 255, 0.44); border-color: rgba(23, 21, 31, 0.13); }
-    .button.secondary:hover { border-color: rgba(119, 101, 255, 0.32); background: rgba(255, 255, 255, 0.64); }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
       gap: 14px;
-      margin-top: 52px;
+      margin-bottom: clamp(44px, 8vw, 70px);
     }
 
-    .mini {
-      min-height: 154px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--paper-strong);
-      padding: 22px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.62);
-    }
-
-    .mini h2 { margin: 0 0 10px; font-size: 1rem; letter-spacing: -0.02em; }
-    .mini p { margin: 0; color: var(--muted); line-height: 1.55; font-size: 0.95rem; }
-
-    .path {
-      margin-top: 12px;
-      font-size: 0.78rem;
-      color: #5143c9;
-      overflow-wrap: anywhere;
+    .brand,
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.92rem;
       font-weight: 720;
     }
 
-    footer { margin-top: 28px; color: var(--muted); font-size: 0.86rem; line-height: 1.6; text-align: center; }
-    footer span { color: var(--text); }
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      color: var(--accent);
+      background: rgba(244, 241, 234, 0.035);
+      font-size: 1.35rem;
+    }
 
-    @media (max-width: 920px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 620px) {
+    .back {
+      border-bottom: 1px solid transparent;
+    }
+
+    .back:hover { color: var(--accent-strong); border-bottom-color: rgba(217, 209, 255, 0.36); }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3.2rem, 9vw, 6.8rem);
+      line-height: 0.88;
+      letter-spacing: -0.08em;
+      font-weight: 900;
+    }
+
+    .lead {
+      max-width: 660px;
+      margin: 28px 0 0;
+      color: var(--accent-strong);
+      font-size: clamp(1.18rem, 2.3vw, 1.55rem);
+      line-height: 1.28;
+      letter-spacing: -0.035em;
+      font-weight: 720;
+    }
+
+    .sublead {
+      max-width: 640px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.72;
+    }
+
+    .rule {
+      height: 1px;
+      width: 100%;
+      margin: clamp(34px, 6vw, 52px) 0 0;
+      background: linear-gradient(90deg, var(--line), transparent);
+    }
+
+    .shelf {
+      margin-top: 8px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: minmax(120px, 190px) 1fr auto;
+      gap: 18px;
+      align-items: baseline;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .row:last-child { border-bottom: 0; }
+
+    .name {
+      font-weight: 820;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .desc {
+      color: var(--muted);
+      line-height: 1.58;
+      font-size: 0.96rem;
+    }
+
+    .status {
+      color: var(--quiet);
+      font-size: 0.82rem;
+      white-space: nowrap;
+      padding: 0.34rem 0.7rem;
+      border: 1px solid var(--line-soft);
+      border-radius: 999px;
+      background: rgba(244, 241, 234, 0.035);
+    }
+
+    .available a {
+      color: var(--accent-strong);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(217, 209, 255, 0.36);
+    }
+
+    .available a:hover { border-bottom-color: var(--accent-strong); }
+
+    .note {
+      margin-top: 24px;
+      color: var(--quiet);
+      font-size: 0.93rem;
+      line-height: 1.68;
+    }
+
+    footer {
+      margin-top: 24px;
+      color: var(--quiet);
+      text-align: center;
+      font-size: 0.84rem;
+      line-height: 1.7;
+    }
+
+    footer a {
+      color: var(--accent-strong);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(217, 209, 255, 0.36);
+    }
+
+    footer a:hover { border-bottom-color: var(--accent-strong); }
+
+    @media (max-width: 720px) {
       body { padding: 14px; place-items: start center; }
-      .inner { padding: 28px 20px; }
-      .topline { align-items: flex-start; margin-bottom: 32px; }
+      .portal { padding: 28px 20px; border-radius: 28px; }
+      .topline { align-items: flex-start; margin-bottom: 42px; }
       .brand span { display: none; }
-      .pill { font-size: 0.7rem; padding: 0 11px; }
-      .grid { grid-template-columns: 1fr; margin-top: 34px; }
-      .actions { flex-direction: column; }
-      .button { width: 100%; }
-      h1 { letter-spacing: -0.075em; }
+      .back { font-size: 0.86rem; }
+      .row { grid-template-columns: 1fr; gap: 8px; padding: 18px 0; }
+      .status { width: fit-content; }
+      h1 { letter-spacing: -0.07em; }
     }
   </style>
 </head>
 <body>
   <main>
-    <section class="card" aria-labelledby="title">
-      <div class="inner">
-        <div class="topline">
-          <div class="brand">
-            <div class="moon" aria-hidden="true">☾</div>
-            <span>Moon Source</span>
-          </div>
-          <div class="pill">📚 Knowledge shelf</div>
+    <section class="portal" aria-labelledby="title">
+      <div class="topline">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">☾</div>
+          <span>Moon Source</span>
         </div>
+        <a class="back" href="../">← Back to Setup</a>
+      </div>
 
-        <div class="eyebrow">✨ Public knowledge kernels</div>
-        <h1 id="title">Moon Source</h1>
-        <div class="headline-note">Knowledge Portables</div>
+      <h1 id="title">Knowledge Portables</h1>
+      <p class="lead">Compact field kernels for extending an existing AI source.</p>
+      <p class="sublead">Use them after Moon Source Setup, or alongside an existing profile, when a project needs domain-specific language, lenses and source hygiene.</p>
 
-        <p class="subtitle">
-          Lightweight .md kernels for AI-assisted thinking, study, writing and projects. Inspired by skills, but portable, readable and platform-independent.
-        </p>
+      <div class="rule" aria-hidden="true"></div>
 
-        <div class="badges" aria-label="Knowledge portable status">
-          <span class="badge">🌱 Structure ready</span>
-          <span class="badge">📄 .md kernels coming soon</span>
-          <span class="badge">🧭 Platform-independent</span>
+      <div class="shelf" aria-label="Knowledge portable shelf">
+        <div class="row available">
+          <div class="name">MS Kernel</div>
+          <div class="desc">The maintenance reference for refreshing, auditing or updating an existing Moon Source profile.</div>
+          <div class="status"><a href="../downloads/MOON_SOURCE_KERNEL.md">Open</a></div>
         </div>
-
-        <div class="actions">
-          <a class="button" href="../">← 🌙 Back to Moon Source</a>
-          <a class="button secondary" href="downloads/">📁 Downloads folder</a>
+        <div class="row">
+          <div class="name">Sociology</div>
+          <div class="desc">Social concepts, institutions, ideology, power, class, gender, discourse and public analysis.</div>
+          <div class="status">Planned</div>
         </div>
-
-        <div class="grid" aria-label="Planned knowledge portable categories">
-          <article class="mini">
-            <h2>🏛️ Sociology</h2>
-            <p>Concepts, lenses, authors and social analysis support.</p>
-            <div class="path">downloads/sociology.md</div>
-          </article>
-          <article class="mini">
-            <h2>🌀 Philosophy</h2>
-            <p>Questions, traditions, arguments and interpretive frames.</p>
-            <div class="path">downloads/philosophy.md</div>
-          </article>
-          <article class="mini">
-            <h2>📖 Literature</h2>
-            <p>Reading, style, narrative, symbolism and critical language.</p>
-            <div class="path">downloads/literature.md</div>
-          </article>
-          <article class="mini">
-            <h2>🏛️ Politics</h2>
-            <p>Institutions, discourse, strategy, ideology and reality checks.</p>
-            <div class="path">downloads/politics.md</div>
-          </article>
-          <article class="mini">
-            <h2>🧠 Psychology</h2>
-            <p>Careful conceptual support without replacing professional care.</p>
-            <div class="path">downloads/psychology.md</div>
-          </article>
-          <article class="mini">
-            <h2>✍️ Writing</h2>
-            <p>Voice, revision, structure, style and anti-generic writing support.</p>
-            <div class="path">downloads/writing.md</div>
-          </article>
-          <article class="mini">
-            <h2>🔎 Research</h2>
-            <p>Questions, sources, synthesis, note-making and uncertainty.</p>
-            <div class="path">downloads/research.md</div>
-          </article>
-          <article class="mini">
-            <h2>🌌 More</h2>
-            <p>Future public kernels for specific domains and workflows.</p>
-            <div class="path">downloads/</div>
-          </article>
+        <div class="row">
+          <div class="name">Philosophy</div>
+          <div class="desc">Arguments, traditions, conceptual distinctions, existential questions and interpretive frames.</div>
+          <div class="status">Planned</div>
+        </div>
+        <div class="row">
+          <div class="name">Literature</div>
+          <div class="desc">Narrative, symbolism, voice, style, reading, criticism and creative interpretation.</div>
+          <div class="status">Planned</div>
+        </div>
+        <div class="row">
+          <div class="name">Writing</div>
+          <div class="desc">Revision, voice calibration, structure, anti-generic prose and editorial continuity.</div>
+          <div class="status">Planned</div>
+        </div>
+        <div class="row">
+          <div class="name">Research</div>
+          <div class="desc">Questions, source hygiene, synthesis, notes, uncertainty and evidence tracking.</div>
+          <div class="status">Planned</div>
         </div>
       </div>
+
+      <p class="note">This shelf is intentionally quiet. Moon Source starts with Setup; knowledge portables are optional extensions, not extra doors for new users.</p>
     </section>
 
     <footer>
-      <span>Moon Source Knowledge Portables</span><br />
-      Public structure only · portable files will be added gradually
+      Created by Lua Helena Moon Martins Cardoso · <a href="../">Moon Source Setup</a>
     </footer>
   </main>
 </body>
