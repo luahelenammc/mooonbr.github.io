@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Moon Source · Public Portable v1</title>
-  <meta name="description" content="Moon Source is a single-file public portable for configuring your AI around your context, projects, preferences and way of working. Copy it. Paste it into your AI. Say Execute." />
-  <meta property="og:title" content="Moon Source · Public Portable v1" />
-  <meta property="og:description" content="A single-file starter kit for configuring your AI around your context, projects, preferences and way of working." />
+  <title>Moon Source · Public Kernel + Bootstrap</title>
+  <meta name="description" content="Moon Source is a public AI source system: a living kernel, an executable bootstrap, and portable profiles for configuring your AI around your context, projects and way of working." />
+  <meta property="og:title" content="Moon Source · Public Kernel + Bootstrap" />
+  <meta property="og:description" content="A public AI source system for configuring your AI around your context, projects, preferences and way of working." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mooon.com.br/moonsource/" />
   <style>
@@ -52,7 +52,7 @@
       mask-image: linear-gradient(to bottom, transparent, black 18%, black 70%, transparent);
     }
 
-    main { position: relative; width: min(100%, 940px); margin: auto; }
+    main { position: relative; width: min(100%, 980px); margin: auto; }
 
     .card {
       position: relative;
@@ -162,7 +162,7 @@
     }
 
     .subtitle {
-      max-width: 700px;
+      max-width: 730px;
       margin: 24px 0 0;
       color: var(--muted);
       font-size: clamp(1.08rem, 2vw, 1.28rem);
@@ -171,7 +171,7 @@
 
     .mantra {
       margin: 30px 0 0;
-      max-width: 760px;
+      max-width: 780px;
       font-size: clamp(1.34rem, 3.15vw, 2.1rem);
       line-height: 1.15;
       letter-spacing: -0.045em;
@@ -202,10 +202,10 @@
     .button.secondary { color: var(--text); background: rgba(255, 255, 255, 0.44); border-color: rgba(23, 21, 31, 0.13); }
     .button.secondary:hover { border-color: rgba(119, 101, 255, 0.32); background: rgba(255, 255, 255, 0.64); }
 
-    .sections { display: grid; grid-template-columns: 1.05fr 0.95fr 0.95fr; gap: 14px; margin-top: 52px; }
+    .sections { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 52px; }
 
     .mini {
-      min-height: 168px;
+      min-height: 178px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--paper-strong);
@@ -221,7 +221,7 @@
     footer { margin-top: 28px; color: var(--muted); font-size: 0.86rem; line-height: 1.6; text-align: center; }
     footer span { color: var(--text); }
 
-    @media (max-width: 860px) { .sections { grid-template-columns: 1fr; } .mini { min-height: auto; } }
+    @media (max-width: 900px) { .sections { grid-template-columns: 1fr; } .mini { min-height: auto; } }
     @media (max-width: 720px) {
       body { padding: 14px; place-items: start center; }
       .inner { padding: 28px 20px; }
@@ -243,50 +243,52 @@
             <div class="moon" aria-hidden="true">☾</div>
             <span>Moon Source</span>
           </div>
-          <div class="pill">🌙 Public portable v1</div>
+          <div class="pill">🌙 Public kernel + bootstrap</div>
         </div>
 
-        <div class="eyebrow">✨ Free AI source kit</div>
+        <div class="eyebrow">✨ Free AI source system</div>
         <h1 id="title">Moon Source</h1>
-        <div class="headline-note">Public Portable v1</div>
+        <div class="headline-note">Kernel + Bootstrap</div>
 
         <p class="subtitle">
-          A single-file starter kit for configuring your AI around you, your context, your projects and your way of working.
+          A public AI source system for configuring your AI around you, your context, your projects and your way of working.
         </p>
 
         <p class="mantra">
-          Copy it. Paste it into your AI. Say “Execute”.
+          Keep the Kernel as reference. Run the Bootstrap to set up your AI. Say “Execute”.
         </p>
 
-        <div class="badges" aria-label="Portable attributes">
+        <div class="badges" aria-label="Moon Source attributes">
           <span class="badge">🌕 100% free</span>
-          <span class="badge">📄 Single .txt file</span>
+          <span class="badge">🧬 Living kernel</span>
+          <span class="badge">🪄 Executable bootstrap</span>
           <span class="badge">⚙️ Custom-instructions ready</span>
           <span class="badge">🧭 Platform-independent</span>
         </div>
 
         <div class="actions">
-          <a class="button" href="downloads/MOON_SOURCE_PUBLIC_PORTABLE.txt" download>⬇️ Download .txt</a>
-          <a class="button secondary" href="downloads/MOON_SOURCE_PUBLIC_PORTABLE.txt">👁️ Open text</a>
+          <a class="button" href="downloads/MOON_SOURCE_BOOTSTRAP.txt" download>🪄 Download Bootstrap</a>
+          <a class="button secondary" href="downloads/MOON_SOURCE_KERNEL.txt">🧬 Open Kernel</a>
+          <a class="button secondary" href="downloads/MOON_SOURCE_PUBLIC_PORTABLE.txt">📦 All-in-one portable</a>
           <a class="button secondary" href="knowledge/">📚 Knowledge portables</a>
         </div>
 
-        <div class="sections" aria-label="What it does and how to use">
+        <div class="sections" aria-label="Moon Source public architecture">
           <article class="mini">
-            <h2>✨ What it does</h2>
-            <p>Helps your AI understand your context, preferences, projects, boundaries, update rules, usage level and simulated advisory rounds.</p>
+            <h2>🧬 Kernel</h2>
+            <p>The living reference: grammar, boundaries, advisory rounds, updates, symbiosis framing and how Moon Source should be consulted over time.</p>
           </article>
           <article class="mini">
-            <h2>🪄 How to use</h2>
+            <h2>🪄 Bootstrap</h2>
             <ol>
-              <li>Download</li>
-              <li>Paste into a new AI chat</li>
+              <li>Open the Kernel</li>
+              <li>Paste the Bootstrap into your AI</li>
               <li>Say: “Execute”</li>
             </ol>
           </article>
           <article class="mini">
-            <h2>⚙️ Global setup</h2>
-            <p>Generate paste-ready instructions for Custom Instructions, Gems, Projects, saved chats or any AI settings that accept text.</p>
+            <h2>📦 All-in-one</h2>
+            <p>Prefer one file? The original Public Portable remains available as a convenience bundle while Kernel + Bootstrap become the main architecture.</p>
           </article>
         </div>
       </div>
