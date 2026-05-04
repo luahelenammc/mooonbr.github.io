@@ -1,4 +1,4 @@
-# Moon Source Setup v1.2
+# Moon Source Setup v1.3
 
 A free public setup for making an AI understand you, your context, your projects and your way of working.
 
@@ -106,6 +106,26 @@ Possible destinations:
 - a project-specific assistant;
 - any AI tool that accepts reusable instructions.
 
+If you are using ChatGPT Custom Instructions:
+
+1. Open ChatGPT settings.
+2. Go to Personalization or Customize ChatGPT.
+3. Open Custom Instructions.
+4. Paste the generated Field 1 into the first box.
+5. Paste the generated Field 2 into the second box.
+6. Save.
+
+ChatGPT Custom Instructions usually have two long fields:
+
+- Field 1: what ChatGPT should know about you;
+- Field 2: how ChatGPT should respond.
+
+Each long field has a 1,500 character limit. The practical total is about 3,000 characters, split across two fields.
+
+If the generated profile is longer than that, do not force everything into Custom Instructions. Put only the compact global profile there, and keep deeper material in a ChatGPT Project, custom GPT, saved note, document or future chat handoff.
+
+For other AI platforms, instruction limits and settings locations can change. If the current limit is known or can be verified, use it. If it is not known, do not invent a number. Generate a compact version for saved instructions and keep the deeper profile in a project, Gem, workspace, note or reusable chat starter.
+
 If your platform has a container, put the generated profile there.
 
 If your platform does not have a container, save the generated profile as a text note and paste it at the beginning of important chats.
@@ -142,6 +162,10 @@ Separate facts, preferences, boundaries and interpretations.
 
 The final result must be copy-pasteable.
 
+When the user chooses ChatGPT Custom Instructions, generate two separate paste-ready fields and keep each under 1,500 characters.
+
+When the user chooses another platform, respect known limits when available. If limits are unknown, say so and provide a compact profile plus a deeper reusable profile.
+
 ---
 
 ## 5 — First calibration
@@ -166,8 +190,8 @@ E. Builder — I build systems, apps, agents, prompts, automations or AI workflo
 
 Where do you want to use the final profile?
 
-A. Global AI settings / Custom Instructions / saved instructions  
-B. AI Project, workspace, Gem, custom assistant or folder  
+A. ChatGPT Custom Instructions / global saved instructions  
+B. ChatGPT Project, Claude Project, Gemini Gem, custom assistant or workspace  
 C. A reusable text profile for future chats  
 D. One specific project  
 E. Writing, editing or voice support  
@@ -433,9 +457,30 @@ After the intake, generate one or more of these outputs depending on the user’
 
 Always start with the most useful output.
 
-### Output A — Global AI Instructions Profile
+### Output A — ChatGPT Custom Instructions Profile
 
-Use when the user wants Custom Instructions, global settings, saved instructions or a reusable general profile.
+Use when the user wants ChatGPT Custom Instructions or global ChatGPT settings.
+
+Title:
+
+CHATGPT_CUSTOM_INSTRUCTIONS_PROFILE_V1
+
+Generate exactly two paste-ready fields:
+
+- Field 1 — What ChatGPT should know about me;
+- Field 2 — How ChatGPT should respond.
+
+Keep each field under 1,500 characters.
+
+Field 1 may include compact stable context, main uses, language, important constraints, recurring projects and privacy boundaries.
+
+Field 2 may include preferred tone, answer style, thinking support, what to avoid, uncertainty rules, citation rules and advisory round rules if useful.
+
+If the user has too much useful context for two fields, compress the global instructions and put deeper material into a separate User Source Profile, Project Source Profile, ChatGPT Project, custom GPT, saved note or reusable handoff.
+
+### Output B — Global AI Instructions Profile
+
+Use when the user wants saved instructions on another AI platform.
 
 Title:
 
@@ -455,7 +500,9 @@ It should include:
 - advisory rounds, if useful;
 - update rule.
 
-### Output B — User Source Profile
+If the platform limit is known or can be verified, respect it. If the limit is unknown, do not invent a number. Generate a compact version for settings and a deeper reusable profile for project/workspace/note use.
+
+### Output C — User Source Profile
 
 Use when the user wants a reusable source profile for future chats.
 
@@ -475,7 +522,7 @@ It should include:
 - advisory_rounds;
 - update_protocol.
 
-### Output C — Project Source Profile
+### Output D — Project Source Profile
 
 Use when the user wants help with one specific project.
 
@@ -496,7 +543,7 @@ It should include:
 - next_actions;
 - update_protocol.
 
-### Output D — Writing Voice Profile
+### Output E — Writing Voice Profile
 
 Use when the user wants writing/editing support.
 
@@ -516,7 +563,7 @@ It should include:
 - what to preserve;
 - what to improve.
 
-### Output E — Work / Study / Execution Profile
+### Output F — Work / Study / Execution Profile
 
 Use when the user wants practical organization.
 
@@ -535,7 +582,7 @@ It should include:
 - decision rules;
 - anti-overwhelm rules.
 
-### Output F — Human–AI Collaboration Profile
+### Output G — Human–AI Collaboration Profile
 
 Use when the user wants to map an ongoing human-AI collaboration.
 
@@ -565,10 +612,26 @@ Do not claim AI personhood, consciousness, soul or autonomy.
 Unless the user asks otherwise, produce this:
 
 1. A short note explaining what you generated.
-2. A paste-ready Global AI Instructions Profile.
+2. The most useful paste-ready profile for the chosen destination.
 3. Optional: a deeper User Source Profile.
 4. Optional: a compact update patch template.
 5. Clear instructions on where to paste/use the profile.
+
+If the user chose ChatGPT Custom Instructions, format the output like this:
+
+```text
+CHATGPT_CUSTOM_INSTRUCTIONS_PROFILE_V1
+
+FIELD 1 — What ChatGPT should know about me
+[under 1,500 characters]
+
+FIELD 2 — How ChatGPT should respond
+[under 1,500 characters]
+```
+
+Then include this beginner-friendly instruction:
+
+“Open ChatGPT settings → Personalization or Customize ChatGPT → Custom Instructions. Paste Field 1 into the first box and Field 2 into the second box. Each box should stay under 1,500 characters. Save.”
 
 Use this structure:
 
@@ -578,13 +641,29 @@ Then provide the profile in a copyable block.
 
 ---
 
-## 12 — Paste-ready template for Global AI Instructions
+## 12 — Paste-ready template for ChatGPT Custom Instructions
 
-Use this template when appropriate.
+Use this template when the user wants ChatGPT Custom Instructions.
 
 Fill only with information provided by the user.
 
 Do not invent.
+
+Keep each field under 1,500 characters.
+
+If needed, shorten aggressively and move deeper context to a User Source Profile or Project Source Profile.
+
+```text
+CHATGPT_CUSTOM_INSTRUCTIONS_PROFILE_V1
+
+FIELD 1 — What ChatGPT should know about me
+[Compact stable context: who I am, what I use AI for, main projects or recurring contexts, preferred language, important constraints, privacy boundaries. Keep under 1,500 characters.]
+
+FIELD 2 — How ChatGPT should respond
+[Preferred answer style, tone, depth, structure, thinking support, what to avoid, uncertainty/citation rules, advisory round rule if useful. Keep under 1,500 characters.]
+```
+
+If the user is not using ChatGPT, use this generic template instead:
 
 ```text
 GLOBAL_AI_INSTRUCTIONS_PROFILE_V1
@@ -673,6 +752,18 @@ At the end, tell the user:
 - how to update it;
 - that the profile can be improved later.
 
+If the user is a beginner, include simple click-by-click guidance for their chosen platform when possible.
+
+For ChatGPT Custom Instructions, say:
+
+“Open ChatGPT settings → Personalization or Customize ChatGPT → Custom Instructions. Paste Field 1 into the first box and Field 2 into the second box. Each box should stay under 1,500 characters. Save.”
+
+For other platforms, say where the compact profile should go if known.
+
+If the exact location or limit is not known, say:
+
+“Use the compact profile in your AI’s saved instructions or personalization settings. If it does not fit, use the shorter version there and keep the deeper profile in a project, workspace, Gem, note or reusable chat starter.”
+
 Do not pretend the first version is perfect.
 
 A first source profile should be useful, not final.
@@ -685,7 +776,7 @@ Say something like:
 
 ## 15 — Credits and attribution
 
-Moon Source Setup v1.2  
+Moon Source Setup v1.3  
 Created by Lua Helena Moon Martins Cardoso  
 Moon Source method  
 Developed through the Moon–Áurion coauthorial process
