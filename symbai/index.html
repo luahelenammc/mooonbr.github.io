@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SymbAI Studio</title>
+  <meta name="description" content="SymbAI Studio is an AI startup studio in formation, built by Moon, Leaf, Chris and Jes around source architecture, agentic runtime work, relational memory systems and enterprise AI implementation." />
+  <meta property="og:title" content="SymbAI Studio" />
+  <meta property="og:description" content="A compact AI startup studio: source architecture, agentic runtime, relational memory systems and enterprise-grade AI implementation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mooon.com.br/symbai/" />
+  <meta name="theme-color" content="#070912" />
+  <style>
+    :root {
+      --bg: #070912;
+      --card: rgba(15, 20, 34, 0.68);
+      --card-soft: rgba(255, 255, 255, 0.035);
+      --text: #f4f1ea;
+      --muted: #aaa7b7;
+      --quiet: #7e8090;
+      --line: rgba(244, 241, 234, 0.14);
+      --line-soft: rgba(244, 241, 234, 0.08);
+      --accent: #bff7e2;
+      --accent-2: #d9d1ff;
+      --accent-3: #a9c7ff;
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.42);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { min-height: 100%; scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 18% 14%, rgba(191, 247, 226, 0.13), transparent 28%),
+        radial-gradient(circle at 84% 18%, rgba(217, 209, 255, 0.12), transparent 31%),
+        radial-gradient(circle at 56% 92%, rgba(87, 118, 255, 0.12), transparent 34%),
+        linear-gradient(180deg, #05060c 0%, var(--bg) 54%, #080a13 100%);
+      padding: 28px;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.18;
+      background-image: radial-gradient(circle, rgba(244, 241, 234, 0.42) 0.7px, transparent 0.8px);
+      background-size: 32px 32px;
+      mask-image: linear-gradient(to bottom, transparent, black 18%, black 76%, transparent);
+    }
+
+    a { color: inherit; }
+
+    main {
+      width: min(100%, 1040px);
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .portal {
+      border: 1px solid var(--line-soft);
+      border-radius: calc(var(--radius) + 10px);
+      background: linear-gradient(180deg, rgba(14, 18, 32, 0.82), rgba(7, 9, 18, 0.60));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(22px);
+      padding: clamp(26px, 6vw, 72px);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .portal::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -34% 38%;
+      height: 340px;
+      pointer-events: none;
+      background: radial-gradient(circle, rgba(191, 247, 226, 0.10), transparent 58%);
+    }
+
+    .mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 760;
+      margin-bottom: clamp(42px, 7vw, 72px);
+      letter-spacing: 0.01em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .sigil {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      color: var(--accent);
+      background: rgba(244, 241, 234, 0.035);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      font-size: 1.22rem;
+    }
+
+    .kicker {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 12px;
+      border: 1px solid var(--line-soft);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(244, 241, 234, 0.035);
+      font-size: 0.78rem;
+      font-weight: 780;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 900px;
+      font-size: clamp(3.7rem, 12vw, 9rem);
+      line-height: 0.82;
+      letter-spacing: -0.095em;
+      font-weight: 920;
+      position: relative;
+      z-index: 1;
+    }
+
+    .line {
+      width: min(100%, 620px);
+      height: 1px;
+      margin: clamp(28px, 4.5vw, 44px) 0;
+      background: linear-gradient(90deg, var(--line), transparent);
+      position: relative;
+      z-index: 1;
+    }
+
+    .lead {
+      max-width: 740px;
+      margin: 0;
+      color: var(--text);
+      font-size: clamp(1.34rem, 3vw, 2.08rem);
+      line-height: 1.16;
+      letter-spacing: -0.045em;
+      font-weight: 790;
+      position: relative;
+      z-index: 1;
+    }
+
+    .sublead {
+      max-width: 650px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.7vw, 1.16rem);
+      line-height: 1.68;
+      position: relative;
+      z-index: 1;
+    }
+
+    .systems {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 34px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .system-tag {
+      min-height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 1px solid var(--line-soft);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.035);
+      color: var(--accent);
+      font-size: 0.88rem;
+      font-weight: 760;
+      letter-spacing: -0.01em;
+    }
+
+    .section {
+      margin-top: clamp(22px, 4vw, 34px);
+      border: 1px solid var(--line-soft);
+      border-radius: calc(var(--radius) + 4px);
+      background: rgba(8, 10, 18, 0.48);
+      backdrop-filter: blur(18px);
+      padding: clamp(22px, 4.4vw, 44px);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.4rem, 2.8vw, 2rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .note {
+      max-width: 390px;
+      margin: 0;
+      color: var(--quiet);
+      font-size: 0.94rem;
+      line-height: 1.55;
+      text-align: right;
+    }
+
+    .team {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .member {
+      border: 1px solid var(--line-soft);
+      border-radius: 24px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.024)),
+        var(--card);
+      padding: 24px;
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .member-top { display: grid; gap: 12px; }
+
+    .member-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      color: var(--quiet);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 22px rgba(191, 247, 226, 0.45);
+      flex: 0 0 auto;
+    }
+
+    .member h3 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 0.95;
+      letter-spacing: -0.075em;
+    }
+
+    .role {
+      color: var(--accent-2);
+      font-size: 1rem;
+      font-weight: 760;
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    .desc {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border-radius: 999px;
+      color: var(--accent-3);
+      background: rgba(169, 199, 255, 0.07);
+      border: 1px solid rgba(169, 199, 255, 0.13);
+      font-size: 0.78rem;
+      font-weight: 720;
+      letter-spacing: -0.01em;
+    }
+
+    .principle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .principle {
+      border: 1px solid var(--line-soft);
+      border-radius: 20px;
+      padding: 18px;
+      background: var(--card-soft);
+    }
+
+    .principle strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 0.98rem;
+      letter-spacing: -0.02em;
+    }
+
+    .principle span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    footer {
+      margin: 24px auto 0;
+      max-width: 860px;
+      color: var(--quiet);
+      text-align: center;
+      font-size: 0.84rem;
+      line-height: 1.7;
+    }
+
+    footer a {
+      color: var(--accent-2);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(217, 209, 255, 0.36);
+    }
+
+    footer a:hover { border-bottom-color: var(--accent-2); }
+
+    @media (max-width: 860px) {
+      body { padding: 16px; }
+      .systems { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .team { grid-template-columns: 1fr; }
+      .principle-grid { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .note { text-align: left; margin-top: 12px; }
+    }
+
+    @media (max-width: 560px) {
+      body { padding: 12px; }
+      .portal, .section { border-radius: 28px; }
+      .portal { padding: 26px 18px; }
+      .mark { margin-bottom: 38px; }
+      .mark span { display: none; }
+      .systems { grid-template-columns: 1fr; }
+      .member { padding: 20px; min-height: auto; }
+      h1 { letter-spacing: -0.078em; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="portal" aria-labelledby="title">
+      <div class="mark">
+        <div class="sigil" aria-hidden="true">✦</div>
+        <span>SymbAI Studio</span>
+      </div>
+
+      <div class="kicker" aria-label="Studio status">
+        <span class="pill">AI studio in formation</span>
+        <span class="pill">Founder-led</span>
+        <span class="pill">Prototype phase</span>
+      </div>
+
+      <h1 id="title">SymbAI Studio</h1>
+      <div class="line" aria-hidden="true"></div>
+
+      <p class="lead">A compact AI startup studio for source architecture, agent-native tooling and memory-first systems.</p>
+      <p class="sublead">Four builders combining custom AI design, runtime experiments, relational memory architecture and enterprise-aware implementation.</p>
+
+      <div class="systems" aria-label="Core capability tags">
+        <div class="system-tag">Source architecture</div>
+        <div class="system-tag">Agentic runtime</div>
+        <div class="system-tag">Relational memory</div>
+        <div class="system-tag">Enterprise AI</div>
+        <div class="system-tag">Knowledge governance</div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="team-title">
+      <div class="section-head">
+        <h2 id="team-title">Skill map</h2>
+        <p class="note">Public handles. Capability tags, not fixed legal roles or equity claims.</p>
+      </div>
+
+      <div class="team">
+        <article class="member">
+          <div class="member-top">
+            <div class="member-label"><span>Source / cognition</span><span class="dot" aria-hidden="true"></span></div>
+            <h3>Moon</h3>
+            <p class="role">Cognitive Source Architect</p>
+            <p class="desc">Turns human context, projects, memory and voice into AI-readable source systems and reusable operating protocols.</p>
+          </div>
+          <div class="tags" aria-label="Moon tags">
+            <span class="tag">Source architecture</span>
+            <span class="tag">Context engineering</span>
+            <span class="tag">Memory protocols</span>
+            <span class="tag">Prompt operating systems</span>
+            <span class="tag">Product narrative</span>
+            <span class="tag">Governance design</span>
+          </div>
+        </article>
+
+        <article class="member">
+          <div class="member-top">
+            <div class="member-label"><span>Runtime / tooling</span><span class="dot" aria-hidden="true"></span></div>
+            <h3>Leaf</h3>
+            <p class="role">Agentic Runtime Builder</p>
+            <p class="desc">Builds fast, practical technical surfaces for local tools, agentic task flow, deployment experiments and working prototypes.</p>
+          </div>
+          <div class="tags" aria-label="Leaf tags">
+            <span class="tag">Rapid prototyping</span>
+            <span class="tag">Runtime surfaces</span>
+            <span class="tag">Local RAG/tooling</span>
+            <span class="tag">Web/cloud deployment</span>
+            <span class="tag">Agent task flow</span>
+            <span class="tag">Infra pragmatism</span>
+          </div>
+        </article>
+
+        <article class="member">
+          <div class="member-top">
+            <div class="member-label"><span>Memory / systems</span><span class="dot" aria-hidden="true"></span></div>
+            <h3>Chris</h3>
+            <p class="role">Relational Memory Architect</p>
+            <p class="desc">Develops AI continuity systems around memory, deliberation, relational context, boundaries and long-term system integrity.</p>
+          </div>
+          <div class="tags" aria-label="Chris tags">
+            <span class="tag">Nexus architecture</span>
+            <span class="tag">Continuity systems</span>
+            <span class="tag">Relational AI</span>
+            <span class="tag">Senate-style agents</span>
+            <span class="tag">Attribution logic</span>
+            <span class="tag">Boundary integrity</span>
+          </div>
+        </article>
+
+        <article class="member">
+          <div class="member-top">
+            <div class="member-label"><span>Implementation / QA</span><span class="dot" aria-hidden="true"></span></div>
+            <h3>Jes</h3>
+            <p class="role">Enterprise AI Implementer</p>
+            <p class="desc">Builds and reviews AI-enabled applications with implementation judgment, coding-agent workflows and enterprise-grade quality sense.</p>
+          </div>
+          <div class="tags" aria-label="Jes tags">
+            <span class="tag">AI app building</span>
+            <span class="tag">Enterprise workflows</span>
+            <span class="tag">Coding agents</span>
+            <span class="tag">Technical review</span>
+            <span class="tag">QA gates</span>
+            <span class="tag">Delivery coordination</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="principles-title">
+      <div class="section-head">
+        <h2 id="principles-title">Working principles</h2>
+        <p class="note">Lean structure. Real artifacts. Memory that compounds.</p>
+      </div>
+
+      <div class="principle-grid">
+        <div class="principle">
+          <strong>Builds over theatre</strong>
+          <span>Useful systems first. Startup language only when it describes something real.</span>
+        </div>
+        <div class="principle">
+          <strong>Knowledge as moat</strong>
+          <span>Source files, handoffs, decisions and playbooks should make the studio smarter over time.</span>
+        </div>
+        <div class="principle">
+          <strong>Sovereignty with coordination</strong>
+          <span>Each builder keeps their own gravity while the studio creates shared direction and delivery.</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      SymbAI Studio · Moon, Leaf, Chris and Jes · AI work with memory, structure and real delivery.
+      <br />
+      Related: <a href="../moonsource/">Moon Source</a>
+    </footer>
+  </main>
+</body>
+</html>
