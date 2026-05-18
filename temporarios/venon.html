@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Venon Vivo — Tutorial anti-pifar na firma</title>
+  <style>
+    :root{
+      --bg:#090d13;
+      --bg2:#101723;
+      --card:#151d2a;
+      --card2:#111927;
+      --text:#f7fbff;
+      --muted:#b5c0cf;
+      --line:rgba(255,255,255,.12);
+      --blue:#7dd3fc;
+      --purple:#c084fc;
+      --green:#86efac;
+      --yellow:#fde68a;
+      --red:#fca5a5;
+      --ink:#081018;
+      --shadow:0 20px 60px rgba(0,0,0,.38);
+      --radius:26px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color:var(--text);
+      line-height:1.42;
+      background:
+        radial-gradient(circle at top left, rgba(125,211,252,.22), transparent 28rem),
+        radial-gradient(circle at 80% 10%, rgba(192,132,252,.18), transparent 30rem),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 54%, #070a0f 100%);
+    }
+
+    a{color:inherit}
+    .wrap{width:min(1050px,92vw);margin:0 auto}
+    .hero{padding:38px 0 22px}
+    .heroBox{
+      position:relative;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:36px;
+      padding:30px;
+      background:linear-gradient(135deg, rgba(21,29,42,.96), rgba(17,25,39,.88));
+      box-shadow:var(--shadow);
+    }
+    .heroBox:before{
+      content:"";
+      position:absolute;
+      right:-90px;top:-110px;
+      width:310px;height:310px;
+      background:radial-gradient(circle, rgba(125,211,252,.33), transparent 68%);
+      pointer-events:none;
+    }
+    .stamp{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--ink);
+      background:linear-gradient(90deg,var(--blue),var(--green));
+      font-weight:950;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      border-radius:999px;
+      padding:8px 13px;
+      font-size:.78rem;
+      margin-bottom:14px;
+    }
+    h1{
+      margin:0 0 14px;
+      max-width:900px;
+      font-size:clamp(2.15rem,7vw,5rem);
+      line-height:.92;
+      letter-spacing:-.07em;
+    }
+    .sub{
+      max-width:780px;
+      color:#dce8f6;
+      font-size:clamp(1.04rem,2.4vw,1.38rem);
+      margin:0;
+    }
+    .quick{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+      margin-top:22px;
+    }
+    .quick div{
+      min-height:105px;
+      padding:14px;
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:rgba(255,255,255,.06);
+    }
+    .quick b{display:block;font-size:1rem;margin-bottom:6px}
+    .quick span{color:var(--muted);font-size:.92rem}
+
+    nav{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(16px);
+      background:rgba(9,13,19,.72);
+      border-block:1px solid var(--line);
+    }
+    .navrow{
+      display:flex;
+      gap:8px;
+      overflow:auto;
+      padding:10px 0;
+      scrollbar-width:none;
+    }
+    .navrow::-webkit-scrollbar{display:none}
+    .pill{
+      text-decoration:none;
+      white-space:nowrap;
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:9px 12px;
+      background:rgba(255,255,255,.055);
+      font-size:.92rem;
+      font-weight:900;
+    }
+    .pill:hover{background:rgba(125,211,252,.18)}
+
+    section{padding:28px 0}
+    h2{
+      margin:0 0 14px;
+      font-size:clamp(1.55rem,3vw,2.45rem);
+      line-height:1;
+      letter-spacing:-.045em;
+    }
+    .lead{
+      max-width:760px;
+      color:var(--muted);
+      margin:-4px 0 16px;
+      font-size:1.04rem;
+    }
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .card{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:20px;
+      background:linear-gradient(180deg, rgba(21,29,42,.94), rgba(17,25,39,.9));
+      box-shadow:0 10px 30px rgba(0,0,0,.2);
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size:1.24rem;
+      letter-spacing:-.025em;
+    }
+    .big{
+      font-size:1.35rem;
+      font-weight:950;
+      letter-spacing:-.035em;
+      margin:.1rem 0 .4rem;
+    }
+    .muted{color:var(--muted)}
+    .micro{
+      color:var(--blue);
+      font-size:.76rem;
+      font-weight:950;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+    .tag{
+      display:inline-flex;
+      margin:4px 4px 0 0;
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:950;
+      font-size:.82rem;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+    }
+    .tag.good{background:var(--green);color:#052e16}
+    .tag.warn{background:var(--yellow);color:#3b2a00}
+    .tag.bad{background:var(--red);color:#450a0a}
+    .tag.blue{background:var(--blue);color:#082f49}
+    .checklist{display:grid;gap:10px;margin-top:12px}
+    label.check{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      border:1px solid rgba(255,255,255,.09);
+      background:rgba(255,255,255,.045);
+      border-radius:17px;
+      padding:12px;
+      cursor:pointer;
+    }
+    input[type="checkbox"]{
+      width:22px;height:22px;
+      flex:0 0 auto;
+      margin-top:1px;
+      accent-color:#7dd3fc;
+    }
+    .banner{
+      border:1px solid rgba(125,211,252,.28);
+      background:linear-gradient(135deg, rgba(125,211,252,.14), rgba(192,132,252,.10));
+      border-radius:var(--radius);
+      padding:20px;
+      margin-top:14px;
+    }
+    .quote{
+      border-left:5px solid var(--blue);
+      background:rgba(125,211,252,.08);
+      border-radius:0 18px 18px 0;
+      padding:14px 16px;
+      font-size:1.1rem;
+      color:#eaf6ff;
+    }
+    details{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:rgba(255,255,255,.045);
+      padding:14px 16px;
+      margin-top:10px;
+    }
+    summary{cursor:pointer;font-weight:950}
+    .timeline{display:grid;gap:12px}
+    .time{
+      display:grid;
+      grid-template-columns:92px 1fr;
+      gap:12px;
+      align-items:start;
+      padding:14px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.045);
+    }
+    .hour{
+      color:var(--ink);
+      background:linear-gradient(90deg,var(--blue),var(--purple));
+      border-radius:999px;
+      text-align:center;
+      padding:8px 10px;
+      font-weight:950;
+      font-size:.93rem;
+    }
+    .traffic{display:grid;gap:12px}
+    .row{
+      display:grid;
+      grid-template-columns:88px 1fr;
+      overflow:hidden;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.045);
+    }
+    .signal{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--ink);
+      font-weight:950;
+      padding:14px 8px;
+      text-align:center;
+    }
+    .signal.green{background:var(--green)}
+    .signal.yellow{background:var(--yellow)}
+    .signal.red{background:var(--red)}
+    .txt{padding:14px}
+    .txt b{display:block;margin-bottom:4px}
+    .buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:16px;
+    }
+    button,.button{
+      border:0;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      border-radius:999px;
+      padding:12px 16px;
+      color:var(--ink);
+      background:linear-gradient(90deg,var(--blue),var(--green));
+      font-weight:950;
+      box-shadow:0 8px 22px rgba(125,211,252,.18);
+    }
+    button.secondary,.button.secondary{
+      color:var(--text);
+      background:rgba(255,255,255,.07);
+      border:1px solid var(--line);
+      box-shadow:none;
+    }
+    footer{padding:28px 0 46px;color:var(--muted)}
+    .print-note{display:none}
+
+    @media(max-width:820px){
+      .quick,.grid,.grid3{grid-template-columns:1fr}
+      .heroBox{padding:23px}
+      .time,.row{grid-template-columns:1fr}
+      .hour{width:max-content;text-align:left}
+      .signal{justify-content:flex-start}
+      h1{letter-spacing:-.045em}
+    }
+    @media print{
+      body{background:white;color:#111}
+      nav,.buttons{display:none}
+      .heroBox,.card,.banner,details,.time,.row{background:white;color:#111;box-shadow:none;border-color:#ddd}
+      .muted,.lead,footer{color:#444}
+      .tag,.stamp,.hour,.signal{color:#111 !important;border:1px solid #ddd;background:#eee !important}
+      .print-note{display:block}
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap hero" id="topo">
+    <div class="heroBox">
+      <div class="stamp">⚠️ Venon Vivo</div>
+      <h1>Manual pra não virar DLC de acidente trabalhista.</h1>
+      <p class="sub">
+        Dormir. Comer. Fazer exame. Parar de operar coisa perigosa com o cérebro parecendo miojo no micro-ondas.
+      </p>
+
+      <div class="quick">
+        <div><b>🛌 Sono</b><span>Acordou 3h30? Dormir tarde é burrice com glitter.</span></div>
+        <div><b>🍛 Comida</b><span>Café, ódio e boleto não são café da manhã.</span></div>
+        <div><b>🩺 Médico</b><span>Corpo também dá manutenção, igual máquina que não quer explodir.</span></div>
+        <div><b>🦺 Firma</b><span>Trabalho perigoso não combina com “ih, esqueci”.</span></div>
+      </div>
+
+      <div class="buttons">
+        <a class="button" href="#plano">Fazer o básico 🚀</a>
+        <a class="button secondary" href="#alertas">Ver sinais de merda 🚨</a>
+        <button class="secondary" onclick="window.print()">Salvar PDF</button>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="wrap navrow">
+      <a class="pill" href="#mandamentos">mandamentos</a>
+      <a class="pill" href="#medicos">médicos</a>
+      <a class="pill" href="#sono">sono</a>
+      <a class="pill" href="#comida">comida</a>
+      <a class="pill" href="#trabalho">firma</a>
+      <a class="pill" href="#plano">14 dias</a>
+      <a class="pill" href="#alertas">alertas</a>
+      <a class="pill" href="#print">print</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+
+    <section id="mandamentos">
+      <h2>Os 4 mandamentos do Venon não-pifado</h2>
+      <p class="lead">Pouca teoria. Muito “para de dar mole, criatura”.</p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="micro">mandamento 1</div>
+          <h3>Se acorda 3h30, 21h já é modo caixão reversível.</h3>
+          <p class="muted">Não é velório. É manutenção preventiva do cérebro, esse pudim elétrico que você insiste em usar.</p>
+          <span class="tag blue">deitar 21h</span>
+          <span class="tag warn">dormir 21h30</span>
+        </div>
+
+        <div class="card">
+          <div class="micro">mandamento 2</div>
+          <h3>Não trabalhar com perigo no modo “NPC sem renderizar”.</h3>
+          <p class="muted">Se a mente está vazia, checklist. Se a tarefa mata, avisa. Se quase deu merda, para.</p>
+          <span class="tag bad">sem automático</span>
+          <span class="tag good">checklist</span>
+        </div>
+
+        <div class="card">
+          <div class="micro">mandamento 3</div>
+          <h3>Comer antes do corpo abrir reclamação no Procon.</h3>
+          <p class="muted">Pão com ovo já é civilização. Arroz e feijão é tecnologia brasileira de manter humano funcionando.</p>
+          <span class="tag good">proteína</span>
+          <span class="tag good">água</span>
+        </div>
+
+        <div class="card">
+          <div class="micro">mandamento 4</div>
+          <h3>Médico não é chefe final. É tutorial obrigatório.</h3>
+          <p class="muted">Esquecimento e cansaço podem ser sono, rotina, sangue, tireoide, glicose, vitamina, estresse ou um bingo de desgraças pequenas.</p>
+          <span class="tag blue">clínico geral</span>
+          <span class="tag warn">médico do trabalho</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="medicos">
+      <h2>Médicos: a ordem da fila</h2>
+      <p class="lead">Vai nessa ordem. Sem inventar medicina freestyle.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>1. Clínico geral / médico de família 🩺</h3>
+          <p class="big">O mecânico do humano inteiro.</p>
+          <p class="muted">Leva a lista: cansaço, esquecimento, foco ruim, sono curto, trabalho perigoso.</p>
+
+          <details>
+            <summary>Exames pra conversar sem pagar de Google Medicina</summary>
+            <div class="checklist">
+              <label class="check"><input type="checkbox"> Hemograma</label>
+              <label class="check"><input type="checkbox"> Glicemia e/ou HbA1c</label>
+              <label class="check"><input type="checkbox"> TSH/T4, tireoide</label>
+              <label class="check"><input type="checkbox"> B12</label>
+              <label class="check"><input type="checkbox"> Ferritina/ferro</label>
+              <label class="check"><input type="checkbox"> Vitamina D</label>
+              <label class="check"><input type="checkbox"> Rim, fígado e eletrólitos</label>
+              <label class="check"><input type="checkbox"> Pressão arterial</label>
+              <label class="check"><input type="checkbox"> Sono, ronco, acordar destruído</label>
+            </div>
+          </details>
+        </div>
+
+        <div class="card">
+          <h3>2. Médico do trabalho 🦺</h3>
+          <p class="big">Porque a firma não é um servidor de Minecraft.</p>
+          <p class="muted">Se você mexe com coisa perigosa e está esquecendo coisa simples, isso é segurança. Não é frescura.</p>
+          <div class="quote">
+            “Estou com queda de atenção, esquecimento e fadiga. Como trabalho com atividade perigosa, preciso avaliar segurança.”
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>3. Psiquiatra, se continuar 🧠</h3>
+          <p class="muted">Se mesmo dormindo e comendo melhor continuar irritado, disperso, impulsivo, acelerado, apático ou com a cabeça em modo liquidificador, marca.</p>
+          <span class="tag warn">não é loucura</span>
+          <span class="tag blue">é manutenção</span>
+        </div>
+
+        <div class="card">
+          <h3>4. Sono, se tiver pista 😴</h3>
+          <p class="muted">Ronco forte, sono absurdo, acordar quebrado, apagões de cansaço: investigar. Dormir mal é tipo carregar o celular no carregador quebrado.</p>
+          <span class="tag bad">ronco + cansaço</span>
+          <span class="tag warn">acordar pior</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="sono">
+      <h2>Sono: o remédio que parece castigo de vó</h2>
+      <p class="lead">Se você acorda 3h30, dormir tarde é transformar amanhã num acidente aguardando orçamento.</p>
+
+      <div class="card">
+        <h3>Roteiro de noite útil</h3>
+        <div class="timeline">
+          <div class="time">
+            <div class="hour">20h30</div>
+            <div><b>Desligar o circo.</b><br><span class="muted">Banho, luz baixa, celular menos infernal. Nada de “só mais uma coisa”, porque essa frase é o demônio de pijama.</span></div>
+          </div>
+          <div class="time">
+            <div class="hour">21h00</div>
+            <div><b>Cama.</b><br><span class="muted">Sim, cedo. Parabéns, você descobriu que CLT é uma seita agrícola-industrial.</span></div>
+          </div>
+          <div class="time">
+            <div class="hour">21h30</div>
+            <div><b>Dormindo.</b><br><span class="muted">Não negociar com o cérebro depois desse horário. O cérebro mente.</span></div>
+          </div>
+          <div class="time">
+            <div class="hour">3h30</div>
+            <div><b>Acordar sem ódio total.</b><br><span class="muted">Água, comida simples e sair sem parecer zumbi terceirizado.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="comida">
+      <h2>Comida: combustível, não decoração</h2>
+      <p class="lead">Seu cérebro não é movido a meme, cafeína e vontade de processar o universo.</p>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>🌅 Antes de sair</h3>
+          <div class="checklist">
+            <label class="check"><input type="checkbox"> Pão com ovo ou queijo</label>
+            <label class="check"><input type="checkbox"> Banana</label>
+            <label class="check"><input type="checkbox"> Iogurte</label>
+            <label class="check"><input type="checkbox"> Água</label>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🍛 Almoço de humano</h3>
+          <div class="checklist">
+            <label class="check"><input type="checkbox"> Arroz</label>
+            <label class="check"><input type="checkbox"> Feijão</label>
+            <label class="check"><input type="checkbox"> Carne, frango, peixe ou ovo</label>
+            <label class="check"><input type="checkbox"> Salada ou legume, nem que seja por decência</label>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🎒 Lanche anti-colapso</h3>
+          <div class="checklist">
+            <label class="check"><input type="checkbox"> Banana</label>
+            <label class="check"><input type="checkbox"> Amendoim/castanhas</label>
+            <label class="check"><input type="checkbox"> Sanduíche simples</label>
+            <label class="check"><input type="checkbox"> Iogurte</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner">
+        <h3>Não transformar isso em dieta de coach com ring light</h3>
+        <span class="tag bad">só café</span>
+        <span class="tag bad">energético todo dia</span>
+        <span class="tag bad">ficar horas sem comer</span>
+        <span class="tag bad">álcool antes da firma</span>
+        <span class="tag bad">“depois eu vejo”</span>
+      </div>
+    </section>
+
+    <section id="trabalho">
+      <h2>Firma: sem speedrun de acidente</h2>
+      <p class="lead">Mexeu com coisa que machuca? O cérebro precisa estar presente. Não vale mandar só o corpo.</p>
+
+      <div class="traffic">
+        <div class="row">
+          <div class="signal green">VERDE</div>
+          <div class="txt"><b>Dormiu, comeu, sabe o que está fazendo.</b> Segue. Ainda assim, confere o básico, porque o universo é um palhaço.</div>
+        </div>
+        <div class="row">
+          <div class="signal yellow">AMARELO</div>
+          <div class="txt"><b>Dormiu mal, esqueceu coisa simples, está lesado.</b> Dobra checagem. Vai devagar. Nada de operar no modo “confia”.</div>
+        </div>
+        <div class="row">
+          <div class="signal red">VERMELHO</div>
+          <div class="txt"><b>Confusão, sono absurdo, erro repetido, quase acidente.</b> Para. Avisa. Procura avaliação. Macho morto não ganha promoção.</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px">
+        <h3>Checklist de 30 segundos</h3>
+        <div class="checklist">
+          <label class="check"><input type="checkbox"> Eu sei exatamente o que vou fazer agora.</label>
+          <label class="check"><input type="checkbox"> Eu conferi máquina, ferramenta, energia, peso, altura, lâmina ou produto.</label>
+          <label class="check"><input type="checkbox"> Eu não estou no automático.</label>
+          <label class="check"><input type="checkbox"> Se eu errar, alguém pode se machucar. Então eu não vou fazer igual um goblin apressado.</label>
+        </div>
+      </div>
+    </section>
+
+    <section id="plano">
+      <h2>Plano de 14 dias: pouco glamour, muita utilidade</h2>
+      <p class="lead">Duas semanas fazendo o básico. Depois decide se era “frescura” ou se o corpo estava gritando em caps lock.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Todo dia útil</h3>
+          <div class="checklist">
+            <label class="check"><input type="checkbox"> Deitar 21h</label>
+            <label class="check"><input type="checkbox"> Estar dormindo até 21h30</label>
+            <label class="check"><input type="checkbox"> Comer algo antes de sair</label>
+            <label class="check"><input type="checkbox"> Levar lanche</label>
+            <label class="check"><input type="checkbox"> Tomar água</label>
+            <label class="check"><input type="checkbox"> Café só até começo da tarde</label>
+            <label class="check"><input type="checkbox"> Checklist na tarefa perigosa</label>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Na primeira semana</h3>
+          <div class="checklist">
+            <label class="check"><input type="checkbox"> Marcar clínico geral</label>
+            <label class="check"><input type="checkbox"> Anotar sintomas sem novelizar</label>
+            <label class="check"><input type="checkbox"> Procurar médico do trabalho se o foco estiver ruim na firma</label>
+            <label class="check"><input type="checkbox"> Considerar psiquiatra se a cabeça continuar no modo liquidificador</label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="alertas">
+      <h2>Sinais de merda real</h2>
+      <p class="lead">Aqui não é “kkkk”. Aqui é procurar ajuda.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>🚨 Atendimento rápido</h3>
+          <div class="checklist">
+            <label class="check"><input type="checkbox"> Confusão forte</label>
+            <label class="check"><input type="checkbox"> Desmaio</label>
+            <label class="check"><input type="checkbox"> Fala enrolada</label>
+            <label class="check"><input type="checkbox"> Fraqueza em um lado do corpo</label>
+            <label class="check"><input type="checkbox"> Dor no peito ou falta de ar</label>
+            <label class="check"><input type="checkbox"> Febre persistente</label>
+            <label class="check"><input type="checkbox"> Quase acidente</label>
+            <label class="check"><input type="checkbox"> Erro perigoso repetido</label>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🧠 Quando a cabeça passa do ponto</h3>
+          <p>Se vier vontade real de morrer, se machucar, sumir ou perder o controle: chama alguém e procura atendimento.</p>
+          <p class="muted">Urgência: SAMU 192. Apoio emocional: CVV 188.</p>
+          <span class="tag bad">não ficar sozinho</span>
+          <span class="tag warn">não pagar de invencível</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="print">
+      <h2>Resumo pra print e vergonha pública controlada</h2>
+      <div class="card">
+        <div class="quote">
+          <b>Venon:</b> por 14 dias, dorme cedo, come comida de verdade, marca clínico geral e não mexe com coisa perigosa no modo “meu cérebro saiu pra fumar”.
+          Depois você volta a ser o palhaço oficial da sua própria mitologia. Primeiro fica vivo.
+        </div>
+        <div class="buttons">
+          <a class="button" href="#topo">Subir ↑</a>
+          <button class="secondary" id="resetChecks">Limpar checklists</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="wrap">
+    <p>Venon Vivo · edição “não seja um goblin cansado com acesso a equipamento perigoso”.</p>
+    <p class="print-note">Versão impressa.</p>
+  </footer>
+
+  <script>
+    const KEY = "venon_vivo_cunk_checks_v1";
+    const checks = [...document.querySelectorAll('input[type="checkbox"]')];
+
+    function save(){
+      localStorage.setItem(KEY, JSON.stringify(checks.map(c => c.checked)));
+    }
+
+    function load(){
+      try{
+        const data = JSON.parse(localStorage.getItem(KEY) || "[]");
+        checks.forEach((c,i)=>{ if(typeof data[i] === "boolean") c.checked = data[i]; });
+      }catch(e){}
+    }
+
+    checks.forEach(c => c.addEventListener("change", save));
+    load();
+
+    document.getElementById("resetChecks").addEventListener("click", () => {
+      checks.forEach(c => c.checked = false);
+      save();
+    });
+  </script>
+</body>
+</html>
