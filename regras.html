@@ -3,113 +3,615 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Regras para Jogadores – Moons Club</title>
+  <meta name="description" content="Regras do Moons Club para jogadores: respeito, segurança, idade mínima, avatares e condutas proibidas.">
+  <title>Regras para Jogadores — Moons Club</title>
   <style>
+    :root {
+      --bg: #050705;
+      --bg-soft: #0a100c;
+      --panel: rgba(12, 22, 16, 0.88);
+      --panel-strong: rgba(16, 32, 23, 0.96);
+      --text: #f4fff7;
+      --muted: #b7c8bc;
+      --dim: #7f9386;
+      --green: #1bfe81;
+      --green-soft: rgba(27, 254, 129, 0.16);
+      --pink: #f76ec9;
+      --pink-soft: rgba(247, 110, 201, 0.16);
+      --danger: #ff4d6d;
+      --danger-soft: rgba(255, 77, 109, 0.16);
+      --warning: #ffd166;
+      --warning-soft: rgba(255, 209, 102, 0.15);
+      --line: rgba(244, 255, 247, 0.14);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: black;
-      color: white;
-      text-align: center;
+      min-height: 100vh;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(27, 254, 129, 0.16), transparent 28rem),
+        radial-gradient(circle at 88% 8%, rgba(247, 110, 201, 0.18), transparent 25rem),
+        radial-gradient(circle at 50% 100%, rgba(27, 254, 129, 0.08), transparent 32rem),
+        linear-gradient(135deg, #030503 0%, #07100a 48%, #040604 100%);
     }
 
-    main {
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-      text-align: left;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.65), transparent 72%);
     }
 
-    h1, h2, h3 {
-      text-align: center;
-      color: #1bfe81;
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+      position: relative;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(4, 9, 6, 0.72);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.22);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      color: #021006;
+      background: linear-gradient(135deg, var(--green), #b7ffd7);
+      box-shadow: 0 0 28px rgba(27, 254, 129, 0.34);
+      flex: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a,
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 40px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.04);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(27, 254, 129, 0.55);
+      background: rgba(27, 254, 129, 0.09);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      gap: 24px;
+      align-items: stretch;
+      padding: 58px 0 28px;
+    }
+
+    .hero-card,
+    .side-card,
+    .rule-card,
+    .final-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(28px, 5vw, 54px);
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -140px;
+      bottom: -160px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      border: 1px solid rgba(27, 254, 129, 0.18);
+      box-shadow: inset 0 0 80px rgba(27, 254, 129, 0.08), 0 0 80px rgba(247, 110, 201, 0.08);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      padding: 8px 12px;
+      width: fit-content;
+      border: 1px solid rgba(27, 254, 129, 0.34);
+      border-radius: 999px;
+      color: var(--green);
+      background: var(--green-soft);
+      font-size: 0.82rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 20px;
     }
 
-    h2 {
-      border-bottom: 2px solid #1bfe81;
-      padding-bottom: 5px;
-      margin-top: 40px;
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(2.45rem, 7vw, 5.6rem);
+      line-height: 0.93;
+      letter-spacing: -0.08em;
     }
 
-    p, li {
-      line-height: 1.6;
-      font-size: 1em;
+    .hero p {
+      margin: 22px 0 0;
+      max-width: 670px;
+      color: var(--muted);
+      font-size: clamp(1.04rem, 2vw, 1.25rem);
+      line-height: 1.65;
     }
 
-    ul {
-      padding-left: 20px;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
     }
 
-    strong {
-      color: #f76ec9;
+    .button.primary {
+      color: #031107;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--green), #d7ffe8);
+      box-shadow: 0 0 32px rgba(27, 254, 129, 0.22);
     }
 
-    .section {
-      margin-bottom: 40px;
+    .button.secondary {
+      border-color: rgba(247, 110, 201, 0.42);
+      background: var(--pink-soft);
     }
 
-    .alerta {
-      font-weight: bold;
-      color: #f76ec9;
-      font-size: 1.2em;
+    .side-card {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      background:
+        linear-gradient(180deg, rgba(247, 110, 201, 0.10), transparent 44%),
+        var(--panel-strong);
+    }
+
+    .status-pill {
+      width: fit-content;
+      padding: 8px 10px;
+      border-radius: 999px;
+      color: var(--pink);
+      border: 1px solid rgba(247, 110, 201, 0.34);
+      background: var(--pink-soft);
+      font-weight: 850;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .side-card h2 {
+      margin: 0;
+      font-size: clamp(1.55rem, 3vw, 2.35rem);
+      line-height: 1.04;
+      letter-spacing: -0.05em;
+    }
+
+    .side-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin: 10px 0 24px;
+    }
+
+    .quick-item {
+      min-height: 150px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .quick-item strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--text);
+      font-size: 1.02rem;
+    }
+
+    .quick-item span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 0.95rem;
+    }
+
+    .rules {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .rule-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .rule-card.full {
+      grid-column: 1 / -1;
+    }
+
+    .rule-head {
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .rule-head h2 {
+      margin: 0;
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      letter-spacing: -0.04em;
+    }
+
+    .rule-head p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .rule-body {
+      padding: 22px 24px 24px;
+    }
+
+    .rule-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .rule-list li {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .rule-list li::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      margin-top: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 18px rgba(27, 254, 129, 0.45);
+      justify-self: center;
+    }
+
+    .danger .rule-head {
+      background: var(--danger-soft);
+    }
+
+    .danger .rule-list li::before {
+      background: var(--danger);
+      box-shadow: 0 0 18px rgba(255, 77, 109, 0.45);
+    }
+
+    .warning .rule-head {
+      background: var(--warning-soft);
+    }
+
+    .warning .rule-list li::before {
+      background: var(--warning);
+      box-shadow: 0 0 18px rgba(255, 209, 102, 0.38);
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.04);
+      line-height: 1.55;
+    }
+
+    .note strong {
+      color: var(--text);
+    }
+
+    .final-card {
+      margin-top: 18px;
+      padding: clamp(24px, 4vw, 36px);
+      text-align: center;
+      background:
+        linear-gradient(135deg, rgba(27, 254, 129, 0.12), rgba(247, 110, 201, 0.10)),
+        var(--panel-strong);
+    }
+
+    .final-card h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      letter-spacing: -0.06em;
+      line-height: 1;
+    }
+
+    .final-card p {
+      max-width: 700px;
+      margin: 16px auto 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 1.04rem;
+    }
+
+    .discord-link {
+      color: var(--green);
+      font-weight: 850;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(27, 254, 129, 0.55);
+    }
+
+    .discord-link:hover {
+      color: #d7ffe8;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: center;
+      padding-top: 28px;
+      color: var(--dim);
+      font-size: 0.92rem;
       text-align: center;
     }
 
-    .destaque {
-      text-align: center;
-      font-size: 1.1em;
-      color: #1bfe81;
+    @media (max-width: 860px) {
+      .nav {
+        align-items: flex-start;
+        border-radius: 24px;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .hero,
+      .rules {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        width: min(100% - 22px, var(--max));
+        padding-top: 12px;
+      }
+
+      .hero {
+        padding-top: 28px;
+      }
+
+      .hero-card,
+      .side-card,
+      .rule-card,
+      .final-card {
+        border-radius: 22px;
+      }
+
+      .quick-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links a,
+      .button {
+        width: 100%;
+      }
+
+      .hero-actions {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <main>
-    <h1>Regras para Jogadores – Moons Club</h1>
+  <div class="page">
+    <header class="nav" aria-label="Navegação principal">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">🌙</span>
+        <span>Moons Club</span>
+      </div>
+      <nav class="nav-links" aria-label="Atalhos das regras">
+        <a href="#graves">Infrações graves</a>
+        <a href="#leves">Ajustes</a>
+        <a href="#idade">Idade</a>
+        <a href="https://www.mooon.com.br/discord" target="_blank" rel="noopener">Discord</a>
+      </nav>
+    </header>
 
-    <div class="section">
-      <p>Para que todos se divirtam, é essencial respeitar algumas regras básicas. Quem não segue, pode ser expulso ou até banido do Moons Club.</p>
-    </div>
+    <main>
+      <section class="hero" aria-labelledby="titulo">
+        <div class="hero-card">
+          <p class="eyebrow">Regras da instância</p>
+          <h1 id="titulo">Respeito primeiro. Festa depois.</h1>
+          <p>O Moons Club existe para todo mundo se divertir com segurança. A moderação pode advertir, expulsar ou banir quem atrapalhar a experiência da instância.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#graves">Ler regras principais</a>
+            <a class="button secondary" href="https://www.mooon.com.br/discord" target="_blank" rel="noopener">Entrar no Discord</a>
+          </div>
+        </div>
 
-    <h2>🚨 Infrações Graves</h2>
-    <p>Essas atitudes não são toleradas e podem resultar em <strong>banimento imediato</strong>:</p>
-    <ul>
-      <li>Racismo, homofobia, transfobia, xenofobia</li>
-      <li>Assédio, ameaças ou comportamento abusivo</li>
-      <li>Nicknames ofensivos ou que façam apologia a crimes</li>
-      <li>Figurinhas com conteúdo ilegal (nazismo, pornografia, violência, etc.)</li>
-    </ul>
-    <p><strong>Se você cometer alguma dessas infrações, será banido sem aviso.</strong></p>
+        <aside class="side-card" aria-label="Resumo rápido">
+          <span class="status-pill">Leia antes de entrar</span>
+          <h2>Ambiente seguro não nasce no automático.</h2>
+          <p>Use bom senso, siga a moderação e não teste limite com preconceito, assédio, avatar problemático ou som estourado.</p>
+        </aside>
+      </section>
 
-    <h2>⚠️ Infrações Leves</h2>
-    <p>São atitudes que atrapalham a experiência de outros, mas podem ser corrigidas:</p>
-    <ul>
-      <li>Usar avatar muito grande ou que trave a instância</li>
-      <li>Tocar som estourado ou incômodo</li>
-      <li>Avatares com efeitos visuais ou sonoros exagerados</li>
-    </ul>
+      <section class="quick-grid" aria-label="Resumo das regras">
+        <div class="quick-item">
+          <strong>🚫 Tolerância zero</strong>
+          <span>Preconceito, ameaça, assédio e conteúdo ilegal podem gerar banimento imediato.</span>
+        </div>
+        <div class="quick-item">
+          <strong>🎧 Ajuste técnico</strong>
+          <span>Avatar pesado, som incômodo e efeitos exagerados podem render advertência ou kick.</span>
+        </div>
+        <div class="quick-item">
+          <strong>📏 Avatar até 3m</strong>
+          <span>Avatares maiores atrapalham a visão e a circulação dos outros jogadores.</span>
+        </div>
+        <div class="quick-item">
+          <strong>🔞 16+</strong>
+          <span>Menores de 16 anos não podem permanecer na instância.</span>
+        </div>
+      </section>
 
-  <p><strong>Importante:</strong> a altura máxima permitida para avatares é de <strong>3 metros</strong>.</p>
-<p>Avatares maiores do que isso atrapalham os outros jogadores e podem resultar em advertência ou expulsão.</p>
+      <section class="rules" aria-label="Lista completa de regras">
+        <article class="rule-card danger" id="graves">
+          <div class="rule-head">
+            <h2>🚨 Infrações graves</h2>
+            <p>Não são toleradas. Podem resultar em banimento imediato, sem aviso.</p>
+          </div>
+          <div class="rule-body">
+            <ul class="rule-list">
+              <li>Racismo, homofobia, transfobia, xenofobia ou qualquer ataque discriminatório.</li>
+              <li>Assédio, ameaça, perseguição ou comportamento abusivo.</li>
+              <li>Nicknames ofensivos ou com apologia a crimes.</li>
+              <li>Figurinhas ou conteúdo com nazismo, pornografia, violência explícita ou material ilegal.</li>
+            </ul>
+            <p class="note"><strong>Sem debate:</strong> quem usa a instância para ferir alguém perde o direito de permanecer nela.</p>
+          </div>
+        </article>
 
-    
-    <p><strong>Se o moderador pedir para mudar algo, colabore.</strong> Recusar pode resultar em expulsão da instância e, em casos repetidos, banimento.</p>
+        <article class="rule-card warning" id="leves">
+          <div class="rule-head">
+            <h2>⚠️ Ajustes e infrações leves</h2>
+            <p>Podem ser corrigidas. Ignorar orientação da moderação piora a situação.</p>
+          </div>
+          <div class="rule-body">
+            <ul class="rule-list">
+              <li>Usar avatar muito grande, pesado ou que trave a instância.</li>
+              <li>Tocar som estourado, alto demais ou incômodo.</li>
+              <li>Usar efeitos visuais ou sonoros exagerados.</li>
+            </ul>
+            <p class="note"><strong>Colabore quando pedirem ajuste.</strong> Recusa pode resultar em expulsão e, em casos repetidos, banimento.</p>
+          </div>
+        </article>
 
-    <h2>✅ Idade Mínima</h2>
-    <p>O Moons Club é um espaço recomendado para maiores de 18 anos, mas permitimos jogadores a partir dos 16.</p>
-    <ul>
-      <li>Se você tiver menos de 16 anos, não poderá permanecer na instância.</li>
-      <li>Isso é para sua segurança e bem-estar, além do grupo.</li>
-    </ul>
+        <article class="rule-card full" id="avatar">
+          <div class="rule-head">
+            <h2>📏 Limite de avatar</h2>
+            <p>A altura máxima permitida para avatares é de <strong>3 metros</strong>.</p>
+          </div>
+          <div class="rule-body">
+            <ul class="rule-list">
+              <li>Avatares acima desse tamanho atrapalham outros jogadores.</li>
+              <li>Avatares que travam, ofuscam, fazem barulho excessivo ou poluem a tela podem ser removidos da instância.</li>
+              <li>A moderação pode pedir troca de avatar para preservar a experiência do grupo.</li>
+            </ul>
+          </div>
+        </article>
 
-    <div class="section alerta">
-      🚨 Respeite as regras. Nosso objetivo é garantir que todos possam se divertir em um ambiente saudável e seguro. 🚨
-    </div>
+        <article class="rule-card full" id="idade">
+          <div class="rule-head">
+            <h2>✅ Idade mínima</h2>
+            <p>O Moons Club é recomendado para maiores de 18 anos, mas aceita jogadores a partir de 16.</p>
+          </div>
+          <div class="rule-body">
+            <ul class="rule-list">
+              <li>Se você tem menos de 16 anos, não poderá permanecer na instância.</li>
+              <li>Essa regra existe para proteger jogadores mais novos e manter o ambiente adequado ao grupo.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
 
-    <div class="section destaque">
-      ⭐ Se tiver dúvidas, pergunte no canal <strong>#Dúvidas</strong> do nosso <a href="https://www.mooon.com.br/discord" target="_blank">Discord</a>!
-    </div>
-  </main>
+      <section class="final-card" aria-label="Dúvidas e contato">
+        <h2>Curta a noite sem estragar a noite de ninguém.</h2>
+        <p>Na dúvida, pergunte no canal <a class="discord-link" href="https://www.mooon.com.br/discord" target="_blank" rel="noopener">#Dúvidas do Discord</a>. A regra geral é simples: se o seu comportamento derruba a segurança, a diversão ou a dignidade de outra pessoa, ele não cabe no Moons Club.</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Moons Club · regras para jogadores</span>
+    </footer>
+  </div>
 </body>
 </html>
