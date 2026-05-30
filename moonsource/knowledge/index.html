@@ -3,277 +3,157 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Moon Source · Knowledge Portables</title>
-  <meta name="description" content="Moon Source Knowledge Portables are compact field kernels that can be used with Moon Source Setup or an existing AI source." />
-  <meta property="og:title" content="Moon Source · Knowledge Portables" />
-  <meta property="og:description" content="Compact field kernels for extending an existing AI source." />
+  <title data-i18n="meta.title">Moon Source · Knowledge Portables</title>
+  <meta name="description" data-i18n-attr="content:meta.desc" content="Future knowledge kernels for extending an existing Moon Source profile after setup." />
+  <meta property="og:title" data-i18n-attr="content:meta.title" content="Moon Source · Knowledge Portables" />
+  <meta property="og:description" data-i18n-attr="content:meta.desc" content="Future knowledge kernels for extending an existing Moon Source profile after setup." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://mooon.com.br/moonsource/knowledge/" />
   <meta name="theme-color" content="#0b0b12" />
   <style>
-    :root {
-      --bg: #0b0b12;
-      --panel: rgba(17, 17, 28, 0.72);
-      --text: #f4f1ea;
-      --muted: #aaa3b8;
-      --quiet: #7f788e;
-      --line: rgba(244, 241, 234, 0.14);
-      --line-soft: rgba(244, 241, 234, 0.08);
-      --accent: #d9d1ff;
-      --accent-strong: #f6f0ff;
-      --radius: 28px;
-      --shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
-    }
-
-    * { box-sizing: border-box; }
-
-    html { min-height: 100%; }
-
-    body {
-      min-height: 100vh;
-      margin: 0;
-      color: var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at 20% 10%, rgba(217, 209, 255, 0.12), transparent 28%),
-        radial-gradient(circle at 92% 82%, rgba(113, 91, 255, 0.10), transparent 34%),
-        linear-gradient(180deg, #08080d 0%, var(--bg) 62%, #090910 100%);
-      display: grid;
-      place-items: center;
-      padding: 28px;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.18;
-      background-image: radial-gradient(circle, rgba(244, 241, 234, 0.48) 0.7px, transparent 0.8px);
-      background-size: 31px 31px;
-      mask-image: linear-gradient(to bottom, transparent, black 20%, black 70%, transparent);
-    }
-
-    main {
-      width: min(100%, 860px);
-      position: relative;
-    }
-
-    .portal {
-      border: 1px solid var(--line-soft);
-      border-radius: calc(var(--radius) + 10px);
-      background: linear-gradient(180deg, var(--panel), rgba(11, 11, 18, 0.54));
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(22px);
-      padding: clamp(28px, 7vw, 70px);
-    }
-
-    .topline {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      margin-bottom: clamp(44px, 8vw, 70px);
-    }
-
-    .brand,
-    .back {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 720;
-    }
-
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--line);
-      color: var(--accent);
-      background: rgba(244, 241, 234, 0.035);
-      font-size: 1.35rem;
-    }
-
-    .back {
-      border-bottom: 1px solid transparent;
-    }
-
-    .back:hover { color: var(--accent-strong); border-bottom-color: rgba(217, 209, 255, 0.36); }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(3.2rem, 9vw, 6.8rem);
-      line-height: 0.88;
-      letter-spacing: -0.08em;
-      font-weight: 900;
-    }
-
-    .lead {
-      max-width: 660px;
-      margin: 28px 0 0;
-      color: var(--accent-strong);
-      font-size: clamp(1.18rem, 2.3vw, 1.55rem);
-      line-height: 1.28;
-      letter-spacing: -0.035em;
-      font-weight: 720;
-    }
-
-    .sublead {
-      max-width: 640px;
-      margin: 16px 0 0;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.72;
-    }
-
-    .rule {
-      height: 1px;
-      width: 100%;
-      margin: clamp(34px, 6vw, 52px) 0 0;
-      background: linear-gradient(90deg, var(--line), transparent);
-    }
-
-    .shelf {
-      margin-top: 8px;
-    }
-
-    .row {
-      display: grid;
-      grid-template-columns: minmax(120px, 190px) 1fr auto;
-      gap: 18px;
-      align-items: baseline;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--line-soft);
-    }
-
-    .row:last-child { border-bottom: 0; }
-
-    .name {
-      font-weight: 820;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-
-    .desc {
-      color: var(--muted);
-      line-height: 1.58;
-      font-size: 0.96rem;
-    }
-
-    .status {
-      color: var(--quiet);
-      font-size: 0.82rem;
-      white-space: nowrap;
-      padding: 0.34rem 0.7rem;
-      border: 1px solid var(--line-soft);
-      border-radius: 999px;
-      background: rgba(244, 241, 234, 0.035);
-    }
-
-    .available a {
-      color: var(--accent-strong);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(217, 209, 255, 0.36);
-    }
-
-    .available a:hover { border-bottom-color: var(--accent-strong); }
-
-    .note {
-      margin-top: 24px;
-      color: var(--quiet);
-      font-size: 0.93rem;
-      line-height: 1.68;
-    }
-
-    footer {
-      margin-top: 24px;
-      color: var(--quiet);
-      text-align: center;
-      font-size: 0.84rem;
-      line-height: 1.7;
-    }
-
-    footer a {
-      color: var(--accent-strong);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(217, 209, 255, 0.36);
-    }
-
-    footer a:hover { border-bottom-color: var(--accent-strong); }
-
-    @media (max-width: 720px) {
-      body { padding: 14px; place-items: start center; }
-      .portal { padding: 28px 20px; border-radius: 28px; }
-      .topline { align-items: flex-start; margin-bottom: 42px; }
-      .brand span { display: none; }
-      .back { font-size: 0.86rem; }
-      .row { grid-template-columns: 1fr; gap: 8px; padding: 18px 0; }
-      .status { width: fit-content; }
-      h1 { letter-spacing: -0.07em; }
-    }
-  </style>
+:root{
+  color-scheme: dark;
+  --bg:#0b0b12;
+  --panel:#11111a;
+  --text:#f6f2ea;
+  --muted:#b7afc2;
+  --quiet:#80788d;
+  --line:rgba(246,242,234,.13);
+  --line2:rgba(246,242,234,.24);
+  --violet:#a98cff;
+  --gold:#ffe2a0;
+  --mint:#a6f3d4;
+  --radius:24px;
+  --max:1060px;
+  --font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;font-family:var(--font);color:var(--text);background:radial-gradient(circle at 50% -12%,rgba(169,140,255,.18),transparent 34rem),linear-gradient(180deg,#07070c 0%,#0b0b12 58%,#07070c 100%);line-height:1.55}
+a{color:inherit}.page{width:min(var(--max),calc(100% - 36px));margin:0 auto;padding:28px 0 56px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:48px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:760;letter-spacing:-.02em}.mark{width:24px;height:24px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#ded2ff 38%,#6146c8 76%,#16112c);box-shadow:0 0 24px rgba(169,140,255,.28)}
+.links{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}.link{color:var(--muted);text-decoration:none;font-size:.92rem}.link:hover{color:var(--text)}
+.lang-toggle{display:inline-flex;align-items:center;gap:4px;min-height:40px;padding:4px 7px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.04);color:var(--muted)}.lang-btn{appearance:none;border:0;border-radius:999px;background:transparent;color:var(--muted);cursor:pointer;font:inherit;font-size:.82rem;font-weight:850;padding:5px 7px;transition:background .16s ease,color .16s ease,transform .16s ease}.lang-btn:hover{color:var(--text);transform:translateY(-1px)}.lang-btn.active{background:rgba(255,255,255,.12);color:var(--text)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:11px 16px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.045);text-decoration:none;color:var(--text);font-weight:750;font-size:.94rem;transition:transform .16s ease,border-color .16s ease,background .16s ease,box-shadow .16s ease}.btn:hover,.btn:focus-visible{transform:translateY(-1px);border-color:var(--line2);background:rgba(255,255,255,.075);outline:none}.btn.primary{background:linear-gradient(135deg,rgba(255,226,160,.98),rgba(239,231,255,.96));color:#15111d;border-color:transparent;box-shadow:0 18px 40px rgba(255,226,160,.12)}.btn.primary:hover{box-shadow:0 22px 50px rgba(255,226,160,.18)}.btn.about{border-color:rgba(169,140,255,.34);background:rgba(169,140,255,.10)}.btn.secondary{color:var(--muted)}
+.hero{max-width:860px;margin-bottom:34px}.kicker{margin:0 0 14px;color:var(--gold);font-size:.78rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase}.kicker.soft{color:var(--quiet)}h1,h2,h3{margin:0;line-height:1.05;letter-spacing:-.045em}h1{font-size:clamp(3rem,8vw,7.4rem);letter-spacing:-.09em;line-height:.86;max-width:920px}h2{font-size:clamp(1.35rem,3vw,2.2rem)}h3{font-size:1.05rem;letter-spacing:-.02em}p{margin:0;color:var(--muted)}.lead{max-width:730px;margin-top:22px;font-size:clamp(1.02rem,2vw,1.22rem);color:#d9d2e2}.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.note{margin-top:12px;color:var(--quiet);font-size:.9rem}.grid{display:grid;gap:14px}.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.panel{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.028));box-shadow:0 16px 55px rgba(0,0,0,.22);padding:22px}.panel.tight{padding:18px}.panel p{margin-top:8px}.section{margin-top:28px}.small{font-size:.93rem;color:var(--quiet)}.list{display:grid;gap:10px;margin-top:16px}.item{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.035)}.num{display:grid;place-items:center;flex:0 0 auto;width:30px;height:30px;border-radius:10px;background:rgba(255,226,160,.14);color:var(--gold);font-weight:850}.item strong{display:block;color:var(--text);line-height:1.2}.item span{display:block;color:var(--muted);font-size:.92rem;margin-top:3px}.downloads{display:grid;gap:12px;margin-top:18px}.download{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.04);text-decoration:none}.download:hover{border-color:var(--line2);background:rgba(255,255,255,.065)}.download strong{display:block}.download small{display:block;color:var(--quiet);margin-top:3px}.download.primary-download{border-color:rgba(255,226,160,.38);background:linear-gradient(135deg,rgba(255,226,160,.13),rgba(169,140,255,.07))}.arrow{color:var(--gold);font-weight:900}.footer{margin-top:38px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--quiet);font-size:.88rem}.pillrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.pill{display:inline-flex;padding:7px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:rgba(255,255,255,.035);font-size:.84rem}.muted-link{color:var(--muted);text-underline-offset:3px}.muted-link:hover{color:var(--text)}@media(max-width:760px){.page{width:min(100% - 24px,var(--max));padding-top:18px}.nav{align-items:flex-start;flex-direction:column;margin-bottom:36px}.links{justify-content:flex-start}.cols-2,.cols-3{grid-template-columns:1fr}h1{letter-spacing:-.07em}.btn,.download{width:100%}.cta-row .btn{width:auto}.download{align-items:flex-start;flex-direction:column}.footer{display:grid}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}.btn:hover,.lang-btn:hover{transform:none}}
+</style>
 </head>
-<body>
-  <main>
-    <section class="portal" aria-labelledby="title">
-      <div class="topline">
-        <div class="brand">
-          <div class="brand-mark" aria-hidden="true">☾</div>
-          <span>Moon Source</span>
-        </div>
-        <a class="back" href="../">← Back to Setup</a>
-      </div>
+<body><main class="page">
 
-      <h1 id="title">Knowledge Portables</h1>
-      <p class="lead">Compact field kernels for extending an existing AI source.</p>
-      <p class="sublead">Use them after Moon Source Setup, or alongside an existing profile, when a project needs domain-specific language, lenses and source hygiene.</p>
+<nav class="nav" aria-label="Main navigation">
+  <a class="brand" href="../"><span class="mark" aria-hidden="true"></span><span data-i18n="nav.home">Moon Source</span></a>
+  <div class="links">
+    <a class="link" data-i18n="nav.knowledge" href="../knowledge/">Knowledge</a>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" class="lang-btn" data-lang-choice="pt">PT</button><span aria-hidden="true">·</span><button type="button" class="lang-btn active" data-lang-choice="en">EN</button>
+    </div>
+    <a class="btn about" data-i18n="nav.about" href="https://www.luahelena.com.br/ia/">About my work</a>
+  </div>
+</nav>
+<section class="hero">
+  <p class="kicker" data-i18n="hero.kicker">Knowledge shelf</p>
+  <h1 data-i18n="hero.title">Small field kernels for later.</h1>
+  <p class="lead" data-i18n="hero.lead">Knowledge Portables are planned add-ons for an existing Moon Source profile. They should not replace the Setup; they extend it when a specific field needs more structure.</p>
+  <div class="cta-row">
+    <a class="btn primary" data-i18n="cta.setup" href="../downloads/MOON_SOURCE_SETUP.md">Download Setup</a>
+    <a class="btn about" data-i18n="cta.about" href="https://www.luahelena.com.br/ia/">About my work</a>
+    <a class="btn secondary" data-i18n="cta.kernel" href="../downloads/MOON_SOURCE_KERNEL.md">Kernel reference</a>
+  </div>
+</section>
+<section class="section grid cols-3">
+  <article class="panel"><p class="kicker soft" data-i18n="card.status">Planned</p><h3 data-i18n="card.soc.title">Sociology</h3><p data-i18n="card.soc.body">Concepts, institutions, power, class, culture and social reading.</p></article>
+  <article class="panel"><p class="kicker soft" data-i18n="card.status">Planned</p><h3 data-i18n="card.writing.title">Writing</h3><p data-i18n="card.writing.body">Voice, structure, revision, style and editorial continuity.</p></article>
+  <article class="panel"><p class="kicker soft" data-i18n="card.status">Planned</p><h3 data-i18n="card.psych.title">Psychology</h3><p data-i18n="card.psych.body">Human context without pretending to be therapy or diagnosis.</p></article>
+  <article class="panel"><p class="kicker soft" data-i18n="card.status">Planned</p><h3 data-i18n="card.politics.title">Politics</h3><p data-i18n="card.politics.body">Facts, claims, actors, institutions, strategy and risk.</p></article>
+  <article class="panel"><p class="kicker soft" data-i18n="card.status">Planned</p><h3 data-i18n="card.research.title">Research</h3><p data-i18n="card.research.body">Questions, sources, uncertainty and verification habits.</p></article>
+  <article class="panel"><p class="kicker soft" data-i18n="card.rule">Rule</p><h3 data-i18n="card.after.title">Use after setup</h3><p data-i18n="card.after.body">A portable works best when the AI already understands the user or project.</p></article>
+</section>
+<section class="section panel">
+  <p class="kicker" data-i18n="state.kicker">Current state</p>
+  <h2 data-i18n="state.title">The shelf is structural, not full yet.</h2>
+  <p data-i18n="state.body">Use the Setup now. Treat this page as a clean placeholder for future domain kernels.</p>
+</section>
+<footer class="footer"><span><a class="muted-link" data-i18n="footer.back" href="../">← Back to Moon Source</a></span><span><a class="muted-link" data-i18n="footer.about" href="https://www.luahelena.com.br/ia/">About my work</a></span></footer>
 
-      <div class="rule" aria-hidden="true"></div>
+<script>
+const I18N = {
+  en: {
+    'meta.title': `Moon Source · Knowledge Portables`,
+    'meta.desc': `Future knowledge kernels for extending an existing Moon Source profile after setup.`,
+    'nav.home': `Moon Source`,
+    'nav.knowledge': `Knowledge`,
+    'nav.about': `About my work`,
+    'hero.kicker': `Knowledge shelf`,
+    'hero.title': `Small field kernels for later.`,
+    'hero.lead': `Knowledge Portables are planned add-ons for an existing Moon Source profile. They should not replace the Setup; they extend it when a specific field needs more structure.`,
+    'cta.setup': `Download Setup`,
+    'cta.about': `About my work`,
+    'cta.kernel': `Kernel reference`,
+    'card.status': `Planned`,
+    'card.rule': `Rule`,
+    'card.soc.title': `Sociology`,
+    'card.soc.body': `Concepts, institutions, power, class, culture and social reading.`,
+    'card.writing.title': `Writing`,
+    'card.writing.body': `Voice, structure, revision, style and editorial continuity.`,
+    'card.psych.title': `Psychology`,
+    'card.psych.body': `Human context without pretending to be therapy or diagnosis.`,
+    'card.politics.title': `Politics`,
+    'card.politics.body': `Facts, claims, actors, institutions, strategy and risk.`,
+    'card.research.title': `Research`,
+    'card.research.body': `Questions, sources, uncertainty and verification habits.`,
+    'card.after.title': `Use after setup`,
+    'card.after.body': `A portable works best when the AI already understands the user or project.`,
+    'state.kicker': `Current state`,
+    'state.title': `The shelf is structural, not full yet.`,
+    'state.body': `Use the Setup now. Treat this page as a clean placeholder for future domain kernels.`,
+    'footer.back': `← Back to Moon Source`,
+    'footer.about': `About my work`,
+  },
+  pt: {
+    'meta.title': `Moon Source · Knowledge Portables`,
+    'meta.desc': `Kernels de conhecimento futuros para expandir um perfil Moon Source depois do setup.`,
+    'nav.home': `Moon Source`,
+    'nav.knowledge': `Knowledge`,
+    'nav.about': `Meu trabalho`,
+    'hero.kicker': `Prateleira de conhecimento`,
+    'hero.title': `Pequenos kernels de campo para depois.`,
+    'hero.lead': `Knowledge Portables são add-ons planejados para um perfil Moon Source já existente. Eles não substituem o Setup; eles expandem o source quando um campo específico precisa de mais estrutura.`,
+    'cta.setup': `Baixar Setup`,
+    'cta.about': `Meu trabalho`,
+    'cta.kernel': `Referência do Kernel`,
+    'card.status': `Planejado`,
+    'card.rule': `Regra`,
+    'card.soc.title': `Sociologia`,
+    'card.soc.body': `Conceitos, instituições, poder, classe, cultura e leitura social.`,
+    'card.writing.title': `Escrita`,
+    'card.writing.body': `Voz, estrutura, revisão, estilo e continuidade editorial.`,
+    'card.psych.title': `Psicologia`,
+    'card.psych.body': `Contexto humano sem fingir terapia ou diagnóstico.`,
+    'card.politics.title': `Política`,
+    'card.politics.body': `Fatos, claims, atores, instituições, estratégia e risco.`,
+    'card.research.title': `Pesquisa`,
+    'card.research.body': `Perguntas, fontes, incerteza e hábitos de verificação.`,
+    'card.after.title': `Use depois do setup`,
+    'card.after.body': `Um portable funciona melhor quando a IA já entende a pessoa ou o projeto.`,
+    'state.kicker': `Estado atual`,
+    'state.title': `A prateleira é estrutural, ainda não está cheia.`,
+    'state.body': `Use o Setup agora. Trate esta página como placeholder limpo para futuros kernels de domínio.`,
+    'footer.back': `← Voltar para Moon Source`,
+    'footer.about': `Meu trabalho`,
+  }
+};
 
-      <div class="shelf" aria-label="Knowledge portable shelf">
-        <div class="row available">
-          <div class="name">MS Kernel</div>
-          <div class="desc">The maintenance reference for refreshing, auditing or updating an existing Moon Source profile.</div>
-          <div class="status"><a href="../downloads/MOON_SOURCE_KERNEL.md" download="MOON_SOURCE_KERNEL.md" type="text/markdown">Download</a></div>
-        </div>
-        <div class="row">
-          <div class="name">Sociology</div>
-          <div class="desc">Social concepts, institutions, ideology, power, class, gender, discourse and public analysis.</div>
-          <div class="status">Planned</div>
-        </div>
-        <div class="row">
-          <div class="name">Philosophy</div>
-          <div class="desc">Arguments, traditions, conceptual distinctions, existential questions and interpretive frames.</div>
-          <div class="status">Planned</div>
-        </div>
-        <div class="row">
-          <div class="name">Literature</div>
-          <div class="desc">Narrative, symbolism, voice, style, reading, criticism and creative interpretation.</div>
-          <div class="status">Planned</div>
-        </div>
-        <div class="row">
-          <div class="name">Writing</div>
-          <div class="desc">Revision, voice calibration, structure, anti-generic prose and editorial continuity.</div>
-          <div class="status">Planned</div>
-        </div>
-        <div class="row">
-          <div class="name">Research</div>
-          <div class="desc">Questions, source hygiene, synthesis, notes, uncertainty and evidence tracking.</div>
-          <div class="status">Planned</div>
-        </div>
-      </div>
+const BRAZIL_TIMEZONES = new Set([
+  'America/Sao_Paulo','America/Belem','America/Fortaleza','America/Recife','America/Araguaina','America/Maceio','America/Bahia','America/Santarem','America/Cuiaba','America/Campo_Grande','America/Manaus','America/Porto_Velho','America/Boa_Vista','America/Rio_Branco','America/Eirunepe','America/Noronha'
+]);
+function getPrimaryLocale(){const langs=Array.isArray(navigator.languages)&&navigator.languages.length?navigator.languages:[navigator.language||''];return (langs[0]||'').trim();}
+function getLocaleRegion(locale){try{return new Intl.Locale(locale).region||'';}catch(_){const parts=String(locale||'').split('-');return parts.length>1?parts[1].toUpperCase():'';}}
+function detectLanguageFromViewer(){const locale=getPrimaryLocale();const primary=locale.toLowerCase().split('-')[0];const region=getLocaleRegion(locale).toUpperCase();const timezone=Intl.DateTimeFormat().resolvedOptions().timeZone||'';const timezoneLooksBrazil=BRAZIL_TIMEZONES.has(timezone);const regionLooksBrazil=region==='BR';const regionKnownOutsideBrazil=Boolean(region)&&region!=='BR';if(primary!=='pt')return'en';if(timezone&&!timezoneLooksBrazil)return'en';if(!timezone&&regionKnownOutsideBrazil)return'en';return'pt';}
+function getInitialLanguage(){const p=new URLSearchParams(location.search);const u=p.get('lang');if(u==='en'||u==='pt')return{lang:u,detected:false};const saved=localStorage.getItem('moonSourceLang');if(saved==='en'||saved==='pt')return{lang:saved,detected:false};return{lang:detectLanguageFromViewer(),detected:true};}
+function setLanguage(lang,updateUrl=true,persist=true){const d=I18N[lang]||I18N.en;document.documentElement.lang=lang==='pt'?'pt-BR':'en';document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(d[k]!==undefined)el.innerHTML=d[k];});document.querySelectorAll('[data-i18n-attr]').forEach(el=>{el.getAttribute('data-i18n-attr').split(';').filter(Boolean).forEach(pair=>{const [a,k]=pair.split(':');if(a&&k&&d[k]!==undefined)el.setAttribute(a,d[k]);});});document.querySelectorAll('[data-lang-choice]').forEach(btn=>{const on=btn.getAttribute('data-lang-choice')===lang;btn.classList.toggle('active',on);btn.setAttribute('aria-pressed',on?'true':'false');});if(persist)localStorage.setItem('moonSourceLang',lang);if(updateUrl){const url=new URL(location.href);lang==='pt'?url.searchParams.set('lang','pt'):url.searchParams.delete('lang');history.replaceState(null,'',url);}}
+document.querySelectorAll('[data-lang-choice]').forEach(btn=>{btn.addEventListener('click',()=>setLanguage(btn.getAttribute('data-lang-choice'),true,true));});
+const initialLanguage=getInitialLanguage();setLanguage(initialLanguage.lang,initialLanguage.detected&&initialLanguage.lang==='pt',false);
 
-      <p class="note">This shelf is intentionally quiet. Moon Source starts with Setup; knowledge portables are optional extensions, not extra doors for new users.</p>
-    </section>
-
-    <footer>
-      Created by Lua Helena Moon Martins Cardoso · <a href="../">Moon Source Setup</a>
-    </footer>
-  </main>
-</body>
+</script>
+</main></body>
 </html>
