@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Venon Vivo — Patch anti-morte besta</title>
+  <style>
+    :root{
+      --bg:#070a10;
+      --panel:#121827;
+      --panel2:#0e1522;
+      --txt:#f8fbff;
+      --muted:#aeb9c9;
+      --line:rgba(255,255,255,.13);
+      --cyan:#67e8f9;
+      --pink:#f0abfc;
+      --green:#86efac;
+      --yellow:#fde68a;
+      --red:#fca5a5;
+      --ink:#071018;
+      --r:24px;
+      --shadow:0 24px 70px rgba(0,0,0,.42);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--txt);
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      line-height:1.35;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(103,232,249,.20), transparent 28rem),
+        radial-gradient(circle at 85% 10%, rgba(240,171,252,.16), transparent 26rem),
+        linear-gradient(180deg,#070a10,#101827 58%,#05070b);
+    }
+    .wrap{width:min(900px,92vw);margin:0 auto}
+    header{padding:34px 0 18px}
+    .hero{
+      border:1px solid var(--line);
+      border-radius:34px;
+      padding:26px;
+      background:linear-gradient(135deg,rgba(18,24,39,.96),rgba(14,21,34,.90));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero:after{
+      content:"";
+      position:absolute;
+      right:-100px;top:-120px;
+      width:320px;height:320px;
+      background:radial-gradient(circle,rgba(103,232,249,.35),transparent 66%);
+      pointer-events:none;
+    }
+    .badge{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--cyan),var(--green));
+      color:var(--ink);
+      font-size:.78rem;
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:.07em;
+      margin-bottom:12px;
+    }
+    h1{
+      margin:0 0 12px;
+      max-width:780px;
+      font-size:clamp(2.25rem,8vw,5rem);
+      line-height:.88;
+      letter-spacing:-.075em;
+    }
+    .sub{
+      max-width:720px;
+      margin:0;
+      color:#e8f3ff;
+      font-size:clamp(1.02rem,2.5vw,1.28rem);
+    }
+    nav{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(7,10,16,.74);
+      backdrop-filter:blur(14px);
+      border-block:1px solid var(--line);
+    }
+    .navrow{
+      display:flex;
+      gap:8px;
+      overflow:auto;
+      padding:10px 0;
+      scrollbar-width:none;
+    }
+    .navrow::-webkit-scrollbar{display:none}
+    .pill{
+      color:var(--txt);
+      text-decoration:none;
+      white-space:nowrap;
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:8px 11px;
+      background:rgba(255,255,255,.055);
+      font-size:.9rem;
+      font-weight:900;
+    }
+    .pill:hover{background:rgba(103,232,249,.18)}
+    main{padding-bottom:36px}
+    section{padding:22px 0}
+    h2{
+      margin:0 0 12px;
+      font-size:clamp(1.55rem,4vw,2.4rem);
+      line-height:.95;
+      letter-spacing:-.05em;
+    }
+    .lead{margin:-4px 0 14px;color:var(--muted);font-size:1.02rem}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .card{
+      border:1px solid var(--line);
+      border-radius:var(--r);
+      padding:18px;
+      background:linear-gradient(180deg,rgba(18,24,39,.94),rgba(14,21,34,.90));
+      box-shadow:0 12px 34px rgba(0,0,0,.22);
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size:1.2rem;
+      letter-spacing:-.025em;
+    }
+    .card p{margin:0;color:var(--muted)}
+    .big{
+      font-size:1.35rem;
+      color:var(--txt);
+      font-weight:950;
+      letter-spacing:-.04em;
+      margin-bottom:8px;
+    }
+    .tag{
+      display:inline-flex;
+      margin:10px 4px 0 0;
+      padding:6px 10px;
+      border-radius:999px;
+      color:var(--ink);
+      font-weight:950;
+      font-size:.82rem;
+    }
+    .cyan{background:var(--cyan)}
+    .green{background:var(--green)}
+    .yellow{background:var(--yellow)}
+    .red{background:var(--red)}
+    .pink{background:var(--pink)}
+    .checklist{display:grid;gap:9px;margin-top:10px}
+    label{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:16px;
+      padding:11px;
+      background:rgba(255,255,255,.045);
+      cursor:pointer;
+    }
+    input{width:22px;height:22px;accent-color:#67e8f9;flex:0 0 auto;margin-top:0}
+    .boss{
+      display:grid;
+      gap:12px;
+    }
+    .row{
+      display:grid;
+      grid-template-columns:96px 1fr;
+      border:1px solid var(--line);
+      border-radius:18px;
+      overflow:hidden;
+      background:rgba(255,255,255,.045);
+    }
+    .level{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--ink);
+      font-weight:950;
+      text-align:center;
+      padding:14px 8px;
+    }
+    .level.ok{background:var(--green)}
+    .level.warn{background:var(--yellow)}
+    .level.dead{background:var(--red)}
+    .txt{padding:14px}
+    .txt b{display:block;margin-bottom:4px}
+    .txt span{color:var(--muted)}
+    .quote{
+      border-left:5px solid var(--cyan);
+      border-radius:0 18px 18px 0;
+      background:rgba(103,232,249,.09);
+      padding:14px 16px;
+      font-size:1.15rem;
+      color:#effbff;
+    }
+    .buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .button,button{
+      border:0;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      color:var(--ink);
+      background:linear-gradient(90deg,var(--cyan),var(--green));
+      border-radius:999px;
+      padding:12px 15px;
+      font-weight:950;
+      cursor:pointer;
+      text-decoration:none;
+      box-shadow:0 8px 24px rgba(103,232,249,.18);
+    }
+    button.alt,.button.alt{
+      color:var(--txt);
+      background:rgba(255,255,255,.07);
+      border:1px solid var(--line);
+      box-shadow:none;
+    }
+    footer{padding:16px 0 42px;color:var(--muted)}
+    @media(max-width:740px){
+      .grid{grid-template-columns:1fr}
+      .row{grid-template-columns:1fr}
+      .level{justify-content:flex-start}
+      h1{letter-spacing:-.05em}
+      .hero{padding:22px}
+    }
+    @media print{
+      body{background:white;color:#111}
+      nav,.buttons{display:none}
+      .hero,.card,.row{background:white;color:#111;box-shadow:none;border-color:#ddd}
+      .card p,.lead,.txt span,footer{color:#444}
+      .badge,.tag,.level{background:#eee!important;color:#111!important;border:1px solid #ddd}
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap" id="topo">
+    <div class="hero">
+      <div class="badge">🎮 patch 1.0 · Venon Vivo</div>
+      <h1>Não seja o NPC que morre no tutorial.</h1>
+      <p class="sub">
+        Você trabalha com coisa perigosa. Então o objetivo é simples: dormir, comer, fazer exame e parar de ir pra firma com o cérebro rodando em 12 FPS.
+      </p>
+      <div class="buttons">
+        <a class="button" href="#boss">Começar boss fight</a>
+        <button class="alt" onclick="window.print()">Salvar PDF</button>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="wrap navrow">
+      <a class="pill" href="#boss">boss fight</a>
+      <a class="pill" href="#build">build básica</a>
+      <a class="pill" href="#firma">firma</a>
+      <a class="pill" href="#medico">médico</a>
+      <a class="pill" href="#redflag">deu merda</a>
+      <a class="pill" href="#print">print</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+
+    <section id="boss">
+      <h2>Boss fight: 14 dias sem fazer cagada</h2>
+      <p class="lead">Não é projeto fitness. É não morrer de burrice logística.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>🛌 Sono</h3>
+          <div class="big">21h cama. 21h30 dormindo.</div>
+          <p>Acordar 3h30 e dormir tarde é jogar Dark Souls com controle quebrado e culpar o chefe.</p>
+          <span class="tag yellow">sem negociar</span>
+        </div>
+
+        <div class="card">
+          <h3>🍛 Comida</h3>
+          <div class="big">Pão/ovo/banana antes de sair.</div>
+          <p>Café com ódio não é refeição. É speedrun pra virar um Pikachu desidratado.</p>
+          <span class="tag green">arroz + feijão</span>
+        </div>
+
+        <div class="card">
+          <h3>🦺 Firma</h3>
+          <div class="big">Sem automático.</div>
+          <p>Trabalho perigoso não é fase bônus. Se errar, não dá respawn.</p>
+          <span class="tag red">checklist ou merda</span>
+        </div>
+
+        <div class="card">
+          <h3>🩺 Médico</h3>
+          <div class="big">Clínico geral primeiro.</div>
+          <p>Cansaço e esquecimento podem ser sono, sangue, tireoide, glicose, vitamina ou o pacote completo da desgraça.</p>
+          <span class="tag cyan">marcar essa semana</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="build">
+      <h2>Build básica do humano funcional</h2>
+      <p class="lead">Escolhe o kit pobre-premium. Funciona melhor que soberba.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Antes de sair 🌅</h3>
+          <div class="checklist">
+            <label><input type="checkbox"> Água</label>
+            <label><input type="checkbox"> Pão com ovo ou queijo</label>
+            <label><input type="checkbox"> Banana ou iogurte</label>
+            <label><input type="checkbox"> Lanche na mochila</label>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>No dia 🍛</h3>
+          <div class="checklist">
+            <label><input type="checkbox"> Arroz</label>
+            <label><input type="checkbox"> Feijão</label>
+            <label><input type="checkbox"> Proteína: ovo, frango, carne ou peixe</label>
+            <label><input type="checkbox"> Café só até começo da tarde</label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="firma">
+      <h2>Sem farmar acidente na firma</h2>
+      <p class="lead">Se a cabeça está em modo goblin, a ferramenta também percebe.</p>
+      <div class="boss">
+        <div class="row">
+          <div class="level ok">OK</div>
+          <div class="txt"><b>Dormiu, comeu, está ligado.</b><span>Vai trabalhar. Confere o básico mesmo assim, porque o universo é safado.</span></div>
+        </div>
+        <div class="row">
+          <div class="level warn">ALERTA</div>
+          <div class="txt"><b>Dormiu mal, esqueceu coisa simples, está lesado.</b><span>Dobra checagem. Sem pressa. Sem modo “confia”.</span></div>
+        </div>
+        <div class="row">
+          <div class="level dead">PARA</div>
+          <div class="txt"><b>Confusão, sono absurdo, quase acidente, erro repetido.</b><span>Avisa alguém. Não banca o protagonista. Protagonista burro vira estatística.</span></div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <h3>Checklist antes de mexer em coisa perigosa</h3>
+        <div class="checklist">
+          <label><input type="checkbox"> Eu sei exatamente o que vou fazer.</label>
+          <label><input type="checkbox"> Eu conferi máquina/ferramenta/energia/peso/altura/produto.</label>
+          <label><input type="checkbox"> Eu não estou no automático igual bot ruim.</label>
+        </div>
+      </div>
+    </section>
+
+    <section id="medico">
+      <h2>Médico: sem lore, só missão principal</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>1. Clínico geral 🩺</h3>
+          <p>Levar: cansaço, esquecimento, foco ruim, sono curto, trabalho perigoso.</p>
+          <div class="checklist">
+            <label><input type="checkbox"> Hemograma</label>
+            <label><input type="checkbox"> Glicose/HbA1c</label>
+            <label><input type="checkbox"> Tireoide</label>
+            <label><input type="checkbox"> B12, ferro/ferritina, vitamina D</label>
+            <label><input type="checkbox"> Rim, fígado, eletrólitos, pressão</label>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>2. Médico do trabalho 🦺</h3>
+          <p>Se a atenção estiver ruim na tarefa perigosa, registra. Isso é segurança, não mimimi.</p>
+          <div class="quote">
+            “Estou com fadiga, esquecimento e queda de atenção. Como trabalho com atividade perigosa, preciso avaliar segurança.”
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="redflag">
+      <h2>Quando deu merda de verdade</h2>
+      <p class="lead">Aqui para de zoar e procura ajuda.</p>
+      <div class="card">
+        <div class="checklist">
+          <label><input type="checkbox"> Confusão forte</label>
+          <label><input type="checkbox"> Desmaio</label>
+          <label><input type="checkbox"> Fala enrolada</label>
+          <label><input type="checkbox"> Fraqueza de um lado do corpo</label>
+          <label><input type="checkbox"> Dor no peito ou falta de ar</label>
+          <label><input type="checkbox"> Quase acidente ou erro perigoso</label>
+          <label><input type="checkbox"> Vontade real de se machucar ou morrer</label>
+        </div>
+        <p style="margin-top:12px;color:var(--muted)">Urgência: SAMU 192. Apoio emocional: CVV 188.</p>
+      </div>
+    </section>
+
+    <section id="print">
+      <h2>Resumo pra mandar print</h2>
+      <div class="card">
+        <div class="quote">
+          Venon, por 14 dias: dorme 21h30, come antes de sair, leva lanche, marca clínico geral e não mexe com coisa perigosa no modo cérebro de gelatina.
+          Depois você volta a ser o bobo da corte. Primeiro fica vivo, caralho.
+        </div>
+        <div class="buttons">
+          <a class="button" href="#topo">Topo ↑</a>
+          <button class="alt" id="reset">Limpar checklists</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="wrap">
+    <p>Venon Vivo · patch anti-morte besta · sem respawn na vida real.</p>
+  </footer>
+
+  <script>
+    const KEY = "venon_vivo_gamer_br_checks_v1";
+    const checks = [...document.querySelectorAll('input[type="checkbox"]')];
+
+    function save(){
+      localStorage.setItem(KEY, JSON.stringify(checks.map(c => c.checked)));
+    }
+    function load(){
+      try{
+        const data = JSON.parse(localStorage.getItem(KEY) || "[]");
+        checks.forEach((c,i)=>{ if(typeof data[i] === "boolean") c.checked = data[i]; });
+      }catch(e){}
+    }
+
+    checks.forEach(c => c.addEventListener("change", save));
+    load();
+
+    document.getElementById("reset").addEventListener("click", () => {
+      checks.forEach(c => c.checked = false);
+      save();
+    });
+  </script>
+</body>
+</html>
