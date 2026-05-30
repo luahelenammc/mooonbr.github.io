@@ -1,0 +1,11 @@
+name = "mooon-ai-live-mirror"
+main = "src/worker.js"
+compatibility_date = "2026-05-29"
+
+# Route sugerida no Cloudflare:
+# mooon.com.br/ai*
+#
+# Se usar Wrangler autenticado, descomente e ajuste a zona:
+# routes = [
+#   { pattern = "mooon.com.br/ai*", zone_name = "mooon.com.br" }
+# ]
