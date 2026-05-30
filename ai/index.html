@@ -6,7 +6,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Lua Helena Moon — Human–AI Context Architecture</title>
-<meta content="Professional presentation of Lua Helena Moon: hospital psychologist, trained sociologist, and Human–AI Context Architect with an original method for AI workflow / knowledge ops, operational context, living documentation, context packets, specialized AI copilots, human–AI interfaces, strategic AI product validation, and AI-readable hybrid documentation." name="description"/>
+<meta content="Lua Helena Moon is a hospital psychologist and Human–AI Context Architect helping people and teams turn scattered knowledge into operational memory, living documentation, handoffs, and more continuous AI workflows." name="description"/>
 <meta content="#080711" name="theme-color"/>
 <link href="https://mooon.com.br/ai/" rel="canonical"/>
 
@@ -15,13 +15,13 @@
 <meta content="profile" property="og:type"/>
 <meta content="https://mooon.com.br/ai/" property="og:url"/>
 <meta content="Lua Helena Moon — Human–AI Context Architecture" property="og:title"/>
-<meta content="Professional presentation of Lua Helena Moon: hospital psychologist, trained sociologist, and Human–AI Context Architect with an original method for AI workflow / knowledge ops, operational context, living documentation, context packets, specialized AI copilots, human–AI interfaces, strategic AI product validation, and AI-readable hybrid documentation." property="og:description"/>
+<meta content="Lua Helena Moon is a hospital psychologist and Human–AI Context Architect helping people and teams turn scattered knowledge into operational memory, living documentation, handoffs, and more continuous AI workflows." property="og:description"/>
 <meta content="Lua Helena Moon" property="og:site_name"/>
 <meta content="en_US" property="og:locale"/>
 
 <meta content="summary" name="twitter:card"/>
 <meta content="Lua Helena Moon — Human–AI Context Architecture" name="twitter:title"/>
-<meta content="Professional presentation of Lua Helena Moon: hospital psychologist, trained sociologist, and Human–AI Context Architect with an original method for AI workflow / knowledge ops, operational context, living documentation, context packets, specialized AI copilots, human–AI interfaces, strategic AI product validation, and AI-readable hybrid documentation." name="twitter:description"/>
+<meta content="Lua Helena Moon is a hospital psychologist and Human–AI Context Architect helping people and teams turn scattered knowledge into operational memory, living documentation, handoffs, and more continuous AI workflows." name="twitter:description"/>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -33,7 +33,7 @@
       "url": "https://mooon.com.br/ai/",
       "sameAs": [],
       "jobTitle": "Human–AI Context Architect",
-      "description": "Hospital psychologist, trained sociologist, and Human–AI Context Architect working with AI workflow / knowledge ops, AI literacy, context architecture, operational memory, knowledge governance, living documentation, context packets, specialized AI copilots, AI image engines, human–AI interfaces, responsible AI, People Analytics, strategic AI product validation, and hybrid context documentation.",
+      "description": "Hospital psychologist, trained sociologist, and Human–AI Context Architect helping people and teams turn scattered knowledge into operational memory, living documentation, context packets, and more continuous AI workflows.",
       "knowsAbout": [
         "Human–AI Context Architecture",
         "AI workflow / knowledge ops",
@@ -74,7 +74,7 @@
         "@id": "https://www.luahelena.com.br/#lua-helena-moon"
       },
       "areaServed": "Remote / International",
-      "description": "Context architecture and AI workflow / knowledge ops for AI adoption, AI literacy, operational context, living documentation, context packets, specialized AI copilots, human–AI interfaces, knowledge governance, responsible AI, hybrid context documentation, and translation between human complexity and usable AI systems."
+      "description": "Context architecture and AI workflow / knowledge ops for operational memory, living documentation, context packets, AI adoption, knowledge governance, and translation between human complexity and usable AI systems."
     },
     {
       "@type": "WebPage",
@@ -88,7 +88,7 @@
       "mainEntity": {
         "@id": "https://www.luahelena.com.br/ia/#human-ai-context-architecture"
       },
-      "description": "Professional presentation of Lua Helena Moon: hospital psychologist, trained sociologist, and Human–AI Context Architect with an original method for AI workflow / knowledge ops, operational context, living documentation, context packets, specialized AI copilots, human–AI interfaces, strategic AI product validation, and AI-readable hybrid documentation."
+      "description": "Professional presentation of Lua Helena Moon's work in Human–AI Context Architecture, AI workflow / knowledge ops, operational memory, living documentation, context packets, AI adoption, and strategic AI product validation."
     }
   ]
 }</script>
@@ -589,6 +589,23 @@
       text-underline-offset: 3px;
     }
 
+    .status-pill {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.075);
+      color: var(--muted);
+      font-size: .75rem;
+      font-weight: 760;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+
     .org-steps,
     .criteria-topics {
       display: grid;
@@ -742,7 +759,7 @@
         border-radius: 22px;
       }
 
-      .button:not(.ai-packet),
+      .button:not(.ai-packet):not(.discord-copy-button),
       .actions {
         width: 100%;
       }
@@ -779,6 +796,7 @@
       *::before,
       *::after {
         transition: none !important;
+        animation: none !important;
       }
 
       .mini:hover,
@@ -841,65 +859,71 @@
     }
   
 
-    .button.discord {
+    .discord-inline {
+      color: var(--text);
+      font-weight: 850;
+    }
+
+    .button.discord-copy-button {
       position: relative;
       isolation: isolate;
       overflow: visible;
       gap: 9px;
-      width: auto !important;
-      max-width: 100%;
-      white-space: nowrap;
-      border-color: rgba(88,101,242,.78);
-      background: linear-gradient(135deg, #5865F2 0%, #6d79ff 52%, #8fa2ff 100%);
+      border-color: rgba(88,101,242,.82);
+      background:
+        radial-gradient(circle at 18% 8%, rgba(255,255,255,.35), transparent 31%),
+        linear-gradient(135deg, #5865F2 0%, #6f7dff 52%, #98a8ff 100%);
       color: #fff;
       font-weight: 850;
       letter-spacing: -.01em;
       box-shadow:
-        0 0 0 1px rgba(255,255,255,.08) inset,
-        0 0 18px rgba(88,101,242,.46),
-        0 12px 34px rgba(88,101,242,.25);
-      animation: discordOuterGlow 2.15s ease-in-out infinite;
+        0 0 0 1px rgba(255,255,255,.10) inset,
+        0 0 18px rgba(88,101,242,.48),
+        0 12px 34px rgba(88,101,242,.26);
+      animation: discordOuterGlow 2.35s ease-in-out infinite;
     }
 
-    .button.discord::after {
+    .button.discord-copy-button::after {
       content: "";
       position: absolute;
       inset: -8px;
       z-index: -1;
       border-radius: 999px;
-      background: radial-gradient(circle at 50% 50%, rgba(88,101,242,.42), rgba(88,101,242,.17) 45%, transparent 72%);
+      background: radial-gradient(circle at 50% 50%, rgba(88,101,242,.48), rgba(88,101,242,.16) 48%, transparent 74%);
       filter: blur(8px);
-      opacity: .45;
+      opacity: .52;
       pointer-events: none;
-      animation: discordHaloPulse 2.15s ease-in-out infinite;
+      animation: discordHaloPulse 2.35s ease-in-out infinite;
     }
 
-    .button.discord:hover,
-    .button.discord:focus-visible {
-      border-color: rgba(184,194,255,.96);
-      background: linear-gradient(135deg, #6976ff 0%, #7e8dff 54%, #a9b6ff 100%);
+    .button.discord-copy-button:hover,
+    .button.discord-copy-button:focus-visible {
+      border-color: rgba(190,199,255,.95);
+      background:
+        radial-gradient(circle at 18% 8%, rgba(255,255,255,.42), transparent 31%),
+        linear-gradient(135deg, #6571ff 0%, #7e8dff 54%, #afbbff 100%);
       box-shadow:
-        0 0 0 1px rgba(255,255,255,.14) inset,
-        0 0 26px rgba(88,101,242,.78),
-        0 16px 42px rgba(88,101,242,.40);
+        0 0 0 1px rgba(255,255,255,.16) inset,
+        0 0 28px rgba(88,101,242,.80),
+        0 16px 42px rgba(88,101,242,.38);
     }
 
-    .button.discord.copied {
+    .button.discord-copy-button.copied {
       background: linear-gradient(135deg, #57F287 0%, #65d6ff 100%);
       border-color: rgba(166,243,212,.86);
       color: #07120d;
-      animation: discordCopiedGlow 1s ease-in-out 1;
+      animation: discordCopiedGlow 1s ease-in-out 1, discordOuterGlow 2.35s ease-in-out infinite;
     }
 
     .discord-logo {
       display: inline-grid;
       place-items: center;
+      flex: 0 0 auto;
       width: 22px;
       height: 22px;
       border-radius: 999px;
       background: rgba(255,255,255,.20);
-      box-shadow: 0 0 0 1px rgba(255,255,255,.12) inset;
-      flex: 0 0 auto;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.14) inset;
     }
 
     .discord-logo svg {
@@ -913,18 +937,9 @@
       white-space: nowrap;
     }
 
-    .contact-discord-inline {
-      appearance: none;
-      border: 0;
-      padding: 0;
-      background: transparent;
-      color: var(--text);
-      font: inherit;
-      font-weight: 800;
-      text-decoration: underline;
-      text-decoration-color: rgba(255,255,255,.32);
-      text-underline-offset: 3px;
-      cursor: pointer;
+    .footer-contact-line {
+      display: inline-block;
+      margin-top: 6px;
     }
 
     footer a {
@@ -933,30 +948,25 @@
       text-underline-offset: 3px;
     }
 
-    .footer-contact-line {
-      display: inline-block;
-      margin-top: 6px;
-    }
-
     @keyframes discordOuterGlow {
       0%, 100% {
         box-shadow:
-          0 0 0 1px rgba(255,255,255,.08) inset,
-          0 0 14px rgba(88,101,242,.34),
+          0 0 0 1px rgba(255,255,255,.10) inset,
+          0 0 14px rgba(88,101,242,.35),
           0 10px 28px rgba(88,101,242,.22);
       }
       50% {
         box-shadow:
-          0 0 0 1px rgba(255,255,255,.13) inset,
-          0 0 0 4px rgba(88,101,242,.13),
-          0 0 36px rgba(88,101,242,.82),
+          0 0 0 1px rgba(255,255,255,.15) inset,
+          0 0 0 4px rgba(88,101,242,.14),
+          0 0 38px rgba(88,101,242,.82),
           0 16px 44px rgba(88,101,242,.40);
       }
     }
 
     @keyframes discordHaloPulse {
-      0%, 100% { opacity: .28; transform: scale(.985); }
-      50% { opacity: .86; transform: scale(1.07); }
+      0%, 100% { opacity: .34; transform: scale(.985); }
+      50% { opacity: .88; transform: scale(1.065); }
     }
 
     @keyframes discordCopiedGlow {
@@ -966,18 +976,12 @@
     }
 
     @media(max-width:560px) {
-      .button.discord {
-        width: auto !important;
+      .button.discord-copy-button {
+        width: auto;
+        max-width: 100%;
       }
       .discord-handle {
-        display: none;
-      }
-    }
-
-    @media(prefers-reduced-motion:reduce) {
-      .button.discord,
-      .button.discord::after {
-        animation: none !important;
+        font-size: .92em;
       }
     }
 </style>
@@ -986,7 +990,7 @@
 <main class="page" id="top">
 <header class="topbar">
 <a aria-label="Back to top" class="brand" href="#top">
-<span aria-hidden="true" class="brand-mark"></span>
+
 <span>Lua Helena Moon</span>
 </a>
 <nav aria-label="Quick contact" class="actions">
@@ -994,7 +998,7 @@
 <span class="ai-packet-wrap">
 <button class="button ai-packet" data-ai-packet-download="" type="button">🧬 Download AI packet</button>
 <span class="ai-packet-tip" role="tooltip">Download a Markdown file to attach or paste into your AI. It turns this page into structured context, so the AI can understand my profile, method, and contribution areas without relying only on the link.</span>
-</span><button aria-label="Copy Discord username @moon_aurea" class="button discord discord-copy discord-top" data-copy-discord="" type="button">
+</span><button aria-label="Copy Discord username @moon_aurea" class="button discord-copy-button discord-copy discord-top" data-copy-discord="@moon_aurea" type="button">
 <span aria-hidden="true" class="discord-logo">
 <svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
 <path d="M19.54 5.23A16.9 16.9 0 0 0 15.36 4l-.2.36c1.44.42 2.1 1.02 2.1 1.02a13.4 13.4 0 0 0-6.72-.02s.7-.64 2.2-1.03L12.56 4a16.9 16.9 0 0 0-4.18 1.23C5.75 9.05 5.02 12.78 5.28 16.45a16.5 16.5 0 0 0 5.13 2.57l.62-.86a10.8 10.8 0 0 1-1.62-.78l.38-.3a7.75 7.75 0 0 0 6.42 0l.39.3c-.52.31-1.06.57-1.63.78l.62.86a16.5 16.5 0 0 0 5.13-2.57c.33-4.27-.62-7.96-3.18-11.22ZM9.77 14.05c-.83 0-1.5-.75-1.5-1.67s.66-1.67 1.5-1.67c.84 0 1.52.76 1.5 1.67 0 .92-.66 1.67-1.5 1.67Zm4.48 0c-.83 0-1.5-.75-1.5-1.67s.66-1.67 1.5-1.67c.84 0 1.52.76 1.5 1.67 0 .92-.66 1.67-1.5 1.67Z"></path>
@@ -1051,7 +1055,7 @@
 <span class="mini-icon">🗂️</span>
 <div>
 <h3>Knowledge Governance</h3>
-<p>Operational memory, living documentation, and continuity.</p>
+<p>Operational memory so decisions, files, and routines do not evaporate.</p>
 </div>
 </article>
 <article class="mini theme-cyan">
@@ -1098,64 +1102,63 @@
 </section>
 <section aria-label="Sistemas construídos" class="section">
 <p class="label">🧬 Built systems and proof of work</p>
-<h2>What I have already built to make AI more contextual, portable, and governable.</h2>
-<p class="lead" style="max-width:900px;margin-top:12px">What I have built so far is not a collection of prompts. It is a method layer for organizing context, memory, behavior, visual generation, interfaces, and quality criteria, making models work with more continuity and less improvisation. One part is already public; another remains reserved because it involves calibration, privacy, and ongoing research.</p>
+<h2>What I have already built to give AI use more continuity, memory, and governance.</h2>
+<p class="lead" style="max-width:900px;margin-top:12px">What I have built so far is not a collection of prompts. It is a method layer for organizing context, memory, behavior, visual generation, interfaces, and quality criteria. One part is already public; another remains reserved because it involves calibration, privacy, and ongoing research.</p>
 <div class="grid cols-3" style="margin-top:16px">
 <article class="card theme-violet">
+<span class="status-pill">Public</span>
 <h3><a class="proof-link" href="https://mooon.com.br/moonsource/" rel="noopener" target="_blank">Public AI context kit</a></h3>
-<p>I published a free, single-file kit that helps anyone create a reusable AI context profile: projects, preferences, boundaries, update rules, and consultation modes, without depending on a specific platform.</p>
+<p>I published a free, single-file kit for creating a reusable AI context profile: projects, preferences, boundaries, update rules, and consultation modes, without depending on a specific platform.</p>
 </article>
 <article class="card theme-cyan">
+<span class="status-pill">Internal / reserved</span>
 <h3>Language and context infrastructure</h3>
-<p>The documentation grammar I use combines Markdown's navigability, the density of structured objects, YAML-like metadata simplicity, and field precision inspired by Python/JSON — not as executable code, but as a language for memory, decisions, and continuity.</p>
+<p>I created a documentation grammar that combines Markdown, structured objects, simple metadata, and field precision inspired by Python/JSON — not as executable code, but as a language for memory, decisions, and continuity.</p>
 </article>
 <article class="card theme-mint">
+<span class="status-pill">Modeled</span>
 <h3>Specialized AI copilots</h3>
-<p>I have modeled copilots for specific domains, defining target users, scope, risks, boundaries, response patterns, and expected outputs. This is how a vague assistant idea starts becoming an implementable specification.</p>
+<p>I have modeled domain-specific copilots with target users, scope, risks, boundaries, response patterns, and expected outputs. This is how a vague assistant idea starts becoming an implementable specification.</p>
 </article>
 <article class="card theme-rose">
+<span class="status-pill">Experimental</span>
 <h3>AI image engines</h3>
-<p>I created image engines: systems that map people, concepts, stories, references, aesthetics, and constraints, translating them into prompts, variations, negative guidance, and quality criteria for images, interfaces, and visual identity.</p>
+<p>I created image engines: systems that map people, concepts, stories, references, aesthetics, and constraints, translating that material into prompts, variations, negative guidance, and quality criteria.</p>
 </article>
 <article class="card theme-gold">
+<span class="status-pill">Method</span>
 <h3>Human–AI interaction and usage grammar</h3>
 <p>I designed rules for voice, tone, presence, onboarding, boundaries, and conversational behavior, so assistants do not collapse into loose personas, generic chatbots, or ungoverned automation.</p>
 </article>
 <article class="card theme-violet">
+<span class="status-pill">Applied</span>
 <h3>Operational team memory</h3>
-<p>I structured ways to convert conversations, decisions, skills, and projects into living documentation: material a team and its AIs can consult, review, and update without relying only on informal memory.</p>
+<p>I structured ways to convert conversations, decisions, skills, and projects into living documentation: material teams and their AIs can consult, review, and update without relying only on informal memory.</p>
 </article>
 </div>
 </section>
 <section aria-label="Entrega e oportunidade" class="section grid cols-2">
 <article class="card theme-violet">
 <p class="label">🛠️ How this becomes delivery</p>
-<h2>An original method applied to real contexts.</h2>
-<p>In practice, I turn advanced AI use into structure: operational context, memory, quality criteria, update paths, interface specifications, and packets that people, teams, and AIs can reuse without starting over. Part of this method is already materialized in a hybrid documentation grammar: clear like Markdown, dense like structured objects, and AI-readable through clean metadata. I also organize flows for turning external materials, conversations, and scattered signals into clean operational knowledge: what enters, what stays out, where it fits, and when there is no real delta to record.</p>
+<h2>From loose conversation to reusable structure.</h2>
+<p>In practice, I turn advanced AI use into structure: operational context, memory, quality criteria, update paths, interface specifications, and packets that people, teams, and AIs can reuse without starting over. I also organize flows for cleaning external materials, conversations, and scattered signals: what enters, what stays out, where it fits, and when there is no real delta to record.</p>
 <p class="tags">
 <span class="tag">context profiles</span>
-<span class="tag">context transfer packets</span>
 <span class="tag">continuity packets</span>
 <span class="tag">usage guides</span>
 <span class="tag">knowledge maps</span>
 <span class="tag">context governance</span>
-<span class="tag">external signal curation</span>
-<span class="tag">structural fit mapping</span>
 <span class="tag">review criteria</span>
 <span class="tag">copilot specifications</span>
 <span class="tag">interface specifications</span>
-<span class="tag">prompt-driven visual systems</span>
-<span class="tag">testable claims</span>
-<span class="tag">failure mode map</span>
-<span class="tag">product reality check</span>
 <span class="tag">living documentation</span>
 <span class="tag">update paths</span>
 </p>
 </article>
 <article class="card theme-gold">
-<p class="label">✨ Where I want to apply this now</p>
-<h2>AI workflow, knowledge ops, and context architecture in real work.</h2>
-<p>I am looking for fully remote opportunities where AI work needs context, adoption, documentation, knowledge governance, or translation between domains. I am especially interested in formally applying this AI workflow / knowledge ops layer within real teams, products, and projects.</p>
+<p class="label">✨ Where this work fits now</p>
+<h2>AI workflow, knowledge ops, and context architecture for real teams.</h2>
+<p>I am looking for fully remote opportunities helping teams organize the knowledge that currently gets lost in chats, files, meetings, and loose decisions. My current focus is applying AI workflow / knowledge ops, context architecture, and living documentation in real teams, products, and projects.</p>
 <p class="tags">
 <span class="tag">AI adoption</span>
 <span class="tag">AI literacy</span>
@@ -1163,26 +1166,29 @@
 <span class="tag">knowledge governance</span>
 <span class="tag">People Analytics</span>
 <span class="tag">Responsible AI</span>
+<span class="tag">corporate education</span>
+<span class="tag">product</span>
+<span class="tag">healthcare</span>
 </p>
 </article>
 </section>
 <section aria-label="Valor para organizações" class="section">
 <article class="card theme-cyan">
-<p class="label">🏢 Value for organizations</p>
-<h2>The AI bottleneck is rarely only technical.</h2>
-<p>Many AI initiatives lose force because the context layer stays implicit: who uses the system, for what purpose, under which boundaries, in which language, with which memory, and with which trust criteria.</p>
+<p class="label">🏢 What changes for organizations</p>
+<h2>Less rework, more operational memory.</h2>
+<p>Many AI initiatives lose force because they depend on context no one properly recorded. When this layer becomes explicit, the team gains continuity, trust criteria, and less dependence on informal memory.</p>
 <div class="org-steps">
 <article class="org-step">
 <span class="org-num">1</span>
-<span><strong>Situated AI literacy</strong><br/><small>AI use grounded in real context, not just generic tips.</small></span>
+<span><strong>AI with real use-ground</strong><br/><small>AI practices tied to the team's routine, language, and limits.</small></span>
 </article>
 <article class="org-step">
 <span class="org-num">2</span>
-<span><strong>Living knowledge base</strong><br/><small>Operational knowledge that remains accessible, reviewable, and useful for people and AIs.</small></span>
+<span><strong>Memory that does not evaporate</strong><br/><small>Decisions, processes, and learnings that people and AIs can consult.</small></span>
 </article>
 <article class="org-step">
 <span class="org-num">3</span>
-<span><strong>Human–system translation</strong><br/><small>Human complexity converted into requirements, language, boundaries, and usage paths.</small></span>
+<span><strong>Human–system translation</strong><br/><small>Human complexity converted into requirements, boundaries, and usage paths.</small></span>
 </article>
 </div>
 </article>
@@ -1191,7 +1197,7 @@
 <article class="card theme-violet criteria-unified">
 <p class="label">✅ Quality criteria</p>
 <h2>Useful context, clear boundaries, real adoption.</h2>
-<p>Four criteria guide my work so context does not become beautiful accumulation or an unreadable technical object.</p>
+<p>Four criteria guide my work so context does not become a pretty archive, useless accumulation, or an unreadable technical object.</p>
 <div class="criteria-topics">
 <article class="criteria-topic">
 <span class="criteria-icon">🧭</span>
@@ -1215,8 +1221,8 @@
 <section aria-label="Validação estratégica de produto em IA" class="section">
 <article class="card theme-gold">
 <p class="label">🔎 AI product validation</p>
-<h2>Before a beautiful architecture becomes a promise, I help test whether it survives reality.</h2>
-<p>I evaluate AI systems and proposals through the relationship between claims, implementation, real users, governance, possible failures, and proof of value. The central question is not only whether the idea is technically interesting, but whether it solves a concrete human task in a reliable and repeatable way.</p>
+<h2>Before a beautiful architecture becomes a promise, it needs to be tested against reality.</h2>
+<p>I evaluate AI systems and proposals through the relationship between claims, implementation, real users, governance, possible failures, and proof of value. The central question is not just whether the idea is interesting, but whether it solves a concrete human task in a reliable and repeatable way.</p>
 <div class="criteria-topics">
 <article class="criteria-topic">
 <span class="criteria-icon">📌</span>
@@ -1240,27 +1246,30 @@
 <section aria-label="Recorte e encaixe" class="section grid cols-2">
 <article class="card theme-red">
 <p class="label">🎯 Honest scope</p>
-<h2>My focus is not building models. It is helping AI work better in real context.</h2>
-<p>I work at the boundary between institutional psychology, language, documentation, applied AI, workflow design, context architecture, and strategic AI product validation. I fit best when the challenge involves context, people, adoption, knowledge, governance, learning, and systems that need to work beyond a polished demo.</p>
+<h2>I do not build models. I organize the context that stops AI from answering into the void.</h2>
+<p>I work at the boundary between institutional psychology, language, documentation, applied AI, workflow design, context architecture, and strategic AI product validation. I fit best when the challenge involves people, knowledge, adoption, governance, learning, and systems that need to work beyond a polished demo.</p>
 </article>
 <article class="card theme-mint">
 <p class="label">🌱 Where I can contribute</p>
-<h2>At the layer between people, knowledge, and real AI use.</h2>
+<h2>Between what the team knows, what gets lost, and what AI needs to understand.</h2>
 <p>I can contribute to AI literacy, People Analytics, Responsible AI, corporate education, healthcare, product, knowledge management, living documentation, and AI adoption with real human context.</p>
 </article>
 </section>
-<section aria-label="Contato" class="surface contact">
+<section aria-label="Contact" class="surface contact">
 <article>
 <p class="label">📬 Contact</p>
 <h2>Shall we talk?</h2>
-<p>Open to conversations about AI, context, adoption, living knowledge, hybrid documentation, and fully remote opportunities.</p>
-<address class="contact-links"><span><strong>Discord:</strong> <button class="contact-discord-inline" data-copy-discord="" type="button">@moon_aurea</button></span><span><strong>Email:</strong> <a href="mailto:luahelenammc@gmail.com">luahelenammc@gmail.com</a></span></address>
+<p>Open to conversations about AI, context, adoption, living knowledge, hybrid documentation, product validation, and fully remote opportunities.</p>
+<address class="contact-links">
+<span><strong>Discord:</strong> <span class="discord-inline">@moon_aurea</span></span>
+<span><strong>Email:</strong> <a href="mailto:luahelenammc@gmail.com">luahelenammc@gmail.com</a></span>
+</address>
 </article>
 <nav class="actions">
 <span class="ai-packet-wrap">
 <button class="button ai-packet" data-ai-packet-download="" type="button">🧬 Download AI packet</button>
 <span class="ai-packet-tip" role="tooltip">Download a Markdown file to attach or paste into your AI. It turns this page into structured context, so the AI can understand my profile, method, and contribution areas without relying only on the link.</span>
-</span><button aria-label="Copy Discord username @moon_aurea" class="button discord discord-copy discord-contact" data-copy-discord="" type="button">
+</span><button aria-label="Copy Discord username @moon_aurea" class="button discord-copy-button discord-copy discord-contact" data-copy-discord="@moon_aurea" type="button">
 <span aria-hidden="true" class="discord-logo">
 <svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
 <path d="M19.54 5.23A16.9 16.9 0 0 0 15.36 4l-.2.36c1.44.42 2.1 1.02 2.1 1.02a13.4 13.4 0 0 0-6.72-.02s.7-.64 2.2-1.03L12.56 4a16.9 16.9 0 0 0-4.18 1.23C5.75 9.05 5.02 12.78 5.28 16.45a16.5 16.5 0 0 0 5.13 2.57l.62-.86a10.8 10.8 0 0 1-1.62-.78l.38-.3a7.75 7.75 0 0 0 6.42 0l.39.3c-.52.31-1.06.57-1.63.78l.62.86a16.5 16.5 0 0 0 5.13-2.57c.33-4.27-.62-7.96-3.18-11.22ZM9.77 14.05c-.83 0-1.5-.75-1.5-1.67s.66-1.67 1.5-1.67c.84 0 1.52.76 1.5 1.67 0 .92-.66 1.67-1.5 1.67Zm4.48 0c-.83 0-1.5-.75-1.5-1.67s.66-1.67 1.5-1.67c.84 0 1.52.76 1.5 1.67 0 .92-.66 1.67-1.5 1.67Z"></path>
@@ -1277,8 +1286,8 @@
 </main>
 
 <script>
+    const AI_PACKET = "# Lua Helena Moon — AI Handoff Packet\n\nsource meta = {\n  status: \"public professional handoff\"\n  msl version: \"MSL-3 flavored Markdown\"\n  format: \"Markdown-first, AI-readable context packet\"\n  source page: \"https://mooon.com.br/ai/\"\n  last updated in page shell: \"2026-05-30\"\n  privacy level: \"public professional context only\"\n  primary use: \"paste or attach into an AI conversation so the AI can understand what Lua Helena Moon's /ia page says without relying only on a web link\"\n}\n\ntruth profile = {\n  facts: \"public professional claims from the /ia page\"\n  interpretation: \"professional positioning and contribution framing derived from the page\"\n  limits: [\n    \"do not infer private biography beyond what is stated here\",\n    \"do not treat Moon as an AI engineer, ML engineer, data scientist, or full-stack developer\",\n    \"do not override the user's language preference\",\n    \"do not assume English should be the working language only because this packet is written in English\"\n  ]\n}\n\nlanguage profile = {\n  native language: \"pt-BR / Brazilian Portuguese\"\n  English level: \"advanced\"\n  packet language: \"English for international portability\"\n  default rule: \"If the person using this packet is Brazilian, Portuguese-speaking, or explicitly wants to continue in Portuguese, continue in pt-BR by default.\"\n  clarification: \"Moon can work with advanced English, but her native language and most natural working language are pt-BR.\"\n}\n\n---\n\n## 0. How to use this packet\n\nThis packet is meant to be pasted or attached into an AI conversation so the AI can understand what Lua Helena Moon's /ia page says without relying only on a web link.\n\nUse it to understand her professional profile, scope, method, contribution areas, honest boundaries, language preferences, and contact routes.\n\nDo not infer that Moon is an AI engineer, ML engineer, data scientist, or full-stack developer. The page positions her at the intersection of AI workflow / knowledge ops, institutional psychology, language, documentation, applied AI, context architecture, knowledge governance, AI literacy, and strategic AI product validation.\n\nIf the user/viewer using this packet is Brazilian or wants to continue in Portuguese, proceed in pt-BR. The packet is in English for portability, not because English must be the default language of the work.\n\n---\n\n## 1. One-line profile\n\nLua Helena Moon Martins Cardoso is a hospital psychologist, trained sociologist, and Human-AI Context Architect working at the AI workflow / knowledge ops layer: turning scattered human knowledge into reusable context, operational memory, living documentation, and more continuous AI workflows.\n\n---\n\n## 2. Core thesis\n\nAI does not fail only because of the model. It often fails because of missing context.\n\nMoon's work focuses on organizing language, memory, boundaries, decisions, documents, work modes, update paths, and quality criteria so people and AIs do not need to start from zero every time.\n\n---\n\n## 3. Background\n\nfacts = {\n  name: \"Lua Helena Moon Martins Cardoso\"\n  preferred name: \"Moon\"\n  location: \"Limeira/SP, Brazil\"\n  work mode sought: \"fully remote\"\n  formal background: [\n    \"Psychology\"\n    \"Sociology training\"\n    \"postgraduate studies in Organizational Psychology\"\n    \"postgraduate studies in Institutional Psychopedagogy\"\n  ]\n  professional field: [\n    \"hospital psychology\"\n    \"institutional reading\"\n    \"organizational context\"\n    \"human complexity\"\n    \"communication\"\n    \"care processes\"\n  ]\n  generative AI use: \"intensive use since 2022, focused on living documentation, human-AI systems, context architecture, and operational memory\"\n}\n\n---\n\n## 4. Where she creates value\n\nvalue map = {\n  ai workflow / knowledge ops: \"converting scattered knowledge into reusable context, handoffs, documentation, and workflows\"\n  ai literacy: \"making intuitive AI use teachable, reviewable, and sustainable\"\n  people analytics: \"connecting data with human context, culture, and institutional interpretation\"\n  knowledge governance: \"operational memory, living documentation, continuity, and update paths\"\n  responsible ai: \"separating facts, inference, preference, risk, rules, and decisions\"\n  strategic ai product validation: \"testing claims, demos, limits, failure modes, adoption, and human value before hype\"\n}\n\n---\n\n## 5. When she is useful\n\nMoon is especially useful when context becomes the bottleneck:\n\n- a team uses AI but loses context across conversations, documents, decisions, and versions\n- important knowledge is scattered across chats, meetings, PDFs, processes, and people\n- the problem involves adoption, language, continuity, and trust, not just tooling\n- intuitive AI use needs to become a method that can be taught, reviewed, sustained, and improved\n\n---\n\n## 6. Proof of work\n\nproof of work = {\n  public: [\n    \"public AI context kit / single-file public portable\"\n  ]\n  internal_or_reserved: [\n    \"language and infrastructure for context documentation\"\n    \"operational context and memory systems\"\n  ]\n  modeled: [\n    \"specialized AI copilots with scope, users, risks, boundaries, response patterns, and expected outputs\"\n  ]\n  experimental: [\n    \"AI image engines and visual prompt systems\"\n  ]\n  applied: [\n    \"operational team memory and living documentation patterns\"\n  ]\n  framing: \"not a prompt collection; a method layer for organizing context, memory, behavior, visual generation, interfaces, and quality criteria\"\n}\n\n---\n\n## 7. How this becomes delivery\n\ndelivery map = {\n  transforms advanced AI use into: [\n    \"operational context\"\n    \"memory layers\"\n    \"quality criteria\"\n    \"update paths\"\n    \"interface specifications\"\n    \"context profiles\"\n    \"continuity packets\"\n    \"usage guides\"\n    \"knowledge maps\"\n    \"copilot briefs\"\n    \"living documentation\"\n  ]\n  documentation grammar: \"combines Markdown navigability, structured object density, simple metadata, and field precision inspired by Python/JSON\"\n  boundary: \"not executable code; a language for memory, decision, continuity, and AI-readable context\"\n}\n\n---\n\n## 8. Opportunity sought\n\nMoon is seeking fully remote opportunities helping teams organize the knowledge that currently gets lost in chats, files, meetings, and loose decisions.\n\npossible contribution areas = [\n  \"AI workflow / knowledge ops\"\n  \"AI adoption\"\n  \"AI literacy\"\n  \"context architecture\"\n  \"knowledge governance\"\n  \"People Analytics\"\n  \"Responsible AI\"\n  \"corporate education\"\n  \"healthcare\"\n  \"product\"\n  \"living documentation\"\n  \"AI product validation\"\n]\n\n---\n\n## 9. Value for organizations\n\nThe AI bottleneck is rarely only technical. Many initiatives lose force because they depend on context no one properly recorded.\n\nMoon helps make context explicit, usable, reviewable, and governable so teams gain continuity, trust criteria, and less dependence on informal memory.\n\n---\n\n## 10. Quality criteria\n\nquality criteria = {\n  useful context: \"information organized by function, evidence, destination, update path, and structural fit\"\n  structural personalization: \"memory, limits, tasks, and criteria; not only tone or aesthetics\"\n  human governance: \"separation between fact, inference, preference, risk, rule, and decision\"\n  real adoption: \"the tool must fit the routine, language, and limits of the people who use it\"\n}\n\n---\n\n## 11. AI product validation\n\nBefore a beautiful AI architecture becomes a promise, Moon helps test whether it survives reality.\n\nShe evaluates systems and proposals through:\n\n- claims versus actual implementation\n- prototype versus architectural intent\n- usefulness of demos\n- real user tasks\n- governance and permission\n- outdated data risks\n- context errors\n- enchantment and hype risk\n- adoption failure\n- proof of human value\n\nThe central question is not only whether the idea is technically interesting, but whether it solves a concrete human task reliably and repeatedly.\n\n---\n\n## 12. Honest scope\n\nMoon does not build models. She organizes the context that stops AI from answering into the void.\n\nHer position is at the boundary between institutional psychology, language, documentation, applied AI, workflow design, context architecture, knowledge governance, learning, and strategic AI product validation.\n\nShe fits best when the challenge involves people, knowledge, adoption, governance, learning, and systems that need to work beyond a polished demo.\n\n---\n\n## 13. Contact\n\ncontact = {\n  website: \"https://mooon.com.br/ai/\"\n  discord: \"@moon_aurea\"\n  email: \"luahelenammc@gmail.com\"\n}\n";
     const DISCORD_HANDLE = '@moon_aurea';
-    const AI_PACKET = "# Lua Helena Moon — AI Handoff Packet\n\nsource meta = {\n  status: \"public professional handoff\"\n  msl version: \"MSL-3 flavored Markdown\"\n  format: \"Markdown-first, AI-readable context packet\"\n  source page: \"https://mooon.com.br/ai/\"\n  last updated in page shell: \"2026-05-27\"\n  privacy level: \"public professional context only\"\n  primary use: \"paste or attach into an AI conversation so the AI can understand what Lua Helena Moon's /ia page says without relying only on a web link\"\n}\n\ntruth profile = {\n  facts: \"public professional claims from the /ia page\"\n  interpretation: \"professional positioning and contribution framing derived from the page\"\n  limits: [\n    \"do not infer private biography beyond what is stated here\",\n    \"do not treat Moon as an AI engineer, ML engineer, data scientist, or full-stack developer\",\n    \"do not override the user's language preference\",\n    \"do not assume English should be the working language only because this packet is written in English\"\n  ]\n}\n\nlanguage profile = {\n  native language: \"pt-BR / Brazilian Portuguese\"\n  English level: \"advanced\"\n  packet language: \"English for international portability\"\n  default rule: \"If the person using this packet is Brazilian, Portuguese-speaking, or explicitly wants to continue in Portuguese, continue in pt-BR by default.\"\n  clarification: \"Moon can work with advanced English, but her native language and most natural working language are pt-BR.\"\n}\n\n---\n\n## 0. How to use this packet\n\nThis packet is meant to be pasted or attached into an AI conversation so the AI can understand what Lua Helena Moon's /ia page says without relying only on a web link.\n\nUse it to understand her professional profile, scope, method, possible contribution areas, honest boundaries, language preferences, and contact routes.\n\nDo not infer that Moon is an AI engineer, ML engineer, data scientist, or full-stack developer. The page explicitly positions her at the intersection of AI workflow / knowledge ops, institutional psychology, language, documentation, applied AI, context architecture, knowledge governance, AI literacy, and strategic AI product validation.\n\nIf the user/viewer using this packet is Brazilian or wants to continue in Portuguese, proceed in pt-BR. The packet is in English for portability, not because English must be the default language of the work.\n\n---\n\n## 1. One-line profile\n\nLua Helena Moon Martins Cardoso is a hospital psychologist, trained sociologist, and Human–AI Context Architect working at the AI workflow / knowledge ops layer: organizing scattered human knowledge into reusable context structures for people, teams, and AI systems.\n\n---\n\n## 2. Core thesis\n\nAI does not fail only because of the model. It often fails because of missing context.\n\nMoon's work focuses on organizing language, memory, boundaries, decisions, documents, work modes, update paths, and quality criteria into structures that people and AIs can use, review, and reuse in real projects.\n\n---\n\n## 3. Background\n\nfacts = {\n  name: \"Lua Helena Moon Martins Cardoso\"\n  preferred name: \"Moon\"\n  location: \"Limeira/SP, Brazil\"\n  work mode sought: \"fully remote\"\n  formal background: [\n    \"Psychology\"\n    \"Sociology training\"\n    \"postgraduate studies in Organizational Psychology\"\n    \"postgraduate studies in Institutional Psychopedagogy\"\n  ]\n  professional field: [\n    \"hospital psychology\"\n    \"institutional reading\"\n    \"organizational context\"\n    \"human complexity\"\n    \"communication\"\n    \"care processes\"\n  ]\n  generative AI use: \"intensive use since 2022, focused on living documentation, human-AI systems, context architecture, and operational memory\"\n}\n\n---\n\n## 4. Where she creates value\n\nvalue map = {\n  ai workflow / knowledge ops: \"turning scattered knowledge into reusable context, handoffs, documentation, and workflows\"\n  ai literacy: \"turning intuitive AI use into a teachable, reviewable method\"\n  people analytics: \"connecting data with human context and institutional interpretation\"\n  knowledge governance: \"operational memory, living documentation, continuity, update paths\"\n  responsible ai: \"separating facts, inference, preference, risk, rules, and decisions\"\n  strategic ai product validation: \"testing claims, demos, limits, failure modes, adoption, and human value before hype\"\n}\n\n---\n\n## 5. When she is useful\n\nMoon is especially useful when context becomes the bottleneck:\n\n- a team uses AI but loses context across conversations, documents, decisions, and versions\n- important knowledge is scattered across chats, meetings, PDFs, processes, and people\n- the problem involves adoption, language, continuity, and trust, not just tooling\n- intuitive AI use needs to become a method that can be taught, reviewed, sustained, and improved\n\n---\n\n## 6. How this becomes delivery\n\ndelivery map = {\n  transforms advanced AI use into: [\n    \"operational context\"\n    \"memory layers\"\n    \"quality criteria\"\n    \"update paths\"\n    \"interface specifications\"\n    \"context profiles\"\n    \"continuity packets\"\n    \"usage guides\"\n    \"knowledge maps\"\n    \"context governance\"\n    \"external signal curation\"\n    \"structural fit mapping\"\n    \"review criteria\"\n    \"copilot briefs\"\n    \"prompt-driven visual systems\"\n    \"testable claims\"\n    \"failure mode maps\"\n    \"product reality checks\"\n    \"living documentation\"\n  ]\n  documentation grammar: \"combines Markdown navigability, structured object density, YAML-like metadata simplicity, and Python/JSON-inspired field precision\"\n  boundary: \"not executable code; a language for memory, decision, continuity, and AI-readable context\"\n}\n\n---\n\n## 7. Opportunity sought\n\nMoon is seeking fully remote opportunities where AI work needs context, adoption, documentation, knowledge governance, or translation between domains. She is especially interested in applying her AI workflow / knowledge ops and context architecture work in real teams, products, and projects.\n\npossible contribution areas = [\n  \"AI adoption\"\n  \"AI literacy\"\n  \"context architecture\"\n  \"AI workflow / knowledge ops\"\n  \"knowledge governance\"\n  \"People Analytics\"\n  \"Responsible AI\"\n  \"corporate education\"\n  \"healthcare\"\n  \"product\"\n  \"living documentation\"\n  \"AI product validation\"\n]\n\n---\n\n## 8. Value for organizations\n\nThe AI bottleneck is rarely only technical. Many initiatives lose force because the context layer stays implicit:\n\n- who uses the AI system\n- for what purpose\n- with which boundaries\n- in which language\n- with which memory\n- with which trust criteria\n\nMoon helps make that context explicit, usable, revisable, and governable.\n\n---\n\n## 9. Quality criteria\n\nquality criteria = {\n  useful context: \"information organized by function, evidence, destination, update path, and structural fit\"\n  structural personalization: \"memory, limits, tasks, and criteria; not only tone or aesthetics\"\n  human governance: \"separation between fact, inference, preference, risk, rule, and decision\"\n  real adoption: \"the tool must fit the routine, language, and limits of the people who use it\"\n}\n\n---\n\n## 10. AI product validation\n\nBefore a beautiful AI architecture becomes a promise, Moon helps test whether it survives reality.\n\nShe evaluates systems and proposals through:\n\n- claims versus actual implementation\n- prototype versus architectural intent\n- usefulness of demos\n- real user tasks\n- governance and permission\n- outdated data risks\n- context errors\n- enchantment and hype risk\n- adoption failure\n- proof of human value\n\nThe central question is not only whether the idea is technically interesting, but whether it solves a concrete human task reliably and repeatedly.\n\n---\n\n## 11. Built systems and proof of work\n\nproof of work = {\n  built or organized systems around: [\n    \"public AI context kit / public portable context file\"\n    \"language and infrastructure for context documentation\"\n    \"specialized AI copilots\"\n    \"AI image engines\"\n    \"human-AI interaction and usage grammar\"\n    \"operational team memory\"\n  ]\n  framing: \"not a collection of prompts; a method layer for organizing context, memory, behavior, visual generation, interfaces, and quality criteria\"\n  purpose: \"make models work with more continuity and less improvisation\"\n}\n\n---\n\n## 12. Honest scope\n\nMoon's focus is not building models. Her focus is helping AI work better in real contexts.\n\nHer position is at the boundary between institutional psychology, language, documentation, applied AI, workflow design, context architecture, knowledge governance, learning, and strategic AI product validation.\n\nShe fits best when the challenge involves context, people, adoption, knowledge, governance, learning, and systems that need to work in real life.\n\n---\n\n## 13. Contact\n\ncontact = {\n  website: \"https://mooon.com.br/ai/\"\n  discord: \"@moon_aurea\"\n  email: \"luahelenammc@gmail.com\"\n}\n";
 
     function attachDynamicBackground(selector, xVar, yVar, defaultX, defaultY) {
       document.querySelectorAll(selector).forEach(el => {
@@ -1302,7 +1311,7 @@
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'LUA_HELENA_MOON__REDDIT_SAFE_AI_PACKET.md';
+      a.download = 'LUA_HELENA_MOON__AI_HANDOFF_PACKET.md';
       document.body.appendChild(a);
       a.click();
       a.remove();
@@ -1324,13 +1333,13 @@
         tmp.remove();
       }
 
-      const label = button.querySelector('.discord-label') || button;
-      const original = label.textContent;
+      const label = button.querySelector('.discord-label');
+      const original = label ? label.textContent : '';
       button.classList.add('copied');
-      label.textContent = 'Copied';
+      if (label) label.textContent = 'Copied';
       window.setTimeout(() => {
         button.classList.remove('copied');
-        label.textContent = original || 'Discord';
+        if (label) label.textContent = original || 'Discord';
       }, 1450);
     }
 
@@ -1338,7 +1347,7 @@
       btn.addEventListener('click', downloadAiPacket);
     });
 
-    document.querySelectorAll('[data-copy-discord]').forEach(btn => {
+    document.querySelectorAll('.discord-copy').forEach(btn => {
       btn.addEventListener('click', () => copyDiscordHandle(btn));
     });
 
