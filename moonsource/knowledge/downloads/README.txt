@@ -1,14 +1,14 @@
 MOON SOURCE KNOWLEDGE PORTABLES
 
-This folder will host downloadable .txt knowledge kernels for Moon Source.
+This folder will host downloadable .md knowledge kernels for Moon Source.
 
 Planned examples:
-- sociology.txt
-- philosophy.txt
-- literature.txt
-- politics.txt
-- psychology.txt
-- writing.txt
-- research.txt
+- sociology.md
+- philosophy.md
+- literature.md
+- politics.md
+- psychology.md
+- writing.md
+- research.md
 
 Status: structure ready; portables coming later.
