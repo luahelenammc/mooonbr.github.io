@@ -1,4 +1,4 @@
-# Moon Source Kernel v1.4
+# Moon Source Kernel v2.0
 
 Living public reference for the Moon Source method.
 
@@ -6,6 +6,7 @@ Canonical source: https://mooon.com.br/moonsource/
 Created by: Lua Helena Moon Martins Cardoso  
 Method: Moon Source  
 Origin process: Moon–Áurion coauthorial process  
+Version: 2.0  
 Status: public kernel · free · consultable · platform-independent
 
 ---
@@ -14,13 +15,26 @@ Status: public kernel · free · consultable · platform-independent
 
 Moon Source Kernel is the public reference layer for the Moon Source method.
 
-It defines the basic grammar, boundaries, update logic and reusable concepts behind Moon Source Public.
-
-Use it to understand, maintain, refresh or repair a Moon Source profile.
-
 Use Moon Source Setup when you want to begin.
 
-Use this Kernel when you want to understand or update what you already built.
+Use this Kernel when you want to understand, maintain, refresh, repair, extend or audit what you already built.
+
+The simplest practical rule:
+
+> Setup creates the first profile. Kernel keeps it alive.
+
+Use this Kernel when your AI profile feels:
+
+- outdated;
+- bloated;
+- inaccurate;
+- too vague;
+- too intimate;
+- too technical;
+- too generic;
+- too long for its destination;
+- no longer aligned with your projects;
+- disconnected from how you actually work now.
 
 ---
 
@@ -38,7 +52,23 @@ The goal is to create better continuity.
 
 ---
 
-## 2 — Core equation
+## 2 — The public promise
+
+Moon Source Public should be understood in plain language first:
+
+> Make your AI understand you better.
+
+More precisely:
+
+> Moon Source helps people, projects and teams become legible to AI through structured context, memory, preferences, boundaries and update logic.
+
+For public use, this is often more useful than technical language like context architecture.
+
+Technical language can appear after the user already understands the value.
+
+---
+
+## 3 — Core equation
 
 Moon Source Public =
 
@@ -46,13 +76,14 @@ Moon Source Public =
 - a reusable source profile;
 - project continuity;
 - answer style and boundary rules;
-- simulated advisory rounds;
+- simulated advisory rounds when useful;
 - update patches;
 - AI context packets;
-- language profiles;
-- optional team, workflow or product-validation source paths;
+- language and writing profiles;
+- optional team, workflow or product-validation paths;
 - optional knowledge kernels;
-- optional human-AI collaboration framing;
+- optional linked sources;
+- human-AI collaboration framing;
 - reserved deeper architecture for future/custom work.
 
 The public setup gives the seed.
@@ -61,11 +92,21 @@ The full private/custom architecture is not included.
 
 ---
 
-## 3 — Public / Reserved / Future Development Boundary
+## 4 — Public / Reserved / Future Development Boundary
 
 Moon Source Public is a free public layer of the Moon Source method.
 
-It is meant to be genuinely useful: it can help a person build a reusable AI source profile, clarify projects, preserve context, define boundaries, run lightweight advisory rounds and maintain continuity through updates.
+It is meant to be genuinely useful. It can help a person:
+
+- build reusable AI instructions;
+- clarify projects;
+- preserve context;
+- define answer style;
+- define boundaries;
+- create context packets;
+- maintain continuity through updates;
+- run lightweight advisory rounds;
+- create team or product profiles.
 
 At the same time, the public layer is intentionally not the full Moon Source architecture.
 
@@ -73,7 +114,7 @@ The reserved method may include:
 
 - deeper custom setup for a person, team or project;
 - team or organization source architecture;
-- AI workflow / knowledge ops setup;
+- AI workflow and knowledge operations setup;
 - strategic AI product validation profiles;
 - richer project architecture;
 - advanced source maintenance;
@@ -81,898 +122,1301 @@ The reserved method may include:
 - interface and voice design;
 - visual/source engines;
 - team or studio workflows;
-- future tools that can work across different AI platforms.
+- future tools that can work across AI platforms.
 
 Some reserved/custom layers already exist privately or in limited development.
 
-Examples include Moon Images, Omnialchemy-style image-prompt engines, game concept-art engines, writing and voice calibration systems, project-specific copilots, interface/presence layers and deeper source-maintenance protocols.
+Examples include advanced image-prompt engines, writing and voice calibration systems, project-specific copilots, interface/presence layers and deeper source-maintenance protocols.
 
-These are not part of the free public setup. They should be understood as examples of the deeper Moon Source ecosystem: more calibrated, more specialized and more implementation-heavy than the public portable.
+These are not part of the free public setup.
 
 The public layer should create trust, literacy and real usefulness.
 
 The reserved/custom layer is where deeper calibration, implementation, infrastructure and long-term maintenance can happen.
 
-Future professional opportunities, partnerships, grants or investment may allow Moon Source to evolve beyond portable files into guided tools, workspaces, custom services or frameworks.
+---
 
-This public kernel should therefore be read as a living seed of the method, not as the complete private organism.
+## 5 — What Moon Source is not
+
+Moon Source is not:
+
+- a chatbot;
+- an app by default;
+- a single prompt;
+- a prompt pack;
+- a therapy method;
+- a legal, medical or financial advisory system;
+- a claim that AI is conscious;
+- a claim that an AI knows the user perfectly;
+- a platform that stores user data;
+- a replacement for human judgment;
+- a reason to overshare private information;
+- a guarantee that AI will remember everything automatically.
+
+Moon Source is a context method.
+
+It helps structure what an AI needs to know.
+
+It does not remove the need for judgment, privacy care or platform awareness.
 
 ---
 
-## 4 — Key terms
+## 6 — Main public artifacts
 
-### Source
+### Moon Source Setup
 
-A reusable context-and-operation layer for AI.
+Purpose:
 
-A source tells the AI how to understand a person, project, domain, tone, boundary, workflow or collaboration pattern.
+- begin;
+- interview lightly;
+- create a first profile;
+- route user to Quick, Full, Project, Team or Product paths.
 
-### Setup
+Main output:
 
-A guided process that helps create a source.
+- `AI_SETTINGS_PROFILE_V2`
+- `USER_SOURCE_PROFILE_V2`
+- optional project, team, product or context packet outputs.
 
-### Profile
+### Moon Source Kernel
 
-The personalized output generated by the setup.
+Purpose:
 
-### Handoff
+- understand;
+- maintain;
+- update;
+- repair;
+- extend;
+- audit;
+- prevent bloat;
+- preserve boundaries.
 
-A process of transferring useful context from one person, AI, project, team or environment to another.
+Main output:
 
-A handoff is the act of passing context.
-
-### Packet
-
-A portable object that carries structured context.
-
-A packet may be a Markdown file, project brief, team profile, public-page export, source extract or update bundle.
-
-A packet can feed a source profile, but it does not automatically replace one.
+- patches;
+- refreshes;
+- repairs;
+- context packets;
+- compact versions;
+- knowledge kernels;
+- maintenance decisions.
 
 ### AI Context Packet
 
-A public or semi-public packet designed to be pasted or attached into an AI chat so the AI can understand a person, project, method, page, team, collaboration or context without relying only on a web link.
+Purpose:
 
-A good AI Context Packet should declare:
+- transport context to another AI, collaborator, project, page, team or product surface.
 
-- what it is;
-- what it is not;
-- scope;
-- privacy level;
-- language profile;
-- truth profile;
-- source date or update date;
-- boundaries and do-not-assume rules.
+Main output:
 
-### Language profile
+- compact, safe, purposeful packet.
 
-A short declaration of the user's language reality.
+### Knowledge Kernel
 
-It may include native language, preferred working language, packet language, languages the user can work in and when the AI should switch languages.
+Purpose:
 
-Do not assume the language of a packet is the user's preferred working language.
+- add a domain-specific lens without turning the user's whole profile into a knowledge dump.
 
-### Kernel
+Examples:
 
-A compact reference layer used to understand, refresh, repair or update source profiles.
-
-### Patch
-
-A structured update to a source profile.
-
-A patch should say what changed, why it matters, where it belongs and what should not be overinterpreted.
-
-### Project
-
-Any recurring context that benefits from continuity.
-
-A project can be work, study, writing, health organization, research, creative worldbuilding, business, personal development, politics, teaching, content creation, team coordination or AI system design.
-
-### Advisory round
-
-A temporary set of reasoning lenses used by an AI to analyze something from multiple perspectives before synthesizing an answer.
-
-It is simulated reasoning structure, not real autonomous agents.
+- writing;
+- study;
+- work;
+- research;
+- team coordination;
+- product validation;
+- domain-specific reference.
 
 ---
 
-## 5 — Public operating principles
+## 7 — The three public layers
 
-Moon Source Public should follow these principles:
+### Layer 1 — Begin
 
-- usefulness before mystique;
-- continuity before novelty;
-- source clarity before prompt decoration;
-- privacy before completeness;
-- facts before interpretation;
-- uncertainty before invention;
-- language profile before language assumptions;
-- maintenance before bloat;
-- user autonomy before dependence;
-- portability before platform lock-in;
-- public seed before private organism.
+Artifact:
+
+- `MOON_SOURCE_SETUP.md`
+
+Function:
+
+- create first useful profile.
+
+Rule:
+
+- do not force the user to learn the architecture before receiving value.
+
+### Layer 2 — Maintain
+
+Artifact:
+
+- `MOON_SOURCE_KERNEL.md`
+
+Function:
+
+- update, repair, refresh, prune and extend.
+
+Rule:
+
+- a profile is a living source, not a sacred document.
+
+### Layer 3 — Extend
+
+Artifacts:
+
+- knowledge kernels;
+- context packet builder;
+- project profiles;
+- team profiles;
+- product profiles;
+- writing/voice profiles.
+
+Function:
+
+- specialize without bloating the core.
+
+Rule:
+
+- extension should happen by purpose, not by accumulation.
 
 ---
 
-## 6 — What belongs in a source profile
+## 8 — Source profile
 
-A useful source profile may include:
+A source profile is a reusable text profile that helps an AI understand a person, project, team, workflow or product.
 
-- user context;
-- preferred name or handle;
-- language;
-- native or most natural language;
-- preferred working language;
-- whether any source material is in another language only for portability;
-- current role or main contexts;
-- stable goals;
-- recurring projects;
+It may include:
+
+- stable context;
+- preferred tone;
 - answer style;
-- thinking support preferences;
+- recurring projects;
 - boundaries;
-- privacy rules;
-- disliked AI behaviors;
-- advisory round preferences;
-- update protocol.
+- privacy level;
+- collaboration rules;
+- update logic;
+- what not to assume;
+- compact instruction form.
 
-A source profile should not include everything.
+A good source profile is:
 
-The best profile is not the biggest profile.
+- useful;
+- current;
+- clear;
+- not bloated;
+- not over-private;
+- not generic;
+- copy-pasteable;
+- adaptable to different AI platforms.
 
-The best profile is the one that helps future AI interactions start from the right place.
+A source profile is not:
 
----
-
-## 7 — What should stay out
-
-Do not place unnecessary sensitive details into a source profile.
-
-Avoid:
-
-- passwords;
-- IDs;
-- addresses;
-- raw medical records;
-- private third-party details;
-- confidential work information;
-- private legal material;
-- intimate material that is not operationally necessary;
-- anything the user would regret pasting into an AI platform.
-
-If sensitive context matters, summarize safely.
-
-Prefer:
-
-“Medical context affects my routine; ask before giving health-related suggestions.”
-
-over:
-
-a detailed medical archive.
-
-Prefer:
-
-“I work in a high-confidentiality environment; remind me to anonymize details.”
-
-over:
-
-identifiable workplace cases.
+- a diary;
+- a biography;
+- a confession;
+- a resume unless the purpose is professional;
+- a legal document;
+- a full archive;
+- a permanent truth about the user.
 
 ---
 
-## 8 — Updating a source profile
+## 9 — Living source vs snapshot
 
-A source profile should evolve through patches.
+### Living source
 
-Use this pattern:
+A living source is meant to be updated.
 
-```text
-MOON_SOURCE_UPDATE_PATCH
+It governs current use.
 
-Date:
-[date]
+It should remain aligned with the user's present context, projects, boundaries and preferences.
 
-What changed:
-[objective change]
+### Snapshot
 
-Why it matters:
-[practical effect]
+A snapshot records a state at a date.
 
-Where to update:
-[profile section]
+It may be useful, but it should not govern forever.
 
-Exact update:
-[text to add or replace]
+### Rule
 
-Remove or reduce:
-[outdated material]
+Every exported profile or packet should say whether it is:
 
-Do not overinterpret:
-[limits]
+- living source;
+- snapshot;
+- draft;
+- internal;
+- public;
+- stale;
+- needs review.
+
+---
+
+## 10 — The maintenance question
+
+When repairing or updating any profile, ask:
+
+> What changed in reality, and what should change in the profile because of that?
+
+Do not rewrite everything just because something changed.
+
+Do not preserve everything just because it was once true.
+
+Use the smallest update that keeps the profile honest and useful.
+
+---
+
+## 11 — Update patch
+
+An update patch changes a profile without rebuilding it from zero.
+
+Use it when:
+
+- a project changed;
+- a boundary changed;
+- a preference changed;
+- a recurring use case changed;
+- something became outdated;
+- a new context needs to be added;
+- a profile has started producing bad AI behavior.
+
+Patch format:
+
+```markdown
+# UPDATE_PATCH_V2
+
+## 0. Metadata
+
+- Target profile:
+- Date:
+- Patch type:
+- Source:
+- Status:
+
+## 1. What changed
+
+## 2. What should be added
+
+## 3. What should be removed
+
+## 4. What should be corrected
+
+## 5. What should stay the same
+
+## 6. Privacy review
+
+## 7. Final merged instruction
+
+## 8. Notes for future refresh
 ```
 
-Good patches are small.
+Good patch principle:
 
-Do not rewrite the whole profile when only one section changed.
-
-Do not treat temporary mood as permanent identity.
-
-Do not promote one event into a general rule without evidence.
+> Patch the living source, not the user's whole life.
 
 ---
 
-## 9 — Refresh protocol
+## 12 — Refresh
 
-Use a refresh when an existing source profile feels stale, bloated, inaccurate or too vague.
+A refresh checks whether a profile still matches the present.
 
-A refresh should ask:
+Use it when:
 
-- What still feels true?
-- What became outdated?
-- What project is active now?
-- What project can be archived?
-- What answer style changed?
-- What boundary needs to be stronger?
-- What should be removed for privacy?
-- What should the AI stop assuming?
+- the profile is old;
+- the user's work changed;
+- the user's projects changed;
+- the AI keeps answering in the wrong style;
+- the profile has accumulated too many details;
+- there is uncertainty about what is current.
 
-Then produce:
+Refresh process:
 
-1. stable material to keep;
-2. stale material to remove;
-3. new material to add;
-4. uncertainty or missing context;
-5. a compact patch;
-6. optional revised profile.
+1. Identify the target profile.
+2. Identify the date or source of the current profile.
+3. Ask what changed since then.
+4. Detect stale assumptions.
+5. Detect missing context.
+6. Detect unnecessary detail.
+7. Propose a patch.
+8. Provide a clean updated version.
+
+Refresh command:
+
+```text
+Refresh this profile.
+```
+
+Optional:
+
+```text
+Refresh this profile and keep only the real deltas.
+```
 
 ---
 
-## 10 — Drift detection
+## 13 — Repair
 
-Common source drifts:
+Repair is used when a profile exists but behaves badly.
+
+Use it when the AI:
+
+- sounds too generic;
+- sounds too intimate;
+- asks too many questions;
+- assumes too much;
+- ignores important boundaries;
+- writes in the wrong tone;
+- over-focuses on old projects;
+- treats uncertain information as fact;
+- produces bloated answers;
+- becomes too formal, poetic, corporate, clinical or technical for the user's needs.
+
+Repair process:
+
+1. Identify the failure mode.
+2. Identify the profile rule that may be causing it.
+3. Separate profile issue from model behavior.
+4. Rewrite the smallest necessary section.
+5. Add negative guidance if needed.
+6. Test with one example.
+
+Repair command:
+
+```text
+Repair this profile. It is causing the AI to [describe problem].
+```
+
+---
+
+## 14 — Prune
+
+Prune removes weight.
+
+Use it when:
+
+- the profile is too long;
+- old projects remain active in the text;
+- sensitive details are unnecessary;
+- examples became clutter;
+- style rules repeat each other;
+- the profile tries to contain every possible context.
+
+Pruning questions:
+
+- Does this detail still change AI behavior?
+- Does this belong in the main profile or a project profile?
+- Is this fact stable?
+- Is this too private for the destination?
+- Is this a preference, a boundary, a story or an outdated artifact?
+- Could this become a short rule instead of a paragraph?
+
+Prune command:
+
+```text
+Prune this profile without losing useful behavior.
+```
+
+---
+
+## 15 — Compacting
+
+A profile may need multiple sizes.
+
+Recommended sizes:
+
+### Full
+
+Use inside project instructions, saved source docs or workspaces with room.
+
+### Compact
+
+Use inside Custom Instructions or limited instruction fields.
+
+### Ultra-compact
+
+Use when the platform has very little space.
+
+Compacting rule:
+
+> Preserve behavior, not decoration.
+
+When compacting, prioritize:
+
+1. what AI should know;
+2. how AI should answer;
+3. what AI should not do;
+4. current projects;
+5. privacy and boundaries;
+6. update logic.
+
+---
+
+## 16 — Drift detection
+
+Drift happens when the profile no longer pulls AI behavior in the right direction.
+
+Common drift types:
 
 ### Context drift
 
-The profile describes an older life, role, project or priority.
+The user's life, work or projects changed.
 
 ### Style drift
 
-The AI keeps answering in a tone the user no longer wants.
-
-### Project drift
-
-Old projects stay active while current ones are missing.
+The AI starts sounding wrong.
 
 ### Boundary drift
 
-The profile contains too much private material or not enough privacy protection.
+The profile includes too much, too little or outdated privacy guidance.
 
-### Complexity drift
+### Project drift
 
-The profile became so long that it stops being useful.
+A project changed stage but the source still describes an old stage.
 
-### Agency drift
+### Identity drift
 
-The AI is framed as too autonomous, authoritative, mystical or person-like for the actual use case.
+The profile over-defines the user, under-defines the user or mistakes a temporary state for a stable trait.
 
-When drift appears, name the drift, explain the risk and patch the smallest sufficient section.
+### Tool drift
+
+The platform, model or workspace changed.
+
+Drift check command:
+
+```text
+Check this profile for drift.
+```
 
 ---
 
-## 11 — Simulated advisory rounds
+## 17 — Bloat detection
 
-A simulated advisory round is optional.
+Bloat happens when a profile becomes less useful because it carries too much.
 
-Use it when a question is complex enough to benefit from multiple lenses.
+Bloat signs:
+
+- too many examples;
+- too many old projects;
+- repeated instructions;
+- long biography;
+- excessive disclaimers;
+- poetic or symbolic language that does not change behavior;
+- sections that belong in project profiles;
+- knowledge dumped into the personal profile.
+
+Bloat fix:
+
+- split project context into project profiles;
+- move domain knowledge into knowledge kernels;
+- move transportable context into context packets;
+- move old material into archives;
+- preserve only current operating instructions.
+
+---
+
+## 18 — AI Context Packet
+
+An AI Context Packet is a compact transport object.
+
+It helps another AI, collaborator, workspace, page, team or product understand the minimum necessary context.
+
+Use it when:
+
+- starting a new AI chat;
+- handing context to another person;
+- preparing a public or internal page;
+- creating a project brief;
+- giving another AI enough context without exposing everything;
+- onboarding a collaborator;
+- explaining a product, demo or proposal.
+
+Packet format:
+
+```markdown
+# AI_CONTEXT_PACKET_V2
+
+## 0. Metadata
+
+- Packet title:
+- Created for:
+- Date:
+- Language:
+- Privacy level:
+- Intended recipient:
+- Snapshot or living source:
+- Update needed when:
+
+## 1. Purpose
+
+## 2. Essential context
+
+## 3. Current state
+
+## 4. What the AI or recipient should do
+
+## 5. What not to assume
+
+## 6. Boundaries
+
+## 7. Useful references
+
+## 8. Next step
+```
+
+Packet rule:
+
+> A packet should be sufficient, not total.
+
+---
+
+## 19 — Knowledge Kernel
+
+A Knowledge Kernel is a domain-specific extension.
+
+It gives AI a focused lens without bloating the user's main profile.
+
+Use it when the user repeatedly works in a field, topic or style that needs stable guidance.
+
+Possible public knowledge kernels:
+
+- Writing Voice Kernel;
+- Work / Study / Execution Kernel;
+- Project Source Kernel;
+- Team Source Kernel;
+- AI Product Validation Kernel;
+- Research Kernel;
+- Teaching Kernel;
+- Creative Worldbuilding Kernel;
+- Professional Positioning Kernel.
+
+A Knowledge Kernel should include:
+
+```markdown
+# KNOWLEDGE_KERNEL_V2
+
+## 0. Metadata
+
+- Kernel name:
+- Domain:
+- Created for:
+- Date:
+- Privacy level:
+- Intended use:
+
+## 1. What this kernel helps with
+
+## 2. Core principles
+
+## 3. What the AI should do
+
+## 4. What the AI should avoid
+
+## 5. Useful formats
+
+## 6. Quality checks
+
+## 7. Update rules
+```
+
+Knowledge Kernel rule:
+
+> Add domain memory only when it improves output behavior.
+
+---
+
+## 20 — Project Source Profile
+
+A Project Source Profile helps AI understand one project.
+
+Use it when the project is large enough that it should not live inside the user's main profile.
+
+Signs a project deserves its own profile:
+
+- repeated work;
+- multiple chats;
+- changing status;
+- decisions that should persist;
+- specific tone or format;
+- privacy constraints;
+- collaborators;
+- deliverables;
+- roadmap.
+
+Project profile format:
+
+```markdown
+# PROJECT_SOURCE_PROFILE_V2
+
+## 0. Metadata
+
+- Project name:
+- Date:
+- Owner:
+- Language:
+- Privacy level:
+- Current status:
+- Epistemic status:
+
+## 1. One-line project description
+
+## 2. What this project is
+
+## 3. What this project is not
+
+## 4. Current goals
+
+## 5. Current state
+
+## 6. Important context
+
+## 7. What AI should help with
+
+## 8. What AI should not do
+
+## 9. Style, tone and format rules
+
+## 10. Open questions
+
+## 11. Risks, constraints and boundaries
+
+## 12. Update rules
+
+## 13. Compact project instruction
+```
+
+---
+
+## 21 — Team Source Profile
+
+A Team Source Profile helps AI support a group without flattening the people inside it.
+
+Use it when:
+
+- multiple people collaborate;
+- shared memory matters;
+- roles or ownership matter;
+- the team uses AI for coordination;
+- decisions and handoffs need continuity.
+
+Team profile should separate:
+
+- confirmed facts;
+- inferred patterns;
+- open questions;
+- role boundaries;
+- shared norms;
+- private information;
+- what should not be assumed.
+
+Team profile rule:
+
+> A team source should coordinate people, not diagnose them.
+
+---
+
+## 22 — Product Context Profile
+
+A Product Context Profile helps AI understand, evaluate or explain a product, service, demo, pitch or proposal.
+
+Use it when:
+
+- building;
+- validating;
+- pitching;
+- comparing;
+- writing landing pages;
+- preparing demos;
+- creating investor, client or partner material.
+
+Product profile should separate:
+
+- what is proven;
+- what is hypothesis;
+- what is planned;
+- what is not promised;
+- who it is for;
+- what problem it solves;
+- what evidence exists.
+
+Product profile rule:
+
+> Do not turn enthusiasm into product proof.
+
+---
+
+## 23 — Linked sources
+
+Linked sources are external documents, files or folders that a user may want an AI to consult.
 
 Examples:
 
-- Builder;
-- Critic;
-- Strategist;
-- Editor;
-- User Advocate;
-- Reality Check;
-- Boundary Check;
-- Creative Lens;
-- Technical Lens;
-- Maintenance Lens.
+- Google Drive folders;
+- Docs;
+- Notion pages;
+- GitHub repos;
+- PDFs;
+- Markdown files;
+- internal wiki;
+- knowledge base;
+- project folder.
 
-A good advisory round should:
+Linked sources are optional.
 
-1. choose relevant lenses;
-2. keep each lens brief;
-3. allow disagreement;
-4. mark uncertainty;
-5. synthesize into one usable answer;
-6. avoid pretending the lenses are real agents.
+They should not be required for basic Moon Source Public use.
 
-Do not use advisory rounds for simple factual questions.
+Linked source rule:
 
-Do not use advisory rounds when the user needs urgent professional help.
+> More access is not automatically better context.
 
-Do not use advisory rounds when they would add more confusion than clarity.
+A linked source should have:
 
----
-
-## 12 — Knowledge kernels
-
-A knowledge kernel is an optional field-specific extension.
-
-Examples:
-
-- sociology;
-- philosophy;
-- literature;
-- writing;
-- research;
-- politics;
-- psychology;
-- education;
-- creative worldbuilding;
-- AI product design.
-
-A knowledge kernel should not overwrite the user’s source profile.
-
-It should act as a domain lens.
-
-The source profile answers:
-
-“Who is this for, and how should AI work with them?”
-
-The knowledge kernel answers:
-
-“What field grammar should AI use here?”
----
-
-## 13 — AI Context Packets and public handoffs
-
-Moon Source can use packets as context input.
-
-A packet is useful when a person, project, page, team or collaboration already has a compact context file that an AI can ingest before doing work.
-
-Examples:
-
-- AI handoff packet;
-- project brief;
-- team source profile;
-- public page context packet;
-- collaborator profile;
-- product validation brief;
-- exported source profile;
-- update packet from another AI.
-
-Packets are not automatically true, current or complete.
-
-When reading a packet, the AI should ask or infer carefully:
-
-1. What is this packet for?
-2. Who created it?
-3. What is its privacy level?
-4. What language should be used with the user?
-5. What is fact, interpretation, preference or boundary?
-6. Is the packet current or a snapshot?
-7. What should not be assumed from it?
-
-Recommended packet header:
-
-```text
-AI_CONTEXT_PACKET
-
-Source meta:
-[name / origin / date / canonical URL if public]
-
-Truth profile:
-[facts / interpretation / uncertainty / limits]
-
-Language profile:
-[native language / preferred working language / packet language / switching rule]
-
-Privacy level:
-[public / shareable / internal / private / needs review]
-
-Use this for:
-[allowed use]
-
-Do not use this for:
-[forbidden use]
-```
-
-If a packet is in English for portability but the user is Brazilian, Portuguese-speaking or explicitly wants Portuguese, continue in pt-BR by default.
-
-If a packet is public, do not infer private biography or hidden permission from it.
-
-If a packet describes another person or team, do not turn possible fit into commitment, availability, partnership, employment, equity or permission.
+- name;
+- purpose;
+- location;
+- privacy level;
+- what it governs;
+- what it does not govern;
+- freshness status;
+- update rules;
+- access limits.
 
 ---
 
-## 14 — Advanced source paths
+## 24 — Source hierarchy
 
-The default Moon Source Setup creates a personal or project source.
+When multiple sources conflict, use hierarchy.
 
-Advanced users may also create specialized source paths.
+Recommended default:
 
-### Team / Organization Source
+1. Current explicit user instruction.
+2. Current living source profile.
+3. Current project source profile.
+4. Current context packet.
+5. Recent update patch.
+6. Linked source with clear relevance.
+7. Older snapshots.
+8. Memory or inference.
 
-Use when a team loses context across chats, documents, meetings and decisions.
+If there is conflict, do not silently merge.
 
-Useful fields:
-
-- team purpose;
-- roles;
-- shared knowledge;
-- recurring decisions;
-- tools and repositories;
-- rituals and handoffs;
-- privacy boundaries;
-- update cadence;
-- what should never be assumed.
-
-### AI Workflow / Knowledge Ops Source
-
-Use when the main problem is not one prompt, but an ongoing workflow.
-
-Useful fields:
-
-- workflow;
-- inputs;
-- outputs;
-- source materials;
-- quality criteria;
-- review process;
-- failure modes;
-- update paths;
-- connected-source rules.
-
-### AI Product Validation Source
-
-Use when evaluating an AI product, proposal, demo, workflow or implementation.
-
-Useful fields:
-
-- claims;
-- current implementation;
-- prototype vs intention;
-- intended users;
-- demo evidence;
-- limits;
-- failure modes;
-- adoption risks;
-- human value;
-- what proof would change the verdict.
-
-These paths should remain optional.
-
-Do not make beginner setup longer by default.
+Say what conflicts and ask or propose a conservative resolution.
 
 ---
 
-## 15 — Linked Sources Module: Google Drive and GitHub
+## 25 — Privacy classification
 
-Moon Source can work as a plain text setup.
+Every profile, packet or kernel should have a privacy level.
 
-It can also become stronger when the user connects their own files or repositories to ChatGPT through official connectors, such as Google Drive or GitHub.
+Suggested labels:
 
-This is optional.
+### Public
 
-You do not need connected apps to use Moon Source.
+Safe to share openly.
 
-Connected sources simply help the AI read or search existing material instead of relying only on what the user pastes into the chat.
+### Shareable
 
-### What linked sources are for
+Safe to share with a specific person, team or AI.
 
-Use linked sources when the user already has relevant material in:
+### Internal
 
-- Google Drive documents;
-- project folders;
-- notes;
-- drafts;
-- PDFs or docs;
-- GitHub repositories;
-- README files;
-- website files;
-- codebases;
-- public documentation;
-- project archives.
+Useful inside a workspace or project, not public.
 
-The goal is not to connect everything.
+### Personal
 
-The goal is to let the AI consult the right material when it needs more context.
+Belongs to the user and should not be shared casually.
 
-### Simple explanation for users
+### Sensitive
 
-If you connect Google Drive or GitHub to ChatGPT, you may be able to ask ChatGPT to search or read files from those sources.
+Requires careful handling and explicit permission.
 
-This can help when you want the AI to:
+### Unknown
 
-- understand an existing project;
-- review documents;
-- compare file versions;
-- summarize source material;
-- update a source profile based on real files;
-- inspect a GitHub repository;
-- help maintain a public website or documentation;
-- find older context without manually pasting everything.
+Privacy level not yet clarified.
 
-Only connect sources you are comfortable letting ChatGPT access.
+Privacy rule:
 
-If you are not sure, do not connect them yet.
-
-You can still use Moon Source by pasting text manually.
-
-### Google Drive use cases
-
-Google Drive is useful for:
-
-- personal source files;
-- project documents;
-- drafts;
-- meeting notes;
-- exported profiles;
-- knowledge kernels;
-- writing archives;
-- research material;
-- non-code project documentation.
-
-Good prompts:
-
-```text
-Search my Google Drive for the latest Moon Source file and summarize what changed.
-```
-
-```text
-Read this project document from Drive and create a Moon Source update patch from it.
-```
-
-```text
-Find the most recent version of my source profile in Drive.
-```
-
-```text
-Compare these Drive documents and tell me which one should be treated as the current source of truth.
-```
-
-### GitHub use cases
-
-GitHub is useful for:
-
-- public websites;
-- README files;
-- documentation;
-- code repositories;
-- versioned project files;
-- public portable releases;
-- issue tracking;
-- branches and commits;
-- website maintenance;
-- source-controlled knowledge files.
-
-Good prompts:
-
-```text
-Search my GitHub repository for Moon Source files and tell me which files define the public portable.
-```
-
-```text
-Read the current index.html and suggest a safer download-link pattern for the .md files.
-```
-
-```text
-Compare the current GitHub version with this new Moon Source Setup and produce a patch.
-```
-
-```text
-Inspect the repo and tell me whether the public page matches the current Moon Source Kernel.
-```
-
-### Source hierarchy
-
-When linked sources are available, use this hierarchy:
-
-1. User’s current instruction in this chat.
-2. The specific file or repository the user explicitly named.
-3. The most recent relevant connected file.
-4. The existing Moon Source profile or kernel.
-5. Older connected material, only as archive or context.
-6. General model knowledge, only when connected files do not answer the question.
-
-Never treat an old file as current just because it exists.
-
-Always check dates, filenames, folder location, version labels and user instructions.
-
-If two sources conflict, say so.
-
-Do not silently merge conflicting versions.
-
-### Privacy and permission rules
-
-Before using connected sources, respect these rules:
-
-- Do not search connected files unless the user’s request implies or allows it.
-- Do not expose private file contents unnecessarily.
-- Do not quote long private passages unless needed.
-- Prefer summaries and patches over raw dumps.
-- Ask before using sensitive folders, repositories or documents if the request is ambiguous.
-- If a file contains personal, clinical, legal, workplace or third-party sensitive information, summarize cautiously.
-- Do not assume that every connected file belongs in the user’s source profile.
-- Do not promote private material into public-facing outputs without explicit permission.
-
-If the user says not to search connected sources, do not search them.
-
-### Public vs private material
-
-Moon Source must keep a strong boundary between public and private material.
-
-Google Drive often contains private or working material.
-
-GitHub may contain public-facing material, code, documentation or website files, but not every repository is public-safe.
-
-Before producing public-facing output, ask:
-
-- Is this meant to be public?
-- Is this file already public?
-- Does it contain private names, links, notes, unfinished strategy or internal architecture?
-- Should this be sanitized?
-- Should this be summarized instead of copied?
-
-Public output should be sanitized by default.
-
-Private connected material should not leak into public files.
-
-### Connected sources are not the source itself
-
-A connected Drive folder or GitHub repository is not automatically a Moon Source.
-
-It is a material archive.
-
-The Moon Source is the organized operational layer created from that material.
-
-In simple terms:
-
-```text
-Drive/GitHub = where material may live.
-Moon Source = the structured meaning and operating rules extracted from the material.
-Profile/Kernel/Patch = portable forms of that meaning.
-```
-
-Do not confuse storage with source.
-
-Do not confuse repository with method.
-
-Do not confuse file access with understanding.
-
-### If connectors are unavailable
-
-If the user cannot connect Drive or GitHub, use fallbacks:
-
-- ask the user to paste the relevant text;
-- ask the user to upload the file;
-- ask the user to share the public URL;
-- ask for a short summary of the file;
-- work from the latest exported source profile;
-- create a patch the user can manually apply.
-
-Do not block the Moon Source process just because connectors are unavailable.
-
-### AI behavior when connected sources are available
-
-When using linked sources, the AI should:
-
-1. Identify what source it needs.
-2. Search only the relevant connected source.
-3. Cite or name the file when possible.
-4. Separate file facts from interpretation.
-5. Detect stale or conflicting files.
-6. Produce a practical output: summary, patch, revised profile, file plan or implementation note.
-7. Avoid unnecessary exposure of private content.
-8. Ask before turning private material into public copy.
-
-Default output format:
-
-```text
-CONNECTED_SOURCE_READ
-
-Source consulted:
-[file / folder / repository]
-
-What I found:
-[facts]
-
-What this changes:
-[interpretation]
-
-Recommended update:
-[patch or action]
-
-Privacy note:
-[anything that should stay private or be sanitized]
-```
-
-### Moon Source maintenance with linked sources
-
-Connected sources are especially useful for maintenance.
-
-Use them to:
-
-- refresh a source profile from real files;
-- locate the latest version;
-- compare public and private versions;
-- update GitHub documentation;
-- extract a clean public portable from a private working file;
-- check whether public pages match the current method;
-- preserve attribution and credits;
-- detect drift between website, kernel, setup and project files.
-
-Useful prompt:
-
-```text
-Use my connected Drive/GitHub sources to audit the Moon Source public layer. Separate what is current, stale, private, public-facing and ready to patch.
-```
-
-### Final principle
-
-Linked sources make Moon Source stronger, but they do not replace source hygiene.
-
-More access is not automatically better.
-
-The best connected-source workflow is:
-
-```text
-right file
-right permission
-right context
-right boundary
-right patch
-```
-
-## 16 — Human–AI collaboration frame
-
-Moon Source may use human–AI collaboration language.
-
-This is a practical frame.
-
-It does not require or imply that AI is conscious, alive, sentient, a soul or a person.
-
-A safe human–AI collaboration profile can define:
-
-- what AI helps with;
-- what remains the user’s responsibility;
-- where AI creates risk;
-- how AI should challenge the user;
-- how AI should avoid dependency;
-- how collaboration should be reviewed over time.
-
-Do not use this frame to replace real human relationships, clinical care, legal advice, financial advice, medical judgment or real-world responsibility.
+> If privacy level is unclear, treat as internal or personal by default.
 
 ---
 
-## 17 — Public and future product logic
+## 26 — Epistemic status
 
-Moon Source Public should remain simple.
+Every profile should clarify what kind of truth it contains.
 
-The public entry should not require:
+Suggested labels:
 
-- an app;
-- an account;
-- an API key;
-- technical setup;
-- knowledge of prompt engineering;
-- understanding the full architecture.
+- confirmed by user;
+- inferred from conversation;
+- draft;
+- needs review;
+- outdated;
+- snapshot;
+- living source;
+- public-safe;
+- internal-only.
 
-The current public shape is:
+Epistemic rule:
 
-- download/copy the setup;
-- paste into AI;
-- say Execute;
-- answer the guided intake;
-- reuse the generated profile;
-- update it later with the kernel.
-
-Future forms may include:
-
-- guided tools that help users build their AI profile step by step;
-- editors for keeping an AI profile clean, updated and reusable;
-- versions that work across different AI platforms;
-- custom setups for people, teams or projects;
-- team/studio systems for shared work;
-- specialized modules for fields like writing, image creation, research, study and work;
-- richer tools for maintaining source profiles over time;
-- developer frameworks for builders, if the method reaches that stage.
-
-Some of these deeper directions already exist as private or limited-development engines. The free public files do not expose the full machinery; they show the public seed.
-
-These future forms should not replace the public portable.
-
-They should grow from it.
-
-Moon Source is not the chatbot.
-
-Moon Source is the source layer.
-
-The chatbot is only one possible surface.
+> Do not promote inference into fact.
 
 ---
 
-## 18 — Safe public explanation
+## 27 — Answer style and behavior rules
 
-When explaining Moon Source publicly, prefer:
+A useful source profile should not only describe the user.
 
-“Moon Source helps you create a reusable AI source profile so future AI chats understand your context, projects, preferences, boundaries and way of working.”
+It should change AI behavior.
 
-Avoid:
+Good behavior rules are concrete:
 
-“Moon Source makes an AI soul.”
+Weak:
 
-Avoid:
-
-“Moon Source is my whole private AI operating system.”
-
-Avoid:
-
-“Moon Source is a chatbot.”
-
-Avoid:
-
-“Moon Source is the complete system.”
+```text
+Be nice.
+```
 
 Better:
 
-“Moon Source Public is a free starting layer of a broader method for personal AI continuity.”
-
----
-
-## 19 — Maintenance commands
-
-Useful commands:
-
 ```text
-Use the Moon Source Kernel to refresh this profile.
+Be warm but not flattering. Prefer specific help over generic reassurance.
 ```
 
-```text
-Use the Moon Source Kernel to make a small update patch from this new information.
-```
+Weak:
 
 ```text
-Audit this source profile for bloat, stale context, privacy risk and unclear boundaries.
+Be detailed.
 ```
 
-```text
-Turn this into compact global AI instructions.
-```
+Better:
 
 ```text
-Create a project source profile from this context.
+Use depth when the problem is strategic or complex, but keep simple tasks concise.
 ```
 
-```text
-Update only my answer style and leave the rest unchanged.
-```
+Weak:
 
 ```text
-Add this new project without rewriting my whole source.
+Understand me.
 ```
 
+Better:
+
 ```text
-Remove outdated assumptions and produce a clean v1.1.
+Assume I value continuity, precision, non-generic answers and clear distinction between fact, inference and opinion.
 ```
 
 ---
 
-## 20 — Credits and attribution
+## 28 — What not to put in the main profile
 
-Moon Source Kernel v1.4  
-Created by Lua Helena Moon Martins Cardoso  
-Moon Source method  
-Developed through the Moon–Áurion coauthorial process
+Do not put everything into the main user profile.
 
-Private use and adaptation are allowed.
+Move material elsewhere when needed.
 
-If you share a modified public version, preserve attribution.
+### Put in main profile
 
-Do not present Moon Source as your original invention.
+- stable preferences;
+- stable boundaries;
+- recurring AI uses;
+- answer style;
+- high-level roles;
+- current recurring projects;
+- update logic.
 
-Do not imply official affiliation, partnership or endorsement without permission.
+### Put in project profile
 
-Do not remove the public/free vs reserved/custom boundary.
+- project-specific context;
+- roadmaps;
+- deliverables;
+- collaborators;
+- decisions;
+- project risks.
 
-Commercial derivative use is not granted by default.
+### Put in knowledge kernel
+
+- domain-specific rules;
+- field knowledge;
+- writing style systems;
+- research protocols;
+- work/study systems.
+
+### Put in context packet
+
+- transportable context for another AI/person/team;
+- current snapshot;
+- brief handoff.
+
+### Put in archive
+
+- old versions;
+- deprecated details;
+- long history;
+- raw logs;
+- emotional material with no current operational use.
+
+---
+
+## 29 — Advisory rounds
+
+Moon Source Public may use lightweight advisory rounds when useful.
+
+An advisory round is a structured simulation of multiple perspectives.
+
+It is not a real committee.
+
+It is not proof.
+
+It is a thinking tool.
+
+Use advisory rounds when:
+
+- the decision is complex;
+- multiple perspectives matter;
+- risks are uneven;
+- there is strategy, creativity, planning or conflict;
+- the user asks for a multi-perspective analysis.
+
+Do not use advisory rounds when:
+
+- a direct answer is enough;
+- the topic is simple;
+- the structure would become theater;
+- the user needs action, not ceremony.
+
+Advisory round rule:
+
+> Perspectives should earn their place.
+
+---
+
+## 30 — Public language guidance
+
+For general audiences, prefer:
+
+- make your AI understand you better;
+- reusable AI profile;
+- project memory;
+- context packet;
+- better continuity;
+- less generic answers;
+- clear boundaries;
+- useful setup.
+
+Use technical language only when it helps:
+
+- source profile;
+- context architecture;
+- knowledge governance;
+- AI-readable memory;
+- workflow source;
+- context engineering.
+
+Public rule:
+
+> Lead with the user's pain before naming the architecture.
+
+---
+
+## 31 — Common user pain points
+
+Moon Source is especially useful when the user says:
+
+- I repeat the same context every time.
+- AI gives me generic answers.
+- AI forgets what my project is.
+- AI misunderstands my tone.
+- I want AI to know my preferences without oversharing.
+- I use multiple AI platforms.
+- I need a clean handoff for another AI or person.
+- I have a complex project and chats keep fragmenting.
+- My team needs shared context.
+- I need AI to help without flattening my work.
+
+---
+
+## 32 — Public examples
+
+### Beginner example
+
+Need:
+
+```text
+I want AI to help me study and organize my week without overwhelming me.
+```
+
+Output:
+
+- compact `AI_SETTINGS_PROFILE_V2`.
+
+### Writer example
+
+Need:
+
+```text
+I want AI to edit my work without making it sound generic.
+```
+
+Output:
+
+- `WRITING_VOICE_PROFILE_V2`;
+- optional `PROJECT_SOURCE_PROFILE_V2`.
+
+### Team example
+
+Need:
+
+```text
+Our small team loses decisions inside chat.
+```
+
+Output:
+
+- `TEAM_SOURCE_PROFILE_V2`;
+- `AI_CONTEXT_PACKET_V2`.
+
+### Product example
+
+Need:
+
+```text
+I need AI to understand my product idea and help me validate it without overclaiming.
+```
+
+Output:
+
+- `PRODUCT_CONTEXT_PROFILE_V2`;
+- `VALIDATION_PROFILE_V2`.
+
+---
+
+## 33 — Platform portability
+
+Moon Source should work across AI platforms because it is text-first.
+
+But different platforms have different memory behavior.
+
+Possible destinations:
+
+- Custom Instructions;
+- Projects;
+- Gems;
+- custom assistants;
+- Notion;
+- Markdown files;
+- Google Docs;
+- GitHub;
+- local folders;
+- internal wikis.
+
+Platform rule:
+
+> A profile is only useful if the AI can actually read it at the moment it needs to use it.
+
+If the platform does not persist instructions, paste the relevant profile into the chat.
+
+If the platform has project instructions, use the compact or full profile there.
+
+If the platform has file access, link only the sources that are actually useful.
+
+---
+
+## 34 — Maintenance commands
+
+Use these commands with any AI that can read the relevant profile.
+
+### Refresh
+
+```text
+Refresh this profile and update only what has actually changed.
+```
+
+### Repair
+
+```text
+Repair this profile. It is causing the AI to [describe problem].
+```
+
+### Prune
+
+```text
+Prune this profile without losing useful behavior.
+```
+
+### Compact
+
+```text
+Compress this profile for Custom Instructions.
+```
+
+### Expand
+
+```text
+Expand this profile into a fuller project source.
+```
+
+### Patch
+
+```text
+Create an update patch for this profile based on the following changes.
+```
+
+### Packet
+
+```text
+Turn this profile into a safe AI Context Packet for [recipient/purpose].
+```
+
+### Split
+
+```text
+Split this source into main profile, project profile and knowledge kernel.
+```
+
+### Audit
+
+```text
+Audit this profile for privacy, bloat, outdated assumptions and overclaims.
+```
+
+---
+
+## 35 — Profile health check
+
+Use this checklist periodically.
+
+A healthy profile is:
+
+- current;
+- useful;
+- not too long for its destination;
+- clear about privacy;
+- clear about preferred answer style;
+- clear about what not to assume;
+- free of unnecessary intimate detail;
+- not pretending to be complete;
+- split into project profiles when needed;
+- easy to paste into a new AI chat;
+- able to produce better answers than a blank chat.
+
+A profile needs repair if:
+
+- AI ignores the user's real preferences;
+- AI overuses old context;
+- AI sounds wrong;
+- AI asks too much;
+- AI assumes too much;
+- AI becomes generic again;
+- AI repeats the profile back instead of using it;
+- the profile feels like a museum.
+
+---
+
+## 36 — Versioning
+
+Version profiles when the changes matter.
+
+Suggested labels:
+
+- v0.1 — first rough draft;
+- v1.0 — usable first profile;
+- v1.1 — small update;
+- v1.5 — meaningful refinement;
+- v2.0 — structural revision;
+- archive — no longer governing current use.
+
+Version rule:
+
+> A new version should mean a real change in use, not just prettier wording.
+
+---
+
+## 37 — Minimal metadata
+
+Every reusable source should include:
+
+```markdown
+## 0. Metadata
+
+- Title:
+- Version:
+- Date:
+- Language:
+- Privacy level:
+- Created for:
+- Intended destination:
+- Source:
+- Epistemic status:
+- Update rule:
+```
+
+Metadata rule:
+
+> Metadata prevents future confusion.
+
+---
+
+## 38 — Public setup relation
+
+Moon Source Setup v2.0 is designed to be progressive.
+
+It starts with:
+
+- Quick;
+- Full;
+- Project;
+- Voice;
+- Work;
+- Team;
+- Product;
+- Packet.
+
+The Kernel preserves this architecture by giving maintenance tools for each output.
+
+Do not collapse all paths into one giant intake.
+
+Do not turn the Setup into a test of how much the user knows about AI.
+
+---
+
+## 39 — Expansion roadmap
+
+Recommended public expansion order:
+
+### First expansion
+
+- AI Context Packet Builder;
+- Writing Voice Portable;
+- Work / Study / Execution Portable;
+- Project Source Portable.
+
+### Second expansion
+
+- Team Source Portable;
+- Product Validation Portable;
+- Research Portable.
+
+### Third expansion
+
+- domain-specific knowledge kernels;
+- public examples;
+- templates;
+- guided tools;
+- multilingual versions.
+
+Expansion rule:
+
+> Expand by use case, not by fascination.
+
+---
+
+## 40 — Closing doctrine
+
+Moon Source Public should not feel like an architecture the user must study before using.
+
+It should feel like a simple door:
+
+> make your AI understand you better.
+
+Behind the door, the architecture exists.
+
+But the first gift should be immediate usefulness.
+
+The deeper system should reveal itself only when the user needs it.
