@@ -3,110 +3,617 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title data-i18n="meta.title">Moon Source · Setup público</title>
-<meta name="description" data-i18n-attr="content:meta.desc" content="Setup público minimalista para criar contexto reutilizável de IA: projetos, limites, preferências e regras de atualização." />
-<meta property="og:title" data-i18n-attr="content:meta.title" content="Moon Source · Setup público" />
-<meta property="og:description" data-i18n-attr="content:meta.desc" content="Setup público minimalista para criar contexto reutilizável de IA: projetos, limites, preferências e regras de atualização." />
+<title data-i18n="meta.title">Moon Source · Public Portable</title>
+<meta name="description" data-i18n-attr="content:meta.desc" content="Turbine sua IA com um arquivo simples para ela te entender melhor e te ajudar melhor." />
+<meta property="og:title" data-i18n-attr="content:meta.title" content="Moon Source · Public Portable" />
+<meta property="og:description" data-i18n-attr="content:meta.desc" content="Turbine sua IA com um arquivo simples para ela te entender melhor e te ajudar melhor." />
 <meta property="og:type" content="website" />
-<meta name="theme-color" content="#08080d" />
+<meta name="theme-color" content="#071213" />
 <style>
 :root{
   color-scheme:dark;
-  --bg:#08080d;--panel:#111119;--panel2:#151520;--text:#f7f2ea;--muted:#bdb4c8;--quiet:#83798f;
-  --line:rgba(247,242,234,.13);--line2:rgba(247,242,234,.24);--gold:#ffe2a0;--violet:#aa8cff;--mint:#a6f3d4;
-  --radius:22px;--max:980px;--font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --bg:#071213;
+  --bg2:#0c1919;
+  --ink:#061012;
+  --text:#fff8eb;
+  --muted:#cfe7df;
+  --quiet:#8eaaa3;
+  --line:rgba(255,248,235,.16);
+  --line2:rgba(255,248,235,.32);
+  --mint:#7df7cf;
+  --mint2:#19d7b0;
+  --peach:#ffb36f;
+  --sun:#fff06a;
+  --coral:#ff6f91;
+  --blue:#7fc7ff;
+  --card:rgba(255,255,255,.07);
+  --card2:rgba(255,255,255,.11);
+  --shadow:0 34px 110px rgba(0,0,0,.48);
+  --radius:34px;
+  --font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;font-family:var(--font);color:var(--text);background:radial-gradient(circle at 50% -18%,rgba(170,140,255,.17),transparent 30rem),linear-gradient(180deg,#07070b 0%,#0b0b12 64%,#07070b 100%);line-height:1.52}
-a{color:inherit}.page{width:min(var(--max),calc(100% - 34px));margin:0 auto;padding:24px 0 46px}.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:54px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:780;letter-spacing:-.02em}.mark{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#ded2ff 40%,#6a50d0 76%,#17112c);box-shadow:0 0 22px rgba(170,140,255,.24)}
-.links{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap}.link{color:var(--muted);text-decoration:none;font-size:.92rem}.link:hover{color:var(--text)}.lang{display:inline-flex;align-items:center;gap:4px;min-height:38px;padding:4px 7px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.035)}.lang button{appearance:none;border:0;border-radius:999px;background:transparent;color:var(--muted);cursor:pointer;font:inherit;font-size:.8rem;font-weight:850;padding:5px 7px}.lang button.active{background:rgba(255,255,255,.12);color:var(--text)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:43px;padding:10px 15px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.042);color:var(--text);text-decoration:none;font-weight:760;font-size:.93rem;transition:transform .16s ease,border-color .16s ease,background .16s ease,box-shadow .16s ease}.btn:hover,.btn:focus-visible{transform:translateY(-1px);border-color:var(--line2);background:rgba(255,255,255,.07);outline:none}.btn.primary{background:linear-gradient(135deg,rgba(255,226,160,.98),rgba(242,235,255,.96));color:#131019;border-color:transparent;box-shadow:0 16px 36px rgba(255,226,160,.11)}.btn.primary:hover{box-shadow:0 20px 46px rgba(255,226,160,.16)}.btn.about{border-color:rgba(170,140,255,.34);background:rgba(170,140,255,.09)}.btn.ghost{color:var(--muted)}
-.hero{max-width:800px;margin-bottom:34px}.kicker{margin:0 0 13px;color:var(--gold);font-size:.74rem;font-weight:880;letter-spacing:.14em;text-transform:uppercase}.kicker.soft{color:var(--quiet)}h1,h2,h3{margin:0;line-height:1.05;letter-spacing:-.045em}h1{font-size:clamp(2.55rem,7vw,5.9rem);letter-spacing:-.085em;line-height:.9;max-width:840px}h2{font-size:clamp(1.3rem,2.6vw,1.9rem)}h3{font-size:1.04rem;letter-spacing:-.02em}p{margin:0;color:var(--muted)}.lead{max-width:680px;margin-top:19px;font-size:clamp(1rem,1.7vw,1.16rem);color:#d8d0e1}.cta{display:flex;gap:11px;flex-wrap:wrap;margin-top:24px}.note{margin-top:10px;color:var(--quiet);font-size:.9rem}.section{margin-top:24px}.grid{display:grid;gap:12px}.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.panel{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.052),rgba(255,255,255,.026));box-shadow:0 14px 46px rgba(0,0,0,.2);padding:20px}.panel.slim{padding:17px}.panel p{margin-top:7px}.downloads{display:grid;gap:10px;margin-top:15px}.download{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.036);text-decoration:none}.download:hover{border-color:var(--line2);background:rgba(255,255,255,.058)}.download strong{display:block}.download small{display:block;color:var(--quiet);margin-top:3px}.download.primary-download{border-color:rgba(255,226,160,.38);background:linear-gradient(135deg,rgba(255,226,160,.13),rgba(170,140,255,.065))}.arrow{color:var(--gold);font-weight:900}.steps{display:grid;gap:9px;margin-top:14px}.step{display:flex;align-items:center;gap:12px;padding:13px;border:1px solid var(--line);border-radius:17px;background:rgba(255,255,255,.032)}.step-no{display:flex;align-items:center;justify-content:center;flex:0 0 2rem;width:2rem;height:2rem;border-radius:10px;background:rgba(255,226,160,.14);color:var(--gold);font-weight:900;line-height:1;font-variant-numeric:tabular-nums}.step-text{display:block;min-width:0}.step-text strong{display:block;color:var(--text);line-height:1.2}.step-text span{display:block;color:var(--muted);font-size:.91rem;margin-top:3px}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.chip{display:inline-flex;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);color:var(--muted);padding:7px 10px;font-size:.85rem}.footer{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--quiet);font-size:.86rem}.muted-link{color:var(--muted);text-underline-offset:3px}.muted-link:hover{color:var(--text)}
-@media(max-width:760px){.page{width:min(100% - 24px,var(--max));padding-top:17px}.nav{align-items:flex-start;flex-direction:column;margin-bottom:40px}.links{justify-content:flex-start}.cols-2,.cols-3{grid-template-columns:1fr}h1{letter-spacing:-.068em}.cta .btn{width:auto}.btn,.download{width:100%}.download{align-items:flex-start;flex-direction:column}.footer{display:grid}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}.btn:hover{transform:none}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:var(--font);
+  color:var(--text);
+  background:
+    radial-gradient(circle at 50% -12%,rgba(125,247,207,.26),transparent 24rem),
+    radial-gradient(circle at 8% 72%,rgba(255,111,145,.16),transparent 24rem),
+    radial-gradient(circle at 94% 65%,rgba(255,179,111,.18),transparent 23rem),
+    linear-gradient(145deg,#061012 0%,#0b1b1b 54%,#071113 100%);
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  pointer-events:none;
+  background:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:radial-gradient(circle at 50% 38%,#000 0%,transparent 76%);
+}
+body::after{
+  content:"";
+  position:fixed;
+  width:80vmax;
+  height:80vmax;
+  left:50%;
+  top:46%;
+  z-index:-2;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:conic-gradient(
+    from 0deg,
+    rgba(125,247,207,.18),
+    rgba(255,240,106,.10),
+    rgba(255,111,145,.13),
+    rgba(127,199,255,.13),
+    rgba(125,247,207,.18)
+  );
+  filter:blur(74px);
+  opacity:.52;
+  animation:slowTurn 22s linear infinite;
+}
+@keyframes slowTurn{
+  to{transform:translate(-50%,-50%) rotate(360deg)}
+}
+a{color:inherit}
+.page{
+  width:min(980px,calc(100% - 32px));
+  min-height:100vh;
+  margin:0 auto;
+  padding:22px 0 34px;
+  display:grid;
+  grid-template-rows:auto 1fr auto;
+}
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+.brand{
+  display:inline-flex;
+  align-items:center;
+  gap:11px;
+  text-decoration:none;
+  font-weight:900;
+  letter-spacing:-.035em;
+}
+.mark{
+  position:relative;
+  width:25px;
+  height:25px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 36% 30%,#fff 0%,#dfffee 24%,var(--mint) 46%,#0aa98c 72%,#062323 100%);
+  box-shadow:0 0 34px rgba(125,247,207,.42),0 0 0 1px rgba(255,255,255,.14);
+}
+.mark::after{
+  content:"";
+  position:absolute;
+  width:8px;
+  height:8px;
+  right:-3px;
+  top:1px;
+  border-radius:50%;
+  background:var(--sun);
+  box-shadow:0 0 20px rgba(255,240,106,.8);
+}
+.nav-actions{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.nav-link{
+  color:var(--muted);
+  text-decoration:none;
+  font-size:.92rem;
+}
+.nav-link:hover{color:var(--text)}
+.lang{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  padding:4px 7px;
+  min-height:38px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.045);
+  backdrop-filter:blur(12px);
+}
+.lang button{
+  appearance:none;
+  border:0;
+  background:transparent;
+  color:var(--muted);
+  cursor:pointer;
+  border-radius:999px;
+  font:inherit;
+  font-size:.8rem;
+  font-weight:900;
+  padding:5px 8px;
+}
+.lang button.active{
+  color:#071213;
+  background:var(--mint);
+}
+.shell{
+  display:grid;
+  place-items:center;
+  padding:44px 0 30px;
+}
+.hero{
+  position:relative;
+  width:min(100%,840px);
+  text-align:center;
+  padding:34px 20px 20px;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:24px 6% auto;
+  height:2px;
+  border-radius:99px;
+  background:linear-gradient(90deg,transparent,var(--mint),var(--sun),var(--coral),transparent);
+  opacity:.9;
+  filter:blur(.1px);
+}
+.kicker{
+  margin:0 0 18px;
+  color:var(--mint);
+  font-size:.75rem;
+  font-weight:950;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+h1{
+  margin:0 auto;
+  max-width:780px;
+  font-size:clamp(3.25rem,9.4vw,7.9rem);
+  line-height:.83;
+  letter-spacing:-.105em;
+  text-wrap:balance;
+}
+.lead{
+  max-width:660px;
+  margin:22px auto 0;
+  color:#d7efe8;
+  font-size:clamp(1.02rem,1.8vw,1.24rem);
+  line-height:1.52;
+  text-wrap:balance;
+}
+.download-stage{
+  position:relative;
+  width:min(100%,620px);
+  margin:30px auto 0;
+  padding:18px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:999px;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.045));
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.44),
+    inset 0 1px 0 rgba(255,255,255,.12);
+  backdrop-filter:blur(18px);
+}
+.download-stage::before,
+.download-stage::after{
+  content:"";
+  position:absolute;
+  inset:-24px;
+  border-radius:999px;
+  pointer-events:none;
+  background:conic-gradient(from 90deg,transparent,rgba(125,247,207,.55),transparent,rgba(255,111,145,.44),transparent);
+  filter:blur(24px);
+  opacity:.38;
+  animation:haloSpin 5.8s linear infinite;
+}
+.download-stage::after{
+  inset:-10px;
+  filter:blur(9px);
+  opacity:.22;
+  animation-duration:3.8s;
+  animation-direction:reverse;
+}
+@keyframes haloSpin{to{transform:rotate(360deg)}}
+.main-download{
+  --mx:50%;
+  --my:50%;
+  position:relative;
+  isolation:isolate;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  min-height:76px;
+  width:100%;
+  padding:18px 28px;
+  border-radius:999px;
+  border:0;
+  overflow:hidden;
+  color:#041314;
+  text-decoration:none;
+  font-size:clamp(1.06rem,2vw,1.32rem);
+  font-weight:950;
+  letter-spacing:-.035em;
+  background:
+    radial-gradient(circle at var(--mx) var(--my),#fff7b8 0%,transparent 24%),
+    linear-gradient(120deg,var(--mint) 0%,var(--sun) 39%,var(--peach) 72%,var(--coral) 100%);
+  box-shadow:
+    0 18px 50px rgba(125,247,207,.20),
+    0 0 0 1px rgba(255,255,255,.5) inset;
+  transition:transform .28s cubic-bezier(.2,.8,.2,1), box-shadow .28s ease, filter .28s ease;
+  animation:buttonBreathe 2.6s ease-in-out infinite;
+}
+.main-download::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:
+    linear-gradient(110deg,transparent 0%,rgba(255,255,255,.8) 38%,transparent 55%),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.0) 0 18px,rgba(255,255,255,.12) 18px 19px);
+  transform:translateX(-130%);
+  animation:buttonShine 2.4s cubic-bezier(.2,.8,.2,1) infinite;
+}
+.main-download::after{
+  content:"↓";
+  display:grid;
+  place-items:center;
+  width:38px;
+  height:38px;
+  flex:0 0 38px;
+  border-radius:50%;
+  background:rgba(4,19,20,.14);
+  box-shadow:inset 0 0 0 1px rgba(4,19,20,.16);
+  animation:arrowDrop 1.4s ease-in-out infinite;
+}
+.main-download:hover,
+.main-download:focus-visible{
+  transform:translateY(-4px) scale(1.015);
+  filter:saturate(1.12) brightness(1.04);
+  box-shadow:
+    0 24px 70px rgba(125,247,207,.30),
+    0 0 46px rgba(255,240,106,.20),
+    0 0 0 1px rgba(255,255,255,.65) inset;
+  outline:none;
+}
+@keyframes buttonBreathe{
+  0%,100%{box-shadow:0 18px 50px rgba(125,247,207,.18),0 0 0 1px rgba(255,255,255,.5) inset}
+  50%{box-shadow:0 24px 70px rgba(255,240,106,.24),0 0 32px rgba(125,247,207,.16),0 0 0 1px rgba(255,255,255,.62) inset}
+}
+@keyframes buttonShine{
+  0%,35%{transform:translateX(-130%)}
+  70%,100%{transform:translateX(130%)}
+}
+@keyframes arrowDrop{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(5px)}
+}
+.micro-note{
+  margin:14px auto 0;
+  color:var(--quiet);
+  font-size:.92rem;
+}
+.section-label{
+  width:min(100%,650px);
+  margin:34px auto 0;
+  text-align:left;
+  color:var(--mint);
+  font-size:.78rem;
+  font-weight:900;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.section-label.optional{
+  margin-top:24px;
+  color:var(--quiet);
+}
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  width:min(100%,650px);
+  margin:10px auto 0;
+}
+.step{
+  border:1px solid rgba(125,247,207,.22);
+  border-radius:23px;
+  padding:16px 15px;
+  background:linear-gradient(180deg,rgba(125,247,207,.08),rgba(255,255,255,.045));
+  backdrop-filter:blur(14px);
+  box-shadow:0 18px 40px rgba(0,0,0,.18);
+  transition:transform .28s cubic-bezier(.2,.8,.2,1), background .28s ease, border-color .28s ease;
+}
+.step:hover{
+  transform:translateY(-5px);
+  background:linear-gradient(180deg,rgba(125,247,207,.12),rgba(255,255,255,.07));
+  border-color:rgba(125,247,207,.42);
+}
+.step strong{
+  display:block;
+  color:var(--text);
+  font-size:.95rem;
+  margin-bottom:3px;
+}
+.step span{
+  display:block;
+  color:var(--muted);
+  font-size:.85rem;
+  line-height:1.35;
+}
+.secondary{
+  width:min(100%,650px);
+  margin:10px auto 0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.small-card{
+  position:relative;
+  padding:15px 16px;
+  border:1px solid var(--line);
+  border-radius:23px;
+  background:rgba(255,255,255,.045);
+  color:var(--muted);
+  text-decoration:none;
+  overflow:hidden;
+  transition:transform .28s cubic-bezier(.2,.8,.2,1), border-color .28s ease, background .28s ease;
+}
+.small-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(110deg,transparent,rgba(255,255,255,.18),transparent);
+  transform:translateX(-120%);
+  transition:transform .7s cubic-bezier(.2,.8,.2,1);
+}
+.small-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(255,179,111,.34);
+  background:rgba(255,179,111,.065);
+}
+.small-card:hover::before{transform:translateX(120%)}
+.small-card strong{
+  position:relative;
+  display:block;
+  color:var(--text);
+  font-size:.95rem;
+}
+.small-card span{
+  position:relative;
+  display:block;
+  margin-top:2px;
+  font-size:.84rem;
+}
+.boundary{
+  width:min(100%,650px);
+  margin:18px auto 0;
+  color:var(--quiet);
+  font-size:.9rem;
+  line-height:1.48;
+}
+.boundary strong{color:var(--muted)}
+.footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  color:var(--quiet);
+  font-size:.86rem;
+  padding-top:12px;
+}
+.footer a{
+  color:var(--muted);
+  text-underline-offset:3px;
+}
+.footer a:hover{color:var(--text)}
+@media(max-width:760px){
+  .page{width:min(100% - 22px,980px)}
+  .nav{align-items:flex-start;flex-direction:column}
+  .nav-actions{justify-content:flex-start}
+  .shell{padding-top:28px}
+  h1{font-size:clamp(3rem,17vw,5rem)}
+  .download-stage{
+    padding:10px;
+    border-radius:30px;
+  }
+  .main-download{
+    min-height:66px;
+    border-radius:24px;
+    padding:16px 18px;
+  }
+  .steps,.secondary{grid-template-columns:1fr}
+  .section-label{text-align:center}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{animation:none!important;transition:none!important}
+  .main-download:hover,.step:hover,.small-card:hover{transform:none}
+}
 </style>
 </head>
-<body><main class="page">
-<nav class="nav" aria-label="Navegação principal">
-  <a class="brand" href="/"><span class="mark" aria-hidden="true"></span><span>Moon Source</span></a>
-  <div class="links">
-    <a class="link" data-i18n="nav.knowledge" href="/knowledge/">Bancos de conhecimento</a>
-    <div class="lang" role="group" aria-label="Idioma"><button type="button" class="lang-btn active" data-lang-choice="pt">PT</button><span aria-hidden="true">·</span><button type="button" class="lang-btn" data-lang-choice="en">EN</button></div>
-    <a class="btn about" data-i18n="nav.about" href="https://www.luahelena.com.br/ia/">Meu trabalho</a>
-  </div>
-</nav>
-<section class="hero">
-  <p class="kicker" data-i18n="hero.kicker">Setup público para IA</p>
-  <h1 data-i18n="hero.title">Crie um source que sua IA consiga usar.</h1>
-  <p class="lead" data-i18n="hero.lead">Um kit pequeno para transformar contexto disperso em instruções reutilizáveis: projetos, limites, preferências, decisões e ritmo de atualização.</p>
-  <div class="cta">
-    <a class="btn primary" data-i18n="cta.setup" href="/downloads/MOON_SOURCE_SETUP.md" download="MOON_SOURCE_SETUP.md">Baixar Setup</a>
-    <a class="btn about" data-i18n="cta.about" href="https://www.luahelena.com.br/ia/">Meu trabalho</a>
-    <a class="btn ghost" data-i18n="cta.kernel" href="/downloads/MOON_SOURCE_KERNEL.md" download="MOON_SOURCE_KERNEL.md">Baixar Kernel</a>
-  </div>
-  <p class="note" data-i18n="hero.note">Comece pelo Setup. O Kernel fica como referência secundária para método e manutenção.</p>
-</section>
-<section class="section grid cols-3" aria-label="O que o Setup monta">
-  <article class="panel slim"><p class="kicker soft" data-i18n="does.kicker">O que ele monta</p><h3 data-i18n="does.title1">Contexto pessoal</h3><p data-i18n="does.body1">Quem você é, como trabalha e o que a IA não deve presumir.</p></article>
-  <article class="panel slim"><p class="kicker soft">02</p><h3 data-i18n="does.title2">Continuidade</h3><p data-i18n="does.body2">Projetos, decisões, arquivos, perguntas abertas e próximos passos.</p></article>
-  <article class="panel slim"><p class="kicker soft">03</p><h3 data-i18n="does.title3">Atualização leve</h3><p data-i18n="does.body3">Patches pequenos para o source melhorar sem virar depósito morto.</p></article>
-</section>
-<section class="section grid cols-2" aria-label="Como usar e downloads">
-  <article class="panel">
-    <p class="kicker" data-i18n="run.kicker">Como usar</p>
-    <div class="steps">
-      <div class="step"><span class="step-no">1</span><span class="step-text"><strong data-i18n="run.1.title">Baixe o Setup.</strong><span data-i18n="run.1.body">Anexe ou cole na sua IA.</span></span></div>
-      <div class="step"><span class="step-no">2</span><span class="step-text"><strong data-i18n="run.2.title">Diga “execute”.</strong><span data-i18n="run.2.body">A IA entrevista você só onde faltar contexto.</span></span></div>
-      <div class="step"><span class="step-no">3</span><span class="step-text"><strong data-i18n="run.3.title">Salve o resultado.</strong><span data-i18n="run.3.body">Use como instruções personalizadas ou perfil reutilizável.</span></span></div>
+<body>
+<main class="page">
+  <nav class="nav" aria-label="Navegação principal">
+    <a class="brand" href="/">
+      <span class="mark" aria-hidden="true"></span>
+      <span>Moon Source</span>
+    </a>
+    <div class="nav-actions">
+      <a class="nav-link" data-i18n="nav.knowledge" href="/knowledge/">Bancos de conhecimento</a>
+      <div class="lang" role="group" aria-label="Idioma">
+        <button type="button" class="active" data-lang-choice="pt">PT</button>
+        <span aria-hidden="true">·</span>
+        <button type="button" data-lang-choice="en">EN</button>
+      </div>
+      <a class="nav-link" data-i18n="nav.about" href="https://www.luahelena.com.br/ia/">Meu trabalho</a>
     </div>
-  </article>
-  <article class="panel">
-    <p class="kicker" data-i18n="downloads.kicker">Downloads</p>
-    <h2 data-i18n="downloads.title">Setup primeiro. Kernel depois.</h2>
-    <div class="downloads">
-      <a class="download primary-download" href="/downloads/MOON_SOURCE_SETUP.md" download="MOON_SOURCE_SETUP.md"><span><strong data-i18n="downloads.setup.title">Moon Source Setup</strong><small data-i18n="downloads.setup.body">Entrada principal. Guiado, curto e prático.</small></span><span class="arrow">↓</span></a>
-      <a class="download" href="/downloads/MOON_SOURCE_KERNEL.md" download="MOON_SOURCE_KERNEL.md"><span><strong data-i18n="downloads.kernel.title">Moon Source Kernel</strong><small data-i18n="downloads.kernel.body">Referência do método, packets e usos avançados.</small></span><span class="arrow">↓</span></a>
+  </nav>
+
+  <section class="shell">
+    <div class="hero">
+      <p class="kicker" data-i18n="hero.kicker">Public Portable</p>
+      <h1 data-i18n="hero.title">Turbine sua IA. Faça ela te entender melhor.</h1>
+      <p class="lead" data-i18n="hero.lead">
+        Um arquivo simples para sua IA te conhecer melhor, lembrar do que importa e te ajudar de forma mais útil.
+      </p>
+
+      <div class="download-stage">
+        <a class="main-download" data-i18n="hero.download" href="/downloads/MOON_SOURCE_SETUP.md" download="MOON_SOURCE_SETUP.md">Baixar Moon Source Setup</a>
+      </div>
+
+      <p class="micro-note" data-i18n="hero.note">Cole ou anexe na IA que você já usa. Ela te guia a partir daí.</p>
+
+      <div class="section-label" data-i18n="steps.label">Como usar</div>
+      <div class="steps" id="como-usar">
+        <div class="step">
+          <strong data-i18n="steps.1.title">📥 1 · Baixe</strong>
+          <span data-i18n="steps.1.body">Pegue o Setup.</span>
+        </div>
+        <div class="step">
+          <strong data-i18n="steps.2.title">🤖 2 · Cole</strong>
+          <span data-i18n="steps.2.body">Envie para sua IA.</span>
+        </div>
+        <div class="step">
+          <strong data-i18n="steps.3.title">💾 3 · Salve</strong>
+          <span data-i18n="steps.3.body">Guarde o perfil gerado.</span>
+        </div>
+      </div>
+
+      <div class="section-label optional" data-i18n="optional.label">Explorar depois</div>
+      <div class="secondary">
+        <a class="small-card" href="/downloads/MOON_SOURCE_KERNEL.md" download="MOON_SOURCE_KERNEL.md">
+          <strong data-i18n="kernel.title">🧠 Kernel</strong>
+          <span data-i18n="kernel.body">referência secundária</span>
+        </a>
+        <a class="small-card" href="/knowledge/">
+          <strong data-i18n="knowledge.title">📚 Knowledge shelf</strong>
+          <span data-i18n="knowledge.body">bancos de conhecimento</span>
+        </a>
+      </div>
+
+      <p class="boundary" data-i18n="boundary">
+        <strong>Não é app, terapia ou agente mágico.</strong> É só um arquivo-guia para fazer a IA te entender melhor e te ajudar melhor.
+      </p>
     </div>
-    <p class="note" data-i18n="downloads.note">O Kernel existe para consulta; não precisa ser lido inteiro para começar.</p>
-  </article>
-</section>
-<section class="section panel" aria-label="Bancos de conhecimento">
-  <p class="kicker" data-i18n="banks.kicker">Depois do setup</p>
-  <h2 data-i18n="banks.title">Bancos de conhecimento entram só quando ajudam.</h2>
-  <p data-i18n="banks.body">Use bancos de conhecimento como extensão de um source já criado, não como substituto do onboarding.</p>
-  <div class="chips"><span class="chip" data-i18n="chips.1">contexto útil</span><span class="chip" data-i18n="chips.2">fronteiras claras</span><span class="chip" data-i18n="chips.3">memória operacional</span><span class="chip" data-i18n="chips.4">menos recomeço</span></div>
-  <div class="cta"><a class="btn ghost" data-i18n="banks.link" href="/knowledge/">Abrir bancos de conhecimento</a></div>
-</section>
-<footer class="footer"><span data-i18n="footer.left">Moon Source · camada pública minimalista</span><span><a class="muted-link" data-i18n="footer.about" href="https://www.luahelena.com.br/ia/">Lua Helena Moon — meu trabalho</a></span></footer>
+  </section>
+
+  <footer class="footer">
+    <span data-i18n="footer.left">Moon Source · Public Portable</span>
+    <span><a data-i18n="footer.about" href="https://www.luahelena.com.br/ia/">Lua Helena Moon — meu trabalho</a></span>
+  </footer>
+</main>
+
 <script>
 const I18N={
  pt:{
-  'meta.title':`Moon Source · Setup público`,'meta.desc':`Setup público minimalista para criar contexto reutilizável de IA: projetos, limites, preferências e regras de atualização.`,
-  'nav.knowledge':`Bancos de conhecimento`,'nav.about':`Meu trabalho`,'hero.kicker':`Setup público para IA`,'hero.title':`Crie um source que sua IA consiga usar.`,'hero.lead':`Um kit pequeno para transformar contexto disperso em instruções reutilizáveis: projetos, limites, preferências, decisões e ritmo de atualização.`,'cta.setup':`Baixar Setup`,'cta.kernel':`Baixar Kernel`,'cta.about':`Meu trabalho`,'hero.note':`Comece pelo Setup. O Kernel fica como referência secundária para método e manutenção.`,
-  'does.kicker':`O que ele monta`,'does.title1':`Contexto pessoal`,'does.body1':`Quem você é, como trabalha e o que a IA não deve presumir.`,'does.title2':`Continuidade`,'does.body2':`Projetos, decisões, arquivos, perguntas abertas e próximos passos.`,'does.title3':`Atualização leve`,'does.body3':`Patches pequenos para o source melhorar sem virar depósito morto.`,
-  'run.kicker':`Como usar`,'run.1.title':`Baixe o Setup.`,'run.1.body':`Anexe ou cole na sua IA.`,'run.2.title':`Diga “execute”.`,'run.2.body':`A IA entrevista você só onde faltar contexto.`,'run.3.title':`Salve o resultado.`,'run.3.body':`Use como instruções personalizadas ou perfil reutilizável.`,
-  'downloads.kicker':`Downloads`,'downloads.title':`Setup primeiro. Kernel depois.`,'downloads.setup.title':`Moon Source Setup`,'downloads.setup.body':`Entrada principal. Guiado, curto e prático.`,'downloads.kernel.title':`Moon Source Kernel`,'downloads.kernel.body':`Referência do método, packets e usos avançados.`,'downloads.note':`O Kernel existe para consulta; não precisa ser lido inteiro para começar.`,
-  'banks.kicker':`Depois do setup`,'banks.title':`Bancos de conhecimento entram só quando ajudam.`,'banks.body':`Use bancos de conhecimento como extensão de um source já criado, não como substituto do onboarding.`,'banks.link':`Abrir bancos de conhecimento`,'chips.1':`contexto útil`,'chips.2':`fronteiras claras`,'chips.3':`memória operacional`,'chips.4':`menos recomeço`,
-  'footer.left':`Moon Source · camada pública minimalista`,'footer.about':`Lua Helena Moon — meu trabalho`
+  'meta.title':'Moon Source · Public Portable',
+  'meta.desc':'Turbine sua IA com um arquivo simples para ela te entender melhor e te ajudar melhor.',
+  'nav.knowledge':'Bancos de conhecimento',
+  'nav.about':'Meu trabalho',
+  'hero.kicker':'Public Portable',
+  'hero.title':'Turbine sua IA. Faça ela te entender melhor.',
+  'hero.lead':'Um arquivo simples para sua IA te conhecer melhor, lembrar do que importa e te ajudar de forma mais útil.',
+  'hero.download':'Baixar Moon Source Setup',
+  'hero.note':'Cole ou anexe na IA que você já usa. Ela te guia a partir daí.',
+  'steps.label':'Como usar',
+  'steps.1.title':'📥 1 · Baixe',
+  'steps.1.body':'Pegue o Setup.',
+  'steps.2.title':'🤖 2 · Cole',
+  'steps.2.body':'Envie para sua IA.',
+  'steps.3.title':'💾 3 · Salve',
+  'steps.3.body':'Guarde o perfil gerado.',
+  'optional.label':'Explorar depois',
+  'kernel.title':'🧠 Kernel',
+  'kernel.body':'referência secundária',
+  'knowledge.title':'📚 Knowledge shelf',
+  'knowledge.body':'bancos de conhecimento',
+  'boundary':'<strong>Não é app, terapia ou agente mágico.</strong> É só um arquivo-guia para fazer a IA te entender melhor e te ajudar melhor.',
+  'footer.left':'Moon Source · Public Portable',
+  'footer.about':'Lua Helena Moon — meu trabalho'
  },
  en:{
-  'meta.title':`Moon Source · Public Setup`,'meta.desc':`A minimal public setup for creating reusable AI context: projects, boundaries, preferences and update rules.`,
-  'nav.knowledge':`Knowledge banks`,'nav.about':`About my work`,'hero.kicker':`Public AI setup`,'hero.title':`Build a source your AI can actually use.`,'hero.lead':`A small kit for turning scattered context into reusable AI instructions: projects, boundaries, preferences, decisions and update rhythm.`,'cta.setup':`Download Setup`,'cta.kernel':`Download Kernel`,'cta.about':`About my work`,'hero.note':`Start with the Setup. The Kernel is a secondary reference for method and maintenance.`,
-  'does.kicker':`What it builds`,'does.title1':`Personal context`,'does.body1':`Who you are, how you work, and what the AI should not assume.`,'does.title2':`Continuity`,'does.body2':`Projects, decisions, files, open questions and next steps.`,'does.title3':`Light updates`,'does.body3':`Small patches so the source improves without becoming dead storage.`,
-  'run.kicker':`How to use it`,'run.1.title':`Download the Setup.`,'run.1.body':`Attach it or paste it into your AI.`,'run.2.title':`Say “execute”.`,'run.2.body':`The AI interviews you only where context is missing.`,'run.3.title':`Save the result.`,'run.3.body':`Use it as custom instructions or a reusable profile.`,
-  'downloads.kicker':`Downloads`,'downloads.title':`Setup first. Kernel later.`,'downloads.setup.title':`Moon Source Setup`,'downloads.setup.body':`Main entry point. Guided, short and practical.`,'downloads.kernel.title':`Moon Source Kernel`,'downloads.kernel.body':`Method reference for packets and advanced use.`,'downloads.note':`The Kernel is for consultation; you do not need to read it all to begin.`,
-  'banks.kicker':`After setup`,'banks.title':`Knowledge banks only enter when they help.`,'banks.body':`Use knowledge banks as extensions of an existing source, not as replacements for onboarding.`,'banks.link':`Open knowledge banks`,'chips.1':`useful context`,'chips.2':`clear boundaries`,'chips.3':`operational memory`,'chips.4':`less restarting`,
-  'footer.left':`Moon Source · minimal public layer`,'footer.about':`Lua Helena Moon — about my work`
+  'meta.title':'Moon Source · Public Portable',
+  'meta.desc':'Boost your AI with one simple file so it understands you better and helps you better.',
+  'nav.knowledge':'Knowledge banks',
+  'nav.about':'About my work',
+  'hero.kicker':'Public Portable',
+  'hero.title':'Boost your AI. Help it understand you better.',
+  'hero.lead':'A simple file that helps your AI know you better, remember what matters and assist you more usefully.',
+  'hero.download':'Download Moon Source Setup',
+  'hero.note':'Paste or attach it to the AI you already use. It guides you from there.',
+  'steps.label':'How to use',
+  'steps.1.title':'📥 1 · Download',
+  'steps.1.body':'Get the Setup.',
+  'steps.2.title':'🤖 2 · Paste',
+  'steps.2.body':'Send it to your AI.',
+  'steps.3.title':'💾 3 · Save',
+  'steps.3.body':'Keep the generated profile.',
+  'optional.label':'Explore later',
+  'kernel.title':'🧠 Kernel',
+  'kernel.body':'secondary reference',
+  'knowledge.title':'📚 Knowledge shelf',
+  'knowledge.body':'knowledge banks',
+  'boundary':'<strong>Not an app, therapy or magic agent.</strong> It is just a guide file to help AI understand you better and help you better.',
+  'footer.left':'Moon Source · Public Portable',
+  'footer.about':'Lua Helena Moon — about my work'
  }
 };
-
-
 const BRAZIL_TIMEZONES=new Set(['America/Sao_Paulo','America/Belem','America/Fortaleza','America/Recife','America/Araguaina','America/Maceio','America/Bahia','America/Santarem','America/Cuiaba','America/Campo_Grande','America/Manaus','America/Porto_Velho','America/Boa_Vista','America/Rio_Branco','America/Eirunepe','America/Noronha']);
-function getPrimaryLocale(){const langs=Array.isArray(navigator.languages)&&navigator.languages.length?navigator.languages:[navigator.language||''];return (langs[0]||'').trim();}
+function getPrimaryLocale(){const langs=Array.isArray(navigator.languages)&&navigator.languages.length?navigator.languages:[navigator.language||''];return(langs[0]||'').trim();}
 function getLocaleRegion(locale){try{return new Intl.Locale(locale).region||'';}catch(_){const parts=String(locale||'').split('-');return parts.length>1?parts[1].toUpperCase():'';}}
 function detectLanguageFromViewer(){const locale=getPrimaryLocale();const primary=locale.toLowerCase().split('-')[0];const region=getLocaleRegion(locale).toUpperCase();const timezone=Intl.DateTimeFormat().resolvedOptions().timeZone||'';const timezoneLooksBrazil=BRAZIL_TIMEZONES.has(timezone);const regionKnownOutsideBrazil=Boolean(region)&&region!=='BR';if(primary!=='pt')return'en';if(timezone&&!timezoneLooksBrazil)return'en';if(!timezone&&regionKnownOutsideBrazil)return'en';return'pt';}
-function getInitialLanguage(){const p=new URLSearchParams(location.search);const u=p.get('lang');if(u==='en'||u==='pt')return{lang:u,detected:false};const saved=localStorage.getItem('moonSourceLang');if(saved==='en'||saved==='pt')return{lang:saved,detected:false};return{lang:detectLanguageFromViewer(),detected:true};}
-function setLanguage(lang,updateUrl=true,persist=true){const d=I18N[lang]||I18N.pt;document.documentElement.lang=lang==='en'?'en':'pt-BR';document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(d[k]!==undefined)el.innerHTML=d[k];});document.querySelectorAll('[data-i18n-attr]').forEach(el=>{el.getAttribute('data-i18n-attr').split(';').filter(Boolean).forEach(pair=>{const [a,k]=pair.split(':');if(a&&k&&d[k]!==undefined)el.setAttribute(a,d[k]);});});document.querySelectorAll('[data-lang-choice]').forEach(btn=>{const on=btn.getAttribute('data-lang-choice')===lang;btn.classList.toggle('active',on);btn.setAttribute('aria-pressed',on?'true':'false');});if(persist)localStorage.setItem('moonSourceLang',lang);if(updateUrl){const url=new URL(location.href);lang==='en'?url.searchParams.set('lang','en'):url.searchParams.delete('lang');history.replaceState(null,'',url);}}
+function getInitialLanguage(){const params=new URLSearchParams(location.search);const urlLang=params.get('lang');if(urlLang==='en'||urlLang==='pt')return{lang:urlLang,detected:false};const saved=localStorage.getItem('moonSourceLang');if(saved==='en'||saved==='pt')return{lang:saved,detected:false};return{lang:detectLanguageFromViewer(),detected:true};}
+function setLanguage(lang,updateUrl=true,persist=true){
+ const dict=I18N[lang]||I18N.pt;
+ document.documentElement.lang=lang==='en'?'en':'pt-BR';
+ document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.getAttribute('data-i18n');if(dict[key]!==undefined)el.innerHTML=dict[key];});
+ document.querySelectorAll('[data-i18n-attr]').forEach(el=>{el.getAttribute('data-i18n-attr').split(';').filter(Boolean).forEach(pair=>{const [attr,key]=pair.split(':');if(attr&&key&&dict[key]!==undefined)el.setAttribute(attr,dict[key]);});});
+ document.querySelectorAll('[data-lang-choice]').forEach(btn=>{const active=btn.getAttribute('data-lang-choice')===lang;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',active?'true':'false');});
+ if(persist)localStorage.setItem('moonSourceLang',lang);
+ if(updateUrl){const url=new URL(location.href);lang==='en'?url.searchParams.set('lang','en'):url.searchParams.delete('lang');history.replaceState(null,'',url);}
+}
 document.querySelectorAll('[data-lang-choice]').forEach(btn=>btn.addEventListener('click',()=>setLanguage(btn.getAttribute('data-lang-choice'),true,true)));
-const initialLanguage=getInitialLanguage();setLanguage(initialLanguage.lang,initialLanguage.detected&&initialLanguage.lang==='en',false);
+document.querySelectorAll('.main-download').forEach(btn=>{
+ btn.addEventListener('pointermove',event=>{
+   const rect=btn.getBoundingClientRect();
+   btn.style.setProperty('--mx',`${event.clientX-rect.left}px`);
+   btn.style.setProperty('--my',`${event.clientY-rect.top}px`);
+ });
+});
+const initialLanguage=getInitialLanguage();
+setLanguage(initialLanguage.lang,initialLanguage.detected&&initialLanguage.lang==='en',false);
 </script>
-</main></body></html>
+</body>
+</html>
