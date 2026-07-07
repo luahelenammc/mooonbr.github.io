@@ -33,9 +33,7 @@
       background: rgba(0, 0, 0, 0.72);
       backdrop-filter: blur(2px);
     }
-    .moon-lang-overlay[hidden] {
-      display: none !important;
-    }
+    .moon-lang-overlay[hidden] { display: none !important; }
     .moon-lang-modal {
       width: min(760px, 94vw);
       max-height: min(92vh, 760px);
@@ -97,12 +95,8 @@
       transform: translateY(-1px);
       outline: 0;
     }
-    .moon-lang-option.usa {
-      background: rgba(255, 45, 45, 0.3);
-    }
-    .moon-lang-option.brazil {
-      background: rgba(47, 179, 57, 0.3);
-    }
+    .moon-lang-option.usa { background: rgba(255, 45, 45, 0.3); }
+    .moon-lang-option.brazil { background: rgba(47, 179, 57, 0.3); }
     .moon-lang-option.usa:hover,
     .moon-lang-option.usa:focus-visible {
       background: rgb(255, 45, 45);
@@ -120,9 +114,7 @@
       margin-bottom: 6px;
       pointer-events: none;
     }
-    .moon-lang-option.brazil img {
-      max-width: 245px;
-    }
+    .moon-lang-option.brazil img { max-width: 245px; }
     .moon-lang-idioma {
       margin: 4px 0;
       font-family: Georgia, "Times New Roman", serif;
@@ -136,9 +128,7 @@
       font-style: italic;
       line-height: 1.35;
     }
-    .moon-lang-muted {
-      opacity: 0.5;
-    }
+    .moon-lang-muted { opacity: 0.5; }
     .moon-lang-close {
       margin-top: 14px;
       padding: 6px 12px;
@@ -154,25 +144,15 @@
       outline: 0;
     }
     @media (max-width: 640px) {
-      .moon-lang-overlay {
-        align-items: flex-start;
-        padding: 14px;
-      }
-      .moon-lang-modal {
-        padding: 18px 14px 20px;
-      }
-      .moon-lang-options {
-        gap: 14px;
-      }
-      .moon-lang-option {
-        min-height: 0;
-      }
+      .moon-lang-overlay { align-items: flex-start; padding: 14px; }
+      .moon-lang-modal { padding: 18px 14px 20px; }
+      .moon-lang-options { gap: 14px; }
+      .moon-lang-option { min-height: 0; }
     }
   </style>
 </head>
 <body>
   <iframe class="moon-index-frame" src="/index.html" title="Portal da Moon"></iframe>
-
   <div id="moonLangOverlay" class="moon-lang-overlay" role="dialog" aria-modal="true" aria-labelledby="moonLangTitle" hidden>
     <div class="moon-lang-modal">
       <img class="moon-lang-question" src="/images/smbox.png" alt="" aria-hidden="true">
@@ -193,69 +173,54 @@
       <button type="button" class="moon-lang-close" data-lang-action="dismiss">Keep original / Manter original</button>
     </div>
   </div>
-
   <script>
     const MOON_LANGUAGE_OVERLAY_STORAGE_KEY = "moon:index2:languageOverlayPreview:v1";
     const MOON_TRANSLATED_HOME_URL = "https://www-mooon-com-br.translate.goog/?_x_tr_sch=http&_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp";
-
     function getPrimaryBrowserLanguage() {
-      const list = Array.isArray(navigator.languages) && navigator.languages.length
-        ? navigator.languages
-        : [navigator.language || navigator.userLanguage || ""];
+      const list = Array.isArray(navigator.languages) && navigator.languages.length ? navigator.languages : [navigator.language || navigator.userLanguage || ""];
       return String(list[0] || "").toLowerCase();
     }
-
     function getLanguageOverlayState() {
       try { return localStorage.getItem(MOON_LANGUAGE_OVERLAY_STORAGE_KEY); }
       catch (err) { return null; }
     }
-
     function setLanguageOverlayState(value) {
       try { localStorage.setItem(MOON_LANGUAGE_OVERLAY_STORAGE_KEY, value); }
       catch (err) {}
     }
-
     function shouldShowLanguageOverlay() {
       const params = new URLSearchParams(window.location.search);
       if (params.get("langPrompt") === "1") return true;
       if (params.get("langPrompt") === "0") return false;
-
       const primaryLang = getPrimaryBrowserLanguage();
       const alreadyHandled = getLanguageOverlayState();
       return !alreadyHandled && primaryLang && !primaryLang.startsWith("pt");
     }
-
     function dismissLanguageOverlay(reason = "dismissed") {
       const overlay = document.getElementById("moonLangOverlay");
       if (!overlay) return;
       setLanguageOverlayState(reason);
       overlay.hidden = true;
     }
-
     function maybeShowLanguageOverlay() {
       const overlay = document.getElementById("moonLangOverlay");
       if (!overlay || !shouldShowLanguageOverlay()) return;
-
       overlay.hidden = false;
       overlay.addEventListener("click", ev => {
         const actionButton = ev.target.closest("[data-lang-action]");
         if (!actionButton) return;
-
         const action = actionButton.dataset.langAction;
         if (action === "translate") {
           setLanguageOverlayState("translated");
           window.location.href = MOON_TRANSLATED_HOME_URL;
           return;
         }
-
         dismissLanguageOverlay("dismissed");
       });
-
       document.addEventListener("keydown", ev => {
         if (ev.key === "Escape" && !overlay.hidden) dismissLanguageOverlay("dismissed");
       });
     }
-
     document.addEventListener("DOMContentLoaded", maybeShowLanguageOverlay);
   </script>
 </body>
