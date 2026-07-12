@@ -295,7 +295,7 @@ export const TYPE_ORDER = [
 const HOURS_LEADING_SINCE = new Date(2025, 11, 28, 12, 0, 0); // 28/12/2025 12:00 (mês 11 = dezembro)
 
 export const GYM_STATS = {
-  gymsDefeated: 1157, // quantos ginásios você já derrotou
+  gymsDefeated: 4000, // quantos ginásios você já derrotou
   get hoursLeading(){
     const ms = Date.now() - HOURS_LEADING_SINCE.getTime();
     return Math.max(0, Math.floor(ms / 36e5)); // horas inteiras desde o horário acima
@@ -304,5 +304,5 @@ export const GYM_STATS = {
 
 
 export const META = {
-  lastUpdated: "2026-03-23" // YYYY-MM-DD (ou a data que você quiser)
+  lastUpdated: "2026-06-11" // YYYY-MM-DD (ou a data que você quiser)
 };
