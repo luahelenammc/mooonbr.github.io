@@ -4,7 +4,7 @@ import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
 
 const baseUrl = process.env.MOON_SOURCE_REVIEW_URL || 'http://127.0.0.1:4173/moonsource/';
-const artifactRoot = path.resolve('moonsource/review-artifacts');
+const artifactRoot = path.resolve('review-artifacts');
 const screenshotRoot = path.join(artifactRoot, 'screenshots');
 fs.mkdirSync(screenshotRoot, { recursive: true });
 
