@@ -1,0 +1,14 @@
+{
+  "name": "moon-source-public-index",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/smoke.mjs",
+    "browser": "node tests/browser.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "latest",
+    "playwright": "latest"
+  }
+}
