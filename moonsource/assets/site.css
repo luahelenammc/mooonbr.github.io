@@ -122,6 +122,7 @@ h3 { font-size: 1.8rem; }
 .method-section { background: var(--black); color: var(--paper); }
 :root[data-theme="night"] .method-section { background: #ebe5da; color: #151a19; }
 .method-section .section-index { border-color: color-mix(in srgb, currentColor 20%, transparent); color: color-mix(in srgb, currentColor 65%, transparent); }
+.method-section .eyebrow, .method-section .section-index span:first-child { color: var(--mint-bright); }
 .method-section .section-heading > p, .method-section .split-heading > p { color: color-mix(in srgb, currentColor 74%, transparent); }
 .method-grid { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid color-mix(in srgb, currentColor 24%, transparent); }
 .method-grid article { min-height: 27rem; padding: 3rem 3rem 3rem 0; border-bottom: 1px solid color-mix(in srgb, currentColor 24%, transparent); }
