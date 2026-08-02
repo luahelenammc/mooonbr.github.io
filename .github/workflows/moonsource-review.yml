@@ -1,0 +1,107 @@
+name: Moon Source Review
+
+on:
+  pull_request:
+    paths:
+      - 'moonsource/**'
+      - 'downloads/CHAT_WORK_ROUTING_PROTOCOL_V2_MSL_4_3.md'
+      - '.github/workflows/moonsource-review.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout pull request
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install review dependencies
+        run: npm --prefix moonsource install --no-package-lock
+
+      - name: Run structural tests
+        run: npm --prefix moonsource test
+
+      - name: Install Chromium
+        working-directory: moonsource
+        run: npx playwright install --with-deps chromium
+
+      - name: Serve repository
+        run: |
+          python3 -m http.server 4173 -d . > /tmp/moonsource-server.log 2>&1 &
+          echo $! > /tmp/moonsource-server.pid
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:4173/moonsource/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/moonsource-server.log
+          exit 1
+
+      - name: Browser and axe review
+        id: browser
+        continue-on-error: true
+        env:
+          MOON_SOURCE_REVIEW_URL: http://127.0.0.1:4173/moonsource/
+        run: npm --prefix moonsource run browser
+
+      - name: Lighthouse review
+        id: lighthouse
+        continue-on-error: true
+        run: |
+          mkdir -p moonsource/review-artifacts
+          export CHROME_PATH="$(find "$HOME/.cache/ms-playwright" -type f -name chrome | head -n 1)"
+          test -n "$CHROME_PATH"
+          npx --yes lighthouse http://127.0.0.1:4173/moonsource/ \
+            --quiet \
+            --output=json \
+            --output-path=moonsource/review-artifacts/lighthouse.json \
+            --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage'
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const report = JSON.parse(fs.readFileSync('moonsource/review-artifacts/lighthouse.json', 'utf8'));
+          const thresholds = { performance: .90, accessibility: .95, 'best-practices': .95, seo: .95 };
+          const summary = {};
+          const failures = [];
+          for (const [category, minimum] of Object.entries(thresholds)) {
+            const score = report.categories[category].score;
+            summary[category] = score;
+            if (score < minimum) failures.push(`${category}: ${score} < ${minimum}`);
+          }
+          fs.writeFileSync('moonsource/review-artifacts/lighthouse-summary.json', JSON.stringify(summary, null, 2) + '\n');
+          console.log(summary);
+          if (failures.length) {
+            console.error(failures.join('\n'));
+            process.exit(1);
+          }
+          NODE
+
+      - name: Upload review evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: moon-source-review-${{ github.event.pull_request.head.sha || github.sha }}
+          path: moonsource/review-artifacts/
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Enforce review gates
+        if: always()
+        env:
+          BROWSER_OUTCOME: ${{ steps.browser.outcome }}
+          LIGHTHOUSE_OUTCOME: ${{ steps.lighthouse.outcome }}
+        run: |
+          echo "Browser: $BROWSER_OUTCOME"
+          echo "Lighthouse: $LIGHTHOUSE_OUTCOME"
+          test "$BROWSER_OUTCOME" = 'success'
+          test "$LIGHTHOUSE_OUTCOME" = 'success'
