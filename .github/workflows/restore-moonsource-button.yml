@@ -65,3 +65,5 @@ jobs:
           git add moonsource/index.html
           git commit -m 'fix(moonsource): restore original animated download button'
           git push
+
+# Triggered after workflow registration.
