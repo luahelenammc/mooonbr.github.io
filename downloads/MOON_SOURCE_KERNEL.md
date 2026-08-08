@@ -2,7 +2,7 @@
 
 Living public reference for the Moon Source method.
 
-Canonical source: https://mooon.com.br/moonsource/  
+Canonical source: https://www.luahelena.com.br/moonsource/  
 Public reference to Lua Helena's AI/context-architecture work: https://www.luahelena.com.br/ia/  
 Created by: Lua Helena Moon Martins Cardoso  
 Method: Moon Source  
