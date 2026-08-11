@@ -3,138 +3,217 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090b0f">
-  <meta name="description" content="Relatório visual do perfil de jogo, comunicação e coordenação de Moon em League of Legends.">
+  <meta name="theme-color" content="#080a0f">
+  <meta name="description" content="RIFT MIRROR: relatório visual do perfil de jogo, comunicação e coordenação de Moon em League of Legends.">
   <link rel="canonical" href="https://www.mooon.com.br/lol/moon.html">
   <link rel="alternate" hreflang="pt-BR" href="https://www.mooon.com.br/lol/moon.html">
   <link rel="alternate" hreflang="en" href="https://www.mooon.com.br/lol/moon.html?lang=en">
   <link rel="alternate" hreflang="x-default" href="https://www.mooon.com.br/lol/moon.html">
-  <title>Moon no Rift · Perfil de jogo</title>
+  <title>Moon no Rift · RIFT MIRROR</title>
   <style>
     :root{
-      --bg:#090b0f;--panel:#11161d;--panel2:#161d25;--line:#2b343e;
-      --ink:#f5f0e7;--muted:#aaa69e;--soft:#747b82;
-      --gold:#d7b65d;--gold2:#f0d78a;--cyan:#55d9dd;--pink:#ff5aa7;--acid:#b7ef4b;--red:#ff6f6c;
+      --bg:#080a0f;--bg2:#0d1118;--panel:#101720;--panel2:#151d28;--line:#2a3440;
+      --ink:#f7f2e8;--muted:#aaa69e;--soft:#717a83;
+      --gold:#d6b45d;--gold2:#f4da91;--cyan:#59dce1;--pink:#ff5da8;--acid:#b9f04f;--red:#ff716d;
+      --violet:#9d87ff;--blue:#6aa7ff;
       --serif:"Iowan Old Style","Palatino Linotype",Palatino,Baskerville,Georgia,serif;
       --sans:"Segoe UI Variable","Aptos","Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
       --mono:"Cascadia Mono","SFMono-Regular",Consolas,monospace;
-      --max:1160px;
+      --max:1180px;--r:22px;--r2:14px;
+      --shadow:0 24px 70px rgba(0,0,0,.34);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;background:var(--bg)}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;overflow-x:hidden}
-    body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:
-      radial-gradient(circle at 10% 0,rgba(255,90,167,.11),transparent 28%),
-      radial-gradient(circle at 90% 12%,rgba(85,217,221,.09),transparent 26%),
-      linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:auto,auto,48px 48px,48px 48px}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.58;overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;z-index:-3;pointer-events:none;background:
+      radial-gradient(circle at 12% 6%,rgba(255,93,168,.13),transparent 27%),
+      radial-gradient(circle at 88% 14%,rgba(89,220,225,.10),transparent 25%),
+      radial-gradient(circle at 54% 72%,rgba(214,180,93,.06),transparent 30%),
+      linear-gradient(rgba(255,255,255,.016) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.016) 1px,transparent 1px);
+      background-size:auto,auto,auto,48px 48px,48px 48px}
+    body::after{content:"";position:fixed;inset:-20%;z-index:-2;pointer-events:none;opacity:.24;background:
+      linear-gradient(126deg,transparent 0 47%,rgba(89,220,225,.05) 47.2% 47.35%,transparent 47.6%),
+      linear-gradient(54deg,transparent 0 63%,rgba(255,93,168,.04) 63.2% 63.35%,transparent 63.6%)}
     img{display:block;max-width:100%}a{color:inherit}button{font:inherit}
+    button,a{outline:none}button:focus-visible,a:focus-visible{box-shadow:0 0 0 3px rgba(89,220,225,.28)}
     ::selection{background:var(--pink);color:#111}
-    .shell{width:min(var(--max),calc(100% - 34px));margin:auto}
-    .progress{position:fixed;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,var(--gold),var(--pink),var(--cyan));z-index:80}
+    .shell{width:min(var(--max),calc(100% - 36px));margin:auto}
+    .progress{position:fixed;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,var(--gold),var(--pink),var(--cyan));z-index:90;box-shadow:0 0 18px rgba(89,220,225,.35)}
+    .noise{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.75'/%3E%3C/svg%3E")}
 
-    .topbar{position:sticky;top:0;z-index:60;background:rgba(9,11,15,.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
-    .topbar-inner{min-height:58px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:.82rem;letter-spacing:.09em;text-transform:uppercase}
-    .brand-mark{width:25px;height:25px;border:1px solid var(--gold);border-radius:50%;position:relative}
-    .brand-mark::after{content:"";position:absolute;width:12px;height:12px;border-radius:50%;right:3px;top:2px;background:var(--bg);box-shadow:-1px 1px 0 var(--gold)}
-    .top-actions{display:flex;align-items:center;gap:10px}
-    .topnav{display:flex;gap:4px}.topnav a{text-decoration:none;color:var(--muted);font-size:.76rem;padding:7px 9px;border-radius:999px}.topnav a:hover{color:var(--ink);background:#141a21}
-    .lang-toggle{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:#0d1116}
-    .lang-toggle button{width:36px;height:29px;border:0;border-radius:999px;background:transparent;display:grid;place-items:center;cursor:pointer;opacity:.55}
-    .lang-toggle button.active{background:rgba(215,182,93,.18);opacity:1}.lang-toggle img{width:22px;height:14px;object-fit:cover;border-radius:2px}
+    .topbar{position:sticky;top:0;z-index:70;background:rgba(8,10,15,.82);backdrop-filter:blur(18px) saturate(1.2);border-bottom:1px solid rgba(255,255,255,.06)}
+    .topbar-inner{min-height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:.79rem;letter-spacing:.11em;text-transform:uppercase;white-space:nowrap}
+    .brand-mark{width:28px;height:28px;border:1px solid var(--gold);border-radius:50%;position:relative;box-shadow:inset 0 0 16px rgba(214,180,93,.08)}
+    .brand-mark::before{content:"";position:absolute;inset:5px;border:1px solid rgba(89,220,225,.45);border-radius:50%}
+    .brand-mark::after{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:var(--pink);right:-2px;top:8px;box-shadow:0 0 14px rgba(255,93,168,.7)}
+    .top-actions{display:flex;align-items:center;gap:10px;min-width:0}
+    .topnav{display:flex;gap:2px;overflow:auto;scrollbar-width:none}.topnav::-webkit-scrollbar{display:none}
+    .topnav a{text-decoration:none;color:var(--muted);font-size:.73rem;padding:8px 9px;border-radius:999px;transition:.2s ease;white-space:nowrap}
+    .topnav a:hover,.topnav a.active{color:var(--ink);background:#141a22}
+    .lang-toggle{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:#0d1116;flex:0 0 auto}
+    .lang-toggle button{width:35px;height:29px;border:0;border-radius:999px;background:transparent;display:grid;place-items:center;cursor:pointer;opacity:.48;transition:.2s ease}
+    .lang-toggle button:hover{opacity:.8}.lang-toggle button.active{background:rgba(214,180,93,.17);opacity:1}.lang-toggle img{width:21px;height:14px;object-fit:cover;border-radius:2px}
 
-    .hero{padding:76px 0 48px}
-    .hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(330px,.9fr);gap:54px;align-items:center}
-    .eyebrow{font:800 .74rem var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
-    .hero h1{font-family:var(--serif);font-size:clamp(3.8rem,8vw,7.7rem);line-height:.84;letter-spacing:-.055em;font-weight:500;margin:0 0 24px}
-    .hero h1 span{display:block;color:var(--gold2)}
-    .hero-lead{font-size:clamp(1.08rem,1.8vw,1.34rem);color:#cbc6bd;max-width:680px;margin:0 0 24px}
+    section{position:relative;padding:88px 0;border-top:1px solid rgba(255,255,255,.055)}
+    section::before{content:"";position:absolute;left:max(18px,calc((100vw - var(--max))/2));top:0;width:90px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+    .section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,390px);gap:40px;align-items:end;margin-bottom:34px}
+    .section-kicker{font:900 .69rem var(--mono);letter-spacing:.17em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+    .section-title{font-family:var(--serif);font-size:clamp(2.35rem,5vw,4.55rem);line-height:.92;font-weight:500;letter-spacing:-.045em;margin:0}
+    .section-note{color:var(--muted);font-size:.91rem;margin:0;border-left:1px solid var(--line);padding-left:18px}
+
+    .hero{padding:82px 0 72px;border-top:0;min-height:760px;display:grid;align-items:center}
+    .hero::before{display:none}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.03fr) minmax(350px,.97fr);gap:54px;align-items:center}
+    .eyebrow{display:flex;align-items:center;gap:10px;font:900 .72rem var(--mono);letter-spacing:.17em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+    .eyebrow::before{content:"";width:28px;height:1px;background:var(--gold)}
+    .hero h1{font-family:var(--serif);font-size:clamp(4.2rem,9.3vw,8.5rem);line-height:.78;letter-spacing:-.065em;font-weight:500;margin:0 0 30px;max-width:760px}
+    .hero h1 .rift{display:block;color:var(--gold2);text-shadow:0 10px 45px rgba(214,180,93,.11)}
+    .hero h1 .mirror{display:block;font-family:var(--mono);font-size:.16em;line-height:1.1;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);margin:25px 0 0 5px}
+    .hero-lead{font-size:clamp(1.05rem,1.6vw,1.27rem);color:#cbc6bd;max-width:690px;margin:0 0 26px}
     .hero-lead strong{color:var(--ink)}
     .hero-tags{display:flex;flex-wrap:wrap;gap:8px}
-    .tag{padding:7px 10px;border:1px solid var(--line);font-size:.75rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#bfc2c4;background:#0d1116}
-    .tag.hot{border-color:rgba(255,90,167,.48);color:#ff9bc8}.tag.cyan{border-color:rgba(85,217,221,.44);color:#a2edf0}.tag.gold{border-color:rgba(215,182,93,.48);color:var(--gold2)}
-    .hero-card{position:relative;min-height:480px;border:1px solid var(--line);overflow:hidden;background:#11161d}
-    .hero-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:56% 18%;filter:saturate(.78) contrast(1.08)}
-    .hero-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(8,10,14,.98) 0%,rgba(8,10,14,.68) 35%,rgba(8,10,14,.05) 72%)}
-    .hero-card-copy{position:absolute;left:24px;right:24px;bottom:24px;z-index:2}
-    .hero-card-copy .mini{font:800 .72rem var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--pink)}
-    .hero-card-copy h2{font-family:var(--serif);font-size:2.45rem;line-height:.98;font-weight:500;margin:6px 0 10px}
-    .hero-card-copy p{color:#c2beb5;margin:0;max-width:430px}
+    .tag{padding:8px 10px;border:1px solid var(--line);font:800 .7rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#bfc2c4;background:#0d1116;clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px)}
+    .tag.hot{border-color:rgba(255,93,168,.5);color:#ff9dc9}.tag.cyan{border-color:rgba(89,220,225,.45);color:#a5f2f4}.tag.gold{border-color:rgba(214,180,93,.5);color:var(--gold2)}
 
-    section{padding:72px 0;border-top:1px solid rgba(255,255,255,.06)}
-    .section-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:30px}
-    .section-kicker{font:800 .72rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
-    .section-title{font-family:var(--serif);font-size:clamp(2.2rem,4.7vw,4.25rem);line-height:.95;font-weight:500;letter-spacing:-.035em;margin:0}
-    .section-note{max-width:420px;color:var(--muted);font-size:.92rem;margin:0}
+    .hero-visual{position:relative;min-height:565px}
+    .hero-frame{position:absolute;inset:8px 0 0 34px;border:1px solid var(--line);background:#11161d;overflow:hidden;clip-path:polygon(12% 0,100% 0,100% 88%,88% 100%,0 100%,0 12%);box-shadow:var(--shadow)}
+    .hero-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:56% 18%;filter:saturate(.88) contrast(1.08) brightness(.92);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+    .hero-frame:hover img{transform:scale(1.025)}
+    .hero-frame::after{content:"";position:absolute;inset:0;background:
+      linear-gradient(to top,rgba(7,9,13,.98),rgba(7,9,13,.62) 34%,rgba(7,9,13,.06) 72%),
+      linear-gradient(135deg,rgba(255,93,168,.11),transparent 32%,rgba(89,220,225,.08) 78%,transparent)}
+    .scan{position:absolute;z-index:2;inset:0;background:linear-gradient(to bottom,transparent 0 45%,rgba(89,220,225,.08) 49.5%,transparent 52%);background-size:100% 220%;animation:scan 9s linear infinite;mix-blend-mode:screen;pointer-events:none}
+    .hero-copy{position:absolute;left:28px;right:28px;bottom:27px;z-index:3}
+    .hero-copy .mini{font:900 .67rem var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--pink)}
+    .hero-copy h2{font-family:var(--serif);font-size:clamp(2.35rem,4vw,3.65rem);line-height:.9;font-weight:500;margin:8px 0 12px;max-width:480px}
+    .hero-copy p{color:#c1bdb5;margin:0;max-width:480px;font-size:.9rem}
+    .orbit{position:absolute;border:1px solid rgba(255,255,255,.16);border-radius:50%;pointer-events:none}
+    .orbit.o1{width:190px;height:190px;right:-35px;top:-30px;border-color:rgba(89,220,225,.3)}
+    .orbit.o2{width:280px;height:280px;right:-80px;top:-75px;border-color:rgba(214,180,93,.22)}
+    .orbit-dot{position:absolute;right:92px;top:71px;width:9px;height:9px;border-radius:50%;background:var(--pink);box-shadow:0 0 20px rgba(255,93,168,.8);animation:pulse 2.2s ease-in-out infinite}
+    .hero-side-note{position:absolute;left:0;top:46px;z-index:5;writing-mode:vertical-rl;transform:rotate(180deg);font:900 .64rem var(--mono);letter-spacing:.14em;color:#66707b;text-transform:uppercase}
+    .tele-chip{position:absolute;z-index:5;background:rgba(8,10,15,.9);border:1px solid var(--line);padding:10px 12px;font:800 .66rem var(--mono);text-transform:uppercase;letter-spacing:.08em;box-shadow:0 12px 40px rgba(0,0,0,.3)}
+    .tele-chip strong{display:block;font-family:var(--serif);font-size:1.5rem;letter-spacing:0;text-transform:none;color:var(--ink);margin-top:2px;font-weight:500}
+    .tele-chip.c1{right:-16px;bottom:74px;border-left:2px solid var(--cyan)}
+    .tele-chip.c2{left:-2px;bottom:2px;border-left:2px solid var(--pink)}
 
-    .quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    .quick-card{min-height:220px;padding:24px;border:1px solid var(--line);background:linear-gradient(155deg,#11161c,#0d1116);display:flex;flex-direction:column;justify-content:space-between}
-    .quick-icon{width:44px;height:44px;border:1px solid #37414b;display:grid;place-items:center;font-size:1.25rem;background:#090d11}
-    .quick-card h3{font-size:1.02rem;margin:28px 0 8px}.quick-card p{font-size:.88rem;color:#99968f;margin:0}
-    .quick-card:nth-child(1){border-top:3px solid var(--cyan)}.quick-card:nth-child(2){border-top:3px solid var(--pink)}.quick-card:nth-child(3){border-top:3px solid var(--gold)}.quick-card:nth-child(4){border-top:3px solid var(--acid)}
+    .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+    .bento-card{position:relative;overflow:hidden;border:1px solid var(--line);background:linear-gradient(155deg,#111821,#0d1218);padding:24px;min-height:220px;transition:transform .25s ease,border-color .25s ease,background .25s ease}
+    .bento-card:hover{transform:translateY(-4px);border-color:#43505e;background:linear-gradient(155deg,#131b25,#0e141b)}
+    .bento-card::after{content:"";position:absolute;right:-45px;bottom:-55px;width:140px;height:140px;border:1px solid rgba(255,255,255,.05);border-radius:50%}
+    .bento-card.wide{grid-column:span 5}.bento-card.tall{grid-column:span 3;min-height:330px}.bento-card.mid{grid-column:span 4}
+    .bento-card:nth-child(1){border-top:3px solid var(--cyan)}.bento-card:nth-child(2){border-top:3px solid var(--pink)}.bento-card:nth-child(3){border-top:3px solid var(--gold)}.bento-card:nth-child(4){border-top:3px solid var(--acid)}
+    .bento-icon{width:46px;height:46px;border:1px solid #394552;display:grid;place-items:center;font-size:1.2rem;background:#090d12;margin-bottom:42px}
+    .bento-card h3{font-family:var(--serif);font-size:1.7rem;font-weight:500;margin:0 0 9px;line-height:1}.bento-card p{font-size:.88rem;color:#9d9992;margin:0;max-width:460px}
+    .bento-card .micro{position:absolute;right:16px;top:17px;font:800 .61rem var(--mono);letter-spacing:.1em;color:#5f6871;text-transform:uppercase}
 
-    .facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .fact{padding:22px 18px;border-right:1px solid var(--line)}.fact:first-child{padding-left:0}.fact:last-child{border-right:0}
-    .fact b{display:block;font-family:var(--serif);font-size:2.25rem;font-weight:500;line-height:1;margin-bottom:7px}.fact span{display:block;color:var(--muted);font-size:.76rem;text-transform:uppercase;letter-spacing:.08em}.fact small{display:block;color:#696f76;margin-top:6px}
+    .facts{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;border:1px solid var(--line);background:#0d1218;box-shadow:0 18px 60px rgba(0,0,0,.18)}
+    .fact{position:relative;padding:27px 24px;border-right:1px solid var(--line);overflow:hidden}.fact:last-child{border-right:0}
+    .fact::after{content:"";position:absolute;left:24px;right:24px;bottom:13px;height:2px;background:#1e2832}.fact::before{content:"";position:absolute;left:24px;bottom:13px;height:2px;background:var(--cyan);width:var(--meter,62%)}
+    .fact:nth-child(2)::before{background:var(--pink)}.fact:nth-child(3)::before{background:var(--gold)}.fact:nth-child(4)::before{background:var(--acid)}
+    .fact b{display:block;font-family:var(--serif);font-size:clamp(2rem,3vw,3rem);font-weight:500;line-height:1;margin-bottom:8px}.fact span{display:block;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}.fact small{display:block;color:#666e77;margin-top:7px;font-size:.72rem}
 
-    .field-grid{display:grid;grid-template-columns:minmax(320px,.9fr) minmax(0,1.1fr);gap:58px;align-items:center}
-    .field-visual{min-height:430px;position:relative;display:grid;place-items:center;background:#0d1218;border:1px solid var(--line);overflow:hidden}
-    .ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.14);display:grid;place-items:start center;padding-top:10px;font:800 .64rem var(--mono);letter-spacing:.11em;text-transform:uppercase}
-    .ring.r1{width:150px;height:150px;border-color:rgba(255,90,167,.45);color:#ff91c1}.ring.r2{width:260px;height:260px;border-color:rgba(215,182,93,.42);color:var(--gold2)}.ring.r3{width:370px;height:370px;border-color:rgba(85,217,221,.35);color:#8ae8eb}
-    .self{width:74px;height:74px;border-radius:50%;background:var(--ink);color:#111;display:grid;place-items:center;z-index:4;font:900 .75rem var(--mono)}
-    .threat{position:absolute;right:6%;top:47%;font:800 .7rem var(--mono);color:var(--red);letter-spacing:.09em}.threat::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin-right:7px}
-    .field-copy h3{font-family:var(--serif);font-size:clamp(2rem,3.7vw,3.55rem);line-height:1.02;font-weight:500;margin:0 0 18px}.field-copy h3 em{font-style:normal;color:var(--pink)}
+    .field-grid{display:grid;grid-template-columns:minmax(340px,.95fr) minmax(0,1.05fr);gap:60px;align-items:center}
+    .field-visual{min-height:500px;position:relative;display:grid;place-items:center;background:
+      radial-gradient(circle at center,rgba(89,220,225,.04),transparent 40%),#0c1218;border:1px solid var(--line);overflow:hidden;clip-path:polygon(0 0,92% 0,100% 8%,100% 100%,8% 100%,0 92%)}
+    .field-visual::before{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at center,transparent 0 59px,rgba(255,255,255,.045) 60px 61px);opacity:.8}
+    .field-visual::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(255,255,255,.06);box-shadow:-150px 0 0 rgba(255,255,255,.035),150px 0 0 rgba(255,255,255,.035)}
+    .ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.14);display:grid;place-items:start center;padding-top:10px;font:900 .61rem var(--mono);letter-spacing:.1em;text-transform:uppercase}
+    .ring.r1{width:145px;height:145px;border-color:rgba(255,93,168,.42);color:#ff91bf}.ring.r2{width:270px;height:270px;border-color:rgba(214,180,93,.38);color:var(--gold2)}.ring.r3{width:405px;height:405px;border-color:rgba(89,220,225,.32);color:#8eecef}
+    .self{width:78px;height:78px;border-radius:50%;background:var(--ink);color:#111;display:grid;place-items:center;z-index:4;font:900 .74rem var(--mono);box-shadow:0 0 0 10px rgba(247,242,232,.03)}
+    .threat{position:absolute;right:6%;top:45%;z-index:5;font:900 .66rem var(--mono);color:var(--red);letter-spacing:.1em}.threat::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--red);margin-right:7px;box-shadow:0 0 0 0 rgba(255,113,109,.5);animation:ping 1.9s infinite}
+    .vector{position:absolute;height:1px;transform-origin:left center;background:linear-gradient(90deg,rgba(255,113,109,.75),transparent);width:38%;left:51%;top:50%;transform:rotate(-7deg);z-index:2}
+    .field-copy h3{font-family:var(--serif);font-size:clamp(2.2rem,4vw,3.9rem);line-height:.98;font-weight:500;margin:0 0 20px}.field-copy h3 em{font-style:normal;color:var(--pink)}
     .field-copy p{color:#b4b0a8;max-width:620px;margin:0 0 20px}
-    .field-rule{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:17px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .field-rule b{font:800 .7rem var(--mono);color:var(--acid);letter-spacing:.08em;text-transform:uppercase}.field-rule span{color:#ddd8ce}
+    .field-rule{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .field-rule b{font:900 .67rem var(--mono);color:var(--acid);letter-spacing:.09em;text-transform:uppercase}.field-rule span{color:#ddd8ce}
 
-    .lineage{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line)}
-    .champ{position:relative;min-height:400px;overflow:hidden;border-right:1px solid var(--line);display:flex;align-items:end}.champ:last-child{border-right:0}
-    .champ img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.68) contrast(1.06)}
+    .lineage{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;align-items:end}
+    .champ{position:relative;min-height:430px;overflow:hidden;border:1px solid var(--line);display:flex;align-items:end;transition:transform .25s ease,border-color .25s ease}
+    .champ:nth-child(1){min-height:360px}.champ:nth-child(2){min-height:390px}.champ:nth-child(3){min-height:410px}.champ:nth-child(4){min-height:455px}
+    .champ:hover{transform:translateY(-6px);border-color:#485462}
+    .champ img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.7) contrast(1.08);transition:transform .65s ease,filter .35s ease}.champ:hover img{transform:scale(1.035);filter:saturate(.9) contrast(1.08)}
     .champ:nth-child(1) img{object-position:58% 20%}.champ:nth-child(2) img{object-position:52% 20%}.champ:nth-child(3) img{object-position:58% 18%}.champ:nth-child(4) img{object-position:55% 18%}
-    .champ::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(8,10,14,.98),rgba(8,10,14,.56) 43%,rgba(8,10,14,.04) 80%)}
-    .champ-copy{position:relative;z-index:2;padding:22px}.champ-step{font:800 .66rem var(--mono);color:var(--gold);letter-spacing:.1em;text-transform:uppercase}.champ h3{font-family:var(--serif);font-size:2rem;font-weight:500;margin:5px 0 7px}.champ p{color:#b5b0a8;font-size:.83rem;margin:0}.champ.current{box-shadow:inset 0 0 0 1px rgba(255,90,167,.72)}.champ.current .champ-step{color:#ff91c1}
-    .lineage-caption{margin:18px 0 0 auto;max-width:710px;color:var(--muted);font-size:.9rem}
+    .champ::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(8,10,14,.99),rgba(8,10,14,.58) 43%,rgba(8,10,14,.03) 82%)}
+    .champ::before{content:attr(data-index);position:absolute;z-index:3;right:13px;top:9px;font-family:var(--serif);font-size:3rem;color:rgba(255,255,255,.12)}
+    .champ-copy{position:relative;z-index:2;padding:22px}.champ-step{font:900 .64rem var(--mono);color:var(--gold);letter-spacing:.12em;text-transform:uppercase}.champ h3{font-family:var(--serif);font-size:2rem;font-weight:500;margin:5px 0 7px}.champ p{color:#b5b0a8;font-size:.82rem;margin:0}.champ.current{border-color:rgba(255,93,168,.62);box-shadow:0 0 40px rgba(255,93,168,.06)}.champ.current .champ-step{color:#ff91c1}
+    .lineage-caption{margin:20px 0 0 auto;max-width:720px;color:var(--muted);font-size:.88rem}
 
-    .logic-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:16px}
-    .logic-card{border:1px solid var(--line);background:#0e1319;padding:24px;min-height:210px}
-    .logic-card h3{font-family:var(--serif);font-size:1.75rem;font-weight:500;margin:20px 0 8px}.logic-card p{color:#98958f;font-size:.89rem;margin:0}.logic-card.pink{border-top:3px solid var(--pink)}.logic-card.acid{border-top:3px solid var(--acid)}
-    .causal{border:1px solid var(--line);background:#11171e;padding:28px;display:flex;flex-direction:column;justify-content:center}
-    .causal-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:center;margin:20px 0 18px}
-    .node{min-height:90px;border:1px solid #39434d;display:grid;place-items:center;text-align:center;font-weight:800;font-size:.78rem}.node:nth-child(3){border-color:rgba(255,90,167,.45);color:#ff9ac7}.node:nth-child(5){border-color:rgba(183,239,75,.45);color:var(--acid)}
-    .arrow{color:#626b74}.causal blockquote{font-family:var(--serif);font-size:1.6rem;line-height:1.15;margin:0;color:#dfd9cf}
+    .effect-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:14px}
+    .item-stack{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .item-card{position:relative;border:1px solid var(--line);background:#0e141b;padding:25px;min-height:240px;overflow:hidden}
+    .item-card::after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-55px;top:-55px;border:1px solid rgba(255,255,255,.06)}
+    .item-card.pink{border-top:3px solid var(--pink)}.item-card.acid{border-top:3px solid var(--acid)}
+    .item-card .glyph{font-size:1.5rem}.item-card h3{font-family:var(--serif);font-size:2rem;font-weight:500;margin:28px 0 8px}.item-card p{color:#98958f;font-size:.88rem;margin:0}
+    .causal{border:1px solid var(--line);background:linear-gradient(135deg,#111923,#0d1218);padding:30px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+    .causal-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:9px;align-items:center;margin:20px 0 22px}
+    .node{min-height:88px;border:1px solid #39434d;display:grid;place-items:center;text-align:center;font:900 .72rem var(--mono);letter-spacing:.06em}.node:nth-child(3){border-color:rgba(255,93,168,.45);color:#ff9ac7}.node:nth-child(5){border-color:rgba(185,240,79,.45);color:var(--acid)}
+    .arrow{color:#626b74}.causal blockquote{font-family:var(--serif);font-size:clamp(1.45rem,2.4vw,2rem);line-height:1.08;margin:0;color:#e1dad0}
 
-    .insights{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .insight{border:1px solid var(--line);padding:22px;background:#0f141a}.insight-top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:12px}.insight h3{font-size:1rem;margin:0}.confidence{font:800 .65rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
-    .insight p{color:#aaa69e;margin:0;font-size:.9rem}.insight strong{color:var(--ink)}
-    .portrait-quote{margin-top:16px;border:1px solid rgba(215,182,93,.4);padding:26px;background:linear-gradient(135deg,rgba(215,182,93,.09),rgba(255,90,167,.05));font-family:var(--serif);font-size:clamp(1.55rem,3vw,2.7rem);line-height:1.08;text-align:center;color:#eee6d9}
+    .coord-wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(290px,.85fr);gap:16px}
+    .comms-panel{border:1px solid var(--line);background:#0d131a;padding:26px;position:relative;overflow:hidden}
+    .comms-panel::before{content:"COMMS FEED";position:absolute;right:18px;top:14px;font:900 .59rem var(--mono);letter-spacing:.13em;color:#56606b}
+    .chat-row{display:grid;grid-template-columns:54px 1fr;gap:15px;padding:20px 0;border-bottom:1px solid var(--line)}.chat-row:last-child{border-bottom:0}
+    .chat-icon{width:46px;height:46px;border:1px solid var(--line);display:grid;place-items:center;background:#080d12;font-size:1.1rem}.chat-row:nth-child(1) .chat-icon{border-color:rgba(89,220,225,.42)}.chat-row:nth-child(2) .chat-icon{border-color:rgba(255,113,109,.42)}
+    .chat-row h3{font-size:1rem;margin:0 0 5px}.chat-row p{color:#aaa69e;margin:0;font-size:.89rem}.chat-row strong{color:var(--ink)}
+    .bubble{display:inline-block;margin-top:10px;padding:9px 12px;background:#121b24;border-left:2px solid var(--cyan);font:800 .72rem var(--mono);color:#d9f8f9}
+    .ping-cluster{display:flex;gap:5px;margin-top:12px}.ping-dot{width:9px;height:9px;border-radius:50%;background:var(--red);animation:pingMini 1.35s ease-in-out infinite}.ping-dot:nth-child(2){animation-delay:.15s}.ping-dot:nth-child(3){animation-delay:.3s}.ping-dot:nth-child(4){animation-delay:.45s}.ping-dot:nth-child(5){animation-delay:.6s}
+    .target-panel{border:1px solid var(--line);background:linear-gradient(155deg,#131922,#0d1218);padding:25px;display:flex;flex-direction:column;justify-content:space-between;min-height:100%}
+    .target-label{font:900 .63rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+    .target-stack{display:grid;gap:8px;margin:24px 0}.target{display:grid;grid-template-columns:42px 1fr auto;gap:10px;align-items:center;padding:12px;border:1px solid #303b46;background:#0b1117}.target b{font-family:var(--serif);font-size:1.55rem;font-weight:500}.target small{font:900 .6rem var(--mono);color:#7c858e;letter-spacing:.07em}.target .rank{font:900 .65rem var(--mono);color:var(--gold)}
+    .target:nth-child(1){border-color:rgba(255,113,109,.55)}.target:nth-child(2){opacity:.83}.target:nth-child(3){opacity:.64}
+    .authority{padding-top:18px;border-top:1px solid var(--line)}.authority h3{font-family:var(--serif);font-size:1.8rem;font-weight:500;margin:0 0 8px}.authority p{color:#9e9a93;font-size:.86rem;margin:0}
 
-    .boundary{display:grid;grid-template-columns:.8fr 1.2fr;gap:42px;align-items:start}
-    .boundary-copy{font-family:var(--serif);font-size:2.35rem;line-height:1.03;color:#d9d4ca}
-    .unknowns{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
-    .unknown{padding:17px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}.unknown:nth-child(2n){border-right:0}.unknown b{display:block;font-size:.82rem;margin-bottom:4px}.unknown span{color:#777e85;font-size:.76rem}
+    .profile-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+    .insight{position:relative;border:1px solid var(--line);padding:24px;background:#0f151c;min-height:205px;overflow:hidden;transition:transform .25s ease,border-color .25s ease}.insight:hover{transform:translateY(-4px);border-color:#45515d}
+    .insight:nth-child(1),.insight:nth-child(4){grid-column:span 7}.insight:nth-child(2),.insight:nth-child(3){grid-column:span 5}.insight:nth-child(5),.insight:nth-child(6){grid-column:span 6}
+    .insight::before{content:attr(data-n);position:absolute;right:14px;bottom:-14px;font-family:var(--serif);font-size:7rem;line-height:1;color:rgba(255,255,255,.035)}
+    .insight-top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:12px;position:relative;z-index:1}.insight h3{font-family:var(--serif);font-size:1.6rem;font-weight:500;line-height:1.05;margin:0}.confidence{font:900 .61rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+    .insight p{color:#aaa69e;margin:0;font-size:.89rem;position:relative;z-index:1;max-width:620px}.insight strong{color:var(--ink)}
+    .portrait-quote{margin-top:18px;border:1px solid rgba(214,180,93,.4);padding:31px;background:linear-gradient(135deg,rgba(214,180,93,.08),rgba(255,93,168,.04),rgba(89,220,225,.03));font-family:var(--serif);font-size:clamp(1.65rem,3.4vw,3rem);line-height:1.02;text-align:center;color:#eee6da;box-shadow:0 25px 70px rgba(0,0,0,.15)}
 
-    .engine-card{position:relative;overflow:hidden;border:1px solid rgba(215,182,93,.34);background:linear-gradient(145deg,#11161d,#0b0f14);padding:26px 28px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start}
-    .engine-sigil{width:62px;height:62px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:1.35rem;color:var(--gold)}
-    .engine-card h3{margin:0 0 8px;font-size:1rem}.engine-card p{margin:0;color:#9e9a93;font-size:.86rem;max-width:850px}.engine-card .method{margin-top:12px;color:#777e85;font:700 .68rem var(--mono);letter-spacing:.05em}
+    .fog{position:relative;overflow:hidden;border:1px solid var(--line);background:#0d1218;padding:38px;min-height:380px;display:grid;grid-template-columns:.78fr 1.22fr;gap:45px;align-items:start}
+    .fog::before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 70% 35%,rgba(89,220,225,.06),transparent 28%),radial-gradient(circle at 35% 75%,rgba(157,135,255,.07),transparent 30%);filter:blur(25px)}
+    .fog::after{content:"FOG OF WAR";position:absolute;right:18px;top:14px;font:900 .59rem var(--mono);letter-spacing:.14em;color:#555e67}
+    .fog-copy{position:relative;z-index:1;font-family:var(--serif);font-size:2.4rem;line-height:1.02;color:#d9d4ca}
+    .unknowns{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+    .unknown{padding:17px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);background:rgba(8,10,15,.28)}.unknown:nth-child(2n){border-right:0}.unknown b{display:block;font-size:.81rem;margin-bottom:4px}.unknown span{color:#7a828a;font-size:.75rem}
 
-    footer{padding:28px 0 42px;color:#626970;font-size:.74rem}.footer-row{display:flex;justify-content:space-between;gap:20px}.footer-row b{color:#8f959b}
-    .reveal{opacity:0;transform:translateY(14px);transition:.5s ease}.reveal.visible{opacity:1;transform:none}
+    .engine-card{position:relative;overflow:hidden;border:1px solid rgba(214,180,93,.34);background:linear-gradient(145deg,#111820,#0b1015);padding:29px 30px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start;clip-path:polygon(0 0,97% 0,100% 18%,100% 100%,3% 100%,0 82%)}
+    .engine-sigil{width:66px;height:66px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:1.45rem;color:var(--gold);box-shadow:inset 0 0 24px rgba(214,180,93,.07)}
+    .engine-card h3{margin:2px 0 8px;font-size:1rem}.engine-card p{margin:0;color:#9e9a93;font-size:.86rem;max-width:870px}.engine-card .method{margin-top:13px;color:#737b83;font:800 .66rem var(--mono);letter-spacing:.06em}
 
-    @media(max-width:980px){.hero-grid,.field-grid,.boundary{grid-template-columns:1fr}.hero-card{max-width:680px}.quick-grid{grid-template-columns:1fr 1fr}.lineage{grid-template-columns:1fr 1fr}.champ:nth-child(2){border-right:0}.champ:nth-child(-n+2){border-bottom:1px solid var(--line)}.logic-grid{grid-template-columns:1fr}.causal-flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg);text-align:center}.section-head{align-items:start;flex-direction:column}.section-note{max-width:680px}}
-    @media(max-width:700px){.topnav{display:none}.hero{padding-top:54px}.hero h1{font-size:clamp(3.4rem,17vw,5.3rem)}.hero-card{min-height:410px}.quick-grid,.facts,.lineage,.insights,.unknowns{grid-template-columns:1fr}.fact{border-right:0;border-bottom:1px solid var(--line);padding:18px 0}.fact:last-child{border-bottom:0}.champ{min-height:360px;border-right:0;border-bottom:1px solid var(--line)}.champ:last-child{border-bottom:0}.field-visual{min-height:360px}.ring.r1{width:130px;height:130px}.ring.r2{width:220px;height:220px}.ring.r3{width:310px;height:310px}.engine-card{grid-template-columns:1fr}.footer-row{flex-direction:column}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
+    footer{padding:32px 0 48px;color:#626970;font-size:.73rem}.footer-row{display:flex;justify-content:space-between;gap:20px}.footer-row b{color:#8f959b}
+    .reveal{opacity:0;transform:translateY(16px);transition:.58s cubic-bezier(.2,.7,.2,1)}.reveal.visible{opacity:1;transform:none}
+    @keyframes pulse{0%,100%{transform:scale(.8);opacity:.6}50%{transform:scale(1.2);opacity:1}}
+    @keyframes ping{0%{box-shadow:0 0 0 0 rgba(255,113,109,.45)}70%{box-shadow:0 0 0 18px rgba(255,113,109,0)}100%{box-shadow:0 0 0 0 rgba(255,113,109,0)}}
+    @keyframes pingMini{0%,100%{transform:scale(.75);opacity:.35}50%{transform:scale(1.25);opacity:1}}
+    @keyframes scan{0%{background-position:0 -100%}100%{background-position:0 200%}}
+
+    @media(max-width:1050px){
+      .hero-grid,.field-grid{grid-template-columns:1fr}.hero{min-height:auto}.hero-visual{min-height:540px;max-width:760px}.hero-frame{left:20px}.section-head{grid-template-columns:1fr}.section-note{max-width:700px}.bento-card.wide{grid-column:span 7}.bento-card.tall{grid-column:span 5}.bento-card.mid{grid-column:span 6}.facts{grid-template-columns:1fr 1fr}.fact:nth-child(2){border-right:0}.fact:nth-child(-n+2){border-bottom:1px solid var(--line)}.lineage{grid-template-columns:1fr 1fr}.champ:nth-child(n){min-height:390px}.effect-grid,.coord-wrap,.fog{grid-template-columns:1fr}.target-panel{min-height:420px}.fog-copy{max-width:700px}.profile-grid .insight{grid-column:span 6}
+    }
+    @media(max-width:760px){
+      .shell{width:min(var(--max),calc(100% - 24px))}.topbar-inner{min-height:58px}.brand span:last-child{display:none}.topnav{max-width:58vw}.hero{padding-top:55px}.hero h1{font-size:clamp(3.8rem,18vw,6.1rem)}.hero h1 .mirror{font-size:.14em}.hero-visual{min-height:450px}.hero-frame{inset:8px 0 0 10px}.hero-side-note,.tele-chip{display:none}
+      section{padding:66px 0}.section-title{font-size:clamp(2.2rem,12vw,3.7rem)}.bento{grid-template-columns:1fr}.bento-card.wide,.bento-card.tall,.bento-card.mid{grid-column:auto;min-height:220px}.bento-icon{margin-bottom:28px}
+      .facts{grid-template-columns:1fr}.fact{border-right:0;border-bottom:1px solid var(--line)}.fact:last-child{border-bottom:0}.field-visual{min-height:390px}.ring.r1{width:120px;height:120px}.ring.r2{width:215px;height:215px}.ring.r3{width:320px;height:320px}.lineage{grid-template-columns:1fr}.champ:nth-child(n){min-height:390px}.item-stack{grid-template-columns:1fr}.causal-flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg);text-align:center}.chat-row{grid-template-columns:42px 1fr}.chat-icon{width:38px;height:38px}.profile-grid{grid-template-columns:1fr}.profile-grid .insight{grid-column:auto}.unknowns{grid-template-columns:1fr}.unknown{border-right:0}.fog{padding:28px 22px}.engine-card{grid-template-columns:1fr}.footer-row{flex-direction:column}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.scan,.orbit-dot,.threat::before,.ping-dot{animation:none}.hero-frame img,.bento-card,.champ,.insight{transition:none}}
   </style>
 </head>
 <body>
   <div class="progress" id="progress"></div>
+  <div class="noise" aria-hidden="true"></div>
 
   <header class="topbar">
     <div class="shell topbar-inner">
-      <div class="brand"><span class="brand-mark" aria-hidden="true"></span><span data-i="brand">MOON · LEAGUE OF LEGENDS</span></div>
+      <div class="brand"><span class="brand-mark" aria-hidden="true"></span><span data-i="brand">RIFT MIRROR · MOON</span></div>
       <div class="top-actions">
-        <nav class="topnav" aria-label="Seções"><a href="#resumo" data-i="nav.summary">Resumo</a><a href="#assinatura" data-i="nav.signature">Como joga</a><a href="#mains" data-i="nav.mains">Mains</a><a href="#coord" data-i="nav.coord">Coordenação</a><a href="#perfil" data-i="nav.profile">Padrões</a></nav>
+        <nav class="topnav" aria-label="Seções">
+          <a href="#resumo" data-i="nav.summary">Resumo</a><a href="#assinatura" data-i="nav.signature">Fight</a><a href="#mains" data-i="nav.mains">Mains</a><a href="#coord" data-i="nav.coord">Coordenação</a><a href="#perfil" data-i="nav.profile">Padrões</a>
+        </nav>
         <div class="lang-toggle" aria-label="Idioma / Language">
           <button type="button" data-lang="pt" class="active" aria-label="Português do Brasil"><img src="/images/brazil.png" alt=""></button>
           <button type="button" data-lang="en" aria-label="English"><img src="/images/usa.png" alt=""></button>
@@ -144,89 +223,100 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero" id="top">
       <div class="shell hero-grid">
         <div>
-          <div class="eyebrow" data-i="hero.eyebrow">Perfil de jogo · League of Legends</div>
-          <h1 data-i="hero.title">Moon no <span>Rift</span></h1>
-          <p class="hero-lead" data-i="hero.lead">O que mais se repete no jogo de Moon não é simplesmente “mago”. É <strong>range, poke, controle de espaço, utility, teamfight e coordenação</strong>. Ela gosta de participar da fight sem ficar grudada no melee e, quando percebe perigo, tende a transformar essa leitura em aviso ou call para o grupo.</p>
-          <div class="hero-tags"><span class="tag hot" data-i="tag.ranged">range</span><span class="tag cyan">AP</span><span class="tag gold">ARAM</span><span class="tag" data-i="tag.control">controle de fight</span><span class="tag" data-i="tag.utility">utility</span></div>
+          <div class="eyebrow" data-i="hero.eyebrow">RIFT MIRROR · perfil de jogo</div>
+          <h1 data-i="hero.title">Moon no <span class="rift">Rift</span><span class="mirror">playstyle & personality engine</span></h1>
+          <p class="hero-lead" data-i="hero.lead">O padrão não é simplesmente “mago”. É <strong>range, poke, controle de espaço, utility, teamfight e coordenação</strong>. Moon entra no caos do ARAM, mas tenta transformar ameaça em informação, informação em call e call em espaço jogável.</p>
+          <div class="hero-tags"><span class="tag hot" data-i="tag.ranged">range</span><span class="tag cyan">AP</span><span class="tag gold">ARAM</span><span class="tag" data-i="tag.control">fight control</span><span class="tag" data-i="tag.utility">utility</span></div>
         </div>
-        <aside class="hero-card reveal">
-          <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Mel_0.jpg" alt="Mel" onerror="this.remove()">
-          <div class="hero-card-copy"><div class="mini" data-i="hero.archetypeLabel">Jeito de jogar</div><h2 data-i="hero.archetype">Controladora de Fight à Distância</h2><p data-i="hero.archetypeText">Prefere poke, CC, zoneamento e espaço para reposicionar. Entra no caos do ARAM, mas tenta deixar a fight jogável para ela e legível para o time.</p></div>
-        </aside>
+        <div class="hero-visual reveal" aria-label="Mel, champion principal de Moon">
+          <div class="hero-side-note" data-i="hero.side">LIVE PROFILE · 2026</div>
+          <div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit-dot"></div>
+          <div class="hero-frame">
+            <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Mel_0.jpg" alt="Mel" onerror="this.remove()">
+            <div class="scan" aria-hidden="true"></div>
+            <div class="hero-copy"><div class="mini" data-i="hero.archetypeLabel">arquétipo de jogo</div><h2 data-i="hero.archetype">Controladora de Fight à Distância</h2><p data-i="hero.archetypeText">Poke, CC, zoneamento, leitura de risco e espaço para reposicionar. O caos existe; ela prefere que ele tenha um mapa.</p></div>
+          </div>
+          <div class="tele-chip c1" data-i="tele1">CORE SIGNAL<strong>controle</strong></div>
+          <div class="tele-chip c2" data-i="tele2">SOCIAL SIGNAL<strong>coordenação</strong></div>
+        </div>
       </div>
     </section>
 
     <section id="resumo">
       <div class="shell">
-        <div class="section-head"><div><div class="section-kicker" data-i="quick.kicker">O que mais se repete</div><h2 class="section-title" data-i="quick.title">Quatro padrões que qualquer lolzeiro reconhece.</h2></div><p class="section-note" data-i="quick.note">Eles aparecem nas mains, nos modos, nas builds e agora também nas comms.</p></div>
-        <div class="quick-grid reveal">
-          <article class="quick-card"><div class="quick-icon">◎</div><div><h3 data-i="quick1.title">Range acima de tudo</h3><p data-i="quick1.text">AP é o sabor favorito, mas o padrão principal é outro: quase sempre Moon quer bater de longe.</p></div></article>
-          <article class="quick-card"><div class="quick-icon">✦</div><div><h3 data-i="quick2.title">ARAM é a casa</h3><p data-i="quick2.text">Ela curte fight o tempo todo, comps aleatórias e improviso. Mayhem só aumenta isso.</p></div></article>
-          <article class="quick-card"><div class="quick-icon">⌁</div><div><h3 data-i="quick3.title">Cuida coordenando</h3><p data-i="quick3.text">CC, peel e utility aparecem no kit; pings de perigo e calls de foco aparecem na comunicação. O cuidado vira ação coletiva.</p></div></article>
-          <article class="quick-card"><div class="quick-icon">♨</div><div><h3 data-i="quick4.title">Dano que não acaba no hit</h3><p data-i="quick4.text">Liandry + corta-cura: o alvo apanha agora e continua sentindo depois.</p></div></article>
+        <div class="section-head"><div><div class="section-kicker" data-i="quick.kicker">Assinatura recorrente</div><h2 class="section-title" data-i="quick.title">Quatro coisas que voltam, qualquer que seja o boneco.</h2></div><p class="section-note" data-i="quick.note">O champion muda. A lógica reaparece nas mains, nos modos, nas builds e até na forma de usar o chat.</p></div>
+        <div class="bento reveal">
+          <article class="bento-card wide"><span class="micro">01 · POSITION</span><div class="bento-icon">◎</div><h3 data-i="quick1.title">Range acima de tudo</h3><p data-i="quick1.text">AP é o sabor favorito, mas o padrão mais profundo é distância: Moon quer ângulo, alcance e tempo para reagir antes de ficar presa no corpo a corpo.</p></article>
+          <article class="bento-card tall"><span class="micro">02 · ENVIRONMENT</span><div class="bento-icon">✦</div><h3 data-i="quick2.title">ARAM é a casa</h3><p data-i="quick2.text">Fight constante, comp aleatória e improviso. Mayhem não muda o princípio; só coloca mais gasolina no laboratório.</p></article>
+          <article class="bento-card mid"><span class="micro">03 · TEAM</span><div class="bento-icon">⌁</div><h3 data-i="quick3.title">Cuida coordenando</h3><p data-i="quick3.text">Utility aparece nos champions e nas comms. Pings de perigo, calls de foco e leitura coletiva transformam cuidado em ação de campo.</p></article>
+          <article class="bento-card mid"><span class="micro">04 · PRESSURE</span><div class="bento-icon">♨</div><h3 data-i="quick4.title">Dano que continua depois</h3><p data-i="quick4.text">Liandry + corta-cura: acertar não é só causar um número agora. É deixar a troca continuar relevante por alguns segundos.</p></article>
         </div>
       </div>
     </section>
 
     <section>
       <div class="shell">
-        <div class="section-head"><div><div class="section-kicker" data-i="facts.kicker">O perfil em números</div><h2 class="section-title" data-i="facts.title">Joga muita coisa. Volta pro mesmo tipo de jogo.</h2></div><p class="section-note" data-i="facts.note">O pool é grande, mas as escolhas favoritas continuam bem parecidas.</p></div>
+        <div class="section-head"><div><div class="section-kicker" data-i="facts.kicker">Telemetria histórica</div><h2 class="section-title" data-i="facts.title">Pool enorme. Assinatura surpreendentemente estável.</h2></div><p class="section-note" data-i="facts.note">Os números mostram exploração ampla; o padrão qualitativo mostra para onde Moon tende a voltar.</p></div>
         <div class="facts reveal">
-          <div class="fact"><b>3.212.880</b><span data-i="fact1.label">pontos de campeão</span><small data-i="fact1.note">histórico total fornecido</small></div>
-          <div class="fact"><b>556</b><span data-i="fact2.label">pontuação de maestria</span></div>
-          <div class="fact"><b>140 / 173</b><span data-i="fact3.label">campeões com maestria</span><small data-i="fact3.note">cerca de 81% do elenco listado</small></div>
-          <div class="fact"><b>2019 →</b><span data-i="fact4.label">tempo de jogo</span><small data-i="fact4.note">ARAM como casa há anos</small></div>
+          <div class="fact" style="--meter:88%"><b>3.212.880</b><span data-i="fact1.label">pontos de campeão</span><small data-i="fact1.note">histórico total fornecido</small></div>
+          <div class="fact" style="--meter:62%"><b>556</b><span data-i="fact2.label">pontuação de maestria</span></div>
+          <div class="fact" style="--meter:81%"><b>140 / 173</b><span data-i="fact3.label">campeões com maestria</span><small data-i="fact3.note">cerca de 81% do elenco listado</small></div>
+          <div class="fact" style="--meter:74%"><b>2019 →</b><span data-i="fact4.label">tempo de jogo</span><small data-i="fact4.note">ARAM como casa há anos</small></div>
         </div>
       </div>
     </section>
 
     <section id="assinatura">
       <div class="shell">
-        <div class="section-head"><div><div class="section-kicker" data-i="field.kicker">Como Moon joga a fight</div><h2 class="section-title" data-i="field.title">Quer espaço para castar, kitear e reposicionar.</h2></div></div>
+        <div class="section-head"><div><div class="section-kicker" data-i="field.kicker">Geometria da fight</div><h2 class="section-title" data-i="field.title">Moon gosta do caos quando ainda existe distância para pensar.</h2></div><p class="section-note" data-i="field.note">Não é jogar passivamente. É entrar com uma camada espacial entre ela e a ameaça.</p></div>
         <div class="field-grid">
-          <div class="field-visual reveal" aria-label="Diagrama de alcance"><div class="ring r3" data-i="ring3">poke · leitura · ameaça</div><div class="ring r2" data-i="ring2">zoneamento · CC · deny</div><div class="ring r1" data-i="ring1">peel · reflexo · saída</div><div class="self">MOON</div><div class="threat" data-i="threat">AMEAÇA</div></div>
-          <div class="field-copy reveal"><h3 data-i="field.headline">Ela topa se expor.<br><em>Só não quer ficar presa no melee.</em></h3><p data-i="field.text">As partidas recentes têm bastante participação e várias mortes, então Moon não parece ser aquela jogadora que fica três telas atrás só para proteger o KDA. Ela entra na fight, mas prefere fazer isso com range, rota de fuga e espaço para reposicionar.</p><div class="field-rule"><b data-i="field.ruleLabel">Na prática</b><span data-i="field.rule">Quanto mais Moon consegue escolher distância, ângulo e timing, mais confortável fica. Bruiser colado nela por dez segundos? Aí já virou pesadelo.</span></div></div>
+          <div class="field-visual reveal" aria-label="Diagrama de alcance e ameaça"><div class="ring r3" data-i="ring3">poke · leitura · ameaça</div><div class="ring r2" data-i="ring2">zoneamento · CC · deny</div><div class="ring r1" data-i="ring1">peel · reflexo · saída</div><div class="self">MOON</div><div class="vector"></div><div class="threat" data-i="threat">AMEAÇA</div></div>
+          <div class="field-copy reveal"><h3 data-i="field.headline">Ela topa se expor.<br><em>Só não quer perder a geometria.</em></h3><p data-i="field.text">As partidas recentes têm participação alta e várias mortes, então não aparece uma jogadora obcecada em proteger KDA. Moon entra na fight. O conforto vem quando pode escolher distância, ângulo, timing e rota de saída.</p><div class="field-rule"><b data-i="field.ruleLabel">Na prática</b><span data-i="field.rule">Quanto mais a fight permite castar, kitear, ler e reposicionar, mais o jogo encaixa. Bruiser colado por dez segundos? Crime de guerra.</span></div></div>
         </div>
       </div>
     </section>
 
     <section id="mains">
       <div class="shell">
-        <div class="section-head"><div><div class="section-kicker" data-i="mains.kicker">A linha das mains</div><h2 class="section-title">Sona → Seraphine → Morgana → Mel</h2></div><p class="section-note" data-i="mains.note">O boneco muda, mas a lógica continua: utility, controle e range, com cada vez mais dano próprio.</p></div>
+        <div class="section-head"><div><div class="section-kicker" data-i="mains.kicker">Lineage das mains</div><h2 class="section-title">Sona → Seraphine → Morgana → Mel</h2></div><p class="section-note" data-i="mains.note">A linha não parece uma sequência de identidades diferentes. Parece uma mesma gramática ganhando dentes.</p></div>
         <div class="lineage reveal">
-          <article class="champ"><img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sona_0.jpg" alt="Sona"><div class="champ-copy"><div class="champ-step" data-i="sona.step">amplificar</div><h3>Sona</h3><p data-i="sona.text">Buffa, cura, acelera e salva a fight.</p></div></article>
-          <article class="champ"><img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Seraphine_0.jpg" alt="Seraphine"><div class="champ-copy"><div class="champ-step" data-i="sera.step">conduzir</div><h3>Seraphine</h3><p data-i="sera.text">Range enorme, CC em cadeia e assist até dizer chega.</p></div></article>
-          <article class="champ"><img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Morgana_0.jpg" alt="Morgana"><div class="champ-copy"><div class="champ-step" data-i="morg.step">negar</div><h3>Morgana</h3><p data-i="morg.text">Bind, shield, zoneamento e negação.</p></div></article>
-          <article class="champ current"><img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Mel_0.jpg" alt="Mel"><div class="champ-copy"><div class="champ-step" data-i="mel.step">ameaçar</div><h3>Mel</h3><p data-i="mel.text">Mantém o controle de longe, mas agora também explode gente.</p></div></article>
+          <article class="champ" data-index="01"><img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sona_0.jpg" alt="Sona"><div class="champ-copy"><div class="champ-step" data-i="sona.step">amplificar</div><h3>Sona</h3><p data-i="sona.text">Buffa, cura, acelera e salva a fight.</p></div></article>
+          <article class="champ" data-index="02"><img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Seraphine_0.jpg" alt="Seraphine"><div class="champ-copy"><div class="champ-step" data-i="sera.step">conduzir</div><h3>Seraphine</h3><p data-i="sera.text">Range enorme, CC em cadeia e assist até dizer chega.</p></div></article>
+          <article class="champ" data-index="03"><img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Morgana_0.jpg" alt="Morgana"><div class="champ-copy"><div class="champ-step" data-i="morg.step">negar</div><h3>Morgana</h3><p data-i="morg.text">Bind, shield, zoneamento e negação.</p></div></article>
+          <article class="champ current" data-index="04"><img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Mel_0.jpg" alt="Mel"><div class="champ-copy"><div class="champ-step" data-i="mel.step">ameaçar</div><h3>Mel</h3><p data-i="mel.text">Mantém o controle de longe, mas agora também explode gente.</p></div></article>
         </div>
-        <p class="lineage-caption" data-i="mains.caption">Sona, Seraphine e Morgana puxam forte para controle e utility. Mel preserva isso, mas aumenta bastante a ameaça individual. Não é trocar de estilo; é o mesmo estilo ficando mais agressivo.</p>
+        <p class="lineage-caption" data-i="mains.caption">Sona, Seraphine e Morgana puxam forte para controle e utility. Mel preserva isso e aumenta a ameaça individual. Não parece troca de estilo; parece o mesmo estilo ficando mais agressivo.</p>
       </div>
     </section>
 
     <section>
       <div class="shell">
-        <div class="section-head"><div><div class="section-kicker" data-i="items.kicker">O que as builds mostram</div><h2 class="section-title" data-i="items.title">Liandry + corta-cura: bateu, continua doendo.</h2></div><p class="section-note" data-i="items.note">Os dois favoritos mantêm pressão mesmo depois da primeira troca.</p></div>
-        <div class="logic-grid">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-            <article class="logic-card pink reveal"><div>♨</div><h3>Liandry</h3><p data-i="liandry.text">Acertou a skill, o alvo continua queimando. Pressão sem precisar ficar colada.</p></article>
-            <article class="logic-card acid reveal"><div>✚̸</div><h3 data-i="anti.title">Corta-cura</h3><p data-i="anti.text">Mesmo que o alvo tente se curar, a troca não é apagada tão fácil.</p></article>
+        <div class="section-head"><div><div class="section-kicker" data-i="items.kicker">Lógica de itemização</div><h2 class="section-title" data-i="items.title">Acertou. Queimou. Curou menos.</h2></div><p class="section-note" data-i="items.note">Dois favoritos desenham a mesma preferência: pressão que persiste depois do primeiro contato.</p></div>
+        <div class="effect-grid">
+          <div class="item-stack">
+            <article class="item-card pink reveal"><div class="glyph">♨</div><h3>Liandry</h3><p data-i="liandry.text">Acertou a skill, o alvo continua queimando. Pressão sem precisar ficar colada.</p></article>
+            <article class="item-card acid reveal"><div class="glyph">✚̸</div><h3 data-i="anti.title">Corta-cura</h3><p data-i="anti.text">Mesmo que o alvo tente se recuperar, a troca não desaparece tão facilmente.</p></article>
           </div>
-          <div class="causal reveal"><div class="causal-flow"><div class="node" data-i="causal1">ACERTA</div><div class="arrow">→</div><div class="node" data-i="causal2">QUEIMA</div><div class="arrow">→</div><div class="node" data-i="causal3">CURA MENOS</div></div><blockquote data-i="items.quote">Moon claramente gosta quando um hit continua relevante alguns segundos depois.</blockquote></div>
+          <div class="causal reveal"><div class="causal-flow"><div class="node" data-i="causal1">ACERTA</div><div class="arrow">→</div><div class="node" data-i="causal2">QUEIMA</div><div class="arrow">→</div><div class="node" data-i="causal3">CURA MENOS</div></div><blockquote data-i="items.quote">Moon parece gostar quando uma ação continua produzindo consequência depois que o botão já foi apertado.</blockquote></div>
         </div>
       </div>
     </section>
 
     <section id="coord">
       <div class="shell">
-        <div class="section-head"><div><div class="section-kicker" data-i="coord.kicker">Comms, pings e shotcall</div><h2 class="section-title" data-i="coord.title">A fight também vira um problema de coordenação.</h2></div><p class="section-note" data-i="coord.note">Três comportamentos saíram da coluna do “desconhecido” e revelaram um quarto padrão por trás deles.</p></div>
-        <div class="insights reveal">
-          <article class="insight"><div class="insight-top"><h3 data-i="coord1.title">“Bom game a todos”</h3><span class="confidence" data-i="conf.observed">observado</span></div><p data-i="coord1.text">Moon abre <strong>toda partida no /all desejando bom jogo aos dez jogadores</strong>. É um pequeno ritual de civilidade antes da competição e uma tentativa de estabelecer o clima social da partida, não só de falar com quem pode ajudá-la a vencer.</p></article>
-          <article class="insight"><div class="insight-top"><h3 data-i="coord2.title">Ping de perigo é reflexo</h3><span class="confidence" data-i="conf.strong">forte</span></div><p data-i="coord2.text">Quando percebe um aliado se colocando em risco, Moon pinga freneticamente quase sem pensar. <strong>A leitura de ameaça vira aviso coletivo antes de virar decisão consciente.</strong> É vigilância ambiental externalizada para o grupo.</p></article>
-          <article class="insight"><div class="insight-top"><h3 data-i="coord3.title">Foco X &gt; Y &gt; Z</h3><span class="confidence" data-i="conf.strong2">forte</span></div><p data-i="coord3.text">Quando identifica inimigos muito à frente no placar, Moon transforma o perigo em uma <strong>hierarquia acionável de prioridades</strong>: quem precisa cair primeiro, depois quem vem em seguida. É triagem de risco em linguagem de ARAM.</p></article>
-          <article class="insight"><div class="insight-top"><h3 data-i="coord4.title">Liderança sem crachá de carry</h3><span class="confidence" data-i="conf.strong3">forte</span></div><p data-i="coord4.text">Ela dá a call mesmo quando o próprio KDA está ruim. Isso sugere que, para Moon, <strong>a validade da leitura não depende de ela estar performando melhor que os outros</strong>. O atrito aparece quando o time exige status no placar como licença para liderar.</p></article>
+        <div class="section-head"><div><div class="section-kicker" data-i="coord.kicker">Comms, pings e shotcall</div><h2 class="section-title" data-i="coord.title">Ela não só lê o perigo. Tenta distribuí-lo como informação.</h2></div><p class="section-note" data-i="coord.note">Aqui o perfil deixa de ser apenas mecânico. O comportamento social do jogo mostra como Moon tenta organizar um grupo sob pressão.</p></div>
+        <div class="coord-wrap reveal">
+          <div class="comms-panel">
+            <div class="chat-row"><div class="chat-icon">☍</div><div><h3 data-i="coord1.title">“Bom game a todos”</h3><p data-i="coord1.text">Moon abre <strong>toda partida no /all desejando bom jogo aos dez jogadores</strong>. É um ritual pequeno de civilidade que tenta definir o clima social antes da competição.</p><span class="bubble" data-i="coord1.bubble">/all Bom game a todos ✦</span></div></div>
+            <div class="chat-row"><div class="chat-icon">!</div><div><h3 data-i="coord2.title">Ping de perigo é reflexo</h3><p data-i="coord2.text">Quando percebe um aliado avançando para uma zona ruim, o ping vem quase antes do pensamento. <strong>A leitura de ameaça vira aviso coletivo automaticamente.</strong></p><div class="ping-cluster" aria-hidden="true"><span class="ping-dot"></span><span class="ping-dot"></span><span class="ping-dot"></span><span class="ping-dot"></span><span class="ping-dot"></span></div></div></div>
+          </div>
+          <aside class="target-panel">
+            <div><div class="target-label" data-i="target.label">THREAT PRIORITY</div><div class="target-stack"><div class="target"><span class="rank">#1</span><b>X</b><small data-i="target.hot">mais feedado</small></div><div class="target"><span class="rank">#2</span><b>Y</b><small data-i="target.high">alto risco</small></div><div class="target"><span class="rank">#3</span><b>Z</b><small data-i="target.watch">vigiar</small></div></div></div>
+            <div class="authority"><h3 data-i="coord4.title">Liderança sem crachá de carry</h3><p data-i="coord4.text">Moon dá a call mesmo com KDA ruim. O padrão sugere que, para ela, <strong>a validade da leitura não depende de estar performando melhor que os outros</strong>. Se enxerga um problema coletivo, tenta coordená-lo.</p></div>
+          </aside>
         </div>
         <div class="portrait-quote reveal" data-i="coord.quote">Se o grupo está exposto, Moon tenta organizar o perigo mesmo quando ela própria não está brilhando.</div>
       </div>
@@ -234,72 +324,69 @@
 
     <section id="perfil">
       <div class="shell">
-        <div class="section-head"><div><div class="section-kicker" data-i="profile.kicker">O jeito de jogar que se repete</div><h2 class="section-title" data-i="profile.title">O retrato, em linguagem de LoL.</h2></div><p class="section-note" data-i="profile.note">Sem transformar champion em teste de personalidade. Aqui o que pesa é repetição de comportamento.</p></div>
-        <div class="insights reveal">
-          <article class="insight"><div class="insight-top"><h3 data-i="ins1.title">Controla a fight de longe</h3><span class="confidence" data-i="conf.high">forte</span></div><p data-i="ins1.text">Moon rende melhor quando consegue <strong>mexer na fight com poke, CC, zoneamento e posicionamento</strong> em vez de resolver tudo no x1 corpo a corpo.</p></article>
-          <article class="insight"><div class="insight-top"><h3 data-i="ins2.title">Curte caos, mas com resposta</h3><span class="confidence" data-i="conf.high2">forte</span></div><p data-i="ins2.text">ARAM e Mayhem não são ambientes calmos. O ponto é que Moon gosta de ter <strong>skill, range, reposicionamento e informação para reagir ao caos</strong>.</p></article>
-          <article class="insight"><div class="insight-top"><h3 data-i="ins3.title">Cuida organizando</h3><span class="confidence" data-i="conf.high4">forte</span></div><p data-i="ins3.text">Utility não aparece só nos champions. Nos pings e calls, Moon também tenta <strong>reduzir o risco do grupo, chamar atenção para ameaças e organizar uma resposta comum</strong>.</p></article>
-          <article class="insight"><div class="insight-top"><h3 data-i="ins4.title">Autoridade funcional &gt; status</h3><span class="confidence" data-i="conf.medhigh">bem provável</span></div><p data-i="ins4.text">Ela não parece esperar estar 12/2 para considerar legítimo dizer “foquem X”. <strong>Se enxerga um problema, tenta coordená-lo.</strong> Performance individual e função de liderança ficam parcialmente separadas.</p></article>
-          <article class="insight"><div class="insight-top"><h3 data-i="ins5.title">Joga pro time sem abdicar de dano</h3><span class="confidence" data-i="conf.medhigh2">bem provável</span></div><p data-i="ins5.text">O histórico tem muita utility e assistência; Mel mostra que hoje Moon também quer <strong>carregar ameaça própria</strong> sem abandonar a função coletiva.</p></article>
-          <article class="insight"><div class="insight-top"><h3 data-i="ins6.title">Muda o champion, não a lógica</h3><span class="confidence" data-i="conf.high3">forte</span></div><p data-i="ins6.text">São 140 campeões com maestria, mas o retorno costuma ser para <strong>range, AP, controle, poke ou utility</strong>.</p></article>
+        <div class="section-head"><div><div class="section-kicker" data-i="profile.kicker">Leitura do engine</div><h2 class="section-title" data-i="profile.title">O retrato começa a parecer menos “main” e mais arquitetura de agência.</h2></div><p class="section-note" data-i="profile.note">Hipóteses corrigíveis, baseadas em comportamento repetido. Nada de transformar champion em horóscopo de elo.</p></div>
+        <div class="profile-grid reveal">
+          <article class="insight" data-n="01"><div class="insight-top"><h3 data-i="ins1.title">Controla a fight de longe</h3><span class="confidence" data-i="conf.high">forte</span></div><p data-i="ins1.text">Moon rende melhor quando consegue <strong>mexer na fight com poke, CC, zoneamento e posicionamento</strong> em vez de resolver tudo no x1 corpo a corpo.</p></article>
+          <article class="insight" data-n="02"><div class="insight-top"><h3 data-i="ins2.title">Curte caos, mas com resposta</h3><span class="confidence" data-i="conf.high2">forte</span></div><p data-i="ins2.text">ARAM e Mayhem são caóticos. O encaixe vem de ter <strong>ferramentas, range, reposicionamento e informação para responder</strong> ao que emerge.</p></article>
+          <article class="insight" data-n="03"><div class="insight-top"><h3 data-i="ins3.title">Cuida organizando</h3><span class="confidence" data-i="conf.high4">forte</span></div><p data-i="ins3.text">Utility não aparece só nos kits. Nos pings e calls, Moon também tenta <strong>reduzir risco coletivo, tornar ameaças visíveis e organizar resposta comum</strong>.</p></article>
+          <article class="insight" data-n="04"><div class="insight-top"><h3 data-i="ins4.title">Autoridade funcional &gt; status</h3><span class="confidence" data-i="conf.medhigh">bem provável</span></div><p data-i="ins4.text">Ela não parece esperar estar 12/2 para considerar legítimo dizer “foquem X”. <strong>Se a leitura parece útil, ela tenta colocá-la em circulação.</strong></p></article>
+          <article class="insight" data-n="05"><div class="insight-top"><h3 data-i="ins5.title">Joga pro time sem abdicar de dano</h3><span class="confidence" data-i="conf.medhigh2">bem provável</span></div><p data-i="ins5.text">O histórico tem muita utility e assistência; Mel mostra que hoje Moon também quer <strong>carregar ameaça própria</strong> sem abandonar a função coletiva.</p></article>
+          <article class="insight" data-n="06"><div class="insight-top"><h3 data-i="ins6.title">Muda o champion, não a lógica</h3><span class="confidence" data-i="conf.high3">forte</span></div><p data-i="ins6.text">São 140 campeões com maestria, mas o retorno costuma ser para <strong>range, AP, controle, poke ou utility</strong>.</p></article>
         </div>
-        <div class="portrait-quote reveal" data-i="profile.quote">Resumo: range, controle de fight e risco coletivo. Moon não quer só sobreviver ao caos; quando pode, tenta torná-lo coordenável.</div>
+        <div class="portrait-quote reveal" data-i="profile.quote">Range, controle de fight e risco coletivo. Moon não quer só sobreviver ao caos; quando pode, tenta torná-lo coordenável.</div>
       </div>
     </section>
 
     <section>
       <div class="shell">
-        <div class="section-head"><div><div class="section-kicker" data-i="boundary.kicker">O que ainda falta saber</div><h2 class="section-title" data-i="boundary.title">Agora sabemos como ela chama. Ainda falta ver como ela reage.</h2></div></div>
-        <div class="boundary"><div class="boundary-copy" data-i="boundary.copy">Chat, pings e shotcall já têm evidência. As lacunas agora são outras:</div><div class="unknowns reveal">
+        <div class="section-head"><div><div class="section-kicker" data-i="boundary.kicker">Fog of war</div><h2 class="section-title" data-i="boundary.title">O mapa está melhor. Ainda tem neblina.</h2></div><p class="section-note" data-i="boundary.note">Chat, pings e shotcall já têm evidência. As perguntas restantes mudaram.</p></div>
+        <div class="fog reveal"><div class="fog-copy" data-i="boundary.copy">Ainda falta ver como Moon reage quando o jogo deixa de pedir leitura e começa a cobrar frustração.</div><div class="unknowns">
           <div class="unknown"><b data-i="u1.title">Tilt</b><span data-i="u1.text">o que tilta, quanto dura e como ela volta</span></div>
           <div class="unknown"><b data-i="u2.title">FF</b><span data-i="u2.text">quando considera a partida perdida</span></div>
           <div class="unknown"><b data-i="u3.title">Depois de errar</b><span data-i="u3.text">se muda o jeito de jogar depois de uma cagada</span></div>
           <div class="unknown"><b data-i="u4.title">Build adaptativa</b><span data-i="u4.text">quanto muda a itemização conforme comp e inimigos</span></div>
           <div class="unknown"><b data-i="u5.title">Quando ignoram a call</b><span data-i="u5.text">se insiste, reformula, larga a liderança ou só segue jogando</span></div>
-          <div class="unknown"><b data-i="u6.title">Toxicidade</b><span data-i="u6.text">quando muta, responde, ironiza ou preserva o clima da partida</span></div>
+          <div class="unknown"><b data-i="u6.title">Toxicidade</b><span data-i="u6.text">quando muta, responde, ironiza ou preserva o clima</span></div>
         </div></div>
       </div>
     </section>
 
     <section>
       <div class="shell">
-        <div class="engine-card reveal">
-          <div class="engine-sigil">◐</div>
-          <div><h3 data-i="engine.title">Como esse perfil foi montado</h3><p data-i="engine.text">O RIFT MIRROR cruza histórico, partidas recentes e autorrelato para procurar padrões repetidos de playstyle. As leituras acima são hipóteses corrigíveis, não diagnóstico nem teste científico de personalidade.</p><div class="method" data-i="engine.method">HISTÓRICO + PARTIDAS + AUTORRELATO → PADRÕES REPETIDOS → LEITURA CORRIGÍVEL</div></div>
-        </div>
+        <div class="engine-card reveal"><div class="engine-sigil">◐</div><div><h3 data-i="engine.title">RIFT MIRROR · método</h3><p data-i="engine.text">O engine cruza histórico, partidas recentes e autorrelato para procurar padrões recorrentes de agência, risco, controle, coordenação e expressão. As leituras são hipóteses corrigíveis, não diagnóstico nem psicometria científica.</p><div class="method" data-i="engine.method">HISTÓRICO + PARTIDAS + AUTORRELATO → PADRÕES REPETIDOS → LEITURA CORRIGÍVEL</div></div></div>
       </div>
     </section>
   </main>
 
-  <footer><div class="shell footer-row"><span data-i="footer.left">Perfil de jogo de Moon · 2026</span><span data-i="footer.right">League of Legends pertence à Riot Games. Projeto independente e não afiliado.</span></div></footer>
+  <footer><div class="shell footer-row"><span data-i="footer.left">RIFT MIRROR · Moon play profile · 2026</span><span data-i="footer.right">League of Legends pertence à Riot Games. Projeto independente e não afiliado.</span></div></footer>
 
   <script>
     const T={
       pt:{
-        "brand":"MOON · LEAGUE OF LEGENDS","nav.summary":"Resumo","nav.signature":"Como joga","nav.mains":"Mains","nav.coord":"Coordenação","nav.profile":"Padrões",
-        "hero.eyebrow":"Perfil de jogo · League of Legends","hero.title":"Moon no <span>Rift</span>","hero.lead":"O que mais se repete no jogo de Moon não é simplesmente “mago”. É <strong>range, poke, controle de espaço, utility, teamfight e coordenação</strong>. Ela gosta de participar da fight sem ficar grudada no melee e, quando percebe perigo, tende a transformar essa leitura em aviso ou call para o grupo.","tag.ranged":"range","tag.control":"controle de fight","tag.utility":"utility","hero.archetypeLabel":"Jeito de jogar","hero.archetype":"Controladora de Fight à Distância","hero.archetypeText":"Prefere poke, CC, zoneamento e espaço para reposicionar. Entra no caos do ARAM, mas tenta deixar a fight jogável para ela e legível para o time.",
-        "quick.kicker":"O que mais se repete","quick.title":"Quatro padrões que qualquer lolzeiro reconhece.","quick.note":"Eles aparecem nas mains, nos modos, nas builds e agora também nas comms.","quick1.title":"Range acima de tudo","quick1.text":"AP é o sabor favorito, mas o padrão principal é outro: quase sempre Moon quer bater de longe.","quick2.title":"ARAM é a casa","quick2.text":"Ela curte fight o tempo todo, comps aleatórias e improviso. Mayhem só aumenta isso.","quick3.title":"Cuida coordenando","quick3.text":"CC, peel e utility aparecem no kit; pings de perigo e calls de foco aparecem na comunicação. O cuidado vira ação coletiva.","quick4.title":"Dano que não acaba no hit","quick4.text":"Liandry + corta-cura: o alvo apanha agora e continua sentindo depois.",
-        "facts.kicker":"O perfil em números","facts.title":"Joga muita coisa. Volta pro mesmo tipo de jogo.","facts.note":"O pool é grande, mas as escolhas favoritas continuam bem parecidas.","fact1.label":"pontos de campeão","fact1.note":"histórico total fornecido","fact2.label":"pontuação de maestria","fact3.label":"campeões com maestria","fact3.note":"cerca de 81% do elenco listado","fact4.label":"tempo de jogo","fact4.note":"ARAM como casa há anos",
-        "field.kicker":"Como Moon joga a fight","field.title":"Quer espaço para castar, kitear e reposicionar.","ring3":"poke · leitura · ameaça","ring2":"zoneamento · CC · deny","ring1":"peel · reflexo · saída","threat":"AMEAÇA","field.headline":"Ela topa se expor.<br><em>Só não quer ficar presa no melee.</em>","field.text":"As partidas recentes têm bastante participação e várias mortes, então Moon não parece ser aquela jogadora que fica três telas atrás só para proteger o KDA. Ela entra na fight, mas prefere fazer isso com range, rota de fuga e espaço para reposicionar.","field.ruleLabel":"Na prática","field.rule":"Quanto mais Moon consegue escolher distância, ângulo e timing, mais confortável fica. Bruiser colado nela por dez segundos? Aí já virou pesadelo.",
-        "mains.kicker":"A linha das mains","mains.note":"O boneco muda, mas a lógica continua: utility, controle e range, com cada vez mais dano próprio.","sona.step":"amplificar","sona.text":"Buffa, cura, acelera e salva a fight.","sera.step":"conduzir","sera.text":"Range enorme, CC em cadeia e assist até dizer chega.","morg.step":"negar","morg.text":"Bind, shield, zoneamento e negação.","mel.step":"ameaçar","mel.text":"Mantém o controle de longe, mas agora também explode gente.","mains.caption":"Sona, Seraphine e Morgana puxam forte para controle e utility. Mel preserva isso, mas aumenta bastante a ameaça individual. Não é trocar de estilo; é o mesmo estilo ficando mais agressivo.",
-        "items.kicker":"O que as builds mostram","items.title":"Liandry + corta-cura: bateu, continua doendo.","items.note":"Os dois favoritos mantêm pressão mesmo depois da primeira troca.","liandry.text":"Acertou a skill, o alvo continua queimando. Pressão sem precisar ficar colada.","anti.title":"Corta-cura","anti.text":"Mesmo que o alvo tente se curar, a troca não é apagada tão fácil.","causal1":"ACERTA","causal2":"QUEIMA","causal3":"CURA MENOS","items.quote":"Moon claramente gosta quando um hit continua relevante alguns segundos depois.",
-        "coord.kicker":"Comms, pings e shotcall","coord.title":"A fight também vira um problema de coordenação.","coord.note":"Três comportamentos saíram da coluna do “desconhecido” e revelaram um quarto padrão por trás deles.","conf.observed":"observado","conf.strong":"forte","conf.strong2":"forte","conf.strong3":"forte","coord1.title":"“Bom game a todos”","coord1.text":"Moon abre <strong>toda partida no /all desejando bom jogo aos dez jogadores</strong>. É um pequeno ritual de civilidade antes da competição e uma tentativa de estabelecer o clima social da partida, não só de falar com quem pode ajudá-la a vencer.","coord2.title":"Ping de perigo é reflexo","coord2.text":"Quando percebe um aliado se colocando em risco, Moon pinga freneticamente quase sem pensar. <strong>A leitura de ameaça vira aviso coletivo antes de virar decisão consciente.</strong> É vigilância ambiental externalizada para o grupo.","coord3.title":"Foco X &gt; Y &gt; Z","coord3.text":"Quando identifica inimigos muito à frente no placar, Moon transforma o perigo em uma <strong>hierarquia acionável de prioridades</strong>: quem precisa cair primeiro, depois quem vem em seguida. É triagem de risco em linguagem de ARAM.","coord4.title":"Liderança sem crachá de carry","coord4.text":"Ela dá a call mesmo quando o próprio KDA está ruim. Isso sugere que, para Moon, <strong>a validade da leitura não depende de ela estar performando melhor que os outros</strong>. O atrito aparece quando o time exige status no placar como licença para liderar.","coord.quote":"Se o grupo está exposto, Moon tenta organizar o perigo mesmo quando ela própria não está brilhando.",
-        "profile.kicker":"O jeito de jogar que se repete","profile.title":"O retrato, em linguagem de LoL.","profile.note":"Sem transformar champion em teste de personalidade. Aqui o que pesa é repetição de comportamento.","ins1.title":"Controla a fight de longe","conf.high":"forte","ins1.text":"Moon rende melhor quando consegue <strong>mexer na fight com poke, CC, zoneamento e posicionamento</strong> em vez de resolver tudo no x1 corpo a corpo.","ins2.title":"Curte caos, mas com resposta","conf.high2":"forte","ins2.text":"ARAM e Mayhem não são ambientes calmos. O ponto é que Moon gosta de ter <strong>skill, range, reposicionamento e informação para reagir ao caos</strong>.","ins3.title":"Cuida organizando","conf.high4":"forte","ins3.text":"Utility não aparece só nos champions. Nos pings e calls, Moon também tenta <strong>reduzir o risco do grupo, chamar atenção para ameaças e organizar uma resposta comum</strong>.","ins4.title":"Autoridade funcional &gt; status","conf.medhigh":"bem provável","ins4.text":"Ela não parece esperar estar 12/2 para considerar legítimo dizer “foquem X”. <strong>Se enxerga um problema, tenta coordená-lo.</strong> Performance individual e função de liderança ficam parcialmente separadas.","ins5.title":"Joga pro time sem abdicar de dano","conf.medhigh2":"bem provável","ins5.text":"O histórico tem muita utility e assistência; Mel mostra que hoje Moon também quer <strong>carregar ameaça própria</strong> sem abandonar a função coletiva.","ins6.title":"Muda o champion, não a lógica","conf.high3":"forte","ins6.text":"São 140 campeões com maestria, mas o retorno costuma ser para <strong>range, AP, controle, poke ou utility</strong>.","profile.quote":"Resumo: range, controle de fight e risco coletivo. Moon não quer só sobreviver ao caos; quando pode, tenta torná-lo coordenável.",
-        "boundary.kicker":"O que ainda falta saber","boundary.title":"Agora sabemos como ela chama. Ainda falta ver como ela reage.","boundary.copy":"Chat, pings e shotcall já têm evidência. As lacunas agora são outras:","u1.title":"Tilt","u1.text":"o que tilta, quanto dura e como ela volta","u2.title":"FF","u2.text":"quando considera a partida perdida","u3.title":"Depois de errar","u3.text":"se muda o jeito de jogar depois de uma cagada","u4.title":"Build adaptativa","u4.text":"quanto muda a itemização conforme comp e inimigos","u5.title":"Quando ignoram a call","u5.text":"se insiste, reformula, larga a liderança ou só segue jogando","u6.title":"Toxicidade","u6.text":"quando muta, responde, ironiza ou preserva o clima da partida",
-        "engine.title":"Como esse perfil foi montado","engine.text":"O RIFT MIRROR cruza histórico, partidas recentes e autorrelato para procurar padrões repetidos de playstyle. As leituras acima são hipóteses corrigíveis, não diagnóstico nem teste científico de personalidade.","engine.method":"HISTÓRICO + PARTIDAS + AUTORRELATO → PADRÕES REPETIDOS → LEITURA CORRIGÍVEL","footer.left":"Perfil de jogo de Moon · 2026","footer.right":"League of Legends pertence à Riot Games. Projeto independente e não afiliado."
+        "brand":"RIFT MIRROR · MOON","nav.summary":"Resumo","nav.signature":"Fight","nav.mains":"Mains","nav.coord":"Coordenação","nav.profile":"Padrões",
+        "hero.eyebrow":"RIFT MIRROR · perfil de jogo","hero.title":"Moon no <span class='rift'>Rift</span><span class='mirror'>playstyle & personality engine</span>","hero.lead":"O padrão não é simplesmente “mago”. É <strong>range, poke, controle de espaço, utility, teamfight e coordenação</strong>. Moon entra no caos do ARAM, mas tenta transformar ameaça em informação, informação em call e call em espaço jogável.","tag.ranged":"range","tag.control":"fight control","tag.utility":"utility","hero.side":"LIVE PROFILE · 2026","hero.archetypeLabel":"arquétipo de jogo","hero.archetype":"Controladora de Fight à Distância","hero.archetypeText":"Poke, CC, zoneamento, leitura de risco e espaço para reposicionar. O caos existe; ela prefere que ele tenha um mapa.","tele1":"CORE SIGNAL<strong>controle</strong>","tele2":"SOCIAL SIGNAL<strong>coordenação</strong>",
+        "quick.kicker":"Assinatura recorrente","quick.title":"Quatro coisas que voltam, qualquer que seja o boneco.","quick.note":"O champion muda. A lógica reaparece nas mains, nos modos, nas builds e até na forma de usar o chat.","quick1.title":"Range acima de tudo","quick1.text":"AP é o sabor favorito, mas o padrão mais profundo é distância: Moon quer ângulo, alcance e tempo para reagir antes de ficar presa no corpo a corpo.","quick2.title":"ARAM é a casa","quick2.text":"Fight constante, comp aleatória e improviso. Mayhem não muda o princípio; só coloca mais gasolina no laboratório.","quick3.title":"Cuida coordenando","quick3.text":"Utility aparece nos champions e nas comms. Pings de perigo, calls de foco e leitura coletiva transformam cuidado em ação de campo.","quick4.title":"Dano que continua depois","quick4.text":"Liandry + corta-cura: acertar não é só causar um número agora. É deixar a troca continuar relevante por alguns segundos.",
+        "facts.kicker":"Telemetria histórica","facts.title":"Pool enorme. Assinatura surpreendentemente estável.","facts.note":"Os números mostram exploração ampla; o padrão qualitativo mostra para onde Moon tende a voltar.","fact1.label":"pontos de campeão","fact1.note":"histórico total fornecido","fact2.label":"pontuação de maestria","fact3.label":"campeões com maestria","fact3.note":"cerca de 81% do elenco listado","fact4.label":"tempo de jogo","fact4.note":"ARAM como casa há anos",
+        "field.kicker":"Geometria da fight","field.title":"Moon gosta do caos quando ainda existe distância para pensar.","field.note":"Não é jogar passivamente. É entrar com uma camada espacial entre ela e a ameaça.","ring3":"poke · leitura · ameaça","ring2":"zoneamento · CC · deny","ring1":"peel · reflexo · saída","threat":"AMEAÇA","field.headline":"Ela topa se expor.<br><em>Só não quer perder a geometria.</em>","field.text":"As partidas recentes têm participação alta e várias mortes, então não aparece uma jogadora obcecada em proteger KDA. Moon entra na fight. O conforto vem quando pode escolher distância, ângulo, timing e rota de saída.","field.ruleLabel":"Na prática","field.rule":"Quanto mais a fight permite castar, kitear, ler e reposicionar, mais o jogo encaixa. Bruiser colado por dez segundos? Crime de guerra.",
+        "mains.kicker":"Lineage das mains","mains.note":"A linha não parece uma sequência de identidades diferentes. Parece uma mesma gramática ganhando dentes.","sona.step":"amplificar","sona.text":"Buffa, cura, acelera e salva a fight.","sera.step":"conduzir","sera.text":"Range enorme, CC em cadeia e assist até dizer chega.","morg.step":"negar","morg.text":"Bind, shield, zoneamento e negação.","mel.step":"ameaçar","mel.text":"Mantém o controle de longe, mas agora também explode gente.","mains.caption":"Sona, Seraphine e Morgana puxam forte para controle e utility. Mel preserva isso e aumenta a ameaça individual. Não parece troca de estilo; parece o mesmo estilo ficando mais agressivo.",
+        "items.kicker":"Lógica de itemização","items.title":"Acertou. Queimou. Curou menos.","items.note":"Dois favoritos desenham a mesma preferência: pressão que persiste depois do primeiro contato.","liandry.text":"Acertou a skill, o alvo continua queimando. Pressão sem precisar ficar colada.","anti.title":"Corta-cura","anti.text":"Mesmo que o alvo tente se recuperar, a troca não desaparece tão facilmente.","causal1":"ACERTA","causal2":"QUEIMA","causal3":"CURA MENOS","items.quote":"Moon parece gostar quando uma ação continua produzindo consequência depois que o botão já foi apertado.",
+        "coord.kicker":"Comms, pings e shotcall","coord.title":"Ela não só lê o perigo. Tenta distribuí-lo como informação.","coord.note":"Aqui o perfil deixa de ser apenas mecânico. O comportamento social do jogo mostra como Moon tenta organizar um grupo sob pressão.","coord1.title":"“Bom game a todos”","coord1.text":"Moon abre <strong>toda partida no /all desejando bom jogo aos dez jogadores</strong>. É um ritual pequeno de civilidade que tenta definir o clima social antes da competição.","coord1.bubble":"/all Bom game a todos ✦","coord2.title":"Ping de perigo é reflexo","coord2.text":"Quando percebe um aliado avançando para uma zona ruim, o ping vem quase antes do pensamento. <strong>A leitura de ameaça vira aviso coletivo automaticamente.</strong>","target.label":"THREAT PRIORITY","target.hot":"mais feedado","target.high":"alto risco","target.watch":"vigiar","coord4.title":"Liderança sem crachá de carry","coord4.text":"Moon dá a call mesmo com KDA ruim. O padrão sugere que, para ela, <strong>a validade da leitura não depende de estar performando melhor que os outros</strong>. Se enxerga um problema coletivo, tenta coordená-lo.","coord.quote":"Se o grupo está exposto, Moon tenta organizar o perigo mesmo quando ela própria não está brilhando.",
+        "profile.kicker":"Leitura do engine","profile.title":"O retrato começa a parecer menos “main” e mais arquitetura de agência.","profile.note":"Hipóteses corrigíveis, baseadas em comportamento repetido. Nada de transformar champion em horóscopo de elo.","ins1.title":"Controla a fight de longe","conf.high":"forte","ins1.text":"Moon rende melhor quando consegue <strong>mexer na fight com poke, CC, zoneamento e posicionamento</strong> em vez de resolver tudo no x1 corpo a corpo.","ins2.title":"Curte caos, mas com resposta","conf.high2":"forte","ins2.text":"ARAM e Mayhem são caóticos. O encaixe vem de ter <strong>ferramentas, range, reposicionamento e informação para responder</strong> ao que emerge.","ins3.title":"Cuida organizando","conf.high4":"forte","ins3.text":"Utility não aparece só nos kits. Nos pings e calls, Moon também tenta <strong>reduzir risco coletivo, tornar ameaças visíveis e organizar resposta comum</strong>.","ins4.title":"Autoridade funcional &gt; status","conf.medhigh":"bem provável","ins4.text":"Ela não parece esperar estar 12/2 para considerar legítimo dizer “foquem X”. <strong>Se a leitura parece útil, ela tenta colocá-la em circulação.</strong>","ins5.title":"Joga pro time sem abdicar de dano","conf.medhigh2":"bem provável","ins5.text":"O histórico tem muita utility e assistência; Mel mostra que hoje Moon também quer <strong>carregar ameaça própria</strong> sem abandonar a função coletiva.","ins6.title":"Muda o champion, não a lógica","conf.high3":"forte","ins6.text":"São 140 campeões com maestria, mas o retorno costuma ser para <strong>range, AP, controle, poke ou utility</strong>.","profile.quote":"Range, controle de fight e risco coletivo. Moon não quer só sobreviver ao caos; quando pode, tenta torná-lo coordenável.",
+        "boundary.kicker":"Fog of war","boundary.title":"O mapa está melhor. Ainda tem neblina.","boundary.note":"Chat, pings e shotcall já têm evidência. As perguntas restantes mudaram.","boundary.copy":"Ainda falta ver como Moon reage quando o jogo deixa de pedir leitura e começa a cobrar frustração.","u1.title":"Tilt","u1.text":"o que tilta, quanto dura e como ela volta","u2.title":"FF","u2.text":"quando considera a partida perdida","u3.title":"Depois de errar","u3.text":"se muda o jeito de jogar depois de uma cagada","u4.title":"Build adaptativa","u4.text":"quanto muda a itemização conforme comp e inimigos","u5.title":"Quando ignoram a call","u5.text":"se insiste, reformula, larga a liderança ou só segue jogando","u6.title":"Toxicidade","u6.text":"quando muta, responde, ironiza ou preserva o clima",
+        "engine.title":"RIFT MIRROR · método","engine.text":"O engine cruza histórico, partidas recentes e autorrelato para procurar padrões recorrentes de agência, risco, controle, coordenação e expressão. As leituras são hipóteses corrigíveis, não diagnóstico nem psicometria científica.","engine.method":"HISTÓRICO + PARTIDAS + AUTORRELATO → PADRÕES REPETIDOS → LEITURA CORRIGÍVEL","footer.left":"RIFT MIRROR · Moon play profile · 2026","footer.right":"League of Legends pertence à Riot Games. Projeto independente e não afiliado."
       },
       en:{
-        "brand":"MOON · LEAGUE OF LEGENDS","nav.summary":"Summary","nav.signature":"Fight style","nav.mains":"Mains","nav.coord":"Coordination","nav.profile":"Patterns",
-        "hero.eyebrow":"Play profile · League of Legends","hero.title":"Moon on the <span>Rift</span>","hero.lead":"The clearest pattern in Moon’s play is not simply “mage.” It is <strong>range, poke, space control, utility, teamfighting, and coordination</strong>. She likes being in the fight without getting stuck in melee and, when she spots danger, tends to turn that read into a warning or call for the group.","tag.ranged":"range","tag.control":"fight control","tag.utility":"utility","hero.archetypeLabel":"Playstyle","hero.archetype":"Long-Range Fight Controller","hero.archetypeText":"She prefers poke, CC, zoning, and room to reposition. ARAM can be chaos; she still tries to keep the fight playable for herself and legible to her team.",
-        "quick.kicker":"What keeps showing up","quick.title":"Four patterns any LoL player will recognize.","quick.note":"They show up across mains, modes, builds, and now comms too.","quick1.title":"Range above everything","quick1.text":"AP is the favorite flavor, but the main rule is simpler: Moon almost always wants to hit from far away.","quick2.title":"ARAM is home","quick2.text":"She likes nonstop fights, random comps, and improvisation. Mayhem just turns that up further.","quick3.title":"Cares by coordinating","quick3.text":"CC, peel, and utility show up in the kit; danger pings and focus calls show up in communication. Care becomes collective action.","quick4.title":"Damage that outlives the hit","quick4.text":"Liandry + anti-heal: the target gets hit now and keeps feeling it afterward.",
-        "facts.kicker":"The profile in numbers","facts.title":"Plays lots of champions. Comes back to the same kind of game.","facts.note":"The pool is wide, but the favorite tools stay pretty similar.","fact1.label":"champion points","fact1.note":"provided all-time history","fact2.label":"mastery score","fact3.label":"champions with mastery","fact3.note":"about 81% of the listed roster","fact4.label":"time playing","fact4.note":"ARAM as home for years",
-        "field.kicker":"How Moon plays a fight","field.title":"She wants room to cast, kite, and reposition.","ring3":"poke · read · threat","ring2":"zoning · CC · deny","ring1":"peel · reflex · exit","threat":"THREAT","field.headline":"She is willing to expose herself.<br><em>She just does not want to get stuck in melee.</em>","field.text":"Recent matches show plenty of participation and quite a few deaths, so Moon does not look like the kind of player who sits three screens back just to protect KDA. She joins the fight, but prefers to do it with range, an exit route, and room to reposition.","field.ruleLabel":"In practice","field.rule":"The more Moon can choose distance, angle, and timing, the better. A bruiser glued to her for ten seconds? Nightmare scenario.",
-        "mains.kicker":"The main lineage","mains.note":"The champion changes, but the logic stays: utility, control, and range, with more personal damage over time.","sona.step":"amplify","sona.text":"Buffs, heals, speeds up allies, and saves fights.","sera.step":"conduct","sera.text":"Huge range, chained CC, and assists for days.","morg.step":"deny","morg.text":"Bind, shield, zoning, and denial.","mel.step":"threaten","mel.text":"Keeps the long-range control, but now also blows people up.","mains.caption":"Sona, Seraphine, and Morgana lean hard into control and utility. Mel keeps that core but adds much more individual threat. It is not a new style; it is the same style becoming more aggressive.",
-        "items.kicker":"What the builds show","items.title":"Liandry + anti-heal: once it hits, it keeps hurting.","items.note":"Both favorites keep pressure going after the first trade.","liandry.text":"Land the spell and the target keeps burning. Pressure without having to stay on top of them.","anti.title":"Anti-heal","anti.text":"Even if the target tries to heal back up, the trade is harder to erase.","causal1":"HIT","causal2":"BURN","causal3":"LESS HEALING","items.quote":"Moon clearly likes it when one hit stays relevant for a few more seconds.",
-        "coord.kicker":"Comms, pings, and shotcalling","coord.title":"The fight also becomes a coordination problem.","coord.note":"Three behaviors moved out of the “unknown” column and revealed a fourth pattern behind them.","conf.observed":"observed","conf.strong":"strong","conf.strong2":"strong","conf.strong3":"strong","coord1.title":"“Good game, everyone”","coord1.text":"Moon opens <strong>every match in /all by wishing all ten players a good game</strong>. It is a small ritual of civility before competition and an attempt to set the social climate of the match, not just communicate with people who can help her win.","coord2.title":"Danger pings are reflexive","coord2.text":"When she sees an ally putting themselves at risk, Moon pings frantically almost without thinking. <strong>Threat perception becomes a group warning before it becomes a deliberate decision.</strong> It is environmental vigilance externalized for the team.","coord3.title":"Focus X &gt; Y &gt; Z","coord3.text":"When she identifies enemies who are far ahead on the scoreboard, Moon turns danger into an <strong>actionable hierarchy of priorities</strong>: who needs to drop first, then who comes next. It is risk triage in ARAM language.","coord4.title":"Leadership without the carry badge","coord4.text":"She makes the call even when her own KDA is poor. This suggests that, for Moon, <strong>the validity of the read does not depend on her outperforming everyone else</strong>. Friction appears when the team treats scoreboard status as a license to lead.","coord.quote":"If the group is exposed, Moon tries to organize the danger even when she is not the one shining.",
-        "profile.kicker":"The playstyle that keeps repeating","profile.title":"The profile, in LoL language.","profile.note":"Without turning champion picks into a personality test. Repeated behavior carries more weight here.","ins1.title":"Controls fights from range","conf.high":"strong","ins1.text":"Moon looks best when she can <strong>shape a fight with poke, CC, zoning, and positioning</strong> instead of settling everything through melee 1v1s.","ins2.title":"Likes chaos with answers","conf.high2":"strong","ins2.text":"ARAM and Mayhem are not calm environments. The key is that Moon likes having <strong>spells, range, repositioning, and information to answer the chaos</strong>.","ins3.title":"Cares by organizing","conf.high4":"strong","ins3.text":"Utility is not limited to champion kits. Through pings and calls, Moon also tries to <strong>reduce group risk, surface threats, and organize a shared response</strong>.","ins4.title":"Functional authority &gt; status","conf.medhigh":"likely","ins4.text":"She does not seem to wait until she is 12/2 before considering “focus X” a legitimate call. <strong>If she sees a problem, she tries to coordinate it.</strong> Individual performance and leadership function remain partly separate.","ins5.title":"Team player without giving up damage","conf.medhigh2":"likely","ins5.text":"Her history contains a lot of utility and assists; Mel shows that Moon now also wants to <strong>carry real threat herself</strong> without abandoning the collective role.","ins6.title":"Changes champion, not the logic","conf.high3":"strong","ins6.text":"She has mastery on 140 champions, but keeps returning to <strong>range, AP, control, poke, or utility</strong>.","profile.quote":"Short version: range, fight control, and collective risk. Moon does not only want to survive chaos; when she can, she tries to make it coordinatable.",
-        "boundary.kicker":"What is still unknown","boundary.title":"Now we know how she calls. We still need to see how she reacts.","boundary.copy":"Chat, pings, and shotcalling now have evidence. The remaining gaps are different:","u1.title":"Tilt","u1.text":"what tilts her, how long it lasts, and how she resets","u2.title":"FF","u2.text":"when she considers a match lost","u3.title":"After a mistake","u3.text":"whether her play changes after a bad error","u4.title":"Adaptive builds","u4.text":"how much she changes itemization around comps and enemies","u5.title":"When calls are ignored","u5.text":"whether she insists, reframes, drops the lead, or simply keeps playing","u6.title":"Toxicity","u6.text":"when she mutes, replies, gets ironic, or preserves the match climate",
-        "engine.title":"How this profile was built","engine.text":"RIFT MIRROR combines all-time history, recent matches, and self-report to look for recurring playstyle patterns. The readings above are correctable hypotheses, not a diagnosis or scientific personality test.","engine.method":"HISTORY + MATCHES + SELF-REPORT → REPEATED PATTERNS → CORRECTABLE READ","footer.left":"Moon play profile · 2026","footer.right":"League of Legends belongs to Riot Games. Independent and unaffiliated project."
+        "brand":"RIFT MIRROR · MOON","nav.summary":"Summary","nav.signature":"Fight","nav.mains":"Mains","nav.coord":"Coordination","nav.profile":"Patterns",
+        "hero.eyebrow":"RIFT MIRROR · play profile","hero.title":"Moon on the <span class='rift'>Rift</span><span class='mirror'>playstyle & personality engine</span>","hero.lead":"The pattern is not simply “mage.” It is <strong>range, poke, space control, utility, teamfighting, and coordination</strong>. Moon enters ARAM chaos, then tries to turn threat into information, information into calls, and calls into playable space.","tag.ranged":"range","tag.control":"fight control","tag.utility":"utility","hero.side":"LIVE PROFILE · 2026","hero.archetypeLabel":"play archetype","hero.archetype":"Long-Range Fight Controller","hero.archetypeText":"Poke, CC, zoning, threat reading, and room to reposition. Chaos exists; she prefers it to have a map.","tele1":"CORE SIGNAL<strong>control</strong>","tele2":"SOCIAL SIGNAL<strong>coordination</strong>",
+        "quick.kicker":"Recurring signature","quick.title":"Four things that keep returning, whatever the champion.","quick.note":"The champion changes. The logic shows up again in mains, modes, builds, and even chat behavior.","quick1.title":"Range above everything","quick1.text":"AP is the favorite flavor, but the deeper pattern is distance: Moon wants angles, reach, and time to react before getting locked into melee.","quick2.title":"ARAM is home","quick2.text":"Constant fighting, random comps, and improvisation. Mayhem does not change the principle; it just adds more gasoline to the lab.","quick3.title":"Cares by coordinating","quick3.text":"Utility appears in champion kits and comms. Danger pings, focus calls, and shared reads turn care into field action.","quick4.title":"Damage that keeps going","quick4.text":"Liandry + anti-heal: landing a hit is not just one number now. It keeps the trade relevant for a few more seconds.",
+        "facts.kicker":"Historical telemetry","facts.title":"Huge pool. Surprisingly stable signature.","facts.note":"The numbers show broad exploration; the qualitative pattern shows what Moon keeps coming back to.","fact1.label":"champion points","fact1.note":"provided all-time history","fact2.label":"mastery score","fact3.label":"champions with mastery","fact3.note":"about 81% of the listed roster","fact4.label":"time playing","fact4.note":"ARAM as home for years",
+        "field.kicker":"Fight geometry","field.title":"Moon likes chaos when there is still enough distance to think.","field.note":"This is not passive play. It is entering with a spatial layer between herself and the threat.","ring3":"poke · read · threat","ring2":"zoning · CC · deny","ring1":"peel · reflex · exit","threat":"THREAT","field.headline":"She is willing to expose herself.<br><em>She just does not want to lose the geometry.</em>","field.text":"Recent matches show high participation and quite a few deaths, so this does not look like a player obsessed with protecting KDA. Moon enters the fight. Comfort comes from being able to choose distance, angle, timing, and an exit route.","field.ruleLabel":"In practice","field.rule":"The more a fight lets her cast, kite, read, and reposition, the more the game clicks. A bruiser glued to her for ten seconds? War crime.",
+        "mains.kicker":"Main lineage","mains.note":"The line does not look like several different identities. It looks like one grammar growing teeth.","sona.step":"amplify","sona.text":"Buffs, heals, speeds up allies, and saves fights.","sera.step":"conduct","sera.text":"Huge range, chained CC, and assists for days.","morg.step":"deny","morg.text":"Bind, shield, zoning, and denial.","mel.step":"threaten","mel.text":"Keeps the long-range control, but now also blows people up.","mains.caption":"Sona, Seraphine, and Morgana lean hard into control and utility. Mel preserves that core and increases individual threat. It does not look like a style change; it looks like the same style becoming more aggressive.",
+        "items.kicker":"Itemization logic","items.title":"Hit. Burn. Heal less.","items.note":"Two favorites draw the same preference: pressure that persists after first contact.","liandry.text":"Land the spell and the target keeps burning. Pressure without having to stay on top of them.","anti.title":"Anti-heal","anti.text":"Even if the target tries to recover, the trade is harder to erase.","causal1":"HIT","causal2":"BURN","causal3":"LESS HEALING","items.quote":"Moon seems to like it when an action keeps producing consequences after the button has already been pressed.",
+        "coord.kicker":"Comms, pings, and shotcalling","coord.title":"She does not only read danger. She tries to distribute it as information.","coord.note":"This is where the profile stops being purely mechanical. Social behavior in-game shows how Moon tries to organize a group under pressure.","coord1.title":"“Good game, everyone”","coord1.text":"Moon opens <strong>every match in /all by wishing all ten players a good game</strong>. It is a small ritual of civility that tries to set the social climate before competition starts.","coord1.bubble":"/all Good game, everyone ✦","coord2.title":"Danger pings are reflexive","coord2.text":"When she sees an ally moving into a bad zone, the ping comes almost before conscious thought. <strong>Threat perception becomes a group warning automatically.</strong>","target.label":"THREAT PRIORITY","target.hot":"most fed","target.high":"high risk","target.watch":"watch","coord4.title":"Leadership without the carry badge","coord4.text":"Moon makes the call even with a poor KDA. The pattern suggests that, for her, <strong>the validity of the read does not depend on outperforming everyone else</strong>. If she sees a collective problem, she tries to coordinate it.","coord.quote":"If the group is exposed, Moon tries to organize the danger even when she is not the one shining.",
+        "profile.kicker":"Engine read","profile.title":"The portrait starts to look less like a “main” and more like an architecture of agency.","profile.note":"Correctable hypotheses based on repeated behavior. No turning champion picks into ranked astrology.","ins1.title":"Controls fights from range","conf.high":"strong","ins1.text":"Moon looks best when she can <strong>shape a fight with poke, CC, zoning, and positioning</strong> instead of settling everything through melee 1v1s.","ins2.title":"Likes chaos with answers","conf.high2":"strong","ins2.text":"ARAM and Mayhem are chaotic. The fit comes from having <strong>tools, range, repositioning, and information to answer</strong> what emerges.","ins3.title":"Cares by organizing","conf.high4":"strong","ins3.text":"Utility is not limited to champion kits. Through pings and calls, Moon also tries to <strong>reduce collective risk, surface threats, and organize a shared response</strong>.","ins4.title":"Functional authority &gt; status","conf.medhigh":"likely","ins4.text":"She does not seem to wait until she is 12/2 before treating “focus X” as legitimate. <strong>If the read seems useful, she tries to put it into circulation.</strong>","ins5.title":"Team player without giving up damage","conf.medhigh2":"likely","ins5.text":"Her history contains a lot of utility and assists; Mel shows that Moon now also wants to <strong>carry real threat herself</strong> without abandoning the collective role.","ins6.title":"Changes champion, not the logic","conf.high3":"strong","ins6.text":"She has mastery on 140 champions, but keeps returning to <strong>range, AP, control, poke, or utility</strong>.","profile.quote":"Range, fight control, and collective risk. Moon does not only want to survive chaos; when she can, she tries to make it coordinatable.",
+        "boundary.kicker":"Fog of war","boundary.title":"The map is better. There is still fog.","boundary.note":"Chat, pings, and shotcalling now have evidence. The remaining questions changed.","boundary.copy":"We still need to see how Moon reacts when the game stops asking for reads and starts charging frustration.","u1.title":"Tilt","u1.text":"what tilts her, how long it lasts, and how she resets","u2.title":"FF","u2.text":"when she considers a match lost","u3.title":"After a mistake","u3.text":"whether her play changes after a bad error","u4.title":"Adaptive builds","u4.text":"how much she changes itemization around comps and enemies","u5.title":"When calls are ignored","u5.text":"whether she insists, reframes, drops the lead, or just keeps playing","u6.title":"Toxicity","u6.text":"when she mutes, replies, gets ironic, or preserves the match climate",
+        "engine.title":"RIFT MIRROR · method","engine.text":"The engine combines all-time history, recent matches, and self-report to look for recurring patterns of agency, risk, control, coordination, and expression. These reads are correctable hypotheses, not diagnosis or scientific psychometrics.","engine.method":"HISTORY + MATCHES + SELF-REPORT → REPEATED PATTERNS → CORRECTABLE READ","footer.left":"RIFT MIRROR · Moon play profile · 2026","footer.right":"League of Legends belongs to Riot Games. Independent and unaffiliated project."
       }
     };
 
@@ -308,14 +395,25 @@
       lang=lang==='en'?'en':'pt';document.documentElement.lang=lang==='en'?'en':'pt-BR';
       document.querySelectorAll('[data-i]').forEach(el=>{const v=T[lang][el.dataset.i];if(v!==undefined)el.innerHTML=v});
       document.querySelectorAll('[data-lang]').forEach(btn=>btn.classList.toggle('active',btn.dataset.lang===lang));
-      document.title=lang==='en'?'Moon on the Rift · Play profile':'Moon no Rift · Perfil de jogo';
-      const desc=document.querySelector('meta[name="description"]');if(desc)desc.content=lang==='en'?'Visual report of Moon’s League of Legends play, communication, and coordination profile.':'Relatório visual do perfil de jogo, comunicação e coordenação de Moon em League of Legends.';
+      document.title=lang==='en'?'Moon on the Rift · RIFT MIRROR':'Moon no Rift · RIFT MIRROR';
+      const desc=document.querySelector('meta[name="description"]');if(desc)desc.content=lang==='en'?'RIFT MIRROR: visual report of Moon’s League of Legends playstyle, communication, and coordination profile.':'RIFT MIRROR: relatório visual do perfil de jogo, comunicação e coordenação de Moon em League of Legends.';
     }
     function syncLangUrl(lang){const u=new URL(location.href);if(lang==='en')u.searchParams.set('lang','en');else u.searchParams.delete('lang');history.replaceState(null,'',u.pathname+u.search+u.hash);applyLang(lang)}
     document.querySelectorAll('[data-lang]').forEach(btn=>btn.addEventListener('click',()=>syncLangUrl(btn.dataset.lang)));
 
-    const progress=document.getElementById('progress');const setProgress=()=>{const d=document.documentElement,max=d.scrollHeight-d.clientHeight;progress.style.width=(max?Math.min(100,d.scrollTop/max*100):0)+'%'};addEventListener('scroll',setProgress,{passive:true});setProgress();
-    const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;if(reduced){document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'))}else{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -5%'});document.querySelectorAll('.reveal').forEach(el=>io.observe(el))}
+    const progress=document.getElementById('progress');
+    const setProgress=()=>{const d=document.documentElement,max=d.scrollHeight-d.clientHeight;progress.style.width=(max?Math.min(100,d.scrollTop/max*100):0)+'%'};
+    addEventListener('scroll',setProgress,{passive:true});setProgress();
+
+    const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduced){document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'))}
+    else{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -6%'});document.querySelectorAll('.reveal').forEach(el=>io.observe(el))}
+
+    const navLinks=[...document.querySelectorAll('.topnav a')];
+    const navTargets=navLinks.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const navObserver=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-35% 0px -55% 0px',threshold:0});
+    navTargets.forEach(s=>navObserver.observe(s));
+
     applyLang(getLang());
   </script>
 </body>
