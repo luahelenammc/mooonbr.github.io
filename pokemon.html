@@ -803,7 +803,8 @@ function getRarityRank(name){
     const map = new Map();
 
     for(const p of raw){
-      const key = `${p.name}|${p.shiny ? 1 : 0}|${p.xmas ? 1 : 0}|${p.dynamax ? 1 : 0}`;
+      const ivBucket = p.iv === 0 ? "nundo" : "standard";
+      const key = `${p.name}|${p.shiny ? 1 : 0}|${p.xmas ? 1 : 0}|${p.dynamax ? 1 : 0}|${ivBucket}`;
 
       if(!map.has(key)){
         map.set(key, {
