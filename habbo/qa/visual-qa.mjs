@@ -122,6 +122,8 @@ try {
       record("right arrow stays inside Piscina group first", await page.locator('[data-cinematic-dock][data-active-id="lido"][data-active-item-id="lido_variant_02"]').count() === 1);
       await page.keyboard.press("ArrowRight");
       record("next arrow exits group only after final map", await page.locator('[data-cinematic-dock][data-active-id="ice_cafe"]').count() === 1);
+      const viewportBox = await page.locator("[data-dock-viewport]").boundingBox();
+      if (viewportBox) await page.mouse.move(viewportBox.x + viewportBox.width / 2, viewportBox.y + viewportBox.height / 2);
       await page.mouse.wheel(0, -150);
       record("wheel remains item-level", await page.locator('[data-cinematic-dock][data-active-id="lido"]').count() === 1);
     }
