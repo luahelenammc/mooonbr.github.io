@@ -1,0 +1,89 @@
+[
+  {
+    "id": "arrival_and_lobby",
+    "labelPtBr": "Chegada / Lobbies",
+    "labelEn": "Arrival / Lobby",
+    "notePtBr": "o arquivo organiza estes lugares juntos",
+    "noteEn": "the archive organizes these places together",
+    "status": "editorial_district",
+    "nodes": [
+      "welcome_lounge",
+      "main_lobby",
+      "median_lobby",
+      "skylight_lobby",
+      "basement_lobby",
+      "hallways",
+      "dusty_lounge"
+    ]
+  },
+  {
+    "id": "nightlife",
+    "labelPtBr": "Noite / Clubes",
+    "labelEn": "Nightlife / Clubs",
+    "notePtBr": "agrupamento temático do arquivo",
+    "noteEn": "thematic grouping made by the archive",
+    "status": "editorial_district",
+    "nodes": [
+      "club_massiva",
+      "club_mammoth",
+      "club_orient",
+      "rooftop_rumble"
+    ]
+  },
+  {
+    "id": "leisure_outdoors",
+    "labelPtBr": "Lazer / Exterior",
+    "labelEn": "Leisure / Outdoors",
+    "notePtBr": "agrupamento temático do arquivo",
+    "noteEn": "thematic grouping made by the archive",
+    "status": "editorial_district",
+    "nodes": [
+      "lido",
+      "rooftop",
+      "picnic_area",
+      "infobus_park",
+      "imperial_park"
+    ]
+  },
+  {
+    "id": "culture_and_spectacle",
+    "labelPtBr": "Cultura / Espetáculo",
+    "labelEn": "Culture / Spectacle",
+    "notePtBr": "agrupamento temático do arquivo",
+    "noteEn": "thematic grouping made by the archive",
+    "status": "editorial_district",
+    "nodes": [
+      "theatredrome",
+      "cinema",
+      "library"
+    ]
+  },
+  {
+    "id": "food_and_cafes",
+    "labelPtBr": "Comida / Cafés",
+    "labelEn": "Food / Cafes",
+    "notePtBr": "agrupamento temático do arquivo",
+    "noteEn": "thematic grouping made by the archive",
+    "status": "editorial_district",
+    "nodes": [
+      "cafe_gold",
+      "ice_cafe",
+      "hotel_kitchen",
+      "palazzo_pizza",
+      "space_cafe"
+    ]
+  },
+  {
+    "id": "games_and_services",
+    "labelPtBr": "Jogos / Serviços",
+    "labelEn": "Games / Services",
+    "notePtBr": "agrupamento temático do arquivo",
+    "noteEn": "thematic grouping made by the archive",
+    "status": "editorial_district",
+    "nodes": [
+      "snowstorm_lobby",
+      "stadium",
+      "beauty_salon"
+    ]
+  }
+]

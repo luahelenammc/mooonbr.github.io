@@ -1,0 +1,515 @@
+[
+  {
+    "id": "hist-hallways-1",
+    "from": "hallways",
+    "to": "hallway_1",
+    "relationType": "room_sequence",
+    "evidenceStatus": "documented_historical",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [
+      "https://habboxwiki.com/Public_Rooms"
+    ],
+    "label": "",
+    "notes": "Later official-room list names Hallway 1 as a distinct room; this confirms a corridor family, not the exact early layout."
+  },
+  {
+    "id": "hist-hallways-2",
+    "from": "hallways",
+    "to": "hallway_2",
+    "relationType": "room_sequence",
+    "evidenceStatus": "documented_historical",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [
+      "https://habboxwiki.com/Public_Rooms"
+    ],
+    "label": "",
+    "notes": "Same corridor-family evidence."
+  },
+  {
+    "id": "hist-hallways-3",
+    "from": "hallways",
+    "to": "hallway_3",
+    "relationType": "room_sequence",
+    "evidenceStatus": "documented_historical",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [
+      "https://habboxwiki.com/Public_Rooms"
+    ],
+    "label": "",
+    "notes": "Same corridor-family evidence."
+  },
+  {
+    "id": "prob-hallways-ii",
+    "from": "hallways",
+    "to": "hallway_ii",
+    "relationType": "room_sequence",
+    "evidenceStatus": "probable_historical",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [
+      "https://habbohistory.com/public-rooms",
+      "https://vemkajogos.webnode.page/habbo/"
+    ],
+    "label": "",
+    "notes": "HabboHistory preserves Hallway and Hallway II as multi-room archive groupings; exact cross-links are not exposed."
+  },
+  {
+    "id": "prob-lido-deck",
+    "from": "lido",
+    "to": "lido_deck",
+    "relationType": "doorway",
+    "evidenceStatus": "probable_historical",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [
+      "https://habbohistory.com/public-rooms",
+      "https://github.com/Quackster/Roseau"
+    ],
+    "label": "",
+    "notes": "HabboHistory records three Lido rooms; Roseau explicitly models room-to-room walkway behavior."
+  },
+  {
+    "id": "prob-lido-diving",
+    "from": "lido",
+    "to": "lido_diving",
+    "relationType": "doorway",
+    "evidenceStatus": "probable_historical",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [
+      "https://www.habborator.org/habboages/Habbo%20Ages%20-%20Update%20History.htm",
+      "https://github.com/Quackster/Roseau",
+      "https://www.habbonews.net/2024/06/habbo-hotel-origens-tour-pelos-espacos.html"
+    ],
+    "label": "",
+    "notes": "Diving is historically tied to the Lido; the available evidence is reconstruction/game-lineage evidence rather than a BR doorway screenshot."
+  },
+  {
+    "id": "prob-massiva-downstairs",
+    "from": "club_massiva",
+    "to": "club_massiva_downstairs_disco",
+    "relationType": "doorway",
+    "evidenceStatus": "probable_historical",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [
+      "https://habbohistory.com/public-rooms",
+      "https://github.com/Quackster/Roseau"
+    ],
+    "label": "",
+    "notes": "Two-room archive count plus explicit emulator walkway evidence."
+  },
+  {
+    "id": "prob-imperial-path",
+    "from": "imperial_park",
+    "to": "imperial_park_secondary_room",
+    "relationType": "room_sequence",
+    "evidenceStatus": "probable_historical",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [
+      "https://habbohistory.com/public-rooms",
+      "https://www.habbo.com.br/community/article/515/conselho-de-coala"
+    ],
+    "label": "",
+    "notes": "The archive says two rooms and 'follow the path'; secondary room identity remains unresolved."
+  },
+  {
+    "id": "prob-beauty-secondary",
+    "from": "beauty_salon",
+    "to": "beauty_salon_secondary_room",
+    "relationType": "same_complex",
+    "evidenceStatus": "probable_historical",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [
+      "https://habbohistory.com/public-rooms"
+    ],
+    "label": "",
+    "notes": "Room count is documented; exact internal relation is not."
+  },
+  {
+    "id": "hist-wobble-variant",
+    "from": "rooftop_rumble",
+    "to": "misterape_wobble_squabble",
+    "relationType": "version_relation",
+    "evidenceStatus": "documented_historical",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [
+      "https://vemkajogos.webnode.page/habbo/"
+    ],
+    "label": "",
+    "notes": "The BR roster names two Wobble Squabble rooms; they are modeled as a family, not duplicate canonical images."
+  },
+  {
+    "id": "prob-theatre-old-treat",
+    "from": "theatredrome",
+    "to": "old_treat_homage",
+    "relationType": "successor_predecessor",
+    "evidenceStatus": "probable_historical",
+    "directionality": "undirected",
+    "eraScope": [
+      "later_official_rooms"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [
+      "https://habboxwiki.com/Public_Rooms"
+    ],
+    "label": "",
+    "notes": "The later Theatre contained an homage to Old Treat; this is a lineage/reference relation, not a physical continuation of the classic theatre."
+  },
+  {
+    "id": "testimony-hallways-lido",
+    "from": "hallways",
+    "to": "lido",
+    "relationType": "functional_relation",
+    "evidenceStatus": "testimony",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [
+      "https://www.reddit.com/r/habbo/comments/1n9xnhq/regarding_the_beginner_rooms_across_the_years/"
+    ],
+    "label": "",
+    "notes": "Player testimony mentions Hallways/Lido as crowded, queued destinations; this supports social proximity in memory, not a doorway."
+  },
+  {
+    "id": "unknown-welcome-main",
+    "from": "welcome_lounge",
+    "to": "main_lobby",
+    "relationType": "room_sequence",
+    "evidenceStatus": "unknown",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [
+      "https://habbohistory.com/public-rooms",
+      "https://vemkajogos.webnode.page/habbo/"
+    ],
+    "label": "",
+    "notes": "Both are arrival/lobby identities, but no direct historical doorway source was found."
+  },
+  {
+    "id": "unknown-main-median",
+    "from": "main_lobby",
+    "to": "median_lobby",
+    "relationType": "room_sequence",
+    "evidenceStatus": "unknown",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [
+      "https://habbohistory.com/public-rooms",
+      "https://vemkajogos.webnode.page/habbo/",
+      "https://www.reddit.com/r/habbo/comments/1n9xnhq/regarding_the_beginner_rooms_across_the_years/"
+    ],
+    "label": "",
+    "notes": "Lobby-family adjacency is plausible but unproven."
+  },
+  {
+    "id": "unknown-median-skylight",
+    "from": "median_lobby",
+    "to": "skylight_lobby",
+    "relationType": "room_sequence",
+    "evidenceStatus": "unknown",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [
+      "https://habbohistory.com/public-rooms",
+      "https://vemkajogos.webnode.page/habbo/",
+      "https://www.reddit.com/r/habbo/comments/1n9xnhq/regarding_the_beginner_rooms_across_the_years/"
+    ],
+    "label": "",
+    "notes": "Lobby-family adjacency is plausible but unproven."
+  },
+  {
+    "id": "unknown-median-basement",
+    "from": "median_lobby",
+    "to": "basement_lobby",
+    "relationType": "room_sequence",
+    "evidenceStatus": "unknown",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [
+      "https://habbohistory.com/public-rooms",
+      "https://vemkajogos.webnode.page/habbo/",
+      "https://www.reddit.com/r/habbo/comments/1n9xnhq/regarding_the_beginner_rooms_across_the_years/"
+    ],
+    "label": "",
+    "notes": "Lobby-family adjacency is plausible but unproven."
+  },
+  {
+    "id": "unknown-main-hallways",
+    "from": "main_lobby",
+    "to": "hallways",
+    "relationType": "room_sequence",
+    "evidenceStatus": "unknown",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [
+      "https://habbohistory.com/public-rooms",
+      "https://vemkajogos.webnode.page/habbo/"
+    ],
+    "label": "",
+    "notes": "The visual composite suggests a circulation family, but the source chain does not prove an entrance from Main Lobby."
+  },
+  {
+    "id": "unknown-theatre-cinema",
+    "from": "theatredrome",
+    "to": "cinema",
+    "relationType": "functional_relation",
+    "evidenceStatus": "unknown",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [
+      "https://ducketsdofrank.blogspot.com/2014/07/nostalgia-habbo-espacos-publicos.html",
+      "https://habbohistory.com/public-rooms"
+    ],
+    "label": "",
+    "notes": "Both are cultural/entertainment destinations; no physical connection is asserted."
+  },
+  {
+    "id": "unknown-lido-rooftop",
+    "from": "lido",
+    "to": "rooftop",
+    "relationType": "thematic_relation",
+    "evidenceStatus": "unknown",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [
+      "https://ducketsdofrank.blogspot.com/2014/07/nostalgia-habbo-espacos-publicos.html",
+      "https://habbohistory.com/public-rooms"
+    ],
+    "label": "",
+    "notes": "Both are outdoor/leisure destinations; adjacency would be editorial unless new evidence appears."
+  },
+  {
+    "id": "edit-atlas-arrival",
+    "from": "editorial_atlas",
+    "to": "welcome_lounge",
+    "relationType": "editorial_path",
+    "evidenceStatus": "editorial_relation",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [],
+    "label": "arrive",
+    "notes": "Interface entry point only; not a historical Hub connection."
+  },
+  {
+    "id": "edit-atlas-lobby",
+    "from": "editorial_atlas",
+    "to": "main_lobby",
+    "relationType": "editorial_path",
+    "evidenceStatus": "editorial_relation",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [],
+    "label": "lobby",
+    "notes": "Interface destination only; not a historical centrality claim."
+  },
+  {
+    "id": "edit-atlas-leisure",
+    "from": "editorial_atlas",
+    "to": "lido",
+    "relationType": "editorial_path",
+    "evidenceStatus": "editorial_relation",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [],
+    "label": "leisure / pool",
+    "notes": "Editorial district anchor."
+  },
+  {
+    "id": "edit-atlas-outdoors",
+    "from": "editorial_atlas",
+    "to": "picnic_area",
+    "relationType": "editorial_path",
+    "evidenceStatus": "editorial_relation",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [],
+    "label": "outdoors",
+    "notes": "Editorial district anchor."
+  },
+  {
+    "id": "edit-atlas-nightlife",
+    "from": "editorial_atlas",
+    "to": "club_massiva",
+    "relationType": "editorial_path",
+    "evidenceStatus": "editorial_relation",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [],
+    "label": "nightlife",
+    "notes": "Editorial district anchor."
+  },
+  {
+    "id": "edit-atlas-culture",
+    "from": "editorial_atlas",
+    "to": "theatredrome",
+    "relationType": "editorial_path",
+    "evidenceStatus": "editorial_relation",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [],
+    "label": "culture",
+    "notes": "Editorial district anchor."
+  },
+  {
+    "id": "edit-atlas-food",
+    "from": "editorial_atlas",
+    "to": "hotel_kitchen",
+    "relationType": "editorial_path",
+    "evidenceStatus": "editorial_relation",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [],
+    "label": "food",
+    "notes": "Editorial district anchor."
+  },
+  {
+    "id": "edit-atlas-games",
+    "from": "editorial_atlas",
+    "to": "snowstorm_lobby",
+    "relationType": "editorial_path",
+    "evidenceStatus": "editorial_relation",
+    "directionality": "undirected",
+    "eraScope": [
+      "classic_undated"
+    ],
+    "localeScope": [
+      "brpt"
+    ],
+    "evidenceRefs": [],
+    "label": "games",
+    "notes": "Editorial district anchor."
+  }
+]
