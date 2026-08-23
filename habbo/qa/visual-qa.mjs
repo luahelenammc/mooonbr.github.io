@@ -86,6 +86,8 @@ try {
     record("home has no legacy map or grid", await page.locator(".spatial-world, .district-grid, .district-island, .place-node").count() === 0);
     record("home has flag switcher", await page.locator(".lang-toggle .lang-button").count() === 2);
     record("home has no plain language text", !(await page.locator("body").innerText()).includes("PT-BR | EN"));
+    record("home has no meta explanation surface", await page.locator(".dock-intro, .dock-topline, .dock-instruction, .home-secondary, .info-dialog, [data-open-info]").count() === 0);
+    record("home keeps the zoom dock", await page.locator('[data-cinematic-dock][data-dock-effect="zoom"]').count() === 1);
   };
 
   await runPage(browser, {
@@ -109,9 +111,29 @@ try {
     viewport: { width: 1440, height: 900 },
     screenshot: "02-home-piscina.png",
     assert: async (page) => {
-      record("hash selects Piscina", await page.locator('[data-cinematic-dock][data-active-id="lido"]').count() === 1);
-      record("Piscina is the active visual focus", await page.locator('[data-dock-slide][data-room-id="lido"].is-active').count() === 1);
-      record("dock exposes only active caption", await page.locator(".dock-caption [data-active-name]").innerText() === "Piscina Habbo");
+    record("hash selects Piscina", await page.locator('[data-cinematic-dock][data-active-id="lido"]').count() === 1);
+    record("Piscina is the active visual focus", await page.locator('[data-dock-slide][data-room-id="lido"].is-active').count() === 1);
+    record("dock exposes only active caption", await page.locator(".dock-caption [data-active-name]").innerText() === "Piscina Habbo");
+    const zoomMetrics = await page.evaluate(() => {
+      const dock = document.querySelector("[data-cinematic-dock]");
+      const active = dock?.querySelector("[data-dock-slide].is-active");
+      const visible = [...(dock?.querySelectorAll("[data-dock-slide]") || [])].filter((slide) => {
+        const rect = slide.getBoundingClientRect();
+        return rect.right > 0 && rect.left < innerWidth && Number.parseFloat(getComputedStyle(slide).opacity) > .3;
+      });
+      const activeRect = active?.getBoundingClientRect();
+      const neighbor = visible.find((slide) => slide !== active);
+      const neighborRect = neighbor?.getBoundingClientRect();
+      return {
+        visible: visible.length,
+        activeWidth: activeRect?.width || 0,
+        neighborWidth: neighborRect?.width || 0,
+        transform: active ? getComputedStyle(active).transform : "none"
+      };
+    });
+    record("active dock slide is materially zoomed", zoomMetrics.activeWidth > zoomMetrics.neighborWidth * 1.2, JSON.stringify(zoomMetrics));
+    record("dock exposes layered depth", zoomMetrics.transform !== "none" && zoomMetrics.transform.includes("matrix3d"), zoomMetrics.transform);
+    record("dock exposes five or more visual rooms", zoomMetrics.visible >= 5, `visible ${zoomMetrics.visible}`);
     }
   });
 
@@ -139,6 +161,8 @@ try {
       await page.locator("[data-dock-viewport]").focus();
       await page.keyboard.press("ArrowRight");
       record("keyboard arrow advances dock", await page.locator('[data-cinematic-dock][data-active-id="hallways"]').count() === 1);
+      await page.waitForTimeout(100);
+      record("slide change exposes transition state", await page.locator("[data-cinematic-dock].is-transitioning").count() === 1);
       const box = await page.locator("[data-dock-viewport]").boundingBox();
       if (box) {
         await page.mouse.move(box.x + box.width / 2 + 140, box.y + box.height / 2);

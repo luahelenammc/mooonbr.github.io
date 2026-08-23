@@ -662,6 +662,19 @@ button {
   line-height: 1.55;
 }
 
+.site-footer--v2 {
+  margin-top: 0;
+  padding: .65rem 0 1rem;
+  border-top-color: rgba(230, 236, 224, .08);
+  font-size: .58rem;
+}
+
+.site-footer--v2 .rights-disclaimer {
+  max-width: 74ch;
+  margin: 0;
+  opacity: .62;
+}
+
 .footer-note {
   margin: 0;
 }
@@ -1607,40 +1620,21 @@ button {
 }
 
 .home-page--v2 {
-  padding-bottom: 1rem;
-}
-
-.dock-intro {
-  display: grid;
-  grid-template-columns: minmax(15rem, .9fr) minmax(17rem, 1fr);
-  align-items: end;
-  gap: 2rem;
-  max-width: 60rem;
-  padding: 3.5rem 0 1.4rem;
-}
-
-.dock-intro h1 {
-  max-width: 10ch;
-  margin: 0;
-  color: var(--ink);
-  font-size: clamp(2.7rem, 6vw, 6.2rem);
-  font-weight: 500;
-  letter-spacing: -.075em;
-  line-height: .9;
-}
-
-.dock-intro > p:last-child {
-  max-width: 32rem;
-  margin: 0 0 .15rem;
-  color: var(--ink-soft);
-  font-size: .9rem;
+  display: flex;
+  min-height: calc(100vh - 4.7rem);
+  flex-direction: column;
+  padding: 0;
 }
 
 .cinematic-dock {
   position: relative;
+  display: grid;
+  flex: 1 1 auto;
+  grid-template-rows: minmax(0, 1fr) auto auto;
+  min-height: calc(100vh - 4.7rem);
   width: 100vw;
   margin-inline: calc(50% - 50vw);
-  padding: 0 max(1.25rem, calc((100vw - var(--measure)) / 2));
+  padding: .35rem max(1.25rem, calc((100vw - var(--measure)) / 2)) .55rem;
   overflow: hidden;
   background:
     radial-gradient(ellipse at 50% 48%, rgba(131, 217, 210, .085), transparent 32rem),
@@ -1663,44 +1657,22 @@ button {
 .cinematic-dock::before { top: 0; }
 .cinematic-dock::after { bottom: 0; }
 
-.dock-topline,
 .dock-caption,
-.dock-controls,
-.dock-instruction {
+.dock-controls {
   position: relative;
   z-index: 2;
 }
 
-.dock-topline {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: .9rem 0 .35rem;
-  color: var(--ink-faint);
-  font: .6rem monospace;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
-.dock-topline > div {
-  display: flex;
-  align-items: center;
-  gap: .75rem;
-}
-
-.dock-kicker { color: var(--gold); }
-.dock-count { color: var(--ink-faint); }
-.dock-mode { color: rgba(181, 190, 201, .62); }
-
 .dock-viewport {
   position: relative;
-  height: clamp(19rem, 39vw, 34rem);
+  min-height: 0;
+  height: clamp(24rem, 60vh, 42rem);
   margin-inline: -1.25rem;
   overflow: hidden;
   perspective: 1100px;
   touch-action: pan-y;
   cursor: grab;
+  overscroll-behavior-x: contain;
 }
 
 .dock-viewport:focus-visible {
@@ -1713,7 +1685,7 @@ button {
 .dock-track {
   display: flex;
   align-items: center;
-  gap: clamp(.7rem, 1.3vw, 1.5rem);
+  gap: clamp(.8rem, 1.1vw, 1.35rem);
   width: max-content;
   min-height: 100%;
   margin: 0;
@@ -1729,18 +1701,23 @@ button {
 
 .dock-slide {
   position: relative;
-  flex: 0 0 clamp(8.3rem, 13vw, 14.5rem);
+  flex: 0 0 clamp(13rem, 19vw, 23rem);
   opacity: var(--dock-opacity, .35);
   filter: blur(var(--dock-blur, 0px)) saturate(.82);
-  transform: scale(var(--dock-scale, .55)) rotateY(var(--dock-rotate, 0deg));
+  transform: translateZ(var(--dock-z, 0px)) scale(var(--dock-scale, .55)) rotateY(var(--dock-rotate, 0deg));
   transform-origin: center;
   transition: opacity 560ms ease, filter 560ms ease, transform 700ms cubic-bezier(.16, .8, .17, 1);
   will-change: transform, opacity, filter;
 }
 
-.dock-slide.is-active,
+.dock-slide.is-active {
+  z-index: 6;
+  opacity: 1;
+  filter: none;
+}
+
 .dock-slide.is-visual-focus {
-  z-index: 3;
+  z-index: 5;
   opacity: 1;
   filter: none;
 }
@@ -1758,7 +1735,7 @@ button {
 .dock-media {
   display: grid;
   place-items: center;
-  height: clamp(13rem, 31vw, 28rem);
+  height: clamp(17rem, 43vh, 34rem);
   padding: .5rem;
   background: radial-gradient(ellipse at center, rgba(255,255,255,.055), transparent 70%);
   filter: drop-shadow(0 1.6rem 1.3rem rgba(0, 0, 0, .35));
@@ -1779,6 +1756,16 @@ button {
 .dock-room:focus-visible .dock-media,
 .dock-slide.is-active .dock-media {
   filter: drop-shadow(0 1.8rem 1.5rem rgba(0, 0, 0, .42)) drop-shadow(0 0 .9rem rgba(131, 217, 210, .14));
+}
+
+.cinematic-dock.is-transitioning .dock-slide.is-active .dock-media {
+  animation: dock-focus-arrive 780ms cubic-bezier(.16, .8, .17, 1);
+}
+
+@keyframes dock-focus-arrive {
+  0% { filter: drop-shadow(0 0 0 rgba(131, 217, 210, 0)) drop-shadow(0 0 0 rgba(0, 0, 0, 0)); }
+  48% { filter: drop-shadow(0 2.3rem 1.8rem rgba(0, 0, 0, .48)) drop-shadow(0 0 1.35rem rgba(131, 217, 210, .24)); }
+  100% { filter: drop-shadow(0 1.8rem 1.5rem rgba(0, 0, 0, .42)) drop-shadow(0 0 .9rem rgba(131, 217, 210, .14)); }
 }
 
 .dock-caption {
@@ -1860,63 +1847,6 @@ button {
 .dock-control[data-paused="true"] { color: var(--gold); }
 .dock-play-icon { font-size: .7rem; }
 
-.dock-instruction {
-  margin: .15rem 0 1.25rem;
-  color: rgba(181, 190, 201, .58);
-  text-align: center;
-  font: .59rem monospace;
-  letter-spacing: .08em;
-  text-transform: lowercase;
-}
-
-.home-secondary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-  padding: 1.35rem 0 0;
-  color: var(--ink-faint);
-  font: .64rem monospace;
-  letter-spacing: .035em;
-}
-
-.home-secondary a {
-  display: inline-flex;
-  gap: .45rem;
-  color: var(--ink-soft);
-  text-decoration: none;
-  transition: color var(--ease), transform var(--ease);
-}
-
-.home-secondary a:hover,
-.home-secondary a:focus-visible {
-  color: var(--ink);
-  transform: translateY(-1px);
-}
-
-.home-secondary a span { color: var(--water); }
-
-.info-dialog {
-  width: min(31rem, calc(100% - 2rem));
-  padding: 0;
-  border: 1px solid var(--line-strong);
-  border-radius: .35rem;
-  background: rgba(13, 18, 28, .98);
-  color: var(--ink);
-  box-shadow: 0 1.5rem 5rem rgba(0, 0, 0, .5);
-}
-
-.info-dialog::backdrop { background: rgba(4, 7, 12, .7); backdrop-filter: blur(5px); }
-.info-dialog-inner { padding: 1.4rem; }
-.dialog-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
-.dialog-heading h2 { margin: 0; font-size: 1.45rem; font-weight: 500; letter-spacing: -.04em; }
-.info-dialog-inner > p { color: var(--ink-soft); font-size: .82rem; }
-.info-links { display: grid; gap: .55rem; margin-top: 1.2rem; }
-.info-links a { display: flex; justify-content: space-between; padding-top: .55rem; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: .75rem; text-decoration: none; }
-.info-links a:hover, .info-links a:focus-visible { color: var(--ink); }
-.info-links span { color: var(--water); }
-
 .room-lightbox {
   width: 100vw;
   height: 100vh;
@@ -1951,18 +1881,13 @@ button {
 body:has(.room-lightbox[open]) { overflow: hidden; }
 
 @media (max-width: 720px) {
-  .dock-intro { grid-template-columns: 1fr; gap: .75rem; padding-top: 2.25rem; }
-  .dock-intro h1 { font-size: clamp(2.8rem, 15vw, 5.4rem); }
-  .dock-intro > p:last-child { max-width: 26rem; }
-  .cinematic-dock { padding-inline: .75rem; }
-  .dock-topline { margin-inline: .5rem; }
-  .dock-mode { display: none; }
-  .dock-viewport { height: clamp(18rem, 72vw, 27rem); margin-inline: -.75rem; }
+  .home-page--v2 { min-height: calc(100svh - 4.2rem); }
+  .cinematic-dock { min-height: calc(100svh - 4.2rem); padding-inline: .75rem; }
+  .dock-viewport { height: clamp(20rem, 64svh, 31rem); margin-inline: -.75rem; }
   .dock-track { gap: .7rem; }
   .dock-slide { flex-basis: min(82vw, 29rem); }
-  .dock-media { height: clamp(15rem, 68vw, 25rem); }
+  .dock-media { height: clamp(16rem, 62vw, 25rem); }
   .dock-caption { min-height: 5.9rem; }
-  .home-secondary { align-items: flex-start; flex-direction: column; gap: .7rem; padding-inline: .25rem; }
   .lightbox-shell { grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem; padding: 3.5rem .65rem 1.4rem; }
   .lightbox-figure img { max-height: calc(100vh - 14rem); }
   .lightbox-arrow { width: 2.25rem; height: 2.25rem; }
@@ -1970,10 +1895,7 @@ body:has(.room-lightbox[open]) { overflow: hidden; }
 }
 
 @media (max-width: 480px) {
-  .v2-header .header-info span:last-child { display: none; }
-  .v2-header .header-actions { gap: .5rem; }
   .dock-caption h2 { font-size: 1.65rem; }
-  .dock-instruction { font-size: .55rem; }
   .lightbox-shell { grid-template-columns: 2.15rem minmax(0, 1fr) 2.15rem; gap: .2rem; }
   .lightbox-lang-toggle { right: 3.8rem; }
   .lightbox-close { right: .8rem; }
@@ -1983,9 +1905,12 @@ body:has(.room-lightbox[open]) { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .dock-track,
   .dock-slide,
-  .dock-control,
-  .home-secondary a {
+  .dock-control {
     transition: none !important;
+  }
+
+  .cinematic-dock.is-transitioning .dock-slide.is-active .dock-media {
+    animation: none;
   }
 
   .dock-slide {
