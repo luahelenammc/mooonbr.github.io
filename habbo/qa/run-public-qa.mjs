@@ -5,6 +5,9 @@ import { fileURLToPath } from "node:url";
 const PROJECT_ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const DIST = path.join(PROJECT_ROOT, "dist");
 const BASE = "/habbo";
+const ASSET_VERSION = String(process.env.ASSET_VERSION || "20260823-v2-hotfix").replace(/[^a-zA-Z0-9._~-]/g, "");
+const CSS_ASSET = `${BASE}/assets/site.css?v=${ASSET_VERSION}`;
+const JS_ASSET = `${BASE}/assets/site.js?v=${ASSET_VERSION}`;
 const failures = [];
 let checks = 0;
 
@@ -50,14 +53,18 @@ check(assetFiles.length === 27, `expected 27 published image assets, found ${ass
 check(fs.existsSync(path.join(DIST, "PUBLICATION_MANIFEST.md")), "publication manifest missing from public build");
 check(fs.existsSync(path.join(DIST, "assets", "flag-br.svg")), "Brazil flag asset missing from public build");
 check(fs.existsSync(path.join(DIST, "assets", "flag-us.svg")), "US flag asset missing from public build");
+check(fs.existsSync(path.join(DIST, "assets", "site.css")), "site stylesheet missing from public build");
+check(fs.existsSync(path.join(DIST, "assets", "site.js")), "site script missing from public build");
+check(fs.readFileSync(path.join(DIST, "assets", "site.css"), "utf8").includes(".cinematic-dock"), "cinematic dock styles missing from public build");
+check(fs.readFileSync(path.join(DIST, "assets", "site.js"), "utf8").includes("data-cinematic-dock"), "cinematic dock script missing from public build");
 
 for (const file of htmlFiles) {
   const html = fs.readFileSync(file, "utf8");
   const rel = path.relative(DIST, file);
   check(html.includes("noindex,nofollow,noarchive"), `robots posture missing: ${rel}`);
   check(html.includes("This fan site is not affiliated"), `official disclaimer missing: ${rel}`);
-  check(html.includes(`${BASE}/assets/site.css`), `rebased CSS missing: ${rel}`);
-  check(html.includes(`${BASE}/assets/site.js`), `rebased JS missing: ${rel}`);
+  check(html.includes(CSS_ASSET), `versioned CSS missing: ${rel}`);
+  check(html.includes(JS_ASSET), `versioned JS missing: ${rel}`);
   check(!/(href|src)=(['"])\/(?:pt-br|en|assets)\//.test(html), `root route leak: ${rel}`);
   check(!html.includes("https://drive.google.com/file/"), `internal Drive link leaked: ${rel}`);
   check(!html.includes("PT-BR | EN"), `plain-text language switcher leaked: ${rel}`);

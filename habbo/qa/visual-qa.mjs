@@ -51,6 +51,10 @@ async function runPage(browser, test) {
       scrollWidth: document.documentElement.scrollWidth,
       clientWidth: document.documentElement.clientWidth,
       bodyText: document.body.innerText.trim().length,
+      activeSiteStylesheet: [...document.styleSheets].some((sheet) => {
+        if (!sheet.href?.includes("/assets/site.css")) return false;
+        try { return sheet.cssRules.length > 0; } catch { return false; }
+      }),
       images: [...document.images].filter((image) => !image.complete || image.naturalWidth === 0).map((image) => image.src),
       overflowers: [...document.querySelectorAll("*")].map((element) => {
         const box = element.getBoundingClientRect();
@@ -59,6 +63,7 @@ async function runPage(browser, test) {
     }));
     record(`${test.name} loads`, bodyText.length > 40 && layout.bodyText > 40, `body text length ${bodyText.length}`);
     record(`${test.name} has no horizontal overflow`, layout.scrollWidth <= layout.clientWidth + 1, `${layout.scrollWidth} > ${layout.clientWidth}${layout.overflowers.length ? ` (${layout.overflowers.map((item) => `${item.tag}.${item.className}=${item.right}`).join(", ")})` : ""}`);
+    record(`${test.name} has active site stylesheet`, layout.activeSiteStylesheet, "site.css did not expose CSS rules");
     record(`${test.name} has no broken images`, layout.images.length === 0, layout.images.join(", "));
     record(`${test.name} has no console errors`, consoleErrors.length === 0, consoleErrors.join(" | "));
     record(`${test.name} has no page errors`, pageErrors.length === 0, pageErrors.join(" | "));
