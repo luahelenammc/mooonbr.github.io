@@ -116,7 +116,11 @@
     "notes": "A strong arrival identity, but not promoted to a historically central connector without doorway evidence.",
     "complexStructure": null,
     "sourcePageUrl": "https://habboxwiki.com/The_Welcome_Lounge",
-    "directImageUrl": "https://habboxwiki.com/wiki/images/c/cf/TheWelcomeLounge.gif"
+    "directImageUrl": "https://habboxwiki.com/wiki/images/c/cf/TheWelcomeLounge.gif",
+    "groupOrder": 12,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "main_lobby",
@@ -159,9 +163,16 @@
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
       "provenanceId": "manifest:main_lobby",
-      "presentationFilename": "habbo_public_space__main_lobby__brpt__undated__presentation.png"
+      "presentationFilename": "habbo_public_space__main_lobby__brpt__undated__v4__presentation.png",
+      "id": "main_lobby_primary",
+      "labelPt": "Sala principal",
+      "labelEn": "Main room",
+      "kind": "primary",
+      "sourcePageUrl": "https://habboxwiki.com/Main_Lobby",
+      "directImageUrl": "https://habboxwiki.com/wiki/images/a/af/Main_lobby.PNG",
+      "notes": "V4 presentation cleanup removes the stray footer/background UI object while preserving the raw original."
     },
-    "groupId": "main_lobby",
+    "groupId": "lobbies",
     "variants": [
       {
         "id": "main_lobby_primary",
@@ -169,7 +180,7 @@
         "labelEn": "Main room",
         "kind": "primary",
         "filename": "habbo_public_space__main_lobby__brpt__undated.png",
-        "presentationFilename": "habbo_public_space__main_lobby__brpt__undated__presentation.png",
+        "presentationFilename": "habbo_public_space__main_lobby__brpt__undated__v4__presentation.png",
         "width": 720,
         "height": 484,
         "format": "PNG",
@@ -178,7 +189,7 @@
         "provenanceId": "manifest:main_lobby",
         "sourcePageUrl": "https://habboxwiki.com/Main_Lobby",
         "directImageUrl": "https://habboxwiki.com/wiki/images/a/af/Main_lobby.PNG",
-        "notes": "Primary image preserved by the V1 manifest."
+        "notes": "V4 presentation cleanup removes the stray footer/background UI object while preserving the raw original."
       }
     ],
     "grouped": false,
@@ -235,7 +246,13 @@
     "notes": "The BR alias Saguão Yahoo! is modeled as a localized/campaign alias, not a second node.",
     "complexStructure": null,
     "sourcePageUrl": "https://habboxwiki.com/Main_Lobby",
-    "directImageUrl": "https://habboxwiki.com/wiki/images/a/af/Main_lobby.PNG"
+    "directImageUrl": "https://habboxwiki.com/wiki/images/a/af/Main_lobby.PNG",
+    "groupOrder": 5,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true,
+    "v4VariantLabelPt": "Saguão Principal",
+    "v4VariantLabelEn": "Main Lobby"
   },
   {
     "id": "median_lobby",
@@ -280,7 +297,7 @@
       "provenanceId": "manifest:median_lobby",
       "presentationFilename": "habbo_public_space__median_lobby__brpt__undated__presentation.png"
     },
-    "groupId": "median_lobby",
+    "groupId": "lobbies",
     "variants": [
       {
         "id": "median_lobby_primary",
@@ -353,7 +370,13 @@
     "notes": "Its place in the lobby family is well supported; its exact physical adjacency is not.",
     "complexStructure": null,
     "sourcePageUrl": "https://habboxwiki.com/Median_Lobby",
-    "directImageUrl": "https://habboxwiki.com/wiki/images/b/b4/Realmainlobby.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/images/b/b4/Realmainlobby.png",
+    "groupOrder": 5,
+    "variantOrder": 2,
+    "visibility": "public",
+    "publicVisible": true,
+    "v4VariantLabelPt": "Saguão do Meio",
+    "v4VariantLabelEn": "Median Lobby"
   },
   {
     "id": "skylight_lobby",
@@ -398,7 +421,7 @@
       "provenanceId": "manifest:skylight_lobby",
       "presentationFilename": "habbo_public_space__skylight_lobby__brpt__undated__presentation.png"
     },
-    "groupId": "skylight_lobby",
+    "groupId": "lobbies",
     "variants": [
       {
         "id": "skylight_lobby_primary",
@@ -471,7 +494,13 @@
     "notes": "Top-floor language is treated as descriptive identity, not map coordinates.",
     "complexStructure": null,
     "sourcePageUrl": "https://habboxwiki.com/Skylight_Lobby",
-    "directImageUrl": "https://habboxwiki.com/wiki/images/3/37/Skylight_Lobby.gif"
+    "directImageUrl": "https://habboxwiki.com/wiki/images/3/37/Skylight_Lobby.gif",
+    "groupOrder": 5,
+    "variantOrder": 3,
+    "visibility": "public",
+    "publicVisible": true,
+    "v4VariantLabelPt": "Saguão Superior",
+    "v4VariantLabelEn": "Skylight Lobby"
   },
   {
     "id": "basement_lobby",
@@ -516,7 +545,7 @@
       "provenanceId": "manifest:basement_lobby",
       "presentationFilename": "habbo_public_space__basement_lobby__brpt__undated__presentation.png"
     },
-    "groupId": "basement_lobby",
+    "groupId": "lobbies",
     "variants": [
       {
         "id": "basement_lobby_primary",
@@ -589,7 +618,13 @@
     "notes": "Basement/underground naming is preserved as room identity, not literal reconstructed geography.",
     "complexStructure": null,
     "sourcePageUrl": "https://habboxwiki.com/Basement_Lobby",
-    "directImageUrl": "https://habboxwiki.com/wiki/images/8/86/Basment_lobby.PNG"
+    "directImageUrl": "https://habboxwiki.com/wiki/images/8/86/Basment_lobby.PNG",
+    "groupOrder": 5,
+    "variantOrder": 4,
+    "visibility": "public",
+    "publicVisible": true,
+    "v4VariantLabelPt": "Saguão Subterrâneo",
+    "v4VariantLabelEn": "Basement Lobby"
   },
   {
     "id": "hallways",
@@ -636,7 +671,14 @@
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
       "provenanceId": "manifest:hallways",
-      "presentationFilename": "habbo_public_space__hallways__brpt__undated__presentation.png"
+      "presentationFilename": "habbo_public_space__hallways__brpt__undated__v4__presentation.png",
+      "id": "hallways_primary",
+      "labelPt": "Sala principal",
+      "labelEn": "Main room",
+      "kind": "primary",
+      "sourcePageUrl": "https://habboxwiki.com/Hallways",
+      "directImageUrl": "https://habboxwiki.com/wiki/images/0/0f/Hallways.png",
+      "notes": "V4 derivative re-extracts transparency from the raw corridor image so black presentation squares remain transparent and pixel art stays crisp."
     },
     "groupId": "hallways",
     "variants": [
@@ -646,7 +688,7 @@
         "labelEn": "Main room",
         "kind": "primary",
         "filename": "habbo_public_space__hallways__brpt__undated.png",
-        "presentationFilename": "habbo_public_space__hallways__brpt__undated__presentation.png",
+        "presentationFilename": "habbo_public_space__hallways__brpt__undated__v4__presentation.png",
         "width": 1048,
         "height": 506,
         "format": "PNG",
@@ -655,7 +697,7 @@
         "provenanceId": "manifest:hallways",
         "sourcePageUrl": "https://habboxwiki.com/Hallways",
         "directImageUrl": "https://habboxwiki.com/wiki/images/0/0f/Hallways.png",
-        "notes": "Primary image preserved by the V1 manifest."
+        "notes": "V4 derivative re-extracts transparency from the raw corridor image so black presentation squares remain transparent and pixel art stays crisp."
       }
     ],
     "grouped": false,
@@ -713,7 +755,11 @@
     "notes": "The selected image is one canonical composite for a family/network, not proof that all corridor variants were one room.",
     "complexStructure": null,
     "sourcePageUrl": "https://habboxwiki.com/Hallways",
-    "directImageUrl": "https://habboxwiki.com/wiki/images/0/0f/Hallways.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/images/0/0f/Hallways.png",
+    "groupOrder": 9,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "theatredrome",
@@ -752,14 +798,21 @@
       "2001-08-03"
     ],
     "image": {
-      "filename": "habbo_public_space__theatredrome__brpt__undated.png",
-      "width": 793,
+      "filename": "habbo_public_space__theatredrome__v4__brpt__undated.webp",
+      "width": 722,
       "height": 489,
-      "format": "PNG",
+      "format": "WEBP",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
       "provenanceId": "manifest:theatredrome",
-      "presentationFilename": "habbo_public_space__theatredrome__brpt__undated__presentation.png"
+      "presentationFilename": "habbo_public_space__theatredrome__v4__brpt__undated__presentation.png",
+      "id": "theatredrome_primary",
+      "labelPt": "Sala principal",
+      "labelEn": "Main room",
+      "kind": "primary",
+      "sourcePageUrl": "https://habboxwiki.com/Theatre",
+      "directImageUrl": "https://static.wikia.nocookie.net/habbo/images/0/02/Teatro.gif/revision/latest?cb=20111105205459&path-prefix=pt",
+      "notes": "V4 corrected asset supplied by the handoff; CDN returned WebP bytes for the requested Teatro.gif URL."
     },
     "groupId": "theatredrome",
     "variants": [
@@ -768,17 +821,17 @@
         "labelPt": "Sala principal",
         "labelEn": "Main room",
         "kind": "primary",
-        "filename": "habbo_public_space__theatredrome__brpt__undated.png",
-        "presentationFilename": "habbo_public_space__theatredrome__brpt__undated__presentation.png",
-        "width": 793,
+        "filename": "habbo_public_space__theatredrome__v4__brpt__undated.webp",
+        "presentationFilename": "habbo_public_space__theatredrome__v4__brpt__undated__presentation.png",
+        "width": 722,
         "height": 489,
-        "format": "PNG",
+        "format": "WEBP",
         "temporalStatus": "canonical_original_image",
         "rightsStatus": "public_reference_only",
         "provenanceId": "manifest:theatredrome",
         "sourcePageUrl": "https://habboxwiki.com/Theatre",
-        "directImageUrl": "https://habboxwiki.com/wiki/images/4/4d/Oldtheatre.png",
-        "notes": "Primary image preserved by the V1 manifest."
+        "directImageUrl": "https://static.wikia.nocookie.net/habbo/images/0/02/Teatro.gif/revision/latest?cb=20111105205459&path-prefix=pt",
+        "notes": "V4 corrected asset supplied by the handoff; CDN returned WebP bytes for the requested Teatro.gif URL."
       }
     ],
     "grouped": false,
@@ -838,7 +891,11 @@
     "notes": "Theatredrome and Cinema remain distinct nodes; shared entertainment function is not treated as a doorway.",
     "complexStructure": null,
     "sourcePageUrl": "https://habboxwiki.com/Theatre",
-    "directImageUrl": "https://habboxwiki.com/wiki/images/4/4d/Oldtheatre.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/images/4/4d/Oldtheatre.png",
+    "groupOrder": 15,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "cinema",
@@ -883,7 +940,14 @@
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
       "provenanceId": "manifest:cinema",
-      "presentationFilename": "habbo_public_space__cinema__brpt__undated__presentation.png"
+      "presentationFilename": "habbo_public_space__cinema__brpt__undated__v4__presentation.png",
+      "id": "cinema_primary",
+      "labelPt": "Sala principal",
+      "labelEn": "Main room",
+      "kind": "primary",
+      "sourcePageUrl": "https://habboxwiki.com/Cinema",
+      "directImageUrl": "https://habboxwiki.com/wiki/images/a/a6/Habbo_cinema.PNG",
+      "notes": "V4 presentation cleanup removes the gray footer line/UI residue while preserving the raw original."
     },
     "groupId": "cinema",
     "variants": [
@@ -893,7 +957,7 @@
         "labelEn": "Main room",
         "kind": "primary",
         "filename": "habbo_public_space__cinema__brpt__undated.png",
-        "presentationFilename": "habbo_public_space__cinema__brpt__undated__presentation.png",
+        "presentationFilename": "habbo_public_space__cinema__brpt__undated__v4__presentation.png",
         "width": 719,
         "height": 489,
         "format": "PNG",
@@ -902,7 +966,7 @@
         "provenanceId": "manifest:cinema",
         "sourcePageUrl": "https://habboxwiki.com/Cinema",
         "directImageUrl": "https://habboxwiki.com/wiki/images/a/a6/Habbo_cinema.PNG",
-        "notes": "Primary image preserved by the V1 manifest."
+        "notes": "V4 presentation cleanup removes the gray footer line/UI residue while preserving the raw original."
       }
     ],
     "grouped": false,
@@ -962,7 +1026,11 @@
     "notes": "BR evidence is strong for existence; direct connection to Teatro is not established.",
     "complexStructure": null,
     "sourcePageUrl": "https://habboxwiki.com/Cinema",
-    "directImageUrl": "https://habboxwiki.com/wiki/images/a/a6/Habbo_cinema.PNG"
+    "directImageUrl": "https://habboxwiki.com/wiki/images/a/a6/Habbo_cinema.PNG",
+    "groupOrder": 2,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "lido",
@@ -1001,14 +1069,21 @@
       "2001-10-01"
     ],
     "image": {
-      "filename": "habbo_public_space__lido__brpt__undated.png",
-      "width": 1660,
-      "height": 740,
+      "filename": "habbo_public_space__lido__variant_01__brpt__undated__source-crop.png",
+      "width": 803,
+      "height": 734,
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
       "provenanceId": "manifest:lido",
-      "presentationFilename": "habbo_public_space__lido__brpt__undated__presentation.png"
+      "presentationFilename": "habbo_public_space__lido__variant_01__brpt__undated__presentation.png",
+      "id": "lido_primary",
+      "labelPt": "Sala principal",
+      "labelEn": "Main room",
+      "kind": "primary",
+      "sourcePageUrl": "https://habboxwiki.com/Lido",
+      "directImageUrl": "https://habboxwiki.com/wiki/images/d/de/Lido.png",
+      "notes": "V4 left-hand pool map cropped from the preserved two-map Lido original; the composite raw original remains intact."
     },
     "groupId": "lido",
     "variants": [
@@ -1017,20 +1092,37 @@
         "labelPt": "Sala principal",
         "labelEn": "Main room",
         "kind": "primary",
-        "filename": "habbo_public_space__lido__brpt__undated.png",
-        "presentationFilename": "habbo_public_space__lido__brpt__undated__presentation.png",
-        "width": 1660,
-        "height": 740,
+        "filename": "habbo_public_space__lido__variant_01__brpt__undated__source-crop.png",
+        "presentationFilename": "habbo_public_space__lido__variant_01__brpt__undated__presentation.png",
+        "width": 803,
+        "height": 734,
         "format": "PNG",
         "temporalStatus": "canonical_original_image",
         "rightsStatus": "public_reference_only",
         "provenanceId": "manifest:lido",
         "sourcePageUrl": "https://habboxwiki.com/Lido",
         "directImageUrl": "https://habboxwiki.com/wiki/images/d/de/Lido.png",
-        "notes": "Primary image preserved by the V1 manifest."
+        "notes": "V4 left-hand pool map cropped from the preserved two-map Lido original; the composite raw original remains intact."
+      },
+      {
+        "id": "lido_variant_02",
+        "labelPt": "Piscina — mapa 02",
+        "labelEn": "Pool — map 02",
+        "kind": "source_crop",
+        "filename": "habbo_public_space__lido__variant_02__brpt__undated__source-crop.png",
+        "presentationFilename": "habbo_public_space__lido__variant_02__brpt__undated__presentation.png",
+        "width": 854,
+        "height": 740,
+        "format": "PNG",
+        "temporalStatus": "source_crop_from_canonical_original",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "v4:lido:variant-02",
+        "sourcePageUrl": "https://habboxwiki.com/Lido",
+        "directImageUrl": "https://habboxwiki.com/Lido",
+        "notes": "Right-hand pool map cropped from the preserved two-map Lido original. The composite raw original remains intact."
       }
     ],
-    "grouped": false,
+    "grouped": true,
     "arrivalText": {
       "pt": "A Piscina é destino: água, fila, conversa, flerte e a vontade simples de entrar.",
       "en": "The Pool is a destination: water, queues, conversation, flirting, and the simple wish to enter."
@@ -1100,7 +1192,13 @@
       "note": "HabboHistory records three rooms; Roseau explicitly models the Lido-to-diving-deck walkway."
     },
     "sourcePageUrl": "https://habboxwiki.com/Lido",
-    "directImageUrl": "https://habboxwiki.com/wiki/images/d/de/Lido.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/images/d/de/Lido.png",
+    "groupOrder": 7,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true,
+    "v4VariantLabelPt": "Piscina — mapa 01",
+    "v4VariantLabelEn": "Pool — map 01"
   },
   {
     "id": "rooftop",
@@ -1146,7 +1244,7 @@
       "provenanceId": "manifest:rooftop",
       "presentationFilename": "habbo_public_space__rooftop__brpt__undated__presentation.png"
     },
-    "groupId": "rooftop",
+    "groupId": "rooftop_complex",
     "variants": [
       {
         "id": "rooftop_primary",
@@ -1218,7 +1316,13 @@
     "notes": "The BR retrospective confirms the room identity; a literal hotel-top placement remains editorial until topology evidence appears.",
     "complexStructure": null,
     "sourcePageUrl": "https://habboxwiki.com/Rooftop",
-    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Rooftop%20Deck.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Rooftop%20Deck.png",
+    "groupOrder": 17,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true,
+    "v4VariantLabelPt": "Cobertura",
+    "v4VariantLabelEn": "Rooftop"
   },
   {
     "id": "rooftop_rumble",
@@ -1347,7 +1451,11 @@
       "note": "The BR roster names two variants; one canonical image is retained for the room family."
     },
     "sourcePageUrl": "https://habboxwiki.com/Rooftop_Rumble",
-    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Rooftop%20Riumble%20PR.gif"
+    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Rooftop%20Riumble%20PR.gif",
+    "groupOrder": 1,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "picnic_area",
@@ -1468,7 +1576,11 @@
     "notes": "Outdoor function is supported; adjacency to other outdoor rooms is editorial only.",
     "complexStructure": null,
     "sourcePageUrl": "https://habboxwiki.com/Picnic_Area",
-    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Picnic%20area.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Picnic%20area.png",
+    "groupOrder": 23,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "infobus_park",
@@ -1597,7 +1709,11 @@
       "note": "The vehicle and park are related but not collapsed into one image node."
     },
     "sourcePageUrl": "https://habboxwiki.com/Infobus_Park",
-    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Habbo%20gardens.PNG"
+    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Habbo%20gardens.PNG",
+    "groupOrder": 6,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "imperial_park",
@@ -1641,7 +1757,14 @@
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
       "provenanceId": "manifest:imperial_park",
-      "presentationFilename": "habbo_public_space__imperial_park__brpt__undated__presentation.png"
+      "presentationFilename": "habbo_public_space__imperial_park__brpt__undated__v4__presentation.png",
+      "id": "imperial_park_primary",
+      "labelPt": "Sala principal",
+      "labelEn": "Main room",
+      "kind": "primary",
+      "sourcePageUrl": "https://habboxwiki.com/Peaceful_Park",
+      "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Peaceful%20Park%20Small.png",
+      "notes": "V4 presentation cleanup removes the right-edge gray line while preserving the raw original."
     },
     "groupId": "imperial_park",
     "variants": [
@@ -1651,7 +1774,7 @@
         "labelEn": "Main room",
         "kind": "primary",
         "filename": "habbo_public_space__imperial_park__brpt__undated.png",
-        "presentationFilename": "habbo_public_space__imperial_park__brpt__undated__presentation.png",
+        "presentationFilename": "habbo_public_space__imperial_park__brpt__undated__v4__presentation.png",
         "width": 844,
         "height": 460,
         "format": "PNG",
@@ -1660,7 +1783,7 @@
         "provenanceId": "manifest:imperial_park",
         "sourcePageUrl": "https://habboxwiki.com/Peaceful_Park",
         "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Peaceful%20Park%20Small.png",
-        "notes": "Primary image preserved by the V1 manifest."
+        "notes": "V4 presentation cleanup removes the right-edge gray line while preserving the raw original."
       }
     ],
     "grouped": false,
@@ -1726,7 +1849,11 @@
       "note": "HabboHistory records two rooms and describes following a path; BR official evidence anchors the localized identity."
     },
     "sourcePageUrl": "https://habboxwiki.com/Peaceful_Park",
-    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Peaceful%20Park%20Small.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Peaceful%20Park%20Small.png",
+    "groupOrder": 24,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "club_massiva",
@@ -1797,17 +1924,17 @@
         "labelPt": "Mapa 02",
         "labelEn": "Map 02",
         "kind": "historic_revision",
-        "filename": "habbo_public_space__club_massiva__variant_02__brpt__undated.png",
-        "presentationFilename": "habbo_public_space__club_massiva__variant_02__brpt__undated__presentation.png",
+        "filename": "habbo_public_space__club_massiva__variant_02__v4__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__club_massiva__variant_02__v4__brpt__undated__presentation.png",
         "width": 722,
-        "height": 491,
+        "height": 489,
         "format": "PNG",
         "temporalStatus": "historic_revision_image",
         "rightsStatus": "public_reference_only",
         "provenanceId": "v3:club_massiva:variant-02",
         "sourcePageUrl": "https://habboxwiki.com/Club_Massiva",
-        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Room_bank_1.png",
-        "notes": "Postbank revision shown in the HabboxWiki gallery."
+        "directImageUrl": "https://www.habborator.org/dump/room/room_massiva_2.png",
+        "notes": "V4 corrected true second Club Massiva map supplied by the handoff; previous current image was promotional."
       }
     ],
     "grouped": true,
@@ -1876,7 +2003,11 @@
       "note": "Roseau explicitly documents a walkway to the downstairs disco floor."
     },
     "sourcePageUrl": "https://habboxwiki.com/Club_Massiva",
-    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Club%20Massiva.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Club%20Massiva.png",
+    "groupOrder": 14,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "club_mammoth",
@@ -1993,7 +2124,11 @@
     "notes": "HC status and local naming are supported; no direct physical relation to other clubs is asserted.",
     "complexStructure": null,
     "sourcePageUrl": "https://habboxwiki.com/Club_Mammoth",
-    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/ClubMammoth.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/ClubMammoth.png",
+    "groupOrder": 3,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "club_orient",
@@ -2114,7 +2249,11 @@
     "notes": "BR official material and local roster converge; global archive supplies the full image capture.",
     "complexStructure": null,
     "sourcePageUrl": "https://habbohistory.com/club-orient",
-    "directImageUrl": "https://habbohistory.com/images/public_rooms/ClubOrient-Full-1.png"
+    "directImageUrl": "https://habbohistory.com/images/public_rooms/ClubOrient-Full-1.png",
+    "groupOrder": 4,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "cafe_gold",
@@ -2235,7 +2374,11 @@
     "notes": "Public Space Café Dourado and fan-site Café Dourado remain separate entities in the source doctrine.",
     "complexStructure": null,
     "sourcePageUrl": "https://habbohistory.com/cafe-gold",
-    "directImageUrl": "https://habbohistory.com/images/public_rooms/CafeGold-Full.png"
+    "directImageUrl": "https://habbohistory.com/images/public_rooms/CafeGold-Full.png",
+    "groupOrder": 10,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "ice_cafe",
@@ -2354,7 +2497,11 @@
     "notes": "The local name is stable enough for canonical aliasing; no doorway relation is claimed.",
     "complexStructure": null,
     "sourcePageUrl": "https://habboxwiki.com/Ice_Cafe",
-    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Room%20ice.gif"
+    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Room%20ice.gif",
+    "groupOrder": 8,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "library",
@@ -2476,7 +2623,11 @@
     "notes": "Bot evidence and local naming support the room; its quiet function is a social interpretation grounded in room identity.",
     "complexStructure": null,
     "sourcePageUrl": "https://habboxwiki.com/Library",
-    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Library.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Library.png",
+    "groupOrder": 11,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "hotel_kitchen",
@@ -2596,7 +2747,11 @@
     "notes": "Food/service function is strongly supported; no kitchen-to-cafe passage is assumed.",
     "complexStructure": null,
     "sourcePageUrl": "https://habboxwiki.com/The_Habbo_Kitchen",
-    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/TheHabboKitchen.gif"
+    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/TheHabboKitchen.gif",
+    "groupOrder": 26,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "palazzo_pizza",
@@ -2718,7 +2873,11 @@
     "notes": "The BR name and global lineage are related but not treated as proof of a single global room identity.",
     "complexStructure": null,
     "sourcePageUrl": "https://habboxwiki.com/Palazzo_Pizza",
-    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Palazzo%20Pizza.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Palazzo%20Pizza.png",
+    "groupOrder": 27,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "space_cafe",
@@ -2839,7 +2998,11 @@
     "notes": "The official BR reference supports the local alias; thematic adjacency to other cafes is editorial.",
     "complexStructure": null,
     "sourcePageUrl": "https://habboxwiki.com/Space_Cafe",
-    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Space%20Cafe.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Space%20Cafe.png",
+    "groupOrder": 20,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "stadium",
@@ -2959,7 +3122,11 @@
     "notes": "The room's group/event function is documented in the local roster; no connection to game lobbies is asserted.",
     "complexStructure": null,
     "sourcePageUrl": "https://habboxwiki.com/Stadium",
-    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Stadium.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Stadium.png",
+    "groupOrder": 25,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "beauty_salon",
@@ -3081,7 +3248,11 @@
       "note": "HabboHistory records two rooms; no room names were recovered in the supplied chain."
     },
     "sourcePageUrl": "https://habboxwiki.com/Beauty_Salon",
-    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Beauty%20Salon.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Beauty%20Salon.png",
+    "groupOrder": 16,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "snowstorm_lobby",
@@ -3197,7 +3368,11 @@
     "notes": "The 2014 BR retrospective identifies the Snowstorm lobby among the then-current public rooms.",
     "complexStructure": null,
     "sourcePageUrl": "https://habboxwiki.com/Snowstorm_Lobby",
-    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Snowstorm%20Lobby%202.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Snowstorm%20Lobby%202.png",
+    "groupOrder": 28,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "dusty_lounge",
@@ -3314,7 +3489,11 @@
     "notes": "Alias mapping is conservative: Sótão is retained as a local identity while Dusty Lounge remains the international canonical name.",
     "complexStructure": null,
     "sourcePageUrl": "https://habboxwiki.com/Dusty_Lounge",
-    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Room%20dusty.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Room%20dusty.png",
+    "groupOrder": 29,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "battle_ball_lounge",
@@ -3355,17 +3534,17 @@
       "labelPt": "Sala principal",
       "labelEn": "Main room",
       "kind": "primary",
-      "filename": "habbo_public_space__battle_ball_lounge__brpt__undated.gif",
-      "presentationFilename": "habbo_public_space__battle_ball_lounge__brpt__undated__presentation.png",
-      "width": 722,
-      "height": 489,
-      "format": "GIF",
+      "filename": "habbo_public_space__battle_ball_lounge__v4__brpt__undated.png",
+      "presentationFilename": "habbo_public_space__battle_ball_lounge__v4__brpt__undated__presentation.png",
+      "width": 714,
+      "height": 490,
+      "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
       "provenanceId": "v3:battle_ball_lounge:primary",
       "sourcePageUrl": "https://habboxwiki.com/BattleBall_Lounge",
-      "directImageUrl": "https://habboxwiki.com/wiki/images/4/46/BattleBall.gif",
-      "notes": "Original-period Battle Ball lounge image."
+      "directImageUrl": "https://i.imgur.com/FKMzrb7.png",
+      "notes": "V4 corrected asset supplied by the handoff; previous current image was the wrong room."
     },
     "groupId": "battle_ball_lounge",
     "variants": [
@@ -3374,17 +3553,17 @@
         "labelPt": "Sala principal",
         "labelEn": "Main room",
         "kind": "primary",
-        "filename": "habbo_public_space__battle_ball_lounge__brpt__undated.gif",
-        "presentationFilename": "habbo_public_space__battle_ball_lounge__brpt__undated__presentation.png",
-        "width": 722,
-        "height": 489,
-        "format": "GIF",
+        "filename": "habbo_public_space__battle_ball_lounge__v4__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__battle_ball_lounge__v4__brpt__undated__presentation.png",
+        "width": 714,
+        "height": 490,
+        "format": "PNG",
         "temporalStatus": "canonical_original_image",
         "rightsStatus": "public_reference_only",
         "provenanceId": "v3:battle_ball_lounge:primary",
         "sourcePageUrl": "https://habboxwiki.com/BattleBall_Lounge",
-        "directImageUrl": "https://habboxwiki.com/wiki/images/4/46/BattleBall.gif",
-        "notes": "Original-period Battle Ball lounge image."
+        "directImageUrl": "https://i.imgur.com/FKMzrb7.png",
+        "notes": "V4 corrected asset supplied by the handoff; previous current image was the wrong room."
       }
     ],
     "grouped": false,
@@ -3447,7 +3626,11 @@
       "note": "The page documents a family of BattleBall lobbies and game rooms; this group represents the lounge image."
     },
     "sourcePageUrl": "https://habboxwiki.com/BattleBall_Lounge",
-    "directImageUrl": "https://habboxwiki.com/wiki/images/4/46/BattleBall.gif"
+    "directImageUrl": "https://habboxwiki.com/wiki/images/4/46/BattleBall.gif",
+    "groupOrder": 21,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "chromide_club",
@@ -3457,7 +3640,8 @@
     "aliases": [
       "Chromide Club",
       "Clube Mexirica",
-      "Mobile Disco"
+      "Mobile Disco",
+      "Clube Merexica"
     ],
     "category": "club",
     "editorialDistrict": "nightlife",
@@ -3601,7 +3785,12 @@
       "note": "HabboxWiki describes a two-room public-room identity and supplies original and new-design gallery images."
     },
     "sourcePageUrl": "https://habboxwiki.com/The_Chromide_Club",
-    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/TheChromideClub.gif"
+    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/TheChromideClub.gif",
+    "groupOrder": 13,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true,
+    "groupResolution": "Clube Merexica → Clube Mexirica"
   },
   {
     "id": "floating_garden",
@@ -3737,7 +3926,11 @@
       "note": "The public-room page and BR retrospective converge on the room identity."
     },
     "sourcePageUrl": "https://habboxwiki.com/Floating_Garden",
-    "directImageUrl": "https://habboxwiki.com/wiki/images/8/8e/Floating_Garden.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/images/8/8e/Floating_Garden.png",
+    "groupOrder": 22,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "zen_garden",
@@ -3869,7 +4062,11 @@
       "note": "Public-room page and BR retrospective converge on the room identity."
     },
     "sourcePageUrl": "https://habboxwiki.com/Zen_Garden_(Room)",
-    "directImageUrl": "https://habboxwiki.com/wiki/images/7/7f/ZenGarden.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/images/7/7f/ZenGarden.png",
+    "groupOrder": 999,
+    "variantOrder": 1,
+    "visibility": "demoted_hidden",
+    "publicVisible": false
   },
   {
     "id": "habburgers",
@@ -4005,7 +4202,11 @@
       "note": "The room is documented as an original public burger bar."
     },
     "sourcePageUrl": "https://habboxwiki.com/Habburgers",
-    "directImageUrl": "https://habboxwiki.com/wiki/images/7/78/Habburgerss.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/images/7/78/Habburgerss.png",
+    "groupOrder": 18,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "net_cafe",
@@ -4047,7 +4248,7 @@
       "labelEn": "Main room",
       "kind": "primary",
       "filename": "habbo_public_space__net_cafe__brpt__undated.png",
-      "presentationFilename": "habbo_public_space__net_cafe__brpt__undated__presentation.png",
+      "presentationFilename": "habbo_public_space__net_cafe__brpt__undated__v4__presentation.png",
       "width": 704,
       "height": 475,
       "format": "PNG",
@@ -4056,7 +4257,7 @@
       "provenanceId": "v3:net_cafe:primary",
       "sourcePageUrl": "https://habboxwiki.com/Net_Cafe",
       "directImageUrl": "https://habboxwiki.com/wiki/images/e/e9/Net_Cafe.png",
-      "notes": "Original public-room image."
+      "notes": "V4 presentation derivative repaired from the intact raw Net Café image; corrupted V3 PNG is excluded from the public surface."
     },
     "groupId": "net_cafe",
     "variants": [
@@ -4066,7 +4267,7 @@
         "labelEn": "Main room",
         "kind": "primary",
         "filename": "habbo_public_space__net_cafe__brpt__undated.png",
-        "presentationFilename": "habbo_public_space__net_cafe__brpt__undated__presentation.png",
+        "presentationFilename": "habbo_public_space__net_cafe__brpt__undated__v4__presentation.png",
         "width": 704,
         "height": 475,
         "format": "PNG",
@@ -4075,7 +4276,7 @@
         "provenanceId": "v3:net_cafe:primary",
         "sourcePageUrl": "https://habboxwiki.com/Net_Cafe",
         "directImageUrl": "https://habboxwiki.com/wiki/images/e/e9/Net_Cafe.png",
-        "notes": "Original public-room image."
+        "notes": "V4 presentation derivative repaired from the intact raw Net Café image; corrupted V3 PNG is excluded from the public surface."
       }
     ],
     "grouped": false,
@@ -4139,7 +4340,11 @@
       "note": "Public-room page and BR retrospective converge on the room identity."
     },
     "sourcePageUrl": "https://habboxwiki.com/Net_Cafe",
-    "directImageUrl": "https://habboxwiki.com/wiki/images/e/e9/Net_Cafe.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/images/e/e9/Net_Cafe.png",
+    "groupOrder": 19,
+    "variantOrder": 1,
+    "visibility": "public",
+    "publicVisible": true
   },
   {
     "id": "rooftop_cafe",
@@ -4192,7 +4397,7 @@
       "directImageUrl": "https://habboxwiki.com/wiki/images/a/a5/Rooftop_Cafe.png",
       "notes": "Original public-room image."
     },
-    "groupId": "rooftop_cafe",
+    "groupId": "rooftop_complex",
     "variants": [
       {
         "id": "rooftop_cafe_primary",
@@ -4210,26 +4415,9 @@
         "sourcePageUrl": "https://habboxwiki.com/Rooftop_Cafe",
         "directImageUrl": "https://habboxwiki.com/wiki/images/a/a5/Rooftop_Cafe.png",
         "notes": "Original public-room image."
-      },
-      {
-        "id": "rooftop_cafe_variant_02",
-        "labelPt": "Mapa 02",
-        "labelEn": "Map 02",
-        "kind": "historic_revision",
-        "filename": "habbo_public_space__rooftop_cafe__variant_02__brpt__undated.png",
-        "presentationFilename": "habbo_public_space__rooftop_cafe__variant_02__brpt__undated__presentation.png",
-        "width": 722,
-        "height": 489,
-        "format": "PNG",
-        "temporalStatus": "historic_revision_image",
-        "rightsStatus": "public_reference_only",
-        "provenanceId": "v3:rooftop_cafe:variant-02",
-        "sourcePageUrl": "https://habboxwiki.com/Rooftop_Cafe",
-        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Roofcafe_target.png",
-        "notes": "Target promotion design shown in the page gallery."
       }
     ],
-    "grouped": true,
+    "grouped": false,
     "arrivalText": {
       "pt": "Um café acima da cidade: balcão, sofá e a sensação de que o lugar existe entre uma vista e outra.",
       "en": "A cafe above the city: counter, sofas, and the feeling of a place suspended between views."
@@ -4292,6 +4480,12 @@
       "note": "The page links access to Rooftop and supplies a second historic gallery design."
     },
     "sourcePageUrl": "https://habboxwiki.com/Rooftop_Cafe",
-    "directImageUrl": "https://habboxwiki.com/wiki/images/a/a5/Rooftop_Cafe.png"
+    "directImageUrl": "https://habboxwiki.com/wiki/images/a/a5/Rooftop_Cafe.png",
+    "groupOrder": 17,
+    "variantOrder": 2,
+    "visibility": "public",
+    "publicVisible": true,
+    "v4VariantLabelPt": "Café Cobertura",
+    "v4VariantLabelEn": "Rooftop Cafe"
   }
 ]

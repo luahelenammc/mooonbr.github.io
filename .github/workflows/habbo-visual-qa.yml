@@ -1,4 +1,4 @@
-name: Habbo V3 visual QA
+name: Habbo V4 visual QA
 
 on:
   pull_request:
@@ -39,7 +39,10 @@ jobs:
             sleep 1
           done
 
-      - name: Run V3 visual QA
+      - name: Run V4 static QA
+        run: node habbo/qa/run-public-qa.mjs
+
+      - name: Run V4 visual QA
         run: node habbo/qa/visual-qa.mjs
 
       - name: Regress autoplay with pointer parked inside Dock
@@ -49,8 +52,10 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: habbo-v3-visual-qa
+          name: habbo-v4-visual-qa
           path: |
             habbo/qa/visual-artifacts/
             habbo/qa/visual-qa-report.json
-            habbo/qa/HABBO_V3_VISUAL_QA.md
+            habbo/qa/HABBO_V4_VISUAL_QA.md
+            habbo/qa/public-qa-report.json
+            habbo/qa/HABBO_V4_PUBLIC_QA_2026-08-23.md

@@ -1,0 +1,242 @@
+{
+  "version": "V4",
+  "title": "Visible group columns, content fixes, and sequence repair",
+  "presentationOrder": [
+    "rooftop_rumble",
+    "cinema",
+    "club_mammoth",
+    "club_orient",
+    "lobbies",
+    "infobus_park",
+    "lido",
+    "ice_cafe",
+    "hallways",
+    "cafe_gold",
+    "library",
+    "welcome_lounge",
+    "chromide_club",
+    "club_massiva",
+    "theatredrome",
+    "beauty_salon",
+    "rooftop_complex",
+    "habburgers",
+    "net_cafe",
+    "space_cafe",
+    "battle_ball_lounge",
+    "floating_garden",
+    "picnic_area",
+    "imperial_park",
+    "stadium",
+    "hotel_kitchen",
+    "palazzo_pizza",
+    "snowstorm_lobby",
+    "dusty_lounge"
+  ],
+  "groupLabels": {
+    "lobbies": {
+      "labelPtBr": "Saguões",
+      "labelEn": "Lobbies",
+      "aliasesPtBr": ["Saguão Principal", "Saguão do Meio", "Saguão Superior", "Saguão Subterrâneo"],
+      "aliasesEn": ["Main Lobby", "Median Lobby", "Skylight Lobby", "Basement Lobby"]
+    },
+    "lido": {
+      "labelPtBr": "Piscina Habbo",
+      "labelEn": "Lido",
+      "aliasesPtBr": ["Piscina"],
+      "aliasesEn": ["Pool"]
+    },
+    "infobus_park": {
+      "labelPtBr": "Infobus",
+      "labelEn": "Infobus",
+      "aliasesPtBr": ["Parque do Infobus"],
+      "aliasesEn": ["Infobus Park"]
+    },
+    "rooftop_complex": {
+      "labelPtBr": "Cobertura",
+      "labelEn": "Rooftop",
+      "aliasesPtBr": ["Café Cobertura"],
+      "aliasesEn": ["Rooftop Cafe"]
+    },
+    "chromide_club": {
+      "labelPtBr": "Clube Mexirica",
+      "labelEn": "The Chromide Club",
+      "aliasesPtBr": ["Clube Merexica", "Chromide Club"],
+      "aliasesEn": ["Clube Mexirica", "Mobile Disco"],
+      "resolution": "Clube Merexica → Clube Mexirica"
+    },
+    "club_massiva": {
+      "labelPtBr": "Clube Massiva",
+      "labelEn": "Club Massiva",
+      "aliasesPtBr": ["Club Slinky Helsinki"],
+      "aliasesEn": ["Club Slinky Helsinki"]
+    }
+  },
+  "groupOverrides": {
+    "rooftop_rumble": {"groupId": "rooftop_rumble", "groupOrder": 1},
+    "cinema": {"groupId": "cinema", "groupOrder": 2},
+    "club_mammoth": {"groupId": "club_mammoth", "groupOrder": 3},
+    "club_orient": {"groupId": "club_orient", "groupOrder": 4},
+    "main_lobby": {"groupId": "lobbies", "groupOrder": 5, "variantOrder": 1, "variantLabelPt": "Saguão Principal", "variantLabelEn": "Main Lobby"},
+    "median_lobby": {"groupId": "lobbies", "groupOrder": 5, "variantOrder": 2, "variantLabelPt": "Saguão do Meio", "variantLabelEn": "Median Lobby"},
+    "skylight_lobby": {"groupId": "lobbies", "groupOrder": 5, "variantOrder": 3, "variantLabelPt": "Saguão Superior", "variantLabelEn": "Skylight Lobby"},
+    "basement_lobby": {"groupId": "lobbies", "groupOrder": 5, "variantOrder": 4, "variantLabelPt": "Saguão Subterrâneo", "variantLabelEn": "Basement Lobby"},
+    "infobus_park": {"groupId": "infobus_park", "groupOrder": 6},
+    "lido": {"groupId": "lido", "groupOrder": 7, "variantLabelPt": "Piscina — mapa 01", "variantLabelEn": "Pool — map 01"},
+    "ice_cafe": {"groupId": "ice_cafe", "groupOrder": 8},
+    "hallways": {"groupId": "hallways", "groupOrder": 9},
+    "cafe_gold": {"groupId": "cafe_gold", "groupOrder": 10},
+    "library": {"groupId": "library", "groupOrder": 11},
+    "welcome_lounge": {"groupId": "welcome_lounge", "groupOrder": 12},
+    "chromide_club": {"groupId": "chromide_club", "groupOrder": 13},
+    "club_massiva": {"groupId": "club_massiva", "groupOrder": 14},
+    "theatredrome": {"groupId": "theatredrome", "groupOrder": 15},
+    "beauty_salon": {"groupId": "beauty_salon", "groupOrder": 16},
+    "rooftop": {"groupId": "rooftop_complex", "groupOrder": 17, "variantOrder": 1, "variantLabelPt": "Cobertura", "variantLabelEn": "Rooftop"},
+    "rooftop_cafe": {"groupId": "rooftop_complex", "groupOrder": 17, "variantOrder": 2, "variantLabelPt": "Café Cobertura", "variantLabelEn": "Rooftop Cafe"},
+    "habburgers": {"groupId": "habburgers", "groupOrder": 18},
+    "net_cafe": {"groupId": "net_cafe", "groupOrder": 19},
+    "space_cafe": {"groupId": "space_cafe", "groupOrder": 20},
+    "battle_ball_lounge": {"groupId": "battle_ball_lounge", "groupOrder": 21},
+    "floating_garden": {"groupId": "floating_garden", "groupOrder": 22},
+    "picnic_area": {"groupId": "picnic_area", "groupOrder": 23},
+    "imperial_park": {"groupId": "imperial_park", "groupOrder": 24},
+    "stadium": {"groupId": "stadium", "groupOrder": 25},
+    "hotel_kitchen": {"groupId": "hotel_kitchen", "groupOrder": 26},
+    "palazzo_pizza": {"groupId": "palazzo_pizza", "groupOrder": 27},
+    "snowstorm_lobby": {"groupId": "snowstorm_lobby", "groupOrder": 28},
+    "dusty_lounge": {"groupId": "dusty_lounge", "groupOrder": 29},
+    "zen_garden": {"groupId": "zen_garden", "groupOrder": 999, "visibility": "demoted_hidden"}
+  },
+  "variantRemovals": [
+    {
+      "placeId": "rooftop_cafe",
+      "variantId": "rooftop_cafe_variant_02",
+      "reason": "Promotional target design is not a second map of the Cobertura/Café Cobertura group. Preserve the source in V3 history, but do not render it publicly."
+    }
+  ],
+  "variantReplacements": [
+    {
+      "placeId": "battle_ball_lounge",
+      "variantId": "battle_ball_lounge_primary",
+      "filename": "habbo_public_space__battle_ball_lounge__v4__brpt__undated.png",
+      "presentationFilename": "habbo_public_space__battle_ball_lounge__v4__brpt__undated__presentation.png",
+      "width": 714,
+      "height": 490,
+      "format": "PNG",
+      "directImageUrl": "https://i.imgur.com/FKMzrb7.png",
+      "notes": "V4 corrected asset supplied by the handoff; previous current image was the wrong room."
+    },
+    {
+      "placeId": "theatredrome",
+      "variantId": "theatredrome_primary",
+      "filename": "habbo_public_space__theatredrome__v4__brpt__undated.webp",
+      "presentationFilename": "habbo_public_space__theatredrome__v4__brpt__undated__presentation.png",
+      "width": 722,
+      "height": 489,
+      "format": "WEBP",
+      "directImageUrl": "https://static.wikia.nocookie.net/habbo/images/0/02/Teatro.gif/revision/latest?cb=20111105205459&path-prefix=pt",
+      "notes": "V4 corrected asset supplied by the handoff; CDN returned WebP bytes for the requested Teatro.gif URL."
+    },
+    {
+      "placeId": "club_massiva",
+      "variantId": "club_massiva_variant_02",
+      "filename": "habbo_public_space__club_massiva__variant_02__v4__brpt__undated.png",
+      "presentationFilename": "habbo_public_space__club_massiva__variant_02__v4__brpt__undated__presentation.png",
+      "width": 722,
+      "height": 489,
+      "format": "PNG",
+      "directImageUrl": "https://www.habborator.org/dump/room/room_massiva_2.png",
+      "notes": "V4 corrected true second Club Massiva map supplied by the handoff; previous current image was promotional."
+    },
+    {
+      "placeId": "net_cafe",
+      "variantId": "net_cafe_primary",
+      "presentationFilename": "habbo_public_space__net_cafe__brpt__undated__v4__presentation.png",
+      "notes": "V4 presentation derivative repaired from the intact raw Net Café image; corrupted V3 PNG is excluded from the public surface."
+    },
+    {
+      "placeId": "lido",
+      "variantId": "lido_primary",
+      "filename": "habbo_public_space__lido__variant_01__brpt__undated__source-crop.png",
+      "presentationFilename": "habbo_public_space__lido__variant_01__brpt__undated__presentation.png",
+      "width": 803,
+      "height": 734,
+      "format": "PNG",
+      "notes": "V4 left-hand pool map cropped from the preserved two-map Lido original; the composite raw original remains intact."
+    },
+    {
+      "placeId": "main_lobby",
+      "variantId": "main_lobby_primary",
+      "presentationFilename": "habbo_public_space__main_lobby__brpt__undated__v4__presentation.png",
+      "notes": "V4 presentation cleanup removes the stray footer/background UI object while preserving the raw original."
+    },
+    {
+      "placeId": "cinema",
+      "variantId": "cinema_primary",
+      "presentationFilename": "habbo_public_space__cinema__brpt__undated__v4__presentation.png",
+      "notes": "V4 presentation cleanup removes the gray footer line/UI residue while preserving the raw original."
+    },
+    {
+      "placeId": "imperial_park",
+      "variantId": "imperial_park_primary",
+      "presentationFilename": "habbo_public_space__imperial_park__brpt__undated__v4__presentation.png",
+      "notes": "V4 presentation cleanup removes the right-edge gray line while preserving the raw original."
+    },
+    {
+      "placeId": "hallways",
+      "variantId": "hallways_primary",
+      "presentationFilename": "habbo_public_space__hallways__brpt__undated__v4__presentation.png",
+      "notes": "V4 derivative re-extracts transparency from the raw corridor image so black presentation squares remain transparent and pixel art stays crisp."
+    }
+  ],
+  "variantAdditions": [
+    {
+      "placeId": "lido",
+      "variant": {
+        "id": "lido_variant_02",
+        "labelPt": "Piscina — mapa 02",
+        "labelEn": "Pool — map 02",
+        "kind": "source_crop",
+        "filename": "habbo_public_space__lido__variant_02__brpt__undated__source-crop.png",
+        "presentationFilename": "habbo_public_space__lido__variant_02__brpt__undated__presentation.png",
+        "width": 854,
+        "height": 740,
+        "format": "PNG",
+        "temporalStatus": "source_crop_from_canonical_original",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "v4:lido:variant-02",
+        "sourcePageUrl": "https://habboxwiki.com/Lido",
+        "directImageUrl": "https://habboxwiki.com/Lido",
+        "notes": "Right-hand pool map cropped from the preserved two-map Lido original. The composite raw original remains intact."
+      }
+    }
+  ],
+  "classifications": [
+    {
+      "id": "zen_garden",
+      "status": "demoted_hidden",
+      "decision": "Do not publish on the public homepage in V4. BR memory and a current restricted room identity exist, but the classic official public-space classification is still ambiguous.",
+      "evidence": ["https://www.habbo.com.br/room/80190042", "https://habbo-ana-zoe.blogspot.com/2010/", "https://www.habboxwiki.com/Zen_Garden_(Room)"],
+      "publicAssetPolicy": "preserve_raw_and_derivative_in_archive; exclude_from_homepage"
+    },
+    {
+      "id": "the_den",
+      "status": "secondary_place",
+      "decision": "Do not integrate as a BR public-space identity. The Den is an international public-room lineage; Habbo Rancho is a separate BR campaign/reality-show memory, not a proven alias.",
+      "evidence": ["https://habboxwiki.com/The_Den", "https://viajovem.blogspot.com/2023/10/historia-habbo-rancho.html", "https://www.habbonews.net/2019/05/blog-da-clara-habbo-memorias-realitys.html"],
+      "publicAssetPolicy": "no_homepage_entry; preserve research note"
+    },
+    {
+      "id": "chromide_club",
+      "status": "resolved_alias",
+      "decision": "Normalize Clube Merexica to Clube Mexirica / The Chromide Club; retain Merexica as an alias so the user-facing sequence resolves the handoff spelling without creating a duplicate group.",
+      "evidence": ["https://jornaldocm.webnode.page/noticias/", "https://www.habboxwiki.com/The_Chromide_Club"]
+    }
+  ],
+  "presentationChecks": {
+    "autoplayMs": 4000,
+    "groupTraversal": "flattened_variant_level",
+    "requiredGroups": ["lobbies", "lido", "rooftop_complex", "club_massiva"],
+    "requiredVisibleStackMin": 2
+  }
+}

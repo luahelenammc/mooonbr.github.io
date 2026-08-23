@@ -16,7 +16,7 @@ try {
 
   await page.mouse.move(box.x + box.width * 0.52, box.y + box.height * 0.48);
   const before = await dock.getAttribute("data-active-id");
-  await page.waitForTimeout(1150);
+  await page.waitForTimeout(4300);
   const after = await dock.getAttribute("data-active-id");
   const holds = await dock.getAttribute("data-autoplay-holds");
 
@@ -39,4 +39,4 @@ try {
 }
 
 if (failed) process.exit(1);
-console.log("PASS: Habbo autoplay continues while pointer is parked inside the Dock.");
+console.log("PASS: Habbo V4 autoplay advances after the four-second interval while pointer is parked inside the Dock.");

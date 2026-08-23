@@ -1,11 +1,12 @@
 {
   "result": "passed",
-  "checks": 920,
+  "checks": 1173,
   "failures": [],
   "basePath": "/habbo",
-  "htmlCount": 62,
-  "assetCount": 27,
-  "placeCount": 27,
-  "edgeCount": 27,
-  "browserRuntime": "not run by static QA"
+  "dist": "",
+  "htmlCount": 76,
+  "assetCount": 89,
+  "placeCount": 34,
+  "groupCount": 29,
+  "flattenedItemCount": 36
 }

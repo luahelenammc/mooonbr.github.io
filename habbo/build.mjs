@@ -11,12 +11,29 @@ const EXTERNAL_MANIFEST_PATH = path.join(WORKSPACE_ROOT, "MANIFEST - Habbo Espa�
 const EXTERNAL_ASSETS = path.join(ATLAS_ROOT, "spatial-atlas-v1", "assets");
 const GRAPH_PATH = path.join(LOCAL_INPUT, "HABBO_PUBLIC_SPACES_SPATIAL_GRAPH_V1_2026-08-23.json");
 const V3_DELTA_PATH = path.join(LOCAL_INPUT, "HABBO_V3_CONTENT_DELTA_2026-08-23.json");
+const V4_DELTA_PATH = path.join(LOCAL_INPUT, "HABBO_V4_CONTENT_DELTA_2026-08-23.json");
 const MANIFEST_PATH = path.join(LOCAL_INPUT, "MANIFEST - Habbo Espaços Públicos - Imagens Originais.csv");
 const SOURCE_ASSETS = path.join(LOCAL_INPUT, "assets");
 const DIST = path.join(PROJECT_ROOT, "dist");
 const DATA_DIR = path.join(PROJECT_ROOT, "data");
 const BASE_PATH = String(process.env.BASE_PATH || "").replace(/\/+$/, "");
-const ASSET_VERSION = String(process.env.ASSET_VERSION || "20260823-v2-effects-hotfix").replace(/[^a-zA-Z0-9._~-]/g, "");
+const ASSET_VERSION = String(process.env.ASSET_VERSION || "20260823-v4-group-columns").replace(/[^a-zA-Z0-9._~-]/g, "");
+const V4_EXCLUDED_PUBLIC_ASSETS = new Set([
+  "habbo_public_space__rooftop_cafe__variant_02__brpt__undated.png",
+  "habbo_public_space__rooftop_cafe__variant_02__brpt__undated__presentation.png",
+  "habbo_public_space__club_massiva__variant_02__brpt__undated.png",
+  "habbo_public_space__club_massiva__variant_02__brpt__undated__presentation.png",
+  "habbo_public_space__net_cafe__brpt__undated__presentation.png",
+  "habbo_public_space__battle_ball_lounge__brpt__undated.gif",
+  "habbo_public_space__battle_ball_lounge__brpt__undated__presentation.png",
+  "habbo_public_space__theatredrome__brpt__undated.png",
+  "habbo_public_space__theatredrome__brpt__undated__presentation.png",
+  "habbo_public_space__lido__brpt__undated__presentation.png",
+  "habbo_public_space__main_lobby__brpt__undated__presentation.png",
+  "habbo_public_space__cinema__brpt__undated__presentation.png",
+  "habbo_public_space__imperial_park__brpt__undated__presentation.png",
+  "habbo_public_space__hallways__brpt__undated__presentation.png"
+]);
 
 function stageSourceInputs() {
   ensure(LOCAL_INPUT);
@@ -28,6 +45,7 @@ function stageSourceInputs() {
 stageSourceInputs();
 const graph = JSON.parse(fs.readFileSync(GRAPH_PATH, "utf8"));
 const v3Delta = JSON.parse(fs.readFileSync(V3_DELTA_PATH, "utf8"));
+const v4Delta = JSON.parse(fs.readFileSync(V4_DELTA_PATH, "utf8"));
 
 function parseCsv(text) {
   const rows = [];
@@ -471,6 +489,16 @@ function esc(value) {
 function ensure(dir) { fs.mkdirSync(dir, { recursive: true }); }
 function write(file, content) { ensure(path.dirname(file)); fs.writeFileSync(file, content); }
 function copyFile(from, to) { ensure(path.dirname(to)); fs.copyFileSync(from, to); }
+function copyPublicAssets(from, to) {
+  ensure(to);
+  for (const entry of fs.readdirSync(from, { withFileTypes: true })) {
+    if (V4_EXCLUDED_PUBLIC_ASSETS.has(entry.name)) continue;
+    const source = path.join(from, entry.name);
+    const target = path.join(to, entry.name);
+    if (entry.isDirectory()) fs.cpSync(source, target, { recursive: true });
+    else fs.copyFileSync(source, target);
+  }
+}
 
 function sitePath(pathname) {
   const normalized = String(pathname).startsWith("/") ? String(pathname) : "/" + String(pathname);
@@ -622,7 +650,120 @@ for (const addition of v3Delta.variantAdditions || []) {
   group.variants = [...(group.variants || [group.image]), { ...addition.variant }];
   group.grouped = group.variants.length > 1;
 }
-const presentationPlaces = [...places].sort((a, b) => a.presentationOrder - b.presentationOrder);
+
+function applyV4Delta(items) {
+  const overrides = v4Delta.groupOverrides || {};
+  for (const place of items) {
+    const override = overrides[place.id] || {};
+    place.groupId = override.groupId || place.groupId || place.id;
+    place.groupOrder = Number(override.groupOrder || place.presentationOrder || 999);
+    place.variantOrder = Number(override.variantOrder || 1);
+    place.visibility = override.visibility || "public";
+    place.publicVisible = place.visibility !== "demoted_hidden";
+    if (override.variantLabelPt || override.variantLabelEn) {
+      place.v4VariantLabelPt = override.variantLabelPt || null;
+      place.v4VariantLabelEn = override.variantLabelEn || null;
+    }
+    const groupLabel = v4Delta.groupLabels?.[place.groupId];
+    if (groupLabel?.resolution) place.groupResolution = groupLabel.resolution;
+    if (place.id === "chromide_club") place.aliases = [...new Set([...(place.aliases || []), "Clube Merexica"])];
+  }
+
+  for (const removal of v4Delta.variantRemovals || []) {
+    const place = items.find((item) => item.id === removal.placeId);
+    if (!place) continue;
+    place.variants = (place.variants || []).filter((variant) => variant.id !== removal.variantId);
+    place.grouped = place.variants.length > 1;
+  }
+
+  for (const replacement of v4Delta.variantReplacements || []) {
+    const place = items.find((item) => item.id === replacement.placeId);
+    if (!place) continue;
+    const variant = (place.variants || []).find((item) => item.id === replacement.variantId);
+    if (!variant) continue;
+    Object.assign(variant, Object.fromEntries(Object.entries(replacement).filter(([key]) => !["placeId", "variantId"].includes(key))));
+    if (variant.id === place.variants[0]?.id) place.image = { ...place.image, ...variant };
+  }
+
+  for (const addition of v4Delta.variantAdditions || []) {
+    const place = items.find((item) => item.id === addition.placeId);
+    if (!place || !addition.variant || place.variants.some((variant) => variant.id === addition.variant.id)) continue;
+    place.variants = [...(place.variants || []), { ...addition.variant }];
+    place.grouped = place.variants.length > 1;
+  }
+}
+
+applyV4Delta(places);
+const publicPlaces = places.filter((place) => place.publicVisible !== false);
+const comparePresentation = (a, b) => (a.groupOrder - b.groupOrder) || (a.variantOrder - b.variantOrder) || a.id.localeCompare(b.id);
+const presentationPlaces = [...publicPlaces].sort(comparePresentation);
+
+function buildPresentationGroups(items) {
+  const groups = new Map();
+  for (const place of items) {
+    const groupId = place.groupId || place.id;
+    if (!groups.has(groupId)) {
+      const label = v4Delta.groupLabels?.[groupId] || {};
+      groups.set(groupId, {
+        id: groupId,
+        groupId,
+        groupOrder: place.groupOrder || place.presentationOrder || 999,
+        canonicalNamePtBr: label.labelPtBr || place.canonicalNamePtBr,
+        canonicalNameEn: label.labelEn || place.canonicalNameEn,
+        aliasesPtBr: [...(label.aliasesPtBr || [])],
+        aliasesEn: [...(label.aliasesEn || [])],
+        resolution: label.resolution || place.groupResolution || "",
+        members: [],
+        variants: []
+      });
+    }
+    const group = groups.get(groupId);
+    group.members.push(place);
+    const variants = place.variants || [place.image];
+    variants.forEach((variant, index) => {
+      const isOnlyVariant = variants.length === 1;
+      const variantLabelPt = (index === 0 && place.v4VariantLabelPt) || variant.labelPt || (isOnlyVariant ? place.canonicalNamePtBr : `Mapa ${index + 1}`);
+      const variantLabelEn = (index === 0 && place.v4VariantLabelEn) || variant.labelEn || (isOnlyVariant ? place.canonicalNameEn : `Map ${index + 1}`);
+      group.variants.push({
+        ...variant,
+        id: variant.id || `${place.id}_${index + 1}`,
+        placeId: place.id,
+        groupId,
+        placeNamePtBr: place.canonicalNamePtBr,
+        placeNameEn: place.canonicalNameEn,
+        labelPt: variantLabelPt,
+        labelEn: variantLabelEn,
+        memberOrder: place.variantOrder || 1,
+        variantOrder: Number(variant.variantOrder || index + 1),
+        detailId: place.id
+      });
+    });
+    group.groupOrder = Math.min(group.groupOrder, place.groupOrder || 999);
+  }
+  return [...groups.values()].map((group) => {
+    group.members.sort(comparePresentation);
+    group.members.forEach((member) => {
+      group.aliasesPtBr.push(member.canonicalNamePtBr, ...(member.aliases || []).filter((alias) => alias !== member.canonicalNamePtBr));
+      group.aliasesEn.push(member.canonicalNameEn);
+    });
+    group.aliasesPtBr = [...new Set(group.aliasesPtBr.filter(Boolean))];
+    group.aliasesEn = [...new Set(group.aliasesEn.filter(Boolean))];
+    group.variants.sort((a, b) => (a.memberOrder - b.memberOrder) || (a.variantOrder - b.variantOrder) || a.id.localeCompare(b.id));
+    group.grouped = group.variants.length > 1;
+    group.firstPlaceId = group.variants[0]?.placeId || group.members[0]?.id;
+    group.groupAliasPtBr = group.resolution || (group.variants.length > 1 ? `${group.variants.length} mapas agrupados` : (group.aliasesPtBr.find((alias) => alias !== group.canonicalNamePtBr) || ""));
+    group.groupAliasEn = group.resolution || (group.variants.length > 1 ? `${group.variants.length} grouped maps` : (group.aliasesEn.find((alias) => alias !== group.canonicalNameEn) || ""));
+    return group;
+  }).sort((a, b) => (a.groupOrder - b.groupOrder) || a.id.localeCompare(b.id));
+}
+
+const presentationGroups = buildPresentationGroups(publicPlaces);
+const presentationItems = presentationGroups.flatMap((group, groupIndex) => group.variants.map((variant, variantIndex) => ({
+  ...variant,
+  groupOrder: group.groupOrder,
+  groupIndex,
+  variantIndex
+})));
 const placeById = Object.fromEntries(places.map((place) => [place.id, place]));
 const auxiliaryById = Object.fromEntries(graph.auxiliary_nodes.map((item) => [item.id, item]));
 const edges = graph.edges.map((edge) => ({
@@ -938,28 +1079,32 @@ function v2Layout(locale, current, alternate, title, body) {
   return `<!doctype html><html lang="${isPt ? "pt-BR" : "en"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#090d15"><title>${esc(title)}</title><link rel="stylesheet" href="${versionedAssetPath("/assets/site.css")}"></head><body data-page="home" data-locale="${locale}" data-root-entry="${current === sitePath("/") ? "true" : "false"}"><div class="site-shell">${v2Header(locale, current, alternate)}${body}${v2Footer()}</div><script src="${versionedAssetPath("/assets/site.js")}" defer></script></body></html>`;
 }
 
-function v2RoomMarkup(place, locale, index) {
+function v2RoomMarkup(group, locale, index) {
   const isPt = locale === "pt-br";
-  const name = localizedName(place, locale);
-  const otherName = isPt ? place.canonicalNameEn : place.canonicalNamePtBr;
-  const variants = place.variants || [place.image];
-  const primary = variants[0];
-  const width = primary.width || 720;
-  const height = primary.height || 480;
-  const groupNote = variants.length > 1 ? (isPt ? `, ${variants.length} mapas disponíveis` : `, ${variants.length} maps available`) : "";
-  const label = isPt ? `Abrir ${name}${groupNote}` : `Open ${name}${groupNote}`;
+  const name = isPt ? group.canonicalNamePtBr : group.canonicalNameEn;
+  const otherName = isPt ? group.groupAliasPtBr : group.groupAliasEn;
+  const variants = group.variants || [];
   const variantData = variants.map((variant) => ({
     id: variant.id,
     labelPt: variant.labelPt || "Mapa",
     labelEn: variant.labelEn || "Map",
     kind: variant.kind || "primary",
-    src: imagePath(place, variant),
+    placeId: variant.placeId,
+    groupId: group.groupId,
+    src: imagePath(group, variant),
     rawSrc: sitePath("/assets/archive-reference/assets/" + variant.filename),
     width: variant.width || 720,
-    height: variant.height || 480
+    height: variant.height || 480,
+    detailId: variant.detailId || group.firstPlaceId
   }));
-  const stack = variants.length > 1 ? `<span class="dock-group-stack" aria-hidden="true"><i></i><i></i><b>${String(variants.length).padStart(2, "0")}</b></span>` : "";
-  return `<li class="dock-slide${variants.length > 1 ? " dock-slide--grouped" : ""}" data-dock-slide data-room-id="${esc(place.id)}" data-room-index="${index}" data-room-name="${esc(name)}" data-room-alias="${esc(otherName && otherName !== name ? otherName : "")}" data-room-detail="${linkFor(locale, place.id)}" data-room-variant-count="${variants.length}" data-room-variants="${esc(JSON.stringify(variantData))}" data-room-search="${esc([place.canonicalNamePtBr, place.canonicalNameEn, ...place.aliases].join(" ").toLocaleLowerCase())}"><button class="dock-room" type="button" data-room-open data-room-id="${esc(place.id)}" data-room-index="${index}" aria-label="${esc(label)}"><span class="dock-media"><img src="${imagePath(place, primary)}" alt="${esc(name)}" loading="${index < 5 ? "eager" : "lazy"}" decoding="async" draggable="false" width="${width}" height="${height}">${stack}</span><span class="sr-only">${esc(name)}${otherName && otherName !== name ? ` — ${esc(otherName)}` : ""}</span></button></li>`;
+  const variantButtons = variants.map((variant, variantIndex) => {
+    const variantName = isPt ? (variant.labelPt || `Mapa ${variantIndex + 1}`) : (variant.labelEn || `Map ${variantIndex + 1}`);
+    const label = isPt ? `Abrir ${name}, ${variantName}` : `Open ${name}, ${variantName}`;
+    const width = variant.width || 720;
+    const height = variant.height || 480;
+    return `<button class="dock-room dock-variant${variantIndex === 0 ? " is-current" : ""}" type="button" data-room-open data-room-id="${esc(group.groupId)}" data-room-item-id="${esc(variant.id)}" data-room-index="${index}" data-room-variant-index="${variantIndex}" aria-label="${esc(label)}" aria-current="${index === 0 && variantIndex === 0 ? "true" : "false"}"><span class="dock-media"><img src="${imagePath(group, variant)}" alt="${esc(`${name} — ${variantName}`)}" loading="${index < 5 ? "eager" : "lazy"}" decoding="async" draggable="false" width="${width}" height="${height}"></span><span class="dock-variant-caption">${esc(variantName)}</span></button>`;
+  }).join("");
+  return `<li class="dock-slide${variants.length > 1 ? " dock-slide--grouped" : ""}" data-dock-slide data-room-id="${esc(group.groupId)}" data-room-index="${index}" data-room-name="${esc(name)}" data-room-alias="${esc(otherName && otherName !== name ? otherName : "")}" data-room-resolution="${esc(group.resolution || "")}" data-room-detail="${linkFor(locale, group.firstPlaceId)}" data-room-variant-count="${variants.length}" data-room-variants="${esc(JSON.stringify(variantData))}" data-room-search="${esc([...group.aliasesPtBr, ...group.aliasesEn].join(" ").toLocaleLowerCase())}"><div class="dock-group-column" role="group" aria-label="${esc(name)}">${variantButtons}</div></li>`;
 }
 
 function v2LightboxLanguageMarkup(locale) {
@@ -973,14 +1118,16 @@ function v2LightboxLanguageMarkup(locale) {
 
 function renderHomeV2(locale) {
   const isPt = locale === "pt-br";
-  const first = presentationPlaces[0];
-  const total = presentationPlaces.length;
-  const firstVariant = (first.variants || [first.image])[0];
+  const first = presentationGroups[0];
+  const total = presentationGroups.length;
+  const itemTotal = presentationItems.length;
+  const firstVariant = first.variants[0];
   const firstName = localizedName(first, locale);
-  const firstOther = isPt ? first.canonicalNameEn : first.canonicalNamePtBr;
-  const slides = presentationPlaces.map((place, index) => v2RoomMarkup(place, locale, index)).join("");
-  const lightbox = `<dialog class="room-lightbox" data-lightbox aria-labelledby="lightbox-title"><div class="lightbox-shell">${v2LightboxLanguageMarkup(locale)}<button class="lightbox-close" type="button" data-lightbox-close aria-label="${isPt ? "Fechar espaço" : "Close room"}">×</button><button class="lightbox-arrow lightbox-arrow--prev" type="button" data-lightbox-prev aria-label="${isPt ? "Espaço anterior" : "Previous room"}"><span aria-hidden="true">←</span></button><figure class="lightbox-figure"><img data-lightbox-image src="${imagePath(first, firstVariant)}" alt="${esc(firstName)}" width="${firstVariant.width || 720}" height="${firstVariant.height || 480}"><figcaption><p class="eyebrow" data-lightbox-index>01 / ${String(total).padStart(2, "0")}</p><h2 id="lightbox-title" data-lightbox-title>${esc(firstName)}</h2><p class="lightbox-alias" data-lightbox-alias>${firstOther && firstOther !== firstName ? esc(firstOther) : ""}</p><p class="lightbox-variant-label" data-lightbox-variant-label></p></figcaption></figure><button class="lightbox-arrow lightbox-arrow--next" type="button" data-lightbox-next aria-label="${isPt ? "Próximo espaço" : "Next room"}"><span aria-hidden="true">→</span></button><aside class="lightbox-variants" data-lightbox-variants aria-label="${isPt ? "Mapas deste lugar" : "Maps for this place"}"></aside><a class="lightbox-detail" data-lightbox-detail href="${linkFor(locale, first.id)}">${isPt ? "Abrir página" : "Open page"}<span aria-hidden="true">↗</span></a></div></dialog>`;
-  const body = `<main class="home-page home-page--v2"><h1 id="home-title" class="sr-only">${isPt ? "Lugares públicos clássicos do Habbo" : "Classic Habbo public places"}</h1><section class="cinematic-dock" data-cinematic-dock data-dock-effect="zoom" data-autoplay-ms="5800" data-total="${total}" aria-labelledby="home-title"><div class="dock-viewport" data-dock-viewport tabindex="0" role="region" aria-roledescription="carousel" aria-label="${isPt ? "Apresentação de lugares públicos clássicos" : "Presentation of classic public places"}"><ol class="dock-track" data-dock-track>${slides}</ol></div><div class="dock-caption" aria-live="polite"><p class="dock-caption-index" data-active-index>01 / ${String(total).padStart(2, "0")}</p><h2 data-active-name>${esc(firstName)}</h2><p data-active-alias>${firstOther && firstOther !== firstName ? esc(firstOther) : ""}</p></div><div class="dock-controls" aria-label="${isPt ? "Controles da apresentação" : "Presentation controls"}"><button type="button" class="dock-control dock-control--arrow" data-dock-prev aria-label="${isPt ? "Lugar anterior" : "Previous place"}">←</button><button type="button" class="dock-control dock-control--play" data-dock-play aria-pressed="false"><span class="dock-play-icon" aria-hidden="true">Ⅱ</span><span data-dock-play-label>${isPt ? "pausar" : "pause"}</span></button><button type="button" class="dock-control dock-control--arrow" data-dock-next aria-label="${isPt ? "Próximo lugar" : "Next place"}">→</button></div><p class="sr-only" role="status" data-dock-status>${isPt ? `Lugar 1 de ${total}: ${firstName}` : `Place 1 of ${total}: ${firstName}`}</p></section>${lightbox}</main>`;
+  const firstOther = isPt ? first.groupAliasPtBr : first.groupAliasEn;
+  const firstVariantLabel = isPt ? firstVariant.labelPt : firstVariant.labelEn;
+  const slides = presentationGroups.map((group, index) => v2RoomMarkup(group, locale, index)).join("");
+  const lightbox = `<dialog class="room-lightbox" data-lightbox aria-labelledby="lightbox-title"><div class="lightbox-shell">${v2LightboxLanguageMarkup(locale)}<button class="lightbox-close" type="button" data-lightbox-close aria-label="${isPt ? "Fechar espaço" : "Close room"}">×</button><button class="lightbox-arrow lightbox-arrow--prev" type="button" data-lightbox-prev aria-label="${isPt ? "Mapa anterior" : "Previous map"}"><span aria-hidden="true">←</span></button><figure class="lightbox-figure"><img data-lightbox-image src="${imagePath(first, firstVariant)}" alt="${esc(`${firstName} — ${firstVariantLabel}`)}" width="${firstVariant.width || 720}" height="${firstVariant.height || 480}"><figcaption><p class="eyebrow" data-lightbox-index>01 / ${String(itemTotal).padStart(2, "0")}</p><h2 id="lightbox-title" data-lightbox-title>${esc(firstName)}</h2><p class="lightbox-alias" data-lightbox-alias>${firstOther && firstOther !== firstName ? esc(firstOther) : ""}</p><p class="lightbox-variant-label" data-lightbox-variant-label>${esc(firstVariantLabel)}</p></figcaption></figure><button class="lightbox-arrow lightbox-arrow--next" type="button" data-lightbox-next aria-label="${isPt ? "Próximo mapa" : "Next map"}"><span aria-hidden="true">→</span></button><aside class="lightbox-variants" data-lightbox-variants aria-label="${isPt ? "Mapas deste grupo" : "Maps in this group"}"></aside><a class="lightbox-detail" data-lightbox-detail href="${linkFor(locale, firstVariant.placeId)}">${isPt ? "Abrir página" : "Open page"}<span aria-hidden="true">↗</span></a></div></dialog>`;
+  const body = `<main class="home-page home-page--v2"><h1 id="home-title" class="sr-only">${isPt ? "Lugares públicos clássicos do Habbo" : "Classic Habbo public places"}</h1><section class="cinematic-dock" data-cinematic-dock data-dock-effect="zoom" data-autoplay-ms="4000" data-total="${total}" data-item-total="${itemTotal}" aria-labelledby="home-title"><div class="dock-viewport" data-dock-viewport tabindex="0" role="region" aria-roledescription="carousel" aria-label="${isPt ? "Apresentação de grupos e mapas públicos clássicos" : "Presentation of classic public-place groups and maps"}"><ol class="dock-track" data-dock-track>${slides}</ol></div><div class="dock-caption" aria-live="polite"><p class="dock-caption-index" data-active-index>01 / ${String(itemTotal).padStart(2, "0")}</p><h2 data-active-name>${esc(firstName)}</h2><p data-active-variant>${esc(firstVariantLabel)}</p><p data-active-alias>${firstOther && firstOther !== firstName ? esc(firstOther) : ""}</p></div><div class="dock-controls" aria-label="${isPt ? "Controles da apresentação" : "Presentation controls"}"><button type="button" class="dock-control dock-control--arrow" data-dock-prev aria-label="${isPt ? "Mapa anterior" : "Previous map"}">←</button><button type="button" class="dock-control dock-control--play" data-dock-play aria-pressed="false"><span class="dock-play-icon" aria-hidden="true">Ⅱ</span><span data-dock-play-label>${isPt ? "pausar" : "pause"}</span></button><button type="button" class="dock-control dock-control--arrow" data-dock-next aria-label="${isPt ? "Próximo mapa" : "Next map"}">→</button></div><p class="sr-only" role="status" data-dock-status>${isPt ? `Mapa 1 de ${itemTotal}: ${firstName} — ${firstVariantLabel}` : `Map 1 of ${itemTotal}: ${firstName} — ${firstVariantLabel}`}</p></section>${lightbox}</main>`;
   return v2Layout(locale, homeUrl(locale), alternateLocalePath(locale, "home"), isPt ? "Habbo — lugares públicos" : "Habbo — public places", body);
 }
 
@@ -1139,13 +1286,22 @@ function resetGenerated() {
   write(path.join(DIST, "assets", `site-${ASSET_VERSION}.js`), js);
   write(path.join(DIST, "assets", "flag-br.svg"), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 22" role="img"><rect width="32" height="22" rx="3" fill="#2b9b55"/><path d="M16 2.5 29 11 16 19.5 3 11Z" fill="#f4d64a"/><circle cx="16" cy="11" r="4.35" fill="#265ca8"/><path d="M12.1 9.9c2.5-.7 5.6-.55 7.75.35" fill="none" stroke="#fff" stroke-width=".65" stroke-linecap="round"/></svg>`);
   write(path.join(DIST, "assets", "flag-us.svg"), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 22" role="img"><rect width="32" height="22" rx="3" fill="#fff"/><path d="M0 0h32v2H0zm0 4h32v2H0zm0 4h32v2H0zm0 4h32v2H0zm0 4h32v2H0zm0 4h32v2H0z" fill="#c94c58"/><path d="M0 0h13.7v11H0z" fill="#315a9b"/><g fill="#fff"><circle cx="2.3" cy="2" r=".45"/><circle cx="5" cy="2" r=".45"/><circle cx="7.7" cy="2" r=".45"/><circle cx="10.4" cy="2" r=".45"/><circle cx="3.6" cy="4.1" r=".45"/><circle cx="6.3" cy="4.1" r=".45"/><circle cx="9" cy="4.1" r=".45"/><circle cx="11.7" cy="4.1" r=".45"/><circle cx="2.3" cy="6.2" r=".45"/><circle cx="5" cy="6.2" r=".45"/><circle cx="7.7" cy="6.2" r=".45"/><circle cx="10.4" cy="6.2" r=".45"/><circle cx="3.6" cy="8.3" r=".45"/><circle cx="6.3" cy="8.3" r=".45"/><circle cx="9" cy="8.3" r=".45"/><circle cx="11.7" cy="8.3" r=".45"/></g></svg>`);
-  fs.cpSync(SOURCE_ASSETS, path.join(DIST, "assets", "archive-reference", "assets"), { recursive: true });
-  fs.cpSync(SOURCE_ASSETS, path.join(PROJECT_ROOT, "public", "archive-reference", "assets"), { recursive: true });
+  copyPublicAssets(SOURCE_ASSETS, path.join(DIST, "assets", "archive-reference", "assets"));
+  copyPublicAssets(SOURCE_ASSETS, path.join(PROJECT_ROOT, "public", "archive-reference", "assets"));
   copyFile(path.join(PROJECT_ROOT, "PUBLICATION_MANIFEST.md"), path.join(DIST, "PUBLICATION_MANIFEST.md"));
 }
 
 function emitData() {
-  const items = [["places.json", places], ["edges.json", edges], ["districts.json", districts], ["provenance.json", provenance], ["v3-content-ledger.json", v3Delta]];
+  const items = [
+    ["places.json", places],
+    ["groups.json", presentationGroups],
+    ["presentation-items.json", presentationItems],
+    ["edges.json", edges],
+    ["districts.json", districts],
+    ["provenance.json", provenance],
+    ["v3-content-ledger.json", v3Delta],
+    ["v4-content-ledger.json", v4Delta]
+  ];
   for (const [name, value] of items) {
     const serialized = JSON.stringify(value, null, 2) + "\n";
     write(path.join(DATA_DIR, name), serialized);
@@ -1155,22 +1311,22 @@ function emitData() {
 
 function emitDocs() {
   const architecture = [
-    "# Habbo Public Prototype V3 — Cinematic Dock Architecture",
+    "# Habbo Public Prototype V4 — Cinematic Dock Architecture",
     "",
-    `The entry surface is a Cinematic Dock: one horizontally sequenced presentation of ${presentationPlaces.length} classic Habbo BR public-space groups. The active image carries title, alias, and position; neighboring rooms gain scale through editorial distance and pointer-sensitive magnification.`,
-    "Inspection is a lightbox, not an accidental route change. A place group can expose historic map variants without duplicating the dock entity; documentation is a deliberate CTA into a Place Page.",
+    `The entry surface is a Cinematic Dock: one horizontally sequenced presentation of ${presentationGroups.length} classic Habbo BR public-space groups containing ${presentationItems.length} flattened map items. Each group renders its maps as a visible vertical column; the active image carries title, variant label, and position while neighboring groups gain scale through editorial distance and pointer-sensitive magnification.`,
+    "Inspection is a lightbox, not an accidental route change. The same flattened item cursor drives arrows, keyboard, wheel, drag, touch, autoplay, and lightbox previous/next; a group remains stable while its active map changes.",
     "Topology and method stay secondary. They are evidence and trust layers, not the homepage composition.",
     "",
     "The implementation uses a framework-neutral static generator with stable directory-index routes, local data, semantic HTML, plain CSS, and one progressive-enhancement script. The route contract remains ready for a later Next.js migration.",
     "",
     "presentationOrder is explicit editorial data, independent from the research graph and its non-geographic topology display. The homepage carries no source URL, evidence status, or technical metadata.",
     "",
-    "Autoplay runs every 5.8 seconds with a mandatory pause control. Pointer focus shapes the dock continuously without freezing autoplay; focus, drag, wheel, hidden-document state, lightbox, and prefers-reduced-motion remain safe interaction states."
+    "Autoplay runs every 4 seconds with a mandatory pause control. Pointer focus shapes the dock continuously without freezing autoplay; focus, drag, wheel, hidden-document state, lightbox, and prefers-reduced-motion remain safe interaction states."
   ].join("\n");
   write(path.join(PROJECT_ROOT, "docs", "ARCHITECTURE.md"), architecture);
   write(path.join(PROJECT_ROOT, "HABBO_INTERNAL_ALPHA_V0_ARCHITECTURE_DECISION_2026-08-23.md"), architecture);
   write(path.join(PROJECT_ROOT, "docs", "CINEMATIC_DOCK_V2.md"), [
-    "# Cinematic Dock V3",
+    "# Cinematic Dock V4",
     "",
     "## Three levels",
     "",
@@ -1182,12 +1338,13 @@ function emitDocs() {
     "",
     "The dock supports autoplay, manual pause/resume, pointer-sensitive magnification, keyboard arrows, wheel, pointer drag, touch swipe, snap, Escape/focus return, localized lightbox navigation, grouped map variants, and locale switching with the active room preserved in the hash.",
     "",
-    "Grouped variants remain one dock entity and appear as a quiet stacked marker. The lightbox exposes the variants as a vertical strip, supports outside-click close, and keeps an explicit Open page / Abrir página CTA. Reduced motion disables autoplay and 3D/depth motion while keeping manual navigation and inspection available."
+    "Groups remain one dock entity and expose their maps as a visible vertical column with readable active labels. The lightbox opens the exact active item, exposes group variants as a vertical strip, supports outside-click close, and keeps an explicit Open page / Abrir página CTA. Reduced motion disables autoplay and 3D/depth motion while keeping manual navigation and inspection available."
   ].join("\n"));
   write(path.join(PROJECT_ROOT, "README.md"), [
-    "# Habbo Public Prototype V3",
+    "# Habbo Public Prototype V4",
     "",
     "Static-first public prototype for Blog Nostalgia's independent Habbo BR public-space archive.",
+    `The V4 homepage presents ${presentationGroups.length} visible group entities and ${presentationItems.length} flattened map items, with exact 4-second autoplay and grouped variants kept in one navigation sequence.`,
     "",
     "## Build",
     "",
@@ -1229,6 +1386,9 @@ function build() {
     project: PROJECT_ROOT,
     stack: "static-first HTML/CSS/JS generator",
     places: places.length,
+    public_places: publicPlaces.length,
+    groups: presentationGroups.length,
+    flattened_items: presentationItems.length,
     place_routes: places.length * 2,
     total_html_routes: 2 + 2 + 2 + places.length * 2 + 1 + 1,
     edge_count: edges.length,

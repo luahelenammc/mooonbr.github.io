@@ -1,4 +1,4 @@
-# Cinematic Dock V3
+# Cinematic Dock V4
 
 ## Three levels
 
@@ -10,4 +10,4 @@
 
 The dock supports autoplay, manual pause/resume, pointer-sensitive magnification, keyboard arrows, wheel, pointer drag, touch swipe, snap, Escape/focus return, localized lightbox navigation, grouped map variants, and locale switching with the active room preserved in the hash.
 
-Grouped variants remain one dock entity and appear as a quiet stacked marker. The lightbox exposes the variants as a vertical strip, supports outside-click close, and keeps an explicit Open page / Abrir página CTA. Reduced motion disables autoplay and 3D/depth motion while keeping manual navigation and inspection available.
+Groups remain one dock entity and expose their maps as a visible vertical column with readable active labels. The lightbox opens the exact active item, exposes group variants as a vertical strip, supports outside-click close, and keeps an explicit Open page / Abrir página CTA. Reduced motion disables autoplay and 3D/depth motion while keeping manual navigation and inspection available.
