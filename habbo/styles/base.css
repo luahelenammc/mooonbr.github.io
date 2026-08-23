@@ -1762,6 +1762,10 @@ button {
   will-change: transform, opacity, filter;
 }
 
+.dock-slide--grouped {
+  flex-basis: clamp(16rem, 24vw, 28rem);
+}
+
 .dock-slide.is-active {
   z-index: 6;
   opacity: 1;
@@ -1782,6 +1786,79 @@ button {
   background: transparent;
   color: inherit;
   cursor: pointer;
+}
+
+.dock-group-column {
+  display: grid;
+  gap: .7rem;
+  width: 100%;
+  padding: .35rem .45rem .5rem;
+  border: 1px solid transparent;
+  border-radius: .32rem;
+  background: linear-gradient(180deg, rgba(255,255,255,.025), transparent 82%);
+}
+
+.dock-slide--grouped .dock-group-column {
+  border-color: rgba(230, 236, 224, .12);
+  background: linear-gradient(180deg, rgba(131,217,210,.055), rgba(255,255,255,.018));
+}
+
+.dock-variant {
+  display: grid;
+  gap: .28rem;
+  text-align: center;
+}
+
+.dock-variant .dock-media {
+  height: clamp(8rem, 16vh, 13rem);
+  padding: .3rem;
+  border: 1px solid rgba(230, 236, 224, .12);
+  border-radius: .2rem;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,.07), transparent 72%);
+  filter: drop-shadow(0 1rem .9rem rgba(0, 0, 0, .28));
+  transition: border-color var(--ease), background-color var(--ease), filter var(--ease), opacity var(--ease), transform var(--ease);
+}
+
+.dock-slide:not(.dock-slide--grouped) .dock-variant .dock-media {
+  height: clamp(17rem, 43vh, 34rem);
+  padding: .5rem;
+  border-color: transparent;
+}
+
+.dock-variant-caption {
+  display: block;
+  overflow: hidden;
+  color: var(--ink-faint);
+  font: .58rem/1.2 monospace;
+  letter-spacing: .04em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.dock-variant.is-current .dock-media,
+.dock-variant:hover .dock-media,
+.dock-variant:focus-visible .dock-media {
+  border-color: rgba(131, 217, 210, .64);
+  background: rgba(131, 217, 210, .08);
+  filter: drop-shadow(0 1.25rem 1.1rem rgba(0, 0, 0, .4)) drop-shadow(0 0 .85rem rgba(131, 217, 210, .15));
+  transform: translateY(-1px);
+}
+
+.dock-variant.is-current .dock-variant-caption {
+  color: var(--water);
+}
+
+.dock-slide.is-active .dock-variant:not(.is-current) .dock-media {
+  opacity: .72;
+}
+
+.dock-slide--grouped[data-room-variant-count="4"] .dock-variant .dock-media {
+  height: clamp(5.8rem, 12vh, 8.6rem);
+}
+
+.dock-slide--grouped[data-room-variant-count="3"] .dock-variant .dock-media {
+  height: clamp(6.6rem, 14vh, 10rem);
 }
 
 .dock-media {
@@ -1986,7 +2063,12 @@ body:has(.room-lightbox[open]) { overflow: hidden; }
   .dock-viewport { height: clamp(20rem, 64svh, 31rem); margin-inline: -.75rem; }
   .dock-track { gap: .7rem; }
   .dock-slide { flex-basis: min(82vw, 29rem); }
+  .dock-slide--grouped { flex-basis: min(82vw, 29rem); }
   .dock-media { height: clamp(16rem, 62vw, 25rem); }
+  .dock-slide--grouped[data-room-variant-count="4"] .dock-variant .dock-media { height: clamp(4.8rem, 18vw, 7.4rem); }
+  .dock-slide--grouped[data-room-variant-count="3"] .dock-variant .dock-media { height: clamp(5.4rem, 20vw, 8.2rem); }
+  .dock-slide--grouped[data-room-variant-count="2"] .dock-variant .dock-media { height: clamp(6.5rem, 24vw, 10.5rem); }
+  .dock-variant-caption { font-size: .52rem; }
   .dock-caption { min-height: 5.9rem; }
   .lightbox-shell { grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem; padding: 3.5rem .65rem 1.4rem; }
   .lightbox-figure img { max-height: calc(100vh - 14rem); }

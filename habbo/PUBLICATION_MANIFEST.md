@@ -1,17 +1,17 @@
-# Habbo Public Prototype V3 — Publication Manifest
+# Habbo Public Prototype V4 — Publication Manifest
 
-**Status:** public V3 Cinematic Dock portal · independent archive · noindex
+**Status:** public V4 Cinematic Dock portal · independent archive · noindex
 
 **Review date:** 2026-08-23  
-**Corpus version:** 34 canonical Habbo BR public-space groups, including 37 grouped maps/variants  
+**Corpus version:** 29 visible V4 groups, 36 flattened map items, and 33 retained public place records
 **Publication decision:** A — cleared enough for prototype publication under a bounded, non-commercial reading of the current Habbo Fansite Policy. This is a policy-based operational decision, not legal advice or an irrevocable licence.
 
 ## What is published
 
-- 34 canonical place groups with PT-BR/EN pages, provenance, evidence states and 37 original/grouped maps.
+- 29 visible group entities with PT-BR/EN pages, provenance, evidence states and 36 flattened maps; the 34-place V3 research corpus remains available as source data and historical routes.
 - 27 typed research edges plus a V3 research ledger that keeps accepted, grouped, secondary and uncertain candidates explicit.
-- A Cinematic Dock with centered magnification, pointer-sensitive neighbor curvature, 5.8-second autoplay, mandatory pause control, keyboard/wheel/drag/touch input, and reduced-motion behavior.
-- A lightbox-first inspection layer with vertical map variants, outside-click close and an explicit `Abrir página` / `Open page` CTA; documentary Place Pages, archive drawers, visual exits and the separate evidence graph remain one deliberate step deeper.
+- A Cinematic Dock with centered magnification, pointer-sensitive neighbor curvature, exact 4-second autoplay, mandatory pause control, keyboard/wheel/drag/touch input, and reduced-motion behavior.
+- A lightbox-first inspection layer that opens the exact active map, traverses the same flattened item sequence, keeps the group variant rail, supports outside-click/Escape close and an explicit `Abrir página` / `Open page` CTA; documentary Place Pages, archive drawers, visual exits and the separate evidence graph remain one deliberate step deeper.
 - Raw archival originals remain preserved; presentation derivatives remove only connected exterior matte/background pixels and are used by the public surface. Every asset remains `public_reference_only`.
 
 ## Why this gate passed
@@ -34,6 +34,50 @@ Official references consulted on 2026-08-23:
 - https://help.habbo.com/hc/en-us/articles/360011512380-What-Are-Habbo-Fansites
 - https://help.habbo.com/hc/en-us/articles/221645248-Infringements-Policy
 - https://www.habbo.com/playing-habbo/terms-of-service
+
+## V4 corrective pass
+
+The V4 handoff is implemented as a precision corrective pass. The homepage remains sparse and cinematic; the change is structural rather than a new wiki layer.
+
+Front-loaded group order:
+
+1. Wobble Squabble
+2. Cinema
+3. Clube Mamute
+4. Clube Oriente
+5. Saguões — Saguão Principal, Saguão do Meio, Saguão Superior, Saguão Subterrâneo
+6. Infobus
+7. Piscina Habbo — mapa 01, mapa 02
+8. Café Iced
+9. Corredores
+10. Café Dourado
+11. Biblioteca
+12. Recepção
+13. Clube Mexirica — alias resolvido: `Clube Merexica → Clube Mexirica`
+14. Clube Massiva — duas salas reais
+15. Teatro
+16. Salão de Beleza
+17. restante do corpus, mantendo a ordem editorial V4
+
+The four required visible group columns are Saguões, Piscina, Cobertura/Café Cobertura and Clube Massiva. Every map carries `groupId`, `groupOrder`, `variantOrder` and a stable item id. Arrow, keyboard, wheel, drag, swipe, autoplay and lightbox previous/next traverse the flattened item cursor; a group is not skipped merely because its active map changed.
+
+Content and derivative decisions:
+
+- Saguão Principal, Cinema, Parque Imperial and Corredores received presentation-only cleanup; raw originals remain unchanged.
+- Piscina is split from the preserved composite into two transparent presentation crops.
+- Cobertura and Café Cobertura share one group; the promotional `rooftop_cafe__variant_02` is excluded from the public asset set.
+- Clube Massiva uses the supplied `room_massiva_2.png` as its second map; the previous promotional derivative is excluded.
+- Net Café uses a repaired derivative from its intact raw image; the corrupted V3 presentation PNG is excluded.
+- Battle Ball Lounge uses the supplied `https://i.imgur.com/FKMzrb7.png` image.
+- Teatro uses the supplied Wikia image URL; the CDN response is stored as WebP bytes with a PNG presentation derivative.
+
+Classification outcomes:
+
+- Jardim Zen is `demoted_hidden`: preserved in data/archive provenance but removed from the public homepage pending a cleaner classic BR public-space classification.
+- The Den is `secondary_place`: not integrated as a BR identity; Habbo Rancho remains a separate BR campaign/reality-show memory rather than a proven alias.
+- Clube Merexica is `resolved_alias`: normalized to Clube Mexirica / The Chromide Club while retaining the user spelling as an alias.
+
+The complete V4 decision matrix and source URLs are in `data/v4-content-ledger.json` and `source-input/HABBO_V4_CONTENT_DELTA_2026-08-23.json`. Earlier V3 ledgers, assets and release notes remain intact as provenance fossils.
 
 ## V3 research and presentation decision
 
@@ -84,11 +128,13 @@ V2 addressed the remaining “improved Wikipedia” reading by removing the map 
 - inspection: a focused lightbox with the uncropped presentation image, localized title/alias, previous/next/close, grouped map rail and a detail CTA;
 - documentation: the existing Place Page and research layers, reachable from the lightbox and returnable via `#slug`.
 
-Autoplay is 5.8 seconds in production, with visible pause/resume, continuous pointer curvature that does not freeze autoplay, focus/drag/wheel/visibility/lightbox holds, selected-room language preservation, mobile swipe/snap, and reduced-motion fallback. Grouped places expose one quiet stacked dock marker and a vertical/horizontal responsive map rail.
+The historical V3 surface used 5.8-second autoplay, visible pause/resume, continuous pointer curvature that did not freeze autoplay, focus/drag/wheel/visibility/lightbox holds, selected-room language preservation, mobile swipe/snap, and reduced-motion fallback. Grouped places then exposed one quiet stacked dock marker and a vertical/horizontal responsive map rail.
+
+V4 replaces the quiet marker with visible aligned group columns and sets production autoplay to exactly 4 seconds. The active variant remains readable in the caption and column; the lightbox, return hash and detail CTA preserve that exact variant.
 
 ## Provenance
 
-The public runtime uses `data/places.json`, `data/edges.json`, `data/districts.json`, `data/provenance.json` and `data/v3-content-ledger.json`. The historical corpus and image research remain governed by the Habbo source document and the original-reference archive; the public pages expose source URLs without reproducing the private research package.
+The public runtime uses `data/places.json`, `data/groups.json`, `data/presentation-items.json`, `data/edges.json`, `data/districts.json`, `data/provenance.json`, `data/v3-content-ledger.json` and `data/v4-content-ledger.json`. The historical corpus and image research remain governed by the Habbo source document and the original-reference archive; the public pages expose source URLs without reproducing the private research package.
 
 ## Release record
 

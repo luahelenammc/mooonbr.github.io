@@ -16,7 +16,7 @@
   "manifest:main_lobby": {
     "id": "manifest:main_lobby",
     "placeId": "main_lobby",
-    "groupId": "main_lobby",
+    "groupId": "lobbies",
     "variantId": "main_lobby_primary",
     "manifestRow": "Main Lobby",
     "sourcePageUrl": "https://habboxwiki.com/Main_Lobby",
@@ -25,12 +25,12 @@
     "scopeUrl": "https://habboxwiki.com/Category:Public_Rooms",
     "temporalStatus": "canonical_original_image",
     "rightsStatus": "public_reference_only",
-    "presentationFilename": "habbo_public_space__main_lobby__brpt__undated__presentation.png"
+    "presentationFilename": "habbo_public_space__main_lobby__brpt__undated__v4__presentation.png"
   },
   "manifest:median_lobby": {
     "id": "manifest:median_lobby",
     "placeId": "median_lobby",
-    "groupId": "median_lobby",
+    "groupId": "lobbies",
     "variantId": "median_lobby_primary",
     "manifestRow": "Median Lobby",
     "sourcePageUrl": "https://habboxwiki.com/Median_Lobby",
@@ -44,7 +44,7 @@
   "manifest:skylight_lobby": {
     "id": "manifest:skylight_lobby",
     "placeId": "skylight_lobby",
-    "groupId": "skylight_lobby",
+    "groupId": "lobbies",
     "variantId": "skylight_lobby_primary",
     "manifestRow": "Skylight Lobby",
     "sourcePageUrl": "https://habboxwiki.com/Skylight_Lobby",
@@ -58,7 +58,7 @@
   "manifest:basement_lobby": {
     "id": "manifest:basement_lobby",
     "placeId": "basement_lobby",
-    "groupId": "basement_lobby",
+    "groupId": "lobbies",
     "variantId": "basement_lobby_primary",
     "manifestRow": "Basement Lobby",
     "sourcePageUrl": "https://habboxwiki.com/Basement_Lobby",
@@ -81,7 +81,7 @@
     "scopeUrl": "https://habboxwiki.com/Category:Public_Rooms",
     "temporalStatus": "canonical_original_image",
     "rightsStatus": "public_reference_only",
-    "presentationFilename": "habbo_public_space__hallways__brpt__undated__presentation.png"
+    "presentationFilename": "habbo_public_space__hallways__brpt__undated__v4__presentation.png"
   },
   "manifest:theatredrome": {
     "id": "manifest:theatredrome",
@@ -90,12 +90,12 @@
     "variantId": "theatredrome_primary",
     "manifestRow": "Theatredrome",
     "sourcePageUrl": "https://habboxwiki.com/Theatre",
-    "directImageUrl": "https://habboxwiki.com/wiki/images/4/4d/Oldtheatre.png",
+    "directImageUrl": "https://static.wikia.nocookie.net/habbo/images/0/02/Teatro.gif/revision/latest?cb=20111105205459&path-prefix=pt",
     "archiveManifestUrl": "/habbo/PUBLICATION_MANIFEST.md",
     "scopeUrl": "https://habboxwiki.com/Category:Public_Rooms",
     "temporalStatus": "canonical_original_image",
     "rightsStatus": "public_reference_only",
-    "presentationFilename": "habbo_public_space__theatredrome__brpt__undated__presentation.png"
+    "presentationFilename": "habbo_public_space__theatredrome__v4__brpt__undated__presentation.png"
   },
   "manifest:cinema": {
     "id": "manifest:cinema",
@@ -109,7 +109,7 @@
     "scopeUrl": "https://habboxwiki.com/Category:Public_Rooms",
     "temporalStatus": "canonical_original_image",
     "rightsStatus": "public_reference_only",
-    "presentationFilename": "habbo_public_space__cinema__brpt__undated__presentation.png"
+    "presentationFilename": "habbo_public_space__cinema__brpt__undated__v4__presentation.png"
   },
   "manifest:lido": {
     "id": "manifest:lido",
@@ -123,12 +123,26 @@
     "scopeUrl": "https://habboxwiki.com/Category:Public_Rooms",
     "temporalStatus": "canonical_original_image",
     "rightsStatus": "public_reference_only",
-    "presentationFilename": "habbo_public_space__lido__brpt__undated__presentation.png"
+    "presentationFilename": "habbo_public_space__lido__variant_01__brpt__undated__presentation.png"
+  },
+  "v4:lido:variant-02": {
+    "id": "v4:lido:variant-02",
+    "placeId": "lido",
+    "groupId": "lido",
+    "variantId": "lido_variant_02",
+    "manifestRow": "Lido",
+    "sourcePageUrl": "https://habboxwiki.com/Lido",
+    "directImageUrl": "https://habboxwiki.com/Lido",
+    "archiveManifestUrl": "/habbo/PUBLICATION_MANIFEST.md",
+    "scopeUrl": "https://habboxwiki.com/Category:Public_Rooms",
+    "temporalStatus": "source_crop_from_canonical_original",
+    "rightsStatus": "public_reference_only",
+    "presentationFilename": "habbo_public_space__lido__variant_02__brpt__undated__presentation.png"
   },
   "manifest:rooftop": {
     "id": "manifest:rooftop",
     "placeId": "rooftop",
-    "groupId": "rooftop",
+    "groupId": "rooftop_complex",
     "variantId": "rooftop_primary",
     "manifestRow": "Rooftop",
     "sourcePageUrl": "https://habboxwiki.com/Rooftop",
@@ -193,7 +207,7 @@
     "scopeUrl": "https://habboxwiki.com/Category:Public_Rooms",
     "temporalStatus": "canonical_original_image",
     "rightsStatus": "public_reference_only",
-    "presentationFilename": "habbo_public_space__imperial_park__brpt__undated__presentation.png"
+    "presentationFilename": "habbo_public_space__imperial_park__brpt__undated__v4__presentation.png"
   },
   "manifest:club_massiva": {
     "id": "manifest:club_massiva",
@@ -216,12 +230,12 @@
     "variantId": "club_massiva_variant_02",
     "manifestRow": "Club Massiva",
     "sourcePageUrl": "https://habboxwiki.com/Club_Massiva",
-    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Room_bank_1.png",
+    "directImageUrl": "https://www.habborator.org/dump/room/room_massiva_2.png",
     "archiveManifestUrl": "/habbo/PUBLICATION_MANIFEST.md",
     "scopeUrl": "https://habboxwiki.com/Category:Public_Rooms",
     "temporalStatus": "historic_revision_image",
     "rightsStatus": "public_reference_only",
-    "presentationFilename": "habbo_public_space__club_massiva__variant_02__brpt__undated__presentation.png"
+    "presentationFilename": "habbo_public_space__club_massiva__variant_02__v4__brpt__undated__presentation.png"
   },
   "manifest:club_mammoth": {
     "id": "manifest:club_mammoth",
@@ -398,12 +412,12 @@
     "variantId": "battle_ball_lounge_primary",
     "manifestRow": "V3 — Battle Ball Lounge",
     "sourcePageUrl": "https://habboxwiki.com/BattleBall_Lounge",
-    "directImageUrl": "https://habboxwiki.com/wiki/images/4/46/BattleBall.gif",
+    "directImageUrl": "https://i.imgur.com/FKMzrb7.png",
     "archiveManifestUrl": "/habbo/PUBLICATION_MANIFEST.md",
     "scopeUrl": "https://habboxwiki.com/Category:Public_Rooms",
     "temporalStatus": "canonical_original_image",
     "rightsStatus": "public_reference_only",
-    "presentationFilename": "habbo_public_space__battle_ball_lounge__brpt__undated__presentation.png"
+    "presentationFilename": "habbo_public_space__battle_ball_lounge__v4__brpt__undated__presentation.png"
   },
   "v3:chromide_club:primary": {
     "id": "v3:chromide_club:primary",
@@ -487,12 +501,12 @@
     "scopeUrl": "https://habboxwiki.com/Category:Public_Rooms",
     "temporalStatus": "canonical_original_image",
     "rightsStatus": "public_reference_only",
-    "presentationFilename": "habbo_public_space__net_cafe__brpt__undated__presentation.png"
+    "presentationFilename": "habbo_public_space__net_cafe__brpt__undated__v4__presentation.png"
   },
   "v3:rooftop_cafe:primary": {
     "id": "v3:rooftop_cafe:primary",
     "placeId": "rooftop_cafe",
-    "groupId": "rooftop_cafe",
+    "groupId": "rooftop_complex",
     "variantId": "rooftop_cafe_primary",
     "manifestRow": "V3 — Rooftop Cafe / Café Cobertura",
     "sourcePageUrl": "https://habboxwiki.com/Rooftop_Cafe",
@@ -502,19 +516,5 @@
     "temporalStatus": "canonical_original_image",
     "rightsStatus": "public_reference_only",
     "presentationFilename": "habbo_public_space__rooftop_cafe__brpt__undated__presentation.png"
-  },
-  "v3:rooftop_cafe:variant-02": {
-    "id": "v3:rooftop_cafe:variant-02",
-    "placeId": "rooftop_cafe",
-    "groupId": "rooftop_cafe",
-    "variantId": "rooftop_cafe_variant_02",
-    "manifestRow": "V3 — Rooftop Cafe / Café Cobertura",
-    "sourcePageUrl": "https://habboxwiki.com/Rooftop_Cafe",
-    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Roofcafe_target.png",
-    "archiveManifestUrl": "/habbo/PUBLICATION_MANIFEST.md",
-    "scopeUrl": "https://habboxwiki.com/Category:Public_Rooms",
-    "temporalStatus": "historic_revision_image",
-    "rightsStatus": "public_reference_only",
-    "presentationFilename": "habbo_public_space__rooftop_cafe__variant_02__brpt__undated__presentation.png"
   }
 }
