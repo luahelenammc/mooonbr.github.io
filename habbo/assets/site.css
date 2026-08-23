@@ -304,6 +304,10 @@ button {
   text-transform: lowercase;
 }
 
+.world-heading span {
+  min-width: 0;
+}
+
 .world-heading span:first-child {
   color: var(--gold);
 }
@@ -1348,6 +1352,11 @@ button {
     align-items: flex-start;
     flex-direction: column;
     gap: .2rem;
+  }
+
+  .world-heading span {
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
 
   .world-canvas {
