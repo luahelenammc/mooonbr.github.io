@@ -52,7 +52,7 @@ async function runPage(browser, test) {
       clientWidth: document.documentElement.clientWidth,
       bodyText: document.body.innerText.trim().length,
       activeSiteStylesheet: [...document.styleSheets].some((sheet) => {
-        if (!sheet.href?.includes("/assets/site.css")) return false;
+        if (!sheet.href?.includes("/assets/site-") || !sheet.href?.includes("effects-hotfix")) return false;
         try { return sheet.cssRules.length > 0; } catch { return false; }
       }),
       images: [...document.images].filter((image) => !image.complete || image.naturalWidth === 0).map((image) => image.src),

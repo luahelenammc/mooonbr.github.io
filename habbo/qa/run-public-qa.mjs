@@ -6,8 +6,8 @@ const PROJECT_ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const DIST = path.join(PROJECT_ROOT, "dist");
 const BASE = "/habbo";
 const ASSET_VERSION = String(process.env.ASSET_VERSION || "20260823-v2-effects-hotfix").replace(/[^a-zA-Z0-9._~-]/g, "");
-const CSS_ASSET = `${BASE}/assets/site.css?v=${ASSET_VERSION}`;
-const JS_ASSET = `${BASE}/assets/site.js?v=${ASSET_VERSION}`;
+const CSS_ASSET = `${BASE}/assets/site-${ASSET_VERSION}.css`;
+const JS_ASSET = `${BASE}/assets/site-${ASSET_VERSION}.js`;
 const failures = [];
 let checks = 0;
 
@@ -55,8 +55,10 @@ check(fs.existsSync(path.join(DIST, "assets", "flag-br.svg")), "Brazil flag asse
 check(fs.existsSync(path.join(DIST, "assets", "flag-us.svg")), "US flag asset missing from public build");
 check(fs.existsSync(path.join(DIST, "assets", "site.css")), "site stylesheet missing from public build");
 check(fs.existsSync(path.join(DIST, "assets", "site.js")), "site script missing from public build");
-check(fs.readFileSync(path.join(DIST, "assets", "site.css"), "utf8").includes(".cinematic-dock"), "cinematic dock styles missing from public build");
-check(fs.readFileSync(path.join(DIST, "assets", "site.js"), "utf8").includes("data-cinematic-dock"), "cinematic dock script missing from public build");
+check(fs.existsSync(path.join(DIST, "assets", `site-${ASSET_VERSION}.css`)), "versioned site stylesheet missing from public build");
+check(fs.existsSync(path.join(DIST, "assets", `site-${ASSET_VERSION}.js`)), "versioned site script missing from public build");
+check(fs.readFileSync(path.join(DIST, "assets", `site-${ASSET_VERSION}.css`), "utf8").includes(".cinematic-dock"), "cinematic dock styles missing from public build");
+check(fs.readFileSync(path.join(DIST, "assets", `site-${ASSET_VERSION}.js`), "utf8").includes("data-cinematic-dock"), "cinematic dock script missing from public build");
 
 for (const file of htmlFiles) {
   const html = fs.readFileSync(file, "utf8");
