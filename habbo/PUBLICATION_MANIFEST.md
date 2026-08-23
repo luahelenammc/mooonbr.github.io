@@ -49,5 +49,6 @@ The public runtime uses `data/places.json`, `data/edges.json`, `data/districts.j
 - Repository: https://github.com/luahelenammc/mooonbr.github.io
 - Public path: `/habbo/`
 - Branch: `main`
-- Substantive build commit: recorded in the execution handoff and post-merge report.
+- Substantive build commit: `5e12f7535f05892f197bfa0948f3bc49aec16a9a`
+- Feature merge commit: `8deb6804f1abfa447f416a081e75f2598c0b0577`
 - Next gate: Moon's human visual/product review of the live prototype.
