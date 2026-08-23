@@ -159,7 +159,9 @@ try {
       await page.locator('[data-room-open][data-room-id="lido"]').click();
       record("room click stays on presentation", /\/habbo\/pt-br\/$/.test(page.url().split("?")[0]));
       record("Piscina opens lightbox", await page.locator(".room-lightbox").evaluate((dialog) => dialog.open) && await page.locator("[data-lightbox-title]").innerText() === "Piscina Habbo");
-      record("lightbox uses original image without metadata", await page.locator("[data-lightbox-image]").getAttribute("src")?.includes("archive-reference/assets/") && await page.locator(".room-lightbox").locator("text=public_reference_only").count() === 0);
+      const lightboxSrc = await page.locator("[data-lightbox-image]").getAttribute("src");
+      const lightboxText = await page.locator(".room-lightbox").innerText();
+      record("lightbox uses original image without metadata", Boolean(lightboxSrc?.includes("archive-reference/assets/")) && !lightboxText.includes("public_reference_only"));
       record("lightbox CTA points to Piscina detail", (await page.locator("[data-lightbox-detail]").getAttribute("href"))?.endsWith("/lugar/lido/") === true);
     }
   });
