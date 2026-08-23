@@ -1,4 +1,4 @@
-name: Habbo V1 visual QA
+name: Habbo V2 visual QA
 
 on:
   pull_request:
@@ -39,15 +39,15 @@ jobs:
             sleep 1
           done
 
-      - name: Run V1 visual QA
+      - name: Run V2 visual QA
         run: node habbo/qa/visual-qa.mjs
 
       - name: Upload screenshot evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: habbo-v1-visual-qa
+          name: habbo-v2-visual-qa
           path: |
             habbo/qa/visual-artifacts/
             habbo/qa/visual-qa-report.json
-            habbo/qa/HABBO_V1_VISUAL_QA.md
+            habbo/qa/HABBO_V2_VISUAL_QA.md
