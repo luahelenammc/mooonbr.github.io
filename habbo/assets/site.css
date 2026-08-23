@@ -1344,7 +1344,9 @@ button {
 
   .spatial-world {
     min-height: 0;
-    margin-inline: -1rem;
+    width: 100vw;
+    margin-inline-start: calc(50% - 50vw);
+    margin-inline-end: 0;
     padding-inline: 1rem;
   }
 
@@ -1501,7 +1503,8 @@ button {
   /* The shell keeps a 0.625rem gutter at this breakpoint; the world field
      should meet the viewport edge without creating a phantom scrollbar. */
   .spatial-world {
-    margin-inline: -.625rem;
+    margin-inline-start: calc(50% - 50vw);
+    margin-inline-end: 0;
   }
 
   .place-index-content ul,

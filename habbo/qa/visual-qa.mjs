@@ -55,10 +55,14 @@ async function runPage(browser, test) {
       scrollWidth: document.documentElement.scrollWidth,
       clientWidth: document.documentElement.clientWidth,
       bodyText: document.body.innerText.trim().length,
-      images: [...document.images].filter((image) => !image.complete || image.naturalWidth === 0).map((image) => image.src)
+      images: [...document.images].filter((image) => !image.complete || image.naturalWidth === 0).map((image) => image.src),
+      overflowers: [...document.querySelectorAll("*")].map((element) => {
+        const box = element.getBoundingClientRect();
+        return { tag: element.tagName.toLowerCase(), className: element.className?.toString?.() || "", right: Math.round(box.right * 10) / 10 };
+      }).filter((item) => item.right > document.documentElement.clientWidth + 1).sort((a, b) => b.right - a.right).slice(0, 5)
     }));
     record(`${test.name} loads`, bodyText.length > 40 && layout.bodyText > 40, `body text length ${bodyText.length}`);
-    record(`${test.name} has no horizontal overflow`, layout.scrollWidth <= layout.clientWidth + 1, `${layout.scrollWidth} > ${layout.clientWidth}`);
+    record(`${test.name} has no horizontal overflow`, layout.scrollWidth <= layout.clientWidth + 1, `${layout.scrollWidth} > ${layout.clientWidth}${layout.overflowers.length ? ` (${layout.overflowers.map((item) => `${item.tag}.${item.className}=${item.right}`).join(", ")})` : ""}`);
     record(`${test.name} has no broken images`, layout.images.length === 0, layout.images.join(", "));
     record(`${test.name} has no console errors`, consoleErrors.length === 0, consoleErrors.join(" | "));
     record(`${test.name} has no page errors`, pageErrors.length === 0, pageErrors.join(" | "));
