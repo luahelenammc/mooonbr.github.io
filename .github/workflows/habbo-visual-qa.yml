@@ -1,0 +1,53 @@
+name: Habbo V1 visual QA
+
+on:
+  pull_request:
+    paths:
+      - "habbo/**"
+      - ".github/workflows/habbo-visual-qa.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  visual:
+    name: Chromium screenshots and interaction checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Serve static GitHub Pages build
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory . > /tmp/habbo-pages.log 2>&1 &
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            if curl --silent --fail http://127.0.0.1:4173/habbo/ > /dev/null; then
+              break
+            fi
+            sleep 1
+          done
+
+      - name: Run V1 visual QA
+        run: node habbo/qa/visual-qa.mjs
+
+      - name: Upload screenshot evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: habbo-v1-visual-qa
+          path: |
+            habbo/qa/visual-artifacts/
+            habbo/qa/visual-qa-report.json
+            habbo/qa/HABBO_V1_VISUAL_QA.md
