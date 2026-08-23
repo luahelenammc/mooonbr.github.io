@@ -85,7 +85,7 @@ try {
 
   await runPage(browser, {
     name: "home idle desktop",
-    route: "pt-br/?qa=1",
+    route: "pt-br/?qa=autoplay",
     viewport: { width: 1440, height: 900 },
     screenshot: "01-home-idle.png",
     assert: async (page) => {
@@ -287,7 +287,8 @@ try {
     assert: async (page) => {
       record("place page keeps arrival image", await page.locator(".place-arrival .arrival-figure").count() === 1);
       record("place page keeps archive drawer", await page.locator("[data-archive-drawer]").count() === 1);
-      record("place page has presentation return", await page.locator('[data-back-presentation][href$="#lido"]').count() === 1);
+      const returnHref = await page.locator("[data-back-presentation]").first().getAttribute("href");
+      record("place page has presentation return", Boolean(returnHref?.endsWith("#lido")));
     }
   });
 

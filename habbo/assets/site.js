@@ -76,7 +76,7 @@
     const lightboxIndex = lightbox?.querySelector("[data-lightbox-index]");
     const lightboxDetail = lightbox?.querySelector("[data-lightbox-detail]");
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const qaMode = new URLSearchParams(location.search).get("qa") === "1";
+    const qaMode = new URLSearchParams(location.search).get("qa") === "autoplay";
     const autoplayMs = qaMode ? 900 : Number(dock.dataset.autoplayMs || 5800);
     const initialId = decodeURIComponent(location.hash.replace(/^#/, ""));
     const initialMatch = slides.findIndex((slide) => slide.dataset.roomId === initialId);
