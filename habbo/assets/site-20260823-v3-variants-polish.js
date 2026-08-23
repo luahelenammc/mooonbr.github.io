@@ -89,6 +89,7 @@
     const lightboxVariantLabel = lightbox?.querySelector("[data-lightbox-variant-label]");
     const lightboxVariants = lightbox?.querySelector("[data-lightbox-variants]");
     const lightboxDetail = lightbox?.querySelector("[data-lightbox-detail]");
+    const lightboxShell = lightbox?.querySelector(".lightbox-shell");
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const qaMode = new URLSearchParams(location.search).get("qa") === "autoplay";
     const autoplayMs = qaMode ? 900 : Number(dock.dataset.autoplayMs || 5800);
@@ -493,7 +494,7 @@
       closeLightbox();
     });
     lightbox?.addEventListener("click", (event) => {
-      if (event.target === lightbox) closeLightbox();
+      if (event.target === lightbox || event.target === lightboxShell) closeLightbox();
     });
 
     let lightboxPointer = null;

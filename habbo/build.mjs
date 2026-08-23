@@ -10,11 +10,13 @@ const EXTERNAL_GRAPH_PATH = path.join(ATLAS_ROOT, "HABBO_PUBLIC_SPACES_SPATIAL_G
 const EXTERNAL_MANIFEST_PATH = path.join(WORKSPACE_ROOT, "MANIFEST - Habbo Espaços Públicos - Imagens Originais.csv");
 const EXTERNAL_ASSETS = path.join(ATLAS_ROOT, "spatial-atlas-v1", "assets");
 const GRAPH_PATH = path.join(LOCAL_INPUT, "HABBO_PUBLIC_SPACES_SPATIAL_GRAPH_V1_2026-08-23.json");
+const V3_DELTA_PATH = path.join(LOCAL_INPUT, "HABBO_V3_CONTENT_DELTA_2026-08-23.json");
 const MANIFEST_PATH = path.join(LOCAL_INPUT, "MANIFEST - Habbo Espaços Públicos - Imagens Originais.csv");
 const SOURCE_ASSETS = path.join(LOCAL_INPUT, "assets");
 const DIST = path.join(PROJECT_ROOT, "dist");
 const DATA_DIR = path.join(PROJECT_ROOT, "data");
 const BASE_PATH = String(process.env.BASE_PATH || "").replace(/\/+$/, "");
+const ASSET_VERSION = String(process.env.ASSET_VERSION || "20260823-v2-effects-hotfix").replace(/[^a-zA-Z0-9._~-]/g, "");
 
 function stageSourceInputs() {
   ensure(LOCAL_INPUT);
@@ -25,6 +27,7 @@ function stageSourceInputs() {
 
 stageSourceInputs();
 const graph = JSON.parse(fs.readFileSync(GRAPH_PATH, "utf8"));
+const v3Delta = JSON.parse(fs.readFileSync(V3_DELTA_PATH, "utf8"));
 
 function parseCsv(text) {
   const rows = [];
@@ -474,6 +477,11 @@ function sitePath(pathname) {
   return BASE_PATH + normalized;
 }
 
+function versionedAssetPath(pathname) {
+  const parsed = path.posix.parse(String(pathname));
+  return sitePath(`${parsed.dir}/${parsed.name}-${ASSET_VERSION}${parsed.ext}`);
+}
+
 function pageUrl(locale, id) {
   return sitePath(locale === "pt-br" ? "/pt-br/lugar/" + id + "/" : "/en/place/" + id + "/");
 }
@@ -486,17 +494,36 @@ function slug(value) { return String(value).normalize("NFD").replace(/[\u0300-\u
 // a claim about historical adjacency. It moves from arrival to water, night,
 // culture, outdoors, service, and finally the quieter lobby/archive rooms.
 const presentationOrder = [
-  "welcome_lounge", "main_lobby", "lido", "hallways", "rooftop", "rooftop_rumble",
-  "club_massiva", "club_mammoth", "club_orient", "cafe_gold", "space_cafe", "cinema",
-  "theatredrome", "infobus_park", "imperial_park", "picnic_area", "stadium", "beauty_salon",
-  "ice_cafe", "library", "hotel_kitchen", "palazzo_pizza", "snowstorm_lobby", "basement_lobby",
-  "median_lobby", "skylight_lobby", "dusty_lounge"
+  "welcome_lounge", "main_lobby", "lido", "hallways", "rooftop", "rooftop_cafe", "rooftop_rumble",
+  "chromide_club", "club_massiva", "club_mammoth", "club_orient", "habburgers", "net_cafe", "cafe_gold",
+  "space_cafe", "cinema", "battle_ball_lounge", "theatredrome", "infobus_park", "imperial_park",
+  "floating_garden", "zen_garden", "picnic_area", "stadium", "beauty_salon", "ice_cafe", "library",
+  "hotel_kitchen", "palazzo_pizza", "snowstorm_lobby", "basement_lobby", "median_lobby", "skylight_lobby",
+  "dusty_lounge"
 ];
 const presentationOrderMap = Object.fromEntries(presentationOrder.map((id, index) => [id, index + 1]));
 
 function normalizedPlace(node) {
   const manifest = manifestByName[node.canonical_name_en] || {};
   const localized = copy[node.id] || C("Um destino preservado pelo arquivo.", "A destination preserved by the archive.", node.notes, node.notes, [node.notes], [node.notes]);
+  const presentationFilename = node.image_filename.replace(/\.[^.]+$/, "__presentation.png");
+  const primaryVariant = {
+    id: `${node.id}_primary`,
+    labelPt: "Sala principal",
+    labelEn: "Main room",
+    kind: "primary",
+    filename: node.image_filename,
+    presentationFilename,
+    width: Number(String(manifest.original_dimensions || "").split("x")[0]) || null,
+    height: Number(String(manifest.original_dimensions || "").split("x")[1]) || null,
+    format: manifest.file_format || null,
+    temporalStatus: node.temporal_status,
+    rightsStatus: node.rights_status,
+    provenanceId: "manifest:" + node.id,
+    sourcePageUrl: manifest.source_page_url || null,
+    directImageUrl: manifest.direct_image_url || null,
+    notes: "Primary image preserved by the V1 manifest."
+  };
   return {
     id: node.id,
     slug: node.id,
@@ -520,8 +547,12 @@ function normalizedPlace(node) {
       format: manifest.file_format || null,
       temporalStatus: node.temporal_status,
       rightsStatus: node.rights_status,
-      provenanceId: "manifest:" + node.id
+      provenanceId: "manifest:" + node.id,
+      presentationFilename
     },
+    groupId: node.id,
+    variants: [primaryVariant],
+    grouped: false,
     arrivalText: localized.arrival,
     socialUses: node.social_function,
     socialUsesPtBr: node.social_function.map((item) => socialLabels[item] || item),
@@ -541,7 +572,56 @@ function normalizedPlace(node) {
   };
 }
 
+function normalizedV3Place(item) {
+  const variants = item.variants.map((variant) => ({ ...variant }));
+  const primary = variants[0];
+  return {
+    id: item.id,
+    slug: item.id,
+    canonicalNamePtBr: item.canonicalNamePtBr,
+    canonicalNameEn: item.canonicalNameEn,
+    aliases: item.aliases || [],
+    category: item.category,
+    editorialDistrict: item.district || null,
+    editorialMapPosition: editorialMap[item.id] || { x: 50, y: 50, scale: 1, layer: 1, cluster: item.visualCluster || "arrival" },
+    presentationOrder: presentationOrderMap[item.id] || item.presentationOrder || 999,
+    visualCluster: item.visualCluster || "arrival",
+    topologyDisplayPosition: topologyMap[item.id] || [500, 330],
+    hotelLocale: item.hotelLocale || ["brpt"],
+    technicalEra: item.technicalEra || [],
+    visualEra: item.visualEra || [],
+    communityEra: item.communityEra || [],
+    image: { ...primary },
+    groupId: item.groupId || item.id,
+    variants,
+    grouped: variants.length > 1,
+    arrivalText: item.arrivalText,
+    socialUses: item.socialUses || [],
+    socialUsesPtBr: (item.socialUses || []).map((value) => socialLabels[value] || value),
+    socialUsesEn: item.socialUses || [],
+    spatialNotes: item.spatialNotes,
+    shortFacts: item.facts,
+    topologyStatus: item.topologyStatus || "probable",
+    landmarkStrength: item.landmarkStrength || "medium",
+    versionLineage: item.versionLineage || [],
+    relatedArchiveItems: item.relatedArchiveItems || [],
+    sourceManifestRow: item.sourceManifestRow || item.id,
+    accessEvidence: item.accessEvidence || "secondary_public_room_archive",
+    notes: item.notes || "",
+    complexStructure: item.complexStructure || { roomCount: variants.length, knownSubrooms: [], evidenceStatus: "probable_historical", note: "" },
+    sourcePageUrl: item.sourcePageUrl || null,
+    directImageUrl: item.directImageUrl || null
+  };
+}
+
 const places = graph.nodes.map(normalizedPlace);
+for (const item of v3Delta.accepted || []) places.push(normalizedV3Place(item));
+for (const addition of v3Delta.variantAdditions || []) {
+  const group = places.find((place) => place.groupId === addition.groupId || place.id === addition.groupId);
+  if (!group || !addition.variant) continue;
+  group.variants = [...(group.variants || [group.image]), { ...addition.variant }];
+  group.grouped = group.variants.length > 1;
+}
 const presentationPlaces = [...places].sort((a, b) => a.presentationOrder - b.presentationOrder);
 const placeById = Object.fromEntries(places.map((place) => [place.id, place]));
 const auxiliaryById = Object.fromEntries(graph.auxiliary_nodes.map((item) => [item.id, item]));
@@ -567,17 +647,20 @@ const districts = graph.editorial_districts.map((district) => ({
   status: district.status,
   nodes: district.nodes
 }));
-const provenance = Object.fromEntries(places.map((place) => [place.image.provenanceId, {
-  id: place.image.provenanceId,
+const provenance = Object.fromEntries(places.flatMap((place) => (place.variants || [place.image]).map((variant) => [variant.provenanceId, {
+  id: variant.provenanceId,
   placeId: place.id,
+  groupId: place.groupId || place.id,
+  variantId: variant.id,
   manifestRow: place.sourceManifestRow,
-  sourcePageUrl: place.sourcePageUrl,
-  directImageUrl: place.directImageUrl,
+  sourcePageUrl: variant.sourcePageUrl || place.sourcePageUrl,
+  directImageUrl: variant.directImageUrl || place.directImageUrl,
   archiveManifestUrl: BASE_PATH ? sitePath("/PUBLICATION_MANIFEST.md") : "https://drive.google.com/file/d/1rixJo098kyTjgfVAosBrQpAv6AdbDUas/view?usp=drivesdk",
   scopeUrl: BASE_PATH ? "https://habboxwiki.com/Category:Public_Rooms" : "https://drive.google.com/file/d/1pLjpkN5VNYkdORhfdQqsbUcqzzI6xMfs/view?usp=drivesdk",
-  temporalStatus: place.image.temporalStatus,
-  rightsStatus: place.image.rightsStatus
-}]));
+  temporalStatus: variant.temporalStatus,
+  rightsStatus: variant.rightsStatus,
+  presentationFilename: variant.presentationFilename || null
+}])));
 
 function statusClass(status) {
   return {
@@ -643,8 +726,8 @@ function footer(locale) {
 function layout(locale, active, alternate, title, body, pageType) {
   const isPt = locale === "pt-br";
   return [
-    "<!doctype html><html lang='", isPt ? "pt-BR" : "en", "'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><meta name='robots' content='noindex,nofollow,noarchive'><meta name='description' content='", esc(isPt ? "Protótipo público de arquivo espacial independente sobre lugares públicos clássicos do Habbo BR." : "Public prototype of an independent spatial archive of classic Habbo BR public places."), "'><title>", esc(title), "</title><link rel='stylesheet' href='", sitePath("/assets/site.css"), "'></head><body data-page='", pageType, "'><div class='site-shell'>",
-    header(locale, active, alternate), body, footer(locale), "</div><script src='", sitePath("/assets/site.js"), "' defer></script></body></html>"
+    "<!doctype html><html lang='", isPt ? "pt-BR" : "en", "'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><meta name='robots' content='noindex,nofollow,noarchive'><meta name='description' content='", esc(isPt ? "Protótipo público de arquivo espacial independente sobre lugares públicos clássicos do Habbo BR." : "Public prototype of an independent spatial archive of classic Habbo BR public places."), "'><title>", esc(title), "</title><link rel='stylesheet' href='", versionedAssetPath("/assets/site.css"), "'></head><body data-page='", pageType, "'><div class='site-shell'>",
+    header(locale, active, alternate), body, footer(locale), "</div><script src='", versionedAssetPath("/assets/site.js"), "' defer></script></body></html>"
   ].join("");
 }
 
@@ -746,8 +829,8 @@ function renderMethod(locale) {
  * cataloguing to entering.
  */
 
-function imagePath(place) {
-  return sitePath("/assets/archive-reference/assets/" + place.image.filename);
+function imagePath(place, variant = place.image) {
+  return sitePath("/assets/archive-reference/assets/" + (variant.presentationFilename || variant.filename));
 }
 
 function relationStatusLabel(status, locale) {
@@ -789,7 +872,7 @@ function v1Layout(locale, active, current, alternate, title, body, pageType, id 
   const description = isPt
     ? "Protótipo público de um arquivo espacial independente sobre lugares públicos clássicos do Habbo BR."
     : "Public prototype of an independent spatial archive of classic Habbo BR public places.";
-  return `<!doctype html><html lang="${isPt ? "pt-BR" : "en"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="description" content="${esc(description)}"><meta name="theme-color" content="#101520"><title>${esc(title)}</title><link rel="stylesheet" href="${sitePath("/assets/site.css")}"></head><body data-page="${pageType}" data-locale="${locale}" data-root-entry="${current === sitePath("/") ? "true" : "false"}"><div class="site-shell">${v1Header(locale, active, current, alternate, id)}${body}${v1Footer(locale)}</div><script src="${sitePath("/assets/site.js")}" defer></script></body></html>`;
+  return `<!doctype html><html lang="${isPt ? "pt-BR" : "en"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="description" content="${esc(description)}"><meta name="theme-color" content="#101520"><title>${esc(title)}</title><link rel="stylesheet" href="${versionedAssetPath("/assets/site.css")}"></head><body data-page="${pageType}" data-locale="${locale}" data-root-entry="${current === sitePath("/") ? "true" : "false"}"><div class="site-shell">${v1Header(locale, active, current, alternate, id)}${body}${v1Footer(locale)}</div><script src="${versionedAssetPath("/assets/site.js")}" defer></script></body></html>`;
 }
 
 function v1PlaceNodeMarkup(place, locale) {
@@ -837,32 +920,46 @@ function renderHomeV1(locale) {
 function v2Header(locale, current, alternate) {
   const isPt = locale === "pt-br";
   const labels = isPt
-    ? { info: "sobre o arquivo", lang: "Idioma", identity: "Voltar à apresentação" }
-    : { info: "about the archive", lang: "Language", identity: "Back to the presentation" };
+    ? { lang: "Idioma", identity: "Voltar à apresentação" }
+    : { lang: "Language", identity: "Back to the presentation" };
   const langButtons = [
     { lang: "pt-br", href: isPt ? current : alternate, src: sitePath("/assets/flag-br.svg"), alt: "Português do Brasil", active: isPt },
     { lang: "en", href: isPt ? alternate : current, src: sitePath("/assets/flag-us.svg"), alt: "English, United States", active: !isPt }
   ].map((item) => `<a class="lang-button${item.active ? " is-active" : ""}" data-lang="${item.lang}" data-home-locale="${item.lang}" href="${item.href}" aria-label="${item.alt}" title="${item.alt}" aria-current="${item.active ? "page" : "false"}"><img src="${item.src}" alt="" aria-hidden="true" width="24" height="16" /></a>`).join("");
-  const infoDialog = `<dialog class="info-dialog" data-info-dialog aria-labelledby="archive-info-title"><div class="info-dialog-inner"><div class="dialog-heading"><div><p class="eyebrow">${isPt ? "arquivo independente" : "independent archive"}</p><h2 id="archive-info-title">${isPt ? "Um lugar por vez." : "One place at a time."}</h2></div><button class="dialog-close" type="button" data-close-info aria-label="${isPt ? "Fechar informações" : "Close information"}">×</button></div><p>${isPt ? "A apresentação reúne 27 espaços públicos clássicos compatíveis com a memória do Habbo BR. A imagem abre primeiro; contexto, relações e proveniência ficam disponíveis quando você quiser aprofundar." : "The presentation gathers 27 classic public spaces compatible with Habbo BR memory. The image opens first; context, relations, and provenance stay available when you want to go deeper."}</p><nav class="info-links" aria-label="${isPt ? "Camadas do arquivo" : "Archive layers"}"><a href="${topologyUrl(locale)}">${isPt ? "ver relações históricas" : "see historical relations"} <span aria-hidden="true">↗</span></a><a href="${methodUrl(locale)}">${isPt ? "ler método e direitos" : "read method and rights"} <span aria-hidden="true">↗</span></a></nav></div></dialog>`;
-  return `<header class="site-header v2-header"><a class="identity" href="${homeUrl(locale)}" aria-label="${labels.identity}"><span class="identity-pip" aria-hidden="true"></span><span class="identity-copy"><strong>Habbo · lugares</strong><small>${isPt ? "arquivo independente" : "independent archive"}</small></span></a><div class="header-actions"><button class="header-info" type="button" data-open-info aria-label="${labels.info}" title="${labels.info}"><span aria-hidden="true">＋</span><span>${labels.info}</span></button><nav class="lang-toggle" aria-label="${labels.lang}">${langButtons}</nav></div>${infoDialog}</header>`;
+  return `<header class="site-header v2-header"><a class="identity" href="${homeUrl(locale)}" aria-label="${labels.identity}"><span class="identity-pip" aria-hidden="true"></span><span class="identity-copy"><strong>Habbo</strong></span></a><nav class="lang-toggle" aria-label="${labels.lang}">${langButtons}</nav></header>`;
+}
+
+function v2Footer() {
+  return `<footer class="site-footer site-footer--v2"><div class="footer-inner"><p class="rights-disclaimer">This fan site is not affiliated with, endorsed, sponsored, or specifically approved by Sulake Oy or its Affiliates. This fan site may use the trademarks and other intellectual property of Habbo, which is permitted under Habbo Fan Site Policy.</p></div></footer>`;
 }
 
 function v2Layout(locale, current, alternate, title, body) {
   const isPt = locale === "pt-br";
-  const description = isPt
-    ? "Apresentação cinematográfica de lugares públicos clássicos do Habbo BR, com imagens originais, lightbox e páginas documentais." 
-    : "A cinematic presentation of classic Habbo BR public places, with original images, lightbox inspection, and documentary place pages.";
-  return `<!doctype html><html lang="${isPt ? "pt-BR" : "en"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="description" content="${esc(description)}"><meta name="theme-color" content="#090d15"><title>${esc(title)}</title><link rel="stylesheet" href="${sitePath("/assets/site.css")}"></head><body data-page="home" data-locale="${locale}" data-root-entry="${current === sitePath("/") ? "true" : "false"}"><div class="site-shell">${v2Header(locale, current, alternate)}${body}${v1Footer(locale)}</div><script src="${sitePath("/assets/site.js")}" defer></script></body></html>`;
+  return `<!doctype html><html lang="${isPt ? "pt-BR" : "en"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#090d15"><title>${esc(title)}</title><link rel="stylesheet" href="${versionedAssetPath("/assets/site.css")}"></head><body data-page="home" data-locale="${locale}" data-root-entry="${current === sitePath("/") ? "true" : "false"}"><div class="site-shell">${v2Header(locale, current, alternate)}${body}${v2Footer()}</div><script src="${versionedAssetPath("/assets/site.js")}" defer></script></body></html>`;
 }
 
 function v2RoomMarkup(place, locale, index) {
   const isPt = locale === "pt-br";
   const name = localizedName(place, locale);
   const otherName = isPt ? place.canonicalNameEn : place.canonicalNamePtBr;
-  const width = place.image.width || 720;
-  const height = place.image.height || 480;
-  const label = isPt ? `Abrir ${name}` : `Open ${name}`;
-  return `<li class="dock-slide" data-dock-slide data-room-id="${esc(place.id)}" data-room-index="${index}" data-room-name="${esc(name)}" data-room-alias="${esc(otherName && otherName !== name ? otherName : "")}" data-room-detail="${linkFor(locale, place.id)}" data-room-search="${esc([place.canonicalNamePtBr, place.canonicalNameEn, ...place.aliases].join(" ").toLocaleLowerCase())}"><button class="dock-room" type="button" data-room-open data-room-id="${esc(place.id)}" data-room-index="${index}" aria-label="${esc(label)}"><span class="dock-media"><img src="${imagePath(place)}" alt="${esc(name)}" loading="${index < 5 ? "eager" : "lazy"}" decoding="async" draggable="false" width="${width}" height="${height}"></span><span class="sr-only">${esc(name)}${otherName && otherName !== name ? ` — ${esc(otherName)}` : ""}</span></button></li>`;
+  const variants = place.variants || [place.image];
+  const primary = variants[0];
+  const width = primary.width || 720;
+  const height = primary.height || 480;
+  const groupNote = variants.length > 1 ? (isPt ? `, ${variants.length} mapas disponíveis` : `, ${variants.length} maps available`) : "";
+  const label = isPt ? `Abrir ${name}${groupNote}` : `Open ${name}${groupNote}`;
+  const variantData = variants.map((variant) => ({
+    id: variant.id,
+    labelPt: variant.labelPt || "Mapa",
+    labelEn: variant.labelEn || "Map",
+    kind: variant.kind || "primary",
+    src: imagePath(place, variant),
+    rawSrc: sitePath("/assets/archive-reference/assets/" + variant.filename),
+    width: variant.width || 720,
+    height: variant.height || 480
+  }));
+  const stack = variants.length > 1 ? `<span class="dock-group-stack" aria-hidden="true"><i></i><i></i><b>${String(variants.length).padStart(2, "0")}</b></span>` : "";
+  return `<li class="dock-slide${variants.length > 1 ? " dock-slide--grouped" : ""}" data-dock-slide data-room-id="${esc(place.id)}" data-room-index="${index}" data-room-name="${esc(name)}" data-room-alias="${esc(otherName && otherName !== name ? otherName : "")}" data-room-detail="${linkFor(locale, place.id)}" data-room-variant-count="${variants.length}" data-room-variants="${esc(JSON.stringify(variantData))}" data-room-search="${esc([place.canonicalNamePtBr, place.canonicalNameEn, ...place.aliases].join(" ").toLocaleLowerCase())}"><button class="dock-room" type="button" data-room-open data-room-id="${esc(place.id)}" data-room-index="${index}" aria-label="${esc(label)}"><span class="dock-media"><img src="${imagePath(place, primary)}" alt="${esc(name)}" loading="${index < 5 ? "eager" : "lazy"}" decoding="async" draggable="false" width="${width}" height="${height}">${stack}</span><span class="sr-only">${esc(name)}${otherName && otherName !== name ? ` — ${esc(otherName)}` : ""}</span></button></li>`;
 }
 
 function v2LightboxLanguageMarkup(locale) {
@@ -877,11 +974,13 @@ function v2LightboxLanguageMarkup(locale) {
 function renderHomeV2(locale) {
   const isPt = locale === "pt-br";
   const first = presentationPlaces[0];
+  const total = presentationPlaces.length;
+  const firstVariant = (first.variants || [first.image])[0];
   const firstName = localizedName(first, locale);
   const firstOther = isPt ? first.canonicalNameEn : first.canonicalNamePtBr;
   const slides = presentationPlaces.map((place, index) => v2RoomMarkup(place, locale, index)).join("");
-  const lightbox = `<dialog class="room-lightbox" data-lightbox aria-labelledby="lightbox-title"><div class="lightbox-shell">${v2LightboxLanguageMarkup(locale)}<button class="lightbox-close" type="button" data-lightbox-close aria-label="${isPt ? "Fechar espaço" : "Close room"}">×</button><button class="lightbox-arrow lightbox-arrow--prev" type="button" data-lightbox-prev aria-label="${isPt ? "Espaço anterior" : "Previous room"}"><span aria-hidden="true">←</span></button><figure class="lightbox-figure"><img data-lightbox-image src="${imagePath(first)}" alt="${esc(firstName)}" width="${first.image.width || 720}" height="${first.image.height || 480}"><figcaption><p class="eyebrow" data-lightbox-index>01 / 27</p><h2 id="lightbox-title" data-lightbox-title>${esc(firstName)}</h2><p class="lightbox-alias" data-lightbox-alias>${firstOther && firstOther !== firstName ? esc(firstOther) : ""}</p></figcaption></figure><button class="lightbox-arrow lightbox-arrow--next" type="button" data-lightbox-next aria-label="${isPt ? "Próximo espaço" : "Next room"}"><span aria-hidden="true">→</span></button><a class="lightbox-detail" data-lightbox-detail href="${linkFor(locale, first.id)}">${isPt ? "Ver mais informações sobre este espaço público" : "See more information about this public space"}<span aria-hidden="true">↗</span></a></div></dialog>`;
-  const body = `<main class="home-page home-page--v2"><section class="dock-intro" aria-labelledby="home-title"><p class="eyebrow">Habbo · ${isPt ? "lugares públicos clássicos" : "classic public places"}</p><h1 id="home-title">${isPt ? "Entre pela imagem." : "Enter through the image."}</h1><p>${isPt ? "Uma apresentação em movimento da memória pública do Habbo BR. Pare quando um lugar chamar você." : "A moving presentation of Habbo BR public memory. Stop when a place calls you."}</p></section><section class="cinematic-dock" data-cinematic-dock data-autoplay-ms="5800" aria-labelledby="dock-title"><div class="dock-topline"><div><span class="dock-kicker" id="dock-title">${isPt ? "apresentação" : "presentation"}</span><span class="dock-count" data-dock-count>27 ${isPt ? "lugares" : "places"}</span></div><span class="dock-mode" data-dock-mode>${isPt ? "sequência editorial" : "editorial sequence"}</span></div><div class="dock-viewport" data-dock-viewport tabindex="0" role="region" aria-roledescription="carousel" aria-label="${isPt ? "Apresentação de lugares públicos clássicos" : "Presentation of classic public places"}"><ol class="dock-track" data-dock-track>${slides}</ol></div><div class="dock-caption" aria-live="polite"><p class="dock-caption-index" data-active-index>01 / 27</p><h2 data-active-name>${esc(firstName)}</h2><p data-active-alias>${firstOther && firstOther !== firstName ? esc(firstOther) : ""}</p></div><div class="dock-controls" aria-label="${isPt ? "Controles da apresentação" : "Presentation controls"}"><button type="button" class="dock-control dock-control--arrow" data-dock-prev aria-label="${isPt ? "Lugar anterior" : "Previous place"}">←</button><button type="button" class="dock-control dock-control--play" data-dock-play aria-pressed="false"><span class="dock-play-icon" aria-hidden="true">Ⅱ</span><span data-dock-play-label>${isPt ? "pausar" : "pause"}</span></button><button type="button" class="dock-control dock-control--arrow" data-dock-next aria-label="${isPt ? "Próximo lugar" : "Next place"}">→</button></div><p class="dock-instruction">${isPt ? "hover · arraste · use ← → · abra um lugar" : "hover · drag · use ← → · open a place"}</p><p class="sr-only" role="status" data-dock-status>${isPt ? `Lugar 1 de 27: ${firstName}` : `Place 1 of 27: ${firstName}`}</p></section><section class="home-secondary" aria-label="${isPt ? "Camadas secundárias" : "Secondary layers"}"><a href="${topologyUrl(locale)}">${isPt ? "relações e topologia" : "relations and topology"}<span aria-hidden="true">↗</span></a><a href="${methodUrl(locale)}">${isPt ? "método, fontes e direitos" : "method, sources and rights"}<span aria-hidden="true">↗</span></a><span>${isPt ? "27 imagens · corpus Habbo BR" : "27 images · Habbo BR corpus"}</span></section>${lightbox}</main>`;
+  const lightbox = `<dialog class="room-lightbox" data-lightbox aria-labelledby="lightbox-title"><div class="lightbox-shell">${v2LightboxLanguageMarkup(locale)}<button class="lightbox-close" type="button" data-lightbox-close aria-label="${isPt ? "Fechar espaço" : "Close room"}">×</button><button class="lightbox-arrow lightbox-arrow--prev" type="button" data-lightbox-prev aria-label="${isPt ? "Espaço anterior" : "Previous room"}"><span aria-hidden="true">←</span></button><figure class="lightbox-figure"><img data-lightbox-image src="${imagePath(first, firstVariant)}" alt="${esc(firstName)}" width="${firstVariant.width || 720}" height="${firstVariant.height || 480}"><figcaption><p class="eyebrow" data-lightbox-index>01 / ${String(total).padStart(2, "0")}</p><h2 id="lightbox-title" data-lightbox-title>${esc(firstName)}</h2><p class="lightbox-alias" data-lightbox-alias>${firstOther && firstOther !== firstName ? esc(firstOther) : ""}</p><p class="lightbox-variant-label" data-lightbox-variant-label></p></figcaption></figure><button class="lightbox-arrow lightbox-arrow--next" type="button" data-lightbox-next aria-label="${isPt ? "Próximo espaço" : "Next room"}"><span aria-hidden="true">→</span></button><aside class="lightbox-variants" data-lightbox-variants aria-label="${isPt ? "Mapas deste lugar" : "Maps for this place"}"></aside><a class="lightbox-detail" data-lightbox-detail href="${linkFor(locale, first.id)}">${isPt ? "Abrir página" : "Open page"}<span aria-hidden="true">↗</span></a></div></dialog>`;
+  const body = `<main class="home-page home-page--v2"><h1 id="home-title" class="sr-only">${isPt ? "Lugares públicos clássicos do Habbo" : "Classic Habbo public places"}</h1><section class="cinematic-dock" data-cinematic-dock data-dock-effect="zoom" data-autoplay-ms="5800" data-total="${total}" aria-labelledby="home-title"><div class="dock-viewport" data-dock-viewport tabindex="0" role="region" aria-roledescription="carousel" aria-label="${isPt ? "Apresentação de lugares públicos clássicos" : "Presentation of classic public places"}"><ol class="dock-track" data-dock-track>${slides}</ol></div><div class="dock-caption" aria-live="polite"><p class="dock-caption-index" data-active-index>01 / ${String(total).padStart(2, "0")}</p><h2 data-active-name>${esc(firstName)}</h2><p data-active-alias>${firstOther && firstOther !== firstName ? esc(firstOther) : ""}</p></div><div class="dock-controls" aria-label="${isPt ? "Controles da apresentação" : "Presentation controls"}"><button type="button" class="dock-control dock-control--arrow" data-dock-prev aria-label="${isPt ? "Lugar anterior" : "Previous place"}">←</button><button type="button" class="dock-control dock-control--play" data-dock-play aria-pressed="false"><span class="dock-play-icon" aria-hidden="true">Ⅱ</span><span data-dock-play-label>${isPt ? "pausar" : "pause"}</span></button><button type="button" class="dock-control dock-control--arrow" data-dock-next aria-label="${isPt ? "Próximo lugar" : "Next place"}">→</button></div><p class="sr-only" role="status" data-dock-status>${isPt ? `Lugar 1 de ${total}: ${firstName}` : `Place 1 of ${total}: ${firstName}`}</p></section>${lightbox}</main>`;
   return v2Layout(locale, homeUrl(locale), alternateLocalePath(locale, "home"), isPt ? "Habbo — lugares públicos" : "Habbo — public places", body);
 }
 
@@ -916,7 +1015,19 @@ function v1ExitMarkup(exit, locale) {
 
 function v1ArchiveDrawer(place, locale, manifest) {
   const isPt = locale === "pt-br";
-  return `<details class="archive-drawer" id="archive" data-archive-drawer><summary>${isPt ? "abrir camada de arquivo" : "open archive layer"}</summary><div class="archive-drawer-body"><p class="archive-intro">${isPt ? "Proveniência, estado temporal e direitos ficam aqui para não competir com a chegada ao lugar." : "Provenance, temporal status, and rights live here so they do not compete with arriving at the place."}</p><dl><dt>${isPt ? "fonte" : "source"}</dt><dd>${place.sourcePageUrl ? `<a href="${esc(place.sourcePageUrl)}" rel="noreferrer">${esc(place.sourcePageUrl)}</a>` : (isPt ? "não recuperada" : "not recovered")}</dd><dt>${isPt ? "imagem direta" : "direct image"}</dt><dd>${place.directImageUrl ? `<a href="${esc(place.directImageUrl)}" rel="noreferrer">${esc(place.directImageUrl)}</a>` : (isPt ? "não recuperada" : "not recovered")}</dd><dt>${isPt ? "estado temporal" : "temporal status"}</dt><dd>${esc(place.image.temporalStatus)}</dd><dt>${isPt ? "direitos" : "rights"}</dt><dd>${esc(place.image.rightsStatus)} · public_reference_only</dd><dt>${isPt ? "locale / era" : "locale / era"}</dt><dd>${esc(place.hotelLocale.join(", "))} · ${esc(place.visualEra.join(", "))}</dd><dt>${isPt ? "dimensões" : "dimensions"}</dt><dd>${esc(manifest.original_dimensions || "—")} · ${esc(manifest.file_format || "—")}</dd><dt>${isPt ? "manifesto" : "manifest"}</dt><dd><a href="${sitePath("/PUBLICATION_MANIFEST.md")}">${isPt ? "ver manifesto de publicação" : "view publication manifest"}</a></dd></dl></div></details>`;
+  const variants = place.variants || [place.image];
+  const dimensions = manifest.original_dimensions || `${place.image.width || "—"}x${place.image.height || "—"}`;
+  const format = manifest.file_format || place.image.format || "—";
+  return `<details class="archive-drawer" id="archive" data-archive-drawer><summary>${isPt ? "abrir camada de arquivo" : "open archive layer"}</summary><div class="archive-drawer-body"><p class="archive-intro">${isPt ? "Proveniência, estado temporal e direitos ficam aqui para não competir com a chegada ao lugar." : "Provenance, temporal status, and rights live here so they do not compete with arriving at the place."}</p><dl><dt>${isPt ? "fonte" : "source"}</dt><dd>${place.sourcePageUrl ? `<a href="${esc(place.sourcePageUrl)}" rel="noreferrer">${esc(place.sourcePageUrl)}</a>` : (isPt ? "não recuperada" : "not recovered")}</dd><dt>${isPt ? "imagem direta" : "direct image"}</dt><dd>${place.directImageUrl ? `<a href="${esc(place.directImageUrl)}" rel="noreferrer">${esc(place.directImageUrl)}</a>` : (isPt ? "não recuperada" : "not recovered")}</dd><dt>${isPt ? "mapas agrupados" : "grouped maps"}</dt><dd>${variants.length}</dd><dt>${isPt ? "estado temporal" : "temporal status"}</dt><dd>${esc(place.image.temporalStatus)}</dd><dt>${isPt ? "direitos" : "rights"}</dt><dd>${esc(place.image.rightsStatus)} · public_reference_only</dd><dt>${isPt ? "locale / era" : "locale / era"}</dt><dd>${esc(place.hotelLocale.join(", "))} · ${esc(place.visualEra.join(", "))}</dd><dt>${isPt ? "dimensões" : "dimensions"}</dt><dd>${esc(dimensions)} · ${esc(format)}</dd><dt>${isPt ? "manifesto" : "manifest"}</dt><dd><a href="${sitePath("/PUBLICATION_MANIFEST.md")}">${isPt ? "ver manifesto de publicação" : "view publication manifest"}</a></dd></dl></div></details>`;
+}
+
+function v1PlaceVariants(place, locale) {
+  const isPt = locale === "pt-br";
+  const variants = place.variants || [place.image];
+  if (variants.length < 2) return "";
+  const name = localizedName(place, locale);
+  const items = variants.map((variant, index) => `<a class="place-variant${index === 0 ? " is-current" : ""}" data-place-variant-button data-variant-id="${esc(variant.id)}" data-variant-image="${imagePath(place, variant)}" data-variant-width="${variant.width || 720}" data-variant-height="${variant.height || 480}" href="${linkFor(locale, place.id)}?variant=${encodeURIComponent(variant.id)}#place-title" aria-label="${esc(`${name} — ${variant.labelPt || variant.labelEn || `Map ${index + 1}`}`)}"><span class="place-variant-thumb"><img src="${imagePath(place, variant)}" alt="" loading="lazy" decoding="async" width="${variant.width || 720}" height="${variant.height || 480}"></span><span class="place-variant-copy"><strong>${esc(isPt ? (variant.labelPt || `Mapa ${index + 1}`) : (variant.labelEn || `Map ${index + 1}`))}</strong><small>${esc(variant.kind === "primary" ? (isPt ? "imagem principal" : "primary image") : (isPt ? "variante histórica" : "historic variant"))}</small></span></a>`).join("");
+  return `<section class="place-variants" aria-labelledby="place-variants-title"><div class="reading-label"><span id="place-variants-title">${isPt ? "mapas deste lugar" : "maps for this place"}</span><span aria-hidden="true">${String(variants.length).padStart(2, "0")}</span></div><div class="place-variant-grid">${items}</div></section>`;
 }
 
 function renderPlaceV1(place, locale) {
@@ -930,11 +1041,12 @@ function renderPlaceV1(place, locale) {
   const next = sequence[(index + 1) % sequence.length];
   const exits = v1PlaceExits(place, locale);
   const socialUses = (isPt ? place.socialUsesPtBr : place.socialUsesEn).slice(0, 5);
-  const imageWidth = place.image.width || 720;
-  const imageHeight = place.image.height || 480;
+  const primaryVariant = (place.variants || [place.image])[0];
+  const imageWidth = primaryVariant.width || place.image.width || 720;
+  const imageHeight = primaryVariant.height || place.image.height || 480;
   const name = localizedName(place, locale);
   const otherName = isPt ? place.canonicalNameEn : place.canonicalNamePtBr;
-  const body = `<main class="place-page"><section class="place-arrival" aria-labelledby="place-title"><div class="place-route-bar"><a class="back-link" data-back-presentation href="${homeUrl(locale)}#${esc(place.id)}"><span aria-hidden="true">←</span> ${isPt ? "voltar à apresentação" : "back to presentation"}</a><span class="place-route-label">${isPt ? "você está aqui" : "you are here"}</span><nav class="place-sequence" aria-label="${isPt ? "Navegar entre lugares" : "Move between places"}"><a href="${linkFor(locale, previous.id)}" title="${esc(localizedName(previous, locale))}"><span aria-hidden="true">←</span><span class="sequence-name">${esc(localizedName(previous, locale))}</span></a><a href="${linkFor(locale, next.id)}" title="${esc(localizedName(next, locale))}"><span class="sequence-name">${esc(localizedName(next, locale))}</span><span aria-hidden="true">→</span></a></nav></div><figure class="arrival-figure"><img src="${imagePath(place)}" alt="${esc(name)}" width="${imageWidth}" height="${imageHeight}" decoding="async" fetchpriority="high"></figure><div class="arrival-title"><p class="eyebrow">${isPt ? "espaço público · brpt" : "public space · brpt"}</p><h1 id="place-title">${esc(name)}</h1>${otherName && otherName !== name ? `<p class="place-alias">${esc(otherName)}</p>` : ""}<p class="arrival-line">${esc(localizedCopy.arrival)}</p></div></section><section class="place-reading" id="about" aria-labelledby="about-title"><div class="reading-label"><span>${isPt ? "sobre este lugar" : "about this place"}</span><span aria-hidden="true">01</span></div><div class="reading-copy"><h2 id="about-title">${isPt ? "O que permanece quando a porta abre" : "What remains when the door opens"}</h2><p>${esc(localizedCopy.spatial)}</p><p>${esc(localizedCopy.facts[0] || "")}</p></div></section><section class="place-life" aria-labelledby="life-title"><div class="reading-label"><span id="life-title">${isPt ? "vida no lugar" : "life here"}</span><span aria-hidden="true">02</span></div><ul class="memory-notes">${socialUses.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></section><section class="place-exits" aria-labelledby="exits-title"><div class="reading-label"><span id="exits-title">${isPt ? "seguir por outra porta" : "continue through another door"}</span><span aria-hidden="true">03</span></div><p class="section-note">${isPt ? "Alguns caminhos são históricos; outros são aproximações editoriais para continuar andando." : "Some paths are historical; others are editorial invitations to keep moving."}</p><div class="exit-paths">${exits.length ? exits.map((exit) => v1ExitMarkup(exit, locale)).join("") : `<p class="empty-note">${isPt ? "Este lugar ainda não tem uma saída publicada." : "This place has no published exit yet."}</p>`}</div></section>${v1ArchiveDrawer(place, locale, manifest)}<nav class="place-bottom-nav" aria-label="${isPt ? "Navegação final" : "End navigation"}"><a href="${homeUrl(locale)}#${esc(place.id)}" data-back-presentation>${isPt ? "← voltar à apresentação" : "← back to presentation"}</a><a href="${linkFor(locale, next.id)}">${isPt ? "próximo lugar" : "next place"} <span aria-hidden="true">→</span></a></nav></main>`;
+  const body = `<main class="place-page"><section class="place-arrival" aria-labelledby="place-title"><div class="place-route-bar"><a class="back-link" data-back-presentation href="${homeUrl(locale)}#${esc(place.id)}"><span aria-hidden="true">←</span> ${isPt ? "voltar à apresentação" : "back to presentation"}</a><span class="place-route-label">${isPt ? "você está aqui" : "you are here"}</span><nav class="place-sequence" aria-label="${isPt ? "Navegar entre lugares" : "Move between places"}"><a href="${linkFor(locale, previous.id)}" title="${esc(localizedName(previous, locale))}"><span aria-hidden="true">←</span><span class="sequence-name">${esc(localizedName(previous, locale))}</span></a><a href="${linkFor(locale, next.id)}" title="${esc(localizedName(next, locale))}"><span class="sequence-name">${esc(localizedName(next, locale))}</span><span aria-hidden="true">→</span></a></nav></div><figure class="arrival-figure"><img data-place-main-image data-active-variant-id="${esc(primaryVariant.id)}" src="${imagePath(place, primaryVariant)}" alt="${esc(name)}" width="${imageWidth}" height="${imageHeight}" decoding="async" fetchpriority="high"></figure><div class="arrival-title"><p class="eyebrow">${isPt ? "espaço público · brpt" : "public space · brpt"}</p><h1 id="place-title">${esc(name)}</h1>${otherName && otherName !== name ? `<p class="place-alias">${esc(otherName)}</p>` : ""}<p class="arrival-line">${esc(localizedCopy.arrival)}</p></div></section>${v1PlaceVariants(place, locale)}<section class="place-reading" id="about" aria-labelledby="about-title"><div class="reading-label"><span>${isPt ? "sobre este lugar" : "about this place"}</span><span aria-hidden="true">01</span></div><div class="reading-copy"><h2 id="about-title">${isPt ? "O que permanece quando a porta abre" : "What remains when the door opens"}</h2><p>${esc(localizedCopy.spatial)}</p><p>${esc(localizedCopy.facts[0] || "")}</p></div></section><section class="place-life" aria-labelledby="life-title"><div class="reading-label"><span id="life-title">${isPt ? "vida no lugar" : "life here"}</span><span aria-hidden="true">02</span></div><ul class="memory-notes">${socialUses.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></section><section class="place-exits" aria-labelledby="exits-title"><div class="reading-label"><span id="exits-title">${isPt ? "seguir por outra porta" : "continue through another door"}</span><span aria-hidden="true">03</span></div><p class="section-note">${isPt ? "Alguns caminhos são históricos; outros são aproximações editoriais para continuar andando." : "Some paths are historical; others are editorial invitations to keep moving."}</p><div class="exit-paths">${exits.length ? exits.map((exit) => v1ExitMarkup(exit, locale)).join("") : `<p class="empty-note">${isPt ? "Este lugar ainda não tem uma saída publicada." : "This place has no published exit yet."}</p>`}</div></section>${v1ArchiveDrawer(place, locale, manifest)}<nav class="place-bottom-nav" aria-label="${isPt ? "Navegação final" : "End navigation"}"><a href="${homeUrl(locale)}#${esc(place.id)}" data-back-presentation>${isPt ? "← voltar à apresentação" : "← back to presentation"}</a><a href="${linkFor(locale, next.id)}">${isPt ? "próximo lugar" : "next place"} <span aria-hidden="true">→</span></a></nav></main>`;
   return v1Layout(locale, "place", pageUrl(locale, place.id), alternateLocalePath(locale, "place", place.id), `${esc(name)} — Habbo`, body, "place", place.id);
 }
 
@@ -1019,8 +1131,12 @@ function resetGenerated() {
   fs.rmSync(DIST, { recursive: true, force: true });
   ensure(DIST);
   ensure(DATA_DIR);
-  write(path.join(DIST, "assets", "site.css"), fs.readFileSync(path.join(PROJECT_ROOT, "styles", "tokens.css"), "utf8") + "\n" + fs.readFileSync(path.join(PROJECT_ROOT, "styles", "base.css"), "utf8"));
-  copyFile(path.join(PROJECT_ROOT, "src", "site.js"), path.join(DIST, "assets", "site.js"));
+  const css = fs.readFileSync(path.join(PROJECT_ROOT, "styles", "tokens.css"), "utf8") + "\n" + fs.readFileSync(path.join(PROJECT_ROOT, "styles", "base.css"), "utf8");
+  const js = fs.readFileSync(path.join(PROJECT_ROOT, "src", "site.js"), "utf8");
+  write(path.join(DIST, "assets", "site.css"), css);
+  write(path.join(DIST, "assets", `site-${ASSET_VERSION}.css`), css);
+  write(path.join(DIST, "assets", "site.js"), js);
+  write(path.join(DIST, "assets", `site-${ASSET_VERSION}.js`), js);
   write(path.join(DIST, "assets", "flag-br.svg"), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 22" role="img"><rect width="32" height="22" rx="3" fill="#2b9b55"/><path d="M16 2.5 29 11 16 19.5 3 11Z" fill="#f4d64a"/><circle cx="16" cy="11" r="4.35" fill="#265ca8"/><path d="M12.1 9.9c2.5-.7 5.6-.55 7.75.35" fill="none" stroke="#fff" stroke-width=".65" stroke-linecap="round"/></svg>`);
   write(path.join(DIST, "assets", "flag-us.svg"), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 22" role="img"><rect width="32" height="22" rx="3" fill="#fff"/><path d="M0 0h32v2H0zm0 4h32v2H0zm0 4h32v2H0zm0 4h32v2H0zm0 4h32v2H0zm0 4h32v2H0z" fill="#c94c58"/><path d="M0 0h13.7v11H0z" fill="#315a9b"/><g fill="#fff"><circle cx="2.3" cy="2" r=".45"/><circle cx="5" cy="2" r=".45"/><circle cx="7.7" cy="2" r=".45"/><circle cx="10.4" cy="2" r=".45"/><circle cx="3.6" cy="4.1" r=".45"/><circle cx="6.3" cy="4.1" r=".45"/><circle cx="9" cy="4.1" r=".45"/><circle cx="11.7" cy="4.1" r=".45"/><circle cx="2.3" cy="6.2" r=".45"/><circle cx="5" cy="6.2" r=".45"/><circle cx="7.7" cy="6.2" r=".45"/><circle cx="10.4" cy="6.2" r=".45"/><circle cx="3.6" cy="8.3" r=".45"/><circle cx="6.3" cy="8.3" r=".45"/><circle cx="9" cy="8.3" r=".45"/><circle cx="11.7" cy="8.3" r=".45"/></g></svg>`);
   fs.cpSync(SOURCE_ASSETS, path.join(DIST, "assets", "archive-reference", "assets"), { recursive: true });
@@ -1029,7 +1145,7 @@ function resetGenerated() {
 }
 
 function emitData() {
-  const items = [["places.json", places], ["edges.json", edges], ["districts.json", districts], ["provenance.json", provenance]];
+  const items = [["places.json", places], ["edges.json", edges], ["districts.json", districts], ["provenance.json", provenance], ["v3-content-ledger.json", v3Delta]];
   for (const [name, value] of items) {
     const serialized = JSON.stringify(value, null, 2) + "\n";
     write(path.join(DATA_DIR, name), serialized);
@@ -1039,22 +1155,22 @@ function emitData() {
 
 function emitDocs() {
   const architecture = [
-    "# Habbo Public Prototype V2 — Cinematic Dock Architecture",
+    "# Habbo Public Prototype V3 — Cinematic Dock Architecture",
     "",
-    "The entry surface is a Cinematic Dock: one horizontally sequenced presentation of 27 classic Habbo BR public spaces. The active image carries title, alias, and position; neighboring rooms gain scale through editorial distance.",
-    "Inspection is a lightbox, not an accidental route change. Documentation is a deliberate CTA into a Place Page, where the original archive drawer, evidence states, rights, and visual exits remain available.",
+    `The entry surface is a Cinematic Dock: one horizontally sequenced presentation of ${presentationPlaces.length} classic Habbo BR public-space groups. The active image carries title, alias, and position; neighboring rooms gain scale through editorial distance and pointer-sensitive magnification.`,
+    "Inspection is a lightbox, not an accidental route change. A place group can expose historic map variants without duplicating the dock entity; documentation is a deliberate CTA into a Place Page.",
     "Topology and method stay secondary. They are evidence and trust layers, not the homepage composition.",
     "",
     "The implementation uses a framework-neutral static generator with stable directory-index routes, local data, semantic HTML, plain CSS, and one progressive-enhancement script. The route contract remains ready for a later Next.js migration.",
     "",
     "presentationOrder is explicit editorial data, independent from the research graph and its non-geographic topology display. The homepage carries no source URL, evidence status, or technical metadata.",
     "",
-    "Autoplay runs every 5.8 seconds with mandatory pause control and pauses on hover, focus, drag, wheel, hidden-document state, lightbox, and prefers-reduced-motion. All manual controls remain available."
+    "Autoplay runs every 5.8 seconds with a mandatory pause control. Pointer focus shapes the dock continuously without freezing autoplay; focus, drag, wheel, hidden-document state, lightbox, and prefers-reduced-motion remain safe interaction states."
   ].join("\n");
   write(path.join(PROJECT_ROOT, "docs", "ARCHITECTURE.md"), architecture);
   write(path.join(PROJECT_ROOT, "HABBO_INTERNAL_ALPHA_V0_ARCHITECTURE_DECISION_2026-08-23.md"), architecture);
   write(path.join(PROJECT_ROOT, "docs", "CINEMATIC_DOCK_V2.md"), [
-    "# Cinematic Dock V2",
+    "# Cinematic Dock V3",
     "",
     "## Three levels",
     "",
@@ -1064,12 +1180,12 @@ function emitDocs() {
     "",
     "## Interaction contract",
     "",
-    "The dock supports autoplay, manual pause/resume, hover/focus pause, keyboard arrows, wheel, pointer drag, touch swipe, snap, Escape/focus return, localized lightbox navigation, and locale switching with the active room preserved in the hash.",
+    "The dock supports autoplay, manual pause/resume, pointer-sensitive magnification, keyboard arrows, wheel, pointer drag, touch swipe, snap, Escape/focus return, localized lightbox navigation, grouped map variants, and locale switching with the active room preserved in the hash.",
     "",
-    "Reduced motion disables autoplay and 3D/depth motion while keeping manual navigation and inspection available."
+    "Grouped variants remain one dock entity and appear as a quiet stacked marker. The lightbox exposes the variants as a vertical strip, supports outside-click close, and keeps an explicit Open page / Abrir página CTA. Reduced motion disables autoplay and 3D/depth motion while keeping manual navigation and inspection available."
   ].join("\n"));
   write(path.join(PROJECT_ROOT, "README.md"), [
-    "# Habbo Public Prototype V2",
+    "# Habbo Public Prototype V3",
     "",
     "Static-first public prototype for Blog Nostalgia's independent Habbo BR public-space archive.",
     "",
@@ -1089,7 +1205,7 @@ function emitDocs() {
     "",
     "## Rights",
     "",
-    "All 27 image assets remain public_reference_only. The build is noindex/nofollow/noarchive and carries the independent, non-affiliation disclaimer.",
+    `All ${fs.readdirSync(SOURCE_ASSETS).length} source and presentation assets remain public_reference_only. The build is noindex/nofollow/noarchive and carries the independent, non-affiliation disclaimer.`,
     "",
     "## Data",
     "",

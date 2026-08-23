@@ -89,7 +89,7 @@ try {
     record("home has no meta explanation surface", await page.locator(".dock-intro, .dock-topline, .dock-instruction, .home-secondary, .info-dialog, [data-open-info]").count() === 0);
     record("home keeps the zoom dock", await page.locator('[data-cinematic-dock][data-dock-effect="zoom"]').count() === 1);
     record("home keeps grouped dock entities", await page.locator('[data-dock-slide][data-room-variant-count="2"]').count() === 3);
-    record("home keeps one entity per group", await page.locator('[data-room-id="chromide_club"], [data-room-id="club_massiva"], [data-room-id="rooftop_cafe"]').count() === 3);
+    record("home keeps one entity per group", await page.locator('[data-dock-slide][data-room-id="chromide_club"], [data-dock-slide][data-room-id="club_massiva"], [data-dock-slide][data-room-id="rooftop_cafe"]').count() === 3);
   };
 
   await runPage(browser, {
