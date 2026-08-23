@@ -119,7 +119,7 @@
 
     function updatePlayControl() {
       if (!playButton) return;
-      const paused = state.manualPaused || state.holds.has("manualPause");
+      const paused = state.manualPaused || state.holds.has("manualPause") || state.reducedMotion;
       playButton.setAttribute("aria-pressed", String(state.manualPaused));
       playButton.dataset.paused = String(paused);
       if (playLabel) playLabel.textContent = state.manualPaused
@@ -138,7 +138,7 @@
 
     function release(reason, grace = 0) {
       state.holds.delete(reason);
-      if (state.holds.size === 0 && grace > 0 && !state.manualPaused && !state.lightboxOpen) {
+      if (state.holds.size === 0 && grace > 0 && !state.manualPaused && !state.reducedMotion && !state.lightboxOpen) {
         if (state.resumeTimer) window.clearTimeout(state.resumeTimer);
         state.resumeTimer = window.setTimeout(() => {
           state.resumeTimer = null;
@@ -153,10 +153,9 @@
     function scheduleAutoplay(delay = autoplayMs) {
       if (state.timer) window.clearTimeout(state.timer);
       state.timer = null;
-      // Hover and reduced-motion deliberately do NOT block autoplay. Hover is
-      // only a local Dock magnification effect; reduced motion uses instant
-      // positioning while the presentation keeps advancing.
-      if (state.manualPaused || state.lightboxOpen || state.holds.size > 0) {
+      // Hover deliberately does NOT block autoplay. Merely parking the pointer
+      // over this almost-fullscreen Dock must never freeze the presentation.
+      if (state.manualPaused || state.reducedMotion || state.lightboxOpen || state.holds.size > 0) {
         syncDebugState();
         return;
       }
@@ -459,10 +458,9 @@
       dock.dataset.reducedMotion = String(state.reducedMotion);
       updateVisualFocus();
       updatePlayControl();
+      if (state.reducedMotion) hold("reducedMotion");
+      else release("reducedMotion");
       setTrackPosition(false);
-      // Reduced motion changes the transition style, not whether the archive
-      // presents itself. Autoplay remains available and pausable by the user.
-      if (!state.manualPaused && state.holds.size === 0 && !state.lightboxOpen) scheduleAutoplay();
     };
     prefersReducedMotion.addEventListener?.("change", reducedMotionChange);
     window.addEventListener("resize", () => setTrackPosition(false));
@@ -473,6 +471,7 @@
     updatePlayControl();
     setTrackPosition(false);
     dock.classList.add("is-ready");
+    if (state.reducedMotion) hold("reducedMotion");
     if (state.manualPaused) hold("manualPause");
     else scheduleAutoplay(autoplayMs);
 
