@@ -19,6 +19,23 @@ function urlFor(route) {
   return `${baseUrl}/${route.replace(/^\//, "")}`;
 }
 
+async function waitForImages(page) {
+  await page.locator("img").evaluateAll((images) => {
+    images.forEach((image) => {
+      /* Lazy images below the fold are still part of the public artifact. */
+      image.loading = "eager";
+    });
+    return Promise.all(images.map((image) => {
+      if (image.complete) return Promise.resolve();
+      return new Promise((resolve) => {
+        image.addEventListener("load", resolve, { once: true });
+        image.addEventListener("error", resolve, { once: true });
+      });
+    }));
+  });
+  await page.waitForTimeout(150);
+}
+
 async function runPage(browser, test) {
   const context = await browser.newContext({ viewport: test.viewport });
   const page = await context.newPage();
@@ -32,7 +49,7 @@ async function runPage(browser, test) {
   page.on("requestfailed", (request) => failedRequests.push(`${request.url()} — ${request.failure()?.errorText || "failed"}`));
   try {
     await page.goto(urlFor(test.route), { waitUntil: "networkidle" });
-    await page.waitForTimeout(300);
+    await waitForImages(page);
     const bodyText = await page.locator("body").innerText();
     const layout = await page.evaluate(() => ({
       scrollWidth: document.documentElement.scrollWidth,

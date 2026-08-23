@@ -1,23 +1,3 @@
-:root {
-  --world: #101520;
-  --world-deep: #0b0f18;
-  --world-lift: #171d2a;
-  --ink: #f2ede2;
-  --ink-soft: #b5bec9;
-  --ink-faint: #798492;
-  --line: rgba(230, 236, 224, .17);
-  --line-strong: rgba(230, 236, 224, .35);
-  --water: #83d9d2;
-  --rose: #e7a3bd;
-  --gold: #dabe78;
-  --violet: #a9a0d8;
-  --shadow: rgba(0, 0, 0, .42);
-  --measure: 86rem;
-  --copy-measure: 44rem;
-  --ease: 180ms cubic-bezier(.2, .7, .2, 1);
-  --ease-long: 420ms cubic-bezier(.2, .7, .2, 1);
-}
-
 *,
 *::before,
 *::after {
@@ -1507,6 +1487,12 @@ button {
 
   .portal-intro h1 {
     font-size: clamp(2rem, 12vw, 3.2rem);
+  }
+
+  /* The shell keeps a 0.625rem gutter at this breakpoint; the world field
+     should meet the viewport edge without creating a phantom scrollbar. */
+  .spatial-world {
+    margin-inline: -.625rem;
   }
 
   .place-index-content ul,
