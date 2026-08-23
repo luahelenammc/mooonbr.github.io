@@ -252,7 +252,8 @@
       else lightbox?.removeAttribute("open");
       updateHash(roomAt(state.activeIndex).dataset.roomId, false);
       release("lightbox");
-      window.setTimeout(() => state.originFocus?.focus(), 0);
+      const returnFocus = rooms[state.activeIndex] || state.originFocus;
+      returnFocus?.focus();
       state.originFocus = null;
     }
 
@@ -332,15 +333,17 @@
       if (event.pointerType === "mouse" && event.button !== 0) return;
       state.drag = { pointerId: event.pointerId, startX: event.clientX, deltaX: 0, moved: false };
       hold("drag");
-      viewport.setPointerCapture?.(event.pointerId);
       track?.classList.add("is-dragging");
     });
     viewport?.addEventListener("pointermove", (event) => {
       if (!state.drag || state.drag.pointerId !== event.pointerId) return;
       state.drag.deltaX = event.clientX - state.drag.startX;
-      if (Math.abs(state.drag.deltaX) > 5) state.drag.moved = true;
+      if (Math.abs(state.drag.deltaX) > 5) {
+        if (!state.drag.moved) viewport.setPointerCapture?.(event.pointerId);
+        state.drag.moved = true;
+        event.preventDefault();
+      }
       track?.style.setProperty("--dock-drag-shift", `${state.drag.deltaX}px`);
-      if (state.drag.moved) event.preventDefault();
     });
     const finishDrag = (event) => {
       if (!state.drag || (event.pointerId !== undefined && state.drag.pointerId !== event.pointerId)) return;
