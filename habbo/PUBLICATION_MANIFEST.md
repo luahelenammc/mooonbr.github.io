@@ -84,4 +84,10 @@ The public runtime uses `data/places.json`, `data/edges.json`, `data/districts.j
 - V2 Chromium/Playwright gate: [run 32639537752](https://github.com/luahelenammc/mooonbr.github.io/actions/runs/32639537752), passed; [screenshot artifact](https://github.com/luahelenammc/mooonbr.github.io/actions/runs/32639537752/artifacts/9493237010).
 - V2 local Chromium matrix: 15/15 scenarios passed; static QA: 920 checks passed.
 - V2 post-merge live verification: `/habbo/`, `/habbo/pt-br/`, `/habbo/en/`, `/habbo/pt-br/lugar/lido/`, `/habbo/pt-br/topologia/` and `/habbo/pt-br/metodo/` returned HTTP 200; the live entry routes expose `cinematic-dock`, `room-lightbox`, `lightbox-lang-toggle`, and `data-autoplay-ms="5800"`.
+- V2 asset hotfix: [PR #10](https://github.com/luahelenammc/mooonbr.github.io/pull/10), merged on 2026-08-23 as `e802940ba3670e58b58433b4076744684d914f21`.
+- Hotfix diagnosis: the attached broken capture is the browser fallback when V2 HTML is served while `/habbo/assets/site.css` and `/habbo/assets/site.js` are unresolved or stale; markup and images arrive, but the default cascade stacks all rooms and leaves controls unstyled.
+- Hotfix implementation: every generated HTML route now references CSS/JS with `?v=20260823-v2-hotfix`; static QA verifies the files and V2 markers; Chromium QA verifies that the loaded stylesheet exposes CSS rules.
+- Hotfix Chromium gate: [run 32641630143](https://github.com/luahelenammc/mooonbr.github.io/actions/runs/32641630143), passed; [screenshot artifact](https://github.com/luahelenammc/mooonbr.github.io/actions/runs/32641630143/artifacts/9493764088).
+- Hotfix local verification: 15/15 Chromium scenarios and 153 browser checks passed; static QA: 924 checks passed.
+- Hotfix live verification: `mooon.com.br/habbo/pt-br/` redirects to `www.mooon.com.br`, and the final live HTML now references `site.css?v=20260823-v2-hotfix` and `site.js?v=20260823-v2-hotfix`; the versioned endpoints return CSS/JavaScript 200 responses with the expected V2 hashes.
 - Release gate: complete; future changes remain subject to the same static and Chromium visual checks.
