@@ -42,7 +42,7 @@ Official references consulted on 2026-08-23:
 
 ## Provenance
 
-The public runtime uses `data/places.json`, `data/edges.json`, `data/districts.json` and `data/provenance.json`. The historical corpus and image research remain governed by the Habbo source document and the original-reference archive; the public pages expose source URLs without reproducing the internal Drive package.
+The public runtime uses `data/places.json`, `data/edges.json`, `data/districts.json` and `data/provenance.json`. The historical corpus and image research remain governed by the Habbo source document and the original-reference archive; the public pages expose source URLs without reproducing the private research package.
 
 ## Release record
 
