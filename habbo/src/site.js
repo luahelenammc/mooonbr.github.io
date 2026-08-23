@@ -1,15 +1,17 @@
 (() => {
   const all = (selector, scope = document) => [...scope.querySelectorAll(selector)];
   const languageKey = "habbo-archive-language";
-  const dockPreferenceKey = "habbo-dock-autoplay";
+  const dockPreferenceKey = "habbo-dock-autoplay-v2";
   const body = document.body;
   const pageUrl = new URL(location.href);
   const rootEntry = body?.dataset.rootEntry === "true";
-  const storedLanguage = localStorage.getItem(languageKey);
+  const localStorageSafe = (() => { try { return window.localStorage; } catch { return null; } })();
+  const sessionStorageSafe = (() => { try { return window.sessionStorage; } catch { return null; } })();
+  const readStored = (storage, key) => { try { return storage?.getItem(key) || ""; } catch { return ""; } };
+  const writeStored = (storage, key, value) => { try { storage?.setItem(key, value); } catch {} };
+  const storedLanguage = readStored(localStorageSafe, languageKey);
   let presentationState = null;
 
-  // The root entry follows the last selected locale while preserving the
-  // selected room and a lightbox handoff when the visitor returns to /.
   if (rootEntry && storedLanguage === "en") {
     const targetPath = location.pathname.replace(/\/habbo\/?$/, "/habbo/en/");
     const target = `${targetPath}${location.search}${location.hash}`;
@@ -20,7 +22,7 @@
   }
 
   function setLanguage(lang) {
-    localStorage.setItem(languageKey, lang === "en" ? "en" : "pt-br");
+    writeStored(localStorageSafe, languageKey, lang === "en" ? "en" : "pt-br");
   }
 
   function preserveLanguageSelection(event, button) {
@@ -37,8 +39,6 @@
     button.addEventListener("click", (event) => preserveLanguageSelection(event, button));
   });
 
-  // Small information layer in the header. It keeps the homepage light while
-  // leaving topology, method, and rights one click away.
   const infoDialog = document.querySelector("[data-info-dialog]");
   const openInfo = () => {
     if (!infoDialog) return;
@@ -53,9 +53,7 @@
   };
   all("[data-open-info]").forEach((button) => button.addEventListener("click", openInfo));
   all("[data-close-info]").forEach((button) => button.addEventListener("click", closeInfo));
-  infoDialog?.addEventListener("click", (event) => {
-    if (event.target === infoDialog) closeInfo();
-  });
+  infoDialog?.addEventListener("click", (event) => { if (event.target === infoDialog) closeInfo(); });
 
   const dock = document.querySelector("[data-cinematic-dock]");
   if (dock) {
@@ -65,7 +63,7 @@
     const rooms = all("[data-room-open]", dock);
     const activeName = dock.querySelector("[data-active-name]");
     const activeAlias = dock.querySelector("[data-active-alias]");
-    const activeIndex = dock.querySelector("[data-active-index]");
+    const activeIndexLabel = dock.querySelector("[data-active-index]");
     const status = dock.querySelector("[data-dock-status]");
     const playButton = dock.querySelector("[data-dock-play]");
     const playLabel = dock.querySelector("[data-dock-play-label]");
@@ -80,16 +78,18 @@
     const autoplayMs = qaMode ? 900 : Number(dock.dataset.autoplayMs || 5800);
     const initialId = decodeURIComponent(location.hash.replace(/^#/, ""));
     const initialMatch = slides.findIndex((slide) => slide.dataset.roomId === initialId);
+
     const state = {
       activeIndex: initialMatch >= 0 ? initialMatch : 0,
-      visualIndex: null,
+      hoverIndex: null,
       holds: new Set(),
       timer: null,
       resumeTimer: null,
       manualResumeTimer: null,
+      transitionTimer: null,
       wheelTimer: null,
       wheelLocked: false,
-      manualPaused: localStorage.getItem(dockPreferenceKey) === "paused",
+      manualPaused: readStored(sessionStorageSafe || localStorageSafe, dockPreferenceKey) === "paused",
       lightboxOpen: false,
       originFocus: null,
       drag: null,
@@ -98,25 +98,36 @@
     };
     presentationState = state;
     dock.dataset.reducedMotion = String(state.reducedMotion);
+    dock.dataset.effect = dock.dataset.dockEffect || "zoom";
 
     const normalizeIndex = (value) => (value + slides.length) % slides.length;
     const roomAt = (index) => slides[normalizeIndex(index)];
+
+    function syncDebugState() {
+      dock.dataset.autoplayBlocked = String(state.manualPaused || state.lightboxOpen || state.holds.size > 0);
+      dock.dataset.autoplayHolds = [...state.holds].join(",");
+      dock.dataset.hoverIndex = state.hoverIndex === null ? "" : String(state.hoverIndex);
+    }
 
     function clearAutoplayTimer() {
       if (state.timer) window.clearTimeout(state.timer);
       state.timer = null;
       if (state.resumeTimer) window.clearTimeout(state.resumeTimer);
       state.resumeTimer = null;
+      syncDebugState();
     }
 
     function updatePlayControl() {
       if (!playButton) return;
-      const paused = state.manualPaused || state.holds.has("manualPause") || state.reducedMotion;
+      const paused = state.manualPaused || state.holds.has("manualPause");
       playButton.setAttribute("aria-pressed", String(state.manualPaused));
       playButton.dataset.paused = String(paused);
-      if (playLabel) playLabel.textContent = state.manualPaused ? (body.dataset.locale === "pt-br" ? "retomar" : "resume") : (body.dataset.locale === "pt-br" ? "pausar" : "pause");
+      if (playLabel) playLabel.textContent = state.manualPaused
+        ? (body.dataset.locale === "pt-br" ? "retomar" : "resume")
+        : (body.dataset.locale === "pt-br" ? "pausar" : "pause");
       const icon = playButton.querySelector(".dock-play-icon");
       if (icon) icon.textContent = state.manualPaused ? "▶" : "Ⅱ";
+      syncDebugState();
     }
 
     function hold(reason) {
@@ -127,7 +138,7 @@
 
     function release(reason, grace = 0) {
       state.holds.delete(reason);
-      if (state.holds.size === 0 && grace > 0 && !state.manualPaused && !state.reducedMotion && !state.lightboxOpen) {
+      if (state.holds.size === 0 && grace > 0 && !state.manualPaused && !state.lightboxOpen) {
         if (state.resumeTimer) window.clearTimeout(state.resumeTimer);
         state.resumeTimer = window.setTimeout(() => {
           state.resumeTimer = null;
@@ -142,12 +153,19 @@
     function scheduleAutoplay(delay = autoplayMs) {
       if (state.timer) window.clearTimeout(state.timer);
       state.timer = null;
-      if (state.manualPaused || state.reducedMotion || state.lightboxOpen || state.holds.size > 0) return;
+      // Hover and reduced-motion deliberately do NOT block autoplay. Hover is
+      // only a local Dock magnification effect; reduced motion uses instant
+      // positioning while the presentation keeps advancing.
+      if (state.manualPaused || state.lightboxOpen || state.holds.size > 0) {
+        syncDebugState();
+        return;
+      }
       state.timer = window.setTimeout(() => {
         state.timer = null;
         goTo(state.activeIndex + 1, { source: "autoplay" });
         scheduleAutoplay();
       }, delay);
+      syncDebugState();
     }
 
     function setTrackPosition(animate = true) {
@@ -160,19 +178,36 @@
     }
 
     function updateVisualFocus() {
-      const focusIndex = state.visualIndex === null ? state.activeIndex : state.visualIndex;
+      const narrow = window.matchMedia("(max-width: 720px)").matches;
       slides.forEach((slide, index) => {
-        const distance = Math.abs(index - focusIndex);
-        const scale = index === focusIndex ? 1 : Math.max(.54, 1 - distance * .13);
+        const activeDistance = Math.abs(index - state.activeIndex);
+        const baseScale = index === state.activeIndex
+          ? (narrow ? 1.08 : 1.26)
+          : Math.max(narrow ? .7 : .5, (narrow ? 1 : 1.02) - activeDistance * (narrow ? .11 : .17));
+
+        let scale = baseScale;
+        if (state.hoverIndex !== null && !narrow) {
+          const hoverDistance = Math.abs(index - state.hoverIndex);
+          const hoverBoost = hoverDistance === 0 ? .18 : hoverDistance === 1 ? .08 : hoverDistance === 2 ? .025 : 0;
+          scale += hoverBoost;
+        }
+
+        const opacity = Math.max(narrow ? .34 : .24, 1 - activeDistance * (narrow ? .12 : .18));
+        const blur = state.reducedMotion || narrow ? 0 : Math.min(2.8, activeDistance * .42);
+        const rotate = state.reducedMotion || narrow ? 0 : Math.max(-8, Math.min(8, (index - state.activeIndex) * 2.8));
+        const z = narrow ? (index === state.activeIndex ? 40 : 0) : Math.max(0, 170 - activeDistance * 48);
+
         slide.style.setProperty("--dock-scale", scale.toFixed(3));
-        slide.style.setProperty("--dock-opacity", Math.max(.28, 1 - distance * .16).toFixed(3));
-        slide.style.setProperty("--dock-blur", `${Math.min(2.2, distance * .35).toFixed(2)}px`);
-        slide.style.setProperty("--dock-rotate", `${Math.max(-7, Math.min(7, (index - focusIndex) * 2.2)).toFixed(2)}deg`);
+        slide.style.setProperty("--dock-opacity", opacity.toFixed(3));
+        slide.style.setProperty("--dock-blur", `${blur.toFixed(2)}px`);
+        slide.style.setProperty("--dock-rotate", `${rotate.toFixed(2)}deg`);
+        slide.style.setProperty("--dock-z", `${z}px`);
         slide.classList.toggle("is-active", index === state.activeIndex);
-        slide.classList.toggle("is-visual-focus", index === focusIndex);
-        const button = slide.querySelector("[data-room-open]");
-        button?.setAttribute("aria-current", index === state.activeIndex ? "true" : "false");
+        slide.classList.toggle("is-visual-focus", index === (state.hoverIndex ?? state.activeIndex));
+        slide.classList.toggle("is-hover-focus", index === state.hoverIndex);
+        slide.querySelector("[data-room-open]")?.setAttribute("aria-current", index === state.activeIndex ? "true" : "false");
       });
+      syncDebugState();
     }
 
     function updateCaption(announce = true) {
@@ -181,8 +216,10 @@
       const alias = slide?.dataset.roomAlias || "";
       if (activeName) activeName.textContent = name;
       if (activeAlias) activeAlias.textContent = alias;
-      if (activeIndex) activeIndex.textContent = `${String(state.activeIndex + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
-      if (status && announce) status.textContent = body.dataset.locale === "pt-br" ? `Lugar ${state.activeIndex + 1} de ${slides.length}: ${name}` : `Place ${state.activeIndex + 1} of ${slides.length}: ${name}`;
+      if (activeIndexLabel) activeIndexLabel.textContent = `${String(state.activeIndex + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
+      if (status && announce) status.textContent = body.dataset.locale === "pt-br"
+        ? `Lugar ${state.activeIndex + 1} de ${slides.length}: ${name}`
+        : `Place ${state.activeIndex + 1} of ${slides.length}: ${name}`;
       dock.dataset.activeId = slide?.dataset.roomId || "";
       dock.dataset.activeIndex = String(state.activeIndex);
     }
@@ -190,23 +227,28 @@
     function goTo(value, { source = "manual", announce = true } = {}) {
       if (!slides.length) return;
       state.activeIndex = normalizeIndex(value);
-      state.visualIndex = null;
       updateVisualFocus();
       updateCaption(announce);
       setTrackPosition(true);
+      dock.classList.remove("is-transitioning");
+      void dock.offsetWidth;
+      dock.classList.add("is-transitioning");
+      if (state.transitionTimer) window.clearTimeout(state.transitionTimer);
+      state.transitionTimer = window.setTimeout(() => {
+        state.transitionTimer = null;
+        dock.classList.remove("is-transitioning");
+      }, state.reducedMotion ? 0 : 820);
       if (source !== "autoplay") {
         hold("manual");
         if (state.manualResumeTimer) window.clearTimeout(state.manualResumeTimer);
         state.manualResumeTimer = window.setTimeout(() => {
           state.manualResumeTimer = null;
-          release("manual", 850);
-        }, 850);
+          release("manual", 1800);
+        }, 700);
       }
     }
 
-    function manualAdvance(value) {
-      goTo(value, { source: "manual" });
-    }
+    function manualAdvance(value) { goTo(value, { source: "manual" }); }
 
     function updateHash(id, lightboxMode = false) {
       const next = new URL(location.href);
@@ -251,7 +293,7 @@
       if (typeof lightbox?.close === "function" && lightbox.open) lightbox.close();
       else lightbox?.removeAttribute("open");
       updateHash(roomAt(state.activeIndex).dataset.roomId, false);
-      release("lightbox");
+      release("lightbox", 700);
       const returnFocus = rooms[state.activeIndex] || state.originFocus;
       returnFocus?.focus();
       state.originFocus = null;
@@ -262,29 +304,41 @@
         if (Date.now() < state.suppressClickUntil) return;
         openLightbox(index, room);
       });
-      room.addEventListener("pointerenter", () => {
-        state.visualIndex = index;
+      room.addEventListener("pointerenter", (event) => {
+        if (event.pointerType === "touch" || event.pointerType === "pen") return;
+        state.hoverIndex = index;
         updateVisualFocus();
+        // IMPORTANT: visual Dock magnification is independent from autoplay.
+        // Merely parking the pointer over a room must never freeze the show.
+      });
+      room.addEventListener("pointerleave", (event) => {
+        if (event.pointerType === "touch" || event.pointerType === "pen") return;
+        if (state.hoverIndex === index) {
+          state.hoverIndex = null;
+          updateVisualFocus();
+        }
       });
       room.addEventListener("focus", () => {
-        state.visualIndex = index;
+        state.hoverIndex = index;
         updateVisualFocus();
         hold("focus");
       });
       room.addEventListener("blur", () => {
         if (!dock.contains(document.activeElement)) {
-          state.visualIndex = null;
+          state.hoverIndex = null;
           updateVisualFocus();
           release("focus", 700);
         }
       });
     });
 
-    dock.addEventListener("pointerenter", () => hold("hover"));
-    dock.addEventListener("pointerleave", () => {
-      state.visualIndex = null;
+    // Do not pause on pointerenter for the dock itself. The V2 surface fills
+    // most of the viewport, so a dock-wide hover hold made autoplay look dead
+    // in normal desktop use. Hover now affects magnification only.
+    dock.addEventListener("pointerleave", (event) => {
+      if (event.pointerType === "touch" || event.pointerType === "pen") return;
+      state.hoverIndex = null;
       updateVisualFocus();
-      release("hover", 700);
     });
 
     viewport?.addEventListener("keydown", (event) => {
@@ -310,7 +364,7 @@
     dock.querySelector("[data-dock-next]")?.addEventListener("click", () => manualAdvance(state.activeIndex + 1));
     playButton?.addEventListener("click", () => {
       state.manualPaused = !state.manualPaused;
-      localStorage.setItem(dockPreferenceKey, state.manualPaused ? "paused" : "running");
+      writeStored(sessionStorageSafe || localStorageSafe, dockPreferenceKey, state.manualPaused ? "paused" : "running");
       if (state.manualPaused) hold("manualPause");
       else release("manualPause");
       updatePlayControl();
@@ -325,7 +379,7 @@
       manualAdvance(state.activeIndex + (event.deltaY + event.deltaX > 0 ? 1 : -1));
       state.wheelTimer = window.setTimeout(() => {
         state.wheelLocked = false;
-        release("wheel", 500);
+        release("wheel", 900);
       }, 500);
     }, { passive: false });
 
@@ -356,7 +410,7 @@
         if (Math.abs(drag.deltaX) > 42) manualAdvance(state.activeIndex + (drag.deltaX < 0 ? 1 : -1));
         else setTrackPosition(false);
       }
-      release("drag", 550);
+      release("drag", 900);
     };
     viewport?.addEventListener("pointerup", finishDrag);
     viewport?.addEventListener("pointercancel", finishDrag);
@@ -376,9 +430,7 @@
       event.preventDefault();
       closeLightbox();
     });
-    lightbox?.addEventListener("click", (event) => {
-      if (event.target === lightbox) closeLightbox();
-    });
+    lightbox?.addEventListener("click", (event) => { if (event.target === lightbox) closeLightbox(); });
 
     let lightboxPointer = null;
     lightbox?.addEventListener("pointerdown", (event) => {
@@ -401,13 +453,16 @@
       if (document.hidden) hold("visibility");
       else release("visibility", 400);
     });
+
     const reducedMotionChange = () => {
       state.reducedMotion = prefersReducedMotion.matches;
       dock.dataset.reducedMotion = String(state.reducedMotion);
+      updateVisualFocus();
       updatePlayControl();
-      if (state.reducedMotion) hold("reducedMotion");
-      else release("reducedMotion");
       setTrackPosition(false);
+      // Reduced motion changes the transition style, not whether the archive
+      // presents itself. Autoplay remains available and pausable by the user.
+      if (!state.manualPaused && state.holds.size === 0 && !state.lightboxOpen) scheduleAutoplay();
     };
     prefersReducedMotion.addEventListener?.("change", reducedMotionChange);
     window.addEventListener("resize", () => setTrackPosition(false));
@@ -417,7 +472,7 @@
     updateCaption(false);
     updatePlayControl();
     setTrackPosition(false);
-    if (state.reducedMotion) hold("reducedMotion");
+    dock.classList.add("is-ready");
     if (state.manualPaused) hold("manualPause");
     else scheduleAutoplay(autoplayMs);
 
@@ -426,8 +481,6 @@
     }
   }
 
-  // Filter the evidence graph by line type. The text fallback shares the same
-  // data attribute, keeping the graph and semantic list synchronized.
   all("[data-topology-filter]").forEach((button) => {
     button.addEventListener("click", () => {
       const filter = button.dataset.topologyFilter;
@@ -436,7 +489,9 @@
         item.classList.toggle("is-active", active);
         item.setAttribute("aria-pressed", String(active));
       });
-      all("[data-edge-status]").forEach((edge) => edge.classList.toggle("is-hidden", filter !== "all" && edge.dataset.edgeStatus !== filter));
+      all("[data-edge-status]").forEach((edge) => {
+        edge.classList.toggle("is-hidden", filter !== "all" && edge.dataset.edgeStatus !== filter);
+      });
     });
   });
 
