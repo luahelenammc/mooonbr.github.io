@@ -479,7 +479,7 @@ function sitePath(pathname) {
 
 function versionedAssetPath(pathname) {
   const parsed = path.posix.parse(String(pathname));
-  return sitePath(`${parsed.dir}/${parsed.name}-${ASSET_VERSION}${parsed.ext}`);
+  return `${sitePath(`${parsed.dir}/${parsed.name}-${ASSET_VERSION}${parsed.ext}`)}?v=${ASSET_VERSION}`;
 }
 
 function pageUrl(locale, id) {
