@@ -1,6 +1,6 @@
-# Habbo Public Prototype V1 — Publication Manifest
+# Habbo Public Prototype V2 — Publication Manifest
 
-**Status:** public V1 spatial portal · independent archive · noindex
+**Status:** public V2 Cinematic Dock portal · independent archive · noindex
 
 **Review date:** 2026-08-23  
 **Corpus version:** 27 canonical Habbo BR public spaces from the established archive scope  
@@ -9,8 +9,9 @@
 ## What is published
 
 - 27 canonical places with local reference images, PT-BR/EN pages, provenance and evidence states.
-- 27 normalized places, 27 typed edges, and a V1 spatial field whose coordinates are explicitly editorial display coordinates, not historical geography.
-- A separate evidence graph, progressive archive layers, visual room exits, and the B+C+A navigation model.
+- 27 normalized places, 27 typed edges, and an explicit `presentationOrder` independent from the research graph.
+- A Cinematic Dock with centered magnification, editorial sequence, 5.8-second autoplay, mandatory pause control, keyboard/wheel/drag/touch input, and reduced-motion behavior.
+- A lightbox-first inspection layer; documentary Place Pages, archive drawers, visual exits, and the separate evidence graph remain one deliberate step deeper.
 - Images retain their source metadata as `public_reference_only`; archival possession is not represented as ownership or permanent clearance.
 
 ## Why this gate passed
@@ -41,9 +42,9 @@ Official references consulted on 2026-08-23:
 - A rights complaint, policy change, or source-specific uncertainty overrides this provisional publication decision; the affected asset must be removed or replaced with a rights-pending placeholder.
 - This remains a calibration prototype, not a final site or an official Habbo property.
 
-## V1 presentation correction
+## Presentation lineage: V1 → V2
 
-The prior public V0 was retained as a negative calibration fossil: its districts, card grids, visible schema and place-page sidebar made the archive read like a wiki. V1 demotes that chrome and makes the portal a threshold into places:
+The prior public V0 was retained as a negative calibration fossil: its districts, card grids, visible schema and place-page sidebar made the archive read like a wiki. V1 demoted that chrome and made the portal a threshold into places:
 
 - the home is a floating spatial field with 27 reachable room images;
 - editorial display coordinates are named and separated from historical topology;
@@ -53,6 +54,14 @@ The prior public V0 was retained as a negative calibration fossil: its districts
 - topology is a typed SVG graph, not an edge-card list;
 - the language switcher follows the compact two-flag behavior of `luahelenammc/LUAHELENA/ia/` and preserves the logical route;
 - Chromium/Playwright screenshots and interaction checks are required for presentation changes.
+
+V2 addresses the remaining “improved Wikipedia” reading by removing the map from the doorway entirely. The homepage is now a three-level experience:
+
+- discovery/emotion: one horizontal dock gallery, with central dominance and neighboring depth rather than 27 visible cards;
+- inspection: a focused lightbox with the uncropped original image, localized title/alias, previous/next/close, and a detail CTA;
+- documentation: the existing Place Page and research layers, reachable from the lightbox and returnable via `#slug`.
+
+Autoplay is 5.8 seconds in production, with visible pause/resume, pause-on-hover/focus/drag/wheel/visibility/lightbox, selected-room language preservation, mobile swipe/snap, and reduced-motion fallback.
 
 ## Provenance
 

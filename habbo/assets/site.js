@@ -1,66 +1,426 @@
 (() => {
   const all = (selector, scope = document) => [...scope.querySelectorAll(selector)];
   const languageKey = "habbo-archive-language";
-
-  // The root entry may follow the last chosen language without changing the
-  // stable locale routes. Every other language button is a real link, so the
-  // archive remains usable with JavaScript disabled.
-  const rootEntry = document.body?.dataset.rootEntry === "true";
+  const dockPreferenceKey = "habbo-dock-autoplay";
+  const body = document.body;
+  const pageUrl = new URL(location.href);
+  const rootEntry = body?.dataset.rootEntry === "true";
   const storedLanguage = localStorage.getItem(languageKey);
+  let presentationState = null;
+
+  // The root entry follows the last selected locale while preserving the
+  // selected room and a lightbox handoff when the visitor returns to /.
   if (rootEntry && storedLanguage === "en") {
-    const target = `${location.pathname.replace(/\/habbo\/?$/, "/habbo/en/")}${location.search}${location.hash}`;
-    if (target !== location.href) {
+    const targetPath = location.pathname.replace(/\/habbo\/?$/, "/habbo/en/");
+    const target = `${targetPath}${location.search}${location.hash}`;
+    if (target !== `${location.pathname}${location.search}${location.hash}`) {
       location.replace(target);
       return;
     }
   }
 
-  all("[data-lang]").forEach((button) => {
-    button.addEventListener("click", () => {
-      localStorage.setItem(languageKey, button.dataset.lang === "en" ? "en" : "pt-br");
-    });
-  });
-
-  // A quiet map selection state makes the world legible without adding a
-  // permanent card or status label to every room.
-  const spatialWorld = document.querySelector("[data-spatial-map]");
-  if (spatialWorld) {
-    const selectedId = new URLSearchParams(location.search).get("selected");
-    const nodes = all("[data-room-node]", spatialWorld);
-    const selected = selectedId ? nodes.find((node) => node.href.includes(`/lugar/${selectedId}/`) || node.href.includes(`/place/${selectedId}/`)) : null;
-    if (selected) {
-      selected.classList.add("is-selected");
-      spatialWorld.classList.add("has-selection");
-      selected.setAttribute("aria-current", "location");
-    }
+  function setLanguage(lang) {
+    localStorage.setItem(languageKey, lang === "en" ? "en" : "pt-br");
   }
 
-  // Search is deliberately a utility layer, not the homepage composition.
-  const dialog = document.querySelector("[data-search-dialog]");
-  const openSearch = () => {
-    if (!dialog) return;
-    if (typeof dialog.showModal === "function") dialog.showModal();
-    else dialog.setAttribute("open", "");
-    dialog.querySelector("input")?.focus();
-  };
-  const closeSearch = () => {
-    if (!dialog) return;
-    if (typeof dialog.close === "function") dialog.close();
-    else dialog.removeAttribute("open");
-  };
-  all("[data-open-search]").forEach((button) => button.addEventListener("click", openSearch));
-  dialog?.addEventListener("click", (event) => {
-    if (event.target === dialog) closeSearch();
+  function preserveLanguageSelection(event, button) {
+    setLanguage(button.dataset.lang);
+    if (body?.dataset.page !== "home" || !button.dataset.homeLocale || !presentationState) return;
+    const target = new URL(button.href, location.href);
+    if (location.hash) target.hash = location.hash;
+    if (presentationState.lightboxOpen) target.searchParams.set("lightbox", "1");
+    event.preventDefault();
+    location.assign(`${target.pathname}${target.search}${target.hash}`);
+  }
+
+  all("[data-lang]").forEach((button) => {
+    button.addEventListener("click", (event) => preserveLanguageSelection(event, button));
   });
-  const searchInput = document.querySelector("[data-place-search]");
-  if (searchInput) {
-    const searchItems = all("[data-search-results] li");
-    searchInput.addEventListener("input", () => {
-      const query = searchInput.value.trim().toLocaleLowerCase();
-      searchItems.forEach((item) => {
-        item.classList.toggle("is-hidden", query.length > 0 && !item.textContent.toLocaleLowerCase().includes(query));
+
+  // Small information layer in the header. It keeps the homepage light while
+  // leaving topology, method, and rights one click away.
+  const infoDialog = document.querySelector("[data-info-dialog]");
+  const openInfo = () => {
+    if (!infoDialog) return;
+    if (typeof infoDialog.showModal === "function") infoDialog.showModal();
+    else infoDialog.setAttribute("open", "");
+    infoDialog.querySelector("[data-close-info]")?.focus();
+  };
+  const closeInfo = () => {
+    if (!infoDialog) return;
+    if (typeof infoDialog.close === "function") infoDialog.close();
+    else infoDialog.removeAttribute("open");
+  };
+  all("[data-open-info]").forEach((button) => button.addEventListener("click", openInfo));
+  all("[data-close-info]").forEach((button) => button.addEventListener("click", closeInfo));
+  infoDialog?.addEventListener("click", (event) => {
+    if (event.target === infoDialog) closeInfo();
+  });
+
+  const dock = document.querySelector("[data-cinematic-dock]");
+  if (dock) {
+    const viewport = dock.querySelector("[data-dock-viewport]");
+    const track = dock.querySelector("[data-dock-track]");
+    const slides = all("[data-dock-slide]", dock);
+    const rooms = all("[data-room-open]", dock);
+    const activeName = dock.querySelector("[data-active-name]");
+    const activeAlias = dock.querySelector("[data-active-alias]");
+    const activeIndex = dock.querySelector("[data-active-index]");
+    const status = dock.querySelector("[data-dock-status]");
+    const playButton = dock.querySelector("[data-dock-play]");
+    const playLabel = dock.querySelector("[data-dock-play-label]");
+    const lightbox = document.querySelector("[data-lightbox]");
+    const lightboxImage = lightbox?.querySelector("[data-lightbox-image]");
+    const lightboxTitle = lightbox?.querySelector("[data-lightbox-title]");
+    const lightboxAlias = lightbox?.querySelector("[data-lightbox-alias]");
+    const lightboxIndex = lightbox?.querySelector("[data-lightbox-index]");
+    const lightboxDetail = lightbox?.querySelector("[data-lightbox-detail]");
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const qaMode = new URLSearchParams(location.search).get("qa") === "1";
+    const autoplayMs = qaMode ? 900 : Number(dock.dataset.autoplayMs || 5800);
+    const initialId = decodeURIComponent(location.hash.replace(/^#/, ""));
+    const initialMatch = slides.findIndex((slide) => slide.dataset.roomId === initialId);
+    const state = {
+      activeIndex: initialMatch >= 0 ? initialMatch : 0,
+      visualIndex: null,
+      holds: new Set(),
+      timer: null,
+      resumeTimer: null,
+      manualResumeTimer: null,
+      wheelTimer: null,
+      wheelLocked: false,
+      manualPaused: localStorage.getItem(dockPreferenceKey) === "paused",
+      lightboxOpen: false,
+      originFocus: null,
+      drag: null,
+      suppressClickUntil: 0,
+      reducedMotion: prefersReducedMotion.matches
+    };
+    presentationState = state;
+    dock.dataset.reducedMotion = String(state.reducedMotion);
+
+    const normalizeIndex = (value) => (value + slides.length) % slides.length;
+    const roomAt = (index) => slides[normalizeIndex(index)];
+
+    function clearAutoplayTimer() {
+      if (state.timer) window.clearTimeout(state.timer);
+      state.timer = null;
+      if (state.resumeTimer) window.clearTimeout(state.resumeTimer);
+      state.resumeTimer = null;
+    }
+
+    function updatePlayControl() {
+      if (!playButton) return;
+      const paused = state.manualPaused || state.holds.has("manualPause") || state.reducedMotion;
+      playButton.setAttribute("aria-pressed", String(state.manualPaused));
+      playButton.dataset.paused = String(paused);
+      if (playLabel) playLabel.textContent = state.manualPaused ? (body.dataset.locale === "pt-br" ? "retomar" : "resume") : (body.dataset.locale === "pt-br" ? "pausar" : "pause");
+      const icon = playButton.querySelector(".dock-play-icon");
+      if (icon) icon.textContent = state.manualPaused ? "▶" : "Ⅱ";
+    }
+
+    function hold(reason) {
+      state.holds.add(reason);
+      clearAutoplayTimer();
+      updatePlayControl();
+    }
+
+    function release(reason, grace = 0) {
+      state.holds.delete(reason);
+      if (state.holds.size === 0 && grace > 0 && !state.manualPaused && !state.reducedMotion && !state.lightboxOpen) {
+        if (state.resumeTimer) window.clearTimeout(state.resumeTimer);
+        state.resumeTimer = window.setTimeout(() => {
+          state.resumeTimer = null;
+          scheduleAutoplay();
+        }, grace);
+      } else if (state.holds.size === 0) {
+        scheduleAutoplay();
+      }
+      updatePlayControl();
+    }
+
+    function scheduleAutoplay(delay = autoplayMs) {
+      if (state.timer) window.clearTimeout(state.timer);
+      state.timer = null;
+      if (state.manualPaused || state.reducedMotion || state.lightboxOpen || state.holds.size > 0) return;
+      state.timer = window.setTimeout(() => {
+        state.timer = null;
+        goTo(state.activeIndex + 1, { source: "autoplay" });
+        scheduleAutoplay();
+      }, delay);
+    }
+
+    function setTrackPosition(animate = true) {
+      if (!viewport || !track || !slides.length) return;
+      const slide = slides[state.activeIndex];
+      const shift = viewport.clientWidth / 2 - (slide.offsetLeft + slide.offsetWidth / 2);
+      track.style.setProperty("--dock-shift", `${shift}px`);
+      if (!state.drag) track.style.setProperty("--dock-drag-shift", "0px");
+      track.classList.toggle("is-instant", !animate || state.reducedMotion);
+    }
+
+    function updateVisualFocus() {
+      const focusIndex = state.visualIndex === null ? state.activeIndex : state.visualIndex;
+      slides.forEach((slide, index) => {
+        const distance = Math.abs(index - focusIndex);
+        const scale = index === focusIndex ? 1 : Math.max(.54, 1 - distance * .13);
+        slide.style.setProperty("--dock-scale", scale.toFixed(3));
+        slide.style.setProperty("--dock-opacity", Math.max(.28, 1 - distance * .16).toFixed(3));
+        slide.style.setProperty("--dock-blur", `${Math.min(2.2, distance * .35).toFixed(2)}px`);
+        slide.style.setProperty("--dock-rotate", `${Math.max(-7, Math.min(7, (index - focusIndex) * 2.2)).toFixed(2)}deg`);
+        slide.classList.toggle("is-active", index === state.activeIndex);
+        slide.classList.toggle("is-visual-focus", index === focusIndex);
+        const button = slide.querySelector("[data-room-open]");
+        button?.setAttribute("aria-current", index === state.activeIndex ? "true" : "false");
+      });
+    }
+
+    function updateCaption(announce = true) {
+      const slide = roomAt(state.activeIndex);
+      const name = slide?.dataset.roomName || "";
+      const alias = slide?.dataset.roomAlias || "";
+      if (activeName) activeName.textContent = name;
+      if (activeAlias) activeAlias.textContent = alias;
+      if (activeIndex) activeIndex.textContent = `${String(state.activeIndex + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
+      if (status && announce) status.textContent = body.dataset.locale === "pt-br" ? `Lugar ${state.activeIndex + 1} de ${slides.length}: ${name}` : `Place ${state.activeIndex + 1} of ${slides.length}: ${name}`;
+      dock.dataset.activeId = slide?.dataset.roomId || "";
+      dock.dataset.activeIndex = String(state.activeIndex);
+    }
+
+    function goTo(value, { source = "manual", announce = true } = {}) {
+      if (!slides.length) return;
+      state.activeIndex = normalizeIndex(value);
+      state.visualIndex = null;
+      updateVisualFocus();
+      updateCaption(announce);
+      setTrackPosition(true);
+      if (source !== "autoplay") {
+        hold("manual");
+        if (state.manualResumeTimer) window.clearTimeout(state.manualResumeTimer);
+        state.manualResumeTimer = window.setTimeout(() => {
+          state.manualResumeTimer = null;
+          release("manual", 850);
+        }, 850);
+      }
+    }
+
+    function manualAdvance(value) {
+      goTo(value, { source: "manual" });
+    }
+
+    function updateHash(id, lightboxMode = false) {
+      const next = new URL(location.href);
+      next.hash = id;
+      if (lightboxMode) next.searchParams.set("lightbox", "1");
+      else next.searchParams.delete("lightbox");
+      history.replaceState(null, "", `${next.pathname}${next.search}${next.hash}`);
+    }
+
+    function populateLightbox(index) {
+      const slide = roomAt(index);
+      if (!slide || !lightboxImage) return;
+      const source = slide.querySelector("img");
+      const name = slide.dataset.roomName || source?.alt || "";
+      const alias = slide.dataset.roomAlias || "";
+      lightboxImage.src = source?.currentSrc || source?.src || "";
+      lightboxImage.alt = name;
+      lightboxImage.width = Number(source?.getAttribute("width") || 720);
+      lightboxImage.height = Number(source?.getAttribute("height") || 480);
+      if (lightboxTitle) lightboxTitle.textContent = name;
+      if (lightboxAlias) lightboxAlias.textContent = alias;
+      if (lightboxIndex) lightboxIndex.textContent = `${String(index + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
+      if (lightboxDetail) lightboxDetail.href = slide.dataset.roomDetail || "";
+    }
+
+    function openLightbox(index, origin = null) {
+      if (!lightbox) return;
+      goTo(index, { source: "manual" });
+      state.originFocus = origin || rooms[state.activeIndex];
+      state.lightboxOpen = true;
+      hold("lightbox");
+      populateLightbox(state.activeIndex);
+      updateHash(roomAt(state.activeIndex).dataset.roomId, true);
+      if (typeof lightbox.showModal === "function") lightbox.showModal();
+      else lightbox.setAttribute("open", "");
+      lightbox.querySelector("[data-lightbox-close]")?.focus();
+    }
+
+    function closeLightbox() {
+      if (!state.lightboxOpen) return;
+      state.lightboxOpen = false;
+      if (typeof lightbox?.close === "function" && lightbox.open) lightbox.close();
+      else lightbox?.removeAttribute("open");
+      updateHash(roomAt(state.activeIndex).dataset.roomId, false);
+      release("lightbox");
+      window.setTimeout(() => state.originFocus?.focus(), 0);
+      state.originFocus = null;
+    }
+
+    rooms.forEach((room, index) => {
+      room.addEventListener("click", () => {
+        if (Date.now() < state.suppressClickUntil) return;
+        openLightbox(index, room);
+      });
+      room.addEventListener("pointerenter", () => {
+        state.visualIndex = index;
+        updateVisualFocus();
+      });
+      room.addEventListener("focus", () => {
+        state.visualIndex = index;
+        updateVisualFocus();
+        hold("focus");
+      });
+      room.addEventListener("blur", () => {
+        if (!dock.contains(document.activeElement)) {
+          state.visualIndex = null;
+          updateVisualFocus();
+          release("focus", 700);
+        }
       });
     });
+
+    dock.addEventListener("pointerenter", () => hold("hover"));
+    dock.addEventListener("pointerleave", () => {
+      state.visualIndex = null;
+      updateVisualFocus();
+      release("hover", 700);
+    });
+
+    viewport?.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        manualAdvance(state.activeIndex - 1);
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        manualAdvance(state.activeIndex + 1);
+      } else if (event.key === "Home") {
+        event.preventDefault();
+        manualAdvance(0);
+      } else if (event.key === "End") {
+        event.preventDefault();
+        manualAdvance(slides.length - 1);
+      } else if (event.key.toLowerCase() === "p" || event.key === " ") {
+        event.preventDefault();
+        playButton?.click();
+      }
+    });
+
+    dock.querySelector("[data-dock-prev]")?.addEventListener("click", () => manualAdvance(state.activeIndex - 1));
+    dock.querySelector("[data-dock-next]")?.addEventListener("click", () => manualAdvance(state.activeIndex + 1));
+    playButton?.addEventListener("click", () => {
+      state.manualPaused = !state.manualPaused;
+      localStorage.setItem(dockPreferenceKey, state.manualPaused ? "paused" : "running");
+      if (state.manualPaused) hold("manualPause");
+      else release("manualPause");
+      updatePlayControl();
+    });
+
+    viewport?.addEventListener("wheel", (event) => {
+      if (Math.abs(event.deltaX) < 2 && Math.abs(event.deltaY) < 2) return;
+      event.preventDefault();
+      hold("wheel");
+      if (state.wheelLocked) return;
+      state.wheelLocked = true;
+      manualAdvance(state.activeIndex + (event.deltaY + event.deltaX > 0 ? 1 : -1));
+      state.wheelTimer = window.setTimeout(() => {
+        state.wheelLocked = false;
+        release("wheel", 500);
+      }, 500);
+    }, { passive: false });
+
+    viewport?.addEventListener("pointerdown", (event) => {
+      if (event.pointerType === "mouse" && event.button !== 0) return;
+      state.drag = { pointerId: event.pointerId, startX: event.clientX, deltaX: 0, moved: false };
+      hold("drag");
+      viewport.setPointerCapture?.(event.pointerId);
+      track?.classList.add("is-dragging");
+    });
+    viewport?.addEventListener("pointermove", (event) => {
+      if (!state.drag || state.drag.pointerId !== event.pointerId) return;
+      state.drag.deltaX = event.clientX - state.drag.startX;
+      if (Math.abs(state.drag.deltaX) > 5) state.drag.moved = true;
+      track?.style.setProperty("--dock-drag-shift", `${state.drag.deltaX}px`);
+      if (state.drag.moved) event.preventDefault();
+    });
+    const finishDrag = (event) => {
+      if (!state.drag || (event.pointerId !== undefined && state.drag.pointerId !== event.pointerId)) return;
+      const drag = state.drag;
+      state.drag = null;
+      track?.classList.remove("is-dragging");
+      track?.style.setProperty("--dock-drag-shift", "0px");
+      if (drag.moved) {
+        state.suppressClickUntil = Date.now() + 350;
+        if (Math.abs(drag.deltaX) > 42) manualAdvance(state.activeIndex + (drag.deltaX < 0 ? 1 : -1));
+        else setTrackPosition(false);
+      }
+      release("drag", 550);
+    };
+    viewport?.addEventListener("pointerup", finishDrag);
+    viewport?.addEventListener("pointercancel", finishDrag);
+
+    lightbox?.querySelector("[data-lightbox-close]")?.addEventListener("click", closeLightbox);
+    lightbox?.querySelector("[data-lightbox-prev]")?.addEventListener("click", () => {
+      manualAdvance(state.activeIndex - 1);
+      populateLightbox(state.activeIndex);
+      updateHash(roomAt(state.activeIndex).dataset.roomId, true);
+    });
+    lightbox?.querySelector("[data-lightbox-next]")?.addEventListener("click", () => {
+      manualAdvance(state.activeIndex + 1);
+      populateLightbox(state.activeIndex);
+      updateHash(roomAt(state.activeIndex).dataset.roomId, true);
+    });
+    lightbox?.addEventListener("cancel", (event) => {
+      event.preventDefault();
+      closeLightbox();
+    });
+    lightbox?.addEventListener("click", (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    let lightboxPointer = null;
+    lightbox?.addEventListener("pointerdown", (event) => {
+      if (event.target === lightboxImage) lightboxPointer = event.clientX;
+    });
+    lightbox?.addEventListener("pointerup", (event) => {
+      if (lightboxPointer === null) return;
+      const delta = event.clientX - lightboxPointer;
+      lightboxPointer = null;
+      if (Math.abs(delta) < 45) return;
+      manualAdvance(state.activeIndex + (delta < 0 ? 1 : -1));
+      populateLightbox(state.activeIndex);
+      updateHash(roomAt(state.activeIndex).dataset.roomId, true);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && state.lightboxOpen) closeLightbox();
+    });
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) hold("visibility");
+      else release("visibility", 400);
+    });
+    const reducedMotionChange = () => {
+      state.reducedMotion = prefersReducedMotion.matches;
+      dock.dataset.reducedMotion = String(state.reducedMotion);
+      updatePlayControl();
+      if (state.reducedMotion) hold("reducedMotion");
+      else release("reducedMotion");
+      setTrackPosition(false);
+    };
+    prefersReducedMotion.addEventListener?.("change", reducedMotionChange);
+    window.addEventListener("resize", () => setTrackPosition(false));
+    all("img", dock).forEach((image) => image.addEventListener("load", () => setTrackPosition(false), { once: true }));
+
+    updateVisualFocus();
+    updateCaption(false);
+    updatePlayControl();
+    setTrackPosition(false);
+    if (state.reducedMotion) hold("reducedMotion");
+    if (state.manualPaused) hold("manualPause");
+    else scheduleAutoplay(autoplayMs);
+
+    if (pageUrl.searchParams.get("lightbox") === "1" && initialId) {
+      window.setTimeout(() => openLightbox(state.activeIndex), 0);
+    }
   }
 
   // Filter the evidence graph by line type. The text fallback shares the same
@@ -73,9 +433,7 @@
         item.classList.toggle("is-active", active);
         item.setAttribute("aria-pressed", String(active));
       });
-      all("[data-edge-status]").forEach((edge) => {
-        edge.classList.toggle("is-hidden", filter !== "all" && edge.dataset.edgeStatus !== filter);
-      });
+      all("[data-edge-status]").forEach((edge) => edge.classList.toggle("is-hidden", filter !== "all" && edge.dataset.edgeStatus !== filter));
     });
   });
 
