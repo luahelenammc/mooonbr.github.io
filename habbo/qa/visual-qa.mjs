@@ -101,7 +101,7 @@ try {
 
   await runPage(browser, {
     name: "Piscina active group",
-    route: "pt-br/#lido_variant_01",
+    route: "pt-br/#lido_primary",
     viewport: { width: 1440, height: 900 },
     screenshot: "03-group-piscina.png",
     assert: async (page) => {
@@ -113,7 +113,7 @@ try {
 
   await runPage(browser, {
     name: "flattened group progression",
-    route: "pt-br/#lido_variant_01",
+    route: "pt-br/#lido_primary",
     viewport: { width: 1440, height: 900 },
     screenshot: "04-progression-piscina-to-next.png",
     assert: async (page) => {
@@ -172,7 +172,7 @@ try {
 
   await runPage(browser, {
     name: "mobile dock and swipe",
-    route: "pt-br/#lido_variant_01",
+    route: "pt-br/#lido_primary",
     viewport: { width: 390, height: 844 },
     screenshot: "11-mobile-dock.png",
     assert: async (page) => {
@@ -184,7 +184,7 @@ try {
         await page.mouse.move(box.x + box.width * .2, box.y + box.height * .5, { steps: 8 });
         await page.mouse.up();
       }
-      record("mobile swipe stays on homepage", /\/habbo\/pt-br\/$/.test(page.url().split("?")[0]));
+      record("mobile swipe stays on homepage", new URL(page.url()).pathname === "/habbo/pt-br/");
       record("mobile swipe advances flattened cursor", await page.locator('[data-cinematic-dock][data-active-item-id="lido_variant_01"]').count() === 0);
     }
   });
