@@ -52,7 +52,7 @@ async function runPage(browser, test) {
       clientWidth: document.documentElement.clientWidth,
       bodyText: document.body.innerText.trim().length,
       activeSiteStylesheet: [...document.styleSheets].some((sheet) => {
-        if (!sheet.href?.includes("/assets/site-") || !sheet.href?.includes("effects-hotfix")) return false;
+        if (!sheet.href?.includes("/assets/site-") || !sheet.href?.includes("v3-variants-polish")) return false;
         try { return sheet.cssRules.length > 0; } catch { return false; }
       }),
       images: [...document.images].filter((image) => !image.complete || image.naturalWidth === 0).map((image) => image.src),
@@ -80,7 +80,7 @@ async function runPage(browser, test) {
 const browser = await chromium.launch({ headless: true });
 try {
   const commonHomeAssert = async (page) => {
-    record("home has 27 dock rooms", await page.locator("[data-room-open]").count() === 27);
+    record("home has 34 dock rooms", await page.locator("[data-room-open]").count() === 34);
     record("home has cinematic dock", await page.locator(".cinematic-dock").count() === 1);
     record("home has one lightbox", await page.locator(".room-lightbox").count() === 1);
     record("home has no legacy map or grid", await page.locator(".spatial-world, .district-grid, .district-island, .place-node").count() === 0);
@@ -88,6 +88,8 @@ try {
     record("home has no plain language text", !(await page.locator("body").innerText()).includes("PT-BR | EN"));
     record("home has no meta explanation surface", await page.locator(".dock-intro, .dock-topline, .dock-instruction, .home-secondary, .info-dialog, [data-open-info]").count() === 0);
     record("home keeps the zoom dock", await page.locator('[data-cinematic-dock][data-dock-effect="zoom"]').count() === 1);
+    record("home keeps grouped dock entities", await page.locator('[data-dock-slide][data-room-variant-count="2"]').count() === 3);
+    record("home keeps one entity per group", await page.locator('[data-dock-slide][data-room-id="chromide_club"], [data-dock-slide][data-room-id="club_massiva"], [data-dock-slide][data-room-id="rooftop_cafe"]').count() === 3);
   };
 
   await runPage(browser, {
@@ -191,7 +193,46 @@ try {
       const lightboxSrc = await page.locator("[data-lightbox-image]").getAttribute("src");
       const lightboxText = await page.locator(".room-lightbox").innerText();
       record("lightbox uses original image without metadata", Boolean(lightboxSrc?.includes("archive-reference/assets/")) && !lightboxText.includes("public_reference_only"));
-      record("lightbox CTA points to Piscina detail", (await page.locator("[data-lightbox-detail]").getAttribute("href"))?.endsWith("/lugar/lido/") === true);
+      const detailHref = await page.locator("[data-lightbox-detail]").getAttribute("href");
+      record("lightbox CTA points to Piscina detail", detailHref ? new URL(detailHref, page.url()).pathname.endsWith("/lugar/lido/") : false);
+      await page.locator(".room-lightbox").click({ position: { x: 3, y: 3 } });
+      record("outside click closes lightbox", !(await page.locator(".room-lightbox").evaluate((dialog) => dialog.open)));
+    }
+  });
+
+  await runPage(browser, {
+    name: "grouped lightbox variants",
+    route: "pt-br/?qa=1#chromide_club",
+    viewport: { width: 1440, height: 900 },
+    screenshot: "06-grouped-variants.png",
+    assert: async (page) => {
+      await page.locator('[data-room-open][data-room-id="chromide_club"]').click();
+      record("grouped room opens one lightbox", await page.locator(".room-lightbox").evaluate((dialog) => dialog.open) && await page.locator("[data-lightbox-title]").innerText() === "Clube Mexirica");
+      record("lightbox exposes vertical variant rail", await page.locator("[data-lightbox-variants] .lightbox-variant").count() === 2);
+      await page.locator("[data-lightbox-variants] .lightbox-variant").nth(1).click();
+      record("variant switch changes image", (await page.locator("[data-lightbox-image]").getAttribute("src"))?.includes("chromide_club__variant_02") === true);
+      record("variant switch keeps explicit detail CTA", (await page.locator("[data-lightbox-detail]").getAttribute("href"))?.includes("variant=chromide_club_variant_02") === true);
+    }
+  });
+
+  await runPage(browser, {
+    name: "pointer curve and autoplay",
+    route: "pt-br/?qa=autoplay#lido",
+    viewport: { width: 1440, height: 900 },
+    screenshot: "07-pointer-curve.png",
+    assert: async (page) => {
+      const box = await page.locator("[data-dock-viewport]").boundingBox();
+      if (box) {
+        await page.mouse.move(box.x + box.width * .5, box.y + box.height * .5);
+        const centerScale = await page.locator('[data-dock-slide][data-room-id="lido"]').evaluate((node) => getComputedStyle(node).getPropertyValue("--dock-scale"));
+        await page.mouse.move(box.x + box.width * .68, box.y + box.height * .5);
+        const edgeScale = await page.locator('[data-dock-slide][data-room-id="lido"]').evaluate((node) => getComputedStyle(node).getPropertyValue("--dock-scale"));
+        record("pointer position changes dock curve", centerScale !== edgeScale, `${centerScale} -> ${edgeScale}`);
+      }
+      const before = await page.locator("[data-cinematic-dock]").getAttribute("data-active-id");
+      await page.waitForTimeout(1000);
+      const after = await page.locator("[data-cinematic-dock]").getAttribute("data-active-id");
+      record("parked pointer does not freeze autoplay", before !== after, `${before} -> ${after}`);
     }
   });
 
@@ -218,7 +259,7 @@ try {
       await page.locator('[data-room-open][data-room-id="lido"]').click();
       await page.locator("[data-lightbox-detail]").click();
       await page.waitForLoadState("networkidle");
-      record("CTA reaches Piscina detail", /\/habbo\/pt-br\/lugar\/lido\/$/.test(page.url()));
+      record("CTA reaches Piscina detail", new URL(page.url()).pathname.endsWith("/habbo/pt-br/lugar/lido/"));
       record("detail has stateful return", await page.locator('[data-back-presentation][href$="#lido"]').count() >= 1);
       await page.locator("[data-back-presentation]").first().click();
       await page.waitForLoadState("networkidle");
@@ -323,10 +364,24 @@ try {
   });
 
   await runPage(browser, {
+    name: "grouped place page",
+    route: "pt-br/lugar/club_massiva/?variant=club_massiva_variant_02",
+    viewport: { width: 1440, height: 900 },
+    screenshot: "15-grouped-place.png",
+    assert: async (page) => {
+      record("grouped place page exposes maps", await page.locator("[data-place-variant-button]").count() === 2);
+      const selectedMapSrc = await page.locator("[data-place-main-image]").getAttribute("src");
+      const returnHref = await page.locator("[data-back-presentation]").first().getAttribute("href");
+      record("grouped place page selects requested map", selectedMapSrc?.includes("club_massiva__variant_02") === true, selectedMapSrc || "missing map image");
+      record("grouped place page keeps return path", returnHref?.endsWith("#club_massiva") === true, returnHref || "missing return link");
+    }
+  });
+
+  await runPage(browser, {
     name: "topology evidence page",
     route: "pt-br/topologia/",
     viewport: { width: 1440, height: 900 },
-    screenshot: "15-topology.png",
+    screenshot: "16-topology.png",
     assert: async (page) => {
       record("topology keeps SVG graph", await page.locator(".topology-graph").count() === 1);
       record("topology has no legacy edge cards", await page.locator(".edge-card, .topology-list").count() === 0);
@@ -344,8 +399,8 @@ const report = {
   failures
 };
 fs.writeFileSync(path.join(root, "qa", "visual-qa-report.json"), JSON.stringify(report, null, 2) + "\n");
-fs.writeFileSync(path.join(root, "qa", "HABBO_V2_VISUAL_QA.md"), [
-  "# Habbo V2 Cinematic Dock visual QA",
+fs.writeFileSync(path.join(root, "qa", "HABBO_V3_VISUAL_QA.md"), [
+  "# Habbo V3 Cinematic Dock visual QA",
   "",
   `Result: **${report.result}**`,
   `Base URL: **${baseUrl}**`,

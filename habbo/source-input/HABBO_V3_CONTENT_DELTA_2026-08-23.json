@@ -1,0 +1,449 @@
+{
+  "version": "v3-content-variants-and-dock-polish",
+  "researchedAt": "2026-08-23",
+  "criteria": [
+    "A homepage candidate needs a BR/PT-BR historical anchor, a public-room identity in a primary or secondary archive source, and a recoverable original image.",
+    "A second image is grouped under an existing place only when the source presents it as a room revision, map, or variant of that identity.",
+    "Progenitors, campaign-only rooms, and rooms without a recoverable image remain outside the presentation surface even when they stay visible in the research ledger."
+  ],
+  "sources": [
+    "https://habboxwiki.com/Category:Public_Rooms",
+    "https://habboxwiki.com/Official_Rooms",
+    "https://habbo.fandom.com/pt-br/wiki/Quartos_Oficiais",
+    "https://habbo.fandom.com/wiki/Category:Public_rooms",
+    "https://habbo.fandom.com/wiki/Category:Room_Image",
+    "https://habbo-muito.blogspot.com/2012/"
+  ],
+  "candidates": [
+    {
+      "id": "battle_ball_lounge",
+      "labelPtBr": "Battle Ball Lounge",
+      "classification": "canonical_place",
+      "homepage": "accepted",
+      "groupId": "battle_ball_lounge",
+      "rationale": "Public-room/game-room identity is documented by HabboxWiki and the historic BR official-room roster includes Battle Ball; the original lounge image is recoverable.",
+      "evidence": [
+        "https://habboxwiki.com/BattleBall_Lounge",
+        "https://habbo.fandom.com/pt-br/wiki/Quartos_Oficiais",
+        "https://habbo.fandom.com/wiki/Category:Room_Image"
+      ],
+      "imageAssets": ["habbo_public_space__battle_ball_lounge__brpt__undated.gif"]
+    },
+    {
+      "id": "chromide_club",
+      "labelPtBr": "Clube Mexirica / The Chromide Club",
+      "classification": "canonical_place",
+      "homepage": "accepted",
+      "groupId": "chromide_club",
+      "rationale": "The Chromide Club is documented as a historic public room with lounge and dance-floor lineage; the BR retrospective anchors Clube Mexirica and two original room images are recoverable.",
+      "evidence": [
+        "https://habboxwiki.com/The_Chromide_Club",
+        "https://habbo.fandom.com/wiki/The_Chromide_Club",
+        "https://habbo-muito.blogspot.com/2012/",
+        "https://habbo.fandom.com/wiki/Category:Room_Image"
+      ],
+      "imageAssets": [
+        "habbo_public_space__chromide_club__brpt__undated.gif",
+        "habbo_public_space__chromide_club__variant_02__brpt__undated.png"
+      ]
+    },
+    {
+      "id": "chromide_club_variant_02",
+      "labelPtBr": "Chromide Club — mapa 02",
+      "classification": "canonical_variant",
+      "homepage": "grouped",
+      "groupId": "chromide_club",
+      "rationale": "HabboxWiki presents a second historic design in the same public-room gallery; it is a variant, not a second dock entity.",
+      "evidence": ["https://habboxwiki.com/The_Chromide_Club"],
+      "imageAssets": ["habbo_public_space__chromide_club__variant_02__brpt__undated.png"]
+    },
+    {
+      "id": "floating_garden",
+      "labelPtBr": "Jardim Flutuante",
+      "classification": "canonical_place",
+      "homepage": "accepted",
+      "groupId": "floating_garden",
+      "rationale": "The public-room identity and aliases are documented by HabboxWiki; the BR retrospective names Jardim Flutuante/Jardim Oriental and a clean original room image is recoverable.",
+      "evidence": [
+        "https://habboxwiki.com/Floating_Garden",
+        "https://habbo-muito.blogspot.com/2012/",
+        "https://habbo.fandom.com/wiki/Category:Public_rooms"
+      ],
+      "imageAssets": ["habbo_public_space__floating_garden__brpt__undated.png"]
+    },
+    {
+      "id": "zen_garden",
+      "labelPtBr": "Jardim Zen",
+      "classification": "canonical_place",
+      "homepage": "accepted",
+      "groupId": "zen_garden",
+      "rationale": "Zen Garden is documented as a classic public room and the BR retrospective identifies Jardim Zen; the original room image is recoverable.",
+      "evidence": [
+        "https://habboxwiki.com/Zen_Garden_(Room)",
+        "https://habbo-muito.blogspot.com/2012/",
+        "https://habbo.fandom.com/wiki/Category:Room_Image"
+      ],
+      "imageAssets": ["habbo_public_space__zen_garden__brpt__undated.png"]
+    },
+    {
+      "id": "habburgers",
+      "labelPtBr": "Habbo Rango",
+      "classification": "canonical_place",
+      "homepage": "accepted",
+      "groupId": "habburgers",
+      "rationale": "Habburgers/Flava Burger Bar is documented as an original public room; the BR archive names Habbo Rango/Habburgers and the original room image is recoverable.",
+      "evidence": [
+        "https://habboxwiki.com/Habburgers",
+        "https://habbo-muito.blogspot.com/2012/",
+        "https://habbo.fandom.com/pt-br/wiki/Quartos_Oficiais",
+        "https://habbo.fandom.com/wiki/Category:Room_Image"
+      ],
+      "imageAssets": ["habbo_public_space__habburgers__brpt__undated.png"]
+    },
+    {
+      "id": "net_cafe",
+      "labelPtBr": "Net Café",
+      "classification": "canonical_place",
+      "homepage": "accepted",
+      "groupId": "net_cafe",
+      "rationale": "Net Cafe is a documented classic public room; the BR retrospective anchors Net Café/Cyber Café and the original room image is recoverable.",
+      "evidence": [
+        "https://habboxwiki.com/Net_Cafe",
+        "https://habbo-muito.blogspot.com/2012/",
+        "https://habbo.fandom.com/wiki/Category:Room_Image"
+      ],
+      "imageAssets": ["habbo_public_space__net_cafe__brpt__undated.png"]
+    },
+    {
+      "id": "rooftop_cafe",
+      "labelPtBr": "Café Cobertura",
+      "classification": "canonical_place",
+      "homepage": "accepted",
+      "groupId": "rooftop_cafe",
+      "rationale": "Rooftop Cafe is a distinct historic public room linked to Rooftop, with a recoverable primary image and a second gallery design; both maps remain one place group.",
+      "evidence": [
+        "https://habboxwiki.com/Rooftop_Cafe",
+        "https://habboxwiki.com/Rooftop",
+        "https://habbo-muito.blogspot.com/2012/",
+        "https://habbo.fandom.com/wiki/Category:Room_Image"
+      ],
+      "imageAssets": [
+        "habbo_public_space__rooftop_cafe__brpt__undated.png",
+        "habbo_public_space__rooftop_cafe__variant_02__brpt__undated.png"
+      ]
+    },
+    {
+      "id": "rooftop_cafe_variant_02",
+      "labelPtBr": "Café Cobertura — mapa 02",
+      "classification": "canonical_variant",
+      "homepage": "grouped",
+      "groupId": "rooftop_cafe",
+      "rationale": "HabboxWiki labels the second image as a historic Target promotion design of the same Rooftop Cafe room.",
+      "evidence": ["https://habboxwiki.com/Rooftop_Cafe"],
+      "imageAssets": ["habbo_public_space__rooftop_cafe__variant_02__brpt__undated.png"]
+    },
+    {
+      "id": "club_massiva_variant_02",
+      "labelPtBr": "Clube Massiva — mapa 02",
+      "classification": "canonical_variant",
+      "homepage": "grouped",
+      "groupId": "club_massiva",
+      "rationale": "The Club Massiva gallery documents a Postbank revision of the same public-room identity; it is grouped with the preserved primary image.",
+      "evidence": ["https://habboxwiki.com/Club_Massiva"],
+      "imageAssets": ["habbo_public_space__club_massiva__variant_02__brpt__undated.png"]
+    },
+    {
+      "id": "mobiles_disco",
+      "labelPtBr": "Mobiles Disco",
+      "classification": "secondary_place",
+      "homepage": "excluded",
+      "groupId": "mobiles_disco",
+      "rationale": "HabboxWiki identifies Mobiles Disco as the progenitor of Habbo rather than a Habbo Hotel public room; the BR roster preserves the memory under Old Skool/Mobiles, so it remains secondary research context.",
+      "evidence": [
+        "https://habboxwiki.com/Mobiles_Disco",
+        "https://habboxwiki.com/Old_Skool_Habbo",
+        "https://habbo.fandom.com/pt-br/wiki/Quartos_Oficiais"
+      ],
+      "imageAssets": []
+    },
+    {
+      "id": "mobiles_disco_variant_02",
+      "labelPtBr": "Mobiles Disco — mapa 02",
+      "classification": "secondary_variant",
+      "homepage": "excluded",
+      "groupId": "mobiles_disco",
+      "rationale": "The historic antecedent has no independent homepage place entity in this corpus.",
+      "evidence": ["https://habboxwiki.com/Old_Skool_Habbo"],
+      "imageAssets": []
+    },
+    {
+      "id": "lanchonete_virgula",
+      "labelPtBr": "Lanchonete Vírgula",
+      "classification": "uncertain_pending",
+      "homepage": "excluded",
+      "groupId": "lanchonete_virgula",
+      "rationale": "The BR retrospective names Café/Lanchonete Vírgula, but the selected public-room sources did not yield a recoverable original image and stable public-room page for this pass.",
+      "evidence": [
+        "https://habbo-muito.blogspot.com/2012/",
+        "https://habbo.fandom.com/pt-br/wiki/Quartos_Oficiais"
+      ],
+      "imageAssets": []
+    },
+    {
+      "id": "the_den",
+      "labelPtBr": "The Den",
+      "classification": "secondary_place",
+      "homepage": "excluded",
+      "groupId": "the_den",
+      "rationale": "The Den is a documented historic public room in the international archive, but no sufficiently strong BR/PT-BR anchor was found for this homepage cohort.",
+      "evidence": [
+        "https://habboxwiki.com/The_Den",
+        "https://habbo.fandom.com/wiki/Category:Public_rooms"
+      ],
+      "imageAssets": []
+    }
+  ],
+  "variantAdditions": [
+    {
+      "groupId": "club_massiva",
+      "variant": {
+        "id": "club_massiva_variant_02",
+        "labelPt": "Mapa 02",
+        "labelEn": "Map 02",
+        "kind": "historic_revision",
+        "filename": "habbo_public_space__club_massiva__variant_02__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__club_massiva__variant_02__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 491,
+        "format": "PNG",
+        "temporalStatus": "historic_revision_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "v3:club_massiva:variant-02",
+        "sourcePageUrl": "https://habboxwiki.com/Club_Massiva",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Room_bank_1.png",
+        "notes": "Postbank revision shown in the HabboxWiki gallery."
+      }
+    }
+  ],
+  "accepted": [
+    {
+      "id": "battle_ball_lounge",
+      "canonicalNamePtBr": "Battle Ball Lounge",
+      "canonicalNameEn": "Battle Ball Lounge",
+      "aliases": ["BattleBall", "Lounge Battle Ball"],
+      "category": "game",
+      "district": "games_and_services",
+      "presentationOrder": 17,
+      "visualCluster": "service",
+      "hotelLocale": ["brpt"],
+      "technicalEra": ["classic Shockwave-era raster"],
+      "visualEra": ["classic_public_room"],
+      "communityEra": [],
+      "arrivalText": {"pt": "A sala de espera antes do jogo: cor, fila, equipes e a partida prestes a começar.", "en": "The waiting room before the game: color, queues, teams, and the match about to begin."},
+      "spatialNotes": {"pt": "Battle Ball Lounge funciona como lobby de jogo e ponto de encontro. Os níveis e salas do modo BattleBall permanecem relacionados, não colapsados nesta imagem.", "en": "Battle Ball Lounge works as a game lobby and meeting point. BattleBall levels and rooms remain related rather than collapsed into this image."},
+      "facts": {"pt": ["A sala é preservada como espaço público de jogo.", "A relação com outras salas BattleBall é de família de jogo, não de porta afirmada."], "en": ["The room is preserved as a public game space.", "Its relation to other BattleBall rooms is a game-family relation, not an asserted doorway."]},
+      "socialUses": ["game-queue", "competition", "spectatorship", "chat", "meeting-new-users"],
+      "topologyStatus": "documented",
+      "landmarkStrength": "high",
+      "versionLineage": [],
+      "relatedArchiveItems": ["https://habboxwiki.com/BattleBall_Lounge", "https://habbo.fandom.com/pt-br/wiki/Quartos_Oficiais", "https://habbo.fandom.com/wiki/Category:Room_Image"],
+      "sourceManifestRow": "V3 — Battle Ball Lounge",
+      "accessEvidence": "br_fansite_roster_and_public_room_archive",
+      "notes": "Accepted V3 canonical group; presentation image is a transparent-background derivative of the preserved original.",
+      "complexStructure": {"roomCount": 1, "knownSubrooms": ["Battle Ball Lounge"], "evidenceStatus": "documented_historical", "note": "The page documents a family of BattleBall lobbies and game rooms; this group represents the lounge image."},
+      "sourcePageUrl": "https://habboxwiki.com/BattleBall_Lounge",
+      "directImageUrl": "https://habboxwiki.com/wiki/images/4/46/BattleBall.gif",
+      "variants": [
+        {"id": "battle_ball_lounge_primary", "labelPt": "Sala principal", "labelEn": "Main room", "kind": "primary", "filename": "habbo_public_space__battle_ball_lounge__brpt__undated.gif", "presentationFilename": "habbo_public_space__battle_ball_lounge__brpt__undated__presentation.png", "width": 722, "height": 489, "format": "GIF", "temporalStatus": "canonical_original_image", "rightsStatus": "public_reference_only", "provenanceId": "v3:battle_ball_lounge:primary", "sourcePageUrl": "https://habboxwiki.com/BattleBall_Lounge", "directImageUrl": "https://habboxwiki.com/wiki/images/4/46/BattleBall.gif", "notes": "Original-period Battle Ball lounge image."}
+      ]
+    },
+    {
+      "id": "chromide_club",
+      "canonicalNamePtBr": "Clube Mexirica",
+      "canonicalNameEn": "The Chromide Club",
+      "aliases": ["Chromide Club", "Clube Mexirica", "Mobile Disco"],
+      "category": "club",
+      "district": "nightlife",
+      "presentationOrder": 8,
+      "visualCluster": "night",
+      "hotelLocale": ["brpt"],
+      "technicalEra": ["classic Shockwave-era raster"],
+      "visualEra": ["classic_public_room"],
+      "communityEra": [],
+      "arrivalText": {"pt": "Um clube de duas atmosferas: a sala reconhecível, depois a pista que muda a memória de cor.", "en": "A club with two atmospheres: the recognizable room, then the dance floor that changes the memory's color."},
+      "spatialNotes": {"pt": "O arquivo agrupa lounge e pista como variantes históricas da mesma identidade Chromide/Mexirica.", "en": "The archive groups lounge and dance floor as historic variants of the same Chromide/Mexirica identity."},
+      "facts": {"pt": ["Clube Mexirica aparece como âncora BR da identidade Chromide.", "As duas imagens ficam disponíveis como mapas do mesmo lugar."], "en": ["Clube Mexirica anchors the Chromide identity in the BR record.", "Both images remain available as maps of the same place."]},
+      "socialUses": ["dancing", "nightlife", "chat", "social-display", "meeting-new-users"],
+      "topologyStatus": "probable",
+      "landmarkStrength": "high",
+      "versionLineage": ["The Chromide Club / Clube Mexirica room family"],
+      "relatedArchiveItems": ["https://habboxwiki.com/The_Chromide_Club", "https://habbo.fandom.com/wiki/The_Chromide_Club", "https://habbo-muito.blogspot.com/2012/"],
+      "sourceManifestRow": "V3 — The Chromide Club / Clube Mexirica",
+      "accessEvidence": "br_historical_roster_and_public_room_archive",
+      "notes": "Accepted V3 canonical group with two grouped historic images.",
+      "complexStructure": {"roomCount": 2, "knownSubrooms": ["lounge", "dance floor"], "evidenceStatus": "probable_historical", "note": "HabboxWiki describes a two-room public-room identity and supplies original and new-design gallery images."},
+      "sourcePageUrl": "https://habboxwiki.com/The_Chromide_Club",
+      "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/TheChromideClub.gif",
+      "variants": [
+        {"id": "chromide_club_primary", "labelPt": "Sala original", "labelEn": "Original room", "kind": "primary", "filename": "habbo_public_space__chromide_club__brpt__undated.gif", "presentationFilename": "habbo_public_space__chromide_club__brpt__undated__presentation.png", "width": 722, "height": 489, "format": "GIF", "temporalStatus": "canonical_original_image", "rightsStatus": "public_reference_only", "provenanceId": "v3:chromide_club:primary", "sourcePageUrl": "https://habboxwiki.com/The_Chromide_Club", "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/TheChromideClub.gif", "notes": "Original design gallery image."},
+        {"id": "chromide_club_variant_02", "labelPt": "Mapa 02", "labelEn": "Map 02", "kind": "historic_revision", "filename": "habbo_public_space__chromide_club__variant_02__brpt__undated.png", "presentationFilename": "habbo_public_space__chromide_club__variant_02__brpt__undated__presentation.png", "width": 675, "height": 468, "format": "PNG", "temporalStatus": "historic_revision_image", "rightsStatus": "public_reference_only", "provenanceId": "v3:chromide_club:variant-02", "sourcePageUrl": "https://habboxwiki.com/The_Chromide_Club", "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Chromide_Club_2.png", "notes": "New design gallery image."}
+      ]
+    },
+    {
+      "id": "floating_garden",
+      "canonicalNamePtBr": "Jardim Flutuante",
+      "canonicalNameEn": "Floating Garden",
+      "aliases": ["Jardim Oriental", "Water Garden", "Hanging Garden", "The Port"],
+      "category": "outdoor",
+      "district": "leisure_outdoors",
+      "presentationOrder": 19,
+      "visualCluster": "water",
+      "hotelLocale": ["brpt"],
+      "technicalEra": ["classic Shockwave-era raster"],
+      "visualEra": ["classic_public_room"],
+      "communityEra": [],
+      "arrivalText": {"pt": "Água parada, pedra e um jardim suspenso para conversas que não precisam correr.", "en": "Still water, stone, and a suspended garden for conversations that do not need to hurry."},
+      "spatialNotes": {"pt": "Floating Garden permanece como espaço exterior de atmosfera oriental; os aliases ficam ligados ao mesmo lugar.", "en": "Floating Garden remains an outdoor room with an oriental atmosphere; its aliases stay attached to the same place."},
+      "facts": {"pt": ["Jardim Flutuante aparece no recorte histórico BR.", "A imagem preserva uma cena de jardim, água e passagem."], "en": ["Jardim Flutuante appears in the BR historical record.", "The image preserves a scene of garden, water, and passage."]},
+      "socialUses": ["quiet-hangout", "chat", "rest", "exploration", "meeting-new-users"],
+      "topologyStatus": "probable",
+      "landmarkStrength": "high",
+      "versionLineage": ["Floating Garden / Water Garden / The Port aliases"],
+      "relatedArchiveItems": ["https://habboxwiki.com/Floating_Garden", "https://habbo-muito.blogspot.com/2012/"],
+      "sourceManifestRow": "V3 — Floating Garden / Jardim Flutuante",
+      "accessEvidence": "br_historical_roster_and_public_room_archive",
+      "notes": "Accepted V3 canonical group.",
+      "complexStructure": {"roomCount": 1, "knownSubrooms": ["Floating Garden"], "evidenceStatus": "documented_historical", "note": "The public-room page and BR retrospective converge on the room identity."},
+      "sourcePageUrl": "https://habboxwiki.com/Floating_Garden",
+      "directImageUrl": "https://habboxwiki.com/wiki/images/8/8e/Floating_Garden.png",
+      "variants": [
+        {"id": "floating_garden_primary", "labelPt": "Sala principal", "labelEn": "Main room", "kind": "primary", "filename": "habbo_public_space__floating_garden__brpt__undated.png", "presentationFilename": "habbo_public_space__floating_garden__brpt__undated__presentation.png", "width": 980, "height": 570, "format": "PNG", "temporalStatus": "canonical_original_image", "rightsStatus": "public_reference_only", "provenanceId": "v3:floating_garden:primary", "sourcePageUrl": "https://habboxwiki.com/Floating_Garden", "directImageUrl": "https://habboxwiki.com/wiki/images/8/8e/Floating_Garden.png", "notes": "Original public-room image."}
+      ]
+    },
+    {
+      "id": "zen_garden",
+      "canonicalNamePtBr": "Jardim Zen",
+      "canonicalNameEn": "Zen Garden",
+      "aliases": ["Jardin Zen", "Zen Garden Room"],
+      "category": "outdoor",
+      "district": "leisure_outdoors",
+      "presentationOrder": 20,
+      "visualCluster": "water",
+      "hotelLocale": ["brpt"],
+      "technicalEra": ["classic Shockwave-era raster"],
+      "visualEra": ["classic_public_room"],
+      "communityEra": [],
+      "arrivalText": {"pt": "Um jardim de madeira, água e silêncio relativo — uma sala feita para ficar um pouco.", "en": "A garden of wood, water, and relative quiet — a room made for staying a little longer."},
+      "spatialNotes": {"pt": "O Jardim Zen é mantido como lugar exterior de encontro tranquilo, não como coordenada de parque reconstruída.", "en": "Zen Garden is kept as an outdoor place for quiet gathering, not as a reconstructed park coordinate."},
+      "facts": {"pt": ["Jardim Zen aparece na memória pública BR.", "A sala preserva abrigo, deck, água e árvore como sinais de lugar."], "en": ["Jardim Zen appears in the BR public memory.", "The room preserves shelter, deck, water, and tree as place signals."]},
+      "socialUses": ["quiet-hangout", "chat", "rest", "dating", "exploration"],
+      "topologyStatus": "probable",
+      "landmarkStrength": "high",
+      "versionLineage": [],
+      "relatedArchiveItems": ["https://habboxwiki.com/Zen_Garden_(Room)", "https://habbo-muito.blogspot.com/2012/"],
+      "sourceManifestRow": "V3 — Zen Garden / Jardim Zen",
+      "accessEvidence": "br_historical_roster_and_public_room_archive",
+      "notes": "Accepted V3 canonical group.",
+      "complexStructure": {"roomCount": 1, "knownSubrooms": ["Zen Garden"], "evidenceStatus": "documented_historical", "note": "Public-room page and BR retrospective converge on the room identity."},
+      "sourcePageUrl": "https://habboxwiki.com/Zen_Garden_(Room)",
+      "directImageUrl": "https://habboxwiki.com/wiki/images/7/7f/ZenGarden.png",
+      "variants": [
+        {"id": "zen_garden_primary", "labelPt": "Sala principal", "labelEn": "Main room", "kind": "primary", "filename": "habbo_public_space__zen_garden__brpt__undated.png", "presentationFilename": "habbo_public_space__zen_garden__brpt__undated__presentation.png", "width": 722, "height": 489, "format": "PNG", "temporalStatus": "canonical_original_image", "rightsStatus": "public_reference_only", "provenanceId": "v3:zen_garden:primary", "sourcePageUrl": "https://habboxwiki.com/Zen_Garden_(Room)", "directImageUrl": "https://habboxwiki.com/wiki/images/7/7f/ZenGarden.png", "notes": "Original public-room image."}
+      ]
+    },
+    {
+      "id": "habburgers",
+      "canonicalNamePtBr": "Habbo Rango",
+      "canonicalNameEn": "Habburgers",
+      "aliases": ["Flava Burger Bar", "Habburgers", "Habbo Rango"],
+      "category": "food",
+      "district": "food_and_cafes",
+      "presentationOrder": 14,
+      "visualCluster": "food",
+      "hotelLocale": ["brpt"],
+      "technicalEra": ["classic Shockwave-era raster"],
+      "visualEra": ["classic_public_room"],
+      "communityEra": [],
+      "arrivalText": {"pt": "Um restaurante de cor forte: balcão, mesas, fila e a pequena coreografia de pedir comida.", "en": "A brightly colored restaurant: counter, tables, queues, and the small choreography of ordering food."},
+      "spatialNotes": {"pt": "Habbo Rango e Habburgers são preservados como a mesma identidade de lanchonete pública.", "en": "Habbo Rango and Habburgers are preserved as the same public burger-bar identity."},
+      "facts": {"pt": ["A sala aparece como Habburgers/Flava Burger Bar nas fontes internacionais.", "O nome Habbo Rango fica guardado como âncora BR."], "en": ["The room appears as Habburgers/Flava Burger Bar in international sources.", "Habbo Rango is kept as the BR anchor name."]},
+      "socialUses": ["food", "chat", "queueing", "casual-hangout", "meeting-new-users"],
+      "topologyStatus": "documented",
+      "landmarkStrength": "high",
+      "versionLineage": ["Habburgers / Flava Burger Bar / Habbo Rango"],
+      "relatedArchiveItems": ["https://habboxwiki.com/Habburgers", "https://habbo-muito.blogspot.com/2012/", "https://habbo.fandom.com/pt-br/wiki/Quartos_Oficiais"],
+      "sourceManifestRow": "V3 — Habburgers / Habbo Rango",
+      "accessEvidence": "br_historical_roster_and_public_room_archive",
+      "notes": "Accepted V3 canonical group.",
+      "complexStructure": {"roomCount": 1, "knownSubrooms": ["Habburgers"], "evidenceStatus": "documented_historical", "note": "The room is documented as an original public burger bar."},
+      "sourcePageUrl": "https://habboxwiki.com/Habburgers",
+      "directImageUrl": "https://habboxwiki.com/wiki/images/7/78/Habburgerss.png",
+      "variants": [
+        {"id": "habburgers_primary", "labelPt": "Sala principal", "labelEn": "Main room", "kind": "primary", "filename": "habbo_public_space__habburgers__brpt__undated.png", "presentationFilename": "habbo_public_space__habburgers__brpt__undated__presentation.png", "width": 583, "height": 414, "format": "PNG", "temporalStatus": "canonical_original_image", "rightsStatus": "public_reference_only", "provenanceId": "v3:habburgers:primary", "sourcePageUrl": "https://habboxwiki.com/Habburgers", "directImageUrl": "https://habboxwiki.com/wiki/images/7/78/Habburgerss.png", "notes": "Original public-room image."}
+      ]
+    },
+    {
+      "id": "net_cafe",
+      "canonicalNamePtBr": "Net Café",
+      "canonicalNameEn": "Net Cafe",
+      "aliases": ["Cyber Café", "Cyber Café Habbo Home"],
+      "category": "service",
+      "district": "food_and_cafes",
+      "presentationOrder": 15,
+      "visualCluster": "food",
+      "hotelLocale": ["brpt"],
+      "technicalEra": ["classic Shockwave-era raster"],
+      "visualEra": ["classic_public_room"],
+      "communityEra": [],
+      "arrivalText": {"pt": "Computadores acesos, mesas compridas e o som imaginado de uma sala que era também serviço.", "en": "Lit computers, long tables, and the imagined hum of a room that was also a service."},
+      "spatialNotes": {"pt": "Net Café permanece como espaço público de acesso e espera; os aliases não criam uma sala paralela.", "en": "Net Cafe remains a public access and waiting room; its aliases do not create a parallel room."},
+      "facts": {"pt": ["Net Café é preservado no recorte histórico BR.", "A sala combina serviço, conversa e presença de grupo."], "en": ["Net Cafe is preserved in the BR historical record.", "The room combines service, conversation, and group presence."]},
+      "socialUses": ["sessions", "community-information", "chat", "waiting", "casual-hangout"],
+      "topologyStatus": "documented",
+      "landmarkStrength": "high",
+      "versionLineage": ["Net Cafe / Cyber Café aliases"],
+      "relatedArchiveItems": ["https://habboxwiki.com/Net_Cafe", "https://habbo-muito.blogspot.com/2012/"],
+      "sourceManifestRow": "V3 — Net Cafe / Net Café",
+      "accessEvidence": "br_historical_roster_and_public_room_archive",
+      "notes": "Accepted V3 canonical group.",
+      "complexStructure": {"roomCount": 1, "knownSubrooms": ["Net Cafe"], "evidenceStatus": "documented_historical", "note": "Public-room page and BR retrospective converge on the room identity."},
+      "sourcePageUrl": "https://habboxwiki.com/Net_Cafe",
+      "directImageUrl": "https://habboxwiki.com/wiki/images/e/e9/Net_Cafe.png",
+      "variants": [
+        {"id": "net_cafe_primary", "labelPt": "Sala principal", "labelEn": "Main room", "kind": "primary", "filename": "habbo_public_space__net_cafe__brpt__undated.png", "presentationFilename": "habbo_public_space__net_cafe__brpt__undated__presentation.png", "width": 704, "height": 475, "format": "PNG", "temporalStatus": "canonical_original_image", "rightsStatus": "public_reference_only", "provenanceId": "v3:net_cafe:primary", "sourcePageUrl": "https://habboxwiki.com/Net_Cafe", "directImageUrl": "https://habboxwiki.com/wiki/images/e/e9/Net_Cafe.png", "notes": "Original public-room image."}
+      ]
+    },
+    {
+      "id": "rooftop_cafe",
+      "canonicalNamePtBr": "Café Cobertura",
+      "canonicalNameEn": "Rooftop Cafe",
+      "aliases": ["Café da Cobertura", "Rooftop Café"],
+      "category": "food",
+      "district": "food_and_cafes",
+      "presentationOrder": 7,
+      "visualCluster": "food",
+      "hotelLocale": ["brpt"],
+      "technicalEra": ["classic Shockwave-era raster"],
+      "visualEra": ["classic_public_room"],
+      "communityEra": [],
+      "arrivalText": {"pt": "Um café acima da cidade: balcão, sofá e a sensação de que o lugar existe entre uma vista e outra.", "en": "A cafe above the city: counter, sofas, and the feeling of a place suspended between views."},
+      "spatialNotes": {"pt": "Café Cobertura é um grupo próprio, ligado editorialmente à Cobertura, com duas imagens de design do mesmo room.", "en": "Rooftop Cafe is its own group, editorially linked to Rooftop, with two design images of the same room."},
+      "facts": {"pt": ["A fonte descreve o acesso pela Cobertura, não como uma sala do mesmo mapa.", "Os dois mapas ficam agrupados para evitar duplicação no dock."], "en": ["The source describes access through Rooftop, not as the same map.", "Both maps are grouped to avoid duplicating the dock entity."]},
+      "socialUses": ["food", "chat", "viewing", "quiet-hangout", "casual-hangout"],
+      "topologyStatus": "probable",
+      "landmarkStrength": "high",
+      "versionLineage": ["Rooftop Cafe / Rooftop access relation"],
+      "relatedArchiveItems": ["https://habboxwiki.com/Rooftop_Cafe", "https://habboxwiki.com/Rooftop", "https://habbo-muito.blogspot.com/2012/"],
+      "sourceManifestRow": "V3 — Rooftop Cafe / Café Cobertura",
+      "accessEvidence": "br_historical_roster_and_public_room_archive",
+      "notes": "Accepted V3 canonical group with two grouped historic images.",
+      "complexStructure": {"roomCount": 2, "knownSubrooms": ["original cafe", "Target promotion design"], "evidenceStatus": "probable_historical", "note": "The page links access to Rooftop and supplies a second historic gallery design."},
+      "sourcePageUrl": "https://habboxwiki.com/Rooftop_Cafe",
+      "directImageUrl": "https://habboxwiki.com/wiki/images/a/a5/Rooftop_Cafe.png",
+      "variants": [
+        {"id": "rooftop_cafe_primary", "labelPt": "Sala original", "labelEn": "Original room", "kind": "primary", "filename": "habbo_public_space__rooftop_cafe__brpt__undated.png", "presentationFilename": "habbo_public_space__rooftop_cafe__brpt__undated__presentation.png", "width": 722, "height": 489, "format": "PNG", "temporalStatus": "canonical_original_image", "rightsStatus": "public_reference_only", "provenanceId": "v3:rooftop_cafe:primary", "sourcePageUrl": "https://habboxwiki.com/Rooftop_Cafe", "directImageUrl": "https://habboxwiki.com/wiki/images/a/a5/Rooftop_Cafe.png", "notes": "Original public-room image."},
+        {"id": "rooftop_cafe_variant_02", "labelPt": "Mapa 02", "labelEn": "Map 02", "kind": "historic_revision", "filename": "habbo_public_space__rooftop_cafe__variant_02__brpt__undated.png", "presentationFilename": "habbo_public_space__rooftop_cafe__variant_02__brpt__undated__presentation.png", "width": 722, "height": 489, "format": "PNG", "temporalStatus": "historic_revision_image", "rightsStatus": "public_reference_only", "provenanceId": "v3:rooftop_cafe:variant-02", "sourcePageUrl": "https://habboxwiki.com/Rooftop_Cafe", "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Roofcafe_target.png", "notes": "Target promotion design shown in the page gallery."}
+      ]
+    }
+  ]
+}

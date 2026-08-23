@@ -39,8 +39,30 @@
       "format": "GIF",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:welcome_lounge"
+      "provenanceId": "manifest:welcome_lounge",
+      "presentationFilename": "habbo_public_space__welcome_lounge__brpt__undated__presentation.png"
     },
+    "groupId": "welcome_lounge",
+    "variants": [
+      {
+        "id": "welcome_lounge_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__welcome_lounge__brpt__undated.gif",
+        "presentationFilename": "habbo_public_space__welcome_lounge__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 489,
+        "format": "GIF",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:welcome_lounge",
+        "sourcePageUrl": "https://habboxwiki.com/The_Welcome_Lounge",
+        "directImageUrl": "https://habboxwiki.com/wiki/images/c/cf/TheWelcomeLounge.gif",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "Você chega por um lugar feito para orientar, esperar e reconhecer os primeiros rostos.",
       "en": "You arrive in a room made for orientation, waiting, and recognizing the first faces."
@@ -136,8 +158,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:main_lobby"
+      "provenanceId": "manifest:main_lobby",
+      "presentationFilename": "habbo_public_space__main_lobby__brpt__undated__presentation.png"
     },
+    "groupId": "main_lobby",
+    "variants": [
+      {
+        "id": "main_lobby_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__main_lobby__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__main_lobby__brpt__undated__presentation.png",
+        "width": 720,
+        "height": 484,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:main_lobby",
+        "sourcePageUrl": "https://habboxwiki.com/Main_Lobby",
+        "directImageUrl": "https://habboxwiki.com/wiki/images/a/af/Main_lobby.PNG",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "Um saguão amplo de espera e encontro, com o apelido local Saguão Yahoo! guardado como alias.",
       "en": "A broad lobby for waiting and meeting, with the local Yahoo Lobby nickname kept as an alias."
@@ -208,7 +252,7 @@
       "layer": 2,
       "cluster": "arrival"
     },
-    "presentationOrder": 25,
+    "presentationOrder": 32,
     "visualCluster": "arrival",
     "topologyDisplayPosition": [
       395,
@@ -233,8 +277,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:median_lobby"
+      "provenanceId": "manifest:median_lobby",
+      "presentationFilename": "habbo_public_space__median_lobby__brpt__undated__presentation.png"
     },
+    "groupId": "median_lobby",
+    "variants": [
+      {
+        "id": "median_lobby_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__median_lobby__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__median_lobby__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 489,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:median_lobby",
+        "sourcePageUrl": "https://habboxwiki.com/Median_Lobby",
+        "directImageUrl": "https://habboxwiki.com/wiki/images/b/b4/Realmainlobby.png",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "O Saguão do Meio pertence à memória dos lobbies intermediários: lugar de passagem, espera e conversa.",
       "en": "Median Lobby belongs to the memory of intermediate lobbies: a place for passing through, waiting, and talking."
@@ -304,7 +370,7 @@
       "layer": 1,
       "cluster": "arrival"
     },
-    "presentationOrder": 26,
+    "presentationOrder": 33,
     "visualCluster": "arrival",
     "topologyDisplayPosition": [
       535,
@@ -329,8 +395,30 @@
       "format": "GIF",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:skylight_lobby"
+      "provenanceId": "manifest:skylight_lobby",
+      "presentationFilename": "habbo_public_space__skylight_lobby__brpt__undated__presentation.png"
     },
+    "groupId": "skylight_lobby",
+    "variants": [
+      {
+        "id": "skylight_lobby_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__skylight_lobby__brpt__undated.gif",
+        "presentationFilename": "habbo_public_space__skylight_lobby__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 489,
+        "format": "GIF",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:skylight_lobby",
+        "sourcePageUrl": "https://habboxwiki.com/Skylight_Lobby",
+        "directImageUrl": "https://habboxwiki.com/wiki/images/3/37/Skylight_Lobby.gif",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "Um saguão superior em nome e atmosfera, guardado aqui como identidade de lugar, não como coordenada literal.",
       "en": "An upper lobby in name and atmosphere, preserved as a place identity rather than a literal coordinate."
@@ -400,7 +488,7 @@
       "layer": 1,
       "cluster": "arrival"
     },
-    "presentationOrder": 24,
+    "presentationOrder": 31,
     "visualCluster": "arrival",
     "topologyDisplayPosition": [
       480,
@@ -425,8 +513,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:basement_lobby"
+      "provenanceId": "manifest:basement_lobby",
+      "presentationFilename": "habbo_public_space__basement_lobby__brpt__undated__presentation.png"
     },
+    "groupId": "basement_lobby",
+    "variants": [
+      {
+        "id": "basement_lobby_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__basement_lobby__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__basement_lobby__brpt__undated__presentation.png",
+        "width": 718,
+        "height": 487,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:basement_lobby",
+        "sourcePageUrl": "https://habboxwiki.com/Basement_Lobby",
+        "directImageUrl": "https://habboxwiki.com/wiki/images/8/86/Basment_lobby.PNG",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "O Saguão Subterrâneo funciona como nome, clima e memória de encontro mais lateral.",
       "en": "Basement Lobby works as a name, mood, and memory of a more lateral kind of gathering place."
@@ -525,8 +635,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:hallways"
+      "provenanceId": "manifest:hallways",
+      "presentationFilename": "habbo_public_space__hallways__brpt__undated__presentation.png"
     },
+    "groupId": "hallways",
+    "variants": [
+      {
+        "id": "hallways_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__hallways__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__hallways__brpt__undated__presentation.png",
+        "width": 1048,
+        "height": 506,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:hallways",
+        "sourcePageUrl": "https://habboxwiki.com/Hallways",
+        "directImageUrl": "https://habboxwiki.com/wiki/images/0/0f/Hallways.png",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "Aqui o deslocamento é o conteúdo: corredores, espera e encontros que acontecem porque alguém está indo a algum lugar.",
       "en": "Here movement is the content: corridors, waiting, and encounters that happen because someone is going somewhere."
@@ -601,7 +733,7 @@
       "layer": 3,
       "cluster": "culture"
     },
-    "presentationOrder": 13,
+    "presentationOrder": 18,
     "visualCluster": "culture",
     "topologyDisplayPosition": [
       720,
@@ -626,8 +758,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:theatredrome"
+      "provenanceId": "manifest:theatredrome",
+      "presentationFilename": "habbo_public_space__theatredrome__brpt__undated__presentation.png"
     },
+    "groupId": "theatredrome",
+    "variants": [
+      {
+        "id": "theatredrome_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__theatredrome__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__theatredrome__brpt__undated__presentation.png",
+        "width": 793,
+        "height": 489,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:theatredrome",
+        "sourcePageUrl": "https://habboxwiki.com/Theatre",
+        "directImageUrl": "https://habboxwiki.com/wiki/images/4/4d/Oldtheatre.png",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "Um teatro para esperar apresentações, escolher um assento e existir junto enquanto algo acontece.",
       "en": "A theatre for waiting for shows, choosing a seat, and being together while something happens."
@@ -703,7 +857,7 @@
       "layer": 2,
       "cluster": "culture"
     },
-    "presentationOrder": 12,
+    "presentationOrder": 16,
     "visualCluster": "culture",
     "topologyDisplayPosition": [
       850,
@@ -728,8 +882,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:cinema"
+      "provenanceId": "manifest:cinema",
+      "presentationFilename": "habbo_public_space__cinema__brpt__undated__presentation.png"
     },
+    "groupId": "cinema",
+    "variants": [
+      {
+        "id": "cinema_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__cinema__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__cinema__brpt__undated__presentation.png",
+        "width": 719,
+        "height": 489,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:cinema",
+        "sourcePageUrl": "https://habboxwiki.com/Cinema",
+        "directImageUrl": "https://habboxwiki.com/wiki/images/a/a6/Habbo_cinema.PNG",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "O Cinema é um lugar de assistir, sentar e transformar a espera em experiência coletiva.",
       "en": "Cinema is a place to watch, sit, and turn waiting into a collective experience."
@@ -831,8 +1007,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:lido"
+      "provenanceId": "manifest:lido",
+      "presentationFilename": "habbo_public_space__lido__brpt__undated__presentation.png"
     },
+    "groupId": "lido",
+    "variants": [
+      {
+        "id": "lido_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__lido__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__lido__brpt__undated__presentation.png",
+        "width": 1660,
+        "height": 740,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:lido",
+        "sourcePageUrl": "https://habboxwiki.com/Lido",
+        "directImageUrl": "https://habboxwiki.com/wiki/images/d/de/Lido.png",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "A Piscina é destino: água, fila, conversa, flerte e a vontade simples de entrar.",
       "en": "The Pool is a destination: water, queues, conversation, flirting, and the simple wish to enter."
@@ -945,8 +1143,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:rooftop"
+      "provenanceId": "manifest:rooftop",
+      "presentationFilename": "habbo_public_space__rooftop__brpt__undated__presentation.png"
     },
+    "groupId": "rooftop",
+    "variants": [
+      {
+        "id": "rooftop_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__rooftop__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__rooftop__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 491,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:rooftop",
+        "sourcePageUrl": "https://habboxwiki.com/Rooftop",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Rooftop%20Deck.png",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "A Cobertura oferece vista e pausa: um destino alto na imaginação, mesmo quando a topologia real fica em silêncio.",
       "en": "Rooftop offers a view and a pause: a high destination in imagination, even when real topology stays silent."
@@ -1018,7 +1238,7 @@
       "layer": 3,
       "cluster": "night"
     },
-    "presentationOrder": 6,
+    "presentationOrder": 7,
     "visualCluster": "night",
     "topologyDisplayPosition": [
       875,
@@ -1041,8 +1261,30 @@
       "format": "GIF",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:rooftop_rumble"
+      "provenanceId": "manifest:rooftop_rumble",
+      "presentationFilename": "habbo_public_space__rooftop_rumble__wobble_squabble__brpt__undated__presentation.png"
     },
+    "groupId": "rooftop_rumble",
+    "variants": [
+      {
+        "id": "rooftop_rumble_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__rooftop_rumble__wobble_squabble__brpt__undated.gif",
+        "presentationFilename": "habbo_public_space__rooftop_rumble__wobble_squabble__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 489,
+        "format": "GIF",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:rooftop_rumble",
+        "sourcePageUrl": "https://habboxwiki.com/Rooftop_Rumble",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Rooftop%20Riumble%20PR.gif",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "Wobble Squabble é fila, habilidade e plateia: o jogo começa antes da partida.",
       "en": "Wobble Squabble is queue, skill, and spectatorship: the game begins before the match."
@@ -1124,7 +1366,7 @@
       "layer": 2,
       "cluster": "water"
     },
-    "presentationOrder": 16,
+    "presentationOrder": 23,
     "visualCluster": "water",
     "topologyDisplayPosition": [
       350,
@@ -1147,8 +1389,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:picnic_area"
+      "provenanceId": "manifest:picnic_area",
+      "presentationFilename": "habbo_public_space__picnic_area__brpt__undated__presentation.png"
     },
+    "groupId": "picnic_area",
+    "variants": [
+      {
+        "id": "picnic_area_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__picnic_area__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__picnic_area__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 489,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:picnic_area",
+        "sourcePageUrl": "https://habboxwiki.com/Picnic_Area",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Picnic%20area.png",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "O Piquenique é um lugar de encontro sem pressa, paquera, roleplay e conversa ao ar livre.",
       "en": "Picnic is an unhurried meeting place for flirting, roleplay, and outdoor conversation."
@@ -1223,7 +1487,7 @@
       "layer": 1,
       "cluster": "water"
     },
-    "presentationOrder": 14,
+    "presentationOrder": 19,
     "visualCluster": "water",
     "topologyDisplayPosition": [
       100,
@@ -1246,8 +1510,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:infobus_park"
+      "provenanceId": "manifest:infobus_park",
+      "presentationFilename": "habbo_public_space__infobus_park__brpt__undated__presentation.png"
     },
+    "groupId": "infobus_park",
+    "variants": [
+      {
+        "id": "infobus_park_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__infobus_park__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__infobus_park__brpt__undated__presentation.png",
+        "width": 720,
+        "height": 488,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:infobus_park",
+        "sourcePageUrl": "https://habboxwiki.com/Infobus_Park",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Habbo%20gardens.PNG",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "O Parque do Infobus combina espera e encontro com uma função comunitária: sessões, informação e presença.",
       "en": "Infobus Park combines waiting and meeting with a community function: sessions, information, and presence."
@@ -1331,7 +1617,7 @@
       "layer": 2,
       "cluster": "water"
     },
-    "presentationOrder": 15,
+    "presentationOrder": 20,
     "visualCluster": "water",
     "topologyDisplayPosition": [
       235,
@@ -1354,8 +1640,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:imperial_park"
+      "provenanceId": "manifest:imperial_park",
+      "presentationFilename": "habbo_public_space__imperial_park__brpt__undated__presentation.png"
     },
+    "groupId": "imperial_park",
+    "variants": [
+      {
+        "id": "imperial_park_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__imperial_park__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__imperial_park__brpt__undated__presentation.png",
+        "width": 844,
+        "height": 460,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:imperial_park",
+        "sourcePageUrl": "https://habboxwiki.com/Peaceful_Park",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Peaceful%20Park%20Small.png",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "O Parque Imperial é caminhada, pausa e descoberta por um caminho que o arquivo ainda não consegue desenhar inteiro.",
       "en": "Imperial Park is walking, pausing, and discovering a path the archive cannot yet draw in full."
@@ -1437,7 +1745,7 @@
       "layer": 4,
       "cluster": "night"
     },
-    "presentationOrder": 7,
+    "presentationOrder": 9,
     "visualCluster": "night",
     "topologyDisplayPosition": [
       690,
@@ -1462,8 +1770,47 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:club_massiva"
+      "provenanceId": "manifest:club_massiva",
+      "presentationFilename": "habbo_public_space__club_massiva__brpt__undated__presentation.png"
     },
+    "groupId": "club_massiva",
+    "variants": [
+      {
+        "id": "club_massiva_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__club_massiva__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__club_massiva__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 489,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:club_massiva",
+        "sourcePageUrl": "https://habboxwiki.com/Club_Massiva",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Club%20Massiva.png",
+        "notes": "Primary image preserved by the V1 manifest."
+      },
+      {
+        "id": "club_massiva_variant_02",
+        "labelPt": "Mapa 02",
+        "labelEn": "Map 02",
+        "kind": "historic_revision",
+        "filename": "habbo_public_space__club_massiva__variant_02__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__club_massiva__variant_02__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 491,
+        "format": "PNG",
+        "temporalStatus": "historic_revision_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "v3:club_massiva:variant-02",
+        "sourcePageUrl": "https://habboxwiki.com/Club_Massiva",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Room_bank_1.png",
+        "notes": "Postbank revision shown in the HabboxWiki gallery."
+      }
+    ],
+    "grouped": true,
     "arrivalText": {
       "pt": "No Clube Massiva, a sala é uma pista: dança, noite, exibição e a promessa de descer mais um nível.",
       "en": "At Club Massiva, the room is a dance floor: nightlife, display, and the promise of going one level further."
@@ -1548,7 +1895,7 @@
       "layer": 3,
       "cluster": "night"
     },
-    "presentationOrder": 8,
+    "presentationOrder": 10,
     "visualCluster": "night",
     "topologyDisplayPosition": [
       850,
@@ -1571,8 +1918,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:club_mammoth"
+      "provenanceId": "manifest:club_mammoth",
+      "presentationFilename": "habbo_public_space__club_mammoth__brpt__undated__presentation.png"
     },
+    "groupId": "club_mammoth",
+    "variants": [
+      {
+        "id": "club_mammoth_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__club_mammoth__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__club_mammoth__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 489,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:club_mammoth",
+        "sourcePageUrl": "https://habboxwiki.com/Club_Mammoth",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/ClubMammoth.png",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "O Clube Mamute é destino de encontro HC: uma sala reconhecível antes mesmo da explicação do arquivo.",
       "en": "Club Mammoth is an HC gathering destination: a recognizable room before the archive explains it."
@@ -1643,7 +2012,7 @@
       "layer": 2,
       "cluster": "night"
     },
-    "presentationOrder": 9,
+    "presentationOrder": 11,
     "visualCluster": "night",
     "topologyDisplayPosition": [
       530,
@@ -1666,8 +2035,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:club_orient"
+      "provenanceId": "manifest:club_orient",
+      "presentationFilename": "habbo_public_space__club_orient__brpt__undated__presentation.png"
     },
+    "groupId": "club_orient",
+    "variants": [
+      {
+        "id": "club_orient_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__club_orient__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__club_orient__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 516,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:club_orient",
+        "sourcePageUrl": "https://habbohistory.com/club-orient",
+        "directImageUrl": "https://habbohistory.com/images/public_rooms/ClubOrient-Full-1.png",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "O Clube Oriente guarda o lado mais performático da sociabilidade: dançar, conversar e ser visto.",
       "en": "Club Orient holds the performative side of social life: dancing, talking, and being seen."
@@ -1742,7 +2133,7 @@
       "layer": 4,
       "cluster": "food"
     },
-    "presentationOrder": 10,
+    "presentationOrder": 14,
     "visualCluster": "food",
     "topologyDisplayPosition": [
       470,
@@ -1765,8 +2156,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:cafe_gold"
+      "provenanceId": "manifest:cafe_gold",
+      "presentationFilename": "habbo_public_space__cafe_gold__brpt__undated__presentation.png"
     },
+    "groupId": "cafe_gold",
+    "variants": [
+      {
+        "id": "cafe_gold_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__cafe_gold__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__cafe_gold__brpt__undated__presentation.png",
+        "width": 671,
+        "height": 495,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:cafe_gold",
+        "sourcePageUrl": "https://habbohistory.com/cafe-gold",
+        "directImageUrl": "https://habbohistory.com/images/public_rooms/CafeGold-Full.png",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "O Café Dourado é um lugar de conversa e memória, onde o nome carrega tanto o espaço quanto a comunidade em volta dele.",
       "en": "Cafe Gold is a place of conversation and memory, where the name carries both the room and the community around it."
@@ -1841,7 +2254,7 @@
       "layer": 1,
       "cluster": "food"
     },
-    "presentationOrder": 19,
+    "presentationOrder": 26,
     "visualCluster": "food",
     "topologyDisplayPosition": [
       620,
@@ -1864,8 +2277,30 @@
       "format": "GIF",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:ice_cafe"
+      "provenanceId": "manifest:ice_cafe",
+      "presentationFilename": "habbo_public_space__ice_cafe__brpt__undated__presentation.png"
     },
+    "groupId": "ice_cafe",
+    "variants": [
+      {
+        "id": "ice_cafe_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__ice_cafe__brpt__undated.gif",
+        "presentationFilename": "habbo_public_space__ice_cafe__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 489,
+        "format": "GIF",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:ice_cafe",
+        "sourcePageUrl": "https://habboxwiki.com/Ice_Cafe",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Room%20ice.gif",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "O Café Iced oferece uma pausa casual: comida, conversa e espera sem a solenidade de um grande destino.",
       "en": "Ice Cafe offers a casual pause: food, conversation, and waiting without the ceremony of a grand destination."
@@ -1938,7 +2373,7 @@
       "layer": 1,
       "cluster": "culture"
     },
-    "presentationOrder": 20,
+    "presentationOrder": 27,
     "visualCluster": "culture",
     "topologyDisplayPosition": [
       780,
@@ -1961,8 +2396,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:library"
+      "provenanceId": "manifest:library",
+      "presentationFilename": "habbo_public_space__library__brpt__undated__presentation.png"
     },
+    "groupId": "library",
+    "variants": [
+      {
+        "id": "library_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__library__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__library__brpt__undated__presentation.png",
+        "width": 800,
+        "height": 489,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:library",
+        "sourcePageUrl": "https://habboxwiki.com/Library",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Library.png",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "A Biblioteca é uma sala de silêncio relativo: conversa baixa, AFK, leitura inventada e descoberta.",
       "en": "Library is a room of relative quiet: low conversation, AFK time, invented reading, and discovery."
@@ -2038,7 +2495,7 @@
       "layer": 1,
       "cluster": "food"
     },
-    "presentationOrder": 21,
+    "presentationOrder": 28,
     "visualCluster": "food",
     "topologyDisplayPosition": [
       320,
@@ -2061,8 +2518,30 @@
       "format": "GIF",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:hotel_kitchen"
+      "provenanceId": "manifest:hotel_kitchen",
+      "presentationFilename": "habbo_public_space__hotel_kitchen__brpt__undated__presentation.png"
     },
+    "groupId": "hotel_kitchen",
+    "variants": [
+      {
+        "id": "hotel_kitchen_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__hotel_kitchen__brpt__undated.gif",
+        "presentationFilename": "habbo_public_space__hotel_kitchen__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 489,
+        "format": "GIF",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:hotel_kitchen",
+        "sourcePageUrl": "https://habboxwiki.com/The_Habbo_Kitchen",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/TheHabboKitchen.gif",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "Na Cozinha, comida e roleplay fazem do serviço uma cena social.",
       "en": "In the Kitchen, food and roleplay turn service into a social scene."
@@ -2137,7 +2616,7 @@
       "layer": 1,
       "cluster": "food"
     },
-    "presentationOrder": 22,
+    "presentationOrder": 29,
     "visualCluster": "food",
     "topologyDisplayPosition": [
       180,
@@ -2160,8 +2639,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:palazzo_pizza"
+      "provenanceId": "manifest:palazzo_pizza",
+      "presentationFilename": "habbo_public_space__palazzo_pizza__brpt__undated__presentation.png"
     },
+    "groupId": "palazzo_pizza",
+    "variants": [
+      {
+        "id": "palazzo_pizza_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__palazzo_pizza__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__palazzo_pizza__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 489,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:palazzo_pizza",
+        "sourcePageUrl": "https://habboxwiki.com/Palazzo_Pizza",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Palazzo%20Pizza.png",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "A Pizzaria é encontro com objeto concreto: pedir, sentar, conversar e performar uma noite comum.",
       "en": "The Pizzeria is a meeting with a concrete object: ordering, sitting, talking, and performing an ordinary night."
@@ -2236,7 +2737,7 @@
       "layer": 2,
       "cluster": "food"
     },
-    "presentationOrder": 11,
+    "presentationOrder": 15,
     "visualCluster": "food",
     "topologyDisplayPosition": [
       710,
@@ -2259,8 +2760,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:space_cafe"
+      "provenanceId": "manifest:space_cafe",
+      "presentationFilename": "habbo_public_space__space_cafe__via_lactea__brpt__undated__presentation.png"
     },
+    "groupId": "space_cafe",
+    "variants": [
+      {
+        "id": "space_cafe_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__space_cafe__via_lactea__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__space_cafe__via_lactea__brpt__undated__presentation.png",
+        "width": 655,
+        "height": 464,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:space_cafe",
+        "sourcePageUrl": "https://habboxwiki.com/Space_Cafe",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Space%20Cafe.png",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "A Via Láctea é um café temático: um pequeno desvio cósmico dentro da rotina social.",
       "en": "Space Cafe is a themed cafe: a small cosmic detour inside ordinary social life."
@@ -2335,7 +2858,7 @@
       "layer": 1,
       "cluster": "service"
     },
-    "presentationOrder": 17,
+    "presentationOrder": 24,
     "visualCluster": "service",
     "topologyDisplayPosition": [
       50,
@@ -2358,8 +2881,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:stadium"
+      "provenanceId": "manifest:stadium",
+      "presentationFilename": "habbo_public_space__stadium__brpt__undated__presentation.png"
     },
+    "groupId": "stadium",
+    "variants": [
+      {
+        "id": "stadium_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__stadium__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__stadium__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 489,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:stadium",
+        "sourcePageUrl": "https://habboxwiki.com/Stadium",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Stadium.png",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "O Estádio transforma presença de grupo em evento: torcida, competição e exibição.",
       "en": "The Stadium turns group presence into an event: fandom, competition, and display."
@@ -2431,7 +2976,7 @@
       "layer": 1,
       "cluster": "service"
     },
-    "presentationOrder": 18,
+    "presentationOrder": 25,
     "visualCluster": "service",
     "topologyDisplayPosition": [
       930,
@@ -2454,8 +2999,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:beauty_salon"
+      "provenanceId": "manifest:beauty_salon",
+      "presentationFilename": "habbo_public_space__beauty_salon__brpt__undated__presentation.png"
     },
+    "groupId": "beauty_salon",
+    "variants": [
+      {
+        "id": "beauty_salon_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__beauty_salon__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__beauty_salon__brpt__undated__presentation.png",
+        "width": 634,
+        "height": 446,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:beauty_salon",
+        "sourcePageUrl": "https://habboxwiki.com/Beauty_Salon",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Beauty%20Salon.png",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "O Salão de Beleza é serviço e palco: ajustar o avatar também é aparecer para os outros.",
       "en": "Beauty Salon is service and stage: adjusting an avatar is also appearing for others."
@@ -2533,7 +3100,7 @@
       "layer": 2,
       "cluster": "service"
     },
-    "presentationOrder": 23,
+    "presentationOrder": 30,
     "visualCluster": "service",
     "topologyDisplayPosition": [
       930,
@@ -2556,8 +3123,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:snowstorm_lobby"
+      "provenanceId": "manifest:snowstorm_lobby",
+      "presentationFilename": "habbo_public_space__snowstorm_lobby__brpt__undated__presentation.png"
     },
+    "groupId": "snowstorm_lobby",
+    "variants": [
+      {
+        "id": "snowstorm_lobby_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__snowstorm_lobby__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__snowstorm_lobby__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 489,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:snowstorm_lobby",
+        "sourcePageUrl": "https://habboxwiki.com/Snowstorm_Lobby",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Snowstorm%20Lobby%202.png",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "A Cabine de Neve é o lugar da fila antes do jogo: expectativa, competição e plateia.",
       "en": "Snowstorm Lobby is the queue before the game: anticipation, competition, and spectatorship."
@@ -2628,7 +3217,7 @@
       "layer": 1,
       "cluster": "arrival"
     },
-    "presentationOrder": 27,
+    "presentationOrder": 34,
     "visualCluster": "arrival",
     "topologyDisplayPosition": [
       170,
@@ -2651,8 +3240,30 @@
       "format": "PNG",
       "temporalStatus": "canonical_original_image",
       "rightsStatus": "public_reference_only",
-      "provenanceId": "manifest:dusty_lounge"
+      "provenanceId": "manifest:dusty_lounge",
+      "presentationFilename": "habbo_public_space__dusty_lounge__brpt__undated__presentation.png"
     },
+    "groupId": "dusty_lounge",
+    "variants": [
+      {
+        "id": "dusty_lounge_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__dusty_lounge__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__dusty_lounge__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 489,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "manifest:dusty_lounge",
+        "sourcePageUrl": "https://habboxwiki.com/Dusty_Lounge",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Room%20dusty.png",
+        "notes": "Primary image preserved by the V1 manifest."
+      }
+    ],
+    "grouped": false,
     "arrivalText": {
       "pt": "O Sótão é um recuo: descanso, conversa quieta e a sensação de que o arquivo também guarda lugares menores.",
       "en": "Dusty Lounge is a retreat: rest, quiet conversation, and the sense that the archive also keeps smaller places."
@@ -2704,5 +3315,983 @@
     "complexStructure": null,
     "sourcePageUrl": "https://habboxwiki.com/Dusty_Lounge",
     "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Room%20dusty.png"
+  },
+  {
+    "id": "battle_ball_lounge",
+    "slug": "battle_ball_lounge",
+    "canonicalNamePtBr": "Battle Ball Lounge",
+    "canonicalNameEn": "Battle Ball Lounge",
+    "aliases": [
+      "BattleBall",
+      "Lounge Battle Ball"
+    ],
+    "category": "game",
+    "editorialDistrict": "games_and_services",
+    "editorialMapPosition": {
+      "x": 50,
+      "y": 50,
+      "scale": 1,
+      "layer": 1,
+      "cluster": "service"
+    },
+    "presentationOrder": 17,
+    "visualCluster": "service",
+    "topologyDisplayPosition": [
+      500,
+      330
+    ],
+    "hotelLocale": [
+      "brpt"
+    ],
+    "technicalEra": [
+      "classic Shockwave-era raster"
+    ],
+    "visualEra": [
+      "classic_public_room"
+    ],
+    "communityEra": [],
+    "image": {
+      "id": "battle_ball_lounge_primary",
+      "labelPt": "Sala principal",
+      "labelEn": "Main room",
+      "kind": "primary",
+      "filename": "habbo_public_space__battle_ball_lounge__brpt__undated.gif",
+      "presentationFilename": "habbo_public_space__battle_ball_lounge__brpt__undated__presentation.png",
+      "width": 722,
+      "height": 489,
+      "format": "GIF",
+      "temporalStatus": "canonical_original_image",
+      "rightsStatus": "public_reference_only",
+      "provenanceId": "v3:battle_ball_lounge:primary",
+      "sourcePageUrl": "https://habboxwiki.com/BattleBall_Lounge",
+      "directImageUrl": "https://habboxwiki.com/wiki/images/4/46/BattleBall.gif",
+      "notes": "Original-period Battle Ball lounge image."
+    },
+    "groupId": "battle_ball_lounge",
+    "variants": [
+      {
+        "id": "battle_ball_lounge_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__battle_ball_lounge__brpt__undated.gif",
+        "presentationFilename": "habbo_public_space__battle_ball_lounge__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 489,
+        "format": "GIF",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "v3:battle_ball_lounge:primary",
+        "sourcePageUrl": "https://habboxwiki.com/BattleBall_Lounge",
+        "directImageUrl": "https://habboxwiki.com/wiki/images/4/46/BattleBall.gif",
+        "notes": "Original-period Battle Ball lounge image."
+      }
+    ],
+    "grouped": false,
+    "arrivalText": {
+      "pt": "A sala de espera antes do jogo: cor, fila, equipes e a partida prestes a começar.",
+      "en": "The waiting room before the game: color, queues, teams, and the match about to begin."
+    },
+    "socialUses": [
+      "game-queue",
+      "competition",
+      "spectatorship",
+      "chat",
+      "meeting-new-users"
+    ],
+    "socialUsesPtBr": [
+      "fila de jogo",
+      "competição",
+      "assistir",
+      "conversa",
+      "conhecer pessoas"
+    ],
+    "socialUsesEn": [
+      "game-queue",
+      "competition",
+      "spectatorship",
+      "chat",
+      "meeting-new-users"
+    ],
+    "spatialNotes": {
+      "pt": "Battle Ball Lounge funciona como lobby de jogo e ponto de encontro. Os níveis e salas do modo BattleBall permanecem relacionados, não colapsados nesta imagem.",
+      "en": "Battle Ball Lounge works as a game lobby and meeting point. BattleBall levels and rooms remain related rather than collapsed into this image."
+    },
+    "shortFacts": {
+      "pt": [
+        "A sala é preservada como espaço público de jogo.",
+        "A relação com outras salas BattleBall é de família de jogo, não de porta afirmada."
+      ],
+      "en": [
+        "The room is preserved as a public game space.",
+        "Its relation to other BattleBall rooms is a game-family relation, not an asserted doorway."
+      ]
+    },
+    "topologyStatus": "documented",
+    "landmarkStrength": "high",
+    "versionLineage": [],
+    "relatedArchiveItems": [
+      "https://habboxwiki.com/BattleBall_Lounge",
+      "https://habbo.fandom.com/pt-br/wiki/Quartos_Oficiais",
+      "https://habbo.fandom.com/wiki/Category:Room_Image"
+    ],
+    "sourceManifestRow": "V3 — Battle Ball Lounge",
+    "accessEvidence": "br_fansite_roster_and_public_room_archive",
+    "notes": "Accepted V3 canonical group; presentation image is a transparent-background derivative of the preserved original.",
+    "complexStructure": {
+      "roomCount": 1,
+      "knownSubrooms": [
+        "Battle Ball Lounge"
+      ],
+      "evidenceStatus": "documented_historical",
+      "note": "The page documents a family of BattleBall lobbies and game rooms; this group represents the lounge image."
+    },
+    "sourcePageUrl": "https://habboxwiki.com/BattleBall_Lounge",
+    "directImageUrl": "https://habboxwiki.com/wiki/images/4/46/BattleBall.gif"
+  },
+  {
+    "id": "chromide_club",
+    "slug": "chromide_club",
+    "canonicalNamePtBr": "Clube Mexirica",
+    "canonicalNameEn": "The Chromide Club",
+    "aliases": [
+      "Chromide Club",
+      "Clube Mexirica",
+      "Mobile Disco"
+    ],
+    "category": "club",
+    "editorialDistrict": "nightlife",
+    "editorialMapPosition": {
+      "x": 50,
+      "y": 50,
+      "scale": 1,
+      "layer": 1,
+      "cluster": "night"
+    },
+    "presentationOrder": 8,
+    "visualCluster": "night",
+    "topologyDisplayPosition": [
+      500,
+      330
+    ],
+    "hotelLocale": [
+      "brpt"
+    ],
+    "technicalEra": [
+      "classic Shockwave-era raster"
+    ],
+    "visualEra": [
+      "classic_public_room"
+    ],
+    "communityEra": [],
+    "image": {
+      "id": "chromide_club_primary",
+      "labelPt": "Sala original",
+      "labelEn": "Original room",
+      "kind": "primary",
+      "filename": "habbo_public_space__chromide_club__brpt__undated.gif",
+      "presentationFilename": "habbo_public_space__chromide_club__brpt__undated__presentation.png",
+      "width": 722,
+      "height": 489,
+      "format": "GIF",
+      "temporalStatus": "canonical_original_image",
+      "rightsStatus": "public_reference_only",
+      "provenanceId": "v3:chromide_club:primary",
+      "sourcePageUrl": "https://habboxwiki.com/The_Chromide_Club",
+      "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/TheChromideClub.gif",
+      "notes": "Original design gallery image."
+    },
+    "groupId": "chromide_club",
+    "variants": [
+      {
+        "id": "chromide_club_primary",
+        "labelPt": "Sala original",
+        "labelEn": "Original room",
+        "kind": "primary",
+        "filename": "habbo_public_space__chromide_club__brpt__undated.gif",
+        "presentationFilename": "habbo_public_space__chromide_club__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 489,
+        "format": "GIF",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "v3:chromide_club:primary",
+        "sourcePageUrl": "https://habboxwiki.com/The_Chromide_Club",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/TheChromideClub.gif",
+        "notes": "Original design gallery image."
+      },
+      {
+        "id": "chromide_club_variant_02",
+        "labelPt": "Mapa 02",
+        "labelEn": "Map 02",
+        "kind": "historic_revision",
+        "filename": "habbo_public_space__chromide_club__variant_02__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__chromide_club__variant_02__brpt__undated__presentation.png",
+        "width": 675,
+        "height": 468,
+        "format": "PNG",
+        "temporalStatus": "historic_revision_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "v3:chromide_club:variant-02",
+        "sourcePageUrl": "https://habboxwiki.com/The_Chromide_Club",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Chromide_Club_2.png",
+        "notes": "New design gallery image."
+      }
+    ],
+    "grouped": true,
+    "arrivalText": {
+      "pt": "Um clube de duas atmosferas: a sala reconhecível, depois a pista que muda a memória de cor.",
+      "en": "A club with two atmospheres: the recognizable room, then the dance floor that changes the memory's color."
+    },
+    "socialUses": [
+      "dancing",
+      "nightlife",
+      "chat",
+      "social-display",
+      "meeting-new-users"
+    ],
+    "socialUsesPtBr": [
+      "dançar",
+      "vida noturna",
+      "conversa",
+      "presença social",
+      "conhecer pessoas"
+    ],
+    "socialUsesEn": [
+      "dancing",
+      "nightlife",
+      "chat",
+      "social-display",
+      "meeting-new-users"
+    ],
+    "spatialNotes": {
+      "pt": "O arquivo agrupa lounge e pista como variantes históricas da mesma identidade Chromide/Mexirica.",
+      "en": "The archive groups lounge and dance floor as historic variants of the same Chromide/Mexirica identity."
+    },
+    "shortFacts": {
+      "pt": [
+        "Clube Mexirica aparece como âncora BR da identidade Chromide.",
+        "As duas imagens ficam disponíveis como mapas do mesmo lugar."
+      ],
+      "en": [
+        "Clube Mexirica anchors the Chromide identity in the BR record.",
+        "Both images remain available as maps of the same place."
+      ]
+    },
+    "topologyStatus": "probable",
+    "landmarkStrength": "high",
+    "versionLineage": [
+      "The Chromide Club / Clube Mexirica room family"
+    ],
+    "relatedArchiveItems": [
+      "https://habboxwiki.com/The_Chromide_Club",
+      "https://habbo.fandom.com/wiki/The_Chromide_Club",
+      "https://habbo-muito.blogspot.com/2012/"
+    ],
+    "sourceManifestRow": "V3 — The Chromide Club / Clube Mexirica",
+    "accessEvidence": "br_historical_roster_and_public_room_archive",
+    "notes": "Accepted V3 canonical group with two grouped historic images.",
+    "complexStructure": {
+      "roomCount": 2,
+      "knownSubrooms": [
+        "lounge",
+        "dance floor"
+      ],
+      "evidenceStatus": "probable_historical",
+      "note": "HabboxWiki describes a two-room public-room identity and supplies original and new-design gallery images."
+    },
+    "sourcePageUrl": "https://habboxwiki.com/The_Chromide_Club",
+    "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/TheChromideClub.gif"
+  },
+  {
+    "id": "floating_garden",
+    "slug": "floating_garden",
+    "canonicalNamePtBr": "Jardim Flutuante",
+    "canonicalNameEn": "Floating Garden",
+    "aliases": [
+      "Jardim Oriental",
+      "Water Garden",
+      "Hanging Garden",
+      "The Port"
+    ],
+    "category": "outdoor",
+    "editorialDistrict": "leisure_outdoors",
+    "editorialMapPosition": {
+      "x": 50,
+      "y": 50,
+      "scale": 1,
+      "layer": 1,
+      "cluster": "water"
+    },
+    "presentationOrder": 21,
+    "visualCluster": "water",
+    "topologyDisplayPosition": [
+      500,
+      330
+    ],
+    "hotelLocale": [
+      "brpt"
+    ],
+    "technicalEra": [
+      "classic Shockwave-era raster"
+    ],
+    "visualEra": [
+      "classic_public_room"
+    ],
+    "communityEra": [],
+    "image": {
+      "id": "floating_garden_primary",
+      "labelPt": "Sala principal",
+      "labelEn": "Main room",
+      "kind": "primary",
+      "filename": "habbo_public_space__floating_garden__brpt__undated.png",
+      "presentationFilename": "habbo_public_space__floating_garden__brpt__undated__presentation.png",
+      "width": 980,
+      "height": 570,
+      "format": "PNG",
+      "temporalStatus": "canonical_original_image",
+      "rightsStatus": "public_reference_only",
+      "provenanceId": "v3:floating_garden:primary",
+      "sourcePageUrl": "https://habboxwiki.com/Floating_Garden",
+      "directImageUrl": "https://habboxwiki.com/wiki/images/8/8e/Floating_Garden.png",
+      "notes": "Original public-room image."
+    },
+    "groupId": "floating_garden",
+    "variants": [
+      {
+        "id": "floating_garden_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__floating_garden__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__floating_garden__brpt__undated__presentation.png",
+        "width": 980,
+        "height": 570,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "v3:floating_garden:primary",
+        "sourcePageUrl": "https://habboxwiki.com/Floating_Garden",
+        "directImageUrl": "https://habboxwiki.com/wiki/images/8/8e/Floating_Garden.png",
+        "notes": "Original public-room image."
+      }
+    ],
+    "grouped": false,
+    "arrivalText": {
+      "pt": "Água parada, pedra e um jardim suspenso para conversas que não precisam correr.",
+      "en": "Still water, stone, and a suspended garden for conversations that do not need to hurry."
+    },
+    "socialUses": [
+      "quiet-hangout",
+      "chat",
+      "rest",
+      "exploration",
+      "meeting-new-users"
+    ],
+    "socialUsesPtBr": [
+      "encontro tranquilo",
+      "conversa",
+      "descanso",
+      "exploração",
+      "conhecer pessoas"
+    ],
+    "socialUsesEn": [
+      "quiet-hangout",
+      "chat",
+      "rest",
+      "exploration",
+      "meeting-new-users"
+    ],
+    "spatialNotes": {
+      "pt": "Floating Garden permanece como espaço exterior de atmosfera oriental; os aliases ficam ligados ao mesmo lugar.",
+      "en": "Floating Garden remains an outdoor room with an oriental atmosphere; its aliases stay attached to the same place."
+    },
+    "shortFacts": {
+      "pt": [
+        "Jardim Flutuante aparece no recorte histórico BR.",
+        "A imagem preserva uma cena de jardim, água e passagem."
+      ],
+      "en": [
+        "Jardim Flutuante appears in the BR historical record.",
+        "The image preserves a scene of garden, water, and passage."
+      ]
+    },
+    "topologyStatus": "probable",
+    "landmarkStrength": "high",
+    "versionLineage": [
+      "Floating Garden / Water Garden / The Port aliases"
+    ],
+    "relatedArchiveItems": [
+      "https://habboxwiki.com/Floating_Garden",
+      "https://habbo-muito.blogspot.com/2012/"
+    ],
+    "sourceManifestRow": "V3 — Floating Garden / Jardim Flutuante",
+    "accessEvidence": "br_historical_roster_and_public_room_archive",
+    "notes": "Accepted V3 canonical group.",
+    "complexStructure": {
+      "roomCount": 1,
+      "knownSubrooms": [
+        "Floating Garden"
+      ],
+      "evidenceStatus": "documented_historical",
+      "note": "The public-room page and BR retrospective converge on the room identity."
+    },
+    "sourcePageUrl": "https://habboxwiki.com/Floating_Garden",
+    "directImageUrl": "https://habboxwiki.com/wiki/images/8/8e/Floating_Garden.png"
+  },
+  {
+    "id": "zen_garden",
+    "slug": "zen_garden",
+    "canonicalNamePtBr": "Jardim Zen",
+    "canonicalNameEn": "Zen Garden",
+    "aliases": [
+      "Jardin Zen",
+      "Zen Garden Room"
+    ],
+    "category": "outdoor",
+    "editorialDistrict": "leisure_outdoors",
+    "editorialMapPosition": {
+      "x": 50,
+      "y": 50,
+      "scale": 1,
+      "layer": 1,
+      "cluster": "water"
+    },
+    "presentationOrder": 22,
+    "visualCluster": "water",
+    "topologyDisplayPosition": [
+      500,
+      330
+    ],
+    "hotelLocale": [
+      "brpt"
+    ],
+    "technicalEra": [
+      "classic Shockwave-era raster"
+    ],
+    "visualEra": [
+      "classic_public_room"
+    ],
+    "communityEra": [],
+    "image": {
+      "id": "zen_garden_primary",
+      "labelPt": "Sala principal",
+      "labelEn": "Main room",
+      "kind": "primary",
+      "filename": "habbo_public_space__zen_garden__brpt__undated.png",
+      "presentationFilename": "habbo_public_space__zen_garden__brpt__undated__presentation.png",
+      "width": 722,
+      "height": 489,
+      "format": "PNG",
+      "temporalStatus": "canonical_original_image",
+      "rightsStatus": "public_reference_only",
+      "provenanceId": "v3:zen_garden:primary",
+      "sourcePageUrl": "https://habboxwiki.com/Zen_Garden_(Room)",
+      "directImageUrl": "https://habboxwiki.com/wiki/images/7/7f/ZenGarden.png",
+      "notes": "Original public-room image."
+    },
+    "groupId": "zen_garden",
+    "variants": [
+      {
+        "id": "zen_garden_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__zen_garden__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__zen_garden__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 489,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "v3:zen_garden:primary",
+        "sourcePageUrl": "https://habboxwiki.com/Zen_Garden_(Room)",
+        "directImageUrl": "https://habboxwiki.com/wiki/images/7/7f/ZenGarden.png",
+        "notes": "Original public-room image."
+      }
+    ],
+    "grouped": false,
+    "arrivalText": {
+      "pt": "Um jardim de madeira, água e silêncio relativo — uma sala feita para ficar um pouco.",
+      "en": "A garden of wood, water, and relative quiet — a room made for staying a little longer."
+    },
+    "socialUses": [
+      "quiet-hangout",
+      "chat",
+      "rest",
+      "dating",
+      "exploration"
+    ],
+    "socialUsesPtBr": [
+      "encontro tranquilo",
+      "conversa",
+      "descanso",
+      "paquera",
+      "exploração"
+    ],
+    "socialUsesEn": [
+      "quiet-hangout",
+      "chat",
+      "rest",
+      "dating",
+      "exploration"
+    ],
+    "spatialNotes": {
+      "pt": "O Jardim Zen é mantido como lugar exterior de encontro tranquilo, não como coordenada de parque reconstruída.",
+      "en": "Zen Garden is kept as an outdoor place for quiet gathering, not as a reconstructed park coordinate."
+    },
+    "shortFacts": {
+      "pt": [
+        "Jardim Zen aparece na memória pública BR.",
+        "A sala preserva abrigo, deck, água e árvore como sinais de lugar."
+      ],
+      "en": [
+        "Jardim Zen appears in the BR public memory.",
+        "The room preserves shelter, deck, water, and tree as place signals."
+      ]
+    },
+    "topologyStatus": "probable",
+    "landmarkStrength": "high",
+    "versionLineage": [],
+    "relatedArchiveItems": [
+      "https://habboxwiki.com/Zen_Garden_(Room)",
+      "https://habbo-muito.blogspot.com/2012/"
+    ],
+    "sourceManifestRow": "V3 — Zen Garden / Jardim Zen",
+    "accessEvidence": "br_historical_roster_and_public_room_archive",
+    "notes": "Accepted V3 canonical group.",
+    "complexStructure": {
+      "roomCount": 1,
+      "knownSubrooms": [
+        "Zen Garden"
+      ],
+      "evidenceStatus": "documented_historical",
+      "note": "Public-room page and BR retrospective converge on the room identity."
+    },
+    "sourcePageUrl": "https://habboxwiki.com/Zen_Garden_(Room)",
+    "directImageUrl": "https://habboxwiki.com/wiki/images/7/7f/ZenGarden.png"
+  },
+  {
+    "id": "habburgers",
+    "slug": "habburgers",
+    "canonicalNamePtBr": "Habbo Rango",
+    "canonicalNameEn": "Habburgers",
+    "aliases": [
+      "Flava Burger Bar",
+      "Habburgers",
+      "Habbo Rango"
+    ],
+    "category": "food",
+    "editorialDistrict": "food_and_cafes",
+    "editorialMapPosition": {
+      "x": 50,
+      "y": 50,
+      "scale": 1,
+      "layer": 1,
+      "cluster": "food"
+    },
+    "presentationOrder": 12,
+    "visualCluster": "food",
+    "topologyDisplayPosition": [
+      500,
+      330
+    ],
+    "hotelLocale": [
+      "brpt"
+    ],
+    "technicalEra": [
+      "classic Shockwave-era raster"
+    ],
+    "visualEra": [
+      "classic_public_room"
+    ],
+    "communityEra": [],
+    "image": {
+      "id": "habburgers_primary",
+      "labelPt": "Sala principal",
+      "labelEn": "Main room",
+      "kind": "primary",
+      "filename": "habbo_public_space__habburgers__brpt__undated.png",
+      "presentationFilename": "habbo_public_space__habburgers__brpt__undated__presentation.png",
+      "width": 583,
+      "height": 414,
+      "format": "PNG",
+      "temporalStatus": "canonical_original_image",
+      "rightsStatus": "public_reference_only",
+      "provenanceId": "v3:habburgers:primary",
+      "sourcePageUrl": "https://habboxwiki.com/Habburgers",
+      "directImageUrl": "https://habboxwiki.com/wiki/images/7/78/Habburgerss.png",
+      "notes": "Original public-room image."
+    },
+    "groupId": "habburgers",
+    "variants": [
+      {
+        "id": "habburgers_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__habburgers__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__habburgers__brpt__undated__presentation.png",
+        "width": 583,
+        "height": 414,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "v3:habburgers:primary",
+        "sourcePageUrl": "https://habboxwiki.com/Habburgers",
+        "directImageUrl": "https://habboxwiki.com/wiki/images/7/78/Habburgerss.png",
+        "notes": "Original public-room image."
+      }
+    ],
+    "grouped": false,
+    "arrivalText": {
+      "pt": "Um restaurante de cor forte: balcão, mesas, fila e a pequena coreografia de pedir comida.",
+      "en": "A brightly colored restaurant: counter, tables, queues, and the small choreography of ordering food."
+    },
+    "socialUses": [
+      "food",
+      "chat",
+      "queueing",
+      "casual-hangout",
+      "meeting-new-users"
+    ],
+    "socialUsesPtBr": [
+      "comida",
+      "conversa",
+      "filas",
+      "encontro casual",
+      "conhecer pessoas"
+    ],
+    "socialUsesEn": [
+      "food",
+      "chat",
+      "queueing",
+      "casual-hangout",
+      "meeting-new-users"
+    ],
+    "spatialNotes": {
+      "pt": "Habbo Rango e Habburgers são preservados como a mesma identidade de lanchonete pública.",
+      "en": "Habbo Rango and Habburgers are preserved as the same public burger-bar identity."
+    },
+    "shortFacts": {
+      "pt": [
+        "A sala aparece como Habburgers/Flava Burger Bar nas fontes internacionais.",
+        "O nome Habbo Rango fica guardado como âncora BR."
+      ],
+      "en": [
+        "The room appears as Habburgers/Flava Burger Bar in international sources.",
+        "Habbo Rango is kept as the BR anchor name."
+      ]
+    },
+    "topologyStatus": "documented",
+    "landmarkStrength": "high",
+    "versionLineage": [
+      "Habburgers / Flava Burger Bar / Habbo Rango"
+    ],
+    "relatedArchiveItems": [
+      "https://habboxwiki.com/Habburgers",
+      "https://habbo-muito.blogspot.com/2012/",
+      "https://habbo.fandom.com/pt-br/wiki/Quartos_Oficiais"
+    ],
+    "sourceManifestRow": "V3 — Habburgers / Habbo Rango",
+    "accessEvidence": "br_historical_roster_and_public_room_archive",
+    "notes": "Accepted V3 canonical group.",
+    "complexStructure": {
+      "roomCount": 1,
+      "knownSubrooms": [
+        "Habburgers"
+      ],
+      "evidenceStatus": "documented_historical",
+      "note": "The room is documented as an original public burger bar."
+    },
+    "sourcePageUrl": "https://habboxwiki.com/Habburgers",
+    "directImageUrl": "https://habboxwiki.com/wiki/images/7/78/Habburgerss.png"
+  },
+  {
+    "id": "net_cafe",
+    "slug": "net_cafe",
+    "canonicalNamePtBr": "Net Café",
+    "canonicalNameEn": "Net Cafe",
+    "aliases": [
+      "Cyber Café",
+      "Cyber Café Habbo Home"
+    ],
+    "category": "service",
+    "editorialDistrict": "food_and_cafes",
+    "editorialMapPosition": {
+      "x": 50,
+      "y": 50,
+      "scale": 1,
+      "layer": 1,
+      "cluster": "food"
+    },
+    "presentationOrder": 13,
+    "visualCluster": "food",
+    "topologyDisplayPosition": [
+      500,
+      330
+    ],
+    "hotelLocale": [
+      "brpt"
+    ],
+    "technicalEra": [
+      "classic Shockwave-era raster"
+    ],
+    "visualEra": [
+      "classic_public_room"
+    ],
+    "communityEra": [],
+    "image": {
+      "id": "net_cafe_primary",
+      "labelPt": "Sala principal",
+      "labelEn": "Main room",
+      "kind": "primary",
+      "filename": "habbo_public_space__net_cafe__brpt__undated.png",
+      "presentationFilename": "habbo_public_space__net_cafe__brpt__undated__presentation.png",
+      "width": 704,
+      "height": 475,
+      "format": "PNG",
+      "temporalStatus": "canonical_original_image",
+      "rightsStatus": "public_reference_only",
+      "provenanceId": "v3:net_cafe:primary",
+      "sourcePageUrl": "https://habboxwiki.com/Net_Cafe",
+      "directImageUrl": "https://habboxwiki.com/wiki/images/e/e9/Net_Cafe.png",
+      "notes": "Original public-room image."
+    },
+    "groupId": "net_cafe",
+    "variants": [
+      {
+        "id": "net_cafe_primary",
+        "labelPt": "Sala principal",
+        "labelEn": "Main room",
+        "kind": "primary",
+        "filename": "habbo_public_space__net_cafe__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__net_cafe__brpt__undated__presentation.png",
+        "width": 704,
+        "height": 475,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "v3:net_cafe:primary",
+        "sourcePageUrl": "https://habboxwiki.com/Net_Cafe",
+        "directImageUrl": "https://habboxwiki.com/wiki/images/e/e9/Net_Cafe.png",
+        "notes": "Original public-room image."
+      }
+    ],
+    "grouped": false,
+    "arrivalText": {
+      "pt": "Computadores acesos, mesas compridas e o som imaginado de uma sala que era também serviço.",
+      "en": "Lit computers, long tables, and the imagined hum of a room that was also a service."
+    },
+    "socialUses": [
+      "sessions",
+      "community-information",
+      "chat",
+      "waiting",
+      "casual-hangout"
+    ],
+    "socialUsesPtBr": [
+      "sessões",
+      "informação comunitária",
+      "conversa",
+      "espera",
+      "encontro casual"
+    ],
+    "socialUsesEn": [
+      "sessions",
+      "community-information",
+      "chat",
+      "waiting",
+      "casual-hangout"
+    ],
+    "spatialNotes": {
+      "pt": "Net Café permanece como espaço público de acesso e espera; os aliases não criam uma sala paralela.",
+      "en": "Net Cafe remains a public access and waiting room; its aliases do not create a parallel room."
+    },
+    "shortFacts": {
+      "pt": [
+        "Net Café é preservado no recorte histórico BR.",
+        "A sala combina serviço, conversa e presença de grupo."
+      ],
+      "en": [
+        "Net Cafe is preserved in the BR historical record.",
+        "The room combines service, conversation, and group presence."
+      ]
+    },
+    "topologyStatus": "documented",
+    "landmarkStrength": "high",
+    "versionLineage": [
+      "Net Cafe / Cyber Café aliases"
+    ],
+    "relatedArchiveItems": [
+      "https://habboxwiki.com/Net_Cafe",
+      "https://habbo-muito.blogspot.com/2012/"
+    ],
+    "sourceManifestRow": "V3 — Net Cafe / Net Café",
+    "accessEvidence": "br_historical_roster_and_public_room_archive",
+    "notes": "Accepted V3 canonical group.",
+    "complexStructure": {
+      "roomCount": 1,
+      "knownSubrooms": [
+        "Net Cafe"
+      ],
+      "evidenceStatus": "documented_historical",
+      "note": "Public-room page and BR retrospective converge on the room identity."
+    },
+    "sourcePageUrl": "https://habboxwiki.com/Net_Cafe",
+    "directImageUrl": "https://habboxwiki.com/wiki/images/e/e9/Net_Cafe.png"
+  },
+  {
+    "id": "rooftop_cafe",
+    "slug": "rooftop_cafe",
+    "canonicalNamePtBr": "Café Cobertura",
+    "canonicalNameEn": "Rooftop Cafe",
+    "aliases": [
+      "Café da Cobertura",
+      "Rooftop Café"
+    ],
+    "category": "food",
+    "editorialDistrict": "food_and_cafes",
+    "editorialMapPosition": {
+      "x": 50,
+      "y": 50,
+      "scale": 1,
+      "layer": 1,
+      "cluster": "food"
+    },
+    "presentationOrder": 6,
+    "visualCluster": "food",
+    "topologyDisplayPosition": [
+      500,
+      330
+    ],
+    "hotelLocale": [
+      "brpt"
+    ],
+    "technicalEra": [
+      "classic Shockwave-era raster"
+    ],
+    "visualEra": [
+      "classic_public_room"
+    ],
+    "communityEra": [],
+    "image": {
+      "id": "rooftop_cafe_primary",
+      "labelPt": "Sala original",
+      "labelEn": "Original room",
+      "kind": "primary",
+      "filename": "habbo_public_space__rooftop_cafe__brpt__undated.png",
+      "presentationFilename": "habbo_public_space__rooftop_cafe__brpt__undated__presentation.png",
+      "width": 722,
+      "height": 489,
+      "format": "PNG",
+      "temporalStatus": "canonical_original_image",
+      "rightsStatus": "public_reference_only",
+      "provenanceId": "v3:rooftop_cafe:primary",
+      "sourcePageUrl": "https://habboxwiki.com/Rooftop_Cafe",
+      "directImageUrl": "https://habboxwiki.com/wiki/images/a/a5/Rooftop_Cafe.png",
+      "notes": "Original public-room image."
+    },
+    "groupId": "rooftop_cafe",
+    "variants": [
+      {
+        "id": "rooftop_cafe_primary",
+        "labelPt": "Sala original",
+        "labelEn": "Original room",
+        "kind": "primary",
+        "filename": "habbo_public_space__rooftop_cafe__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__rooftop_cafe__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 489,
+        "format": "PNG",
+        "temporalStatus": "canonical_original_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "v3:rooftop_cafe:primary",
+        "sourcePageUrl": "https://habboxwiki.com/Rooftop_Cafe",
+        "directImageUrl": "https://habboxwiki.com/wiki/images/a/a5/Rooftop_Cafe.png",
+        "notes": "Original public-room image."
+      },
+      {
+        "id": "rooftop_cafe_variant_02",
+        "labelPt": "Mapa 02",
+        "labelEn": "Map 02",
+        "kind": "historic_revision",
+        "filename": "habbo_public_space__rooftop_cafe__variant_02__brpt__undated.png",
+        "presentationFilename": "habbo_public_space__rooftop_cafe__variant_02__brpt__undated__presentation.png",
+        "width": 722,
+        "height": 489,
+        "format": "PNG",
+        "temporalStatus": "historic_revision_image",
+        "rightsStatus": "public_reference_only",
+        "provenanceId": "v3:rooftop_cafe:variant-02",
+        "sourcePageUrl": "https://habboxwiki.com/Rooftop_Cafe",
+        "directImageUrl": "https://habboxwiki.com/wiki/index.php?title=Special:Redirect/file/Roofcafe_target.png",
+        "notes": "Target promotion design shown in the page gallery."
+      }
+    ],
+    "grouped": true,
+    "arrivalText": {
+      "pt": "Um café acima da cidade: balcão, sofá e a sensação de que o lugar existe entre uma vista e outra.",
+      "en": "A cafe above the city: counter, sofas, and the feeling of a place suspended between views."
+    },
+    "socialUses": [
+      "food",
+      "chat",
+      "viewing",
+      "quiet-hangout",
+      "casual-hangout"
+    ],
+    "socialUsesPtBr": [
+      "comida",
+      "conversa",
+      "observar a vista",
+      "encontro tranquilo",
+      "encontro casual"
+    ],
+    "socialUsesEn": [
+      "food",
+      "chat",
+      "viewing",
+      "quiet-hangout",
+      "casual-hangout"
+    ],
+    "spatialNotes": {
+      "pt": "Café Cobertura é um grupo próprio, ligado editorialmente à Cobertura, com duas imagens de design do mesmo room.",
+      "en": "Rooftop Cafe is its own group, editorially linked to Rooftop, with two design images of the same room."
+    },
+    "shortFacts": {
+      "pt": [
+        "A fonte descreve o acesso pela Cobertura, não como uma sala do mesmo mapa.",
+        "Os dois mapas ficam agrupados para evitar duplicação no dock."
+      ],
+      "en": [
+        "The source describes access through Rooftop, not as the same map.",
+        "Both maps are grouped to avoid duplicating the dock entity."
+      ]
+    },
+    "topologyStatus": "probable",
+    "landmarkStrength": "high",
+    "versionLineage": [
+      "Rooftop Cafe / Rooftop access relation"
+    ],
+    "relatedArchiveItems": [
+      "https://habboxwiki.com/Rooftop_Cafe",
+      "https://habboxwiki.com/Rooftop",
+      "https://habbo-muito.blogspot.com/2012/"
+    ],
+    "sourceManifestRow": "V3 — Rooftop Cafe / Café Cobertura",
+    "accessEvidence": "br_historical_roster_and_public_room_archive",
+    "notes": "Accepted V3 canonical group with two grouped historic images.",
+    "complexStructure": {
+      "roomCount": 2,
+      "knownSubrooms": [
+        "original cafe",
+        "Target promotion design"
+      ],
+      "evidenceStatus": "probable_historical",
+      "note": "The page links access to Rooftop and supplies a second historic gallery design."
+    },
+    "sourcePageUrl": "https://habboxwiki.com/Rooftop_Cafe",
+    "directImageUrl": "https://habboxwiki.com/wiki/images/a/a5/Rooftop_Cafe.png"
   }
 ]

@@ -642,6 +642,19 @@ button {
   line-height: 1.55;
 }
 
+.site-footer--v2 {
+  margin-top: 0;
+  padding: .65rem 0 1rem;
+  border-top-color: rgba(230, 236, 224, .08);
+  font-size: .58rem;
+}
+
+.site-footer--v2 .rights-disclaimer {
+  max-width: 74ch;
+  margin: 0;
+  opacity: .62;
+}
+
 .footer-note {
   margin: 0;
 }
@@ -743,6 +756,78 @@ button {
   margin: 0;
   color: var(--ink-soft);
   font-size: .92rem;
+}
+
+.place-variants {
+  display: grid;
+  grid-template-columns: minmax(7rem, .42fr) minmax(0, 1.58fr);
+  gap: 2rem;
+  padding: 2.2rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.place-variant-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.place-variant {
+  display: grid;
+  grid-template-columns: 7.2rem minmax(0, 1fr);
+  align-items: center;
+  gap: .75rem;
+  min-width: 0;
+  padding: .45rem;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: border-color var(--ease), background-color var(--ease), transform var(--ease), opacity var(--ease);
+}
+
+.place-variant:hover,
+.place-variant:focus-visible,
+.place-variant.is-current {
+  border-color: var(--water);
+  background: rgba(131, 217, 210, .055);
+  color: var(--ink);
+}
+
+.place-variant:hover,
+.place-variant:focus-visible {
+  transform: translateY(-2px);
+}
+
+.place-variant-thumb {
+  display: grid;
+  place-items: center;
+  height: 4.8rem;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,.05), transparent 72%);
+}
+
+.place-variant-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.place-variant-copy {
+  display: grid;
+  gap: .25rem;
+  min-width: 0;
+}
+
+.place-variant-copy strong {
+  font-size: .78rem;
+  font-weight: 500;
+}
+
+.place-variant-copy small {
+  color: var(--ink-faint);
+  font: .58rem monospace;
+  text-transform: uppercase;
 }
 
 .place-reading,
@@ -874,7 +959,7 @@ button {
   height: 100%;
   object-fit: contain;
   filter: drop-shadow(0 .5rem .6rem rgba(0, 0, 0, .25));
-  mix-blend-mode: screen;
+  mix-blend-mode: normal;
 }
 
 .exit-copy {
@@ -1587,40 +1672,21 @@ button {
 }
 
 .home-page--v2 {
-  padding-bottom: 1rem;
-}
-
-.dock-intro {
-  display: grid;
-  grid-template-columns: minmax(15rem, .9fr) minmax(17rem, 1fr);
-  align-items: end;
-  gap: 2rem;
-  max-width: 60rem;
-  padding: 3.5rem 0 1.4rem;
-}
-
-.dock-intro h1 {
-  max-width: 10ch;
-  margin: 0;
-  color: var(--ink);
-  font-size: clamp(2.7rem, 6vw, 6.2rem);
-  font-weight: 500;
-  letter-spacing: -.075em;
-  line-height: .9;
-}
-
-.dock-intro > p:last-child {
-  max-width: 32rem;
-  margin: 0 0 .15rem;
-  color: var(--ink-soft);
-  font-size: .9rem;
+  display: flex;
+  min-height: calc(100vh - 4.7rem);
+  flex-direction: column;
+  padding: 0;
 }
 
 .cinematic-dock {
   position: relative;
+  display: grid;
+  flex: 1 1 auto;
+  grid-template-rows: minmax(0, 1fr) auto auto;
+  min-height: calc(100vh - 4.7rem);
   width: 100vw;
   margin-inline: calc(50% - 50vw);
-  padding: 0 max(1.25rem, calc((100vw - var(--measure)) / 2));
+  padding: .35rem max(1.25rem, calc((100vw - var(--measure)) / 2)) .55rem;
   overflow: hidden;
   background:
     radial-gradient(ellipse at 50% 48%, rgba(131, 217, 210, .085), transparent 32rem),
@@ -1643,44 +1709,22 @@ button {
 .cinematic-dock::before { top: 0; }
 .cinematic-dock::after { bottom: 0; }
 
-.dock-topline,
 .dock-caption,
-.dock-controls,
-.dock-instruction {
+.dock-controls {
   position: relative;
   z-index: 2;
 }
 
-.dock-topline {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: .9rem 0 .35rem;
-  color: var(--ink-faint);
-  font: .6rem monospace;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
-.dock-topline > div {
-  display: flex;
-  align-items: center;
-  gap: .75rem;
-}
-
-.dock-kicker { color: var(--gold); }
-.dock-count { color: var(--ink-faint); }
-.dock-mode { color: rgba(181, 190, 201, .62); }
-
 .dock-viewport {
   position: relative;
-  height: clamp(19rem, 39vw, 34rem);
+  min-height: 0;
+  height: clamp(24rem, 60vh, 42rem);
   margin-inline: -1.25rem;
   overflow: hidden;
   perspective: 1100px;
   touch-action: pan-y;
   cursor: grab;
+  overscroll-behavior-x: contain;
 }
 
 .dock-viewport:focus-visible {
@@ -1693,7 +1737,7 @@ button {
 .dock-track {
   display: flex;
   align-items: center;
-  gap: clamp(.7rem, 1.3vw, 1.5rem);
+  gap: clamp(.8rem, 1.1vw, 1.35rem);
   width: max-content;
   min-height: 100%;
   margin: 0;
@@ -1709,18 +1753,23 @@ button {
 
 .dock-slide {
   position: relative;
-  flex: 0 0 clamp(8.3rem, 13vw, 14.5rem);
+  flex: 0 0 clamp(13rem, 19vw, 23rem);
   opacity: var(--dock-opacity, .35);
   filter: blur(var(--dock-blur, 0px)) saturate(.82);
-  transform: scale(var(--dock-scale, .55)) rotateY(var(--dock-rotate, 0deg));
+  transform: translateZ(var(--dock-z, 0px)) scale(var(--dock-scale, .55)) rotateY(var(--dock-rotate, 0deg));
   transform-origin: center;
   transition: opacity 560ms ease, filter 560ms ease, transform 700ms cubic-bezier(.16, .8, .17, 1);
   will-change: transform, opacity, filter;
 }
 
-.dock-slide.is-active,
+.dock-slide.is-active {
+  z-index: 6;
+  opacity: 1;
+  filter: none;
+}
+
 .dock-slide.is-visual-focus {
-  z-index: 3;
+  z-index: 5;
   opacity: 1;
   filter: none;
 }
@@ -1736,9 +1785,10 @@ button {
 }
 
 .dock-media {
+  position: relative;
   display: grid;
   place-items: center;
-  height: clamp(13rem, 31vw, 28rem);
+  height: clamp(17rem, 43vh, 34rem);
   padding: .5rem;
   background: radial-gradient(ellipse at center, rgba(255,255,255,.055), transparent 70%);
   filter: drop-shadow(0 1.6rem 1.3rem rgba(0, 0, 0, .35));
@@ -1750,15 +1800,66 @@ button {
   height: 100%;
   object-fit: contain;
   object-position: center;
-  mix-blend-mode: screen;
+  mix-blend-mode: normal;
   user-select: none;
   -webkit-user-drag: none;
+}
+
+.dock-group-stack {
+  position: absolute;
+  right: .6rem;
+  bottom: .65rem;
+  display: grid;
+  width: 2.55rem;
+  height: 2.2rem;
+  pointer-events: none;
+}
+
+.dock-group-stack i {
+  position: absolute;
+  inset: .25rem .12rem 0 .12rem;
+  border: 1px solid rgba(230, 236, 224, .38);
+  border-radius: .22rem;
+  background: rgba(9, 13, 21, .46);
+  transform: translateY(-.22rem) rotate(-4deg);
+}
+
+.dock-group-stack i:nth-child(2) {
+  inset: .12rem .04rem .08rem .2rem;
+  transform: translateY(-.08rem) rotate(3deg);
+}
+
+.dock-group-stack b {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  align-self: end;
+  justify-self: end;
+  width: 1.55rem;
+  height: 1.15rem;
+  border: 1px solid rgba(131, 217, 210, .62);
+  border-radius: 999px;
+  background: rgba(9, 13, 21, .78);
+  color: var(--water);
+  font: .55rem monospace;
+  letter-spacing: .04em;
 }
 
 .dock-room:hover .dock-media,
 .dock-room:focus-visible .dock-media,
 .dock-slide.is-active .dock-media {
   filter: drop-shadow(0 1.8rem 1.5rem rgba(0, 0, 0, .42)) drop-shadow(0 0 .9rem rgba(131, 217, 210, .14));
+}
+
+.cinematic-dock.is-transitioning .dock-slide.is-active .dock-media {
+  animation: dock-focus-arrive 780ms cubic-bezier(.16, .8, .17, 1);
+}
+
+@keyframes dock-focus-arrive {
+  0% { filter: drop-shadow(0 0 0 rgba(131, 217, 210, 0)) drop-shadow(0 0 0 rgba(0, 0, 0, 0)); }
+  48% { filter: drop-shadow(0 2.3rem 1.8rem rgba(0, 0, 0, .48)) drop-shadow(0 0 1.35rem rgba(131, 217, 210, .24)); }
+  100% { filter: drop-shadow(0 1.8rem 1.5rem rgba(0, 0, 0, .42)) drop-shadow(0 0 .9rem rgba(131, 217, 210, .14)); }
 }
 
 .dock-caption {
@@ -1840,63 +1941,6 @@ button {
 .dock-control[data-paused="true"] { color: var(--gold); }
 .dock-play-icon { font-size: .7rem; }
 
-.dock-instruction {
-  margin: .15rem 0 1.25rem;
-  color: rgba(181, 190, 201, .58);
-  text-align: center;
-  font: .59rem monospace;
-  letter-spacing: .08em;
-  text-transform: lowercase;
-}
-
-.home-secondary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-  padding: 1.35rem 0 0;
-  color: var(--ink-faint);
-  font: .64rem monospace;
-  letter-spacing: .035em;
-}
-
-.home-secondary a {
-  display: inline-flex;
-  gap: .45rem;
-  color: var(--ink-soft);
-  text-decoration: none;
-  transition: color var(--ease), transform var(--ease);
-}
-
-.home-secondary a:hover,
-.home-secondary a:focus-visible {
-  color: var(--ink);
-  transform: translateY(-1px);
-}
-
-.home-secondary a span { color: var(--water); }
-
-.info-dialog {
-  width: min(31rem, calc(100% - 2rem));
-  padding: 0;
-  border: 1px solid var(--line-strong);
-  border-radius: .35rem;
-  background: rgba(13, 18, 28, .98);
-  color: var(--ink);
-  box-shadow: 0 1.5rem 5rem rgba(0, 0, 0, .5);
-}
-
-.info-dialog::backdrop { background: rgba(4, 7, 12, .7); backdrop-filter: blur(5px); }
-.info-dialog-inner { padding: 1.4rem; }
-.dialog-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
-.dialog-heading h2 { margin: 0; font-size: 1.45rem; font-weight: 500; letter-spacing: -.04em; }
-.info-dialog-inner > p { color: var(--ink-soft); font-size: .82rem; }
-.info-links { display: grid; gap: .55rem; margin-top: 1.2rem; }
-.info-links a { display: flex; justify-content: space-between; padding-top: .55rem; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: .75rem; text-decoration: none; }
-.info-links a:hover, .info-links a:focus-visible { color: var(--ink); }
-.info-links span { color: var(--water); }
-
 .room-lightbox {
   width: 100vw;
   height: 100vh;
@@ -1922,8 +1966,14 @@ button {
 .lightbox-figure figcaption { width: min(100%, 42rem); padding-top: .75rem; text-align: center; }
 .lightbox-figure h2 { margin: 0; font-size: clamp(1.35rem, 3vw, 2.5rem); font-weight: 500; letter-spacing: -.045em; }
 .lightbox-alias { min-height: 1.2em; margin: .3rem 0 0; color: var(--ink-faint); font-size: .72rem; }
+.lightbox-variant-label { min-height: 1.1em; margin: .45rem 0 0; color: var(--water); font: .6rem monospace; letter-spacing: .08em; text-transform: uppercase; }
 .lightbox-arrow { width: 2.8rem; height: 2.8rem; border: 1px solid rgba(230,236,224,.22); border-radius: 50%; background: rgba(11,15,24,.44); color: var(--water); cursor: pointer; font-size: 1.3rem; }
 .lightbox-arrow:hover, .lightbox-arrow:focus-visible { border-color: var(--water); background: rgba(131,217,210,.08); color: var(--ink); }
+.lightbox-variants { position: absolute; top: 50%; left: max(1rem, 2.5vw); display: grid; gap: .45rem; width: 4.5rem; max-height: calc(100vh - 9rem); padding: .3rem; overflow-y: auto; transform: translateY(-50%); scrollbar-width: thin; }
+.lightbox-variant { display: grid; gap: .2rem; width: 3.85rem; padding: .25rem; border: 1px solid rgba(230,236,224,.16); border-radius: .22rem; background: rgba(11,15,24,.58); color: var(--ink-faint); cursor: pointer; opacity: .72; transition: border-color var(--ease), color var(--ease), opacity var(--ease), transform var(--ease), background-color var(--ease); }
+.lightbox-variant:hover, .lightbox-variant:focus-visible, .lightbox-variant.is-active { border-color: var(--water); background: rgba(131,217,210,.08); color: var(--ink); opacity: 1; transform: translateX(2px); }
+.lightbox-variant img { display: block; width: 3.25rem; height: 2.35rem; object-fit: contain; }
+.lightbox-variant span { overflow: hidden; font: .52rem monospace; text-overflow: ellipsis; white-space: nowrap; }
 .lightbox-detail { grid-column: 2; justify-self: center; display: inline-flex; gap: .55rem; padding: .65rem .85rem; border-bottom: 1px solid var(--water); color: var(--ink-soft); font-size: .75rem; text-decoration: none; }
 .lightbox-detail:hover, .lightbox-detail:focus-visible { color: var(--ink); }
 .lightbox-detail span { color: var(--water); }
@@ -1931,41 +1981,40 @@ button {
 body:has(.room-lightbox[open]) { overflow: hidden; }
 
 @media (max-width: 720px) {
-  .dock-intro { grid-template-columns: 1fr; gap: .75rem; padding-top: 2.25rem; }
-  .dock-intro h1 { font-size: clamp(2.8rem, 15vw, 5.4rem); }
-  .dock-intro > p:last-child { max-width: 26rem; }
-  .cinematic-dock { padding-inline: .75rem; }
-  .dock-topline { margin-inline: .5rem; }
-  .dock-mode { display: none; }
-  .dock-viewport { height: clamp(18rem, 72vw, 27rem); margin-inline: -.75rem; }
+  .home-page--v2 { min-height: calc(100svh - 4.2rem); }
+  .cinematic-dock { min-height: calc(100svh - 4.2rem); padding-inline: .75rem; }
+  .dock-viewport { height: clamp(20rem, 64svh, 31rem); margin-inline: -.75rem; }
   .dock-track { gap: .7rem; }
   .dock-slide { flex-basis: min(82vw, 29rem); }
-  .dock-media { height: clamp(15rem, 68vw, 25rem); }
+  .dock-media { height: clamp(16rem, 62vw, 25rem); }
   .dock-caption { min-height: 5.9rem; }
-  .home-secondary { align-items: flex-start; flex-direction: column; gap: .7rem; padding-inline: .25rem; }
   .lightbox-shell { grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem; padding: 3.5rem .65rem 1.4rem; }
   .lightbox-figure img { max-height: calc(100vh - 14rem); }
   .lightbox-arrow { width: 2.25rem; height: 2.25rem; }
   .lightbox-detail { font-size: .68rem; text-align: center; }
+  .lightbox-variants { top: auto; bottom: 4.35rem; left: 50%; display: flex; width: min(calc(100vw - 5rem), 19rem); max-height: none; overflow-x: auto; overflow-y: hidden; transform: translateX(-50%); }
+  .lightbox-variant:hover, .lightbox-variant:focus-visible, .lightbox-variant.is-active { transform: translateY(-2px); }
 }
 
 @media (max-width: 480px) {
-  .v2-header .header-info span:last-child { display: none; }
-  .v2-header .header-actions { gap: .5rem; }
   .dock-caption h2 { font-size: 1.65rem; }
-  .dock-instruction { font-size: .55rem; }
   .lightbox-shell { grid-template-columns: 2.15rem minmax(0, 1fr) 2.15rem; gap: .2rem; }
   .lightbox-lang-toggle { right: 3.8rem; }
   .lightbox-close { right: .8rem; }
   .lightbox-detail { grid-column: 1 / -1; }
+  .place-variants { grid-template-columns: 1fr; gap: .9rem; }
+  .place-variant-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .dock-track,
   .dock-slide,
-  .dock-control,
-  .home-secondary a {
+  .dock-control {
     transition: none !important;
+  }
+
+  .cinematic-dock.is-transitioning .dock-slide.is-active .dock-media {
+    animation: none;
   }
 
   .dock-slide {
