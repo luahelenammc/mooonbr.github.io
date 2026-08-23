@@ -9,6 +9,18 @@
     ],
     "category": "hub",
     "editorialDistrict": "arrival_and_lobby",
+    "editorialMapPosition": {
+      "x": 9,
+      "y": 18,
+      "scale": 1.03,
+      "layer": 3,
+      "cluster": "arrival"
+    },
+    "visualCluster": "arrival",
+    "topologyDisplayPosition": [
+      100,
+      110
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -93,6 +105,18 @@
     ],
     "category": "hub",
     "editorialDistrict": "arrival_and_lobby",
+    "editorialMapPosition": {
+      "x": 25,
+      "y": 12,
+      "scale": 0.92,
+      "layer": 2,
+      "cluster": "arrival"
+    },
+    "visualCluster": "arrival",
+    "topologyDisplayPosition": [
+      250,
+      180
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -175,6 +199,18 @@
     "aliases": [],
     "category": "hub",
     "editorialDistrict": "arrival_and_lobby",
+    "editorialMapPosition": {
+      "x": 40,
+      "y": 21,
+      "scale": 0.7,
+      "layer": 2,
+      "cluster": "arrival"
+    },
+    "visualCluster": "arrival",
+    "topologyDisplayPosition": [
+      395,
+      235
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -258,6 +294,18 @@
     "aliases": [],
     "category": "hub",
     "editorialDistrict": "arrival_and_lobby",
+    "editorialMapPosition": {
+      "x": 54,
+      "y": 10,
+      "scale": 0.72,
+      "layer": 1,
+      "cluster": "arrival"
+    },
+    "visualCluster": "arrival",
+    "topologyDisplayPosition": [
+      535,
+      165
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -341,6 +389,18 @@
     "aliases": [],
     "category": "hub",
     "editorialDistrict": "arrival_and_lobby",
+    "editorialMapPosition": {
+      "x": 17,
+      "y": 40,
+      "scale": 0.76,
+      "layer": 1,
+      "cluster": "arrival"
+    },
+    "visualCluster": "arrival",
+    "topologyDisplayPosition": [
+      480,
+      315
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -430,6 +490,18 @@
     ],
     "category": "hallway",
     "editorialDistrict": "arrival_and_lobby",
+    "editorialMapPosition": {
+      "x": 34,
+      "y": 35,
+      "scale": 1.02,
+      "layer": 4,
+      "cluster": "arrival"
+    },
+    "visualCluster": "arrival",
+    "topologyDisplayPosition": [
+      310,
+      350
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -516,6 +588,18 @@
     ],
     "category": "cultural",
     "editorialDistrict": "culture_and_spectacle",
+    "editorialMapPosition": {
+      "x": 68,
+      "y": 22,
+      "scale": 1.06,
+      "layer": 3,
+      "cluster": "culture"
+    },
+    "visualCluster": "culture",
+    "topologyDisplayPosition": [
+      720,
+      150
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -605,6 +689,18 @@
     ],
     "category": "cultural",
     "editorialDistrict": "culture_and_spectacle",
+    "editorialMapPosition": {
+      "x": 84,
+      "y": 16,
+      "scale": 0.9,
+      "layer": 2,
+      "cluster": "culture"
+    },
+    "visualCluster": "culture",
+    "topologyDisplayPosition": [
+      850,
+      215
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -695,6 +791,18 @@
     ],
     "category": "pool",
     "editorialDistrict": "leisure_outdoors",
+    "editorialMapPosition": {
+      "x": 52,
+      "y": 51,
+      "scale": 1.2,
+      "layer": 5,
+      "cluster": "water"
+    },
+    "visualCluster": "water",
+    "topologyDisplayPosition": [
+      540,
+      455
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -798,6 +906,18 @@
     ],
     "category": "outdoor",
     "editorialDistrict": "leisure_outdoors",
+    "editorialMapPosition": {
+      "x": 64,
+      "y": 62,
+      "scale": 0.91,
+      "layer": 2,
+      "cluster": "water"
+    },
+    "visualCluster": "water",
+    "topologyDisplayPosition": [
+      720,
+      420
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -881,6 +1001,18 @@
     ],
     "category": "game",
     "editorialDistrict": "nightlife",
+    "editorialMapPosition": {
+      "x": 84,
+      "y": 56,
+      "scale": 1,
+      "layer": 3,
+      "cluster": "night"
+    },
+    "visualCluster": "night",
+    "topologyDisplayPosition": [
+      875,
+      510
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -974,6 +1106,18 @@
     ],
     "category": "outdoor",
     "editorialDistrict": "leisure_outdoors",
+    "editorialMapPosition": {
+      "x": 36,
+      "y": 66,
+      "scale": 0.86,
+      "layer": 2,
+      "cluster": "water"
+    },
+    "visualCluster": "water",
+    "topologyDisplayPosition": [
+      350,
+      510
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -1060,6 +1204,18 @@
     ],
     "category": "transport_event",
     "editorialDistrict": "leisure_outdoors",
+    "editorialMapPosition": {
+      "x": 11,
+      "y": 80,
+      "scale": 0.76,
+      "layer": 1,
+      "cluster": "water"
+    },
+    "visualCluster": "water",
+    "topologyDisplayPosition": [
+      100,
+      575
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -1155,6 +1311,18 @@
     ],
     "category": "outdoor",
     "editorialDistrict": "leisure_outdoors",
+    "editorialMapPosition": {
+      "x": 23,
+      "y": 77,
+      "scale": 0.83,
+      "layer": 2,
+      "cluster": "water"
+    },
+    "visualCluster": "water",
+    "topologyDisplayPosition": [
+      235,
+      500
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -1248,6 +1416,18 @@
     ],
     "category": "club",
     "editorialDistrict": "nightlife",
+    "editorialMapPosition": {
+      "x": 77,
+      "y": 73,
+      "scale": 1.16,
+      "layer": 4,
+      "cluster": "night"
+    },
+    "visualCluster": "night",
+    "topologyDisplayPosition": [
+      690,
+      585
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -1346,6 +1526,18 @@
     ],
     "category": "club",
     "editorialDistrict": "nightlife",
+    "editorialMapPosition": {
+      "x": 92,
+      "y": 71,
+      "scale": 1,
+      "layer": 3,
+      "cluster": "night"
+    },
+    "visualCluster": "night",
+    "topologyDisplayPosition": [
+      850,
+      625
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -1428,6 +1620,18 @@
     ],
     "category": "club",
     "editorialDistrict": "nightlife",
+    "editorialMapPosition": {
+      "x": 68,
+      "y": 82,
+      "scale": 0.96,
+      "layer": 2,
+      "cluster": "night"
+    },
+    "visualCluster": "night",
+    "topologyDisplayPosition": [
+      530,
+      625
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -1514,6 +1718,18 @@
     ],
     "category": "food",
     "editorialDistrict": "food_and_cafes",
+    "editorialMapPosition": {
+      "x": 52,
+      "y": 82,
+      "scale": 1.06,
+      "layer": 4,
+      "cluster": "food"
+    },
+    "visualCluster": "food",
+    "topologyDisplayPosition": [
+      470,
+      600
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -1600,6 +1816,18 @@
     ],
     "category": "food",
     "editorialDistrict": "food_and_cafes",
+    "editorialMapPosition": {
+      "x": 65,
+      "y": 36,
+      "scale": 0.72,
+      "layer": 1,
+      "cluster": "food"
+    },
+    "visualCluster": "food",
+    "topologyDisplayPosition": [
+      620,
+      300
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -1684,6 +1912,18 @@
     ],
     "category": "cultural",
     "editorialDistrict": "culture_and_spectacle",
+    "editorialMapPosition": {
+      "x": 77,
+      "y": 38,
+      "scale": 0.74,
+      "layer": 1,
+      "cluster": "culture"
+    },
+    "visualCluster": "culture",
+    "topologyDisplayPosition": [
+      780,
+      330
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -1771,6 +2011,18 @@
     ],
     "category": "food",
     "editorialDistrict": "food_and_cafes",
+    "editorialMapPosition": {
+      "x": 40,
+      "y": 85,
+      "scale": 0.76,
+      "layer": 1,
+      "cluster": "food"
+    },
+    "visualCluster": "food",
+    "topologyDisplayPosition": [
+      320,
+      640
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -1857,6 +2109,18 @@
     ],
     "category": "food",
     "editorialDistrict": "food_and_cafes",
+    "editorialMapPosition": {
+      "x": 29,
+      "y": 91,
+      "scale": 0.72,
+      "layer": 1,
+      "cluster": "food"
+    },
+    "visualCluster": "food",
+    "topologyDisplayPosition": [
+      180,
+      660
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -1943,6 +2207,18 @@
     ],
     "category": "food",
     "editorialDistrict": "food_and_cafes",
+    "editorialMapPosition": {
+      "x": 84,
+      "y": 89,
+      "scale": 0.77,
+      "layer": 2,
+      "cluster": "food"
+    },
+    "visualCluster": "food",
+    "topologyDisplayPosition": [
+      710,
+      690
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -2029,6 +2305,18 @@
     ],
     "category": "game",
     "editorialDistrict": "games_and_services",
+    "editorialMapPosition": {
+      "x": 6,
+      "y": 51,
+      "scale": 0.74,
+      "layer": 1,
+      "cluster": "service"
+    },
+    "visualCluster": "service",
+    "topologyDisplayPosition": [
+      50,
+      420
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -2112,6 +2400,18 @@
     "aliases": [],
     "category": "service",
     "editorialDistrict": "games_and_services",
+    "editorialMapPosition": {
+      "x": 93,
+      "y": 36,
+      "scale": 0.76,
+      "layer": 1,
+      "cluster": "service"
+    },
+    "visualCluster": "service",
+    "topologyDisplayPosition": [
+      930,
+      370
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -2201,6 +2501,18 @@
     ],
     "category": "game",
     "editorialDistrict": "games_and_services",
+    "editorialMapPosition": {
+      "x": 93,
+      "y": 9,
+      "scale": 0.84,
+      "layer": 2,
+      "cluster": "service"
+    },
+    "visualCluster": "service",
+    "topologyDisplayPosition": [
+      930,
+      90
+    ],
     "hotelLocale": [
       "brpt"
     ],
@@ -2283,6 +2595,18 @@
     ],
     "category": "service",
     "editorialDistrict": "arrival_and_lobby",
+    "editorialMapPosition": {
+      "x": 8,
+      "y": 65,
+      "scale": 0.72,
+      "layer": 1,
+      "cluster": "arrival"
+    },
+    "visualCluster": "arrival",
+    "topologyDisplayPosition": [
+      170,
+      330
+    ],
     "hotelLocale": [
       "brpt"
     ],

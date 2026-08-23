@@ -1,6 +1,6 @@
-# Habbo Public Prototype — Publication Manifest
+# Habbo Public Prototype V1 — Publication Manifest
 
-**Status:** public calibration prototype · independent archive · noindex
+**Status:** public V1 spatial portal · independent archive · noindex
 
 **Review date:** 2026-08-23  
 **Corpus version:** 27 canonical Habbo BR public spaces from the established archive scope  
@@ -9,7 +9,8 @@
 ## What is published
 
 - 27 canonical places with local reference images, PT-BR/EN pages, provenance and evidence states.
-- Six editorial districts, 27 normalized places, 27 edges, and the B+C+A navigation model.
+- 27 normalized places, 27 typed edges, and a V1 spatial field whose coordinates are explicitly editorial display coordinates, not historical geography.
+- A separate evidence graph, progressive archive layers, visual room exits, and the B+C+A navigation model.
 - Images retain their source metadata as `public_reference_only`; archival possession is not represented as ownership or permanent clearance.
 
 ## Why this gate passed
@@ -40,6 +41,19 @@ Official references consulted on 2026-08-23:
 - A rights complaint, policy change, or source-specific uncertainty overrides this provisional publication decision; the affected asset must be removed or replaced with a rights-pending placeholder.
 - This remains a calibration prototype, not a final site or an official Habbo property.
 
+## V1 presentation correction
+
+The prior public V0 was retained as a negative calibration fossil: its districts, card grids, visible schema and place-page sidebar made the archive read like a wiki. V1 demotes that chrome and makes the portal a threshold into places:
+
+- the home is a floating spatial field with 27 reachable room images;
+- editorial display coordinates are named and separated from historical topology;
+- Place Pages are arrival-first, with one concise context line and no first-fold fact sidebar;
+- provenance, temporal state, rights and technical detail move into an intentional archive layer;
+- place-to-place movement uses visual exits with subtle evidence grammar;
+- topology is a typed SVG graph, not an edge-card list;
+- the language switcher follows the compact two-flag behavior of `luahelenammc/LUAHELENA/ia/` and preserves the logical route;
+- Chromium/Playwright screenshots and interaction checks are required for presentation changes.
+
 ## Provenance
 
 The public runtime uses `data/places.json`, `data/edges.json`, `data/districts.json` and `data/provenance.json`. The historical corpus and image research remain governed by the Habbo source document and the original-reference archive; the public pages expose source URLs without reproducing the private research package.
@@ -49,6 +63,7 @@ The public runtime uses `data/places.json`, `data/edges.json`, `data/districts.j
 - Repository: https://github.com/luahelenammc/mooonbr.github.io
 - Public path: `/habbo/`
 - Branch: `main`
-- Substantive build commit: `5e12f7535f05892f197bfa0948f3bc49aec16a9a`
-- Feature merge commit: `8deb6804f1abfa447f416a081e75f2598c0b0577`
-- Next gate: Moon's human visual/product review of the live prototype.
+- V1 feature branch: `feat/habbo-v1-spatial-redesign`
+- Substantive V1 build commit: recorded in the V1 PR after the generated tree is created.
+- Feature merge commit: recorded in the post-merge manifest patch.
+- Next gate: live visual review of the V1 portal and its screenshot artifact.
