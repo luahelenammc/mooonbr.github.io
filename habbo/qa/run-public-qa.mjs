@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 const PROJECT_ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const DIST = path.join(PROJECT_ROOT, "dist");
 const BASE = "/habbo";
-const ASSET_VERSION = String(process.env.ASSET_VERSION || "20260823-v2-hotfix").replace(/[^a-zA-Z0-9._~-]/g, "");
+const ASSET_VERSION = String(process.env.ASSET_VERSION || "20260823-v2-effects-hotfix").replace(/[^a-zA-Z0-9._~-]/g, "");
 const CSS_ASSET = `${BASE}/assets/site.css?v=${ASSET_VERSION}`;
 const JS_ASSET = `${BASE}/assets/site.js?v=${ASSET_VERSION}`;
 const failures = [];
@@ -78,7 +78,11 @@ check((homeHtml.match(/data-room-open/g) || []).length === 27, "home does not ex
 check(homeHtml.includes("class=\"cinematic-dock\""), "home cinematic dock missing");
 check(homeHtml.includes("class=\"room-lightbox\""), "home lightbox missing");
 check(homeHtml.includes("data-autoplay-ms=\"5800\""), "home production autoplay interval missing");
+check(homeHtml.includes("data-dock-effect=\"zoom\""), "home zoom dock effect marker missing");
 check(homeHtml.includes("data-dock-play"), "home autoplay control missing");
+for (const forbidden of ["dock-intro", "dock-topline", "dock-instruction", "home-secondary", "info-dialog", "data-open-info", "Entre pela imagem.", "Uma apresentação em movimento", "relações e topologia", "método, fontes e direitos", "sequência editorial", "sobre o arquivo", "ARQUIVO INDEPENDENTE"]) {
+  check(!homeHtml.includes(forbidden), `meta explanation leaked into V2 first surface: ${forbidden}`);
+}
 check(!homeHtml.includes("spatial-world"), "V1 map leaked into V2 home");
 check(!homeHtml.includes("district-grid"), "legacy district grid leaked into V2 home");
 check(!homeHtml.includes("district-island"), "legacy district island leaked into V2 home");

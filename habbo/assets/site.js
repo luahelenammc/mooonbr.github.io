@@ -1,11 +1,23 @@
 (() => {
   const all = (selector, scope = document) => [...scope.querySelectorAll(selector)];
   const languageKey = "habbo-archive-language";
-  const dockPreferenceKey = "habbo-dock-autoplay";
+  const dockPreferenceKey = "habbo-dock-autoplay-v2";
   const body = document.body;
   const pageUrl = new URL(location.href);
   const rootEntry = body?.dataset.rootEntry === "true";
-  const storedLanguage = localStorage.getItem(languageKey);
+  const localStorageSafe = (() => {
+    try { return window.localStorage; } catch { return null; }
+  })();
+  const sessionStorageSafe = (() => {
+    try { return window.sessionStorage; } catch { return null; }
+  })();
+  const readStored = (storage, key) => {
+    try { return storage?.getItem(key) || ""; } catch { return ""; }
+  };
+  const writeStored = (storage, key, value) => {
+    try { storage?.setItem(key, value); } catch { /* storage can be denied in private browsing */ }
+  };
+  const storedLanguage = readStored(localStorageSafe, languageKey);
   let presentationState = null;
 
   // The root entry follows the last selected locale while preserving the
@@ -20,7 +32,7 @@
   }
 
   function setLanguage(lang) {
-    localStorage.setItem(languageKey, lang === "en" ? "en" : "pt-br");
+    writeStored(localStorageSafe, languageKey, lang === "en" ? "en" : "pt-br");
   }
 
   function preserveLanguageSelection(event, button) {
@@ -87,9 +99,10 @@
       timer: null,
       resumeTimer: null,
       manualResumeTimer: null,
+      transitionTimer: null,
       wheelTimer: null,
       wheelLocked: false,
-      manualPaused: localStorage.getItem(dockPreferenceKey) === "paused",
+      manualPaused: readStored(sessionStorageSafe || localStorageSafe, dockPreferenceKey) === "paused",
       lightboxOpen: false,
       originFocus: null,
       drag: null,
@@ -98,6 +111,7 @@
     };
     presentationState = state;
     dock.dataset.reducedMotion = String(state.reducedMotion);
+    dock.dataset.effect = dock.dataset.dockEffect || "zoom";
 
     const normalizeIndex = (value) => (value + slides.length) % slides.length;
     const roomAt = (index) => slides[normalizeIndex(index)];
@@ -161,13 +175,17 @@
 
     function updateVisualFocus() {
       const focusIndex = state.visualIndex === null ? state.activeIndex : state.visualIndex;
+      const narrow = window.matchMedia("(max-width: 720px)").matches;
       slides.forEach((slide, index) => {
         const distance = Math.abs(index - focusIndex);
-        const scale = index === focusIndex ? 1 : Math.max(.54, 1 - distance * .13);
+        const scale = index === focusIndex
+          ? (narrow ? 1.08 : 1.26)
+          : Math.max(narrow ? .7 : .5, (narrow ? 1 : 1.02) - distance * (narrow ? .11 : .17));
         slide.style.setProperty("--dock-scale", scale.toFixed(3));
-        slide.style.setProperty("--dock-opacity", Math.max(.28, 1 - distance * .16).toFixed(3));
-        slide.style.setProperty("--dock-blur", `${Math.min(2.2, distance * .35).toFixed(2)}px`);
-        slide.style.setProperty("--dock-rotate", `${Math.max(-7, Math.min(7, (index - focusIndex) * 2.2)).toFixed(2)}deg`);
+        slide.style.setProperty("--dock-opacity", Math.max(narrow ? .34 : .24, 1 - distance * (narrow ? .12 : .18)).toFixed(3));
+        slide.style.setProperty("--dock-blur", `${narrow ? 0 : Math.min(2.8, distance * .42).toFixed(2)}px`);
+        slide.style.setProperty("--dock-rotate", `${narrow ? 0 : Math.max(-8, Math.min(8, (index - focusIndex) * 2.8)).toFixed(2)}deg`);
+        slide.style.setProperty("--dock-z", `${narrow ? (index === focusIndex ? 40 : 0) : Math.max(0, 170 - distance * 48)}px`);
         slide.classList.toggle("is-active", index === state.activeIndex);
         slide.classList.toggle("is-visual-focus", index === focusIndex);
         const button = slide.querySelector("[data-room-open]");
@@ -194,6 +212,14 @@
       updateVisualFocus();
       updateCaption(announce);
       setTrackPosition(true);
+      dock.classList.remove("is-transitioning");
+      void dock.offsetWidth;
+      dock.classList.add("is-transitioning");
+      if (state.transitionTimer) window.clearTimeout(state.transitionTimer);
+      state.transitionTimer = window.setTimeout(() => {
+        state.transitionTimer = null;
+        dock.classList.remove("is-transitioning");
+      }, state.reducedMotion ? 0 : 820);
       if (source !== "autoplay") {
         hold("manual");
         if (state.manualResumeTimer) window.clearTimeout(state.manualResumeTimer);
@@ -262,7 +288,8 @@
         if (Date.now() < state.suppressClickUntil) return;
         openLightbox(index, room);
       });
-      room.addEventListener("pointerenter", () => {
+      room.addEventListener("pointerenter", (event) => {
+        if (event.pointerType === "touch" || event.pointerType === "pen") return;
         state.visualIndex = index;
         updateVisualFocus();
       });
@@ -280,8 +307,12 @@
       });
     });
 
-    dock.addEventListener("pointerenter", () => hold("hover"));
-    dock.addEventListener("pointerleave", () => {
+    dock.addEventListener("pointerenter", (event) => {
+      if (event.pointerType === "touch" || event.pointerType === "pen") return;
+      hold("hover");
+    });
+    dock.addEventListener("pointerleave", (event) => {
+      if (event.pointerType === "touch" || event.pointerType === "pen") return;
       state.visualIndex = null;
       updateVisualFocus();
       release("hover", 700);
@@ -310,7 +341,7 @@
     dock.querySelector("[data-dock-next]")?.addEventListener("click", () => manualAdvance(state.activeIndex + 1));
     playButton?.addEventListener("click", () => {
       state.manualPaused = !state.manualPaused;
-      localStorage.setItem(dockPreferenceKey, state.manualPaused ? "paused" : "running");
+      writeStored(sessionStorageSafe || localStorageSafe, dockPreferenceKey, state.manualPaused ? "paused" : "running");
       if (state.manualPaused) hold("manualPause");
       else release("manualPause");
       updatePlayControl();
@@ -417,6 +448,7 @@
     updateCaption(false);
     updatePlayControl();
     setTrackPosition(false);
+    dock.classList.add("is-ready");
     if (state.reducedMotion) hold("reducedMotion");
     if (state.manualPaused) hold("manualPause");
     else scheduleAutoplay(autoplayMs);
