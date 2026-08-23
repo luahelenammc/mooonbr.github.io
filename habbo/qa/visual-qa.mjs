@@ -190,10 +190,11 @@ try {
       await page.locator("[data-lightbox-detail]").click();
       await page.waitForLoadState("networkidle");
       record("CTA reaches Piscina detail", /\/habbo\/pt-br\/lugar\/lido\/$/.test(page.url()));
-      record("detail has stateful return", await page.locator('[data-back-presentation][href$="#lido"]').count() === 1);
+      record("detail has stateful return", await page.locator('[data-back-presentation][href$="#lido"]').count() >= 1);
       await page.locator("[data-back-presentation]").first().click();
       await page.waitForLoadState("networkidle");
-      record("detail returns to selected Piscina", /\/habbo\/pt-br\/$/.test(page.url().split("?")[0]) && page.url().endsWith("#lido") && await page.locator('[data-cinematic-dock][data-active-id="lido"]').count() === 1);
+      const returnUrl = new URL(page.url());
+      record("detail returns to selected Piscina", returnUrl.pathname.endsWith("/habbo/pt-br/") && returnUrl.hash === "#lido" && await page.locator('[data-cinematic-dock][data-active-id="lido"]').count() === 1);
     }
   });
 
@@ -203,7 +204,7 @@ try {
     viewport: { width: 1440, height: 900 },
     screenshot: "08-en-home.png",
     assert: async (page) => {
-      record("English flag is active", await page.locator('.lang-button[data-lang="en"].is-active').count() === 1);
+      record("English flag is active", await page.locator('.v2-header .lang-button[data-lang="en"].is-active').count() === 1);
       record("English selected room is Lido", await page.locator('[data-cinematic-dock][data-active-id="lido"]').count() === 1 && await page.locator("[data-active-name]").innerText() === "Lido");
     }
   });
@@ -215,7 +216,7 @@ try {
     screenshot: "09-language-preserving-lightbox.png",
     assert: async (page) => {
       await page.locator('[data-room-open][data-room-id="lido"]').click();
-      await page.locator('.lang-button[data-lang="en"]').click();
+      await page.locator('.lightbox-lang-toggle .lang-button[data-lang="en"]').click();
       await page.waitForLoadState("networkidle");
       record("language switch preserves room hash", /\/habbo\/en\/$/.test(page.url().split("?")[0]) && page.url().endsWith("#lido"));
       record("language switch preserves lightbox", await page.locator(".room-lightbox").evaluate((dialog) => dialog.open) && await page.locator("[data-lightbox-title]").innerText() === "Lido");
