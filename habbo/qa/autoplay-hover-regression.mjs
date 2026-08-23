@@ -14,17 +14,13 @@ try {
   const box = await dock.boundingBox();
   if (!box) throw new Error("cinematic dock has no bounding box");
 
-  // Reproduce the real desktop condition that escaped the old QA: the user
-  // opens the page and simply leaves the mouse parked inside the almost-full-
-  // viewport Dock. Hover may magnify, but it must not pause the slideshow.
   await page.mouse.move(box.x + box.width * 0.52, box.y + box.height * 0.48);
   const before = await dock.getAttribute("data-active-id");
   await page.waitForTimeout(1150);
   const after = await dock.getAttribute("data-active-id");
   const holds = await dock.getAttribute("data-autoplay-holds");
-  const blocked = await dock.getAttribute("data-autoplay-blocked");
 
-  console.log(JSON.stringify({ before, after, holds, blocked, errors }, null, 2));
+  console.log(JSON.stringify({ before, after, holds, errors }, null, 2));
 
   if (before === after) {
     console.error(`FAIL: autoplay did not advance with mouse parked inside Dock (${before} -> ${after})`);

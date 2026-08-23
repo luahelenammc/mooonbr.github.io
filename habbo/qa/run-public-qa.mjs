@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 const PROJECT_ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const DIST = path.join(PROJECT_ROOT, "dist");
 const BASE = "/habbo";
-const ASSET_VERSION = String(process.env.ASSET_VERSION || "20260823-v2-effects-hotfix").replace(/[^a-zA-Z0-9._~-]/g, "");
+const ASSET_VERSION = String(process.env.ASSET_VERSION || "20260823-v3-variants-polish").replace(/[^a-zA-Z0-9._~-]/g, "");
 const CSS_ASSET = `${BASE}/assets/site-${ASSET_VERSION}.css`;
 const JS_ASSET = `${BASE}/assets/site-${ASSET_VERSION}.js`;
 const failures = [];
@@ -48,8 +48,8 @@ for (const locale of ["pt-br", "en"]) {
   }
 }
 
-check(htmlFiles.length === 62, `expected 62 HTML files, found ${htmlFiles.length}`);
-check(assetFiles.length === 27, `expected 27 published image assets, found ${assetFiles.length}`);
+check(htmlFiles.length === 76, `expected 76 HTML files, found ${htmlFiles.length}`);
+check(assetFiles.length === 74, `expected 74 published source/presentation assets, found ${assetFiles.length}`);
 check(fs.existsSync(path.join(DIST, "PUBLICATION_MANIFEST.md")), "publication manifest missing from public build");
 check(fs.existsSync(path.join(DIST, "assets", "flag-br.svg")), "Brazil flag asset missing from public build");
 check(fs.existsSync(path.join(DIST, "assets", "flag-us.svg")), "US flag asset missing from public build");
@@ -70,15 +70,17 @@ for (const file of htmlFiles) {
   check(!/(href|src)=(['"])\/(?:pt-br|en|assets)\//.test(html), `root route leak: ${rel}`);
   check(!html.includes("https://drive.google.com/file/"), `internal Drive link leaked: ${rel}`);
   check(!html.includes("PT-BR | EN"), `plain-text language switcher leaked: ${rel}`);
-  for (const match of html.matchAll(new RegExp(`${BASE}/assets/archive-reference/assets/([^'"?#]+)`, "g"))) {
+  for (const match of html.matchAll(new RegExp(`${BASE}/assets/archive-reference/assets/([^'"?#&]+)`, "g"))) {
     check(fs.existsSync(path.join(DIST, "assets", "archive-reference", "assets", match[1])), `missing image for ${rel}: ${match[1]}`);
   }
 }
 
 const homeHtml = fs.readFileSync(path.join(DIST, "pt-br", "index.html"), "utf8");
-check((homeHtml.match(/data-room-open/g) || []).length === 27, "home does not expose all 27 dock rooms");
+check((homeHtml.match(/data-room-open/g) || []).length === 34, "home does not expose all 34 dock rooms");
 check(homeHtml.includes("class=\"cinematic-dock\""), "home cinematic dock missing");
 check(homeHtml.includes("class=\"room-lightbox\""), "home lightbox missing");
+check(homeHtml.includes("data-lightbox-variants"), "grouped variant rail missing from home lightbox");
+check(homeHtml.includes("Abrir página"), "explicit lightbox page CTA missing");
 check(homeHtml.includes("data-autoplay-ms=\"5800\""), "home production autoplay interval missing");
 check(homeHtml.includes("data-dock-effect=\"zoom\""), "home zoom dock effect marker missing");
 check(homeHtml.includes("data-dock-play"), "home autoplay control missing");
@@ -110,12 +112,16 @@ for (const file of filesUnder(DIST).filter(file => /\.(html|css|js|json|md|txt)$
 
 const places = JSON.parse(fs.readFileSync(path.join(PROJECT_ROOT, "data", "places.json"), "utf8"));
 const edges = JSON.parse(fs.readFileSync(path.join(PROJECT_ROOT, "data", "edges.json"), "utf8"));
-check(places.length === 27, `expected 27 places, found ${places.length}`);
+check(places.length === 34, `expected 34 places, found ${places.length}`);
 check(edges.length === 27, `expected 27 edges, found ${edges.length}`);
 check(places.every((place) => place.editorialMapPosition && place.visualCluster), "editorial map coordinates missing from normalized data");
-check(places.every((place) => Number.isInteger(place.presentationOrder) && place.presentationOrder >= 1 && place.presentationOrder <= 27), "presentation order missing from normalized data");
+check(places.every((place) => Number.isInteger(place.presentationOrder) && place.presentationOrder >= 1 && place.presentationOrder <= 34), "presentation order missing from normalized data");
 check(new Set(places.map((place) => place.presentationOrder)).size === places.length, "presentation order contains duplicates");
 check(!places.some(place => /Lanchonete|Mobiles/i.test(`${place.canonicalNamePtBr} ${place.canonicalNameEn}`)), "excluded place leaked into public corpus");
+check(places.filter((place) => place.grouped).length === 3, "expected three grouped place entities");
+check(places.filter((place) => place.grouped).every((place) => place.variants.length === 2), "grouped place variant count is incorrect");
+check(places.every((place) => place.variants?.every((variant) => variant.filename && variant.presentationFilename)), "variant provenance or presentation asset missing");
+check(fs.existsSync(path.join(DIST, "data", "v3-content-ledger.json")), "V3 research ledger missing from public data");
 check(fs.readFileSync(path.join(DIST, "PUBLICATION_MANIFEST.md"), "utf8").includes("Publication decision"), "publication decision missing from manifest");
 
 const report = {
@@ -131,7 +137,7 @@ const report = {
 };
 fs.writeFileSync(path.join(PROJECT_ROOT, "qa", "public-qa-report.json"), JSON.stringify(report, null, 2) + "\n");
 fs.writeFileSync(path.join(PROJECT_ROOT, "qa", "HABBO_PUBLIC_PROTOTYPE_QA_2026-08-23.md"), [
-  "# Habbo Public Prototype V2 QA — 2026-08-23",
+  "# Habbo Public Prototype V3 QA — 2026-08-23",
   "",
   `Result: **${report.result}**`,
   `Checks: **${checks}**`,

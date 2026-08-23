@@ -1,18 +1,18 @@
-# Habbo Public Prototype V2 — Publication Manifest
+# Habbo Public Prototype V3 — Publication Manifest
 
-**Status:** public V2 Cinematic Dock portal · independent archive · noindex
+**Status:** public V3 Cinematic Dock portal · independent archive · noindex
 
 **Review date:** 2026-08-23  
-**Corpus version:** 27 canonical Habbo BR public spaces from the established archive scope  
+**Corpus version:** 34 canonical Habbo BR public-space groups, including 37 grouped maps/variants  
 **Publication decision:** A — cleared enough for prototype publication under a bounded, non-commercial reading of the current Habbo Fansite Policy. This is a policy-based operational decision, not legal advice or an irrevocable licence.
 
 ## What is published
 
-- 27 canonical places with local reference images, PT-BR/EN pages, provenance and evidence states.
-- 27 normalized places, 27 typed edges, and an explicit `presentationOrder` independent from the research graph.
-- A Cinematic Dock with centered magnification, editorial sequence, 5.8-second autoplay, mandatory pause control, keyboard/wheel/drag/touch input, and reduced-motion behavior.
-- A lightbox-first inspection layer; documentary Place Pages, archive drawers, visual exits, and the separate evidence graph remain one deliberate step deeper.
-- Images retain their source metadata as `public_reference_only`; archival possession is not represented as ownership or permanent clearance.
+- 34 canonical place groups with PT-BR/EN pages, provenance, evidence states and 37 original/grouped maps.
+- 27 typed research edges plus a V3 research ledger that keeps accepted, grouped, secondary and uncertain candidates explicit.
+- A Cinematic Dock with centered magnification, pointer-sensitive neighbor curvature, 5.8-second autoplay, mandatory pause control, keyboard/wheel/drag/touch input, and reduced-motion behavior.
+- A lightbox-first inspection layer with vertical map variants, outside-click close and an explicit `Abrir página` / `Open page` CTA; documentary Place Pages, archive drawers, visual exits and the separate evidence graph remain one deliberate step deeper.
+- Raw archival originals remain preserved; presentation derivatives remove only connected exterior matte/background pixels and are used by the public surface. Every asset remains `public_reference_only`.
 
 ## Why this gate passed
 
@@ -35,14 +35,37 @@ Official references consulted on 2026-08-23:
 - https://help.habbo.com/hc/en-us/articles/221645248-Infringements-Policy
 - https://www.habbo.com/playing-habbo/terms-of-service
 
+## V3 research and presentation decision
+
+The candidate set was checked against the HabboxWiki public-room category/pages, the Habbo Fandom public-room and BR official-room lists, the Fandom room-image index, and the Brazilian historical retrospective at `habbo-muito.blogspot.com/2012/`. A candidate was promoted only when BR identity evidence and a recoverable room image converged.
+
+Accepted as new canonical groups:
+
+- Battle Ball Lounge;
+- Clube Mexirica / The Chromide Club;
+- Jardim Flutuante / Floating Garden;
+- Jardim Zen / Zen Garden;
+- Habbo Rango / Habburgers;
+- Net Café / Net Cafe;
+- Café Cobertura / Rooftop Cafe.
+
+Accepted as grouped variants, never duplicated as dock entities:
+
+- Clube Massiva — mapa 02;
+- Clube Mexirica / The Chromide Club — mapa 02;
+- Café Cobertura / Rooftop Cafe — mapa 02.
+
+The public `data/v3-content-ledger.json` retains the complete candidate matrix and source URLs.
+
 ## Exclusions and open points
 
-- **Lanchonete Vírgula:** excluded from the 27-place corpus because image/provenance evidence remained insufficient.
-- **Mobiles Disco:** excluded because it is not a canonical Habbo BR public-space node in this scope.
+- **Lanchonete Vírgula:** remains `uncertain_pending`; the BR retrospective names it, but this pass did not recover a stable public-room page plus original image/provenance pair.
+- **Mobiles Disco:** remains `secondary_place`; HabboxWiki identifies it as the progenitor of Habbo rather than a Habbo Hotel public room, despite the BR memory roster.
+- **The Den:** remains `secondary_place`; it is documented internationally, but no sufficiently strong BR/PT-BR anchor was found for this homepage cohort.
 - A rights complaint, policy change, or source-specific uncertainty overrides this provisional publication decision; the affected asset must be removed or replaced with a rights-pending placeholder.
 - This remains a calibration prototype, not a final site or an official Habbo property.
 
-## Presentation lineage: V1 → V2
+## Presentation lineage: V1 → V3
 
 The prior public V0 was retained as a negative calibration fossil: its districts, card grids, visible schema and place-page sidebar made the archive read like a wiki. V1 demoted that chrome and made the portal a threshold into places:
 
@@ -55,17 +78,17 @@ The prior public V0 was retained as a negative calibration fossil: its districts
 - the language switcher follows the compact two-flag behavior of `luahelenammc/LUAHELENA/ia/` and preserves the logical route;
 - Chromium/Playwright screenshots and interaction checks are required for presentation changes.
 
-V2 addresses the remaining “improved Wikipedia” reading by removing the map from the doorway entirely. The homepage is now a three-level experience:
+V2 addressed the remaining “improved Wikipedia” reading by removing the map from the doorway entirely. V3 keeps that clean first surface and adds grouped historical variants without returning to catalog chrome:
 
-- discovery/emotion: one horizontal dock gallery, with central dominance and neighboring depth rather than 27 visible cards;
-- inspection: a focused lightbox with the uncropped original image, localized title/alias, previous/next/close, and a detail CTA;
+- discovery/emotion: one horizontal dock gallery, with central dominance and neighboring depth rather than 34 visible cards;
+- inspection: a focused lightbox with the uncropped presentation image, localized title/alias, previous/next/close, grouped map rail and a detail CTA;
 - documentation: the existing Place Page and research layers, reachable from the lightbox and returnable via `#slug`.
 
-Autoplay is 5.8 seconds in production, with visible pause/resume, pause-on-hover/focus/drag/wheel/visibility/lightbox, selected-room language preservation, mobile swipe/snap, and reduced-motion fallback.
+Autoplay is 5.8 seconds in production, with visible pause/resume, continuous pointer curvature that does not freeze autoplay, focus/drag/wheel/visibility/lightbox holds, selected-room language preservation, mobile swipe/snap, and reduced-motion fallback. Grouped places expose one quiet stacked dock marker and a vertical/horizontal responsive map rail.
 
 ## Provenance
 
-The public runtime uses `data/places.json`, `data/edges.json`, `data/districts.json` and `data/provenance.json`. The historical corpus and image research remain governed by the Habbo source document and the original-reference archive; the public pages expose source URLs without reproducing the private research package.
+The public runtime uses `data/places.json`, `data/edges.json`, `data/districts.json`, `data/provenance.json` and `data/v3-content-ledger.json`. The historical corpus and image research remain governed by the Habbo source document and the original-reference archive; the public pages expose source URLs without reproducing the private research package.
 
 ## Release record
 
