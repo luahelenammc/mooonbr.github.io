@@ -64,6 +64,8 @@ The public runtime uses `data/places.json`, `data/edges.json`, `data/districts.j
 - Public path: `/habbo/`
 - Branch: `main`
 - V1 feature branch: `feat/habbo-v1-spatial-redesign`
-- Substantive V1 build commit: recorded in the V1 PR after the generated tree is created.
-- Feature merge commit: recorded in the post-merge manifest patch.
-- Next gate: live visual review of the V1 portal and its screenshot artifact.
+- V1 build lineage: `924e0c98150f21d17eae65d8aacae5ac48f37fde` → `727e162e165c8b37110362e95639fe8239f29168` → `340d6afc67dd11899b5e112910a660f15a3205cf` → `4b385bdb7d01ac31455eec3e9c2ba71c9e690624`.
+- Feature merge commit: `b35b6e4544f84f726c327eb28bf813225aa61678` (PR #6).
+- Chromium/Playwright run: [run 32622459546](https://github.com/luahelenammc/mooonbr.github.io/actions/runs/32622459546), passed; [screenshot artifact](https://github.com/luahelenammc/mooonbr.github.io/actions/runs/32622459546/artifacts/9488772322).
+- Live verification: `/habbo/`, PT-BR, EN, Piscina, topologia and método all returned HTTP 200 with the V1 markers after merge.
+- Release gate: complete; future changes remain subject to the same static and Chromium visual checks.
