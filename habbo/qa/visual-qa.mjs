@@ -370,8 +370,10 @@ try {
     screenshot: "15-grouped-place.png",
     assert: async (page) => {
       record("grouped place page exposes maps", await page.locator("[data-place-variant-button]").count() === 2);
-      record("grouped place page selects requested map", await page.locator("[data-place-main-image]").getAttribute("src")?.includes("club_massiva__variant_02") === true);
-      record("grouped place page keeps return path", (await page.locator("[data-back-presentation]").first().getAttribute("href"))?.endsWith("#club_massiva") === true);
+      const selectedMapSrc = await page.locator("[data-place-main-image]").getAttribute("src");
+      const returnHref = await page.locator("[data-back-presentation]").first().getAttribute("href");
+      record("grouped place page selects requested map", selectedMapSrc?.includes("club_massiva__variant_02") === true, selectedMapSrc || "missing map image");
+      record("grouped place page keeps return path", returnHref?.endsWith("#club_massiva") === true, returnHref || "missing return link");
     }
   });
 
