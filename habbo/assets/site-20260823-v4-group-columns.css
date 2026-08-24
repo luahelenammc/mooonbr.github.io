@@ -1,5 +1,12 @@
 @import url("/habbo/assets/site.css?v=20260823-v4-group-columns-base");
 @import url("/habbo/assets/site-20260823-v4-group-columns-spacing-hotfix.css?v=20260823-v4-group-columns-spacing-hotfix");
+@import url("/habbo/assets/site-20260823-v4-group-columns-composition-hotfix.css?v=20260823-v4-group-columns-composition-hotfix");
 
-/* V4 QA marker; effective grouped-column rules live in the hotfix import. */
+/* V4 QA marker; grouped-column rules are composed from the scoped hotfix imports. */
 .dock-group-column {}
+
+/* The visible column already communicates multiplicity. Avoid redundant metadata
+   such as “2 mapas agrupados” / “4 maps grouped” in the cinematic caption. */
+.cinematic-dock:has(.dock-slide--grouped.is-active) [data-active-alias] {
+  display: none;
+}

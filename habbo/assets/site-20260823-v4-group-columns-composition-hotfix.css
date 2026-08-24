@@ -1,0 +1,198 @@
+/* Habbo V4 grouped-column composition hotfix
+   Purpose: make grouped places read as one elegant vertical memory column,
+   not as a stack of framed cards. */
+
+.dock-slide--grouped .dock-group-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(.6rem, 1.35vh, .95rem);
+  width: 100%;
+  max-height: none;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  overflow: visible;
+  transform: none;
+}
+
+.dock-slide--grouped .dock-variant,
+.dock-slide--grouped .dock-variant + .dock-variant {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  opacity: .5;
+  transform: scale(.86);
+  transform-origin: center;
+  transition:
+    opacity 440ms ease,
+    transform 620ms cubic-bezier(.16,.8,.17,1),
+    filter 440ms ease;
+}
+
+.dock-slide--grouped .dock-variant + .dock-variant::before {
+  display: none;
+}
+
+.dock-slide--grouped .dock-variant.is-current {
+  z-index: 3;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.dock-slide--grouped .dock-variant:hover,
+.dock-slide--grouped .dock-variant:focus-visible {
+  z-index: 4;
+  opacity: .9;
+  transform: scale(.94);
+}
+
+.dock-slide--grouped .dock-variant.is-current:hover,
+.dock-slide--grouped .dock-variant.is-current:focus-visible {
+  transform: scale(1.025);
+}
+
+/* The main caption already names the selected map; repeated tiny labels made the
+   column feel like a database list. Keep them accessible in markup, but hide
+   them visually inside the Dock. */
+.dock-slide--grouped .dock-variant-caption {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Preserve each room's natural aspect ratio; avoid framed/cropped thumbnail boxes. */
+.dock-slide--grouped .dock-variant .dock-media {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: auto !important;
+  min-height: 0;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border: 0 !important;
+  border-radius: 0;
+  background: none !important;
+  overflow: visible;
+  opacity: 1;
+  filter: drop-shadow(0 .85rem .8rem rgba(0,0,0,.28));
+  transform: none;
+}
+
+.dock-slide--grouped .dock-variant img {
+  display: block;
+  width: auto !important;
+  height: auto !important;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: none;
+  filter: none;
+}
+
+.dock-slide.is-active.dock-slide--grouped .dock-variant:not(.is-current) .dock-media {
+  opacity: 1;
+  filter: drop-shadow(0 .6rem .7rem rgba(0,0,0,.2));
+}
+
+.dock-slide--grouped .dock-variant.is-current .dock-media {
+  filter:
+    drop-shadow(0 1.05rem .95rem rgba(0,0,0,.38))
+    drop-shadow(0 0 .75rem rgba(131,217,210,.13));
+}
+
+/* Variant-count-specific envelopes. These are image max-heights, not crop boxes. */
+.dock-slide--grouped[data-room-variant-count="4"] .dock-variant img {
+  max-height: clamp(4.9rem, 8.3vh, 6.2rem);
+}
+.dock-slide--grouped[data-room-variant-count="4"] .dock-variant.is-current img {
+  max-height: clamp(6.7rem, 11.5vh, 8.6rem);
+}
+
+.dock-slide--grouped[data-room-variant-count="3"] .dock-variant img {
+  max-height: clamp(5.8rem, 10vh, 7.5rem);
+}
+.dock-slide--grouped[data-room-variant-count="3"] .dock-variant.is-current img {
+  max-height: clamp(7.8rem, 13.5vh, 10.2rem);
+}
+
+.dock-slide--grouped[data-room-variant-count="2"] .dock-variant img {
+  max-height: clamp(8.2rem, 14vh, 10.8rem);
+}
+.dock-slide--grouped[data-room-variant-count="2"] .dock-variant.is-current img {
+  max-height: clamp(10.8rem, 18.5vh, 14rem);
+}
+
+/* Keep grouped slides calmer than single-image hero slides. */
+.dock-slide--grouped[data-room-variant-count="4"] {
+  transform: translateZ(var(--dock-z,0px)) scale(calc(var(--dock-scale,.55) * .9)) rotateY(var(--dock-rotate,0deg));
+}
+.dock-slide--grouped[data-room-variant-count="3"] {
+  transform: translateZ(var(--dock-z,0px)) scale(calc(var(--dock-scale,.55) * .93)) rotateY(var(--dock-rotate,0deg));
+}
+.dock-slide--grouped[data-room-variant-count="2"] {
+  transform: translateZ(var(--dock-z,0px)) scale(calc(var(--dock-scale,.55) * .96)) rotateY(var(--dock-rotate,0deg));
+}
+
+@media (max-width: 720px) {
+  .dock-slide--grouped .dock-group-column {
+    gap: .7rem;
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+
+  .dock-slide--grouped .dock-variant {
+    opacity: .58;
+    transform: scale(.9);
+  }
+
+  .dock-slide--grouped .dock-variant.is-current {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .dock-slide--grouped[data-room-variant-count="4"] .dock-variant img {
+    max-height: clamp(4.2rem, 14vw, 5.4rem);
+  }
+  .dock-slide--grouped[data-room-variant-count="4"] .dock-variant.is-current img {
+    max-height: clamp(5.8rem, 19vw, 7.2rem);
+  }
+
+  .dock-slide--grouped[data-room-variant-count="3"] .dock-variant img {
+    max-height: clamp(4.8rem, 16vw, 6.2rem);
+  }
+  .dock-slide--grouped[data-room-variant-count="3"] .dock-variant.is-current img {
+    max-height: clamp(6.5rem, 21vw, 8rem);
+  }
+
+  .dock-slide--grouped[data-room-variant-count="2"] .dock-variant img {
+    max-height: clamp(6.7rem, 22vw, 8.6rem);
+  }
+  .dock-slide--grouped[data-room-variant-count="2"] .dock-variant.is-current img {
+    max-height: clamp(8.8rem, 29vw, 11.4rem);
+  }
+
+  .dock-slide--grouped[data-room-variant-count="4"],
+  .dock-slide--grouped[data-room-variant-count="3"],
+  .dock-slide--grouped[data-room-variant-count="2"] {
+    transform: translateZ(var(--dock-z,0px)) scale(var(--dock-scale,.55)) rotateY(0deg);
+  }
+}
