@@ -1,33 +1,19 @@
 // pokemon-data.js
 // Dados da LuaHMoonMC
+// Base histórica preservada + adições incrementais de 23/08/2026.
 
-export const TYPE = {
-  Normal:   { pt:"Normal",   c:"#A8A77A" },
-  Fire:     { pt:"Fogo",     c:"#EE8130" },
-  Water:    { pt:"Água",     c:"#6390F0" },
-  Electric: { pt:"Elétrico", c:"#F7D02C" },
-  Grass:    { pt:"Planta",   c:"#7AC74C" },
-  Ice:      { pt:"Gelo",     c:"#96D9D6" },
-  Fighting: { pt:"Lutador",  c:"#C22E28" },
-  Poison:   { pt:"Venenoso", c:"#A33EA1" },
-  Ground:   { pt:"Terra",    c:"#E2BF65" },
-  Flying:   { pt:"Voador",   c:"#A98FF3" },
-  Psychic:  { pt:"Psíquico", c:"#F95587" },
-  Bug:      { pt:"Inseto",    c:"#A6B91A" },
-  Rock:     { pt:"Pedra",     c:"#B6A136" },
-  Ghost:    { pt:"Fantasma",  c:"#735797" },
-  Dragon:   { pt:"Dragão",    c:"#6F35FC" },
-  Dark:     { pt:"Sombrio",   c:"#705746" },
-  Steel:    { pt:"Aço",       c:"#B7B7CE" },
-  Fairy:    { pt:"Fada",      c:"#D685AD" }
-};
+import {
+  TYPE,
+  TYPE_ORDER,
+  RAW as BASE_RAW,
+  GYM_STATS,
+  META
+} from "./pokemon-data-base-20260812.js";
 
-export const TYPE_ORDER = [
-  "All","Normal","Fire","Water","Electric","Grass","Ice","Fighting","Poison","Ground",
-  "Flying","Psychic","Bug","Rock","Ghost","Dragon","Dark","Steel","Fairy"
-];
+export { TYPE, TYPE_ORDER, GYM_STATS, META };
 
 export const RAW = [
+  ...BASE_RAW,
   { name:"breloom", iv:100, types:["Grass","Fighting"] },
   { name:"scrafty", iv:100, types:["Dark","Fighting"] },
   { name:"mewtwo", iv:100, types:["Psychic"] },
@@ -50,17 +36,3 @@ export const RAW = [
   { name:"feebas", iv:100, types:["Water"] },
   { name:"kingler", iv:100, types:["Water"], favorite:true },
 ];
-
-const HOURS_LEADING_SINCE = new Date(2025, 11, 28, 12, 0, 0); // 28/12/2025 12:00
-
-export const GYM_STATS = {
-  gymsDefeated: 2058,
-  get hoursLeading(){
-    const ms = Date.now() - HOURS_LEADING_SINCE.getTime();
-    return Math.max(0, Math.floor(ms / 36e5));
-  }
-};
-
-export const META = {
-  lastUpdated: "2026-08-23"
-};
