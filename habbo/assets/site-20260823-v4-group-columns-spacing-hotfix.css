@@ -1,0 +1,147 @@
+/* Habbo V4 grouped-column spacing hotfix
+   Goal: preserve visible vertical groups without visual overlap.
+   The base V4 stylesheet stays intact; this file only corrects grouped slides. */
+
+/* Grouped slides represent several maps, so they need a smaller visual envelope
+   than a single-image slide when the Dock magnification scales the whole slide. */
+.dock-slide--grouped .dock-group-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.15rem;
+  width: 100%;
+  max-height: calc(100% - 1rem);
+  padding: .55rem .65rem;
+  overflow: visible;
+  transform-origin: center;
+}
+
+/* Counter-scale only the inner grouped column. The outer slide still participates
+   in the Dock's horizontal depth/magnification, but the whole vertical stack no
+   longer balloons like a single hero image. */
+.dock-slide--grouped[data-room-variant-count="4"] .dock-group-column {
+  transform: scale(.82);
+}
+
+.dock-slide--grouped[data-room-variant-count="3"] .dock-group-column {
+  transform: scale(.87);
+}
+
+.dock-slide--grouped[data-room-variant-count="2"] .dock-group-column {
+  transform: scale(.93);
+}
+
+/* Every variant owns a real vertical slot. No negative spacing, absolute
+   positioning or transform from a sibling can visually collapse the column. */
+.dock-slide--grouped .dock-variant {
+  position: relative;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  flex: 0 0 auto;
+  gap: .32rem;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  isolation: isolate;
+}
+
+.dock-slide--grouped .dock-variant + .dock-variant {
+  padding-top: 1rem;
+}
+
+.dock-slide--grouped .dock-variant + .dock-variant::before {
+  position: absolute;
+  top: .45rem;
+  left: 14%;
+  right: 14%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(230,236,224,.14), transparent);
+  content: "";
+  pointer-events: none;
+}
+
+.dock-slide--grouped .dock-variant .dock-media {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  opacity: 1;
+  transform: none;
+}
+
+/* Four-map groups (notably the lobbies) need compact, clearly separated slots. */
+.dock-slide--grouped[data-room-variant-count="4"] .dock-variant .dock-media {
+  height: clamp(5rem, 9.2vh, 6.75rem);
+}
+
+.dock-slide--grouped[data-room-variant-count="3"] .dock-variant .dock-media {
+  height: clamp(5.8rem, 11vh, 7.8rem);
+}
+
+.dock-slide--grouped[data-room-variant-count="2"] .dock-variant .dock-media {
+  height: clamp(7.4rem, 15vh, 10.5rem);
+}
+
+.dock-slide--grouped .dock-variant img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: none;
+}
+
+/* Siblings stay legible instead of becoming translucent ghosts over the current
+   map. Selection is communicated by border/glow rather than stacking opacity. */
+.dock-slide.is-active.dock-slide--grouped .dock-variant:not(.is-current) .dock-media {
+  opacity: .9;
+  filter: drop-shadow(0 .7rem .7rem rgba(0,0,0,.24));
+}
+
+.dock-slide--grouped .dock-variant.is-current .dock-media {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* Keep the column vertically centered and give it enough room in the cinematic
+   viewport. The slide remains one horizontal Dock entity. */
+.dock-slide--grouped {
+  align-self: center;
+}
+
+/* Mobile: no counter-scale. Use an ordinary clean vertical column with generous
+   gaps; this avoids tiny thumbnails and also prevents overlap on short screens. */
+@media (max-width: 720px) {
+  .dock-slide--grouped .dock-group-column,
+  .dock-slide--grouped[data-room-variant-count="4"] .dock-group-column,
+  .dock-slide--grouped[data-room-variant-count="3"] .dock-group-column,
+  .dock-slide--grouped[data-room-variant-count="2"] .dock-group-column {
+    gap: .9rem;
+    max-height: none;
+    padding: .45rem;
+    transform: none;
+  }
+
+  .dock-slide--grouped .dock-variant + .dock-variant {
+    padding-top: .75rem;
+  }
+
+  .dock-slide--grouped .dock-variant + .dock-variant::before {
+    top: .3rem;
+  }
+
+  .dock-slide--grouped[data-room-variant-count="4"] .dock-variant .dock-media {
+    height: clamp(4.6rem, 17vw, 6.4rem);
+  }
+
+  .dock-slide--grouped[data-room-variant-count="3"] .dock-variant .dock-media {
+    height: clamp(5.2rem, 19vw, 7.2rem);
+  }
+
+  .dock-slide--grouped[data-room-variant-count="2"] .dock-variant .dock-media {
+    height: clamp(6.8rem, 25vw, 9.5rem);
+  }
+}
