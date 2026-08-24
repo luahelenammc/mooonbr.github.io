@@ -4,3 +4,9 @@
 
 /* V4 QA marker; grouped-column rules are composed from the scoped hotfix imports. */
 .dock-group-column {}
+
+/* The visible column already communicates multiplicity. Avoid redundant metadata
+   such as “2 mapas agrupados” / “4 maps grouped” in the cinematic caption. */
+.cinematic-dock:has(.dock-slide--grouped.is-active) [data-active-alias] {
+  display: none;
+}
