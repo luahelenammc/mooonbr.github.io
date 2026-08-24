@@ -697,80 +697,113 @@
     "hakamo-o": "Hakamo-o"
   };
 
- const RARITY_RANK = new Map([
-  // favoritos prioritários de Moon
-  ["mew", 9],
-  ["celebi", 9],
-  ["mewtwo", 8],
-  ["deoxys", 7],
-  ["deoxys-speed", 7],
-  ["deoxys-defense", 7],
-  ["darkrai", 6],
+  const RARITY_RANK = new Map([
+    // 1º — míticos
+    ["mew", 5],
+    ["celebi", 5],
+    ["jirachi", 5],
+    ["deoxys", 5],
+    ["deoxys-speed", 5],
+    ["deoxys-defense", 5],
+    ["darkrai", 5],
+    ["shaymin", 5],
+    ["shaymin-sky", 5],
+    ["meloetta", 5],
+    ["diancie", 5],
+    ["marshadow", 5],
 
-  // 1º — míticos
-  ["jirachi", 5],
-  ["shaymin-sky", 5],
-  ["shaymin", 5],
-  ["diancie", 5],
-  ["meloetta", 5],
-  ["marshadow", 5],
+    // 2º — lendários
+    ["mewtwo", 4],
+    ["articuno", 4],
+    ["zapdos", 4],
+    ["moltres", 4],
+    ["lugia", 4],
+    ["hooh", 4],
+    ["uxie", 4],
+    ["mesprit", 4],
+    ["azelf", 4],
+    ["regirock", 4],
+    ["regigigas", 4],
+    ["dialga", 4],
+    ["dialga-origin", 4],
+    ["palkia", 4],
+    ["palkia-origin", 4],
+    ["giratina", 4],
+    ["kyogre", 4],
+    ["groudon", 4],
+    ["rayquaza", 4],
+    ["zacian", 4],
+    ["zamazenta", 4],
+    ["solgaleo", 4],
+    ["lunala", 4],
+    ["necrozma", 4],
+    ["tornadus", 4],
+    ["latios", 4],
+    ["kyurem", 4],
+    ["zygarde", 4],
+    ["zygarde-10", 4],
 
-  // 2º — lendários
-  ["articuno", 4],
-  ["zapdos", 4],
-  ["moltres", 4],
-  ["mesprit", 4],
-  ["azelf", 4],
-  ["uxie", 4],
-  ["regigigas", 4],
-  ["regirock", 4],
-  ["tornadus", 4],
-  ["dialga", 4],
-  ["dialga-origin", 4],
-  ["palkia", 4],
-  ["palkia-origin", 4],
-  ["lunala", 4],
-  ["solgaleo", 4],
-  ["zacian", 4],
-  ["zamazenta", 4],
-  ["kyogre", 4],
-  ["groudon", 4],
-  ["rayquaza", 4],
-  ["hooh", 4],
-  ["lugia", 4],
-  ["giratina", 4],
-  ["latios", 4],
-  ["kyurem", 4],
-  ["necrozma", 4],
-  ["zygarde", 4],
-  ["zygarde-10", 4],
+    // 3º — eeveelutions
+    ["vaporeon", 3],
+    ["jolteon", 3],
+    ["flareon", 3],
+    ["espeon", 3],
+    ["umbreon", 3],
+    ["leafeon", 3],
+    ["glaceon", 3],
+    ["sylveon", 3],
 
-  // 3º — eeveelutions
-  ["vaporeon", 3],
-  ["jolteon", 3],
-  ["flareon", 3],
-  ["espeon", 3],
-  ["umbreon", 3],
-  ["leafeon", 3],
-  ["glaceon", 3],
-  ["sylveon", 3],
+    // 4º — outros raros
+    ["xurkitree", 2],
+    ["nihilego", 2],
+    ["gimmighoul", 2],
+    ["relicanth", 2],
+    ["torkoal", 2],
+    ["bouffalant", 2],
+    ["farfetchd", 2]
+  ]);
 
-  // 4º — outros raros
-  ["xurkitree", 2],
-  ["nihilego", 2],
-  ["gimmighoul", 2],
-  ["relicanth", 2],
-  ["torkoal", 2],
-  ["bouffalant", 2],
-  ["farfetchd", 2],
+  const PROXIMITY_GROUPS = [
+    // Míticos: sempre vêm antes de qualquer lendário.
+    ["mew", "celebi", "jirachi", "deoxys", "deoxys-speed", "deoxys-defense", "darkrai", "shaymin", "shaymin-sky", "meloetta", "diancie", "marshadow"],
 
-  // 5º — não raros
-  // todos os outros ficam em 0 por padrão
-]);
+    // Lendários por família / proximidade visual e conceitual.
+    ["mewtwo"],
+    ["articuno", "zapdos", "moltres", "lugia", "hooh"],
+    ["uxie", "mesprit", "azelf"],
+    ["regirock", "regigigas"],
+    ["dialga", "dialga-origin", "palkia", "palkia-origin", "giratina"],
+    ["kyogre", "groudon", "rayquaza"],
+    ["zacian", "zamazenta"],
+    ["solgaleo", "lunala", "necrozma"],
+    ["tornadus", "latios", "kyurem", "zygarde", "zygarde-10"],
 
-function getRarityRank(name){
-  return RARITY_RANK.get(name) || 0;
-}
+    // Eeveelutions: bloco único e contíguo.
+    ["vaporeon", "jolteon", "flareon", "espeon", "umbreon", "leafeon", "glaceon", "sylveon"],
+
+    // Outros raros em pequenos blocos coerentes.
+    ["xurkitree", "nihilego"],
+    ["gimmighoul"],
+    ["relicanth", "torkoal", "bouffalant", "farfetchd"]
+  ];
+
+  const PROXIMITY_INDEX = new Map();
+  PROXIMITY_GROUPS.forEach((group, groupIndex) => {
+    group.forEach((name, speciesIndex) => {
+      PROXIMITY_INDEX.set(name, { groupIndex, speciesIndex });
+    });
+  });
+
+  function getRarityRank(name){
+    return RARITY_RANK.get(name) || 0;
+  }
+
+  function getProximityOrder(name){
+    return PROXIMITY_INDEX.get(name) || {
+      groupIndex: Number.MAX_SAFE_INTEGER,
+      speciesIndex: Number.MAX_SAFE_INTEGER
+    };
+  }
 
   function prettyName(slug){
     if(SPECIAL_DISPLAY_NAMES[slug]) return SPECIAL_DISPLAY_NAMES[slug];
@@ -832,22 +865,33 @@ function getRarityRank(name){
       list.push(v);
     }
 
-   list.sort((a,b)=>{
-  if(!!b.favorite !== !!a.favorite){
-    return (b.favorite ? 1 : 0) - (a.favorite ? 1 : 0);
-  }
+    list.sort((a,b)=>{
+      if(!!b.favorite !== !!a.favorite){
+        return (b.favorite ? 1 : 0) - (a.favorite ? 1 : 0);
+      }
 
-  const rarityDiff = getRarityRank(b.name) - getRarityRank(a.name);
-  if(rarityDiff !== 0) return rarityDiff;
+      const rarityDiff = getRarityRank(b.name) - getRarityRank(a.name);
+      if(rarityDiff !== 0) return rarityDiff;
 
-  if(b.maxIv !== a.maxIv) return b.maxIv - a.maxIv;
+      const proximityA = getProximityOrder(a.name);
+      const proximityB = getProximityOrder(b.name);
 
-  if(!!b.shiny !== !!a.shiny){
-    return (b.shiny ? 1 : 0) - (a.shiny ? 1 : 0);
-  }
+      if(proximityA.groupIndex !== proximityB.groupIndex){
+        return proximityA.groupIndex - proximityB.groupIndex;
+      }
 
-  return displayName(a).localeCompare(displayName(b), "pt-BR", { sensitivity:"base" });
-});
+      if(proximityA.speciesIndex !== proximityB.speciesIndex){
+        return proximityA.speciesIndex - proximityB.speciesIndex;
+      }
+
+      if(b.maxIv !== a.maxIv) return b.maxIv - a.maxIv;
+
+      if(!!b.shiny !== !!a.shiny){
+        return (b.shiny ? 1 : 0) - (a.shiny ? 1 : 0);
+      }
+
+      return displayName(a).localeCompare(displayName(b), "pt-BR", { sensitivity:"base" });
+    });
 
     return list;
   }
