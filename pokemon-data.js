@@ -1,16 +1,23 @@
 // pokemon-data.js
 // Dados da LuaHMoonMC
-// Base histórica preservada + adições incrementais de 23/08/2026.
+// Base histórica preservada + adições incrementais de 23/08/2026 e 30/08/2026.
 
 import {
   TYPE,
   TYPE_ORDER,
   RAW as BASE_RAW,
-  GYM_STATS,
+  GYM_STATS as BASE_GYM_STATS,
   META
 } from "./pokemon-data-base-20260812.js";
 
-export { TYPE, TYPE_ORDER, GYM_STATS, META };
+export { TYPE, TYPE_ORDER, META };
+
+export const GYM_STATS = {
+  gymsDefeated: 2228,
+  get hoursLeading(){
+    return BASE_GYM_STATS.hoursLeading;
+  }
+};
 
 export const RAW = [
   ...BASE_RAW,
@@ -35,4 +42,18 @@ export const RAW = [
   { name:"toxicroak", iv:100, types:["Poison","Fighting"] },
   { name:"feebas", iv:100, types:["Water"] },
   { name:"kingler", iv:100, types:["Water"], favorite:true },
+  { name:"malamar", iv:100, types:["Dark","Psychic"] },
+  { name:"lunala", iv:84, types:["Psychic","Ghost"] },
+  { name:"lunala", iv:93, types:["Psychic","Ghost"] },
+  { name:"lickitung", iv:100, types:["Normal"] },
+  { name:"snorlax", iv:100, types:["Normal"] },
+  { name:"zweilous", iv:100, types:["Dark","Dragon"] },
+  { name:"sealeo", iv:100, types:["Ice","Water"] },
+  { name:"latias", iv:93, types:["Dragon","Psychic"] },
+  { name:"wormadam", iv:100, types:["Bug","Grass"] },
+  { name:"regice", iv:88, types:["Ice"] },
+  { name:"deerling", iv:100, types:["Normal","Grass"] },
+  { name:"gligar", iv:100, types:["Ground","Flying"] },
+  { name:"registeel", iv:82, types:["Steel"] },
+  { name:"corsola", iv:93, types:["Water","Rock"] },
 ];
