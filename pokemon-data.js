@@ -44,7 +44,7 @@ export const RAW = [
   { name:"incineroar", iv:100, types:["Fire","Dark"] },
   { name:"lapras", iv:100, types:["Water","Ice"] },
   { name:"lillipup", iv:53, types:["Normal"], shiny:true },
-  { name:"jirachi", iv:82, types:["Steel","Psychic"] },
+  { name:"jirachi", iv:82, types:["Steel","Psychic"], favorite:true },
   { name:"azumarill", iv:91, types:["Water","Fairy"] },
   { name:"araquanid", iv:95, types:["Water","Bug"] },
   { name:"starmie", iv:100, types:["Water","Psychic"], favorite:true },
