@@ -7,10 +7,10 @@ import {
   TYPE_ORDER,
   RAW as BASE_RAW,
   GYM_STATS as BASE_GYM_STATS,
-  META
+  META as BASE_META
 } from "./pokemon-data-base-20260812.js";
 
-export { TYPE, TYPE_ORDER, META };
+export { TYPE, TYPE_ORDER };
 
 export const GYM_STATS = {
   gymsDefeated: 2228,
@@ -19,8 +19,24 @@ export const GYM_STATS = {
   }
 };
 
+export const META = {
+  ...BASE_META,
+  lastUpdated: "2026-08-30"
+};
+
+// Evoluções de exemplares que ainda vivem no baseline histórico.
+// Remove somente a primeira ocorrência exata para não apagar duplicatas legítimas.
+let frogadier95Replaced = false;
+const CURRENT_BASE_RAW = BASE_RAW.filter(p => {
+  if(!frogadier95Replaced && p.name === "frogadier" && p.iv === 95){
+    frogadier95Replaced = true;
+    return false;
+  }
+  return true;
+});
+
 export const RAW = [
-  ...BASE_RAW,
+  ...CURRENT_BASE_RAW,
   { name:"breloom", iv:100, types:["Grass","Fighting"] },
   { name:"scrafty", iv:100, types:["Dark","Fighting"] },
   { name:"mewtwo", iv:100, types:["Psychic"] },
@@ -56,4 +72,6 @@ export const RAW = [
   { name:"gligar", iv:100, types:["Ground","Flying"] },
   { name:"registeel", iv:82, types:["Steel"] },
   { name:"corsola", iv:93, types:["Water","Rock"] },
+  { name:"croconaw", iv:100, types:["Water"] },
+  { name:"greninja", iv:95, types:["Water","Dark"] },
 ];
