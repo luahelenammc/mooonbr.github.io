@@ -1,4 +1,6 @@
 import fs from "node:fs";
+import { buildPortable } from "./v5/build-portable.mjs";
+import { buildCollections } from "./v5/build-collections.mjs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -42,6 +44,10 @@ function stageSourceInputs() {
   if (!fs.existsSync(SOURCE_ASSETS)) fs.cpSync(EXTERNAL_ASSETS, SOURCE_ASSETS, { recursive: true });
 }
 
+if (!fs.existsSync(GRAPH_PATH) && !fs.existsSync(EXTERNAL_GRAPH_PATH)) {
+  buildPortable({root:PROJECT_ROOT,dist:DIST,basePath:BASE_PATH});
+  process.exit(0);
+}
 stageSourceInputs();
 const graph = JSON.parse(fs.readFileSync(GRAPH_PATH, "utf8"));
 const v3Delta = JSON.parse(fs.readFileSync(V3_DELTA_PATH, "utf8"));
@@ -1067,7 +1073,8 @@ function v2Header(locale, current, alternate) {
     { lang: "pt-br", href: isPt ? current : alternate, src: sitePath("/assets/flag-br.svg"), alt: "Português do Brasil", active: isPt },
     { lang: "en", href: isPt ? alternate : current, src: sitePath("/assets/flag-us.svg"), alt: "English, United States", active: !isPt }
   ].map((item) => `<a class="lang-button${item.active ? " is-active" : ""}" data-lang="${item.lang}" data-home-locale="${item.lang}" href="${item.href}" aria-label="${item.alt}" title="${item.alt}" aria-current="${item.active ? "page" : "false"}"><img src="${item.src}" alt="" aria-hidden="true" width="24" height="16" /></a>`).join("");
-  return `<header class="site-header v2-header"><a class="identity" href="${homeUrl(locale)}" aria-label="${labels.identity}"><span class="identity-pip" aria-hidden="true"></span><span class="identity-copy"><strong>Habbo</strong></span></a><nav class="lang-toggle" aria-label="${labels.lang}">${langButtons}</nav></header>`;
+  const collectionNav = `<nav class="collection-switch" aria-label="${isPt ? 'Coleções' : 'Collections'}"><a href="${homeUrl(locale)}" aria-current="page">${isPt ? 'Lugares' : 'Places'}</a><a href="${sitePath('/' + locale + '/' + (isPt ? 'raros' : 'rares') + '/')}">${isPt ? 'Raros' : 'Rares'}</a><a href="${sitePath('/' + locale + '/' + (isPt ? 'emblemas' : 'badges') + '/')}">${isPt ? 'Emblemas' : 'Badges'}</a></nav>`;
+  return `<header class="site-header v2-header"><a class="identity" href="${homeUrl(locale)}" aria-label="${labels.identity}"><span class="identity-pip" aria-hidden="true"></span><span class="identity-copy"><strong>Habbo</strong></span></a>${collectionNav}<nav class="lang-toggle" aria-label="${labels.lang}">${langButtons}</nav></header>`;
 }
 
 function v2Footer() {
@@ -1382,6 +1389,7 @@ function build() {
   }
   write(path.join(DIST, "index.html"), renderHomeV2("pt-br").replace('data-root-entry="false"', 'data-root-entry="true"'));
   emitRoute("internal/calibration", renderCalibrationV1());
+  buildCollections({ root: PROJECT_ROOT, dist: DIST, basePath: BASE_PATH });
   console.log(JSON.stringify({
     project: PROJECT_ROOT,
     stack: "static-first HTML/CSS/JS generator",

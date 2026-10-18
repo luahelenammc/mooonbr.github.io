@@ -1,0 +1,6 @@
+/* V5: a quiet chapter selector; the V4 dock and its timeline stay intact. */
+.collection-switch { display:flex; align-items:center; gap:.2rem; padding:.22rem; border:1px solid #ffffff16; border-radius:999px; background:#ffffff03; }
+.collection-switch a { padding:.42rem .85rem; border-radius:999px; font-size:.76rem; color:#999; text-decoration:none; line-height:1.2; }
+.collection-switch a:hover,.collection-switch a:focus-visible { color:#eee; background:#ffffff0a; }
+.collection-switch a[aria-current="page"] { color:#eee; background:#ffffff0e; }
+@media(max-width:560px) { .collection-switch a { padding:.4rem .55rem; font-size:.68rem; } .v2-header { gap:.5rem; } .v2-header .identity-copy strong {font-size:.95rem;} }
