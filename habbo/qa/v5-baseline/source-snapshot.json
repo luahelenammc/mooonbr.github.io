@@ -1,0 +1,18 @@
+[
+  {
+    "path": "pt-br/index.html",
+    "sha256": "94e6d050316fd23dbd0495e92b833ce2db131124e02a40773047f5ed1abc3523"
+  },
+  {
+    "path": "en/index.html",
+    "sha256": "02bf0b1a630b0e55374a5bd7b50de99022528a0cecfb903d25517664ea694cc1"
+  },
+  {
+    "path": "data/groups.json",
+    "sha256": "19cd215d8720c148ce057989bcb4a61be6de51eacdc0cc777b543199ffc00dec"
+  },
+  {
+    "path": "data/presentation-items.json",
+    "sha256": "3c30f02fdbb656801ee7fbf3bde1d1721f050bc5bb6a552c0805f825f9a86aec"
+  }
+]

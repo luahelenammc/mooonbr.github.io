@@ -1,4 +1,4 @@
-name: Habbo V4 visual QA
+name: Habbo V5 visual QA
 
 on:
   pull_request:
@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -39,6 +41,11 @@ jobs:
             sleep 1
           done
 
+      - name: Reproduce V5 build and validate records
+        run: |
+          BASE_PATH=/habbo node habbo/build.mjs
+          node --test habbo/qa/v5-collections.test.mjs
+
       - name: Run V4 static QA
         run: node habbo/qa/run-public-qa.mjs
 
@@ -48,12 +55,17 @@ jobs:
       - name: Regress autoplay with pointer parked inside Dock
         run: node habbo/qa/autoplay-hover-regression.mjs
 
+      - name: Run V5 collections visual QA
+        run: node habbo/qa/v5-visual.mjs
+
       - name: Upload screenshot evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: habbo-v4-visual-qa
+          name: habbo-v5-visual-qa
           path: |
+            habbo/qa/v5-visual-artifacts/
+            habbo/qa/v5-visual-artifacts/report.json
             habbo/qa/visual-artifacts/
             habbo/qa/visual-qa-report.json
             habbo/qa/HABBO_V4_VISUAL_QA.md

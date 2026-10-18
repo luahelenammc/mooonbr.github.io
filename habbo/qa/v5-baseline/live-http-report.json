@@ -1,0 +1,11 @@
+{
+  "url": "https://www.mooon.com.br/habbo/pt-br/",
+  "httpStatus": 200,
+  "sha256": "94e6d050316fd23dbd0495e92b833ce2db131124e02a40773047f5ed1abc3523",
+  "groups": 29,
+  "maps": 36,
+  "bundles": [
+    "/habbo/assets/site-20260823-v4-group-columns.css?v=20260823-v4-group-columns",
+    "/habbo/assets/site-20260823-v4-group-columns.js?v=20260823-v4-group-columns"
+  ]
+}

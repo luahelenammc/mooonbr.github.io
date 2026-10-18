@@ -1,0 +1,1652 @@
+[
+  {
+    "code": "BR1",
+    "source": "https://habborator.org/badges/badges/BR1.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "b4519e527be1a68f124bd64aebf3b2792bfdfc22f870c46a537380541c011226",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br1.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR3",
+    "source": "https://habborator.org/badges/badges/BR3.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "25fafee3bc345a969f493510baff379633169d4750d24afc1e7457441404dc8e",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br3.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR4",
+    "source": "https://habborator.org/badges/badges/BR4.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "1235524d17f2cfc5553dfe3984f4ed72d83890d8206aa2ccae2b0c77240972d5",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br4.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR5",
+    "source": "https://habborator.org/badges/badges/BR5.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "6082164e227b226221755334dff86ca34c5d4e7fc420bfb15089418c3856b127",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br5.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "PT3",
+    "source": "https://habborator.org/badges/badges/PT3.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "3a48529d732d0a8e3d6949b35fbca4321e7afa96335bc25c4abbd124c869b3fb",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-pt3.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "Z52",
+    "source": "https://habborator.org/badges/badges/Z52.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "50466dd6ec115fe5b05236cafb8b499727ec49e7a97660cb6e30a6de3ffe6a0b",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-z52.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "Z53",
+    "source": "https://habborator.org/badges/badges/Z53.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "13ecb7545e103270b7625d57c5294dd9cac4e905e84dd8e73b3a02a75572d736",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-z53.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "Z54",
+    "source": "https://habborator.org/badges/badges/Z54.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "1d2c9e1af2072429ec94b9907141b1b642c18cf804b1c7014cfa825721293ad0",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-z54.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR7",
+    "source": "https://habborator.org/badges/badges/BR7.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "49ccd0092a76f80f7f9f41d904a476dae6add3800dd7ff902bcc48f13b4fac3f",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br7.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR8",
+    "source": "https://habborator.org/badges/badges/BR8.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "73fb8248721c24c9eebd3abbc9c9c1d9253b55dddfd3c3b730f18f8e6023e4f4",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br8.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR9",
+    "source": "https://habborator.org/badges/badges/BR9.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "2351288bd21465ed3281b4f949336b66069019fa9cf7c83087220c3574418e17",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br9.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BRA",
+    "source": "https://habborator.org/badges/badges/BRA.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "e4724bc09a93866b71086e1a9d01c596aff7941833aa8cddc4ad61d1dac24347",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-bra.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BRB",
+    "source": "https://habborator.org/badges/badges/BRB.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "c2866c1121b993aa25b760eaada0ddaffbb5f57580ca097f51a78fa09203831d",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-brb.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BRC",
+    "source": "https://habborator.org/badges/badges/BRC.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "19ed709f1c19bd5b564b44fbb84fee3122c9a130a2cebdf8c222722a92b4a63a",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-brc.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BRD",
+    "source": "https://habborator.org/badges/badges/BRD.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "39c06240a1bf7e567e40dc30f58dcf1e1a28b4b34524b375dfd0de2ecdb667bd",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-brd.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BRE",
+    "source": "https://habborator.org/badges/badges/BRE.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "a84a0045d72357179eb02176c143cfdc512036b0d5521cde0d975b8b62957183",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-bre.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BRF",
+    "source": "https://habborator.org/badges/badges/BRF.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "8c3f73cf88b102296317c2d5673e2e21873887f58449152578ec171cf2fa60d6",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-brf.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BRG",
+    "source": "https://habborator.org/badges/badges/BRG.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "f5c853c1c2cc07358a43834c2b0aa3c5237ac079fafb61ccc6900dea6f4054b3",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-brg.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "PT4",
+    "source": "https://habborator.org/badges/badges/PT4.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "ad0999018184efcffec0944760828c06e5d17afe960fd9af3ba18ffb99e1e2a7",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-pt4.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BRH",
+    "source": "https://habborator.org/badges/badges/BRH.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "fdf31ee0790a1508f4c773678efb3933dd6e785e4ac9c9387fc06a3c92708145",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-brh.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR000",
+    "source": "https://habborator.org/badges/badges/BR000.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "813e7d210be4621f7dc2ba157bfb3107f2cb688513093eeb38af51490fdf0b54",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br000.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BRI",
+    "source": "https://habborator.org/badges/badges/BRI.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "d35748a387084623d1a3c390f2013f17d7b997cb02ab036d846ddbe3860a9d84",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-bri.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BRJ",
+    "source": "https://habborator.org/badges/badges/BRJ.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "712cce299b33a301ef8555d17d1887b8de6f2aa258365dd04c70d5b70e3f84c4",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-brj.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BRK",
+    "source": "https://habborator.org/badges/badges/BRK.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "eef24a7acf3175306bc40badaa758c239a22ff31fc3d0b79bac0065a8cd887cd",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-brk.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BRL",
+    "source": "https://habborator.org/badges/badges/BRL.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "474ccb345d547a237d79087067be1985750144c785f5323187c37f8191fe5596",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-brl.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BRM",
+    "source": "https://habborator.org/badges/badges/BRM.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "bb388a3dfda732beee8ebb32917800b7b77c35ef85d204e07a1ed2ae9e0cc2a9",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-brm.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BRN",
+    "source": "https://habborator.org/badges/badges/BRN.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "fdff2eaf3bbf1b713531042e4cb479c3827cbd8966f77892c8f71b11b83c2f8f",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-brn.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BRO",
+    "source": "https://habborator.org/badges/badges/BRO.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "c7f5e23404550d4078a8f86f35184ce9f3c7c147e983eff975cbff376dac832f",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-bro.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR001",
+    "source": "https://habborator.org/badges/badges/BR001.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "ef060ddb7cba9babb4e66b5d25982e189361cd2fdd605bafa5bf4657a364248a",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br001.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR002",
+    "source": "https://habborator.org/badges/badges/BR002.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "0a50ce8939523d2cf819364e5ad05bb6df36fb43dd92f092e57a0381663ec25f",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br002.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BRA03",
+    "source": "https://habborator.org/badges/badges/BRA03.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "82ac22ddd6ed3be6c64cef229ad4d352d1e8f3600e8c3df2397d75afaeaf1e57",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-bra03.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BRA04",
+    "source": "https://habborator.org/badges/badges/BRA04.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "cd360798c806084637706586d804c6d017b22eb0b7cc96b98746ac3eaa653d75",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-bra04.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BRA05",
+    "source": "https://habborator.org/badges/badges/BRA05.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "dfb02a656b4142b6bff3de7590c70cd9f74a314dab1715540c2716de8775426c",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-bra05.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BRA06",
+    "source": "https://habborator.org/badges/badges/BRA06.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "e5f47526db1f1e380199bf9497301e59a0aa535e4fe5631b2c4d45307d8377b7",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-bra06.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BRA07",
+    "source": "https://habborator.org/badges/badges/BRA07.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "98182a790401c5a28d8bde6c2e22afc4f5ea38c555aff132d006a38a575bdda9",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-bra07.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BRA08",
+    "source": "https://habborator.org/badges/badges/BRA08.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "a6d5fc51a6110bcf7abf0904ec84b9d9eadf448df32fb06f2e0e8434d43c677d",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-bra08.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BRA09",
+    "source": "https://habborator.org/badges/badges/BRA09.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "75dec14145f27a8196eff047f4bad1a09517259148536c01ad1db1615468e809",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-bra09.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BRA10",
+    "source": "https://habborator.org/badges/badges/BRA10.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "1f4db4ad1c9cc5ad8be19c0ddee2469a34aac2f3f96d96e346238f344bcf9138",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-bra10.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR003",
+    "source": "https://habborator.org/badges/badges/BR003.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "324342ecc9f98e638f5afbf1e028d46e871499995a1d0f4badb3d9f9939e6a1a",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br003.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR004",
+    "source": "https://habborator.org/badges/badges/BR004.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "027a276cb120d0f93afe914149c3ab76e00988dc67ed1f61ba3ea1d97df1821f",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br004.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR011",
+    "source": "https://habborator.org/badges/badges/BR011.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "db896a0e54800482c0a5a1b836cf5aaf699c77fa1665b3b43a2d0045bcea21f5",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br011.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR012",
+    "source": "https://habborator.org/badges/badges/BR012.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "7dee9e8c04c3df157fb86b71bbae02e5ce42556fa267b27a5ac5ec50e2db1f31",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br012.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR013",
+    "source": "https://habborator.org/badges/badges/BR013.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "7326a5b50288f94bfd6cc0eeca6c255705e06bfe062341e7af75076bf86231ee",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br013.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BRA11",
+    "source": "https://habborator.org/badges/badges/BRA11.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "fcbd15c950736b4515aaff931c3d5e1d0724922fe3bb7344cf3a19e1faa83a34",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-bra11.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR014",
+    "source": "https://habborator.org/badges/badges/BR014.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "71b6c42b4e9c065f322a2f57b336f93bfe0ed68fd243f8e45bd35adbf36c8116",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br014.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR015",
+    "source": "https://habborator.org/badges/badges/BR015.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "bc71a9504fd589e3d81c94c6099cabf2b4a18ef27e16a5e3271d2785706a78f5",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br015.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR016",
+    "source": "https://habborator.org/badges/badges/BR016.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "4826ac6cd7c28fa80a5bb47215b6e8313ccc1041fac5045814fd4c6fed3f7bd8",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br016.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR017",
+    "source": "https://habborator.org/badges/badges/BR017.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "a7dc59c9b035951c982851bfdb98eb048866b0bf0831a09ce000b6a367d851d0",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br017.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR018",
+    "source": "https://habborator.org/badges/badges/BR018.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "ee3aa970790618b552ab764d3a8a9b75f4742ed34e54bdb0465dda287a47dae7",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br018.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR019",
+    "source": "https://habborator.org/badges/badges/BR019.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "133b14410bce0a71f8eba4ab568a0c98ba4449f6a028c8142ed1c78a28744b0c",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br019.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR020",
+    "source": "https://habborator.org/badges/badges/BR020.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "24c23ba1deb2be2ea2977ef98a11a84fe9f08a56c93dbaa4901a712041fc5778",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br020.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR021",
+    "source": "https://habborator.org/badges/badges/BR021.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "a3759b0f4059d130f7ba3c27cf18eaa0453d371bd1009ca0f54fb16bfb10f0a6",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br021.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR022",
+    "source": "https://habborator.org/badges/badges/BR022.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "b524baac9c2e13aecd7046b594228660c8afe916d3a2f3627049a65064016f6e",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br022.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR023",
+    "source": "https://habborator.org/badges/badges/BR023.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "f7bab72c12901236e51c0b5e1c25a8f9a21b8ffa1b4e7f4ccb85b010b2496bc4",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br023.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR024",
+    "source": "https://habborator.org/badges/badges/BR024.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "2a0c7267cc3811fb04241ee563d12b744b5932afe44232964825a265c36836e6",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br024.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR025",
+    "source": "https://habborator.org/badges/badges/BR025.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "3f923f69bec674b8b9914061e1a362c2e1cf6dc21979b38237789c70936d1c12",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br025.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR026",
+    "source": "https://habborator.org/badges/badges/BR026.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "ee4fd8b0124bcb241f7659f634ea9d9481b79b328905969e84aa17a0de8137e3",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br026.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR027",
+    "source": "https://habborator.org/badges/badges/BR027.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "a56cfa0136de7b0f2d53737a6ad7feb615679469215bcd4d2e2f42d0a0809e0c",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br027.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR028",
+    "source": "https://habborator.org/badges/badges/BR028.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "054c7eb95b1993f6ad1d421b823c603e21186cdabbba26d2678d158dfad6d091",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br028.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR029",
+    "source": "https://habborator.org/badges/badges/BR029.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "1dce77ad48c1aca9e0e503ee052bc550afa40328fc06224eff05af3400932565",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br029.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR030",
+    "source": "https://habborator.org/badges/badges/BR030.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "3bc5690e88c92594b25863736777c2f222703f1f62d0043543b21e129f886384",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br030.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR031",
+    "source": "https://habborator.org/badges/badges/BR031.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "c4632e18454ec1cb7754e72b0e7aad9b33e68d70102999ae6b2aa7961c9bfe48",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br031.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR032",
+    "source": "https://habborator.org/badges/badges/BR032.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "8c6a21996ea40987255f77d67213b2682935f7d3d570847f302cb0efcf2776d7",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br032.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR033",
+    "source": "https://habborator.org/badges/badges/BR033.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "e54c1d5e338a9a32c537bee1e57a56c2adec1c437b5a7dd4863c455c7e94c2da",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br033.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR034",
+    "source": "https://habborator.org/badges/badges/BR034.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "e440dc580c8d79e0d6ff392d51d2bcd60a47775da4518a00a6b73dc5c6837b43",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br034.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR035",
+    "source": "https://habborator.org/badges/badges/BR035.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "fca3a3f2733399964636e253175a78f7877a8a6aa8d62a54381ba8f4a1909118",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br035.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR036",
+    "source": "https://habborator.org/badges/badges/BR036.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "42c096fe18bf9e249dfd746aacf9c5e179a97b2bae3e4211e8a063a52c15e0c6",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br036.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR037",
+    "source": "https://habborator.org/badges/badges/BR037.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "47abbdc491281d6888d93c95f1efe55e7b174c7cc0cb6909cdc9e6f3cd9a21b7",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br037.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR038",
+    "source": "https://habborator.org/badges/badges/BR038.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "4a521516c81ea0d35561f7175690404b874d6a89b01826dcd40394d975cd683a",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br038.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR039",
+    "source": "https://habborator.org/badges/badges/BR039.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "2c528b1f294cc9a356746298f1bc664bc0f99cbaf2aefc5a5ef72b4214c06231",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br039.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR041",
+    "source": "https://habborator.org/badges/badges/BR041.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "278b08c66374c831ccb3e230573df28120165795a2acb7636c7b8149ce2a1890",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br041.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR042",
+    "source": "https://habborator.org/badges/badges/BR40.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "b433423f1f21580532c4566c786e69475f547c537f883b2fcaa1c1a6ad8575be",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br40.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR043",
+    "source": "https://habborator.org/badges/badges/BR043.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "5f859fb0a321823d35a279dfdfe9c57855ff151b38d30a133c2252bc6672e257",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br043.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR044",
+    "source": "https://habborator.org/badges/badges/BR044.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "89e60c50b1f848ad2e0b52f581d87ab8597a6bab4ad2442ad827623bd07812fb",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br044.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR045",
+    "source": "https://habborator.org/badges/badges/BR045.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "c058882ce094ea217bd5fd09eac077b62fff7817398c2c04eda898b2dd3a49c0",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br045.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR046",
+    "source": "https://habborator.org/badges/badges/BR046.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "f9e28268a13e7831689548bb0675a8538f5d462cf4479095abb265d64fd2f9ca",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br046.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR047",
+    "source": "https://habborator.org/badges/badges/BR047.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "a948650ee76cd4519fca554461a0e559854032bfb987680e3974ab481803512e",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br047.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR048",
+    "source": "https://habborator.org/badges/badges/BR048.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "72c1d5331db2463eca4b122ce871e0039a0734224f632a8d4ac065ee96793587",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br048.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR049",
+    "source": "https://habborator.org/badges/badges/BR049.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "6ee6bf1eb03410c82dba929be3c6f455896927cdce1d17ab2acd4beab2957e69",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br049.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR050",
+    "source": "https://habborator.org/badges/badges/BR050.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "c53a87c422dc0c96dd90e4f44774efed4b96b104637cf023988f065e1388abeb",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br050.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR051",
+    "source": "https://habborator.org/badges/badges/BR051.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "c0943a2a7d2238a867f9bd6da27426f71400a515d6bed913bc1d1b639dd2f641",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br051.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR052",
+    "source": "https://habborator.org/badges/badges/BR052.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "674d97003cd8ac3b7f69dc4d7801098e2ca54d282cdcb37aefa70abaae75910c",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br052.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR053",
+    "source": "https://habborator.org/badges/badges/BR053.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "289e6c3d0bc892350e85f316121d865045b0b78b8560f0dbe3ae28d39582ce2a",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br053.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR054",
+    "source": "https://habborator.org/badges/badges/BR054.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "75b056c3372aaaef08067a54b9a6595f6a63007ffe553447c2ea6134f72ad650",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br054.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR055",
+    "source": "https://habborator.org/badges/badges/BR055.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "7097b37eb7702e5c579aec2029fd724866f5e477b700cdf02377cff23b0e9e2a",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br055.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR056",
+    "source": "https://habborator.org/badges/badges/BR056.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "0ee8fba5f05c152493d90cdab9491f35da2a85e5615c4cff8035c0b11098cfe2",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br056.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR057",
+    "source": "https://habborator.org/badges/badges/BR057.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "99e70051cad76e98ee79e53e9f08acfa133d5822989f3ea5c45e296fa2e679fa",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br057.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR058",
+    "source": "https://habborator.org/badges/badges/BR058.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "3de25a128dbbdad986afd8ebd6a884befd1b8c1f05625114488cd61ec58ffd33",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br058.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR059",
+    "source": "https://habborator.org/badges/badges/BR059.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "ea60f4944fde882b1746a75a0436ac65da2c34490839975baa0721960aadfe62",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br059.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR060",
+    "source": "https://habborator.org/badges/badges/BR060.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "c342bc7115b0057decc69bb388af43b99e90b7f416f5dc78c658141747d2da30",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br060.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR061",
+    "source": "https://habborator.org/badges/badges/BR061.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "bbbc74a34025aebd76e087cb95b51a30c3228292682cfc80f27791124f91d72a",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br061.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR062",
+    "source": "https://habborator.org/badges/badges/BR062.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "07c91fbdb21abe6d28318afcb73acb98cef05192fc7e800aa6118c759dbcb045",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br062.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR063",
+    "source": "https://habborator.org/badges/badges/BR063.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "2ac7236e747510b882b18f4bf1129cdb47dcb19d8ac01056740dd611b13c7ae6",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br063.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR064",
+    "source": "https://habborator.org/badges/badges/BR064.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "d6036fab7c4213bab6b169d33473a5873cc16927b4f2d8e434ffe778b6dfa2fd",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br064.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR065",
+    "source": "https://habborator.org/badges/badges/BR065.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "12f24ebba93ab1f9fb3d2a4bb304e325c4b7dc27a5f69f168e3f7c635af1fcfa",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br065.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR066",
+    "source": "https://habborator.org/badges/badges/BR066.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "bf0cef839b2334b205edfaa2dd5bf8600d44c8a4c8a72ddf34b6d390c4ba689f",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br066.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR067",
+    "source": "https://habborator.org/badges/badges/BR067.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "549d33588fb2e3ea415979e43ba7e45d3ebe64d2348b17968a0386468284ea86",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br067.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR068",
+    "source": "https://habborator.org/badges/badges/BR068.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "ac5917ff43174cb1aab72228ace6a2b58e517a6a9f3271898e2f16443b5366fc",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br068.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR069",
+    "source": "https://habborator.org/badges/badges/BR069.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "4c861f337fe23bbf27a90b37121985c10130fd839bdaf214079c5307f21b74d9",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br069.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR070",
+    "source": "https://habborator.org/badges/badges/BR070.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "5c20dd9a27c6187ce51065daf92d2666e3e689cbd7058aa8ec162ae700fa255a",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br070.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR071",
+    "source": "https://habborator.org/badges/badges/BR071.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "480906fff832a77d947a345fb885880b670b18f9b23770b762e607edffaad725",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br071.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR072",
+    "source": "https://habborator.org/badges/badges/BR072.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "ce0267c98fa2d7031e46352e5f0aec515e414e86e64c8ccb279da709f0365d47",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br072.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR073",
+    "source": "https://habborator.org/badges/badges/BR073.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "ef20abf2fcc578ce278919914735fc674ef25da060dfdd45d20ff8aeafdabe0f",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br073.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR074",
+    "source": "https://habborator.org/badges/badges/BR074.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "fa530b9e11e0b6120ffa6640ddc98c9a9cb02dce1fccc2b6bbde998c64239293",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br074.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR075",
+    "source": "https://habborator.org/badges/badges/BR075.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "18e01049b25af3ee418cc58bede8f47bc395d350ef6c981965693d124741cc76",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br075.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR076",
+    "source": "https://habborator.org/badges/badges/BR076.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "70e1592450f013545840ba0a4cf5c30107fdd806157bb39d2ed71d8e1a2ad895",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br076.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR077",
+    "source": "https://habborator.org/badges/badges/BR077.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "19a6a413ca487fa5347cf8c2c53029badc006a1837490b53590e3b28c553c7db",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br077.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR078",
+    "source": "https://habborator.org/badges/badges/BR078.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "f9d23035570ab4cd36aac376799dc37294627e6c1f8c2d73ad15bb373b658a2e",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br078.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR079",
+    "source": "https://habborator.org/badges/badges/BR079.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "2b3fed749452b40ce134f7bf8615975795390190ffee19a8d52bd6fc0c69e458",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br079.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR080",
+    "source": "https://habborator.org/badges/badges/BR080.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "15ada3ca6f55c27da39e60787ed7adde1410b0de7b63940eb1df479622cf6826",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br080.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR081",
+    "source": "https://habborator.org/badges/badges/BR081.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "79844bf17e2ca4539d2ac4af589d8f79251aeffa82082c09b35944de7f8236d3",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br081.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR082",
+    "source": "https://habborator.org/badges/badges/BR082.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "b7e6c58394e58ca568a102cbab92431d637949a92c1da4d5220fe88c9b3210ff",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br082.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR083",
+    "source": "https://habborator.org/badges/badges/BR083.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "1a46fce040dcf048e2b2fec5d106b56c812492f923ee5c47e8519732ff02550e",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br083.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR084",
+    "source": "https://habborator.org/badges/badges/BR084.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "83c7d4e055d0c3082d111346c6df49c2fda21f704d3d58f5a6bd0d99e2f1643c",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br084.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR085",
+    "source": "https://habborator.org/badges/badges/BR085.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "9eb3b333d2f63512ffbf095b9752d41d401905551fb6251c569cb67cb68532d3",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br085.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR086",
+    "source": "https://habborator.org/badges/badges/BR086.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "8f524c8ac730ebad8ad2094240fbd4bdb8727dc3f6745d8f3bc6ae4fee6d7ea7",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br086.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR087",
+    "source": "https://habborator.org/badges/badges/BR087.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "51526d2eebe10eacfd7df4b015b511b8a44e8062ea40d67c9a49807bd9b19347",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br087.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR088",
+    "source": "https://habborator.org/badges/badges/BR088.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "39e967dbc1dc5bd6aaf8a8d81fc2f07efae7fd7dd6952b6ff61bbc9d71c5db77",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br088.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR089",
+    "source": "https://habborator.org/badges/badges/BR089.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "2a868a6f2821e8f2ad359498443d3904ca6b59ec5cc70f944fc5c5b81d6885c1",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br089.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR090",
+    "source": "https://habborator.org/badges/badges/BR090.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "432b451516e2b47568b18e36b70140586dfa535b77e1ceaff0f668e4536a45c8",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br090.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR091",
+    "source": "https://habborator.org/badges/badges/BR091.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "578b2b6f95270cac73e6c35b51d289e3584c2785ae57352fd3ce55577a3ce693",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br091.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR092",
+    "source": "https://habborator.org/badges/badges/BR092.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "eefe821219a217966dbebd0940250f53b09e06def78b0fd45dc7afc4543b2e4c",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br092.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR093",
+    "source": "https://habborator.org/badges/badges/BR093.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "e99e974be63bba3a4f1bdb2169ad972a4ab49793f1fcd77f713f8d21ab4ce84b",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br093.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR094",
+    "source": "https://habborator.org/badges/badges/BR094.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "a8795c60e8a7cd0a0a0e3460ca2684c442013552e9a6d8adb3522d65593bfd61",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br094.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR095",
+    "source": "https://habborator.org/badges/badges/BR095.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "b374acbd5f3df40bb9fa62d438bf3a30d3a46e61d6c2bd53c00d272d69090368",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br095.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR096",
+    "source": "https://habborator.org/badges/badges/BR096.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "861b67514288cd6929e75d825292813b3bd29588436072afdd844f40144ff32b",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br096.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR097",
+    "source": "https://habborator.org/badges/badges/BR097.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "c8f78b44bd464373a2a554da7732fd0e72146da7eeb45543cd480d0be0e79ddc",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br097.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR098",
+    "source": "https://habborator.org/badges/badges/BR098.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "e4a7838f5ca921be9c251b085545c42a82bb02f5fd9ea4da47835033750eae7f",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br098.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR099",
+    "source": "https://habborator.org/badges/badges/BR099.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "c34aca2cad3ae1a483b05d09acf9e5ccaf5f861979a9fa7a843fb68727a40331",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br099.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR100",
+    "source": "https://habborator.org/badges/badges/BR100.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "1fa1bfe97eac7a3025535eefa338d90a891c47f35d62621077c71debce71226d",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br100.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR101",
+    "source": "https://habborator.org/badges/badges/BR101.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "6517aede99bb34aeda522522e24cce5a2c45339c343aaf806714fc2df23ce230",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br101.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR102",
+    "source": "https://habborator.org/badges/badges/BR102.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "3ad5049942acdd6be2e16371369599bec67c89508b14118ca2081606bdd68c5c",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br102.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR103",
+    "source": "https://habborator.org/badges/badges/BR103.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "ccf1ca4b55a796c28422c5df07917d550179b4fc6058a44014e49c02179804a3",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br103.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR104",
+    "source": "https://habborator.org/badges/badges/BR104.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "0745ff810044bcdf9a916d225b2f5d1bcf299f04a33fa5bc1a08ce595bec59a3",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br104.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR105",
+    "source": "https://habborator.org/badges/badges/BR105.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "d856c86d448e2c58caa0073afd1b028647d952f56cbb0f7c8374df17e7eba51a",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br105.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR106",
+    "source": "https://habborator.org/badges/badges/BR106.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "e2e6f8f5ee704b7c1dab5b927016a584ee29900d09d0e5fcff7e72e49171e724",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br106.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR107",
+    "source": "https://habborator.org/badges/badges/BR107.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "c4f9d261c7d9d1c366be31be4d37238366077a795e8f293a650175a477d2d284",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br107.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR108",
+    "source": "https://habborator.org/badges/badges/BR108.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "09c4b09051b24f6c7abb99d3e20962b0e89122ea37849db04603b541f70bc14c",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br108.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR109",
+    "source": "https://habborator.org/badges/badges/BR109.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "4031006553fe4c8283257041456389f069c2fda504b679a6fe31255b5831143b",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br109.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR110",
+    "source": "https://habborator.org/badges/badges/BR110.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "88f6d90409f704dd12e7aa8cea3b9e9cffc1a173bfcbba1825ce776eb94510e7",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br110.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR111",
+    "source": "https://habborator.org/badges/badges/BR111.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "92f44f873473b52fbc2df5ca68087fa1ffac7a7fddf5d74ba7f59834acdc7dad",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br111.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR112",
+    "source": "https://habborator.org/badges/badges/BR112.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "ce08262cf81e07e6252737d6f20cd68372c66b3548f3b63be6643dad4e17cd15",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br112.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR113",
+    "source": "https://habborator.org/badges/badges/BR113.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "5457f180bfc87cb1e55c652259952973262982973ea25ceb5617eea319e1a54c",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br113.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR114",
+    "source": "https://habborator.org/badges/badges/BR114.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "84dcbac6ea94ee72491e3a3dec7db9e2a947f88e2d215cb25520eaf859fdfb04",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br114.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "BR115",
+    "source": "https://habborator.org/badges/badges/BR115.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "f0fc923c08490bc1948c231dab5f3743b9b81f7bb63caaf3833235e0991187b0",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br115.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BR116",
+    "source": "https://habborator.org/badges/badges/BR116.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "e9bbd7626234d87d33a31f335b75a6a76d9719cb2757cad1d4abdf986576fb03",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-br116.gif",
+    "publicEligibleTemporal": true
+  },
+  {
+    "code": "ADM",
+    "source": "https://habborator.org/badges/badges/ADM.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "7e2f6d4565ef26aeeac4d325d7fec5b99889a8ea16e8d86ee0e40237647b57a7",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-adm.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "VIP",
+    "source": "https://habborator.org/badges/badges/VIP.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "36665ce68b021b8ebd25aa92a3efaf2aaba3f3b1b3e4b0bc6f41504737ef453d",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-vip.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "PRE",
+    "source": "https://habborator.org/badges/badges/PRE.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "c2b28835a0ed47f1a485062755d8b485c52a4bfc8f7048570bc0f945cd1316a2",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-pre.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "HC1",
+    "source": "https://habborator.org/badges/badges/HC1.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "c11bf165b956966edfacf59e1f8fd260744cab911aa2aded79ce18344d098606",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-hc1.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "HC2",
+    "source": "https://habborator.org/badges/badges/HC2.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "26a619bac17a216f8496b4c9404410c0d9a84c86a06e89e18e4e5c8771d64ee6",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-hc2.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "HC3",
+    "source": "https://habborator.org/badges/badges/HC3.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "deb2bd552e67a30f365d2a6b5be35f5a2687851c819e501165f5daeca096896c",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-hc3.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "HBA",
+    "source": "https://habborator.org/badges/badges/HBA.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "6a04948804eb851f2278dc6390cbbc9261deb7f4ec90709619f27be855903edc",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-hba.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "NWB",
+    "source": "https://habborator.org/badges/badges/NWB.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "62d16a04559929b4ffe742acb6b9a22f5986e40303e696e722b7c229ceaf5282",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-nwb.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "XXX",
+    "source": "https://habborator.org/badges/badges/XXX.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "2639b4168e13ae36e08a672931c722125a96c2370c9940b3cefd02e48be2ba5b",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-xxx.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "HX1",
+    "source": "https://habborator.org/badges/badges/HX1.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "3a12c2e34def87587716c331c3725d100cb145c64739543a50f4f0479e44091e",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-hx1.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "HX2",
+    "source": "https://habborator.org/badges/badges/HX2.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "29f30add202272018537c15754a3ac431b314723c7124236054d69f2235a46c2",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-hx2.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "HX3",
+    "source": "https://habborator.org/badges/badges/HX3.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "69e8a9124bd6c5e9681b3652cc2688f823d802de058787b86678a70109c1619b",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-hx3.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "HX4",
+    "source": "https://habborator.org/badges/badges/HX4.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "8f7aee1dbbcad00617bb3816d765fad5381de97cbfaea6b64594feffb5842db3",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-hx4.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "TC1",
+    "source": "https://habborator.org/badges/badges/TC1.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "3c8bef73a4f4182812de769dfd4c14f561cab28855b26c615697b667eb694b49",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-tc1.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "TC2",
+    "source": "https://habborator.org/badges/badges/TC2.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "52ee2624b04fd5a7780c8b8cb6f133440667f0e4dc975e55b2624900f63edc5b",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-tc2.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "TC3",
+    "source": "https://habborator.org/badges/badges/TC3.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "97f5eb9504f38d9afd5262077c0e015b4683df3b867026f1c72a9ab0c8b0c55f",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-tc3.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "BTB",
+    "source": "https://habborator.org/badges/badges/BTB.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "4825b9eccd80532fb4d03ef7596796f273c69a472a1e2a98657278330639a187",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-btb.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "SNW",
+    "source": "https://habborator.org/badges/badges/SNW.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "827abf8d5720b45d7fbda26b7a1a76604d3dd52a4b4f8c5266d1be43781b21af",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-snw.gif",
+    "publicEligibleTemporal": false
+  },
+  {
+    "code": "WBL",
+    "source": "https://habborator.org/badges/badges/WBL.gif",
+    "status": "downloaded",
+    "width": 50,
+    "height": 50,
+    "sha256": "a48d065c444769318e011a7c77a5244666d34db372b3087e11efca733d67e4f2",
+    "localOriginal": "/workspace/scratch/b039b77910e2/research/badge-assets/badge-wbl.gif",
+    "publicEligibleTemporal": false
+  }
+]
