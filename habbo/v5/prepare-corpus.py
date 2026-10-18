@@ -25,6 +25,9 @@ for kind in ['rares','badges']:
         if kind=='rares':
             q['description']=r.get('description',{})
             q['nameNote']={'ptBr':'Nomes em português são identificações editoriais; a grafia oficial BR não foi verificada.','en':'Portuguese names are editorial identifications; official Brazilian wording has not been verified.'}
+            if r['familyId'] in ['fans','elephants','parasols']:
+                q['name']=dict(q['name'])
+                for a,b in [('amarela','amarelo'),('dourada','dourado'),('prateada','prateado'),('roxa','roxo'),('preta','preto'),('branca','branco'),('vermelha','vermelho')]:q['name']['ptBr']=q['name']['ptBr'].replace(a,b)
             names=familyNames.get(r['familyId'],(r['familyId'],r['familyId']))
             q['familyName']={'ptBr':names[0],'en':names[1]}
             q['dateEvidence']={'ptBr':'Data de circulação mais antiga localizada nesta tabela: '+str(r.get('firstDocumentedInternationalReleaseDate') or 'não comprovada')+'. Não comprova a primeira estreia mundial.','en':'Earliest documented circulation in this table: '+str(r.get('firstDocumentedInternationalReleaseDate') or 'unconfirmed')+'. This does not establish the worldwide debut.'}
