@@ -2289,7 +2289,7 @@
     "id": "nelly-gold",
     "type": "rare",
     "name": {
-      "ptBr": "Elefante · dourada",
+      "ptBr": "Elefante · dourado",
       "en": "Elephant [Gold]"
     },
     "nameStatus": {
@@ -2617,7 +2617,7 @@
     "id": "nelly-silver",
     "type": "rare",
     "name": {
-      "ptBr": "Elefante · prateada",
+      "ptBr": "Elefante · prateado",
       "en": "Elephant [Silver]"
     },
     "nameStatus": {
@@ -3689,7 +3689,7 @@
     "id": "fan-purple",
     "type": "rare",
     "name": {
-      "ptBr": "Ventilador · roxa",
+      "ptBr": "Ventilador · roxo",
       "en": "Fan [Purple]"
     },
     "nameStatus": {
@@ -3827,7 +3827,7 @@
     "id": "fan-red",
     "type": "rare",
     "name": {
-      "ptBr": "Ventilador · vermelha",
+      "ptBr": "Ventilador · vermelho",
       "en": "Fan [Red]"
     },
     "nameStatus": {
@@ -5869,7 +5869,7 @@
     "id": "para-yellow",
     "type": "rare",
     "name": {
-      "ptBr": "Parasol · amarela",
+      "ptBr": "Parasol · amarelo",
       "en": "Parasol [Yellow]"
     },
     "nameStatus": {
@@ -6329,7 +6329,7 @@
     "id": "para-purple",
     "type": "rare",
     "name": {
-      "ptBr": "Parasol · roxa",
+      "ptBr": "Parasol · roxo",
       "en": "Parasol [Violet]"
     },
     "nameStatus": {
