@@ -5,7 +5,7 @@ import {buildCollections} from './build-collections.mjs';
 // It retains approved room markup; new collections are always generated from curated JSON.
 export function buildPortable({root,dist,basePath='/habbo'}) {
  fs.rmSync(dist,{recursive:true,force:true});fs.mkdirSync(dist,{recursive:true});
- for(const name of ['assets','pt-br','en','internal','index.html','PUBLICATION_MANIFEST.md'])if(fs.existsSync(path.join(root,name)))fs.cpSync(path.join(root,name),path.join(dist,name),{recursive:true});
+ for(const name of ['assets','data','docs','pt-br','en','internal','index.html','PUBLICATION_MANIFEST.md'])if(fs.existsSync(path.join(root,name)))fs.cpSync(path.join(root,name),path.join(dist,name),{recursive:true});
  const css=fs.readFileSync(path.join(root,'styles/base.css'),'utf8');
  const extra=css.slice(css.indexOf('/* V5: a quiet chapter selector'));
  fs.writeFileSync(path.join(dist,'assets/v5-home.css'),extra);

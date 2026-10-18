@@ -1,0 +1,1832 @@
+[
+  {
+    "id": "dragon-black",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/dragon-black.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/dragon_black.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "br_documented",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "dragon-blue",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/dragon-blue.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/dragon_blue.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "dragon-bronze",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/dragon-bronze.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/dragon_bronze.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "br_probable",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "dragon-gold",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/dragon-gold.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/dragon_gold.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "br_probable",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "dragon-green",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/dragon-green.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/dragon_green.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "dragon-jade",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/dragon-jade.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/dragon_jade.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "dragon-purple",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/dragon-purple.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/dragon_purple.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "dragon-red",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/dragon-red.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/dragon_red.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "dragon-silver",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/dragon-silver.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/dragon_silver.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "br_probable",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "dragon-sky",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/dragon-sky.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/dragon_sky.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "amber-blue",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/amber-blue.gif",
+    "sourceImage": "https://habborator.org/furniture/other_rare/amber_blue.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/rare.html"
+    ]
+  },
+  {
+    "id": "amber-red",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/amber-red.gif",
+    "sourceImage": "https://habborator.org/furniture/other_rare/amber_red.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/rare.html"
+    ]
+  },
+  {
+    "id": "amber-yellow",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/amber-yellow.gif",
+    "sourceImage": "https://habborator.org/furniture/other_rare/amber_yellow.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/rare.html"
+    ]
+  },
+  {
+    "id": "dino",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/dino.gif",
+    "sourceImage": "https://habborator.org/furniture/other_rare/dino.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/rare.html"
+    ]
+  },
+  {
+    "id": "nelly-gold",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/nelly-gold.gif",
+    "sourceImage": "https://habborator.org/furniture/other_rare/nelly_gold.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "br_documented",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/rare.html"
+    ]
+  },
+  {
+    "id": "nelly-bronze",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/nelly-bronze.gif",
+    "sourceImage": "https://habborator.org/furniture/other_rare/nelly_bronze.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/rare.html"
+    ]
+  },
+  {
+    "id": "nelly-silver",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/nelly-silver.gif",
+    "sourceImage": "https://habborator.org/furniture/other_rare/nelly_silver.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/rare.html"
+    ]
+  },
+  {
+    "id": "fan-blue",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/fan-blue.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/fan_blue.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "br_documented",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "fan-brown",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/fan-brown.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/fan_brown.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "fan-fuchsia",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/fan-fuchsia.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/fan_fuchsia.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "fan-green",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/fan-green.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/fan_green.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "fan-ochre",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/fan-ochre.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/fan_ochre.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "fan-pink",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/fan-pink.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/fan_pink.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "br_probable",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "fan-purple",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/fan-purple.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/fan_purple.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "fan-red",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/fan-red.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/fan_red.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "petal",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/petal.gif",
+    "sourceImage": "https://habborator.org/furniture/other_rare/petal.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "br_documented",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/rare.html"
+    ]
+  },
+  {
+    "id": "hologirl",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/hologirl.gif",
+    "sourceImage": "https://habborator.org/furniture/other_rare/holo_girl.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/rare.html"
+    ]
+  },
+  {
+    "id": "holopod",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/holopod.gif",
+    "sourceImage": "https://habborator.org/furniture/other_rare/holo_boy.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/rare.html"
+    ]
+  },
+  {
+    "id": "icm-gold",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/icm-gold.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/icm_gold.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "br_documented",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "icm-purple",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/icm-purple.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/icm_purple.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "br_documented",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "icm-blue",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/icm-blue.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/icm_blue.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "icm-brown",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/icm-brown.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/icm_brown.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "icm-fuchsia",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/icm-fuchsia.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/icm_fuchsia.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "icm-green",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/icm-green.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/icm_green.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "icm-ochre",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/icm-ochre.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/icm_ochre.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "icm-pink",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/icm-pink.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/icm_pink.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "icm-red",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/icm-red.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/icm_red.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "para-yellow",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/para-yellow.gif",
+    "sourceImage": "https://habborator.org/furniture/other_rare/para_yellow.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "br_documented",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/rare.html"
+    ]
+  },
+  {
+    "id": "para-green",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/para-green.gif",
+    "sourceImage": "https://habborator.org/furniture/other_rare/para_green.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/rare.html"
+    ]
+  },
+  {
+    "id": "para-orange",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/para-orange.gif",
+    "sourceImage": "https://habborator.org/furniture/other_rare/para_orange.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/rare.html"
+    ]
+  },
+  {
+    "id": "para-purple",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/para-purple.gif",
+    "sourceImage": "https://habborator.org/furniture/other_rare/para_purple.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/rare.html"
+    ]
+  },
+  {
+    "id": "pillar-pink",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/pillar-pink.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/pillar_pink.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "br_documented",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "pillar-white",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/pillar-white.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/pillar_white.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "br_documented",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "pillar-brown",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/pillar-brown.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/pillar_brown.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "pillar-darkgrey",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/pillar-darkgrey.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/pillar_darkgrey.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "pillar-green",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/pillar-green.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/pillar_green.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "pillar-grey",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/pillar-grey.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/pillar_grey.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "pillow-navy",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/pillow-navy.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/pillow_navy.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "br_documented",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "pillow-aqua",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/pillow-aqua.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/pillow_aqua.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "pillow-black",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/pillow-black.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/pillow_black.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "pillow-blue",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/pillow-blue.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/pillow_blue.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "pillow-gold",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/pillow-gold.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/pillow_gold.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "pillow-green",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/pillow-green.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/pillow_green.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "pillow-pink",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/pillow-pink.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/pillow_pink.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "pillow-purple",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/pillow-purple.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/pillow_purple.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "br_probable",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "pillow-red",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/pillow-red.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/pillow_red.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "pillow-white",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/pillow-white.gif",
+    "sourceImage": "https://habborator.org/furniture/v7_rare/pillow_white.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/v7.html"
+    ]
+  },
+  {
+    "id": "samovar",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/samovar.gif",
+    "sourceImage": "https://habborator.org/furniture/other_rare/samovar.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/rare.html"
+    ]
+  },
+  {
+    "id": "throne",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/throne.gif",
+    "sourceImage": "https://habborator.org/furniture/other_rare/throne.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "br_probable",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/rare.html"
+    ]
+  },
+  {
+    "id": "typo",
+    "type": "rare",
+    "image": "/habbo/assets/v5/rares/typo.gif",
+    "sourceImage": "https://habborator.org/furniture/other_rare/typo.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "br_probable",
+    "regionalAssociation": null,
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/furniture/list.html",
+      "https://habborator.org/furniture/rare.html"
+    ]
+  },
+  {
+    "id": "badge-pt3",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-pt3.gif",
+    "sourceImage": "https://habborator.org/badges/badges/PT3.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br7",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br7.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR7.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br9",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br9.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR9.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-bra",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-bra.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BRA.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-brb",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-brb.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BRB.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-brc",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-brc.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BRC.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-brd",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-brd.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BRD.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-bre",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-bre.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BRE.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-brf",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-brf.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BRF.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-brg",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-brg.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BRG.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-brh",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-brh.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BRH.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br000",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br000.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR000.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-bri",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-bri.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BRI.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-brj",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-brj.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BRJ.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-brk",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-brk.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BRK.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-brl",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-brl.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BRL.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-brm",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-brm.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BRM.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-brn",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-brn.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BRN.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-bro",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-bro.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BRO.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br001",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br001.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR001.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-bra08",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-bra08.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BRA08.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-bra09",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-bra09.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BRA09.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-bra10",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-bra10.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BRA10.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br003",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br003.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR003.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br016",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br016.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR016.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br017",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br017.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR017.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br018",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br018.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR018.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br019",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br019.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR019.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br020",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br020.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR020.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br021",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br021.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR021.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br022",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br022.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR022.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br023",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br023.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR023.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br024",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br024.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR024.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br025",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br025.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR025.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br026",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br026.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR026.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br027",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br027.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR027.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br032",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br032.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR032.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br033",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br033.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR033.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br034",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br034.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR034.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br043",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br043.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR043.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br045",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br045.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR045.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br049",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br049.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR049.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br051",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br051.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR051.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br052",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br052.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR052.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br053",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br053.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR053.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br054",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br054.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR054.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br055",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br055.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR055.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br056",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br056.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR056.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br057",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br057.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR057.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br058",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br058.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR058.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br059",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br059.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR059.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br077",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br077.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR077.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br078",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br078.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR078.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br079",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br079.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR079.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br097",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br097.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR097.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br109",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br109.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR109.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br110",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br110.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR110.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br111",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br111.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR111.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br112",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br112.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR112.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br113",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br113.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR113.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br114",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br114.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR114.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  },
+  {
+    "id": "badge-br116",
+    "type": "badge",
+    "image": "/habbo/assets/v5/badges/badge-br116.gif",
+    "sourceImage": "https://habborator.org/badges/badges/BR116.gif",
+    "cutoffStatus": "verified_pre2012",
+    "hotelStatus": "unknown",
+    "regionalAssociation": "br_pt_documented",
+    "rightsStatus": "approved_under_policy",
+    "rightsBasis": "Conditional noncommercial fansite reuse of released Sulake sprites; independent design, provenance and mandatory disclaimer. See docs/HABBO_V5_RIGHTS_REVIEW.md. Revocable; not an open license or individual Sulake approval.",
+    "provenanceRefs": [
+      "https://habborator.org/badges/brazil.html",
+      "https://habborator.org/badges/"
+    ]
+  }
+]

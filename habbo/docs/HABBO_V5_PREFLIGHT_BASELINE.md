@@ -25,3 +25,7 @@ A local static server was started at `http://127.0.0.1:4174/habbo/`. Desktop1440
 A direct HTTP check of `https://mooonbr.github.io/habbo/pt-br/` returned404 on 2026-10-18. This checks that exact GitHub Pages hostname, not the project's custom canonical domain; it does not establish public-site downtime. Re-run visual baselines when a browser executable is available and compare against the frozen V4 files rather than rebuilt V5 source.
 
 Canonical custom domain verified separately: `https://www.mooon.com.br/habbo/pt-br/` returned HTTP200, 29 groups and 36 maps; live HTML SHA256 `94e6d050316fd23dbd0495e92b833ce2db131124e02a40773047f5ed1abc3523`. Live references the same V4 group-columns bundles. Raw response and report are preserved in `qa/v5-baseline/live-pt-br.html` and `live-http-report.json`. This is HTTP/markup evidence, not browser visual QA.
+
+## Browser baseline recovered in CI
+
+The local installation limitation was overcome by the GitHub Actions runner. Run39175065497 rendered the original c051362 V4 using an independent git archive server and captured1440×900/390×844 baselines. V4 regression suite113checks and stationary-pointer autoplay passed. See HABBO_V5_QA_REPORT.md for the observed artifact. Local snapshot/raw files remain in the research archive; the git commit is the reproducible baseline authority.
