@@ -1,0 +1,34 @@
+/* V7: compact pictorial gallery of pre-2012 original global badge sprites */
+.v7-global{margin:0 0 clamp(48px,6vw,90px);max-width:1200px}
+.v7-eyebrow{letter-spacing:.16em;font-weight:650;font-size:11px;color:var(--accent);margin:0 0 12px}
+.v7-heading{font-weight:710;letter-spacing:-.045em;font-size:clamp(33px,5vw,66px);line-height:1.04;margin:0 0 15px}
+.v7-lead{font-size:clamp(14px,1.7vw,17px);color:var(--muted);max-width:685px;line-height:1.65}
+.v7-count{font-size:12px;letter-spacing:.08em;color:var(--muted);padding-top:5px}
+.v7-tabs{display:flex;gap:7px;overflow-x:auto;padding:22px 0;scrollbar-width:thin}
+.v7-tab{border:1px solid #414746;background:none;border-radius:999px;color:var(--muted);font-size:12px;white-space:nowrap;padding:9px 15px;flex-shrink:0;transition:background .2s,color .2s}
+.v7-tab[aria-pressed=true]{border-color:var(--accent);background:rgba(200,223,140,.12);color:var(--ink)}
+.v7-hero{min-height:260px;display:grid;grid-template-columns:minmax(190px,.82fr) minmax(230px,1.18fr);align-items:center;gap:clamp(20px,5vw,84px);margin:0 0 20px}
+.v7-main-art{background:radial-gradient(ellipse closest-side,rgba(205,224,175,.075),transparent 80%);border:0;min-height:225px;display:grid;place-items:center;border-radius:24px}
+.v7-main-image{width:auto;height:auto;max-width:min(100%,180px);max-height:184px;min-height:110px;image-rendering:pixelated;object-fit:contain;filter:drop-shadow(0 12px 17px rgba(0,0,0,.22))}
+.v7-code{font-size:12px;letter-spacing:.1em;color:var(--accent);margin:0}
+.v7-name{font-size:clamp(22px,3vw,37px);letter-spacing:-.03em;line-height:1.15;font-weight:620;margin:8px 0 18px}
+.v7-status{color:var(--ink);font-size:13px;margin-bottom:7px}
+.v7-caveat{color:var(--muted);font-size:13px;line-height:1.65;max-width:480px}
+.v7-evidence,.v7-detail{color:var(--accent);font-size:13px;text-underline-offset:4px;margin-right:18px}
+.v7-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(83px,1fr));gap:10px;margin:8px 0 35px;max-width:1100px}
+.v7-tile{min-width:0;min-height:98px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;background:rgba(255,255,255,.02);border:1px solid transparent;border-radius:12px;transition:background .2s,border-color .2s,transform .2s}
+.v7-tile:hover{transform:translateY(-3px);background:#303332}
+.v7-tile[aria-pressed=true]{border-color:rgba(200,223,140,.58);background:#303731}
+.v7-tile-image{height:58px;width:58px;max-width:80%;object-fit:contain;image-rendering:pixelated}
+.v7-tile-title{font-size:10px;color:var(--muted);overflow-wrap:anywhere}
+.v7-regional{border-top:1px solid #393b39;padding:30px 0 0}
+.v7-regional h2{font-size:clamp(22px,3vw,35px);margin:0}
+.v7-regional p{font-size:14px;color:var(--muted);margin:8px 0 20px}
+.v7-lightbox{padding:24px;background:#232724;color:var(--ink);border:1px solid #484f49;max-width:min(92vw,560px);width:100%;border-radius:18px}
+.v7-lightbox::backdrop{background:#070908db;backdrop-filter:blur(8px)}
+.v7-close{background:none;border:0;float:right;font-size:29px;margin:-15px -9px 0 0}
+.v7-lightbox-image{display:grid;place-items:center;gap:8px;min-height:210px}
+.v7-large-image{width:auto;height:auto;max-width:min(70vw,256px);max-height:256px;image-rendering:pixelated}
+.v7-large-name{color:var(--muted);font-size:14px}
+@media(max-width:650px){.v7-hero{grid-template-columns:1fr;gap:4px}.v7-main-art{min-height:155px}.v7-main-image{max-height:140px;min-height:95px}.v7-gallery{grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:7px}.v7-tile{min-height:84px}.v7-tile-image{height:46px;width:46px}.v7-tabs{padding:15px 0}.v7-tab{padding:8px 11px}}
+@media(prefers-reduced-motion:reduce){.v7-global *{transition:none!important;scroll-behavior:auto!important;animation:none!important}}
