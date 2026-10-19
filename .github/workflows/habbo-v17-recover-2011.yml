@@ -1,0 +1,18 @@
+name: Habbo V17 recover original 2011 blog image links
+on:
+  push:
+    branches: [feat/habbo-v17-classic-manager-sprite-rail]
+    paths:
+      - 'habbo/v17/recover-2011.mjs'
+      - '.github/workflows/habbo-v17-recover-2011.yml'
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '20'}
+      - run: node habbo/v17/recover-2011.mjs
