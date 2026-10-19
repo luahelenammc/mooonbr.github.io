@@ -228,6 +228,8 @@ export function buildUnified({root,dist}) {
   html=html.replace(/<link rel="stylesheet" href="\/habbo\/assets\/v13-home.css(?:\?[^"]*)?">/g,'');
   html=html.replace(/<script defer src="\/habbo\/assets\/v13-home.js(?:\?[^"]*)?"><\/script>/g,'');
   html=html.replace(/<link rel="stylesheet" href="\/habbo\/assets\/v16-staff.css(?:\?[^"]*)?">/g,'');
+  html=html.replace(/<link rel="stylesheet" href="\/habbo\/assets\/v17-staff-rail.css(?:\?[^"]*)?">/g,'');
+  html=html.replace(/<script defer src="\/habbo\/assets\/v17-staff-rail.js(?:\?[^"]*)?"><\/script>/g,'');
   // Existing Pages output may be the input on the next build: remove old dialogs before adding exactly one.
   html=html.replace(/<dialog class="v9-home-dialog"[\s\S]*?<\/dialog>/g,'');
   html=html.replace('id="lugares" ','');
@@ -265,7 +267,7 @@ export function buildUnified({root,dist}) {
    '<a href="#" data-v9-dialog-link>'+(en?'Historical record and sources ↗':'Ficha histórica e fontes ↗')+'</a>'+
    '<button type="button" data-v9-dialog-step="1" aria-label="'+(en?'Next':'Próximo')+'">→</button></div></dialog>';
   html=html.replace('</main>', '</main>'+v9Dialog);
-  html=html.replace('</head>','<link rel="stylesheet" href="/habbo/assets/v13-home.css?v=20261019-v15.1"><link rel="stylesheet" href="/habbo/assets/v16-staff.css?v=20261019-v16.1"><script defer src="/habbo/assets/v13-home.js?v=20261019-v16.1"></script></head>');
+  html=html.replace('</head>','<link rel="stylesheet" href="/habbo/assets/v13-home.css?v=20261019-v15.1"><link rel="stylesheet" href="/habbo/assets/v16-staff.css?v=20261019-v16.1"><link rel="stylesheet" href="/habbo/assets/v17-staff-rail.css?v=20261019-v17.1"><script defer src="/habbo/assets/v13-home.js?v=20261019-v16.1"></script><script defer src="/habbo/assets/v17-staff-rail.js?v=20261019-v17.1"></script></head>');
   const rewrites=[
    [en?'/habbo/en/rares/':'/habbo/pt-br/raros/','#raros'],
    [en?'/habbo/en/badges/':'/habbo/pt-br/emblemas/','#emblemas']
@@ -286,7 +288,7 @@ export function buildUnified({root,dist}) {
  const regional=path.join(dist,'assets/v5/badges');
  if(fs.existsSync(regional))fs.rmSync(regional,{recursive:true,force:true});
  for(const [source,dest] of [['v8/museum.css','assets/v8-museum.css'],
-  ['v8/museum.js','assets/v8-museum.js'],['v8/home.css','assets/v8-home.css'],['v9/home.js','assets/v9-home.js'],['v10/home.css','assets/v10-home.css'],['v10/home.js','assets/v10-home.js'],['v11/home.css','assets/v11-home.css'],['v11/home.js','assets/v11-home.js'],['v12/home.css','assets/v12-home.css'],['v12/home.js','assets/v12-home.js'],['v13/home.css','assets/v13-home.css'],['v13/home.js','assets/v13-home.js'],['v13/detail.css','assets/v13-detail.css'],['v16/staff.css','assets/v16-staff.css']]){
+  ['v8/museum.js','assets/v8-museum.js'],['v8/home.css','assets/v8-home.css'],['v9/home.js','assets/v9-home.js'],['v10/home.css','assets/v10-home.css'],['v10/home.js','assets/v10-home.js'],['v11/home.css','assets/v11-home.css'],['v11/home.js','assets/v11-home.js'],['v12/home.css','assets/v12-home.css'],['v12/home.js','assets/v12-home.js'],['v13/home.css','assets/v13-home.css'],['v13/home.js','assets/v13-home.js'],['v13/detail.css','assets/v13-detail.css'],['v16/staff.css','assets/v16-staff.css'],['v17/staff-rail.css','assets/v17-staff-rail.css'],['v17/staff-rail.js','assets/v17-staff-rail.js']]){
   fs.copyFileSync(path.join(root,source),path.join(dist,dest));
  }
  for(const prefix of ['pt-br/raro','en/rare','pt-br/emblema','en/badge']){
@@ -307,5 +309,9 @@ export function buildUnified({root,dist}) {
  const nativeFrom=path.join(root,'assets/v13/native'),nativeTo=path.join(dist,'assets/v13/native');
  if(!fs.existsSync(nativeFrom))throw Error('Original V13 sprites not yet acquired');
  fs.cpSync(nativeFrom,nativeTo,{recursive:true,force:true});
+ const avatarFrom=path.join(root,'assets/v17/managers'),avatarTo=path.join(dist,'assets/v17/managers');
+ if(!fs.existsSync(avatarFrom)||fs.readdirSync(avatarFrom).length!==12)throw Error('Twelve verified manager sprites must be acquired before V17 build');
+ fs.mkdirSync(path.dirname(avatarTo),{recursive:true});
+ fs.cpSync(avatarFrom,avatarTo,{recursive:true,force:true});
  return {outcomes,detailPages,staffPages,homepage:['index.html','pt-br/index.html','en/index.html'],regionalPublished:0};
 }
