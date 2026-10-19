@@ -29,3 +29,9 @@
 @media(prefers-reduced-motion:reduce){.v6-global *{scroll-behavior:auto!important;transition:none!important}}
 
 .v6-global-code .v6-verified-original {max-width:96%;max-height:180px;width:auto;height:auto;object-fit:contain;image-rendering:pixelated;}
+
+/* Original 36–39px badge sprites are deliberately magnified with crisp nearest-neighbor pixels. */
+.v6-global-code .v6-verified-original { width:clamp(120px,13vw,168px); height:auto; max-height:185px; object-fit:contain; image-rendering:pixelated; }
+.detail .stage img[src*="/assets/v6/badges/"] { width:min(45vw,166px); height:auto; max-height:190px; image-rendering:pixelated; }
+.detail .stage img[src*="/assets/v6/rares/"] { width:auto; height:min(38vh,210px); max-width:85%; image-rendering:pixelated; }
+.rares .item .inspect img[src*="/assets/v6/rares/"] { width:auto; height:104px; max-width:95%; object-fit:contain; image-rendering:pixelated; }
