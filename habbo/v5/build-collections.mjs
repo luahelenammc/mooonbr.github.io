@@ -62,13 +62,46 @@ export function buildCollections({root, dist, basePath = ''}) {
   }
  }
  fs.mkdirSync(path.join(dist,'assets'),{recursive:true});
+
+ const classicFile=path.join(root,'v7','classic-catalogue.json');
+ let classics=null;
+ if(fs.existsSync(classicFile)){
+  classics=JSON.parse(fs.readFileSync(classicFile,'utf8'));
+  if(!Array.isArray(classics.items)||classics.items.length<45)throw Error('Historic general badge gallery requires at least 45 verified originals');
+  for(const item of classics.items){
+   if(!/^[A-Z0-9_]+$/.test(item.code)||!/^\/habbo\/assets\/v7\/classic-badges\/[A-Z0-9_]+\.gif$/.test(item.image))throw Error('Invalid historical badge path: '+item.code);
+   const file=path.join(root,item.image.replace(/^\/habbo\//,''));
+   if(!fs.existsSync(file))throw Error('Historical badge GIF missing: '+item.code);
+   const raw=fs.readFileSync(file);
+   const hash=crypto.createHash('sha256').update(raw).digest('hex');
+   if(hash!==item.sha256 || !['GIF87a','GIF89a'].includes(raw.subarray(0,6).toString('ascii')))throw Error('Historical badge integrity mismatch: '+item.code);
+   const dest=path.join(dist,item.image.replace(/^\/habbo\//,''));
+   fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(file,dest);
+  }
+  const legacy=[
+   'HC1','HC2','ACH_BasicClub1','ACH_BasicClub2','ACH_BasicClub3','ACH_BasicClub4','ACH_BasicClub5',
+   'ACH_VipClub1','ACH_VipClub2','ACH_VipClub3','ACH_VipClub4','ACH_VipClub5','EHR'
+  ].map(code=>{
+   const family=code.startsWith('ACH_Vip')?'conquistas':code==='EHR'?'conquistas':'club';
+   const pt=code.startsWith('ACH_BasicClub')?'Habbo Club · nível '+code.slice(-1):code.startsWith('ACH_VipClub')?'VIP · nível '+code.slice(-1):code==='EHR'?'Hora do Planeta':code==='HC1'?'Habbo Club':'Habbo Club Ouro';
+   const en=code.startsWith('ACH_BasicClub')?'Habbo Club · level '+code.slice(-1):code.startsWith('ACH_VipClub')?'VIP · level '+code.slice(-1):code==='EHR'?'Earth Hour':code==='HC1'?'Habbo Club':'Habbo Club Gold';
+   return {code,family,label:{ptBr:pt,en},image:'/habbo/assets/v6/badges/'+code+'.gif',
+    sourceUrl:'https://images.habbo.com/c_images/album1584/'+code+'.gif',
+    archiveSource:'https://habborator.org/badges/general.html',
+    hotelDistribution:'not_verified_per_hotel'};
+  });
+  classics.items=[...classics.items,...legacy];
+  fs.writeFileSync(path.join(dist,'assets','v7-classic-badges.json'),JSON.stringify(classics));
+  for(const ext of ['css','js'])fs.copyFileSync(path.join(root,'v7',\`classic-display.\${ext}\`),path.join(dist,'assets',\`v7-classic-display.\${ext}\`));
+ }
+
  for (const ext of ['css','js']) fs.copyFileSync(path.join(root,'v5',`collections.${ext}`),path.join(dist,'assets',`v5-collections.${ext}`));
  for (const ext of ['css','js']) fs.copyFileSync(path.join(root,'v6',`experience.${ext}`),path.join(dist,'assets',`v6-experience.${ext}`));
  for (const ext of ['css','js']) fs.copyFileSync(path.join(root,'v6',`global-badges.${ext}`),path.join(dist,'assets',`v6-global-badges.${ext}`));
  const route=(kind,en,id='')=>`${basePath}/${en?'en':'pt-br'}/${kind==='rares'?(id?(en?'rare':'raro'):(en?'rares':'raros')):(id?(en?'badge':'emblema'):(en?'badges':'emblemas'))}/${id?`${id}/`:''}`;
  const outputPath=(kind,en,id='')=>route(kind,en,id).slice(basePath.length+1)+'index.html';
  const title=(kind,en)=>kind==='rares'?(en?'Rare showroom':'Galeria de raros'):(en?'Badge constellation':'Constelação de emblemas');
- const shell=(en,kind,id,body)=>`<!doctype html><html lang="${en?'en':'pt-BR'}" data-v6-images-allowed="${approvedOriginalSprites}"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title(kind,en))} · Habbo Museu Vivo</title><link rel="stylesheet" href="${basePath}/assets/v5-collections.css"><script defer src="${basePath}/assets/v5-collections.js"></script><link rel="stylesheet" href="${basePath}/assets/v6-experience.css"><script defer src="${basePath}/assets/v6-experience.js"></script><link rel="stylesheet" href="${basePath}/assets/v6-global-badges.css"><script defer src="${basePath}/assets/v6-global-badges.js"></script></head><body><a class="skip" href="#main">${en?'Skip to collection':'Ir para coleção'}</a><header><a class="brand" href="${basePath}/${en?'en/':''}">HABBO <small>${en?'Living museum':'Museu vivo'}</small></a><nav aria-label="${en?'Collections':'Coleções'}"><a href="${basePath}/${en?'en/':''}">${en?'Places':'Lugares'}</a><a ${kind==='rares'?'aria-current="page"':''} href="${route('rares',en)}">${en?'Rares':'Raros'}</a><a ${kind==='badges'?'aria-current="page"':''} href="${route('badges',en)}">${en?'Badges':'Emblemas'}</a></nav><a hreflang="${en?'pt-BR':'en'}" href="${route(kind,!en,id)}"><img class="flag" src="${basePath}/assets/${en?'flag-br.svg':'flag-us.svg'}" alt=""> ${en?'PT-BR':'EN'}</a></header><main id="main">${body}</main><footer>This fan site is not affiliated with, endorsed, sponsored, or specifically approved by Sulake Oy or its Affiliates. This fan site may use the trademarks and other intellectual property of Habbo, which is permitted under Habbo Fan Site Policy. <a href="https://help.habbo.com/hc/en-us/articles/360011512480-Habbo-Fansite-Policy" target="_blank" rel="noopener noreferrer">Habbo Fan Site Policy</a></footer></body></html>`;
+ const shell=(en,kind,id,body)=>`<!doctype html><html lang="${en?'en':'pt-BR'}" data-v6-images-allowed="${approvedOriginalSprites}"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title(kind,en))} · Habbo Museu Vivo</title><link rel="stylesheet" href="${basePath}/assets/v5-collections.css"><script defer src="${basePath}/assets/v5-collections.js"></script><link rel="stylesheet" href="${basePath}/assets/v6-experience.css"><script defer src="${basePath}/assets/v6-experience.js"></script><link rel="stylesheet" href="${basePath}/assets/v6-global-badges.css"><script defer src="${basePath}/assets/v6-global-badges.js"></script>${classics?`<link rel="stylesheet" href="${basePath}/assets/v7-classic-display.css"><script defer src="${basePath}/assets/v7-classic-display.js"></script>`:""}</head><body><a class="skip" href="#main">${en?'Skip to collection':'Ir para coleção'}</a><header><a class="brand" href="${basePath}/${en?'en/':''}">HABBO <small>${en?'Living museum':'Museu vivo'}</small></a><nav aria-label="${en?'Collections':'Coleções'}"><a href="${basePath}/${en?'en/':''}">${en?'Places':'Lugares'}</a><a ${kind==='rares'?'aria-current="page"':''} href="${route('rares',en)}">${en?'Rares':'Raros'}</a><a ${kind==='badges'?'aria-current="page"':''} href="${route('badges',en)}">${en?'Badges':'Emblemas'}</a></nav><a hreflang="${en?'pt-BR':'en'}" href="${route(kind,!en,id)}"><img class="flag" src="${basePath}/assets/${en?'flag-br.svg':'flag-us.svg'}" alt=""> ${en?'PT-BR':'EN'}</a></header><main id="main">${body}</main><footer>This fan site is not affiliated with, endorsed, sponsored, or specifically approved by Sulake Oy or its Affiliates. This fan site may use the trademarks and other intellectual property of Habbo, which is permitted under Habbo Fan Site Policy. <a href="https://help.habbo.com/hc/en-us/articles/360011512480-Habbo-Fansite-Policy" target="_blank" rel="noopener noreferrer">Habbo Fan Site Policy</a></footer></body></html>`;
  const humanHotel=(status,en)=>({unknown:en?'Brazilian availability unconfirmed':'Disponibilidade brasileira não confirmada',br_probable:en?'Brazilian availability probable; not confirmed':'Disponibilidade brasileira provável; não confirmada',international_only:en?'International evidence only; Brazilian availability unconfirmed':'Evidência internacional; disponibilidade brasileira não confirmada',br_documented:en?'Brazilian availability documented':'Disponibilidade brasileira documentada'}[status]);
  const field=(value,en)=>typeof value==='object'?value?.[en?'en':'ptBr'] || '':value || '';
  const contextMeta=(r,en)=>['historicalContext','brReleaseDate','firstDocumentedInternationalReleaseDate','originalIssueDate','dateEvidence','nameNote'].filter(key=>r[key]).map(key=>`<p><strong>${esc(({historicalContext:en?'Historical context':'Contexto histórico',firstDocumentedInternationalReleaseDate:en?'Earliest international date documented here':'Data internacional mais antiga documentada aqui',originalIssueDate:en?'Documented original issue date':'Data documentada da emissão original',brReleaseDate:en?'Brazilian date':'Data brasileira',dateEvidence:en?'Date evidence':'Evidência da data',nameNote:en?'Naming note':'Nota sobre o nome'})[key])}:</strong> ${esc(field(r[key],en))}</p>`).join('');
@@ -94,6 +127,25 @@ export function buildCollections({root, dist, basePath = ''}) {
     `<a class="back" href="${route('badges',en)}">← ${title('badges',en)}</a><article class="detail"><div class="stage"><img src="${local(r.image)}" alt="${esc(r.name[lang])}"></div><div><p class="eyebrow">GLOBAL · ${esc(r.badgeCode)}</p><h1>${esc(r.name[lang])}</h1><p>${esc(r.description[lang])}</p>${meta(r,en)}<h2>${en?'Sources':'Fontes'}</h2><ul>${r.provenanceRefs.map(url=>`<li><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(url)}</a></li>`).join('')}</ul></div></article>`));
   }
  }
+
+ // Independent archival pages for all verified classic international badges.
+ // Prefix classic- avoids collisions with V6 club and VIP records.
+ if(classics){
+  for(const en of [false,true]){
+   const lang=en?'en':'ptBr';
+   for(const r of classics.items){
+    const id='classic-'+r.code.toLowerCase();
+    const safeName=esc(r.label?.[lang]||r.code);
+    const context=en?
+     'Documented in an international general badge archive before 2012; hotel-by-hotel issuance is not assumed.':
+     'Registrado em um arquivo internacional de emblemas anterior a 2012; não se presume distribuição em todos os hotéis.';
+    const links=[r.sourceUrl,r.archiveSource].filter(Boolean).map(url=>\`<li><a href="\${esc(url)}" target="_blank" rel="noopener noreferrer">\${esc(url)}</a></li>\`).join('');
+    out(outputPath('badges',en,id),shell(en,'badges',id,
+     \`<a class="back" href="\${route('badges',en)}">← \${title('badges',en)}</a><article class="detail"><div class="stage"><img src="\${local(r.image)}" alt="\${safeName}"></div><div><p class="eyebrow">CLASSIC INTERNATIONAL · \${esc(r.code)}</p><h1>\${safeName}</h1><p>\${context}</p><dl><dt>\${en?'Original code':'Código original'}</dt><dd>\${esc(r.code)}</dd><dt>\${en?'Historical scope':'Recorte histórico'}</dt><dd>\${en?'Before 2012':'Antes de 2012'}</dd><dt>\${en?'Hotel availability':'Disponibilidade por hotel'}</dt><dd>\${en?'Not established':'Não estabelecida'}</dd></dl><h2>\${en?'Provenance':'Proveniência'}</h2><ul>\${links}</ul></div></article>\`));
+   }
+  }
+ }
+
  // Copy only validated local collection assets; no remote runtime image dependency.
  for(const r of [...data.rares,...data.badges]) {let rel=r.image.replace(/^\/habbo\//,'');let dest=path.join(dist,rel);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(path.join(root,rel),dest);}
  return {rares:data.rares.length,badges:data.badges.length};
