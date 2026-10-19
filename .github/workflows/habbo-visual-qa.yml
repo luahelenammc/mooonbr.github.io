@@ -45,6 +45,7 @@ jobs:
         run: |
           BASE_PATH=/habbo node habbo/build.mjs
           node --test habbo/qa/v5-collections.test.mjs
+          node --test habbo/qa/v6-release-gate.test.mjs
 
       - name: Run V4 static QA
         run: node habbo/qa/run-public-qa.mjs
