@@ -3,7 +3,9 @@ const sources=[
  ['viajovem','https://viajovem.blogspot.com/2021/02/staffs.html'],
  ['habblindados','https://habblindados.com.br/pagina/staff-habbo'],
  ['habbo-wiki','https://habbo.fandom.com/pt-br/wiki/Gerentes'],
- ['habbo-misterio-4queijos','https://viajovem.blogspot.com/2021/04/a-historia-e-vida-4queijos.html']
+ ['habbo-misterio-4queijos','https://viajovem.blogspot.com/2021/04/a-historia-e-vida-4queijos.html'],
+ ['old-staff-2011','https://haddicas-habbo.blogspot.com/2011/12/personagens-hotel.html'],
+ ['retrospective','https://aquelasimagem.blogspot.com/p/hb-06-11.html']
 ];
 const staff=['Flecha','Mordomo','Paty-Nestle','4Queijos','Disco-Lee','MissFurby','Reeet','TheDJHabbo','Acapulca','Sir-Lawnrence','Prefeita','DJapamala'];
 fs.mkdirSync('habbo/v17/probe',{recursive:true});
