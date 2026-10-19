@@ -184,9 +184,30 @@ function homeChapter(id,title,description,items,en,route) {
  '<nav class="v9-family-index v11-family-grid" aria-label="'+(en?'Families of ':'Famílias de ')+label+'">'+jump+'</nav>'+
  '<div class="v9-families">'+sections+'</div></section>';
 }
+function upgradeHologramRecordImages(dist){
+ const animated={holopod:'holo_boy_anim.gif',hologirl:'holo_girl_anim.gif'};
+ for(const locale of ['pt-br/raro','en/rare']){
+  for(const [id,original] of Object.entries(animated)){
+   const target=path.join(dist,locale,id,'index.html');
+   if(!fs.existsSync(target))throw Error('Historic hologram detail page missing '+target);
+   let html=fs.readFileSync(target,'utf8');
+   const legacy='/habbo/assets/v5/rares/'+id+'.gif';
+   const newer='/habbo/assets/v13/native/'+original;
+   const rx=new RegExp('<img src="'+legacy.replaceAll('/','\\/').replace('.','\\.')+'" alt="([^"]*)">','g');
+   let found=0;
+   html=html.replace(rx,(_,alt)=>{
+    found++;
+    return '<picture><source media="(prefers-reduced-motion: reduce)" srcset="'+legacy+'"><img src="'+newer+'" alt="'+alt+'"></picture>';
+   });
+   if(found!==1)throw Error('Expected exactly one historical image on '+id+' '+locale+', got '+found);
+   fs.writeFileSync(target,html);
+  }
+ }
+}
 export function buildUnified({root,dist}) {
  const rare=rareItems(root), badge=badgeItems(root);
  const detailPages=renderV13Details(root,dist);
+ upgradeHologramRecordImages(dist);
  const outcomes=[renderCollection(root,dist,'rares',false),renderCollection(root,dist,'rares',true),
   renderCollection(root,dist,'badges',false),renderCollection(root,dist,'badges',true)];
  for(const [file,en] of [['index.html',false],['pt-br/index.html',false],['en/index.html',true]]){
