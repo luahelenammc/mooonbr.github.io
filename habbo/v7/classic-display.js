@@ -113,7 +113,7 @@
   const dialog=el('dialog','v7-lightbox');
   const close=el('button','v7-lightbox-close','×');
   close.type='button';close.setAttribute('aria-label',T.close);
-  const big=el('img','v7-lightbox-art');big.alt='';
+  const big=el('img','v7-lightbox-art');big.alt='';big.src=data[0].image;
   const dlgName=el('h2','v7-lightbox-name'),dlCode=el('p','v7-lightbox-code');
   const dlgLink=el('a','v7-detail',T.details+' ↗');
   dialog.append(close,big,dlgName,dlCode,dlgLink);
