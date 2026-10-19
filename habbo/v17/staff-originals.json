@@ -121,6 +121,18 @@
       "format": "gif",
       "bytes": 2789,
       "sha256": "33312f53a08e01ccc38a5aca1818bf5cfc1de976336177068befa6e21a1ac7bf"
+    },
+    {
+      "id": "djapamala",
+      "sourcePage": "https://habbo.fandom.com/pt-br/wiki/Gerentes",
+      "url": "https://static.wikia.nocookie.net/habbo/images/c/cf/Perfil_DJapamala.png/revision/latest?cb=20111113160839&path-prefix=pt",
+      "period": "2011 uploaded wiki artwork",
+      "local": "habbo/assets/v17/staff/djapamala.webp",
+      "width": 367,
+      "height": 188,
+      "format": "webp",
+      "bytes": 3952,
+      "sha256": "4339ec1c4bbac9c55af34a4e9d9923ff301b3f22e193d17bba8f7e5ce76b201c"
     }
   ]
 }
