@@ -165,18 +165,6 @@
  locateHash();
  window.addEventListener('hashchange',locateHash);
  document.documentElement.classList.add('v10-family-ready');
- // Tiny historical inventory sprites are enlarged in integral steps, retaining
- // nearest-neighbour pixel rendering, without enlarging larger furniture art.
- for(const img of root.querySelectorAll('.v9-rare-rail .v9-item-art img')){
-  const scale=()=>{
-   const w=img.naturalWidth,h=img.naturalHeight;
-   if(!w||!h||w>=58||h>=100)return;
-   const k=Math.min(4,Math.max(2,Math.floor(106/Math.max(w,h))));
-   img.style.width=(w*k)+'px';
-   img.style.height=(h*k)+'px';
-   img.dataset.v10Scaled='true';
-  };
-  if(img.complete)scale();else img.addEventListener('load',scale,{once:true});
- }
+ // Full historical room sprites load at their native pixel dimensions; no icon enlargement.
 
 })();
