@@ -74,7 +74,7 @@
  function selectRecord(record,focus=false){
   selected=record;
   mainImg.src=record.image;mainImg.alt=record.label[pt?'ptBr':'en']+' ('+record.code+')';
-  code.textContent=record.code+' · '+(record.archivedBefore||'2011');
+  code.textContent=record.code+' · '+(pt?'preservado até 2011':'archived by 2011');
   name.textContent=record.label[pt?'ptBr':'en'];
   source.href=record.archivePage||data.sourcePage;
   detail.hidden=!record.detail;
@@ -92,7 +92,8 @@
   for(const r of visible){
    const item=el('button','v7-tile');item.type='button';item.dataset.code=r.code;
    const image=photo(r.image,r.label[pt?'ptBr':'en'],'v7-tile-image');
-   const title=el('span','v7-tile-title',r.code);
+   const brief=r.code.startsWith('ACH_BasicClub')?'HC '+r.code.slice(-1):r.code.startsWith('ACH_VipClub')?'VIP '+r.code.slice(-1):r.code;
+   const title=el('span','v7-tile-title',brief);
    item.title=r.label[pt?'ptBr':'en'];
    item.append(image,title);
    item.addEventListener('click',()=>selectRecord(r));
