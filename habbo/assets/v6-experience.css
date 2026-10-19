@@ -1,0 +1,81 @@
+/*
+ * Habbo V6 — independent visual recovery layer.
+ * Only affects the Rares listing after JS opts in.
+ * It does not change the Places dock or the existing Badges pages.
+ */
+.v6-rare-experience .intro { max-width: 690px; margin-bottom: 1.6rem; }
+.v6-rare-experience .intro h1 { font-size: clamp(2.15rem, 4.8vw, 4.7rem); }
+.v6-rare-experience .rare-hero {
+  min-height: clamp(250px, 42vh, 390px);
+  margin-block: 0 1.25rem;
+  background: radial-gradient(ellipse 45% 42% at 50% 44%, rgba(201,213,148,.105), transparent 100%);
+}
+.v6-rare-experience .rare-hero .inspect {
+  height: clamp(165px, 29vh, 250px);
+}
+.v6-rare-experience .rare-hero .inspect img {
+  width: min(38vw, 285px);
+  max-height: min(29vh, 242px);
+  height: auto;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+.v6-rare-experience .rail {
+  border-block: 1px solid rgba(255,255,255,.12);
+  scrollbar-width: thin;
+  padding: 12px 0;
+  margin-bottom: 1rem;
+}
+.v6-rare-experience .rail a {
+  border-color: transparent;
+  color: var(--muted);
+  font-size: .85rem;
+  white-space: nowrap;
+  transition: color .22s ease, background .22s ease;
+}
+.v6-rare-experience .rail a[aria-current="true"] {
+  background: rgba(201,223,140,.12);
+  border-color: rgba(201,223,140,.28);
+  color: var(--ink);
+}
+.v6-rare-experience .family:not([data-v6-visible="true"]) { display: none; }
+.v6-rare-experience .family[data-v6-visible="true"] {
+  display: block;
+  margin: 1rem 0 2rem;
+}
+.v6-rare-experience .family h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.15rem, 2vw, 1.6rem);
+  font-weight: 600;
+}
+.v6-rare-experience .grid.rares {
+  min-height: 225px;
+  gap: clamp(10px, 2vw, 28px);
+  padding: 8px 0 22px;
+  scroll-snap-type: x proximity;
+}
+.v6-rare-experience .rares .item { flex-basis: clamp(150px, 17vw, 210px); }
+.v6-rare-experience .rares .item .inspect { height: clamp(125px, 17vw, 170px); }
+.v6-rare-experience .rares .item .inspect img { max-height: 155px; }
+.v6-rare-experience .v6-family-line {
+  display: flex; align-items: baseline; flex-wrap: wrap;
+  gap: 1rem; padding-bottom: .35rem; color: var(--muted);
+  font-size: .84rem;
+}
+.v6-rare-experience .v6-family-line button {
+  margin-left: auto; border: 0; color: var(--ink);
+  background: transparent; text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.v6-rare-experience.v6-show-all .family { display: block !important; }
+.v6-rare-experience.v6-show-all .family { margin-bottom: 2.2rem; }
+@media (max-width:650px) {
+  .v6-rare-experience main { padding-top: 28px; }
+  .v6-rare-experience .rare-hero { min-height: 265px; }
+  .v6-rare-experience .rare-hero .inspect img { width: 205px; max-height: 185px; }
+  .v6-rare-experience .rares .item { flex-basis: 155px; }
+  .v6-rare-experience .grid.rares { min-height: 200px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .v6-rare-experience .rail a { transition: none !important; }
+}

@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "stage": "nonpublishing_recovery_checkpoint",
+  "temporalCutoff": "2011-12-31",
+  "authority": [
+    "https://drive.google.com/file/d/1rUir_Alws-wedTF1xzWxCK2QBqkrrxTw/view",
+    "https://drive.google.com/file/d/1mGYdC1al2pUX3MV-Lmtwa8kiGXr3vCMo/view"
+  ],
+  "legalGate": "BR/PT fansite registration or another documented publication permission",
+  "notes": "Metadata-only candidates from Work V6 research matrices. Does not include original Work evidence ledgers, image binary bytes, hashes, per-item dates, or authorization; never promote to public build automatically.",
+  "globalBadges": [
+    {
+      "code": "HC1",
+      "scopeClass": "shared_global_standard",
+      "family": "habbo_club",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "requiresIndividualDateReview": true,
+      "distributedInAllHotels": "not_established"
+    },
+    {
+      "code": "HC2",
+      "scopeClass": "shared_global_standard",
+      "family": "habbo_club",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "requiresIndividualDateReview": true,
+      "distributedInAllHotels": "not_established"
+    },
+    {
+      "code": "ACH_BasicClub1",
+      "scopeClass": "shared_global_standard",
+      "family": "habbo_club_levels",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "requiresIndividualDateReview": true,
+      "distributedInAllHotels": "not_established"
+    },
+    {
+      "code": "ACH_BasicClub2",
+      "scopeClass": "shared_global_standard",
+      "family": "habbo_club_levels",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "requiresIndividualDateReview": true,
+      "distributedInAllHotels": "not_established"
+    },
+    {
+      "code": "ACH_BasicClub3",
+      "scopeClass": "shared_global_standard",
+      "family": "habbo_club_levels",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "requiresIndividualDateReview": true,
+      "distributedInAllHotels": "not_established"
+    },
+    {
+      "code": "ACH_BasicClub4",
+      "scopeClass": "shared_global_standard",
+      "family": "habbo_club_levels",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "requiresIndividualDateReview": true,
+      "distributedInAllHotels": "not_established"
+    },
+    {
+      "code": "ACH_BasicClub5",
+      "scopeClass": "shared_global_standard",
+      "family": "habbo_club_levels",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "requiresIndividualDateReview": true,
+      "distributedInAllHotels": "not_established"
+    },
+    {
+      "code": "ACH_VipClub1",
+      "scopeClass": "shared_global_standard",
+      "family": "vip",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "requiresIndividualDateReview": true,
+      "distributedInAllHotels": "not_established"
+    },
+    {
+      "code": "ACH_VipClub2",
+      "scopeClass": "shared_global_standard",
+      "family": "vip",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "requiresIndividualDateReview": true,
+      "distributedInAllHotels": "not_established"
+    },
+    {
+      "code": "ACH_VipClub3",
+      "scopeClass": "shared_global_standard",
+      "family": "vip",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "requiresIndividualDateReview": true,
+      "distributedInAllHotels": "not_established"
+    },
+    {
+      "code": "ACH_VipClub4",
+      "scopeClass": "shared_global_standard",
+      "family": "vip",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "requiresIndividualDateReview": true,
+      "distributedInAllHotels": "not_established"
+    },
+    {
+      "code": "ACH_VipClub5",
+      "scopeClass": "shared_global_standard",
+      "family": "vip",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "requiresIndividualDateReview": true,
+      "distributedInAllHotels": "not_established"
+    },
+    {
+      "code": "EHR",
+      "scopeClass": "cross_hotel_campaign",
+      "family": "campaign",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "requiresIndividualDateReview": true,
+      "distributedInAllHotels": "not_established"
+    }
+  ],
+  "rareConcepts": [
+    {
+      "id": "holiday-romance",
+      "name": "Holiday Romance",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "availabilityByHotel": "not_generalized",
+      "rendererAssetFormat": "archival_display_sprite_not_full_client_render"
+    },
+    {
+      "id": "santa-and-elf",
+      "name": "Santa and Elf / Lappland Greetings",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "availabilityByHotel": "not_generalized",
+      "rendererAssetFormat": "archival_display_sprite_not_full_client_render"
+    },
+    {
+      "id": "aloe-vera",
+      "name": "Aloe Vera / Small Plant",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "availabilityByHotel": "not_generalized",
+      "rendererAssetFormat": "archival_display_sprite_not_full_client_render"
+    },
+    {
+      "id": "dj-turntable",
+      "name": "DJ Turntable / DJ Deck",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "availabilityByHotel": "not_generalized",
+      "rendererAssetFormat": "archival_display_sprite_not_full_client_render"
+    },
+    {
+      "id": "crusoes-hammock",
+      "name": "Crusoe’s Hammock",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "availabilityByHotel": "not_generalized",
+      "rendererAssetFormat": "archival_display_sprite_not_full_client_render"
+    },
+    {
+      "id": "snow-globe",
+      "name": "Classic Snow Globe",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "availabilityByHotel": "not_generalized",
+      "rendererAssetFormat": "archival_display_sprite_not_full_client_render"
+    },
+    {
+      "id": "speakers-corner",
+      "name": "Speaker’s Corner",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "availabilityByHotel": "not_generalized",
+      "rendererAssetFormat": "archival_display_sprite_not_full_client_render"
+    },
+    {
+      "id": "cola-machine",
+      "name": "Habbo Cola Machine",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "availabilityByHotel": "not_generalized",
+      "rendererAssetFormat": "archival_display_sprite_not_full_client_render"
+    },
+    {
+      "id": "infobus-poster",
+      "name": "Infobus poster furniture",
+      "publicationStatus": "awaiting_asset_and_rights_gate",
+      "availabilityByHotel": "not_generalized",
+      "rendererAssetFormat": "archival_display_sprite_not_full_client_render"
+    }
+  ],
+  "additionalBacklog": "103 probable global/regional badges + 48 badge backlog; 21 rare concepts in separate Work matrices"
+}
