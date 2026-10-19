@@ -88,6 +88,8 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A habbo/index.html habbo/pt-br/index.html habbo/en/index.html
+          git add -A habbo/pt-br/raros/index.html habbo/en/rares/index.html
+          git add -A habbo/pt-br/emblemas/index.html habbo/en/badges/index.html
           git add -A habbo/assets/v12-home.css habbo/assets/v12-home.js
           if ! git diff --cached --quiet; then
             git commit -m 'build(habbo): publish verified V12 compact atlas and grouped rarities to Pages source'
