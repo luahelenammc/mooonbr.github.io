@@ -1,0 +1,116 @@
+name: Habbo V14 monoliths + laser gates + Public Spaces
+on:
+  push:
+    branches: [feat/habbo-v14-monoliths-laser-gates-public-spaces]
+    paths:
+      - 'habbo/v13/**'
+      - 'habbo/v14/**'
+      - 'habbo/v8/build-unified.mjs'
+      - 'habbo/v8/museum.js'
+      - 'habbo/v6/sync-static-output.mjs'
+      - 'habbo/qa/v13-original-archive.mjs'
+      - 'habbo/qa/v14-laser-monolith-nav.mjs'
+      - 'habbo/qa/v12-quiet-atlas.mjs'
+      - 'habbo/qa/v8-visual.mjs'
+      - '.github/workflows/habbo-v14-release.yml'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: habbo-v14-release
+  cancel-in-progress: true
+jobs:
+  museum-v14:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/habbo-v13-native-animated-rares
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify native historic asset provenance, hashes and real GIF frames
+        run: node habbo/v13/acquire-native.mjs --check
+      - name: Static syntax and data contract
+        run: |
+          node --check habbo/v8/build-unified.mjs
+          node --check habbo/v8/museum.js
+          node --check habbo/v13/home.js
+          node --check habbo/v13/render-details.mjs
+          node --check habbo/qa/v13-original-archive.mjs
+          node --check habbo/qa/v14-laser-monolith-nav.mjs
+      - name: Build museum and synchronize all static Pages routes
+        run: |
+          BASE_PATH=/habbo node habbo/build.mjs
+          node habbo/v6/sync-static-output.mjs --write
+          node habbo/v6/sync-static-output.mjs --check
+          grep -q 'v13-home.css?v=20261019-v14.1' habbo/index.html
+          grep -q 'v13-home.js?v=20261019-v13.1' habbo/en/index.html
+          grep -q 'raros-family-collectables-2008-2009' habbo/pt-br/index.html
+          grep -q 'raros-family-laser-gates' habbo/pt-br/index.html
+          grep -q 'Espaços Públicos</a>' habbo/pt-br/index.html
+          grep -q 'Public Spaces</a>' habbo/en/index.html
+          grep -q 'Monólito rosa' habbo/pt-br/raro/v13-monolith-pink/index.html
+          grep -q 'Pink Spaceship Door' habbo/en/rare/v13-monolith-pink/index.html
+          grep -q 'v14-laser-red.gif' habbo/en/rare/v14-laser-red/index.html
+          grep -q 'v13-collectible-gondola' habbo/pt-br/raro/v13-collectible-gondola/index.html
+          ! grep -q 'badge-br' habbo/pt-br/index.html
+      - name: Source and spatial static regression
+        run: |
+          node --test habbo/qa/v5-collections.test.mjs
+          node --test habbo/qa/v6-release-gate.test.mjs
+          node habbo/qa/run-public-qa.mjs
+      - name: Install browser test runner
+        run: |
+          npm init -y
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Serve publishable files
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory . >/tmp/habbo-v13.log 2>&1 &
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            curl --silent --fail http://127.0.0.1:4173/habbo/ >/dev/null && break
+            sleep 1
+          done
+      - name: V13 original GIF and extended archive acceptance
+        run: node habbo/qa/v13-original-archive.mjs
+      - name: V14 separate monoliths and laser gates browser acceptance
+        run: node habbo/qa/v14-laser-monolith-nav.mjs
+      - name: Preserve V12 grouped atlas and V8 museum
+        run: |
+          node habbo/qa/v12-quiet-atlas.mjs
+          node habbo/qa/v8-visual.mjs
+      - name: Preserve Places Dock and four-second autoplay
+        run: |
+          node habbo/qa/autoplay-hover-regression.mjs
+          node habbo/qa/visual-qa.mjs
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: habbo-v14-laser-monoliths-public-spaces-qa
+          path: |
+            habbo/qa/v13-artifacts/
+            habbo/qa/v14-artifacts/
+            habbo/qa/v12-artifacts/
+            habbo/qa/v8-evidence/
+            habbo/qa/visual-artifacts/
+      - name: Commit validated real Pages source and newly generated history pages
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A habbo/index.html habbo/pt-br/index.html habbo/en/index.html
+          git add -A habbo/pt-br/raros/index.html habbo/en/rares/index.html
+          git add -A habbo/pt-br/emblemas/index.html habbo/en/badges/index.html
+          git add -A habbo/pt-br/raro habbo/en/rare
+          git add -A habbo/assets/v13 habbo/assets/v13-home.css habbo/assets/v13-home.js habbo/assets/v13-detail.css
+          git add -A habbo/assets/v8-museum.js
+          if ! git diff --cached --quiet; then
+            git commit -m 'build(habbo): publish 115 rares, corrected monoliths and ten separate laser gates'
+            git push origin HEAD:feat/habbo-v13-native-animated-rares
+          fi
