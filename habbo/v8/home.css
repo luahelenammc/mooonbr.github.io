@@ -1,0 +1,26 @@
+/* V8 home chapters: secondary exhibitions AFTER the intact cinematic places Dock. */
+.v8-home-chapters{--v8-lime:#c7dd9a;--v8-ink:#f1f2ed;max-width:1260px;margin:clamp(75px,12vh,150px) auto 70px;padding:0 clamp(19px,5vw,70px);color:var(--v8-ink)}
+.v8-home-chapter{padding:clamp(45px,6vw,78px) 0;border-top:1px solid #ffffff1c;scroll-margin-top:35px}
+.v8-chapter-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:24px}
+.v8-chapter-head>div{max-width:650px}
+.v8-overline{font-size:11px;letter-spacing:.17em;font-weight:700;color:var(--v8-lime);margin:0 0 14px}
+.v8-chapter-head h2{font-size:clamp(31px,4.8vw,61px);line-height:1.05;letter-spacing:-.05em;margin:0 0 13px;color:var(--v8-ink)}
+.v8-chapter-head p:not(.v8-overline){font-size:clamp(13px,1.5vw,16px);color:#aeb4ad;margin:0}
+.v8-full-collection{border:1px solid #657760;color:#e5eade;text-decoration:none;border-radius:30px;padding:12px 19px;font-size:13px;white-space:nowrap;flex-shrink:0}
+.v8-full-collection:hover,.v8-full-collection:focus-visible{background:#303a31;color:white}
+.v8-home-rail{display:flex;overflow-x:auto;gap:11px;scroll-snap-type:x proximity;scrollbar-width:thin;padding:14px 0 23px;overscroll-behavior-inline:contain}
+.v8-home-rail a{flex:0 0 clamp(135px,15vw,190px);display:grid;grid-template-rows:145px auto;gap:9px;place-items:center;color:#b3bcb1;text-decoration:none;border:1px solid transparent;border-radius:18px;padding:8px;scroll-snap-align:start;min-width:0;transition:background .22s,transform .22s}
+.v8-home-rail a:hover,.v8-home-rail a:focus-visible{background:#ffffff10;transform:translateY(-3px);color:#fff}
+.v8-home-rail img{width:auto;height:auto;max-width:93%;max-height:138px;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(0 9px 10px #0006)}
+.v8-home-rail span{font-size:12px;text-align:center;line-height:1.38;align-self:start}
+#lugares{scroll-margin-top:25px}
+@media(max-width:650px){.v8-home-chapters{margin-top:75px;padding:0 16px}.v8-chapter-head{align-items:start;flex-direction:column;gap:15px}.v8-home-rail{gap:6px}.v8-home-rail a{flex-basis:142px;grid-template-rows:112px auto}.v8-home-rail img{max-height:107px}.v8-full-collection{padding:10px 15px}}
+@media(prefers-reduced-motion:reduce){.v8-home-rail a{transition:none!important}}
+
+/* Nested gallery rails must never expand the parent flex column on narrow screens.
+   Their own overflow scrolls horizontally; the document itself must not. */
+.home-page--v2{min-width:0;max-width:100%}
+.v8-home-chapters{width:100%;min-width:0;max-width:min(1260px,100%);overflow-x:clip}
+.v8-home-chapter{min-width:0;max-width:100%}
+.v8-chapter-head,.v8-chapter-head>div{min-width:0;max-width:100%}
+.v8-home-rail{width:100%;max-width:100%;min-width:0}

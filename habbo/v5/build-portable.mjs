@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {buildCollections} from './build-collections.mjs';
+import {buildUnified} from '../v8/build-unified.mjs';
 // The published normalized V4 shell is the source when private atlas inputs are absent.
 // It retains approved room markup; new collections are always generated from curated JSON.
 export function buildPortable({root,dist,basePath='/habbo'}) {
@@ -18,5 +19,6 @@ export function buildPortable({root,dist,basePath='/habbo'}) {
   fs.writeFileSync(p,html);
  }
  const result=buildCollections({root,dist,basePath});
- console.log(JSON.stringify({mode:'normalized-v4-portable',...result,dist}));
+ const unified=buildUnified({root,dist});
+ console.log(JSON.stringify({mode:'normalized-v8-museum',...result,unified,dist}));
 }
