@@ -1,26 +1,27 @@
-# Habbo V6 — Recuperação segura no Chat
+# Habbo V6 — release visual recuperado e validado
 
-**Status:** implementação parcial, **não é a V6 do Work perdida**.
+**Estado atual:** release candidate completo na branch `feat/habbo-v6-global-first-reconstruction`. Este registro foi escrito antes do merge; não substitui verificação posterior de `main`.
 
-A V5 permanece em `main` (`e68cec23b41c19f340ffc68e123eb508a424a31a`). O Work deixou uma V6 staged apenas no worktree remoto de sua execução; ela não foi publicada nem anexada como fonte. Relatórios e matrizes foram preservados no Drive, mas os arquivos `repo-v6/habbo/v6/` e 22 GIFs **não estão disponíveis nesta conversa**.
+## O que foi recuperado
+- 22 GIFs autênticos, resgatados individualmente de `images.habbo.com` e do arquivo histórico Habborator.
+- Verificação SHA-256 integral: **22/22** correspondem ao manifesto oriundo da pesquisa V6 do Work.
+- 9 novos raros acrescentados ao corpus anterior de 60; total **69 raros**, com fichas PT-BR/EN.
+- 13 emblemas globais/cross-hotel com imagens originais e fichas PT-BR/EN (HC1/HC2, conquistas de HC e VIP, EHR).
+- Os **62 emblemas regionais BR/PT** foram preservados em uma seção posterior; nenhuma atribuição não documentada de hotel foi inventada.
+- Interface com quatro famílias globais no topo da galeria de emblemas e apresentação minimalista cinza-escura.
+- Gerador de páginas para `/habbo/` sincronizado com a árvore servida pelo GitHub Pages.
 
-Esta branch fornece um avanço sem atravessar o gate de direitos:
-- experiência de Raros com uma família por vez, atalho para ver todas as famílias e foco estável;
-- CSS/JS V6 desacoplados;
-- nenhum sprite novo e nenhuma alegação de autorização de publicação;
-- nenhuma mutação em Lugares ou no catálogo de emblemas regionais.
+## Evidência de funcionamento
+- Workflow de compilação e publicação do candidato: https://github.com/luahelenammc/mooonbr.github.io/actions/runs/39245193748 (**concluído com sucesso**).
+- Suite Chromium V6 com originais servidos, PT/EN, desktop/mobile: **52 checks passaram**.
+- Regressões do display de Raros V5/V6, grupos, idiomas e imagens presentes.
+- Screenshots anexados ao artefato `habbo-v6-originals-and-release-qa` do workflow.
 
-## Continuidade bloqueada
+## Condições de uso
+Os 22 GIFs são de propriedade dos respectivos titulares. Este projeto usa uma **interpretação documentada da política internacional de fã-sites não comerciais**, sem se apresentar como afiliado, registrado, oficial ou individualmente autorizado pela Sulake. A redação BR/PT sobre registro difere. Revisar em qualquer questionamento do titular; licença aberta **não** foi concedida. Fonte: `habbo/v6/PUBLICATION_POLICY_DECISION.md` e `asset-release-approval.json` (o nome histórico deste último arquivo NÃO significa aprovação Sulake).
 
-1. Recuperar `repo-v6` do Work (checkpoint tar.gz do worktree staged).
-2. Comparar com esta branch e integrar preservando seus 69 raros e 13 globais candidatos.
-3. Resolver a questão da política BR/PT para **novos assets** antes do merge público.
-4. Executar Chromium/Playwright real e comparar screenshots, mobile e redução de movimento.
-5. Gerar os HTMLs estáticos sob `habbo/` (não somente `habbo/dist/`).
-6. Atualizar fonte canônica somente após release real.
+## Limitações editoriais
+A disponibilização documentada do sprite não comprova que cada item existiu em todos os hotéis. Algumas imagens adicionais de raros são **sprites de catálogo de 30px**, não renders 3D completos. Os 13 emblemas globais são a primeira seleção verificada, não um catálogo exaustivo de todos os emblemas globais pré-2012. Novas séries permanecem no backlog.
 
-O Gate de direitos vigente não é um parecer jurídico. Fontes oficiais:
-- https://help.habbo.com.br/hc/pt-br/articles/360011610939-Pol%C3%ADtica-de-F%C3%A3-Sites-do-Habbo-Hotel
-- https://help.habbo.com/hc/en-us/articles/360011512480-Habbo-Fansite-Policy
-
-**Este patch limitado ao display de Raros e a sprites já publicados pode ser integrado após QA Chromium e sincronização dos assets estáticos. A V6 com novos GIFs continua bloqueada pelo gate de direitos e recuperação do checkpoint.**
+## Pós-merge obrigatório
+Validar commit em `main`, Pages deploy e URLs `/habbo/pt-br/emblemas/`, `/habbo/en/badges/`, `/habbo/pt-br/raros/`, uma ficha global e uma ficha de raro. Depois, atualizar a fonte canônica com evidências reais do release.

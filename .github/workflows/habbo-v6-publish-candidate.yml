@@ -1,0 +1,117 @@
+name: Habbo V6 original sprites and public release candidate
+
+on:
+  push:
+    branches:
+      - feat/habbo-v6-global-first-reconstruction
+    paths:
+      - "habbo/v6/fetch-originals.mjs"
+      - "habbo/v6/asset-release-approval.json"
+      - "habbo/v6/PUBLICATION_POLICY_DECISION.md"
+      - "habbo/v6/global-badges.css"
+      - "habbo/v6/global-badges.js"
+      - "habbo/v5/build-collections.mjs"
+      - ".github/workflows/habbo-v6-publish-candidate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout candidate branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: feat/habbo-v6-global-first-reconstruction
+
+      - name: Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Obtain exact original GIFs from primary sources
+        run: node habbo/v6/fetch-originals.mjs
+
+      - name: Enforce full original-GIF integrity (22/22)
+        run: node habbo/v6/check-original-assets.mjs --require-all
+
+      - name: Preserve the verified 22 original GIFs on this candidate branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add habbo/assets/v6
+          if ! git diff --cached --quiet; then
+            git commit -m "assets(habbo): archive 22 exact original V6 GIFs by verified hash"
+            git push origin HEAD:feat/habbo-v6-global-first-reconstruction
+          fi
+
+      - name: Rebuild actual V6 static collection pages
+        run: |
+          BASE_PATH=/habbo node habbo/build.mjs
+          node --test habbo/qa/v5-collections.test.mjs
+          node --test habbo/qa/v6-release-gate.test.mjs
+
+      - name: Sync only collection routes into GitHub Pages source
+        run: |
+          node habbo/v6/sync-static-output.mjs --write
+          node habbo/v6/sync-static-output.mjs --check
+
+      - name: Validate all 13 global badge images and 9 additional rare sprites in served HTML
+        run: |
+          test -f habbo/pt-br/emblema/hc1/index.html
+          test -f habbo/en/badge/hc1/index.html
+          test -f habbo/pt-br/raro/holiday-romance/index.html
+          test -f habbo/en/rare/holiday-romance/index.html
+          grep -q 'data-v6-images-allowed="true"' habbo/pt-br/emblemas/index.html
+          grep -q 'data-v6-images-allowed="true"' habbo/en/badges/index.html
+
+      - name: Install Chromium browser QA
+        run: |
+          npm init -y
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start GitHub Pages-compatible local server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory . > /tmp/habbo-v6.log 2>&1 &
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            if curl --silent --fail http://127.0.0.1:4173/habbo/ >/dev/null; then break; fi
+            sleep 1
+          done
+
+      - name: Verify V6 PT-BR/EN desktop and mobile visually
+        run: |
+          node habbo/qa/v5-visual.mjs
+          node habbo/qa/v6-recovery-visual.mjs
+          node habbo/qa/v6-global-visual.mjs
+          node habbo/qa/v6-public-originals-visual.mjs
+
+      - name: Upload visual QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: habbo-v6-originals-and-release-qa
+          path: |
+            habbo/qa/v5-visual-artifacts/
+            habbo/qa/v6-recovery-artifacts/
+            habbo/qa/v6-global-artifacts/
+            habbo/qa/v6-originals-artifacts/
+
+      - name: Commit validated binary assets and generated GitHub Pages pages
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A habbo/assets/v6 habbo/assets/v5-collections.css habbo/assets/v5-collections.js habbo/assets/v6-experience.css habbo/assets/v6-experience.js habbo/assets/v6-global-badges.css habbo/assets/v6-global-badges.js
+          git add -A habbo/pt-br/raros habbo/en/rares habbo/pt-br/raro habbo/en/rare
+          git add -A habbo/pt-br/emblemas habbo/en/badges habbo/pt-br/emblema habbo/en/badge
+          if ! git diff --cached --quiet; then
+            git commit -m "feat(habbo): publish exact verified V6 classic sprites and bilingual collections"
+            git push origin HEAD:feat/habbo-v6-global-first-reconstruction
+          else
+            echo "V6 binary and HTML output already synced"
+          fi

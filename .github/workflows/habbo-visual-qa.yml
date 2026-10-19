@@ -45,6 +45,7 @@ jobs:
         run: |
           BASE_PATH=/habbo node habbo/build.mjs
           node --test habbo/qa/v5-collections.test.mjs
+          node --test habbo/qa/v6-release-gate.test.mjs
 
       - name: Run V4 static QA
         run: node habbo/qa/run-public-qa.mjs
@@ -61,6 +62,12 @@ jobs:
       - name: Run V6 recovery showroom browser QA
         run: node habbo/qa/v6-recovery-visual.mjs
 
+      - name: Run V6 global-first browser QA
+        run: node habbo/qa/v6-global-visual.mjs
+
+      - name: Check V6 source assets against original hashes (no-publication gate)
+        run: node habbo/v6/check-original-assets.mjs
+
       - name: Upload screenshot evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -69,6 +76,7 @@ jobs:
           path: |
             habbo/qa/v5-visual-artifacts/
             habbo/qa/v6-recovery-artifacts/
+            habbo/qa/v6-global-artifacts/
             habbo/qa/v5-visual-artifacts/report.json
             habbo/qa/visual-artifacts/
             habbo/qa/visual-qa-report.json
