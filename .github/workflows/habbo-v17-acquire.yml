@@ -1,0 +1,36 @@
+name: Habbo V17 acquire manager sprites from historical sources
+on:
+  push:
+    branches: [feat/habbo-v17-classic-manager-sprite-rail]
+    paths:
+      - 'habbo/v17/acquire-managers.mjs'
+      - '.github/workflows/habbo-v17-acquire.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: habbo-v17-originals
+  cancel-in-progress: false
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/habbo-v17-classic-manager-sprite-rail
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node --check habbo/v17/acquire-managers.mjs
+      - run: node habbo/v17/acquire-managers.mjs
+      - name: Commit downloaded originals, provenance and image metadata
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A habbo/assets/v17/managers/ habbo/v16/staff-manifest.json habbo/v17/sprite-ledger.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'assets(habbo): preserve twelve named staff avatar sprites with independent source metadata'
+            git push origin HEAD:feat/habbo-v17-classic-manager-sprite-rail
+          fi
