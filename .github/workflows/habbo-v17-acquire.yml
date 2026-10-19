@@ -1,0 +1,37 @@
+name: Habbo V17 import independently verified classic staff sprite images
+on:
+  push:
+    branches: [feat/habbo-v17-staff-sprite-rail]
+    paths:
+      - 'habbo/v17/acquire-staff.mjs'
+      - '.github/workflows/habbo-v17-acquire.yml'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: habbo-v17-sprite-import
+  cancel-in-progress: false
+jobs:
+  sprites:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/habbo-v17-staff-sprite-rail
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with: {node-version: '20'}
+      - run: node habbo/v17/acquire-staff.mjs
+      - run: node habbo/v17/acquire-staff.mjs --check
+      - name: Preserve sprites with exact source URL and hashes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add habbo/assets/v17/staff/ habbo/v17/sprite-ledger.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'assets(habbo): preserve nine historical full-body staff sprites with source verification'
+            git push origin HEAD:feat/habbo-v17-staff-sprite-rail
+          fi
