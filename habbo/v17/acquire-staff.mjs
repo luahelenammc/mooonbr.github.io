@@ -4,15 +4,13 @@ import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const sources=[
- {id:'flecha',name:'Flecha',type:'2011'},
- {id:'mordomo',name:'Mordomo',type:'2011'},
- {id:'paty-nestle',name:'Paty-Nestle',type:'2011'},
+ {id:'flecha',name:'Flecha',type:'2021'},
+ {id:'paty-nestle',name:'Paty-Nestle',type:'2021'},
  {id:'4queijos',name:'4Queijos',type:'2021'},
  {id:'disco-lee',name:'Disco-Lee',type:'2021'},
  {id:'missfurby',name:'MissFurby',type:'2021'},
  {id:'reeet',name:'Reeet',type:'2021'},
- {id:'thedjhabbo',name:'TheDJHabbo',type:'2021'},
- {id:'sir-lawnrence',name:'Sir-Lawnrence',type:'2011'}
+ {id:'thedjhabbo',name:'TheDJHabbo',type:'2021'}
 ];
 const originals=JSON.parse(fs.readFileSync(path.join(root,'v17/staff-source-urls.json'),'utf8'));
 const originalSource=originals.originalArticles;
@@ -48,6 +46,6 @@ for(const source of sources){
  }
 }
 const ids=new Set(entries.map(x=>x.id));
-if(ids.size!==9||entries.length!==9)throw Error('Expected nine verified sprite originals');
-if(!check)fs.writeFileSync(ledgerFile,JSON.stringify({schema:1,notes:'Only 9 historical full-body sprite references found, do not invent the other 3. Unverified names remain text-only until authenticated original is obtained.',sourceList:originalSource,sprites:entries,pending:['acapulca','prefeita','djapamala']},null,2)+'\n');
-console.log('STAFF_ORIGINAL_SPRITES_VERIFIED',entries.length,'PENDING_REFERENCE',3);
+if(ids.size!==7||entries.length!==7)throw Error('Expected seven source-downloadable archive sprite originals');
+if(!check)fs.writeFileSync(ledgerFile,JSON.stringify({schema:1,notes:'Only 7 historical full-body sprite image files could be retrieved and verified. 2011 proxy originals for Mordomo and Sir-Lawnrence are documented but their remote PNG files return HTTP 404; never claim they are present.',sourceList:originalSource,sprites:entries,pending:['mordomo','sir-lawnrence','acapulca','prefeita','djapamala']},null,2)+'\n');
+console.log('STAFF_ORIGINAL_SPRITES_VERIFIED',entries.length,'PENDING_REFERENCE',5);
