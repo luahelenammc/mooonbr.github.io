@@ -23,7 +23,7 @@
 .v17-staff-progress{height:3px;background:#51655230;border-radius:2px;position:relative;margin-top:12px}
 .v17-staff-progress-thumb{position:absolute;left:0;top:0;display:block;height:100%;width:24%;border-radius:2px;background:#adc68b;transform:translateX(0);transition:transform .1s linear}
 .v17-archival-crop{overflow:hidden;align-items:center}
-.v17-archival-crop>.v17-profile-snapshot{display:block!important;position:absolute;left:calc(50% - 48px);top:-46px;width:367px!important;height:188px!important;max-height:none!important;max-width:none!important;image-rendering:pixelated;object-fit:none;transform:none}
+.v17-archival-crop>.v17-profile-snapshot{display:block!important;position:absolute;left:calc(50% - 48px);top:-46px;width:367px!important;height:188px!important;max-height:none!important;max-width:none!important;image-rendering:pixelated;object-fit:none;transform:none;clip-path:inset(0 282px 0 5px)}
 /* Show only the period figure region of the 2011 wiki profile capture, not its profile text. */
 .v17-archival-crop{clip-path:inset(0 15px 0 15px)}
 .v17-staff-standalone{background:#121919;color:#e8eee4}
