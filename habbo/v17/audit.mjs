@@ -34,3 +34,5 @@ for(const [key,url] of pages){
   }
  }catch(e){console.log('ERROR',key,e.message)}
 }
+
+// V17 source scan (retrigger after PR registration).
