@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {renderV13Details} from '../v13/render-details.mjs';
-import {renderStaffChapter,renderStaffStandalone} from '../v16/render-staff.mjs';
+import {renderStaffChapter,renderStaffStandalone} from '../v17/render-rail.mjs';
 
 // V8 presentation compiler. Retains research/source data but never emits
 // the BR/PT regional badge pages or artwork into the public-facing galleries.
@@ -208,6 +208,7 @@ function upgradeHologramRecordImages(dist){
 export function buildUnified({root,dist}) {
  const rare=rareItems(root), badge=badgeItems(root);
  const staff=read(path.join(root,'v16/staff-manifest.json'));
+ const staffOriginals=read(path.join(root,'v17/staff-originals.json'));
  const detailPages=renderV13Details(root,dist);
  upgradeHologramRecordImages(dist);
  const outcomes=[renderCollection(root,dist,'rares',false),renderCollection(root,dist,'rares',true),
@@ -228,6 +229,8 @@ export function buildUnified({root,dist}) {
   html=html.replace(/<link rel="stylesheet" href="\/habbo\/assets\/v13-home.css(?:\?[^"]*)?">/g,'');
   html=html.replace(/<script defer src="\/habbo\/assets\/v13-home.js(?:\?[^"]*)?"><\/script>/g,'');
   html=html.replace(/<link rel="stylesheet" href="\/habbo\/assets\/v16-staff.css(?:\?[^"]*)?">/g,'');
+  html=html.replace(/<link rel="stylesheet" href="\/habbo\/assets\/v17-staff.css(?:\?[^"]*)?">/g,'');
+  html=html.replace(/<script defer src="\/habbo\/assets\/v17-staff.js(?:\?[^\"]*)?\"><\/script>/g,'');
   // Existing Pages output may be the input on the next build: remove old dialogs before adding exactly one.
   html=html.replace(/<dialog class="v9-home-dialog"[\s\S]*?<\/dialog>/g,'');
   html=html.replace('id="lugares" ','');
@@ -253,7 +256,7 @@ export function buildUnified({root,dist}) {
    homeChapter('emblemas',en?'Classic badges':'Emblemas clássicos',
     en?'Symbols of belonging, discovery and achievement.':'Símbolos de pertencimento, descobertas e conquistas.',
     badge,en,en?'badges':'emblemas')+
-   renderStaffChapter(staff,en)+
+   renderStaffChapter(staff,staffOriginals,en)+
    '</div><!-- END V8 HOME CHAPTERS -->';
   const end=html.lastIndexOf('</main>');if(end<0)throw Error('Missing main on '+file);
   html=html.slice(0,end)+chapter+html.slice(end);
@@ -265,7 +268,7 @@ export function buildUnified({root,dist}) {
    '<a href="#" data-v9-dialog-link>'+(en?'Historical record and sources ↗':'Ficha histórica e fontes ↗')+'</a>'+
    '<button type="button" data-v9-dialog-step="1" aria-label="'+(en?'Next':'Próximo')+'">→</button></div></dialog>';
   html=html.replace('</main>', '</main>'+v9Dialog);
-  html=html.replace('</head>','<link rel="stylesheet" href="/habbo/assets/v13-home.css?v=20261019-v15.1"><link rel="stylesheet" href="/habbo/assets/v16-staff.css?v=20261019-v16.1"><script defer src="/habbo/assets/v13-home.js?v=20261019-v16.1"></script></head>');
+  html=html.replace('</head>','<link rel="stylesheet" href="/habbo/assets/v13-home.css?v=20261019-v15.1"><link rel="stylesheet" href="/habbo/assets/v17-staff.css?v=20261019-v17.1"><script defer src="/habbo/assets/v13-home.js?v=20261019-v16.1"></script><script defer src="/habbo/assets/v17-staff.js?v=20261019-v17.1"></script></head>');
   const rewrites=[
    [en?'/habbo/en/rares/':'/habbo/pt-br/raros/','#raros'],
    [en?'/habbo/en/badges/':'/habbo/pt-br/emblemas/','#emblemas']
@@ -286,7 +289,7 @@ export function buildUnified({root,dist}) {
  const regional=path.join(dist,'assets/v5/badges');
  if(fs.existsSync(regional))fs.rmSync(regional,{recursive:true,force:true});
  for(const [source,dest] of [['v8/museum.css','assets/v8-museum.css'],
-  ['v8/museum.js','assets/v8-museum.js'],['v8/home.css','assets/v8-home.css'],['v9/home.js','assets/v9-home.js'],['v10/home.css','assets/v10-home.css'],['v10/home.js','assets/v10-home.js'],['v11/home.css','assets/v11-home.css'],['v11/home.js','assets/v11-home.js'],['v12/home.css','assets/v12-home.css'],['v12/home.js','assets/v12-home.js'],['v13/home.css','assets/v13-home.css'],['v13/home.js','assets/v13-home.js'],['v13/detail.css','assets/v13-detail.css'],['v16/staff.css','assets/v16-staff.css']]){
+  ['v8/museum.js','assets/v8-museum.js'],['v8/home.css','assets/v8-home.css'],['v9/home.js','assets/v9-home.js'],['v10/home.css','assets/v10-home.css'],['v10/home.js','assets/v10-home.js'],['v11/home.css','assets/v11-home.css'],['v11/home.js','assets/v11-home.js'],['v12/home.css','assets/v12-home.css'],['v12/home.js','assets/v12-home.js'],['v13/home.css','assets/v13-home.css'],['v13/home.js','assets/v13-home.js'],['v13/detail.css','assets/v13-detail.css'],['v16/staff.css','assets/v16-staff.css'],['v17/staff.css','assets/v17-staff.css'],['v17/staff.js','assets/v17-staff.js']]){
   fs.copyFileSync(path.join(root,source),path.join(dist,dest));
  }
  for(const prefix of ['pt-br/raro','en/rare','pt-br/emblema','en/badge']){
@@ -304,6 +307,9 @@ export function buildUnified({root,dist}) {
   };
   visit(top);
  }
+ const staffAssets=path.join(root,'assets/v17/staff');
+ if(!fs.existsSync(staffAssets))throw Error('V17 figures not acquired');
+ fs.cpSync(staffAssets,path.join(dist,'assets/v17/staff'),{recursive:true,force:true});
  const nativeFrom=path.join(root,'assets/v13/native'),nativeTo=path.join(dist,'assets/v13/native');
  if(!fs.existsSync(nativeFrom))throw Error('Original V13 sprites not yet acquired');
  fs.cpSync(nativeFrom,nativeTo,{recursive:true,force:true});
