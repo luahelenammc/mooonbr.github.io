@@ -35,6 +35,15 @@ try {
    check(await page.locator('text=/Mostrar todas as famílias|Show all families/i').count()===0,'Show-all gate leaked');
    check(await page.locator('script[src="/habbo/assets/v9-home.js"]').count()===1,'V9 viewer script missing');
 
+   const familyJump=page.locator('#raros .v9-family-index a').nth(1);
+   await familyJump.click();
+   check(page.url().includes('#raros-family-'),'Family jump must navigate in the index');
+   const rareGroup=page.locator('#raros .v9-family').first();
+   await rareGroup.locator('[data-v9-slide="1"]').click();
+   check(await rareGroup.locator('[data-v9-rail]').evaluate(x=>x.scrollLeft)>0,'Rare family slide control must move grouped columns');
+   const historicHC=page.locator('#emblemas [data-v9-id="ACH_BasicClub1"]').first();
+   check((await historicHC.getAttribute('href')).includes('classic-ach_basicclub1/'),'Authentic badge code underscores must be preserved');
+
    // Grouped specimens live and are inspectable directly in index, no separate gallery visit required.
    await page.locator('#raros .v9-home-item').first().click();
    check(await page.locator('[data-v9-dialog][open]').count()===1,'Rare must open on homepage');
