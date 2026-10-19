@@ -11,8 +11,8 @@ const ledger=JSON.parse(fs.readFileSync(path.join(root,'v17/sprite-ledger.json')
 let checks=0;
 const ok=(value,msg)=>{assert.ok(value,msg);checks++};
 ok(source.profiles.length===12,'twelve source-named people retained');
-ok(ledger.sprites.length===9,'nine original full-body staff pixels preserved');
-ok(ledger.pending.length===3,'three nonverified figures explicitly documented');
+ok(ledger.sprites.length===7,'seven original full-body staff sprites preserved');
+ok(ledger.pending.length===5,'five nonverified figures explicitly documented');
 ok(ledger.sprites.every(x=>x.sourceImage.startsWith('https://')&&x.sha256?.length===64),'every original sprite has source and checksum');
 for(const sprite of ledger.sprites){
  const data=fs.readFileSync(path.join(root,'assets/v17/staff',sprite.id+'.png'));
@@ -31,12 +31,12 @@ try{
    await page.goto('http://127.0.0.1:4173/habbo/'+route,{waitUntil:'networkidle'});
    ok(await page.locator('#gerentes .v17-staff-rail').count()===1,'one horizontal staff rail '+locale+device);
    ok(await page.locator('#gerentes .v17-staff-item').count()===12,'all names in single staff rail '+locale+device);
-   ok(await page.locator('#gerentes .v17-staff-item img').count()===9,'nine sourced original sprites '+locale+device);
-   ok(await page.locator('#gerentes .v17-staff-pending').count()===3,'unverified visuals openly distinguished '+locale+device);
+   ok(await page.locator('#gerentes .v17-staff-item img').count()===7,'seven sourced original sprites '+locale+device);
+   ok(await page.locator('#gerentes .v17-staff-pending').count()===5,'unverified visuals openly distinguished '+locale+device);
    ok(await page.locator('#gerentes .v16-person, #gerentes .v16-staff-grid, #gerentes .v16-staff-era').count()===0,'no legacy bio cards or stacked groups '+locale+device);
    ok(await page.locator('#gerentes .v17-staff-item figcaption').count()===12,'display simple name under sprite '+locale+device);
    ok(await page.locator('#gerentes [data-v17-staff="flecha"] img').count()===1,'Flecha original included');
-   ok(await page.locator('#gerentes [data-v17-staff="mordomo"] img').count()===1,'Mordomo original included');
+   ok(await page.locator('#gerentes [data-v17-staff="mordomo"] .v17-staff-unverified').count()===1,'Mordomo original unavailable; no invented sprite');
    ok(await page.locator('#gerentes [data-v17-staff="4queijos"] img').count()===1,'4Queijos original included');
    ok(await page.locator('#gerentes [data-v17-staff="disco-lee"] img').count()===1,'Disco-Lee original included');
    ok(await page.locator('#gerentes .v17-staff-controls button').count()===2,'left/right buttons '+locale+device);
@@ -66,7 +66,7 @@ try{
   ok(await page.locator('main .v17-staff-rail').count()===1,'standalone one-rail '+lang);
   ok(await page.locator('main .v17-staff-item').count()===12,'standalone twelve names '+lang);
   ok(await page.locator('main .v16-person').count()===0,'no biography cards in standalone '+lang);
-  ok(await page.locator('main img[src^="/habbo/assets/v17/staff/"]').count()===9,'standalone nine native archive images '+lang);
+  ok(await page.locator('main img[src^="/habbo/assets/v17/staff/"]').count()===7,'standalone nine native archive images '+lang);
   await ctx.close();
  }
  const ctx=await browser.newContext({javaScriptEnabled:false,viewport:{width:320,height:720}});
@@ -74,8 +74,8 @@ try{
  await p.goto('http://127.0.0.1:4173/habbo/pt-br/',{waitUntil:'load'});
  ok(await p.locator('#gerentes .v17-staff-rail').count()===1,'rail works without JS');
  ok(await p.locator('#gerentes .v17-staff-item').count()===12,'all figures persist without JS');
- ok(await p.locator('#gerentes .v17-staff-item img').count()===9,'images persist without JS');
+ ok(await p.locator('#gerentes .v17-staff-item img').count()===7,'images persist without JS');
  await ctx.close();
 }finally{await browser.close()}
-fs.writeFileSync(path.join(out,'report.json'),JSON.stringify({status:'passed',checks,railCount:1,staffNames:12,verifiedOriginalSprites:9,pendingVisualVerification:3,rareFurniture:148,badges:101},null,2));
+fs.writeFileSync(path.join(out,'report.json'),JSON.stringify({status:'passed',checks,railCount:1,staffNames:12,verifiedOriginalSprites:7,pendingVisualVerification:5,rareFurniture:148,badges:101},null,2));
 console.log('HABBO V17 VERIFIED STAFF RAIL PASS '+checks);
