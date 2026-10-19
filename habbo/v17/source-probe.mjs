@@ -23,3 +23,12 @@ for(const [id,url] of sources){
   console.log('STAFF_IMG_TAGS',JSON.stringify(imgs.filter(x=>staff.some(name=>x.toLowerCase().includes(name.toLowerCase()))).slice(0,45)).slice(0,12000));
  }catch(e){console.log('FAILED',id,String(e));}
 }
+
+for(const name of ['Acapulca','DJapamala','Prefeita']){
+ const u='https://www.habbo.com.br/habbo-imaging/avatarimage?user='+encodeURIComponent(name)+'&direction=2&head_direction=3&action=std&gesture=std&size=m';
+ try{
+  const r=await fetch(u,{signal:AbortSignal.timeout(22000),headers:{'User-Agent':'Mozilla/5.0'}});
+  const arr=Buffer.from(await r.arrayBuffer());
+  console.log('LATEST_AVATAR_PROBE',name,'HTTP',r.status,'CT',r.headers.get('content-type'),'BYTES',arr.length,'HEX',arr.subarray(0,20).toString('hex'),'URL',r.url);
+ }catch(e){console.log('LATEST_AVATAR_FAILED',name,e.message)}
+}
