@@ -1,0 +1,27 @@
+name: Habbo V17 historic managers avatar source audit
+on:
+  push:
+    branches: [feat/habbo-v17-classic-staff-sprite-rail]
+    paths:
+      - 'habbo/v17/source-probe.mjs'
+      - '.github/workflows/habbo-v17-probe.yml'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '20'}
+      - name: Locate historic named Habbo staff renders in period archives
+        run: node habbo/v17/source-probe.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: habbo-v17-staff-historical-source-audit
+          path: habbo/v17/probe/
