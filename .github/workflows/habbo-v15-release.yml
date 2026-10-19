@@ -30,7 +30,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: feat/habbo-v14-monoliths-laser-gates-public-spaces
+          ref: feat/habbo-v15-classic-hc-gifts
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
@@ -122,5 +122,5 @@ jobs:
           git add -A habbo/assets/v8-museum.js
           if ! git diff --cached --quiet; then
             git commit -m 'build(habbo): publish 148 rares and HC originals in 15 historic families'
-            git push origin HEAD:feat/habbo-v14-monoliths-laser-gates-public-spaces
+            git push origin HEAD:feat/habbo-v15-classic-hc-gifts
           fi
