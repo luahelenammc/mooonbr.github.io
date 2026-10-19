@@ -5,6 +5,8 @@ on:
     paths:
       - 'habbo/v17/acquire-staff.mjs'
       - '.github/workflows/habbo-v17-import.yml'
+  pull_request:
+    branches: [main]
 permissions:
   contents: write
 concurrency:
