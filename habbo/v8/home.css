@@ -35,7 +35,7 @@
 .v9-family-index a:hover,.v9-family-index a:focus-visible{border-color:#a4c78e;background:#ffffff0d;color:white}
 .v9-family-index small{font-size:10px;color:#81927d}
 .v9-families{display:grid;gap:clamp(20px,3.5vw,42px);max-width:100%;min-width:0}
-.v9-family{border-bottom:1px solid #ffffff11;padding-bottom:clamp(13px,2.5vw,24px);min-width:0;max-width:100%;scroll-margin-top:115px}
+.v9-family{border-bottom:1px solid #ffffff11;padding-bottom:clamp(13px,2.5vw,24px);min-width:0;max-width:100%;scroll-margin-top:170px}
 .v9-group-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:6px;min-width:0}
 .v9-group-copy{min-width:0}
 .v9-group-index{font-size:10px;color:#9fb797;letter-spacing:.15em}
@@ -75,7 +75,7 @@
 @media(max-width:650px){
  .v9-family-index{margin-bottom:12px;padding-top:7px}
  .v9-families{gap:18px}
- .v9-family{scroll-margin-top:22px}
+ .v9-family{scroll-margin-top:83px}
  .v9-group-heading h3{font-size:18px}
  .v9-group-rail .v9-item-caption{font-size:10px}
  .v9-rare-rail .v9-home-item{flex-basis:130px;width:130px;grid-template-rows:112px auto;min-height:145px}
