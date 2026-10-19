@@ -25,9 +25,11 @@ const clean=h=>{
 };
 const pages={};
 for(const [k,url] of Object.entries(sources)){
- const r=await fetch(url,{signal:AbortSignal.timeout(30000),headers:{'User-Agent':'Mozilla/5.0'}});
- if(!r.ok)throw Error('Cannot read historical page '+k+': '+r.status);
- pages[k]=clean(await r.text());
+ const cached=path.join(root,'v17/source-audit',k==='2021'?'mist2021.html':k==='vintage2011'?'haddicas2011.html':'habblindados.html');
+ let html;
+ if(fs.existsSync(cached))html=fs.readFileSync(cached,'utf8');
+ else {const r=await fetch(url,{signal:AbortSignal.timeout(30000),headers:{'User-Agent':'Mozilla/5.0'}});if(!r.ok)throw Error('Cannot read historical page '+k+': '+r.status);html=await r.text();}
+ pages[k]=clean(html);
  console.log('Source',k,'images',pages[k].imgs.length);
 }
 const esc=s=>s.replace(/[.*+?^$()|[\]{}]/g,'\\$&');
