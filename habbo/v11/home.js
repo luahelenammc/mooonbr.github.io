@@ -147,4 +147,32 @@
  locateHash();
  window.addEventListener('hashchange',locateHash);
  document.documentElement.classList.add('v11-family-ready');
+}
+ // Chapter-aware header navigation. The old template permanently highlighted
+ // Places even when the reader had entered Rares or Badges.
+ const headerTabs=[...document.querySelectorAll('.collection-switch a')];
+ const places=document.getElementById('lugares');
+ if(headerTabs.length===3 && places){
+  const timeline=[places,...chapters];
+  let scheduled=false;
+  const updateChapter=()=>{
+   scheduled=false;
+   const probe=window.scrollY+Math.min(240,window.innerHeight*0.32);
+   let chapterId='lugares';
+   for(const section of timeline){
+    if(section.getBoundingClientRect().top+window.scrollY<=probe)chapterId=section.id;
+   }
+   headerTabs.forEach(tab=>{
+    const href=tab.getAttribute('href')||'';
+    const id=href==='#raros'?'raros':href==='#emblemas'?'emblemas':'lugares';
+    if(id===chapterId)tab.setAttribute('aria-current','location');
+    else tab.removeAttribute('aria-current');
+   });
+  };
+  window.addEventListener('scroll',()=>{
+   if(!scheduled){scheduled=true;requestAnimationFrame(updateChapter);}
+  },{passive:true});
+  window.addEventListener('resize',updateChapter,{passive:true});
+  updateChapter();
+ }
 })();
