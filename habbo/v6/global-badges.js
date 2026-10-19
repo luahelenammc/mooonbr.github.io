@@ -66,7 +66,15 @@
    });n.setAttribute('aria-pressed',String(i===index));n.title=r.label[pt?0:1];chips.append(n);
   });
   const r=groups[group][index];
-  visual.textContent=r.code.startsWith('ACH_')?r.code.replace('ACH_','').replace('BasicClub','HC ').replace('VipClub','VIP '):r.code;
+  const verified=document.documentElement.dataset.v6ImagesAllowed==='true';
+  if(verified){
+   const img=document.createElement('img');
+   img.src='/habbo/assets/v6/badges/'+encodeURIComponent(r.code)+'.gif';
+   img.alt=''; img.decoding='async'; img.className='v6-verified-original';
+   visual.replaceChildren(img);
+  } else {
+   visual.textContent=r.code.startsWith('ACH_')?r.code.replace('ACH_','').replace('BasicClub','HC ').replace('VipClub','VIP '):r.code;
+  }
   code.textContent=r.code+' · '+(index+1)+' / '+groups[group].length;
   name.textContent=r.label[pt?0:1];
   source.href='https://habborator.org/badges/general.html';
