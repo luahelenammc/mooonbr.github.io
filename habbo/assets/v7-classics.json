@@ -1,0 +1,2218 @@
+{
+  "schemaVersion": "7.1",
+  "status": "verified_historical_display",
+  "yearLimit": 2011,
+  "labelWarning": {
+    "ptBr": "Presença no arquivo internacional não comprova distribuição em todos os hotéis.",
+    "en": "Presence in international archives does not prove issuance in every hotel."
+  },
+  "families": [
+    {
+      "key": "club",
+      "title": {
+        "ptBr": "Habbo Club e VIP",
+        "en": "Habbo Club and VIP"
+      }
+    },
+    {
+      "key": "identity",
+      "title": {
+        "ptBr": "Clube, identidade e equipe",
+        "en": "Club, identity and staff"
+      }
+    },
+    {
+      "key": "experts",
+      "title": {
+        "ptBr": "Habbo eXperts",
+        "en": "Habbo eXperts"
+      }
+    },
+    {
+      "key": "guides",
+      "title": {
+        "ptBr": "Guias e acolhimento",
+        "en": "Guides and welcoming"
+      }
+    },
+    {
+      "key": "games",
+      "title": {
+        "ptBr": "Jogos clássicos",
+        "en": "Classic games"
+      }
+    },
+    {
+      "key": "historical",
+      "title": {
+        "ptBr": "Séries e registros históricos",
+        "en": "Other historic series"
+      }
+    },
+    {
+      "key": "campaigns",
+      "title": {
+        "ptBr": "Campanhas internacionais",
+        "en": "International campaigns"
+      }
+    }
+  ],
+  "records": [
+    {
+      "code": "HC1",
+      "category": "club",
+      "label": {
+        "ptBr": "Habbo Club · HC1",
+        "en": "Habbo Club · HC1"
+      },
+      "archivedBefore": "2011-12-31",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "distributionScope": "international_archive_distribution_not_necessarily_every_hotel",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "image": "/habbo/assets/v6/badges/HC1.gif",
+      "sha256": "c6f364f0b10cf490bb46339632c07c70b4bfdc705c73caf5ea7105e5604765ca",
+      "width": 38,
+      "height": 39,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/HC1.gif",
+      "archivalStatus": "original_sprite_verified",
+      "originalV6": true,
+      "detail": {
+        "ptBr": "/habbo/pt-br/emblema/hc1/",
+        "en": "/habbo/en/badge/hc1/"
+      }
+    },
+    {
+      "code": "HC2",
+      "category": "club",
+      "label": {
+        "ptBr": "Habbo Club · HC2",
+        "en": "Habbo Club · HC2"
+      },
+      "archivedBefore": "2011-12-31",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "distributionScope": "international_archive_distribution_not_necessarily_every_hotel",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "image": "/habbo/assets/v6/badges/HC2.gif",
+      "sha256": "018760955592a9fdee7d2d364107ce155bdf5909c4393d4c09e181affe9438ed",
+      "width": 38,
+      "height": 39,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/HC2.gif",
+      "archivalStatus": "original_sprite_verified",
+      "originalV6": true,
+      "detail": {
+        "ptBr": "/habbo/pt-br/emblema/hc2/",
+        "en": "/habbo/en/badge/hc2/"
+      }
+    },
+    {
+      "code": "ACH_BasicClub1",
+      "category": "club",
+      "label": {
+        "ptBr": "Habbo Club · nível 1",
+        "en": "Habbo Club · level 1"
+      },
+      "archivedBefore": "2011-12-31",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "distributionScope": "international_archive_distribution_not_necessarily_every_hotel",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "image": "/habbo/assets/v6/badges/ACH_BasicClub1.gif",
+      "sha256": "045516b87e4c4a2210a370c7051fa695f64b7a11a02aff23612b88f01d79e3b8",
+      "width": 36,
+      "height": 37,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/ACH_BasicClub1.gif",
+      "archivalStatus": "original_sprite_verified",
+      "originalV6": true,
+      "detail": {
+        "ptBr": "/habbo/pt-br/emblema/ach-basicclub1/",
+        "en": "/habbo/en/badge/ach-basicclub1/"
+      }
+    },
+    {
+      "code": "ACH_BasicClub2",
+      "category": "club",
+      "label": {
+        "ptBr": "Habbo Club · nível 2",
+        "en": "Habbo Club · level 2"
+      },
+      "archivedBefore": "2011-12-31",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "distributionScope": "international_archive_distribution_not_necessarily_every_hotel",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "image": "/habbo/assets/v6/badges/ACH_BasicClub2.gif",
+      "sha256": "623bd8ed619b66445424529a372b9925aefcacae8f72020cbf867be7a009db6c",
+      "width": 36,
+      "height": 37,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/ACH_BasicClub2.gif",
+      "archivalStatus": "original_sprite_verified",
+      "originalV6": true,
+      "detail": {
+        "ptBr": "/habbo/pt-br/emblema/ach-basicclub2/",
+        "en": "/habbo/en/badge/ach-basicclub2/"
+      }
+    },
+    {
+      "code": "ACH_BasicClub3",
+      "category": "club",
+      "label": {
+        "ptBr": "Habbo Club · nível 3",
+        "en": "Habbo Club · level 3"
+      },
+      "archivedBefore": "2011-12-31",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "distributionScope": "international_archive_distribution_not_necessarily_every_hotel",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "image": "/habbo/assets/v6/badges/ACH_BasicClub3.gif",
+      "sha256": "288d79308d3340bc93e5c9a1fd3179e0d5e474b902f027857acd3dceb5874b58",
+      "width": 36,
+      "height": 37,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/ACH_BasicClub3.gif",
+      "archivalStatus": "original_sprite_verified",
+      "originalV6": true,
+      "detail": {
+        "ptBr": "/habbo/pt-br/emblema/ach-basicclub3/",
+        "en": "/habbo/en/badge/ach-basicclub3/"
+      }
+    },
+    {
+      "code": "ACH_BasicClub4",
+      "category": "club",
+      "label": {
+        "ptBr": "Habbo Club · nível 4",
+        "en": "Habbo Club · level 4"
+      },
+      "archivedBefore": "2011-12-31",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "distributionScope": "international_archive_distribution_not_necessarily_every_hotel",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "image": "/habbo/assets/v6/badges/ACH_BasicClub4.gif",
+      "sha256": "744910e9c2ed003e2dd8f5cd67c409efe76caf5217ecfc94d809de1b8de01a90",
+      "width": 36,
+      "height": 37,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/ACH_BasicClub4.gif",
+      "archivalStatus": "original_sprite_verified",
+      "originalV6": true,
+      "detail": {
+        "ptBr": "/habbo/pt-br/emblema/ach-basicclub4/",
+        "en": "/habbo/en/badge/ach-basicclub4/"
+      }
+    },
+    {
+      "code": "ACH_BasicClub5",
+      "category": "club",
+      "label": {
+        "ptBr": "Habbo Club · nível 5",
+        "en": "Habbo Club · level 5"
+      },
+      "archivedBefore": "2011-12-31",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "distributionScope": "international_archive_distribution_not_necessarily_every_hotel",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "image": "/habbo/assets/v6/badges/ACH_BasicClub5.gif",
+      "sha256": "41ba0cd784101fbf5f69a070f09c1d6188b6d39b61c65ad164d7b96528bd36b6",
+      "width": 36,
+      "height": 37,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/ACH_BasicClub5.gif",
+      "archivalStatus": "original_sprite_verified",
+      "originalV6": true,
+      "detail": {
+        "ptBr": "/habbo/pt-br/emblema/ach-basicclub5/",
+        "en": "/habbo/en/badge/ach-basicclub5/"
+      }
+    },
+    {
+      "code": "ACH_VipClub1",
+      "category": "club",
+      "label": {
+        "ptBr": "VIP · nível 1",
+        "en": "VIP · level 1"
+      },
+      "archivedBefore": "2011-12-31",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "distributionScope": "international_archive_distribution_not_necessarily_every_hotel",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "image": "/habbo/assets/v6/badges/ACH_VipClub1.gif",
+      "sha256": "b87e3cbc89c531b2eb57d6272e1e66bbfa86e894522bf4cdc70ba5ccee09631c",
+      "width": 36,
+      "height": 37,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/ACH_VipClub1.gif",
+      "archivalStatus": "original_sprite_verified",
+      "originalV6": true,
+      "detail": {
+        "ptBr": "/habbo/pt-br/emblema/ach-vipclub1/",
+        "en": "/habbo/en/badge/ach-vipclub1/"
+      }
+    },
+    {
+      "code": "ACH_VipClub2",
+      "category": "club",
+      "label": {
+        "ptBr": "VIP · nível 2",
+        "en": "VIP · level 2"
+      },
+      "archivedBefore": "2011-12-31",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "distributionScope": "international_archive_distribution_not_necessarily_every_hotel",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "image": "/habbo/assets/v6/badges/ACH_VipClub2.gif",
+      "sha256": "982960c864861b23413a8525f33bd479641424cb4430c08d77e31544c21d54bc",
+      "width": 36,
+      "height": 37,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/ACH_VipClub2.gif",
+      "archivalStatus": "original_sprite_verified",
+      "originalV6": true,
+      "detail": {
+        "ptBr": "/habbo/pt-br/emblema/ach-vipclub2/",
+        "en": "/habbo/en/badge/ach-vipclub2/"
+      }
+    },
+    {
+      "code": "ACH_VipClub3",
+      "category": "club",
+      "label": {
+        "ptBr": "VIP · nível 3",
+        "en": "VIP · level 3"
+      },
+      "archivedBefore": "2011-12-31",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "distributionScope": "international_archive_distribution_not_necessarily_every_hotel",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "image": "/habbo/assets/v6/badges/ACH_VipClub3.gif",
+      "sha256": "8a560142e70ea5cee792a4dafc78956f28b331e8f56be526987acc631335d534",
+      "width": 36,
+      "height": 37,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/ACH_VipClub3.gif",
+      "archivalStatus": "original_sprite_verified",
+      "originalV6": true,
+      "detail": {
+        "ptBr": "/habbo/pt-br/emblema/ach-vipclub3/",
+        "en": "/habbo/en/badge/ach-vipclub3/"
+      }
+    },
+    {
+      "code": "ACH_VipClub4",
+      "category": "club",
+      "label": {
+        "ptBr": "VIP · nível 4",
+        "en": "VIP · level 4"
+      },
+      "archivedBefore": "2011-12-31",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "distributionScope": "international_archive_distribution_not_necessarily_every_hotel",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "image": "/habbo/assets/v6/badges/ACH_VipClub4.gif",
+      "sha256": "a2092e6b9600ee1bc1751d7a3b3a713dcfb2be722366efd04256124f5becf883",
+      "width": 36,
+      "height": 37,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/ACH_VipClub4.gif",
+      "archivalStatus": "original_sprite_verified",
+      "originalV6": true,
+      "detail": {
+        "ptBr": "/habbo/pt-br/emblema/ach-vipclub4/",
+        "en": "/habbo/en/badge/ach-vipclub4/"
+      }
+    },
+    {
+      "code": "ACH_VipClub5",
+      "category": "club",
+      "label": {
+        "ptBr": "VIP · nível 5",
+        "en": "VIP · level 5"
+      },
+      "archivedBefore": "2011-12-31",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "distributionScope": "international_archive_distribution_not_necessarily_every_hotel",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "image": "/habbo/assets/v6/badges/ACH_VipClub5.gif",
+      "sha256": "8acf6b854ccc937140234b2bcf21605f6065271fe1406a3ac94c7243bfa8c70a",
+      "width": 36,
+      "height": 37,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/ACH_VipClub5.gif",
+      "archivalStatus": "original_sprite_verified",
+      "originalV6": true,
+      "detail": {
+        "ptBr": "/habbo/pt-br/emblema/ach-vipclub5/",
+        "en": "/habbo/en/badge/ach-vipclub5/"
+      }
+    },
+    {
+      "code": "EHR",
+      "category": "campaigns",
+      "label": {
+        "ptBr": "Hora do Planeta",
+        "en": "Earth Hour"
+      },
+      "archivedBefore": "2011-12-31",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "distributionScope": "international_archive_distribution_not_necessarily_every_hotel",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "image": "/habbo/assets/v6/badges/EHR.gif",
+      "sha256": "38c1eeb2ecac52392eb4479ad0758c1298ae8a74c2b6616d4d3ed44ad6744e90",
+      "width": 37,
+      "height": 36,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/EHR.gif",
+      "archivalStatus": "original_sprite_verified",
+      "originalV6": true,
+      "detail": {
+        "ptBr": "/habbo/pt-br/emblema/ehr/",
+        "en": "/habbo/en/badge/ehr/"
+      }
+    },
+    {
+      "code": "ADM",
+      "category": "identity",
+      "label": {
+        "ptBr": "Emblema de equipe · ADM",
+        "en": "Staff badge · ADM"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/ADM.gif",
+        "https://www.habborator.org/badges/badges/ADM.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/ADM.gif",
+      "sha256": "c0e823b91736ce94bda1af23f78bcaa0f0f0eecf30751c1caa7faa3156234f9b",
+      "width": 31,
+      "height": 31,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/ADM.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "BE1",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · BE1",
+        "en": "Classic archive · BE1"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/BE1.gif",
+        "https://www.habborator.org/badges/badges/BE1.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/BE1.gif",
+      "sha256": "431945ef6663b6e72f87125f06158c25e016a1b020473214f694fc62302af675",
+      "width": 50,
+      "height": 50,
+      "downloadedSource": "https://www.habborator.org/badges/badges/BE1.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "BE2",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · BE2",
+        "en": "Classic archive · BE2"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/BE2.gif",
+        "https://www.habborator.org/badges/badges/BE2.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/BE2.gif",
+      "sha256": "2fd01f0f34b425ea32252ee0d50d52582de428305887517ad24b9354ae8d3048",
+      "width": 50,
+      "height": 50,
+      "downloadedSource": "https://www.habborator.org/badges/badges/BE2.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "BOT",
+      "category": "identity",
+      "label": {
+        "ptBr": "Bot · BOT",
+        "en": "Bot · BOT"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/BOT.gif",
+        "https://www.habborator.org/badges/badges/BOT.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/BOT.gif",
+      "sha256": "2cfd77c66fda300db742adeb9d8900330ba97701b8260bfb2f95aab60fd382c9",
+      "width": 31,
+      "height": 31,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/BOT.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "BTB",
+      "category": "games",
+      "label": {
+        "ptBr": "Battle Ball · clássico",
+        "en": "Classic Battle Ball"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/BTB.gif",
+        "https://www.habborator.org/badges/badges/BTB.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/BTB.gif",
+      "sha256": "accfe76321213e29a4b7ea74c9017e3daa4fb286f02567087de284fae53310e0",
+      "width": 33,
+      "height": 33,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/BTB.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "CY1",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · CY1",
+        "en": "Classic archive · CY1"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/CY1.gif",
+        "https://www.habborator.org/badges/badges/CY1.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/CY1.gif",
+      "sha256": "a876928a8106424830cb90cbfe99f7dc3200acbce8cf0de381024a703e9fa84e",
+      "width": 35,
+      "height": 35,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/CY1.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "CY2",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · CY2",
+        "en": "Classic archive · CY2"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/CY2.gif",
+        "https://www.habborator.org/badges/badges/CY2.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/CY2.gif",
+      "sha256": "ded313da43bc8948dba9b2d093867149e73033aa8826cc11e2f1a1055c6f47a5",
+      "width": 35,
+      "height": 35,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/CY2.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "CY3",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · CY3",
+        "en": "Classic archive · CY3"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/CY3.gif",
+        "https://www.habborator.org/badges/badges/CY3.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/CY3.gif",
+      "sha256": "13d0e5776c31271299f1845bb2e3e910574674ed7226da0c9739f36addea6c3b",
+      "width": 35,
+      "height": 35,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/CY3.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "DU1",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · DU1",
+        "en": "Classic archive · DU1"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/DU1.gif",
+        "https://www.habborator.org/badges/badges/DU1.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/DU1.gif",
+      "sha256": "7eac62b90eac2f845e95f10c49470a229fe3f250793daef2353151b12954cb73",
+      "width": 33,
+      "height": 35,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/DU1.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "DU2",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · DU2",
+        "en": "Classic archive · DU2"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/DU2.gif",
+        "https://www.habborator.org/badges/badges/DU2.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/DU2.gif",
+      "sha256": "764e53a11a485c73d74b4e213f2d8de385d904bccad2afd9f6eff27819276017",
+      "width": 33,
+      "height": 35,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/DU2.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "DU3",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · DU3",
+        "en": "Classic archive · DU3"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/DU3.gif",
+        "https://www.habborator.org/badges/badges/DU3.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/DU3.gif",
+      "sha256": "1aa3c631f9147977f458443431f8f966fa1f73efe89d4a0ba026c5796fd9362b",
+      "width": 33,
+      "height": 35,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/DU3.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "EXH",
+      "category": "identity",
+      "label": {
+        "ptBr": "Arquivo clássico · EXH",
+        "en": "Classic archive · EXH"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/EXH.gif",
+        "https://www.habborator.org/badges/badges/EXH.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/EXH.gif",
+      "sha256": "c951d1d760df5b79fb8c60b786f573fd1a98a58a6eade53bf4daabdd6708d899",
+      "width": 35,
+      "height": 35,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/EXH.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "FAN",
+      "category": "identity",
+      "label": {
+        "ptBr": "Fã-site · FAN",
+        "en": "Fansite · FAN"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/FAN.gif",
+        "https://www.habborator.org/badges/badges/FAN.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/FAN.gif",
+      "sha256": "efa518a7972f219238489ae6b8b586a2e8aeea5e944bf3bc99ae2f0d7a355570",
+      "width": 30,
+      "height": 37,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/FAN.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "G10",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · G10",
+        "en": "Guides · G10"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/G10.gif",
+        "https://www.habborator.org/badges/badges/G10.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/G10.gif",
+      "sha256": "8aeca438d485aff347377113a2ffb179ca8928aef5f9b39561c2fb762ccc0b01",
+      "width": 50,
+      "height": 50,
+      "downloadedSource": "https://www.habborator.org/badges/badges/G10.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GL1",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · GL1",
+        "en": "Guides · GL1"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GL1.gif",
+        "https://www.habborator.org/badges/badges/GL1.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GL1.gif",
+      "sha256": "1a0749e154689843c6ff984a0c0a15ebd8c5088c6c4f356fc3c6779d696b8032",
+      "width": 50,
+      "height": 50,
+      "downloadedSource": "https://www.habborator.org/badges/badges/GL1.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GL2",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · GL2",
+        "en": "Guides · GL2"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GL2.gif",
+        "https://www.habborator.org/badges/badges/GL2.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GL2.gif",
+      "sha256": "61db9bb01c664fe07f6d80effb0a0f8f1026b9684163361b2e2e16faa3edd123",
+      "width": 50,
+      "height": 50,
+      "downloadedSource": "https://www.habborator.org/badges/badges/GL2.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GL3",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · GL3",
+        "en": "Guides · GL3"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GL3.gif",
+        "https://www.habborator.org/badges/badges/GL3.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GL3.gif",
+      "sha256": "ece8841388a8b9445c6b51661b20c7ba4dc8c6b4409ac12a740a3211e6592169",
+      "width": 50,
+      "height": 50,
+      "downloadedSource": "https://www.habborator.org/badges/badges/GL3.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GL4",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · GL4",
+        "en": "Guides · GL4"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GL4.gif",
+        "https://www.habborator.org/badges/badges/GL4.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GL4.gif",
+      "sha256": "f1e2356ed0559c53a1ed550991176068d7402849bcd086440ff82b8d4ffa88d2",
+      "width": 50,
+      "height": 50,
+      "downloadedSource": "https://www.habborator.org/badges/badges/GL4.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GL5",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · GL5",
+        "en": "Guides · GL5"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GL5.gif",
+        "https://www.habborator.org/badges/badges/GL5.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GL5.gif",
+      "sha256": "30e3048aa69bc26f05177a139f95539201150c9a7e05e67e9c9f0e376708f019",
+      "width": 50,
+      "height": 50,
+      "downloadedSource": "https://www.habborator.org/badges/badges/GL5.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GL6",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · GL6",
+        "en": "Guides · GL6"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GL6.gif",
+        "https://www.habborator.org/badges/badges/GL6.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GL6.gif",
+      "sha256": "8b07461014a9aa1a7fa8f15922ef37999a9e6e0511d288185d587ea90f801ff4",
+      "width": 50,
+      "height": 50,
+      "downloadedSource": "https://www.habborator.org/badges/badges/GL6.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GL7",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · GL7",
+        "en": "Guides · GL7"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GL7.gif",
+        "https://www.habborator.org/badges/badges/GL7.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GL7.gif",
+      "sha256": "26a6fa9d7bf7e9eabac20be78385aa97553194f830a6cc49fe4e1da7c3c225b3",
+      "width": 50,
+      "height": 50,
+      "downloadedSource": "https://www.habborator.org/badges/badges/GL7.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GL8",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · GL8",
+        "en": "Guides · GL8"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GL8.gif",
+        "https://www.habborator.org/badges/badges/GL8.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GL8.gif",
+      "sha256": "1837dc5bb8dd91546cd90b248371bd7fffd0e7f423794803f232261faab0f055",
+      "width": 50,
+      "height": 50,
+      "downloadedSource": "https://www.habborator.org/badges/badges/GL8.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GL9",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · GL9",
+        "en": "Guides · GL9"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GL9.gif",
+        "https://www.habborator.org/badges/badges/GL9.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GL9.gif",
+      "sha256": "ecde6f65fffdc86c5dc8af040dbedac53a3955d3a041e48c7f83243d346f49aa",
+      "width": 50,
+      "height": 50,
+      "downloadedSource": "https://www.habborator.org/badges/badges/GL9.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GLA",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · GLA",
+        "en": "Guides · GLA"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GLA.gif",
+        "https://www.habborator.org/badges/badges/GLA.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GLA.gif",
+      "sha256": "02d29c44936c6eb9540a930eed2310ceb2a7e6756f2d6197df2e35473bbae38c",
+      "width": 31,
+      "height": 40,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/GLA.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GLB",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · GLB",
+        "en": "Guides · GLB"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GLB.gif",
+        "https://www.habborator.org/badges/badges/GLB.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GLB.gif",
+      "sha256": "55f2acca80222ace013eacef5d1ef9c2c36b759000da951a57d06b0d6e13caed",
+      "width": 37,
+      "height": 35,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/GLB.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GLC",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · GLC",
+        "en": "Guides · GLC"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GLC.gif",
+        "https://www.habborator.org/badges/badges/GLC.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GLC.gif",
+      "sha256": "625bce8f242c70d8b57962138837790e1c0d30f1d77b51d79ac87df790f25d86",
+      "width": 39,
+      "height": 35,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/GLC.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GLD",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · GLD",
+        "en": "Guides · GLD"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GLD.gif",
+        "https://www.habborator.org/badges/badges/GLD.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GLD.gif",
+      "sha256": "af0e293cfaea1a0342f6bf644bdc2ed1f71398bb2a78220d51db62b0fcf261ce",
+      "width": 39,
+      "height": 35,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/GLD.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GLE",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · GLE",
+        "en": "Guides · GLE"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GLE.gif",
+        "https://www.habborator.org/badges/badges/GLE.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GLE.gif",
+      "sha256": "20d2ef6dafc241d32ee7fa2905c42f7166d2769d3741a4f7b72f879b1e3e1245",
+      "width": 31,
+      "height": 38,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/GLE.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GLF",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · GLF",
+        "en": "Guides · GLF"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GLF.gif",
+        "https://www.habborator.org/badges/badges/GLF.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GLF.gif",
+      "sha256": "f64d5bbe85be75985f2d6d052dee9a68fb14e4c317f635f6b0e133aa45ecbb6f",
+      "width": 33,
+      "height": 40,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/GLF.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GLG",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · GLG",
+        "en": "Guides · GLG"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GLG.gif",
+        "https://www.habborator.org/badges/badges/GLG.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GLG.gif",
+      "sha256": "a750a8c5118e85a2778f4fd7ba19957b7f7ac50f5b2d8e3bc43165743f38eb85",
+      "width": 39,
+      "height": 36,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/GLG.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GLH",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · GLH",
+        "en": "Guides · GLH"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GLH.gif",
+        "https://www.habborator.org/badges/badges/GLH.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GLH.gif",
+      "sha256": "64dbd99b5d5deb1fa4682faf36ba0c9833b5e29e976893e940f011286ec6f0f4",
+      "width": 37,
+      "height": 36,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/GLH.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GLI",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · GLI",
+        "en": "Guides · GLI"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GLI.gif",
+        "https://www.habborator.org/badges/badges/GLI.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GLI.gif",
+      "sha256": "71bd7cbbe80f4bc6ef448c6073a0fffccca443a8c1e9a190f7cd3a4ac4ec6acf",
+      "width": 35,
+      "height": 39,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/GLI.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GLJ",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · GLJ",
+        "en": "Guides · GLJ"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GLJ.gif",
+        "https://www.habborator.org/badges/badges/GLJ.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GLJ.gif",
+      "sha256": "d5dff4200289bdb46f31e458123424e8926c78e933e516725704493c6cea855c",
+      "width": 33,
+      "height": 35,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/GLJ.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GLK",
+      "category": "guides",
+      "label": {
+        "ptBr": "Guias · GLK",
+        "en": "Guides · GLK"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GLK.gif",
+        "https://www.habborator.org/badges/badges/GLK.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GLK.gif",
+      "sha256": "b57059d07ffc1cb68829277a31b0d88ef8aab208ade9563458f44cc5944c41ba",
+      "width": 31,
+      "height": 38,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/GLK.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GM1",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · GM1",
+        "en": "Classic archive · GM1"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GM1.gif",
+        "https://www.habborator.org/badges/badges/GM1.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GM1.gif",
+      "sha256": "148db983c10cbc67fc86f2a3ef8680fb101028eedacbd52149d23febfefb6f91",
+      "width": 35,
+      "height": 37,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/GM1.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GM2",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · GM2",
+        "en": "Classic archive · GM2"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GM2.gif",
+        "https://www.habborator.org/badges/badges/GM2.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GM2.gif",
+      "sha256": "c1add7501832b9f3c48a42de6309c6118517ca1b308498e1c15cc663a6b2ef25",
+      "width": 35,
+      "height": 39,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/GM2.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GM3",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · GM3",
+        "en": "Classic archive · GM3"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GM3.gif",
+        "https://www.habborator.org/badges/badges/GM3.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GM3.gif",
+      "sha256": "f7e2bf0d836a70ee7deca627c67fa63d8cfa354c6afccd0b728d4f6f7b3b3d92",
+      "width": 35,
+      "height": 38,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/GM3.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "GM4",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · GM4",
+        "en": "Classic archive · GM4"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/GM4.gif",
+        "https://www.habborator.org/badges/badges/GM4.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/GM4.gif",
+      "sha256": "d019f13ff439f596afd41e83be190f2c0cf19b93803d32db15666081e63f852a",
+      "width": 35,
+      "height": 38,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/GM4.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "HBA",
+      "category": "identity",
+      "label": {
+        "ptBr": "Arquivo clássico · HBA",
+        "en": "Classic archive · HBA"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/HBA.gif",
+        "https://www.habborator.org/badges/badges/HBA.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/HBA.gif",
+      "sha256": "df51dd1cf27776b96b25c7f9f8a20aebca12320a9d3ba3678d87521b0b1e6d7d",
+      "width": 31,
+      "height": 31,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/HBA.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "HC3",
+      "category": "identity",
+      "label": {
+        "ptBr": "Habbo Club · clássico III",
+        "en": "Classic Habbo Club III"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/HC3.gif",
+        "https://www.habborator.org/badges/badges/HC3.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/HC3.gif",
+      "sha256": "1981e9d64583e8b209bd7fcf26d75a675b0f7f8712019d685d09938fa013be6a",
+      "width": 38,
+      "height": 39,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/HC3.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "HC4",
+      "category": "identity",
+      "label": {
+        "ptBr": "Habbo Club · clássico IV",
+        "en": "Classic Habbo Club IV"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/HC4.gif",
+        "https://www.habborator.org/badges/badges/HC4.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/HC4.gif",
+      "sha256": "367c0436c31609c5ba72bb54145c2f52c69d2bb430dcf7a983c08a1510ac6e25",
+      "width": 38,
+      "height": 39,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/HC4.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "HC5",
+      "category": "identity",
+      "label": {
+        "ptBr": "Habbo Club · clássico V",
+        "en": "Classic Habbo Club V"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/HC5.gif",
+        "https://www.habborator.org/badges/badges/HC5.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/HC5.gif",
+      "sha256": "95bf9c8b5e930d499ca51876376c06fc015514748b131550024976fdde53d0bc",
+      "width": 38,
+      "height": 39,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/HC5.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "HH1",
+      "category": "identity",
+      "label": {
+        "ptBr": "Arquivo clássico · HH1",
+        "en": "Classic archive · HH1"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/HH1.gif",
+        "https://www.habborator.org/badges/badges/HH1.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/HH1.gif",
+      "sha256": "ada4a877a212265152d4ef58f68695dbaf2f855bdc0a9260b6888cfa8b824934",
+      "width": 35,
+      "height": 35,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/HH1.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "HS1",
+      "category": "identity",
+      "label": {
+        "ptBr": "Equipe Habbo · HS1",
+        "en": "Habbo staff · HS1"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/HS1.gif",
+        "https://www.habborator.org/badges/badges/HS1.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/HS1.gif",
+      "sha256": "b4cded8a3a670be06d3a221c3c6790daf7fa2b1794f5b976a5b2574290fcbf30",
+      "width": 40,
+      "height": 40,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/HS1.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "HX1",
+      "category": "experts",
+      "label": {
+        "ptBr": "Habbo eXperts · HX1",
+        "en": "Habbo eXperts · HX1"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/HX1.gif",
+        "https://www.habborator.org/badges/badges/HX1.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/HX1.gif",
+      "sha256": "b53378b789c34500fe960af1c73ed04c4df68405ca4e4067be2a1a491834bd1a",
+      "width": 37,
+      "height": 31,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/HX1.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "HX2",
+      "category": "experts",
+      "label": {
+        "ptBr": "Habbo eXperts · HX2",
+        "en": "Habbo eXperts · HX2"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/HX2.gif",
+        "https://www.habborator.org/badges/badges/HX2.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/HX2.gif",
+      "sha256": "44535d4d7a06b4137fec4f4626b03b0dc4e381735d2600d96a289beb30f886b8",
+      "width": 38,
+      "height": 31,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/HX2.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "HX3",
+      "category": "experts",
+      "label": {
+        "ptBr": "Habbo eXperts · HX3",
+        "en": "Habbo eXperts · HX3"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/HX3.gif",
+        "https://www.habborator.org/badges/badges/HX3.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/HX3.gif",
+      "sha256": "b3a713078912240579f1020a9b203cfe4f32138d36a6084e9407ea026302d5e3",
+      "width": 35,
+      "height": 31,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/HX3.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "HX4",
+      "category": "experts",
+      "label": {
+        "ptBr": "Habbo eXperts · HX4",
+        "en": "Habbo eXperts · HX4"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/HX4.gif",
+        "https://www.habborator.org/badges/badges/HX4.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/HX4.gif",
+      "sha256": "0ab0a9d48ad8ae909db986495a91e317c839928ecbe9bbb01ff3361fbaa5dbf6",
+      "width": 35,
+      "height": 31,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/HX4.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "HX5",
+      "category": "experts",
+      "label": {
+        "ptBr": "Habbo eXperts · HX5",
+        "en": "Habbo eXperts · HX5"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/HX5.gif",
+        "https://www.habborator.org/badges/badges/HX5.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/HX5.gif",
+      "sha256": "d72dfce99b7272124c9b7d41ed5dbf370446e7edd473d0c58f3a9170ad26d651",
+      "width": 38,
+      "height": 33,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/HX5.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "HX6",
+      "category": "experts",
+      "label": {
+        "ptBr": "Habbo eXperts · HX6",
+        "en": "Habbo eXperts · HX6"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/HX6.gif",
+        "https://www.habborator.org/badges/badges/HX6.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/HX6.gif",
+      "sha256": "880613abfaf583259b2c047f103b6ca5707f4c596ef21ecbef72ed91cb8b3c2b",
+      "width": 39,
+      "height": 33,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/HX6.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "HX7",
+      "category": "experts",
+      "label": {
+        "ptBr": "Habbo eXperts · HX7",
+        "en": "Habbo eXperts · HX7"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/HX7.gif",
+        "https://www.habborator.org/badges/badges/HX7.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/HX7.gif",
+      "sha256": "54d21ab0a11b7c7e2de980917c723dbb8b587f7ad9512b1bf9b0467dfb4abb0f",
+      "width": 36,
+      "height": 33,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/HX7.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "HX8",
+      "category": "experts",
+      "label": {
+        "ptBr": "Habbo eXperts · HX8",
+        "en": "Habbo eXperts · HX8"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/HX8.gif",
+        "https://www.habborator.org/badges/badges/HX8.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/HX8.gif",
+      "sha256": "f369b68a5a6e61935f85712313e529a9e15519b47f7a78aff79e935c9e44a519",
+      "width": 36,
+      "height": 33,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/HX8.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "HX9",
+      "category": "experts",
+      "label": {
+        "ptBr": "Habbo eXperts · HX9",
+        "en": "Habbo eXperts · HX9"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/HX9.gif",
+        "https://www.habborator.org/badges/badges/HX9.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/HX9.gif",
+      "sha256": "c214e5ec9fa3d66c339e526dbf6a0d1ee5aa29c0e48b2386e64b907308bc398f",
+      "width": 38,
+      "height": 33,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/HX9.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "MRG00",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · MRG00",
+        "en": "Classic archive · MRG00"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/MRG00.gif",
+        "https://www.habborator.org/badges/badges/MRG00.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/MRG00.gif",
+      "sha256": "cb1807c39fa075b0e92af3751e4cdda9506456af8ae75cb08467b5df2c2e1756",
+      "width": 40,
+      "height": 40,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/MRG00.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "MRG01",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · MRG01",
+        "en": "Classic archive · MRG01"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/MRG01.gif",
+        "https://www.habborator.org/badges/badges/MRG01.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/MRG01.gif",
+      "sha256": "4268b39d10d022d11648cfe97da27b68fa2d5189ab45b2d83e2914a63df89c1b",
+      "width": 40,
+      "height": 40,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/MRG01.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "MRG02",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · MRG02",
+        "en": "Classic archive · MRG02"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/MRG02.gif",
+        "https://www.habborator.org/badges/badges/MRG02.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/MRG02.gif",
+      "sha256": "c6e74d34535c6d6b362730ecf12fbe734d65673058e161dc2e5d36b0758c8599",
+      "width": 40,
+      "height": 40,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/MRG02.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "MRG03",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · MRG03",
+        "en": "Classic archive · MRG03"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/MRG03.gif",
+        "https://www.habborator.org/badges/badges/MRG03.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/MRG03.gif",
+      "sha256": "94df237237dd155b1c2da40ed9690f8c7912cca395162e0a3a5814f55f2607e6",
+      "width": 40,
+      "height": 40,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/MRG03.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "MRG04",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · MRG04",
+        "en": "Classic archive · MRG04"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/MRG04.gif",
+        "https://www.habborator.org/badges/badges/MRG04.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/MRG04.gif",
+      "sha256": "27905cbca78a044c980247dde8f91c00f2f87399b05c3751c7f4f2802e9c2d7c",
+      "width": 40,
+      "height": 40,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/MRG04.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "MRG05",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · MRG05",
+        "en": "Classic archive · MRG05"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/MRG05.gif",
+        "https://www.habborator.org/badges/badges/MRG05.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/MRG05.gif",
+      "sha256": "1aa3d906e4d0741e9c2ef2f17091ada471b156d7bbd1ebc68737877ddf6f22f2",
+      "width": 40,
+      "height": 40,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/MRG05.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "NWB",
+      "category": "identity",
+      "label": {
+        "ptBr": "Arquivo clássico · NWB",
+        "en": "Classic archive · NWB"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/NWB.gif",
+        "https://www.habborator.org/badges/badges/NWB.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/NWB.gif",
+      "sha256": "95428110624bf7878a91ecedf0cc8f819d78ec4f74daa11608fa5e3622bee95e",
+      "width": 31,
+      "height": 31,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/NWB.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "PET01",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · PET01",
+        "en": "Classic archive · PET01"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/PET01.gif",
+        "https://www.habborator.org/badges/badges/PET01.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/PET01.gif",
+      "sha256": "d13ba8d827458489ca24163ebf10c0c04717a2192d18b7836518871f886d21ef",
+      "width": 40,
+      "height": 40,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/PET01.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "PET02",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · PET02",
+        "en": "Classic archive · PET02"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/PET02.gif",
+        "https://www.habborator.org/badges/badges/PET02.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/PET02.gif",
+      "sha256": "afb1a6205ff89bcaa70f0d8b77d27a22423d95d9a27323045e20a339d2e5505a",
+      "width": 40,
+      "height": 40,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/PET02.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "PET07",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · PET07",
+        "en": "Classic archive · PET07"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/PET07.gif",
+        "https://www.habborator.org/badges/badges/PET07.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/PET07.gif",
+      "sha256": "9f319fedcdc364fa29d7fda895c96794ed3f738f8668b3cb15b3b5f7b28df161",
+      "width": 40,
+      "height": 40,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/PET07.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "PRE",
+      "category": "identity",
+      "label": {
+        "ptBr": "Arquivo clássico · PRE",
+        "en": "Classic archive · PRE"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/PRE.gif",
+        "https://www.habborator.org/badges/badges/PRE.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/PRE.gif",
+      "sha256": "bac73acaf1ee867781db0e5bd32d22bf22b0aa501189a9628841d5def96902c1",
+      "width": 35,
+      "height": 35,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/PRE.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "SNW",
+      "category": "games",
+      "label": {
+        "ptBr": "SnowStorm · clássico",
+        "en": "Classic SnowStorm"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/SNW.gif",
+        "https://www.habborator.org/badges/badges/SNW.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/SNW.gif",
+      "sha256": "db8639c0e502144fd51ab71f8000b2c6b0833e922407d5950066f2042643a2a3",
+      "width": 33,
+      "height": 33,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/SNW.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "TC1",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · TC1",
+        "en": "Classic archive · TC1"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/TC1.gif",
+        "https://www.habborator.org/badges/badges/TC1.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/TC1.gif",
+      "sha256": "18acd708f5f08ed915988bb9dcaf8380783eebd7945713769878920fa39c4167",
+      "width": 37,
+      "height": 37,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/TC1.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "TC2",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · TC2",
+        "en": "Classic archive · TC2"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/TC2.gif",
+        "https://www.habborator.org/badges/badges/TC2.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/TC2.gif",
+      "sha256": "982af2b7d6b4bad063cfcaca0b4efbc734aadebbab411cca094e215dddb78add",
+      "width": 37,
+      "height": 37,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/TC2.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "TC3",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · TC3",
+        "en": "Classic archive · TC3"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/TC3.gif",
+        "https://www.habborator.org/badges/badges/TC3.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/TC3.gif",
+      "sha256": "253f4d48cf226b61db03c5c0596aa9675cbe3f2da2eed03e3f8bd344ad82123a",
+      "width": 37,
+      "height": 37,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/TC3.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "VIP",
+      "category": "identity",
+      "label": {
+        "ptBr": "VIP clássico",
+        "en": "Classic VIP"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/VIP.gif",
+        "https://www.habborator.org/badges/badges/VIP.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/VIP.gif",
+      "sha256": "9e69f12fcb11808bc1db8592a9643d6684b2f4ec1126db9a4c14db7717fe1618",
+      "width": 35,
+      "height": 35,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/VIP.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "WBL",
+      "category": "games",
+      "label": {
+        "ptBr": "Wobble Squabble · clássico",
+        "en": "Classic Wobble Squabble"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/WBL.gif",
+        "https://www.habborator.org/badges/badges/WBL.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/WBL.gif",
+      "sha256": "c7447ff2cbf99b1adea46913e9c08d02ef596fd13a2409be5fb4ccb214f25c55",
+      "width": 40,
+      "height": 40,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/WBL.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "WHY",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · WHY",
+        "en": "Classic archive · WHY"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/WHY.gif",
+        "https://www.habborator.org/badges/badges/WHY.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/WHY.gif",
+      "sha256": "dd6ccac4dd630fa4c3aca8433ea06bb374388fa3e41aea84427e65ee24035690",
+      "width": 35,
+      "height": 35,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/WHY.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "XXX",
+      "category": "experts",
+      "label": {
+        "ptBr": "Habbo eXpert · original",
+        "en": "Original Habbo eXpert"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/XXX.gif",
+        "https://www.habborator.org/badges/badges/XXX.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/XXX.gif",
+      "sha256": "bd811f5bbaece9c4fdaa3c0bf85aea251fba494cf051f2860af00ff6c1dd0b24",
+      "width": 35,
+      "height": 35,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/XXX.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "Z05",
+      "category": "experts",
+      "label": {
+        "ptBr": "Habbo eXperts · memória",
+        "en": "Habbo eXperts · legacy"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/Z05.gif",
+        "https://www.habborator.org/badges/badges/Z05.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/Z05.gif",
+      "sha256": "570477e3cfdb95d6e94e4196aa8f2aba1715ea63c5eacc4a28d30d0e245a2d72",
+      "width": 35,
+      "height": 34,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/Z05.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "Z63",
+      "category": "identity",
+      "label": {
+        "ptBr": "Arquivo clássico · Z63",
+        "en": "Classic archive · Z63"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/Z63.gif",
+        "https://www.habborator.org/badges/badges/Z63.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/Z63.gif",
+      "sha256": "4c39d5f640bc743c81fedac1e6a75f3f3bf03f9aeb83f3eaf3e73f33fb0a25c7",
+      "width": 40,
+      "height": 40,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/Z63.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "Z64",
+      "category": "identity",
+      "label": {
+        "ptBr": "Arquivo clássico · Z64",
+        "en": "Classic archive · Z64"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/Z64.gif",
+        "https://www.habborator.org/badges/badges/Z64.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/Z64.gif",
+      "sha256": "f8ca7a098c213635109805bc11cac40db8452ec0f136f093adb9e35ba778850e",
+      "width": 40,
+      "height": 40,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/Z64.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "Z84",
+      "category": "identity",
+      "label": {
+        "ptBr": "Arquivo clássico · Z84",
+        "en": "Classic archive · Z84"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/Z84.gif",
+        "https://www.habborator.org/badges/badges/Z84.gif"
+      ],
+      "distributionScope": "legacy_general_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/Z84.gif",
+      "sha256": "053b47d1d32b4338eaa0bdc49f1bba975ecaddb8a62c1158083b527ff6144c96",
+      "width": 40,
+      "height": 40,
+      "downloadedSource": "https://images.habbo.com/c_images/album1584/Z84.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    },
+    {
+      "code": "ZZZ",
+      "category": "historical",
+      "label": {
+        "ptBr": "Arquivo clássico · ZZZ",
+        "en": "Classic archive · ZZZ"
+      },
+      "archivedBefore": "2011-02-05",
+      "archivePage": "https://www.habborator.org/badges/general.html",
+      "sourceCandidates": [
+        "https://images.habbo.com/c_images/album1584/ZZZ.gif",
+        "https://www.habborator.org/badges/badges/ZZZ.gif"
+      ],
+      "distributionScope": "international_archive_distribution_unverified",
+      "regionalStatus": "not_proven_for_every_hotel",
+      "contentType": "official_habbo_pixel_gif",
+      "image": "/habbo/assets/v7/badges/ZZZ.gif",
+      "sha256": "6fd353e4e96784d6b6a5def25b1bdfb1bc4ba78782b4bbc0dc9d668b405ef708",
+      "width": 50,
+      "height": 50,
+      "downloadedSource": "https://www.habborator.org/badges/badges/ZZZ.gif",
+      "archivalStatus": "original_sprite_verified",
+      "releaseBasis": "conditional_noncommercial_fansite_policy"
+    }
+  ],
+  "coverage": {
+    "existingOriginalV6": 13,
+    "newlyVerified": 77,
+    "totalOriginalSprites": 90,
+    "unverifiedOrMissing": 0
+  },
+  "pending": [],
+  "sourcePage": "https://www.habborator.org/badges/general.html",
+  "rightsUrl": "https://help.habbo.com/hc/en-us/articles/360011512480-Habbo-Fansite-Policy"
+}
