@@ -36,5 +36,6 @@ jobs:
           git add -A habbo/assets/v17/managers/ habbo/v16/staff-manifest.json habbo/v17/sprite-ledger.json
           if ! git diff --cached --quiet; then
             git commit -m 'assets(habbo): preserve twelve named staff avatar sprites with independent source metadata'
+            git pull --rebase origin feat/habbo-v17-classic-manager-sprite-rail
             git push origin HEAD:feat/habbo-v17-classic-manager-sprite-rail
           fi
