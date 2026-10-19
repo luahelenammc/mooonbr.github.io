@@ -147,7 +147,6 @@
  locateHash();
  window.addEventListener('hashchange',locateHash);
  document.documentElement.classList.add('v11-family-ready');
-}
  // Chapter-aware header navigation. The old template permanently highlighted
  // Places even when the reader had entered Rares or Badges.
  const headerTabs=[...document.querySelectorAll('.collection-switch a')];
