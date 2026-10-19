@@ -39,7 +39,7 @@ try{
    verify((await nav.textContent()).trim()===(en?'Public Spaces':'Espaços Públicos'),'main chapter label '+locale+'/'+device);
    verify(await nav.getAttribute('href')!==null,'navigation still resolves to chapter');
    verify(await page.locator('#lugares.cinematic-dock').count()===1,'stable Places Dock anchor preserved');
-   verify(await page.locator('#raros [data-v9-item]').count()===158,'all 148 archive specimens preserved');
+   verify(await page.locator('#raros [data-v9-item]').count()===148,'all 148 archive specimens preserved');
    verify(await page.locator('#emblemas [data-v9-item]').count()===101,'101 global badges preserved');
    verify(await page.locator('#raros .v11-family-grid a').count()===15,'all 15 archive families present');
    verify(await page.locator('#raros .v11-family-grid a:visible').count()===15,'none of the 15 categories hidden');
@@ -48,7 +48,7 @@ try{
    verify(await page.locator('#raros-family-laser-gates [data-v9-item]').count()===10,'laser portals gallery 10');
    verify(await page.locator('#raros-family-smoke-machines [data-v9-item]').count()===10,'smoke machine gallery intact');
    verify(await page.locator('#raros-family-collectables-2008-2009 [data-v9-item]').count()===16,'collectibles gallery intact');
-   verify(await page.locator('#raros-family-v12-rare-avulsos [data-v9-item]').count()===15,'14 classic singles preserved');
+   verify(await page.locator('#raros-family-v12-rare-avulsos [data-v9-item]').count()===14,'14 classic singles preserved');
    verify(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+2),'whole viewport must not scroll sideways');
    verify(await page.locator('.collection-switch').evaluate(x=>x.scrollWidth<=x.clientWidth+2),'new longer chapter label must fit viewport');
    const first=page.locator('#raros .v11-family-grid a[href$="laser-gates"]');
@@ -78,7 +78,7 @@ try{
   const p=await ctx.newPage();
   await p.goto(base+(en?'en/rares/':'pt-br/raros/'),{waitUntil:'networkidle'});
   verify(await p.locator('.v8-family').count()===15,'15 families in stand-alone archive');
-  verify(await p.locator('.v8-specimen').count()===158,'148 sprites in stand-alone archive');
+  verify(await p.locator('.v8-specimen').count()===148,'148 sprites in stand-alone archive');
   verify((await p.locator('.v8-top-links a').first().textContent()).trim()===(en?'Public Spaces':'Espaços Públicos'),'archive nav has corrected label');
   await p.goto(base+(en?'en/rare/':'pt-br/raro/')+'v13-monolith-pink/',{waitUntil:'networkidle'});
   verify(await p.locator('main.v13-detail-main h1').textContent().then(s=>s.startsWith(en?'Pink Monolith':'Monolito rosa')),'monolith record title corrected');
