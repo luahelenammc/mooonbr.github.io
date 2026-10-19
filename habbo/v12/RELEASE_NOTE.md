@@ -18,3 +18,6 @@ Show all families in a directly scannable responsive grid. Keep only one subdued
 `habbo/qa/v12-quiet-atlas.mjs` in Chromium: PT/EN/root desktop+mobile, 69+101, 14 consolidated, 10+7 group tiles, no overflow, assets, accessible direct links, standalone pages and historic provenance. `habbo/qa/v8-visual.mjs` and the V4 Dock tests protect existing behavior.
 
 See https://github.com/luahelenammc/mooonbr.github.io/pull/32.
+
+## Source publication gate
+The verified build commits the three index entrypoints, both standalone rare archives, both standalone badge archives, and the V12 versioned assets. A readback of the PT-BR rare archive after the build confirmed precisely ten sections, one 14-object collective, and its legacy individual anchors. The archival CI reruns against this synchronized source rather than stale V11 HTML.
