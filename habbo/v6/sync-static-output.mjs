@@ -42,5 +42,18 @@ function walk(directory){
 }
 for(const dir of scopes)walk(dir);
 for(const file of singles)checkOne(file);
+const obsolete=[];
+for(const loc of ['pt-br/emblema','en/badge']){
+ const dir=path.join(root,loc);
+ if(fs.existsSync(dir))for(const name of fs.readdirSync(dir)){
+  if(name.startsWith('badge-br'))obsolete.push(path.join(dir,name));
+ }
+}
+for(const item of obsolete){
+ report.changed++;
+ console.log((mode==='write'?'REMOVE':'OBSOLETE')+' '+path.relative(root,item));
+ if(mode==='write')fs.rmSync(item,{recursive:true,force:true});
+}
+
 console.log('V6 Pages source sync:',JSON.stringify(report));
 if(mode==='check'&&report.changed)process.exit(1);
