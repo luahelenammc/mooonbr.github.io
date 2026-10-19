@@ -32,3 +32,18 @@ for(const name of ['Acapulca','DJapamala','Prefeita']){
   console.log('LATEST_AVATAR_PROBE',name,'HTTP',r.status,'CT',r.headers.get('content-type'),'BYTES',arr.length,'HEX',arr.subarray(0,20).toString('hex'),'URL',r.url);
  }catch(e){console.log('LATEST_AVATAR_FAILED',name,e.message)}
 }
+
+for(const [slug,url] of [
+ ['habbohistory','https://www.habbohistory.com/habbo-imaging/avatarimage?user=DJapamala&hotel=br&size=n'],
+ ['habbowidgets','https://www.habbowidgets.com/habbo-imaging/avatarimage?user=DJapamala&hotel=br&size=n'],
+ ['static-wikia','https://static.wikia.nocookie.net/habbo/images/Prefeita.png/revision/latest'],
+ ['habbohistory-prefeita','https://www.habbohistory.com/habbo-imaging/avatarimage?user=Prefeita&hotel=br&size=n'],
+ ['habbohistory-acapulca','https://www.habbohistory.com/habbo-imaging/avatarimage?user=Acapulca&hotel=br&size=n'],
+ ['habbohistory-profile','https://www.habbohistory.com/habbo/br/DJapamala']
+]){
+ try{
+  const r=await fetch(url,{signal:AbortSignal.timeout(16000),headers:{'User-Agent':'Mozilla/5.0'}});
+  const arr=Buffer.from(await r.arrayBuffer());
+  console.log('FALLBACK_AVATAR_PROBE',slug,'HTTP',r.status,'CT',r.headers.get('content-type'),'BYTES',arr.length,'HEX',arr.subarray(0,12).toString('hex'),'URL',r.url);
+ }catch(e){console.log('FALLBACK_AVATAR_FAIL',slug,e.message)}
+}
