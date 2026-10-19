@@ -39,7 +39,11 @@ export function buildCollections({root, dist, basePath = ''}) {
  let approvedOriginalSprites=false;
  if(fs.existsSync(releaseReceipt)){
   const receipt=JSON.parse(fs.readFileSync(releaseReceipt,'utf8'));
-  if(receipt.status!=='approved'||!receipt.evidenceUrl||!/^https?:\/\//.test(receipt.evidenceUrl)){
+  const policyCondition=receipt.status==='conditional_policy_reuse' &&
+    receipt.noncommercial===true && receipt.nonaffiliationDisclaimer===true &&
+    receipt.individualPermissionClaimed===false &&
+    receipt.evidenceUrl==='https://help.habbo.com/hc/en-us/articles/360011512480-Habbo-Fansite-Policy';
+  if(!(receipt.status==='approved'||policyCondition)||!receipt.evidenceUrl||!/^https?:\/\//.test(receipt.evidenceUrl)){
    throw new Error('V6 rights approval receipt missing valid documented evidence');
   }
   const manifest=JSON.parse(fs.readFileSync(path.join(root,'v6','expected-original-assets.json'),'utf8'));
