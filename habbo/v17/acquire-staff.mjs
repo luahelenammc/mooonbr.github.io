@@ -10,7 +10,8 @@ const sources=[
  {id:'disco-lee',name:'Disco-Lee',type:'2021'},
  {id:'missfurby',name:'MissFurby',type:'2021'},
  {id:'reeet',name:'Reeet',type:'2021'},
- {id:'thedjhabbo',name:'TheDJHabbo',type:'2021'}
+ {id:'thedjhabbo',name:'TheDJHabbo',type:'2021'},
+ {id:'acapulca',name:'Acapulca',type:'2021'}
 ];
 const originals=JSON.parse(fs.readFileSync(path.join(root,'v17/staff-source-urls.json'),'utf8'));
 const originalSource=originals.originalArticles;
@@ -46,6 +47,6 @@ for(const source of sources){
  }
 }
 const ids=new Set(entries.map(x=>x.id));
-if(ids.size!==7||entries.length!==7)throw Error('Expected seven source-downloadable archive sprite originals');
-if(!check)fs.writeFileSync(ledgerFile,JSON.stringify({schema:1,notes:'Only 7 historical full-body sprite image files could be retrieved and verified. 2011 proxy originals for Mordomo and Sir-Lawnrence are documented but their remote PNG files return HTTP 404; never claim they are present.',sourceList:originalSource,sprites:entries,pending:['mordomo','sir-lawnrence','acapulca','prefeita','djapamala']},null,2)+'\n');
-console.log('STAFF_ORIGINAL_SPRITES_VERIFIED',entries.length,'PENDING_REFERENCE',5);
+if(ids.size!==8||entries.length!==8)throw Error('Expected eight source-downloadable archive sprite originals');
+if(!check)fs.writeFileSync(ledgerFile,JSON.stringify({schema:1,notes:'Eight named historical full-body sprite images could be retrieved and verified. 2011 proxy originals for Mordomo and Sir-Lawnrence are documented but their remote PNG files return HTTP 404; never claim they are present.',sourceList:originalSource,sprites:entries,pending:['mordomo','sir-lawnrence','prefeita','djapamala']},null,2)+'\n');
+console.log('STAFF_ORIGINAL_SPRITES_VERIFIED',entries.length,'PENDING_REFERENCE',4);
