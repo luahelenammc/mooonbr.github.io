@@ -100,5 +100,5 @@ try {
  check(await p.locator('#emblemas .v9-family:visible').count()===7,'No-JS all badge galleries accessible');
  await ctx.close();
 }finally{await browser.close();}
-fs.writeFileSync(path.join(output,'report.json'),JSON.stringify({status:'passed',checks,rareFamilies:10,rareSingletons:14,badgeFamilies:7},null,2));
+fs.writeFileSync(path.join(output,'report.json'),JSON.stringify({status:'passed',checks,rareFamilies:15,rareSingletons:14,badgeFamilies:7},null,2));
 console.log('V12 QUIET ATLAS PASS',checks);
