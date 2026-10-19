@@ -9,13 +9,13 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const dist=path.join(root,'dist');
 const mode=process.argv.includes('--write')?'write':process.argv.includes('--check')?'check':'dry-run';
 const scopes=['pt-br/raros','en/rares','pt-br/raro','en/rare',
- 'pt-br/emblemas','en/badges','pt-br/emblema','en/badge','assets/v6','assets/v7'];
+ 'pt-br/emblemas','en/badges','pt-br/emblema','en/badge','assets/v6','assets/v7','assets/v10'];
 const singles=['assets/v5-collections.css','assets/v5-collections.js',
  'assets/v6-experience.css','assets/v6-experience.js',
  'assets/v6-global-badges.css','assets/v6-global-badges.js',
  'assets/v7-classic-display.css','assets/v7-classic-display.js','assets/v7-classic-badges.json',
  'assets/v8-museum.css','assets/v8-museum.js','assets/v8-home.css',
- 'assets/v9-home.js',
+ 'assets/v9-home.js','assets/v10-home.css','assets/v10-home.js',
  'index.html','pt-br/index.html','en/index.html'];
 const report={mode,expected:0,changed:0,missing:0};
 if(!fs.existsSync(dist))throw Error('Build output missing. Run BASE_PATH=/habbo node habbo/build.mjs first.');

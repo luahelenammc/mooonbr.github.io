@@ -26,7 +26,7 @@ function rareItems(root) {
   pt:item.name.ptBr,en:item.name.en,image:item.image,descriptionPt:item.description?.ptBr||'',descriptionEn:item.description?.en||''
  }));
  const added=rareExtra.map(([id,pt,en,file,family])=>({id,family:id,
-  familyPt:pt,familyEn:family,pt,en,image:'/habbo/assets/v6/rares/'+file+'.gif',
+  familyPt:pt,familyEn:family,pt,en,image:'/habbo/assets/v10/full-rares/'+id+'.gif',
   descriptionPt:'Peça histórica de catálogo. A circulação no Habbo BR depende de evidência específica.',
   descriptionEn:'Historic catalogue piece. Availability in Habbo Brazil requires item-specific evidence.'
  }));
@@ -161,6 +161,8 @@ export function buildUnified({root,dist}) {
   html=html.replace(/<div class="v8-home-chapters"[\s\S]*?<!-- END V8 HOME CHAPTERS -->/g,'');
   html=html.replace(/<link rel="stylesheet" href="\/habbo\/assets\/v8-home.css">/g,'');
   html=html.replace(/<script defer src="\/habbo\/assets\/v9-home.js"><\/script>/g,'');
+  html=html.replace(/<link rel="stylesheet" href="\/habbo\/assets\/v10-home.css(?:\?[^"]*)?">/g,'');
+  html=html.replace(/<script defer src="\/habbo\/assets\/v10-home.js(?:\?[^"]*)?"><\/script>/g,'');
   // Existing Pages output may be the input on the next build: remove old dialogs before adding exactly one.
   html=html.replace(/<dialog class="v9-home-dialog"[\s\S]*?<\/dialog>/g,'');
   html=html.replace('id="lugares" ','');
@@ -184,7 +186,7 @@ export function buildUnified({root,dist}) {
    '<a href="#" data-v9-dialog-link>'+(en?'Historical record and sources ↗':'Ficha histórica e fontes ↗')+'</a>'+
    '<button type="button" data-v9-dialog-step="1" aria-label="'+(en?'Next':'Próximo')+'">→</button></div></dialog>';
   html=html.replace('</main>', '</main>'+v9Dialog);
-  html=html.replace('</head>','<link rel="stylesheet" href="/habbo/assets/v8-home.css"><script defer src="/habbo/assets/v9-home.js"></script></head>');
+  html=html.replace('</head>','<link rel="stylesheet" href="/habbo/assets/v10-home.css?v=20261019-v10.1"><script defer src="/habbo/assets/v10-home.js?v=20261019-v10.1"></script></head>');
   const rewrites=[
    [en?'/habbo/en/rares/':'/habbo/pt-br/raros/','#raros'],
    [en?'/habbo/en/badges/':'/habbo/pt-br/emblemas/','#emblemas']
@@ -204,7 +206,7 @@ export function buildUnified({root,dist}) {
  const regional=path.join(dist,'assets/v5/badges');
  if(fs.existsSync(regional))fs.rmSync(regional,{recursive:true,force:true});
  for(const [source,dest] of [['v8/museum.css','assets/v8-museum.css'],
-  ['v8/museum.js','assets/v8-museum.js'],['v8/home.css','assets/v8-home.css'],['v9/home.js','assets/v9-home.js']]){
+  ['v8/museum.js','assets/v8-museum.js'],['v8/home.css','assets/v8-home.css'],['v9/home.js','assets/v9-home.js'],['v10/home.css','assets/v10-home.css'],['v10/home.js','assets/v10-home.js']]){
   fs.copyFileSync(path.join(root,source),path.join(dist,dest));
  }
  return {outcomes,homepage:['index.html','pt-br/index.html','en/index.html'],regionalPublished:0};

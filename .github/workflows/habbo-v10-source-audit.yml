@@ -1,0 +1,28 @@
+name: Habbo V10 sprite source audit
+on:
+  push:
+    branches: [fix/habbo-v10-index-debug-mobile-cache-layout]
+    paths:
+      - 'habbo/v10/audit-original-sprites.mjs'
+      - 'habbo/v10/scout-full-sprites.mjs'
+      - 'habbo/v10/find-infobus-sprite.mjs'
+      - 'habbo/v10/compare-infobus-originals.mjs'
+      - '.github/workflows/habbo-v10-source-audit.yml'
+  workflow_dispatch:
+jobs:
+  source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/habbo-v10-index-debug-mobile-cache-layout
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Inspect historical images and primary archive source markup
+        run: |
+          node habbo/v10/audit-original-sprites.mjs
+          node habbo/v10/scout-full-sprites.mjs
+          node habbo/v10/find-infobus-sprite.mjs
+          node habbo/v10/compare-infobus-originals.mjs

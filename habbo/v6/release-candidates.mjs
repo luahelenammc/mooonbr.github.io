@@ -37,7 +37,7 @@ export function verifiedCandidateRecords(root){
  });
  const rares=metadata.rareConcepts.map(x=>{
   const filename=rareFilenames[x.id];if(!filename)throw Error('Unknown rare '+x.id);
-  return {...common(x.id,find(filename),rareNames[x.id]),familyId:x.id,
+  return {...common(x.id,find(filename),rareNames[x.id]),image:'/habbo/assets/v10/full-rares/'+x.id+'.gif',familyId:x.id,
    familyName:{ptBr:rareNames[x.id][0],en:rareNames[x.id][1]},groupId:x.id};
  });
  const global=metadata.globalBadges.map(x=>{
