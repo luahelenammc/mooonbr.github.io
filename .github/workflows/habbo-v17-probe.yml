@@ -1,0 +1,27 @@
+name: Habbo V17 source sprite inspection
+on:
+  push:
+    branches: [feat/habbo-v17-staff-sprite-rail]
+    paths:
+      - 'habbo/v17/source-probe.mjs'
+      - '.github/workflows/habbo-v17-probe.yml'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '20'}
+      - name: Inspect decade-old Habbo fan archive photos and imager sprites
+        run: node habbo/v17/source-probe.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v17-original-staff-sources
+          path: habbo/v17/probe/
