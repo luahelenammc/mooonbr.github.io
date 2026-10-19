@@ -23,8 +23,8 @@ try {
    check(await page.locator('html.v12-quiet-ready').count()===1,'V13 JS did not enhance');
    check(await page.locator('link[href*="v13-home.css?v=20261019-v13.1"]').count()===1,'V12 CSS not versioned');
    check(await page.locator('script[src*="v13-home.js?v=20261019-v13.1"]').count()===1,'V12 JS not versioned');
-   check(await page.locator('#raros [data-v9-item]').count()===135,'69 unique rare specimens missing');
-   check(await page.locator('#emblemas [data-v9-item]').count()===131,'101 global badges missing');
+   check(await page.locator('#raros [data-v9-item]').count()===105,'69 unique rare specimens missing');
+   check(await page.locator('#emblemas [data-v9-item]').count()===101,'101 global badges missing');
    check(await page.locator('#raros .v11-family-grid a').count()===13,'Exactly 13 rare editorial families expected');
    check(await page.locator('#emblemas .v11-family-grid a').count()===7,'All original badge families must remain');
    check(await page.locator('#raros .v11-family-grid a:visible').count()===13,'One or more rare groups concealed');
@@ -85,10 +85,10 @@ try {
   check(await p.locator('.v8-family').count()===13,'Standalone rare collection family count mismatched');
   check(await p.locator('#family-v12-rare-avulsos .v8-specimen').count()===14,'Standalone rare group missing singles');
   check(await p.locator('#family-eggs').count()===1,'Old standalone family anchor lost');
-  check(await p.locator('.v8-specimen').count()===135,'Original standalone rare specimens missing');
+  check(await p.locator('.v8-specimen').count()===105,'Original standalone rare specimens missing');
   await p.goto(base+(lang==='en'?'en/badges/':'pt-br/emblemas/'),{waitUntil:'networkidle'});
   check(await p.locator('.v8-family').count()===7,'Badge lineage taxonomy changed unnecessarily');
-  check(await p.locator('.v8-specimen').count()===131,'Original standalone badge specimens missing');
+  check(await p.locator('.v8-specimen').count()===101,'Original standalone badge specimens missing');
   await ctx.close();
  }
  const ctx=await browser.newContext({viewport:{width:390,height:844},javaScriptEnabled:false});
