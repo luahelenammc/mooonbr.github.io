@@ -25,6 +25,14 @@ try{
    check(await page.locator('#emblemas [data-v9-item]').count()===101,'101 classic global badges must remain in index DOM');
    check(await page.locator('#raros .v9-family').count()===23,'23 rare families missing');
    check(await page.locator('#emblemas .v9-family').count()===7,'7 global badge families missing');
+   console.log('V10_STYLE_DIAGNOSTIC',lang,device,await page.evaluate(()=>{
+    const s=document.querySelector('#raros .v9-family');
+    const hidden=[...document.querySelectorAll('#raros .v9-family')].filter(x=>getComputedStyle(x).display==='none').length;
+    const css=[...document.styleSheets].map(x=>x.href).filter(Boolean);
+    return {htmlClass:document.documentElement.className,visible:[...document.querySelectorAll('#raros .v9-family')].filter(x=>x.getClientRects().length>0).length,
+     hidden,firstAttrs:s?.getAttribute('data-v10-active'),firstDisplay:s?getComputedStyle(s).display:'',
+     css:css.filter(x=>x.includes('v10-home'))};
+   }));
    for(const id of ['raros','emblemas']){
     check(await page.locator('#'+id+' .v9-family:visible').count()===1,id+' must show only one group at a time');
     check(await page.locator('#'+id+' .v10-family-pager button').count()===2,id+' group arrows missing');
