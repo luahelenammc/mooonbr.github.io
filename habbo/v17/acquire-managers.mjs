@@ -9,10 +9,10 @@ const sources={
  2021:'https://viajovem.blogspot.com/2021/02/staffs.html',
  staff:'https://habblindados.com.br/pagina/staff-habbo'
 };
-const rename={flecha:['2021','Flecha'],mordomo:['staff','Mordomo'],'paty-nestle':['2021','Paty-Nestle'],
- 'sir-lawnrence':['staff','Sir-Lawnrence'],'4queijos':['2021','4Queijos'],'disco-lee':['2021','Disco-Lee'],
+const rename={flecha:['2021','Flecha'],mordomo:[],'paty-nestle':['2021','Paty-Nestle'],
+ 'sir-lawnrence':[],'4queijos':['2021','4Queijos'],'disco-lee':['2021','Disco-Lee'],
  missfurby:['2021','MissFurby'],reeet:['2021','Reeet'],thedjhabbo:['2021','TheDJHabbo'],acapulca:['2021','Acapulca'],
- prefeita:['staff','Prefeita'],djapamala:['staff','DJapamala']};
+ prefeita:['staff','Prefeita'],djapamala:[]};
 const clean=h=>{
  let imgs=[];
  let text=h.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,'');
@@ -44,6 +44,12 @@ function vintageImage(key,name){
  return {url:im.src,origin:sources[key],method:key==='vintage2011'?'2011 blog archival snapshot':'2021 historical retrospective illustrating staff',sourceType:'dated-archive',expectedWidth:im.width,expectedHeight:im.height};
 }
 function staffImage(name){
+ if(name==='Prefeita')return {
+  url:'https://habbohistory.com/habbo-imaging/avatarimage?user=Prefeita&hotel=br&direction=2&head_direction=2&gesture=std&action=std&size=l&format=png',
+  origin:'https://habbohistory.com/imager',method:'Historical-name lookup, current figure only; appearance not independently dated to 2006–2008',
+  sourceType:'undated-account-render',expectedWidth:0,expectedHeight:0
+ };
+
  const page=pages.staff;
  const encoded=encodeURIComponent(name);
  const queryRx=new RegExp('user='+encoded+'(?:&|\\b)','i');
@@ -58,7 +64,10 @@ function dimensions(buf){
  throw Error('Unsupported or non-image resource');}
 const records=[];
 for(const p of manifest.profiles){
- const [key,name]=rename[p.id]||[];if(!name)throw Error('Unmapped manager '+p.id);
+ const [key,name]=rename[p.id]||[];
+ if(!name){p.sprite=null;p.spriteStatus='not-verified';p.spriteArchive=p.id==='djapamala'?'https://habblindados.com.br/pagina/staff-habbo':'https://haddicas-habbo.blogspot.com/2011/12/personagens-hotel.html';
+ p.spriteStatusPt='Sprite histórico original ainda não recuperado';p.spriteStatusEn='Original historical sprite not yet recovered';
+ console.log('UNVERIFIED',p.name,'no authentic usable image');continue;}
  const info=key==='staff'?staffImage(name):vintageImage(key,name);
  const resp=await fetch(info.url,{signal:AbortSignal.timeout(25000),headers:{'User-Agent':'Mozilla/5.0','Referer':info.origin}});
  if(!resp.ok)throw Error('Image fetch failed '+p.id+': '+resp.status);
@@ -71,7 +80,7 @@ for(const p of manifest.profiles){
  records.push({id:p.id,name:p.name,bytes:data.length,dimensions:d,sha256:hash,local:loc,...info});
  console.log('VERIFIED',p.name,d.w+'×'+d.h,d.format,hash.slice(0,16),info.sourceType);
 }
-if(records.length!==12||new Set(records.map(x=>x.sha256)).size!==12)throw Error('Exactly 12 distinct avatar sprites required');
+if(records.length!==9||new Set(records.map(x=>x.sha256)).size!==9)throw Error('Expected nine distinct and defensibly attributable sprite assets. Three missing remain explicitly unverified');
 fs.writeFileSync(file,JSON.stringify(manifest,null,2)+'\n');
 fs.writeFileSync(path.join(root,'v17/sprite-ledger.json'),JSON.stringify({sourcePolicy:'Original archived Habbo sprites only; never AI-generated. Undated account render is labeled and not claimed historically contemporary.',records},null,2)+'\n');
-console.log('ACQUIRED',records.length);
+console.log('ACQUIRED',records.length,'UNVERIFIED',manifest.profiles.length-records.length);
