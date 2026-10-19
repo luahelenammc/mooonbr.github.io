@@ -84,8 +84,8 @@ try{
   ok(await p.locator('.v8-specimen').count()===105,'standalone rare archive complete');
   ok(await p.locator('.v8-family').count()===13,'standalone 13 families');
   await p.goto('http://127.0.0.1:4173/habbo/'+(lang==='en'?'en/rare/':'pt-br/raro/')+'v13-collectible-gondola/',{waitUntil:'networkidle'});
-  ok(await p.locator('main.v13-detail img').count()===1,'individual V13 collection detail exists');
-  ok(await p.locator('main.v13-detail a[href*="habboxwiki.com"]').count()===1,'original source link retained');
+  ok(await p.locator('main.v13-detail-main img').count()===1,'individual V13 collection detail exists');
+  ok(await p.locator('main.v13-detail-main a[href*="habboxwiki.com"]').count()===1,'original source link retained');
   await c.close();
  }
  const nojs=await browser.newContext({viewport:{width:390,height:844},javaScriptEnabled:false});
