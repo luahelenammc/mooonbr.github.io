@@ -17,6 +17,17 @@ for(const [key,url] of pages){
   console.log('\n== PAGE',key,url,response.status,'bytes',html.length);
   const imgRefs=[...html.matchAll(/<img\b[^>]*>/gi)].map(m=>({at:m.index,tag:m[0]}));
   console.log('total images',imgRefs.length);
+  if(key==='mist2021'||key==='haddicas2011'){
+   const normalized=html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'')
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,'')
+    .replace(/<img\b[^>]*src=["']([^"']+)["'][^>]*>/gi,(_m,u)=>' [SPRITE '+(u.match(/image\d+\.\w+/i)||u.match(/AEn0k_[^=]+/i)||['unknown'])[0].slice(0,70)+'] ')
+    .replace(/<[^>]*>/g,' ').replace(/&nbsp;|&#160;/g,' ').replace(/\s+/g,' ');
+   console.log('ARTICLE_BODY_MATCHES',key);
+   for(const name of names){
+    const candidates=[...normalized.matchAll(new RegExp(name,'gi'))].slice(0,12);
+    console.log('READING',name,JSON.stringify(candidates.map(m=>normalized.slice(Math.max(0,m.index-100),m.index+240)).filter(x=>x.includes('[SPRITE')).slice(0,5)).slice(0,1450));
+   }
+  }
   for(const n of names){
    let pos=html.toLowerCase().indexOf(n.toLowerCase());
    const choices=[];
