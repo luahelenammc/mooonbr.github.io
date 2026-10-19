@@ -1,0 +1,41 @@
+name: Habbo V14 preserve ten original laser portals
+on:
+  push:
+    branches: [feat/habbo-v14-monoliths-laser-gates-public-spaces]
+    paths:
+      - 'habbo/v13/source-manifest.json'
+      - 'habbo/v13/acquire-native.mjs'
+      - '.github/workflows/habbo-v14-acquire.yml'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: habbo-v14-laser-originals-import
+  cancel-in-progress: false
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/habbo-v14-monoliths-laser-gates-public-spaces
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Preserve original room-scale sprites and validate formats
+        run: node habbo/v13/acquire-native.mjs
+      - name: Verify SHA256, dimensions and original GIF frames offline
+        run: node habbo/v13/acquire-native.mjs --check
+      - name: Commit verified original assets, never inventory miniatures
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add habbo/assets/v13/native/ habbo/v13/native-ledger.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'assets(habbo): preserve ten authentic V7 Laser Gate renders for separate special doors gallery'
+            git push origin HEAD:feat/habbo-v14-monoliths-laser-gates-public-spaces
+          fi
