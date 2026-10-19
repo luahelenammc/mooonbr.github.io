@@ -5,6 +5,8 @@ on:
     paths:
       - 'habbo/v13/source-probe.mjs'
       - '.github/workflows/habbo-v13-probe.yml'
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
