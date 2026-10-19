@@ -9,8 +9,8 @@ const sources={
  2021:'https://viajovem.blogspot.com/2021/02/staffs.html',
  staff:'https://habblindados.com.br/pagina/staff-habbo'
 };
-const rename={flecha:['vintage2011','Flecha'],mordomo:['vintage2011','Mordomo'],'paty-nestle':['vintage2011','Paty-Nestle'],
- 'sir-lawnrence':['vintage2011','Sir-Lawnrence'],'4queijos':['2021','4Queijos'],'disco-lee':['2021','Disco-Lee'],
+const rename={flecha:['2021','Flecha'],mordomo:['staff','Mordomo'],'paty-nestle':['2021','Paty-Nestle'],
+ 'sir-lawnrence':['staff','Sir-Lawnrence'],'4queijos':['2021','4Queijos'],'disco-lee':['2021','Disco-Lee'],
  missfurby:['2021','MissFurby'],reeet:['2021','Reeet'],thedjhabbo:['2021','TheDJHabbo'],acapulca:['2021','Acapulca'],
  prefeita:['staff','Prefeita'],djapamala:['staff','DJapamala']};
 const clean=h=>{
@@ -48,7 +48,7 @@ function staffImage(name){
  const encoded=encodeURIComponent(name);
  const queryRx=new RegExp('user='+encoded+'(?:&|\\b)','i');
  const found=page.imgs.find(im=>im.src&&queryRx.test(im.src));
- if(!found)throw Error('Cannot find named official avatar render for '+name);
+ if(!found)return {url:'https://www.habbo.com.br/habbo-imaging/avatarimage?action=std&direction=2&head_direction=3&gesture=nrm&size=l&user='+encodeURIComponent(name),origin:'https://www.habbo.com.br/',method:'On-demand official Habbo account render by username; precise 2006–2012 outfit NOT verified',sourceType:'account-based-undated',expectedWidth:0,expectedHeight:0};
  return {url:found.src,origin:sources.staff,method:'Name-labeled former-Staff gallery with account-based Habbo avatar render; not independently dated to classic era',sourceType:'account-based-undated',expectedWidth:0,expectedHeight:0};
 }
 function dimensions(buf){
