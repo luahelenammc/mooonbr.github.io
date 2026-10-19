@@ -16,3 +16,11 @@
 #lugares{scroll-margin-top:25px}
 @media(max-width:650px){.v8-home-chapters{margin-top:75px;padding:0 16px}.v8-chapter-head{align-items:start;flex-direction:column;gap:15px}.v8-home-rail{gap:6px}.v8-home-rail a{flex-basis:142px;grid-template-rows:112px auto}.v8-home-rail img{max-height:107px}.v8-full-collection{padding:10px 15px}}
 @media(prefers-reduced-motion:reduce){.v8-home-rail a{transition:none!important}}
+
+/* Nested gallery rails must never expand the parent flex column on narrow screens.
+   Their own overflow scrolls horizontally; the document itself must not. */
+.home-page--v2{min-width:0;max-width:100%}
+.v8-home-chapters{width:100%;min-width:0;max-width:min(1260px,100%);overflow-x:clip}
+.v8-home-chapter{min-width:0;max-width:100%}
+.v8-chapter-head,.v8-chapter-head>div{min-width:0;max-width:100%}
+.v8-home-rail{width:100%;max-width:100%;min-width:0}
