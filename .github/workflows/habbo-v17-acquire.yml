@@ -4,6 +4,7 @@ on:
     branches: [feat/habbo-v17-staff-sprite-rail]
     paths:
       - 'habbo/v17/acquire-staff.mjs'
+      - 'habbo/v17/staff-source-urls.json'
       - '.github/workflows/habbo-v17-acquire.yml'
   pull_request:
     branches: [main]
