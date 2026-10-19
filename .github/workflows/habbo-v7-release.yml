@@ -11,6 +11,7 @@ on:
       - 'habbo/v5/build-collections.mjs'
       - 'habbo/v6/sync-static-output.mjs'
       - 'habbo/qa/v7-classic-visual.mjs'
+      - 'habbo/qa/v5-visual.mjs'
       - 'habbo/qa/v6-public-originals-visual.mjs'
       - 'habbo/qa/v6-global-visual.mjs'
       - '.github/workflows/habbo-v7-release.yml'
