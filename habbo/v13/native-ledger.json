@@ -457,6 +457,126 @@
       "height": 189,
       "frames": 1,
       "animated": false
+    },
+    {
+      "id": "v14-laser-red",
+      "source": "https://habborator.org/furniture/v7_rare/laser_red.gif",
+      "local": "habbo/assets/v13/native/v14-laser-red.gif",
+      "sha256": "60a53a06c8790bda0bf407e61812c93bd22d17bc0d17a8aa4d1d3f809f2a673c",
+      "bytes": 866,
+      "type": "gif",
+      "width": 56,
+      "height": 71,
+      "frames": 1,
+      "animated": false
+    },
+    {
+      "id": "v14-laser-gold",
+      "source": "https://habborator.org/furniture/v7_rare/laser_gold.gif",
+      "local": "habbo/assets/v13/native/v14-laser-gold.gif",
+      "sha256": "12fefce77df8de0f19675fa6dd7693ba6d4764e31c0b3ca1aed9f55710d34eaa",
+      "bytes": 866,
+      "type": "gif",
+      "width": 56,
+      "height": 71,
+      "frames": 1,
+      "animated": false
+    },
+    {
+      "id": "v14-laser-blue",
+      "source": "https://habborator.org/furniture/v7_rare/laser_blue.gif",
+      "local": "habbo/assets/v13/native/v14-laser-blue.gif",
+      "sha256": "ae4b5f2770b610755c83584ca4afff1472121a2dd5ba7271313d20c6390ba9d2",
+      "bytes": 866,
+      "type": "gif",
+      "width": 56,
+      "height": 71,
+      "frames": 1,
+      "animated": false
+    },
+    {
+      "id": "v14-laser-green",
+      "source": "https://habborator.org/furniture/v7_rare/laser_green.gif",
+      "local": "habbo/assets/v13/native/v14-laser-green.gif",
+      "sha256": "e6f6e985eee25cedde11e4715fb1874931e8cdcf3c215a1f20a4ee2d8761d127",
+      "bytes": 866,
+      "type": "gif",
+      "width": 56,
+      "height": 71,
+      "frames": 1,
+      "animated": false
+    },
+    {
+      "id": "v14-laser-pink",
+      "source": "https://habborator.org/furniture/v7_rare/laser_pink.gif",
+      "local": "habbo/assets/v13/native/v14-laser-pink.gif",
+      "sha256": "360970f789879d8eab1b6b270e2194c98ff1e9d08c9317ca603be9bcfc57a914",
+      "bytes": 866,
+      "type": "gif",
+      "width": 56,
+      "height": 71,
+      "frames": 1,
+      "animated": false
+    },
+    {
+      "id": "v14-laser-black",
+      "source": "https://habborator.org/furniture/v7_rare/laser_black.gif",
+      "local": "habbo/assets/v13/native/v14-laser-black.gif",
+      "sha256": "aec2d092909daf7d23cd49f2f155c27a776bd74ea717f86afa0c29657523a157",
+      "bytes": 866,
+      "type": "gif",
+      "width": 56,
+      "height": 71,
+      "frames": 1,
+      "animated": false
+    },
+    {
+      "id": "v14-laser-white",
+      "source": "https://habborator.org/furniture/v7_rare/laser_white.gif",
+      "local": "habbo/assets/v13/native/v14-laser-white.gif",
+      "sha256": "09b77f7baf3e7df1e3402d4df512bc5b3bf59fd64c0d68584251e4f586d4f974",
+      "bytes": 927,
+      "type": "gif",
+      "width": 56,
+      "height": 71,
+      "frames": 1,
+      "animated": false
+    },
+    {
+      "id": "v14-laser-aqua",
+      "source": "https://habborator.org/furniture/v7_rare/laser_aqua.gif",
+      "local": "habbo/assets/v13/native/v14-laser-aqua.gif",
+      "sha256": "2b28edf38711f4a5e7eeae8892c0b4761253eaac5f6b2a9a3b5e1899ff7d8b63",
+      "bytes": 866,
+      "type": "gif",
+      "width": 56,
+      "height": 71,
+      "frames": 1,
+      "animated": false
+    },
+    {
+      "id": "v14-laser-purple",
+      "source": "https://habborator.org/furniture/v7_rare/laser_purple.gif",
+      "local": "habbo/assets/v13/native/v14-laser-purple.gif",
+      "sha256": "e91b364e2ba856d22c7d1fb77f003bf8682086aef173c7532e286e0ee767c96f",
+      "bytes": 866,
+      "type": "gif",
+      "width": 56,
+      "height": 71,
+      "frames": 1,
+      "animated": false
+    },
+    {
+      "id": "v14-laser-violet",
+      "source": "https://habborator.org/furniture/v7_rare/laser_violet.gif",
+      "local": "habbo/assets/v13/native/v14-laser-violet.gif",
+      "sha256": "979ae95603ee7eebaa2123acce12658ce81c7ccbc3c0d7d4dd2621ce44f4da22",
+      "bytes": 866,
+      "type": "gif",
+      "width": 56,
+      "height": 71,
+      "frames": 1,
+      "animated": false
     }
   ]
 }
