@@ -7,6 +7,7 @@ on:
       - 'habbo/v9/**'
       - 'habbo/v6/sync-static-output.mjs'
       - 'habbo/qa/v9-complete-index-visual.mjs'
+      - 'habbo/qa/visual-qa.mjs'
       - '.github/workflows/habbo-v9-full-index.yml'
   workflow_dispatch:
 
