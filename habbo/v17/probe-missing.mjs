@@ -25,3 +25,12 @@ for(const name of ['Mordomo','Sir-Lawnrence','Prefeita','DJapamala']){
   }catch(e){console.log('IMAGER',name,host,'ERR',e.message)}
  }
 }
+
+for(const name of ['Mordomo','Sir-Lawnrence','Prefeita','DJapamala']){
+ for(const hotel of ['com.br','br','com']){
+  const url='https://habbohistory.com/habbo-imaging/avatarimage?user='+encodeURIComponent(name)+'&hotel='+encodeURIComponent(hotel)+'&direction=2&head_direction=2&gesture=std&action=std&size=l&format=png';
+  try{const r=await fetch(url,{signal:AbortSignal.timeout(18000),headers:{'User-Agent':'Mozilla/5.0'}});const b=Buffer.from(await r.arrayBuffer());
+   console.log('HISTORYIMAGER',name,hotel,r.status,r.headers.get('content-type'),b.length,b.subarray(0,15).toString('hex'));}
+  catch(e){console.log('HISTORYIMAGER',name,hotel,'ERROR',e.message)}
+ }
+}
