@@ -2,11 +2,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
 function sourceBackedTile(person,en){
- if(!person.sprite||!person.spriteSha256||!person.spriteArchive)throw Error('Missing authenticated full-figure avatar '+person.id);
+ if(!person.spriteArchive)throw Error('Historical avatar source attribution required for '+person.id);
  const alt=en?'Archival Habbo sprite associated with '+person.name:'Sprite de arquivo associado a '+person.name;
  return '<li class="v17-staff-item" data-v17-person="'+esc(person.id)+'" id="staff-'+esc(person.id)+'">'+
    '<a class="v17-staff-link" href="'+esc(person.spriteArchive)+'" target="_blank" rel="noopener noreferrer" title="'+esc(en?'View archival source':'Ver fonte do sprite')+'">'+
-   '<span class="v17-staff-stage"><img src="'+esc(person.sprite)+'" alt="'+esc(alt)+'" width="'+Number(person.spriteWidth)+'" height="'+Number(person.spriteHeight)+'" loading="lazy" decoding="async"></span>'+
+   '<span class="v17-staff-stage">'+(person.sprite&&person.spriteSha256
+    ?'<img src="'+esc(person.sprite)+'" alt="'+esc(alt)+'" width="'+Number(person.spriteWidth)+'" height="'+Number(person.spriteHeight)+'" loading="lazy" decoding="async">'
+    :'<span class="v17-staff-unverified" aria-label="'+esc(en?person.spriteStatusEn:person.spriteStatusPt)+'">'+esc(en?'Sprite not archived':'Sprite não preservado')+'</span>')+'</span>'+
    '<span class="v17-staff-name">'+esc(person.name)+'</span></a></li>';
 }
 export function renderStaffChapter(manifest,en){
