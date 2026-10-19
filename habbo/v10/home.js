@@ -152,6 +152,7 @@
    }
   });
   controllers.set(chapter.id,{sections,activate});
+  activate(0);
  }
  const locateHash=()=>{
   const id=decodeURIComponent(location.hash.slice(1));
