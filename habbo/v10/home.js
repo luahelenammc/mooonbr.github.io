@@ -92,7 +92,6 @@
  // Defer initial check until CSS layout and images are sufficiently settled.
  requestAnimationFrame(updateControls);
  window.addEventListener('resize',updateControls,{passive:true});
-}
  // V10: compact group navigator. All archival records remain in the document,
  // and without JavaScript every family is still visible.
  const pagerLabels=pt?
