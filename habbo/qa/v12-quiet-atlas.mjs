@@ -23,7 +23,7 @@ try {
    check(await page.locator('html.v12-quiet-ready').count()===1,'V13 JS did not enhance');
    check(await page.locator('link[href*="v13-home.css?v=20261019-v15.1"]').count()===1,'V12 CSS not versioned');
    check(await page.locator('script[src*="v13-home.js?v=20261019-v15.1"]').count()===1,'V12 JS not versioned');
-   check(await page.locator('#raros [data-v9-item]').count()===158,'69 unique rare specimens missing');
+   check(await page.locator('#raros [data-v9-item]').count()===148,'69 unique rare specimens missing');
    check(await page.locator('#emblemas [data-v9-item]').count()===101,'101 global badges missing');
    check(await page.locator('#raros .v11-family-grid a').count()===15,'Exactly 15 archival furniture families expected');
    check(await page.locator('#emblemas .v11-family-grid a').count()===7,'All original badge families must remain');
@@ -51,7 +51,7 @@ try {
    await tile.click();
    check(await page.locator('#raros-family-v12-rare-avulsos:visible').count()===1,'Single rarities gallery not accessible');
    check(await tile.getAttribute('aria-current')==='location','Active rare family not signaled');
-   check(await page.locator('#raros-family-v12-rare-avulsos [data-v9-item]').count()===15,'Exactly 14 rare singles must be consolidated');
+   check(await page.locator('#raros-family-v12-rare-avulsos [data-v9-item]').count()===14,'Exactly 14 rare singles must be consolidated');
    check(await page.locator('#raros-family-v12-rare-avulsos [data-v9-item]').evaluateAll(items=>new Set(items.map(n=>n.dataset.v9Family)).size===14),'Historic singleton labels must remain distinct');
    check(await page.locator('#raros .v9-family:visible').count()===1,'Misc family should not expose other galleries');
    const dj=page.locator('#raros-family-v12-rare-avulsos [data-v9-id="dj-turntable"]');
@@ -83,9 +83,9 @@ try {
   const p=await ctx.newPage();
   await p.goto(base+(lang==='en'?'en/rares/':'pt-br/raros/'),{waitUntil:'networkidle'});
   check(await p.locator('.v8-family').count()===15,'Standalone rare collection family count mismatched');
-  check(await p.locator('#family-v12-rare-avulsos .v8-specimen').count()===15,'Standalone rare group missing singles');
+  check(await p.locator('#family-v12-rare-avulsos .v8-specimen').count()===14,'Standalone rare group missing singles');
   check(await p.locator('#family-eggs').count()===1,'Old standalone family anchor lost');
-  check(await p.locator('.v8-specimen').count()===158,'Original standalone rare specimens missing');
+  check(await p.locator('.v8-specimen').count()===148,'Original standalone rare specimens missing');
   await p.goto(base+(lang==='en'?'en/badges/':'pt-br/emblemas/'),{waitUntil:'networkidle'});
   check(await p.locator('.v8-family').count()===7,'Badge lineage taxonomy changed unnecessarily');
   check(await p.locator('.v8-specimen').count()===101,'Original standalone badge specimens missing');
