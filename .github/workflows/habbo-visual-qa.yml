@@ -64,6 +64,9 @@ jobs:
       - name: Run V6 global-first browser QA
         run: node habbo/qa/v6-global-visual.mjs
 
+      - name: Check V6 source assets against original hashes (no-publication gate)
+        run: node habbo/v6/check-original-assets.mjs
+
       - name: Upload screenshot evidence
         if: always()
         uses: actions/upload-artifact@v4
