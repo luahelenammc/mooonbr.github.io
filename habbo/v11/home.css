@@ -184,3 +184,6 @@ html.v11-family-ready .v9-home-archive .v9-family:not([data-v11-active="true"]){
  .v9-family{padding-top:8px}
 }
 @media(prefers-reduced-motion:reduce){.v11-family-grid a{transition:none!important;transform:none!important}}
+
+/* V11 scroll-aware chapter selector, same contrast as the native page tab. */
+.collection-switch a[aria-current="location"]{color:#eee;background:#ffffff0e}
