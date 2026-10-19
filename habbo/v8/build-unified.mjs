@@ -48,7 +48,7 @@ function cssJs(locale) {
 function tile(item,kind,en) {
  const label=en?item.en:item.pt;
  const href=kind==='rares'?(en?'/habbo/en/rare/':'/habbo/pt-br/raro/')+item.id+'/':
-   (en?'/habbo/en/badge/':'/habbo/pt-br/emblema/')+'classic-'+slug(item.id)+'/';
+   (en?'/habbo/en/badge/':'/habbo/pt-br/emblema/')+'classic-'+String(item.id).toLowerCase()+'/';
  return '<button class="v8-specimen" type="button" data-v8-item data-id="'+escape(item.id)+
   '" data-title="'+escape(label)+'" data-image="'+escape(item.image)+
   '" data-link="'+escape(href)+'" data-family="'+escape(en?item.familyEn:item.familyPt)+
@@ -114,7 +114,7 @@ function homeItem(item,kind,en,ordinal) {
  const label=en?item.en:item.pt, group=en?item.familyEn:item.familyPt;
  const detail=kind==='raros'
   ?'/habbo/'+(en?'en/rare/':'pt-br/raro/')+item.id+'/'
-  :'/habbo/'+(en?'en/badge/':'pt-br/emblema/')+'classic-'+slug(item.id)+'/';
+  :'/habbo/'+(en?'en/badge/':'pt-br/emblema/')+'classic-'+String(item.id).toLowerCase()+'/';
  return '<a class="v9-home-item" role="listitem" href="'+detail+'" data-v9-item data-v9-id="'+escape(item.id)+
   '" data-v9-title="'+escape(label)+'" data-v9-family="'+escape(group)+
   '" data-v9-image="'+escape(item.image)+'" data-v9-link="'+detail+'" data-v9-ordinal="'+ordinal+
