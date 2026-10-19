@@ -6,6 +6,7 @@ on:
       - 'habbo/v10/audit-original-sprites.mjs'
       - 'habbo/v10/scout-full-sprites.mjs'
       - 'habbo/v10/find-infobus-sprite.mjs'
+      - 'habbo/v10/compare-infobus-originals.mjs'
       - '.github/workflows/habbo-v10-source-audit.yml'
   workflow_dispatch:
 jobs:
@@ -24,3 +25,4 @@ jobs:
           node habbo/v10/audit-original-sprites.mjs
           node habbo/v10/scout-full-sprites.mjs
           node habbo/v10/find-infobus-sprite.mjs
+          node habbo/v10/compare-infobus-originals.mjs
