@@ -19,7 +19,7 @@ ok(new Set(hc.map(x=>x.id)).size===33,'unique HC IDs');
 ok(new Set(hc.map(x=>x.url)).size===33,'unique original HC URLs');
 ok(hc.every(x=>x.url.startsWith('https://habborator.org/furniture/hc/')&&x.source.endsWith('/hc.html')),'only explicitly sourced HC originals');
 ok(manifest.newRares.filter(x=>x.family==='monoliths').every(x=>x.familyPt==='Monolitos'&&x.pt.startsWith('Monolito ')),'Monolitos written without accent');
-ok(manifest.newRares.filter(x=>x.family==='laser-gates').every(x=>x.familyPt==='Portas laser'),'user's final requested category title');
+ok(manifest.newRares.filter(x=>x.family==='laser-gates').every(x=>x.familyPt==='Portas laser'),'final requested laser category title');
 for(const item of hc){
  const entry=ledger.assets.find(x=>x.id===item.id);
  ok(!!entry&&entry.type==='gif'&&entry.width>=20&&entry.height>=20&&entry.sha256.length===64,'preserved source GIF '+item.id);
