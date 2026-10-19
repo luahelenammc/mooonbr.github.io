@@ -1,0 +1,24 @@
+name: Habbo V17 historic staff avatar artwork probe
+on:
+  push:
+    branches: [feat/habbo-v17-classic-staff-sprite-rail]
+    paths:
+      - 'habbo/v17/probe-sources.mjs'
+      - '.github/workflows/habbo-v17-sources.yml'
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '20'}
+      - run: node habbo/v17/probe-sources.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: habbo-v17-staff-original-pages
+          path: habbo/v17/source-pages/
