@@ -21,6 +21,12 @@ try{
    page.on('pageerror',e=>errors.push(e.message));
    await page.goto(base+'/'+badge,{waitUntil:'networkidle'});
    check(await page.locator('html[data-v6-images-allowed="true"]').count()===1,'V6 badge enablement missing');
+   if(await page.locator('.v7-classic').count()===1){
+     check(await page.locator('.v7-classic').isVisible(),'historic international badge exhibition must be visible');
+     check(await page.locator('.v7-main-sprite').evaluate(img=>img.complete&&img.naturalWidth>0),'V7 historical badge image must load');
+     check(await page.locator('.grid.badges .item').count()===62,'regional BR/PT archive must be preserved');
+     await page.screenshot({path:path.join(out,lang+'-'+form+'-global-badges.png')});
+   }else{
    check(await page.locator('.v6-global-code img.v6-verified-original').count()===1,'original badge pixel image missing');
    check(await page.locator('.v6-global-code img').evaluate(img=>img.complete&&img.naturalWidth>0),'original HC1 GIF not loaded');
    const badgeSrc=await page.locator('.v6-global-code img').getAttribute('src');
@@ -34,6 +40,7 @@ try{
    check(link.includes('/badge/')||link.includes('/emblema/'),'global original detail page not linked');
    await page.goto('http://127.0.0.1:4173'+link,{waitUntil:'networkidle'});
    check(await page.locator('.detail img').evaluate(img=>img.complete&&img.naturalWidth>0),'global detail badge broken');
+   }
    await page.goto(base+'/'+rare,{waitUntil:'networkidle'});
    check(await page.locator('.grid.rares .item').count()===69,'V6 rare corpus is not 69');
    const rareLink=(lang==='pt'?'/pt-br/raro/holiday-romance/':'/en/rare/holiday-romance/');
