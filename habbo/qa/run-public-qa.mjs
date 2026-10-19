@@ -58,8 +58,8 @@ for (const file of htmlFiles) {
   const rel = path.relative(DIST, file);
   check(html.includes("noindex,nofollow,noarchive"), `robots posture missing: ${rel}`);
   check(html.includes("This fan site is not affiliated"), `disclaimer missing: ${rel}`);
-  check(html.includes(`${BASE}/assets/site-${ASSET_VERSION}.css`) || html.includes(`${BASE}/assets/v5-collections.css`), `versioned CSS missing: ${rel}`);
-  check(html.includes(`${BASE}/assets/site-${ASSET_VERSION}.js`) || html.includes(`${BASE}/assets/v5-collections.js`), `versioned JS missing: ${rel}`);
+  check(html.includes(`${BASE}/assets/site-${ASSET_VERSION}.css`) || html.includes(`${BASE}/assets/v5-collections.css`) || html.includes(`${BASE}/assets/v8-museum.css`), `versioned CSS missing: ${rel}`);
+  check(html.includes(`${BASE}/assets/site-${ASSET_VERSION}.js`) || html.includes(`${BASE}/assets/v5-collections.js`) || html.includes(`${BASE}/assets/v8-museum.js`), `versioned JS missing: ${rel}`);
   check(!/(href|src)=(['"])\/(?:pt-br|en|assets)\//.test(html), `root route leak: ${rel}`);
   check(!html.includes("https://drive.google.com/file/"), `private Drive URL leaked: ${rel}`);
   for (const match of html.matchAll(new RegExp(`${BASE}/assets/archive-reference/assets/([^'"?#&]+)`, "g"))) {
