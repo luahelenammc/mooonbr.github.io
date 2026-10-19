@@ -31,3 +31,5 @@
  .v17-staff-link{min-height:152px}
 }
 @media(prefers-reduced-motion:reduce){.v17-staff-stage img{transition:none}.v17-staff-link:hover .v17-staff-stage img{transform:none}.v17-staff-viewport{scroll-behavior:auto}}
+
+.v17-staff-unverified{display:flex;align-items:center;justify-content:center;text-align:center;max-width:100%;font-size:10px;line-height:1.45;color:#afbbab;min-height:65px;padding:0 8px;border:1px dashed #8c968566;border-radius:8px}
