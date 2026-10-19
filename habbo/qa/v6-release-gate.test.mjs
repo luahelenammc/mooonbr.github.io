@@ -13,7 +13,7 @@ function fixture(){
  fs.mkdirSync(root,{recursive:true});
  const here=path.dirname(fileURLToPath(import.meta.url));
  fs.cpSync(path.resolve(here,'../v5'),path.join(root,'v5'),{recursive:true});
- fs.cpSync(path.resolve(here,'../v6'),path.join(root,'v6'),{recursive:true});
+ fs.cpSync(path.resolve(here,'../v6'),path.join(root,'v6'),{recursive:true});fs.rmSync(path.join(root,'v6/asset-release-approval.json'),{force:true});
  fs.mkdirSync(path.join(root,'data'),{recursive:true});
  fs.writeFileSync(path.join(root,'data/v5-rares.json'),'[]');
  fs.writeFileSync(path.join(root,'data/v5-badges.json'),'[]');
