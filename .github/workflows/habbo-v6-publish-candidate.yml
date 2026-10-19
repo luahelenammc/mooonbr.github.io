@@ -39,6 +39,16 @@ jobs:
       - name: Enforce full original-GIF integrity (22/22)
         run: node habbo/v6/check-original-assets.mjs --require-all
 
+      - name: Preserve the verified 22 original GIFs on this candidate branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add habbo/assets/v6
+          if ! git diff --cached --quiet; then
+            git commit -m "assets(habbo): archive 22 exact original V6 GIFs by verified hash"
+            git push origin HEAD:feat/habbo-v6-global-first-reconstruction
+          fi
+
       - name: Rebuild actual V6 static collection pages
         run: |
           BASE_PATH=/habbo node habbo/build.mjs
