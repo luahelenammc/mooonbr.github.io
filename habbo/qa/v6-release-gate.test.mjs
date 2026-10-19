@@ -46,6 +46,16 @@ test('conditional release generates 9 rares + 13 bilingual global badge records 
    fs.writeFileSync(file,dummy);asset.sha256=crypto.createHash('sha256').update(dummy).digest('hex');
   }
   fs.writeFileSync(manifestPath,JSON.stringify(manifest));
+
+  // V10 added a room-render-only public image route. Keep it synthetic in this
+  // fixture rather than copying real external copyrighted GIFs into tests.
+  const candidates=JSON.parse(fs.readFileSync(path.join(f.root,'v6/recovered-candidates.json'),'utf8'));
+  for(const rare of candidates.rareConcepts){
+   const target=path.join(f.root,'assets/v10/full-rares',rare.id+'.gif');
+   fs.mkdirSync(path.dirname(target),{recursive:true});
+   fs.writeFileSync(target,dummy);
+  }
+
   fs.writeFileSync(path.join(f.root,'v6/asset-release-approval.json'),JSON.stringify({status:'approved',evidenceUrl:'https://example.org/permission-receipt'}));
   const x=buildCollections({root:f.root,dist:f.dist,basePath:'/habbo'});
   assert.deepEqual(x,{rares:9,badges:0});
