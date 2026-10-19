@@ -5,6 +5,7 @@ on:
     paths:
       - 'habbo/v10/audit-original-sprites.mjs'
       - 'habbo/v10/scout-full-sprites.mjs'
+      - 'habbo/v10/find-infobus-sprite.mjs'
       - '.github/workflows/habbo-v10-source-audit.yml'
   workflow_dispatch:
 jobs:
@@ -22,3 +23,4 @@ jobs:
         run: |
           node habbo/v10/audit-original-sprites.mjs
           node habbo/v10/scout-full-sprites.mjs
+          node habbo/v10/find-infobus-sprite.mjs
