@@ -34,6 +34,7 @@ try {
    check(await page.locator('#emblemas .v9-family').last().isVisible(),'Last badge group must be rendered, not gated');
    check(await page.locator('text=/Mostrar todas as famílias|Show all families/i').count()===0,'Show-all gate leaked');
    check(await page.locator('script[src="/habbo/assets/v9-home.js"]').count()===1,'V9 viewer script missing');
+   check(await page.locator('dialog[data-v9-dialog]').count()===1,'Repeated rebuild must keep exactly one homepage viewer');
 
    const familyJump=page.locator('#raros .v9-family-index a').nth(1);
    await familyJump.click();
