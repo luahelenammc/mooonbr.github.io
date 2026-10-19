@@ -1,0 +1,12 @@
+.v13-detail-main{max-width:840px;margin:74px auto 110px;padding:0 clamp(18px,5vw,54px);color:#ecf1e8;text-align:center}
+.v13-detail-main .v8-eyebrow{color:#b9d29e;letter-spacing:.14em;font-size:12px}
+.v13-detail-main h1{font-size:clamp(30px,5vw,57px);letter-spacing:-.045em;margin:13px 0 8px;line-height:1.08}
+.v13-detail-series{color:#b5c6b2;margin:0 0 26px}
+.v13-detail-main figure{margin:25px auto 27px;min-height:220px;padding:25px 12px;border:1px solid #ffffff1d;border-radius:18px;background:#111c1a70;display:grid;place-content:center;gap:14px}
+.v13-detail-main figure img{display:block;max-width:min(85vw,400px);max-height:390px;width:auto;height:auto;margin:auto;image-rendering:pixelated;object-fit:contain}
+.v13-detail-main figcaption{font-size:12px;color:#b4bfb3}
+.v13-detail-note{font-size:14px;line-height:1.7;color:#c0c7bd;max-width:570px;margin:0 auto 22px}
+.v13-detail-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+.v13-detail-actions a{display:inline-flex;min-height:40px;align-items:center;border:1px solid #86957d55;padding:10px 16px;border-radius:9px;color:#d8ebc9;text-decoration:none}
+.v13-detail-actions a:hover{background:#29362a}
+@media(max-width:600px){.v13-detail-main{margin:36px auto 80px}.v13-detail-main figure{min-height:180px;padding:15px 8px}}
