@@ -27,3 +27,5 @@
  .v6-global-groups button{font-size:12px;padding:8px 12px}
 }
 @media(prefers-reduced-motion:reduce){.v6-global *{scroll-behavior:auto!important;transition:none!important}}
+
+.v6-global-code .v6-verified-original {max-width:96%;max-height:180px;width:auto;height:auto;object-fit:contain;image-rendering:pixelated;}
