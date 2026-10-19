@@ -1,0 +1,92 @@
+name: Habbo V7 historical global badges — genuine sprites and Pages QA
+
+on:
+  push:
+    branches:
+      - feat/habbo-v7-classic-global-badges-archive
+    paths:
+      - "habbo/v7/**"
+      - "habbo/qa/v7-classic-badges-visual.mjs"
+      - "habbo/v6/sync-static-output.mjs"
+      - ".github/workflows/habbo-v7-classic-global-badges.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  archive-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout V7 development branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: feat/habbo-v7-classic-global-badges-archive
+
+      - name: Use Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Download authentic international badge sprites and record SHA-256
+        run: node habbo/v7/fetch-classic-badges.mjs
+
+      - name: Validate dates, archive coverage and source files
+        run: |
+          node --input-type=module -e "import fs from 'fs'; const d=JSON.parse(fs.readFileSync('habbo/assets/v7-classics.json'));if(d.coverage.newlyVerified<45||d.records.length<58)process.exit(1);console.log(d.coverage)"
+
+      - name: Generate V6 static site as proven baseline
+        run: |
+          BASE_PATH=/habbo node habbo/build.mjs
+          node --test habbo/qa/v5-collections.test.mjs
+          node --test habbo/qa/v6-release-gate.test.mjs
+
+      - name: Reconstruct icon-first V7 international gallery
+        run: |
+          node habbo/v7/patch-generated.mjs
+          node habbo/v6/sync-static-output.mjs --write
+          node habbo/v6/sync-static-output.mjs --check
+
+      - name: Install Chromium for genuine browser QA
+        run: |
+          npm init -y
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start Github Pages-compatible server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory . > /tmp/habbo-v7.log 2>&1 &
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            if curl --silent --fail http://127.0.0.1:4173/habbo/ >/dev/null; then break; fi
+            sleep 1
+          done
+
+      - name: Test classic sprites, filters, zoom, PT-BR/EN and mobile
+        run: |
+          node habbo/qa/v7-classic-badges-visual.mjs
+          node habbo/qa/v5-visual.mjs
+          node habbo/qa/v6-recovery-visual.mjs
+
+      - name: Preserve visual evidence for postflight
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: habbo-v7-classic-global-badges-qa
+          path: |
+            habbo/qa/v7-classic-artifacts/
+            habbo/qa/v5-visual-artifacts/
+            habbo/qa/v6-recovery-artifacts/
+
+      - name: Commit verified originals and actual Pages-served HTML
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A habbo/assets/v7 habbo/assets/v7-classics.json habbo/assets/v7-classic-badges.js habbo/assets/v7-classic-badges.css
+          git add -A habbo/pt-br/emblemas/index.html habbo/en/badges/index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "feat(habbo): publish authentic pre-2011 international badge archive in PT-BR and EN"
+            git push origin HEAD:feat/habbo-v7-classic-global-badges-archive
+          fi
