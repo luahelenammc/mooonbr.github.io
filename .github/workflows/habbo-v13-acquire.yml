@@ -1,0 +1,39 @@
+name: Habbo V13 acquire verified original images
+on:
+  push:
+    branches: [feat/habbo-v13-native-animated-rares]
+    paths:
+      - 'habbo/v13/source-manifest.json'
+      - 'habbo/v13/acquire-native.mjs'
+      - '.github/workflows/habbo-v13-acquire.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: habbo-v13-native-import
+  cancel-in-progress: false
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/habbo-v13-native-animated-rares
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Acquire exact archive assets and validate animated GIF frames
+        run: node habbo/v13/acquire-native.mjs
+      - name: Verify hashes, dimensions and native animation offline
+        run: node habbo/v13/acquire-native.mjs --check
+      - name: Commit only verified historical binaries and ledger to branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add habbo/assets/v13/native/ habbo/v13/native-ledger.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'assets(habbo): preserve 38 source-verified real rares and animated holograms'
+            git push origin HEAD:feat/habbo-v13-native-animated-rares
+          fi
