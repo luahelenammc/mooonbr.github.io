@@ -1,0 +1,90 @@
+name: Habbo V9 complete collections in index
+on:
+  push:
+    branches: [feat/habbo-v9-full-index-galleries]
+    paths:
+      - 'habbo/v8/**'
+      - 'habbo/v9/**'
+      - 'habbo/v6/sync-static-output.mjs'
+      - 'habbo/qa/v9-complete-index-visual.mjs'
+      - 'habbo/qa/visual-qa.mjs'
+      - '.github/workflows/habbo-v9-full-index.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+concurrency:
+  group: habbo-v9-full-index
+  cancel-in-progress: true
+
+jobs:
+  full-index:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/habbo-v9-full-index-galleries
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: JS syntax
+        run: |
+          node --check habbo/v8/build-unified.mjs
+          node --check habbo/v9/home.js
+          node --check habbo/qa/v9-complete-index-visual.mjs
+      - name: Rebuild pages and sync source served by GitHub Pages
+        run: |
+          BASE_PATH=/habbo node habbo/build.mjs
+          node habbo/v6/sync-static-output.mjs --write
+          node habbo/v6/sync-static-output.mjs --check
+          node --test habbo/qa/v5-collections.test.mjs
+          node --test habbo/qa/v6-release-gate.test.mjs
+          ! grep -q 'badge-br' habbo/index.html
+          ! grep -q 'badge-br' habbo/pt-br/index.html
+          ! grep -q 'badge-br' habbo/en/index.html
+      - name: Install Chromium
+        run: |
+          npm init -y
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Serve static Pages tree
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory . > /tmp/habbo-v9.log 2>&1 &
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            curl --silent --fail http://127.0.0.1:4173/habbo/ > /dev/null && break
+            sleep 1
+          done
+      - name: Assert complete museum index in PT-BR and English, desktop and mobile
+        run: |
+          node habbo/qa/v9-complete-index-visual.mjs
+          node habbo/qa/v8-visual.mjs
+      - name: Protect the original Public Spaces Dock
+        run: |
+          node habbo/qa/autoplay-hover-regression.mjs
+          node habbo/qa/visual-qa.mjs
+      - name: Archive browser screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: habbo-v9-full-index-visual-evidence
+          path: |
+            habbo/qa/v9-complete-index-artifacts/
+            habbo/qa/v8-evidence/
+            habbo/qa/visual-artifacts/
+      - name: Commit tested public pages and viewer into branch
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A habbo/index.html habbo/pt-br/index.html habbo/en/index.html
+          git add -A habbo/assets/v8-home.css habbo/assets/v9-home.js
+          git add -A habbo/pt-br/raros/index.html habbo/en/rares/index.html
+          git add -A habbo/pt-br/emblemas/index.html habbo/en/badges/index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "feat(habbo): publish all 170 historical images on grouped unified index"
+            git push origin HEAD:feat/habbo-v9-full-index-galleries
+          else
+            echo "Public pages already synchronized"
+          fi

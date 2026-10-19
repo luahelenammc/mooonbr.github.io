@@ -24,3 +24,65 @@
 .v8-home-chapter{min-width:0;max-width:100%}
 .v8-chapter-head,.v8-chapter-head>div{min-width:0;max-width:100%}
 .v8-home-rail{width:100%;max-width:100%;min-width:0}
+
+
+/* V9: complete sub-grouped collections on index, modeled as adjacent archive
+   columns instead of link-only previews. Every original is in the HTML. */
+.v9-home-archive{width:100%;min-width:0}
+.v9-archive-total{margin-top:13px!important;color:#9eaa9f!important;font-size:12px!important;letter-spacing:.03em}
+.v9-family-index{display:flex;flex-wrap:nowrap;gap:7px;min-width:0;max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:thin;padding:15px 2px 20px;margin:0 0 25px;border-bottom:1px solid #ffffff21}
+.v9-family-index a{display:inline-flex;align-items:center;gap:9px;white-space:nowrap;flex-shrink:0;min-height:36px;font-size:12px;color:#bac6b8;border:1px solid #ffffff22;border-radius:25px;padding:7px 13px;text-decoration:none}
+.v9-family-index a:hover,.v9-family-index a:focus-visible{border-color:#a4c78e;background:#ffffff0d;color:white}
+.v9-family-index small{font-size:10px;color:#81927d}
+.v9-families{display:grid;gap:clamp(20px,3.5vw,42px);max-width:100%;min-width:0}
+.v9-family{border-bottom:1px solid #ffffff11;padding-bottom:clamp(13px,2.5vw,24px);min-width:0;max-width:100%;scroll-margin-top:170px}
+.v9-group-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:6px;min-width:0}
+.v9-group-copy{min-width:0}
+.v9-group-index{font-size:10px;color:#9fb797;letter-spacing:.15em}
+.v9-group-heading h3{font-size:clamp(18px,2vw,26px);line-height:1.17;letter-spacing:-.025em;color:#eef0eb;font-weight:580;margin:5px 0 4px}
+.v9-group-heading p{font-size:11px;color:#84958a;margin:0}
+.v9-group-controls{display:flex;gap:6px;flex-shrink:0}
+.v9-group-controls button{width:35px;height:35px;display:grid;place-items:center;border-radius:50%;border:1px solid #ffffff27;background:#242c26;color:#c9d2c5;cursor:pointer;font-size:17px}
+.v9-group-controls button:hover:not(:disabled){border-color:#c6e19a;color:white;background:#354034}
+.v9-group-controls button:disabled{opacity:.25;cursor:default}
+.v9-group-rail{width:100%;max-width:100%;min-width:0;overscroll-behavior-inline:contain;scroll-snap-type:x proximity;scrollbar-width:thin}
+.v9-group-rail .v9-home-item{min-width:0;box-sizing:border-box;text-decoration:none;color:#bdc8ba;transition:transform .18s ease,color .18s ease,background .18s ease}
+.v9-group-rail .v9-home-item:hover,.v9-group-rail .v9-home-item:focus-visible{color:#fff;background:#ffffff0d;transform:translateY(-2px)}
+.v9-group-rail .v9-item-art{display:grid;place-items:center;min-width:0;width:100%;height:100%}
+.v9-group-rail .v9-item-art img{display:block;max-width:96%;max-height:95%;width:auto;height:auto;object-fit:contain;image-rendering:pixelated}
+.v9-group-rail .v9-item-caption{display:block;text-align:center;line-height:1.35;font-size:11px;color:inherit;align-self:start;max-width:100%;overflow-wrap:anywhere}
+.v9-rare-rail{gap:11px;padding:6px 0 17px}
+.v9-rare-rail .v9-home-item{flex:0 0 clamp(125px,13vw,176px);width:clamp(125px,13vw,176px);grid-template-rows:132px auto;min-height:170px;padding:9px 7px;border-radius:13px}
+.v9-badge-rail{display:grid;grid-auto-flow:column;grid-template-rows:repeat(2,106px);grid-auto-columns:clamp(102px,10vw,122px);gap:7px 9px;overflow-x:auto;overflow-y:hidden;padding:9px 1px 17px}
+.v9-badge-rail .v9-home-item{width:100%;flex:auto;display:grid;grid-template-rows:71px auto;min-height:100px;gap:3px;padding:7px 6px;border-radius:12px;place-items:center}
+.v9-badge-rail .v9-item-art img{max-width:76px;max-height:66px}
+.v9-badge-rail .v9-item-caption{font-size:10px}
+.v9-home-dialog{position:fixed;border:1px solid #6b8469;border-radius:22px;background:#1e2520;color:#f3f5f1;width:min(570px,93vw);max-height:90vh;padding:31px clamp(17px,4vw,33px) 23px;text-align:center;box-shadow:0 30px 100px #0008}
+.v9-home-dialog::backdrop{background:#070b09e0;backdrop-filter:blur(9px)}
+.v9-dialog-close{position:absolute;right:12px;top:10px;border:0;background:transparent;color:#c9d5c8;font-size:30px;line-height:1;cursor:pointer;padding:3px 10px}
+.v9-dialog-family{font-size:11px;letter-spacing:.14em;color:#c3dea1;text-transform:uppercase;margin:0 0 8px}
+.v9-dialog-image{display:block;margin:12px auto;max-width:100%;max-height:42vh;width:auto;height:auto;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(0 13px 17px #0007)}
+.v9-home-dialog h3{font-size:clamp(22px,3vw,31px);line-height:1.2;letter-spacing:-.025em;color:#f1f3ec;margin:13px 0 5px}
+.v9-dialog-counter{font-size:12px;color:#a2b1a2;margin:0}
+.v9-dialog-controls{display:flex;gap:10px;align-items:center;justify-content:center;margin:20px auto 0}
+.v9-dialog-controls button{border-radius:50%;width:43px;height:43px;background:#293329;color:#d9e7d4;border:1px solid #61725d;font-size:19px;cursor:pointer}
+.v9-dialog-controls a{min-height:42px;display:grid;place-items:center;padding:10px 15px;border-radius:25px;background:#c7df9c;color:#1f291d;text-decoration:none;font-size:12px;font-weight:650}
+.v9-dialog-controls a:hover{background:#e2f0b8}
+.v9-home-archive :is(a,button):focus-visible,.v9-home-dialog :is(a,button):focus-visible{outline:2px solid #c7df9c;outline-offset:3px}
+@media(min-width:850px){
+ .v9-family-index{position:sticky;top:75px;z-index:15;background:#1f1f1ff0;backdrop-filter:blur(12px)}
+}
+@media(max-width:650px){
+ .v9-family-index{margin-bottom:12px;padding-top:7px}
+ .v9-families{gap:18px}
+ .v9-family{scroll-margin-top:83px}
+ .v9-group-heading h3{font-size:18px}
+ .v9-group-rail .v9-item-caption{font-size:10px}
+ .v9-rare-rail .v9-home-item{flex-basis:130px;width:130px;grid-template-rows:112px auto;min-height:145px}
+ .v9-badge-rail{grid-auto-columns:91px;grid-template-rows:repeat(2,94px);gap:5px}
+ .v9-badge-rail .v9-home-item{grid-template-rows:61px auto;min-height:91px}
+ .v9-badge-rail .v9-item-art img{max-height:57px;max-width:65px}
+ .v9-dialog-controls{gap:7px}
+ .v9-dialog-controls a{font-size:11px;padding:10px}
+}
+@media(prefers-reduced-motion:reduce){.v9-home-archive *{transition:none!important;scroll-behavior:auto!important}}
