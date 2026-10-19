@@ -28,7 +28,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: feat/habbo-v13-native-animated-rares
+          ref: feat/habbo-v14-monoliths-laser-gates-public-spaces
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
@@ -112,5 +112,5 @@ jobs:
           git add -A habbo/assets/v8-museum.js
           if ! git diff --cached --quiet; then
             git commit -m 'build(habbo): publish 115 rares, corrected monoliths and ten separate laser gates'
-            git push origin HEAD:feat/habbo-v13-native-animated-rares
+            git push origin HEAD:feat/habbo-v14-monoliths-laser-gates-public-spaces
           fi
