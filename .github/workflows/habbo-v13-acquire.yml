@@ -6,6 +6,8 @@ on:
       - 'habbo/v13/source-manifest.json'
       - 'habbo/v13/acquire-native.mjs'
       - '.github/workflows/habbo-v13-acquire.yml'
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: write
