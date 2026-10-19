@@ -134,7 +134,15 @@
    const label=sections[index].querySelector('h3')?.textContent||'';
    indicator.textContent=String(index+1).padStart(2,'0')+' / '+
     String(sections.length).padStart(2,'0')+' · '+label;
-   chips[index]?.scrollIntoView({block:'nearest',inline:'nearest',behavior:'instant'});
+   // Scroll the chips, not the entire document. Avoid jumpiness on mobile.
+   const activeChip=chips[index], chipRail=activeChip?.parentElement;
+   if(chipRail && activeChip) {
+    const left=activeChip.offsetLeft-chipRail.offsetLeft;
+    if(left<chipRail.scrollLeft||left+activeChip.offsetWidth>chipRail.scrollLeft+chipRail.clientWidth)
+     chipRail.scrollTo({left:Math.max(0,left-(chipRail.clientWidth-activeChip.offsetWidth)/2),behavior:'instant'});
+   }
+   // Hidden-family images are lazy by default; load the newly selected family.
+   sections[index].querySelectorAll('img[loading="lazy"]').forEach(img=>{img.loading='eager';});
    const rail=sections[index].querySelector('[data-v9-rail]');
    if(rail)rail.scrollLeft=0;
    if(historyUpdate)history.replaceState(null,'',location.pathname+location.search+'#'+sections[index].id);
