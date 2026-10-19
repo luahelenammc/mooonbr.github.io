@@ -32,7 +32,13 @@ function imageAfter(html,name){
 function dims(b){
  if(b.subarray(0,8).toString('hex')==='89504e470d0a1a0a')return {format:'png',width:b.readUInt32BE(16),height:b.readUInt32BE(20)};
  if(b.subarray(0,6).toString('ascii').startsWith('GIF8'))return {format:'gif',width:b.readUInt16LE(6),height:b.readUInt16LE(8)};
- throw Error('Not a GIF or PNG');
+ if(b.subarray(0,4).toString('ascii')==='RIFF'&&b.subarray(8,12).toString('ascii')==='WEBP'){
+  const tag=b.subarray(12,16).toString('ascii');
+  if(tag==='VP8X')return {format:'webp',width:1+b.readUIntLE(24,3),height:1+b.readUIntLE(27,3)};
+  if(tag==='VP8L')return {format:'webp',width:1+(b[21]|((b[22]&0x3f)<<8)),height:1+(((b[22]&0xc0)>>6)|(b[23]<<2)|((b[24]&0xf)<<10))};
+  if(tag==='VP8 ')return {format:'webp',width:b.readUInt16LE(26)&0x3fff,height:b.readUInt16LE(28)&0x3fff};
+ }
+ throw Error('Not a GIF, PNG or historical WebP');
 }
 const UA={'User-Agent':'Mozilla/5.0 (museum archive historic staff sprite verification)'};
 async function get(u){const r=await fetch(u,{signal:AbortSignal.timeout(27000),headers:UA});if(!r.ok)throw Error('HTTP '+r.status+' '+u.slice(0,130));return Buffer.from(await r.arrayBuffer());}
