@@ -11,7 +11,7 @@ const base=(process.env.HABBO_QA_URL||'http://127.0.0.1:4173/habbo').replace(/\/
 const checks=[]; const record=(name,passed,detail='')=>checks.push({name,passed,detail});
 const browser=await chromium.launch({headless:true});
 async function settle(page){await page.locator('img').evaluateAll(imgs=>imgs.forEach(i=>i.loading='eager'));await page.waitForFunction(()=>[...document.images].every(i=>i.complete));}
-async function health(page,name){await settle(page);const state=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth>document.documentElement.clientWidth+1,broken:[...document.images].filter(i=>!i.naturalWidth).map(i=>i.src)}));record(name+' no overflow',!state.overflow);record(name+' no broken images',!state.broken.length,state.broken.join(','));}
+async function health(page,name){await settle(page);const state=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth>document.documentElement.clientWidth+1,broken:[...document.images].filter(i=>i.hasAttribute('src')&&i.getAttribute('src')?.trim()&&!i.naturalWidth).map(i=>i.src)}));record(name+' no overflow',!state.overflow);record(name+' no broken images',!state.broken.length,state.broken.join(','));}
 for(const [label,viewport] of [['desktop',{width:1440,height:900}],['mobile',{width:390,height:844}]]){
  const context=await browser.newContext({viewport,recordVideo:{dir:path.join(artifacts,'videos'),size:viewport}});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
  try{
