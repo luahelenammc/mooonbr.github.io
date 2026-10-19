@@ -7,7 +7,8 @@ import {chromium} from 'playwright';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const evidence = path.join(root,'qa','v6-recovery-artifacts');
 fs.mkdirSync(evidence,{recursive:true});
-const base = (process.env.HABBO_QA_URL || 'http://127.0.0.1:4173/habbo').replace(/\\/$/,'');
+const origin=(process.env.HABBO_QA_URL || 'http://127.0.0.1:4173/habbo');
+const base=origin.endsWith('/')?origin.slice(0,-1):origin;
 const browser = await chromium.launch({headless:true});
 let total = 0;
 try {
