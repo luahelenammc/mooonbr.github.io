@@ -27,7 +27,7 @@ try{
    ok(await page.locator('.cinematic-dock').count()===1,'Places Dock must be preserved');
    ok(await page.locator('html.v12-quiet-ready').count()===1,'progressive enhancement works');
    ok(await page.locator('link[href*="v13-home.css?v=20261019-v15.1"]').count()===1,'v13 stylesheet missing');
-   ok(await page.locator('script[src*="v13-home.js?v=20261019-v15.1"]').count()===1,'v13 script missing');
+   ok(await page.locator('script[src*="v13-home.js?v=20261019-v16.1"]').count()===1,'v13 script missing');
    ok(await page.locator('#raros [data-v9-item]').count()===148,'148 historic rare and HC specimens required');
    ok(await page.locator('#emblemas [data-v9-item]').count()===101,'101 global classic badges missing');
    ok(await page.locator('#raros .v11-family-grid a').count()===15,'15 groups expected');

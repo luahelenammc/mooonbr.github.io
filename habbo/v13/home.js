@@ -152,8 +152,9 @@
  // Places even when the reader had entered Rares or Badges.
  const headerTabs=[...document.querySelectorAll('.collection-switch a')];
  const places=document.getElementById('lugares');
- if(headerTabs.length===3 && places){
-  const timeline=[places,...chapters];
+ if(headerTabs.length===4 && places){
+  const staff=document.getElementById('gerentes');
+  const timeline=[places,...chapters,...(staff?[staff]:[])];
   let scheduled=false;
   const updateChapter=()=>{
    scheduled=false;
@@ -164,7 +165,7 @@
    }
    headerTabs.forEach(tab=>{
     const href=tab.getAttribute('href')||'';
-    const id=href==='#raros'?'raros':href==='#emblemas'?'emblemas':'lugares';
+    const id=href==='#raros'?'raros':href==='#emblemas'?'emblemas':href==='#gerentes'?'gerentes':'lugares';
     if(id===chapterId)tab.setAttribute('aria-current','location');
     else tab.removeAttribute('aria-current');
    });

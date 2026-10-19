@@ -1,0 +1,212 @@
+{
+  "schema": 1,
+  "titlePt": "Gerentes clássicos do Habbo BR",
+  "titleEn": "Classic Habbo BR Managers",
+  "sourceBlog": "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",
+  "editorialNotePt": "Três núcleos editoriais seguem o relato do Blog Nostalgia. Não são faixas cronológicas rígidas: algumas trajetórias se sobrepõem e os cargos da Staff variavam.",
+  "editorialNoteEn": "These three editorial groups follow the Nostalgia Blog retrospective, not strict non-overlapping time periods. Staff roles and careers varied.",
+  "profiles": [
+    {
+      "id": "flecha",
+      "name": "Flecha",
+      "group": "pioneiros",
+      "rolePt": "Primeira geração · gerência",
+      "roleEn": "Founding era · management",
+      "pt": "Uma das primeiras responsáveis pelo Habbo em português. Sua presença marcou os anos iniciais do hotel, suas promoções e os modos de aparecer em público.",
+      "en": "Among the first people managing Portuguese-language Habbo; remembered for the early hotel's events and visible community presence.",
+      "sources": [
+        "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",
+        "https://habbo.fandom.com/pt-br/wiki/Flecha",
+        "https://habboxwiki.com/Habbo.com.br"
+      ]
+    },
+    {
+      "id": "mordomo",
+      "name": "Mordomo",
+      "group": "pioneiros",
+      "rolePt": "Primeira geração · personagem da Staff",
+      "roleEn": "Founding era · staff persona",
+      "pt": "Figura inseparável das lembranças da Flecha. O post da Moon o identifica como conta alternativa dela; outro arquivo trata essa ligação como provável, sem confirmação definitiva.",
+      "en": "Closely associated with memories of Flecha. Moon's article calls Mordomo her alternate account; another archive describes this connection as possible rather than definitively verified.",
+      "sources": [
+        "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",
+        "https://habboxwiki.com/Habbo.com.br"
+      ]
+    },
+    {
+      "id": "paty-nestle",
+      "name": "Paty-Nestle",
+      "group": "pioneiros",
+      "rolePt": "Primeira geração · gerência",
+      "roleEn": "Founding era · management",
+      "pt": "Parte da equipe pioneira, lembrada no post ao lado de Flecha e Mordomo. Atuou na produção e comunicação do hotel nos primeiros anos.",
+      "en": "One of the early staff members mentioned alongside Flecha and Mordomo, associated with the hotel's original production and community work.",
+      "sources": [
+        "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",
+        "https://habboxwiki.com/Habbo.com.br"
+      ]
+    },
+    {
+      "id": "4queijos",
+      "name": "4Queijos",
+      "group": "icones",
+      "rolePt": "A figura mais emblemática",
+      "roleEn": "An iconic community figure",
+      "pt": "Para o texto original, o gerente mais popular da memória brasileira. Tornou-se personagem central dos eventos, anúncios e conversas com a comunidade.",
+      "en": "Described by the original article as the most popular manager in Brazilian Habbo memory, central to events, announcements and community life.",
+      "sources": [
+        "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",
+        "https://viajovem.blogspot.com/2021/04/a-historia-e-vida-4queijos.html",
+        "https://habboxwiki.com/Habbo.com.br"
+      ]
+    },
+    {
+      "id": "disco-lee",
+      "name": "Disco-Lee",
+      "group": "icones",
+      "rolePt": "O carisma do fim dos anos 2000",
+      "roleEn": "Late-2000s charisma",
+      "pt": "Chegou à equipe em 2008 e ficou conhecido pelo visual de cabelo black power, pelos eventos e pela parceria com 4Queijos.",
+      "en": "Joined the team in 2008, remembered for his distinctive afro hairstyle, community events and partnership with 4Queijos.",
+      "sources": [
+        "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",
+        "https://habbo.fandom.com/pt-br/wiki/Disco-Lee",
+        "https://habboxwiki.com/Habbo.com.br"
+      ]
+    },
+    {
+      "id": "missfurby",
+      "name": "MissFurby",
+      "group": "icones",
+      "rolePt": "A geração seguinte · 2010",
+      "roleEn": "The next wave · 2010",
+      "pt": "Integrante de outra fase do hotel: chegou em 2010, e não junto com o grupo de 2008. Sua presença marcou promoções, parcerias e contato com os usuários.",
+      "en": "A later wave of the hotel's management: joined in 2010, not at the same time as the 2008 arrivals. Known for campaigns, partnerships and community contact.",
+      "sources": [
+        "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",
+        "https://habbo.fandom.com/pt-br/wiki/MissFurby",
+        "https://habboxwiki.com/Habbo.com.br"
+      ]
+    },
+    {
+      "id": "reeet",
+      "name": "Reeet",
+      "group": "outros",
+      "rolePt": "Gerência da comunidade",
+      "roleEn": "Community management",
+      "pt": "Nome de longa presença na equipe do Habbo brasileiro, incluído por Moon entre os gerentes clássicos que merecem ser lembrados.",
+      "en": "A long-standing presence in the Brazilian hotel's community team, singled out in Moon's retrospective as worth remembering.",
+      "sources": [
+        "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",
+        "https://habboxwiki.com/Habbo.com.br"
+      ]
+    },
+    {
+      "id": "thedjhabbo",
+      "name": "TheDJHabbo",
+      "group": "outros",
+      "rolePt": "Equipe de gestão",
+      "roleEn": "Management team",
+      "pt": "Um dos nomes da estrutura brasileira do hotel, citado pela memória da comunidade e pelos registros de antigos funcionários.",
+      "en": "A name associated with the Brazilian hotel's management, mentioned in community retrospectives and former-staff records.",
+      "sources": [
+        "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",
+        "https://habboxwiki.com/Habbo.com.br"
+      ]
+    },
+    {
+      "id": "acapulca",
+      "name": "Acapulca",
+      "group": "outros",
+      "rolePt": "Representação e equipe do hotel",
+      "roleEn": "Office and community team",
+      "pt": "Presença lembrada da equipe brasileira, com funções registradas de representação e administração do escritório, nem sempre de gerência do hotel.",
+      "en": "Remembered as part of Brazil's Habbo staff; sources describe office/representative duties rather than consistently listing a hotel-manager role.",
+      "sources": [
+        "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",
+        "https://habboxwiki.com/Habbo.com.br"
+      ]
+    },
+    {
+      "id": "sir-lawnrence",
+      "name": "Sir-Lawnrence",
+      "group": "outros",
+      "rolePt": "Gerência da comunidade",
+      "roleEn": "Community management",
+      "pt": "Nome menos relembrado, mas registrado entre as pessoas da comunidade que trabalharam nos bastidores do Habbo BR.",
+      "en": "Less frequently recalled, but present in records of the staff who supported Habbo Brazil's community.",
+      "sources": [
+        "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",
+        "https://habboxwiki.com/Habbo.com.br"
+      ]
+    },
+    {
+      "id": "prefeita",
+      "name": "Prefeita",
+      "group": "outros",
+      "rolePt": "Gerência da comunidade",
+      "roleEn": "Community management",
+      "pt": "Integrante dos primeiros anos, ligada ao contato com os usuários e à gestão da comunidade brasileira.",
+      "en": "Part of the early team associated with community contact and management.",
+      "sources": [
+        "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",
+        "https://habboxwiki.com/Habbo.com.br"
+      ]
+    },
+    {
+      "id": "djapamala",
+      "name": "DJapamala",
+      "group": "outros",
+      "rolePt": "Gestão do país e marketing",
+      "roleEn": "Country operations and marketing",
+      "pt": "Uma das figuras lembradas da estrutura de administração e marketing do Habbo BR, além das personalidades vistas nos eventos.",
+      "en": "Remembered as part of the Brazilian hotel's country operations and marketing, beyond its most public-facing personalities.",
+      "sources": [
+        "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",
+        "https://habboxwiki.com/Habbo.com.br"
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "id": "pioneiros",
+      "pt": "Os pioneiros",
+      "en": "The founding era",
+      "subtitlePt": "O hotel começava a falar português.",
+      "subtitleEn": "When the hotel first started speaking Portuguese.",
+      "period": "2006–2008"
+    },
+    {
+      "id": "icones",
+      "pt": "Os ícones da comunidade",
+      "en": "Community icons",
+      "subtitlePt": "A era das promoções, do Teatro lotado e das entrevistas.",
+      "subtitleEn": "The age of events, crowded theatres and interviews.",
+      "period": "2008–2013"
+    },
+    {
+      "id": "outros",
+      "pt": "Outros rostos da Staff",
+      "en": "More names behind the hotel",
+      "subtitlePt": "Comunidade, produção, escritório e bastidores.",
+      "subtitleEn": "Community, production, country operations and behind the scenes.",
+      "period": "2006–2012"
+    }
+  ],
+  "moderators": {
+    "pt": "MOD_Guto, MOD_Annie e MOD_Bezao também aparecem no post. Eram moderadores, não gerentes, e por isso são lembrados separadamente.",
+    "en": "MOD_Guto, MOD_Annie and MOD_Bezao also appear in the article. They were moderators rather than managers and are acknowledged separately.",
+    "source": "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html"
+  },
+  "credits": {
+    "emiseis": {
+      "pt": "Vídeo de memória da primeira equipe, lembrado no post de Moon (Emiseis).",
+      "en": "An early-team documentary remembered in Moon's article (Emiseis)."
+    },
+    "igor": {
+      "pt": "Entrevistas de Igor Saringer com 4Queijos, Disco-Lee e MissFurby, referenciadas no post.",
+      "en": "Igor Saringer's interviews with 4Queijos, Disco-Lee and MissFurby, linked from the original article."
+    }
+  },
+  "imagePolicy": "No reconstructed / generated staff portraits or current-avatar images passed off as historical. Archival references must explicitly identify person, time, and source before embedding."
+}

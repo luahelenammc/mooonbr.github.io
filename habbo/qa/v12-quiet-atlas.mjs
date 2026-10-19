@@ -22,7 +22,7 @@ try {
    check(await page.locator('.cinematic-dock').count()===1,'Places Dock not preserved');
    check(await page.locator('html.v12-quiet-ready').count()===1,'V13 JS did not enhance');
    check(await page.locator('link[href*="v13-home.css?v=20261019-v15.1"]').count()===1,'V12 CSS not versioned');
-   check(await page.locator('script[src*="v13-home.js?v=20261019-v15.1"]').count()===1,'V12 JS not versioned');
+   check(await page.locator('script[src*="v13-home.js?v=20261019-v16.1"]').count()===1,'V12 JS not versioned');
    check(await page.locator('#raros [data-v9-item]').count()===148,'69 unique rare specimens missing');
    check(await page.locator('#emblemas [data-v9-item]').count()===101,'101 global badges missing');
    check(await page.locator('#raros .v11-family-grid a').count()===15,'Exactly 15 archival furniture families expected');

@@ -1,0 +1,24 @@
+name: Habbo V16 historical staff reference audit
+on:
+  push:
+    branches: [feat/habbo-v16-classic-br-hotel-managers]
+    paths:
+      - 'habbo/v16/source-probe.mjs'
+      - '.github/workflows/habbo-v16-probe.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '20'}
+      - run: node habbo/v16/source-probe.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: habbo-v16-historical-source-pages
+          path: habbo/v16/research-cache/
