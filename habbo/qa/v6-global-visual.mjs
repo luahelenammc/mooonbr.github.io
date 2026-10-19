@@ -16,6 +16,13 @@ try {
    const page=await ctx.newPage();const errs=[];
    page.on('pageerror',e=>errs.push(e.message));
    await page.goto(base+'/'+route,{waitUntil:'networkidle'});
+   if(await page.locator('.v7-classic').count()===1){
+     check(await page.locator('.v7-classic').isVisible(),'V7 classic international badge gallery must be visible');
+     check(await page.locator('.v6-global').isHidden(),'V6 limited selection should be secondary when V7 is active');
+     check(await page.locator('.grid.badges .item').count()===62,'regional archive must remain unchanged');
+     await page.screenshot({path:path.join(output,name+'-'+viewportName+'-v7.png')});
+     await ctx.close();continue;
+   }
    check(await page.locator('.v6-global').count()===1,'missing V6 global stage');
    check(await page.locator('.v6-global-groups button').count()===4,'missing four global series');
    check(await page.locator('.v6-global-chips button').count()===2,'HC default not two codes');

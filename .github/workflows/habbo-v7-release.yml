@@ -1,0 +1,96 @@
+name: Habbo V7 authentic classic international badges
+
+on:
+  push:
+    branches: [feat/habbo-v7-classic-international-badges]
+    paths:
+      - 'habbo/v7/classic-general-candidates.json'
+      - 'habbo/v7/fetch-classic-badges.mjs'
+      - 'habbo/v7/classic-display.js'
+      - 'habbo/v7/classic-display.css'
+      - 'habbo/v5/build-collections.mjs'
+      - 'habbo/v6/sync-static-output.mjs'
+      - 'habbo/qa/v7-classic-visual.mjs'
+      - 'habbo/qa/v5-visual.mjs'
+      - 'habbo/qa/v6-public-originals-visual.mjs'
+      - 'habbo/qa/v6-global-visual.mjs'
+      - '.github/workflows/habbo-v7-release.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  archive-and-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/habbo-v7-classic-international-badges
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Check authoring syntax
+        run: |
+          node --check habbo/v5/build-collections.mjs
+          node --check habbo/v7/classic-display.js
+          node --check habbo/v7/fetch-classic-badges.mjs
+          node --check habbo/qa/v7-classic-visual.mjs
+      - name: Download authentic archival general/international GIFs
+        run: node habbo/v7/fetch-classic-badges.mjs
+      - name: Rebuild bilingual static museum
+        run: |
+          BASE_PATH=/habbo node habbo/build.mjs
+          node --test habbo/qa/v5-collections.test.mjs
+          node --test habbo/qa/v6-release-gate.test.mjs
+      - name: Verify Pages tree contains real classic international badge assets
+        run: |
+          node habbo/v6/sync-static-output.mjs --write
+          node habbo/v6/sync-static-output.mjs --check
+          test -f habbo/pt-br/emblema/classic-adm/index.html
+          test -f habbo/pt-br/emblema/classic-wbl/index.html
+          test -f habbo/en/badge/classic-btb/index.html
+          test -f habbo/assets/v7-classic-badges.json
+          grep -q v7-classic-display.js habbo/pt-br/emblemas/index.html
+      - name: Chromium
+        run: |
+          npm init -y
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Local Pages server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory . >/tmp/habbo-v7.log 2>&1 &
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            curl --silent --fail http://127.0.0.1:4173/habbo/ >/dev/null && break
+            sleep 1
+          done
+      - name: Run historic classic badges + V6 regression (actual local GIFs)
+        run: |
+          node habbo/qa/v7-classic-visual.mjs
+          node habbo/qa/v6-public-originals-visual.mjs
+          node habbo/qa/v6-global-visual.mjs
+          node habbo/qa/v5-visual.mjs
+      - name: Screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: habbo-v7-international-classics-screenshots
+          path: |
+            habbo/qa/v7-classic-artifacts/
+            habbo/qa/v6-originals-artifacts/
+            habbo/qa/v5-visual-artifacts/
+      - name: Commit only verified originals and generated pages
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A habbo/assets/v7 habbo/assets/v7-classic-badges.json habbo/assets/v7-classic-display.css habbo/assets/v7-classic-display.js habbo/v7/classic-catalogue.json
+          git add -A habbo/pt-br/emblemas habbo/en/badges habbo/pt-br/emblema habbo/en/badge
+          if ! git diff --cached --quiet; then
+            git commit -m 'feat(habbo): archive verified pre-2012 global classic badge originals and publish bilingual museum pages'
+            git push origin HEAD:feat/habbo-v7-classic-international-badges
+          else
+            echo 'Nothing to synchronize'
+          fi

@@ -9,10 +9,11 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const dist=path.join(root,'dist');
 const mode=process.argv.includes('--write')?'write':process.argv.includes('--check')?'check':'dry-run';
 const scopes=['pt-br/raros','en/rares','pt-br/raro','en/rare',
- 'pt-br/emblemas','en/badges','pt-br/emblema','en/badge','assets/v6'];
+ 'pt-br/emblemas','en/badges','pt-br/emblema','en/badge','assets/v6','assets/v7'];
 const singles=['assets/v5-collections.css','assets/v5-collections.js',
  'assets/v6-experience.css','assets/v6-experience.js',
- 'assets/v6-global-badges.css','assets/v6-global-badges.js'];
+ 'assets/v6-global-badges.css','assets/v6-global-badges.js',
+ 'assets/v7-classic-display.css','assets/v7-classic-display.js','assets/v7-classic-badges.json'];
 const report={mode,expected:0,changed:0,missing:0};
 if(!fs.existsSync(dist))throw Error('Build output missing. Run BASE_PATH=/habbo node habbo/build.mjs first.');
 const sha=file=>crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
