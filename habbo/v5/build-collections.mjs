@@ -43,7 +43,7 @@ export function buildCollections({root, dist, basePath = ''}) {
   }
   const manifest=JSON.parse(fs.readFileSync(path.join(root,'v6','expected-original-assets.json'),'utf8'));
   for(const asset of manifest.assets){
-   const file=path.join(root,asset.path);
+   const file=path.join(root,'..',asset.path);
    if(!fs.existsSync(file))throw new Error('V6 approved asset missing: '+asset.path);
    const sha=crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
    if(sha!==asset.sha256)throw new Error('V6 original asset integrity mismatch: '+asset.path);
@@ -53,7 +53,7 @@ export function buildCollections({root, dist, basePath = ''}) {
    const rel=asset.path.replace(/^habbo\//,'');
    const dest=path.join(dist,rel);
    fs.mkdirSync(path.dirname(dest),{recursive:true});
-   fs.copyFileSync(path.join(root,asset.path),dest);
+   fs.copyFileSync(path.join(root,'..',asset.path),dest);
   }
  }
  fs.mkdirSync(path.join(dist,'assets'),{recursive:true});
