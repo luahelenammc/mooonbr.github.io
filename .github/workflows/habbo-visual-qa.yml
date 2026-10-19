@@ -56,14 +56,8 @@ jobs:
       - name: Regress autoplay with pointer parked inside Dock
         run: node habbo/qa/autoplay-hover-regression.mjs
 
-      - name: Run V5 collections visual QA
-        run: node habbo/qa/v5-visual.mjs
-
-      - name: Run V6 recovery showroom browser QA
-        run: node habbo/qa/v6-recovery-visual.mjs
-
-      - name: Run V6 global-first browser QA
-        run: node habbo/qa/v6-global-visual.mjs
+      - name: Validate the new continuous V8 museum in Chromium
+        run: node habbo/qa/v8-visual.mjs
 
       - name: Check V6 source assets against original hashes (no-publication gate)
         run: node habbo/v6/check-original-assets.mjs
@@ -74,7 +68,7 @@ jobs:
         with:
           name: habbo-v5-visual-qa
           path: |
-            habbo/qa/v5-visual-artifacts/
+            habbo/qa/v8-evidence/
             habbo/qa/v6-recovery-artifacts/
             habbo/qa/v6-global-artifacts/
             habbo/qa/v5-visual-artifacts/report.json
