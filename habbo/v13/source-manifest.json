@@ -512,6 +512,136 @@
       "source": "https://habboxwiki.com/Collectibles",
       "url": "https://habboxwiki.com/wiki/images/f/fc/Ghostly_organ.gif",
       "local": "habbo/assets/v13/native/v13-collectible-ghostly-organ.gif"
+    },
+    {
+      "id": "v14-laser-red",
+      "pt": "Porta laser vermelha",
+      "en": "Red Laser Door",
+      "family": "laser-gates",
+      "familyPt": "Portas especiais",
+      "familyEn": "Laser Gates",
+      "period": "V7",
+      "source": "https://habborator.org/furniture/sub/v7_laser.html",
+      "reference": "https://habboxwiki.com/Laser_Gates",
+      "url": "https://habborator.org/furniture/v7_rare/laser_red.gif",
+      "local": "habbo/assets/v13/native/v14-laser-red.gif"
+    },
+    {
+      "id": "v14-laser-gold",
+      "pt": "Portal de plasma dourado",
+      "en": "Golden Plasma Gate",
+      "family": "laser-gates",
+      "familyPt": "Portas especiais",
+      "familyEn": "Laser Gates",
+      "period": "V7",
+      "source": "https://habborator.org/furniture/sub/v7_laser.html",
+      "reference": "https://habboxwiki.com/Laser_Gates",
+      "url": "https://habborator.org/furniture/v7_rare/laser_gold.gif",
+      "local": "habbo/assets/v13/native/v14-laser-gold.gif"
+    },
+    {
+      "id": "v14-laser-blue",
+      "pt": "Portal laser azul",
+      "en": "Blue Laser Portal",
+      "family": "laser-gates",
+      "familyPt": "Portas especiais",
+      "familyEn": "Laser Gates",
+      "period": "V7",
+      "source": "https://habborator.org/furniture/sub/v7_laser.html",
+      "reference": "https://habboxwiki.com/Laser_Gates",
+      "url": "https://habborator.org/furniture/v7_rare/laser_blue.gif",
+      "local": "habbo/assets/v13/native/v14-laser-blue.gif"
+    },
+    {
+      "id": "v14-laser-green",
+      "pt": "Portal laser jade",
+      "en": "Jade Laser Portal",
+      "family": "laser-gates",
+      "familyPt": "Portas especiais",
+      "familyEn": "Laser Gates",
+      "period": "V7",
+      "source": "https://habborator.org/furniture/sub/v7_laser.html",
+      "reference": "https://habboxwiki.com/Laser_Gates",
+      "url": "https://habborator.org/furniture/v7_rare/laser_green.gif",
+      "local": "habbo/assets/v13/native/v14-laser-green.gif"
+    },
+    {
+      "id": "v14-laser-pink",
+      "pt": "Portal laser rosa",
+      "en": "Pink Laser Portal",
+      "family": "laser-gates",
+      "familyPt": "Portas especiais",
+      "familyEn": "Laser Gates",
+      "period": "V7",
+      "source": "https://habborator.org/furniture/sub/v7_laser.html",
+      "reference": "https://habboxwiki.com/Laser_Gates",
+      "url": "https://habborator.org/furniture/v7_rare/laser_pink.gif",
+      "local": "habbo/assets/v13/native/v14-laser-pink.gif"
+    },
+    {
+      "id": "v14-laser-black",
+      "pt": "Portal laser preto",
+      "en": "Black Laser Portal",
+      "family": "laser-gates",
+      "familyPt": "Portas especiais",
+      "familyEn": "Laser Gates",
+      "period": "V7",
+      "source": "https://habborator.org/furniture/sub/v7_laser.html",
+      "reference": "https://habboxwiki.com/Laser_Gates",
+      "url": "https://habborator.org/furniture/v7_rare/laser_black.gif",
+      "local": "habbo/assets/v13/native/v14-laser-black.gif"
+    },
+    {
+      "id": "v14-laser-white",
+      "pt": "Portal laser branco",
+      "en": "White Laser Portal",
+      "family": "laser-gates",
+      "familyPt": "Portas especiais",
+      "familyEn": "Laser Gates",
+      "period": "V7",
+      "source": "https://habborator.org/furniture/sub/v7_laser.html",
+      "reference": "https://habboxwiki.com/Laser_Gates",
+      "url": "https://habborator.org/furniture/v7_rare/laser_white.gif",
+      "local": "habbo/assets/v13/native/v14-laser-white.gif"
+    },
+    {
+      "id": "v14-laser-aqua",
+      "pt": "Portal laser turquesa",
+      "en": "Turquoise Laser Portal",
+      "family": "laser-gates",
+      "familyPt": "Portas especiais",
+      "familyEn": "Laser Gates",
+      "period": "V7",
+      "source": "https://habborator.org/furniture/sub/v7_laser.html",
+      "reference": "https://habboxwiki.com/Laser_Gates",
+      "url": "https://habborator.org/furniture/v7_rare/laser_aqua.gif",
+      "local": "habbo/assets/v13/native/v14-laser-aqua.gif"
+    },
+    {
+      "id": "v14-laser-purple",
+      "pt": "Portal laser roxo",
+      "en": "Purple Laser Portal",
+      "family": "laser-gates",
+      "familyPt": "Portas especiais",
+      "familyEn": "Laser Gates",
+      "period": "V7",
+      "source": "https://habborator.org/furniture/sub/v7_laser.html",
+      "reference": "https://habboxwiki.com/Laser_Gates",
+      "url": "https://habborator.org/furniture/v7_rare/laser_purple.gif",
+      "local": "habbo/assets/v13/native/v14-laser-purple.gif"
+    },
+    {
+      "id": "v14-laser-violet",
+      "pt": "Portal laser violeta",
+      "en": "Violet Laser Portal",
+      "family": "laser-gates",
+      "familyPt": "Portas especiais",
+      "familyEn": "Laser Gates",
+      "period": "V7",
+      "source": "https://habborator.org/furniture/sub/v7_laser.html",
+      "reference": "https://habboxwiki.com/Laser_Gates",
+      "url": "https://habborator.org/furniture/v7_rare/laser_violet.gif",
+      "local": "habbo/assets/v13/native/v14-laser-violet.gif"
     }
   ],
   "animations": [
@@ -529,5 +659,6 @@
       "fallback": "/habbo/assets/v5/rares/hologirl.gif",
       "source": "https://habborator.org/furniture/rare.html"
     }
-  ]
+  ],
+  "policyV14": "The 10 v7_rare/mono_* historical render sprites are displayed under Monólitos (historic item names preserved in historicNameEn); the distinct 10 v7_rare/laser_* renders appear as Portas especiais / Laser Gates. The two visual groups must never merge."
 }
