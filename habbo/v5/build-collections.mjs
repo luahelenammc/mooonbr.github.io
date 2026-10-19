@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 const esc = x => String(x ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const rights = new Set(['approved_under_policy','cleared_by_permission']);
 export function validateCollection(records, {root} = {}) {
@@ -32,6 +33,29 @@ export function buildCollections({root, dist, basePath = ''}) {
   const raw=fs.existsSync(p)?JSON.parse(fs.readFileSync(p,'utf8')):[];
   data[kind]=validateCollection(Array.isArray(raw)?raw:raw.items || raw.records, {root});
  }
+
+ const releaseReceipt=path.join(root,'v6','asset-release-approval.json');
+ let approvedOriginalSprites=false;
+ if(fs.existsSync(releaseReceipt)){
+  const receipt=JSON.parse(fs.readFileSync(releaseReceipt,'utf8'));
+  if(receipt.status!=='approved'||!receipt.evidenceUrl||!/^https?:\/\//.test(receipt.evidenceUrl)){
+   throw new Error('V6 rights approval receipt missing valid documented evidence');
+  }
+  const manifest=JSON.parse(fs.readFileSync(path.join(root,'v6','expected-original-assets.json'),'utf8'));
+  for(const asset of manifest.assets){
+   const file=path.join(root,asset.path);
+   if(!fs.existsSync(file))throw new Error('V6 approved asset missing: '+asset.path);
+   const sha=crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+   if(sha!==asset.sha256)throw new Error('V6 original asset integrity mismatch: '+asset.path);
+  }
+  approvedOriginalSprites=true;
+  for(const asset of manifest.assets){
+   const rel=asset.path.replace(/^habbo\//,'');
+   const dest=path.join(dist,rel);
+   fs.mkdirSync(path.dirname(dest),{recursive:true});
+   fs.copyFileSync(path.join(root,asset.path),dest);
+  }
+ }
  fs.mkdirSync(path.join(dist,'assets'),{recursive:true});
  for (const ext of ['css','js']) fs.copyFileSync(path.join(root,'v5',`collections.${ext}`),path.join(dist,'assets',`v5-collections.${ext}`));
  for (const ext of ['css','js']) fs.copyFileSync(path.join(root,'v6',`experience.${ext}`),path.join(dist,'assets',`v6-experience.${ext}`));
@@ -39,7 +63,7 @@ export function buildCollections({root, dist, basePath = ''}) {
  const route=(kind,en,id='')=>`${basePath}/${en?'en':'pt-br'}/${kind==='rares'?(id?(en?'rare':'raro'):(en?'rares':'raros')):(id?(en?'badge':'emblema'):(en?'badges':'emblemas'))}/${id?`${id}/`:''}`;
  const outputPath=(kind,en,id='')=>route(kind,en,id).slice(basePath.length+1)+'index.html';
  const title=(kind,en)=>kind==='rares'?(en?'Rare showroom':'Galeria de raros'):(en?'Badge constellation':'Constelação de emblemas');
- const shell=(en,kind,id,body)=>`<!doctype html><html lang="${en?'en':'pt-BR'}"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title(kind,en))} · Habbo Museu Vivo</title><link rel="stylesheet" href="${basePath}/assets/v5-collections.css"><script defer src="${basePath}/assets/v5-collections.js"></script><link rel="stylesheet" href="${basePath}/assets/v6-experience.css"><script defer src="${basePath}/assets/v6-experience.js"></script><link rel="stylesheet" href="${basePath}/assets/v6-global-badges.css"><script defer src="${basePath}/assets/v6-global-badges.js"></script></head><body><a class="skip" href="#main">${en?'Skip to collection':'Ir para coleção'}</a><header><a class="brand" href="${basePath}/${en?'en/':''}">HABBO <small>${en?'Living museum':'Museu vivo'}</small></a><nav aria-label="${en?'Collections':'Coleções'}"><a href="${basePath}/${en?'en/':''}">${en?'Places':'Lugares'}</a><a ${kind==='rares'?'aria-current="page"':''} href="${route('rares',en)}">${en?'Rares':'Raros'}</a><a ${kind==='badges'?'aria-current="page"':''} href="${route('badges',en)}">${en?'Badges':'Emblemas'}</a></nav><a hreflang="${en?'pt-BR':'en'}" href="${route(kind,!en,id)}"><img class="flag" src="${basePath}/assets/${en?'flag-br.svg':'flag-us.svg'}" alt=""> ${en?'PT-BR':'EN'}</a></header><main id="main">${body}</main><footer>This fan site is not affiliated with, endorsed, sponsored, or specifically approved by Sulake Oy or its Affiliates. This fan site may use the trademarks and other intellectual property of Habbo, which is permitted under Habbo Fan Site Policy. <a href="https://help.habbo.com/hc/en-us/articles/360011512480-Habbo-Fansite-Policy" target="_blank" rel="noopener noreferrer">Habbo Fan Site Policy</a></footer></body></html>`;
+ const shell=(en,kind,id,body)=>`<!doctype html><html lang="${en?'en':'pt-BR'}" data-v6-images-allowed="${approvedOriginalSprites}"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title(kind,en))} · Habbo Museu Vivo</title><link rel="stylesheet" href="${basePath}/assets/v5-collections.css"><script defer src="${basePath}/assets/v5-collections.js"></script><link rel="stylesheet" href="${basePath}/assets/v6-experience.css"><script defer src="${basePath}/assets/v6-experience.js"></script><link rel="stylesheet" href="${basePath}/assets/v6-global-badges.css"><script defer src="${basePath}/assets/v6-global-badges.js"></script></head><body><a class="skip" href="#main">${en?'Skip to collection':'Ir para coleção'}</a><header><a class="brand" href="${basePath}/${en?'en/':''}">HABBO <small>${en?'Living museum':'Museu vivo'}</small></a><nav aria-label="${en?'Collections':'Coleções'}"><a href="${basePath}/${en?'en/':''}">${en?'Places':'Lugares'}</a><a ${kind==='rares'?'aria-current="page"':''} href="${route('rares',en)}">${en?'Rares':'Raros'}</a><a ${kind==='badges'?'aria-current="page"':''} href="${route('badges',en)}">${en?'Badges':'Emblemas'}</a></nav><a hreflang="${en?'pt-BR':'en'}" href="${route(kind,!en,id)}"><img class="flag" src="${basePath}/assets/${en?'flag-br.svg':'flag-us.svg'}" alt=""> ${en?'PT-BR':'EN'}</a></header><main id="main">${body}</main><footer>This fan site is not affiliated with, endorsed, sponsored, or specifically approved by Sulake Oy or its Affiliates. This fan site may use the trademarks and other intellectual property of Habbo, which is permitted under Habbo Fan Site Policy. <a href="https://help.habbo.com/hc/en-us/articles/360011512480-Habbo-Fansite-Policy" target="_blank" rel="noopener noreferrer">Habbo Fan Site Policy</a></footer></body></html>`;
  const humanHotel=(status,en)=>({unknown:en?'Brazilian availability unconfirmed':'Disponibilidade brasileira não confirmada',br_probable:en?'Brazilian availability probable; not confirmed':'Disponibilidade brasileira provável; não confirmada',international_only:en?'International evidence only; Brazilian availability unconfirmed':'Evidência internacional; disponibilidade brasileira não confirmada',br_documented:en?'Brazilian availability documented':'Disponibilidade brasileira documentada'}[status]);
  const field=(value,en)=>typeof value==='object'?value?.[en?'en':'ptBr'] || '':value || '';
  const contextMeta=(r,en)=>['historicalContext','brReleaseDate','firstDocumentedInternationalReleaseDate','originalIssueDate','dateEvidence','nameNote'].filter(key=>r[key]).map(key=>`<p><strong>${esc(({historicalContext:en?'Historical context':'Contexto histórico',firstDocumentedInternationalReleaseDate:en?'Earliest international date documented here':'Data internacional mais antiga documentada aqui',originalIssueDate:en?'Documented original issue date':'Data documentada da emissão original',brReleaseDate:en?'Brazilian date':'Data brasileira',dateEvidence:en?'Date evidence':'Evidência da data',nameNote:en?'Naming note':'Nota sobre o nome'})[key])}:</strong> ${esc(field(r[key],en))}</p>`).join('');
