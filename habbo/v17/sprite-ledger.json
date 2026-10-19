@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "notes": "Only 7 historical full-body sprite image files could be retrieved and verified. 2011 proxy originals for Mordomo and Sir-Lawnrence are documented but their remote PNG files return HTTP 404; never claim they are present.",
+  "notes": "Eight named historical full-body sprite images could be retrieved and verified. 2011 proxy originals for Mordomo and Sir-Lawnrence are documented but their remote PNG files return HTTP 404; never claim they are present.",
   "sourceList": {
     "2011": "https://haddicas-habbo.blogspot.com/2011/12/personagens-hotel.html",
     "2021": "https://viajovem.blogspot.com/2021/02/staffs.html"
@@ -96,12 +96,24 @@
       "sha256": "52ce7a304fe9ce6a3b62dae041392e86442e6f1a700c44ea45d0b7f0c43d3504",
       "bytes": 2297,
       "status": "archived-sprite"
+    },
+    {
+      "id": "acapulca",
+      "name": "Acapulca",
+      "local": "habbo/assets/v17/staff/acapulca.png",
+      "sourceArticle": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "sourceImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiC-LrJ7Ju9ti_i7yjawuE-QlhH9K3s9WY_3RsseRYdrm9WnpG1YOwWTfQQFiJtdYvqbVSq7R63j8V5433mVhnJqjD7elXJ2DRwD1gGjA2-xH9EFlLrhsz4ukyurZKnZN9ON9pQj6sekCs/s0/image16.png",
+      "sourcePublication": "2021 compilation of historical classic staff sprites",
+      "width": 64,
+      "height": 110,
+      "sha256": "619638226f0feffb5048d1249b28343b14b21335c93a0627b495692840eb469f",
+      "bytes": 3607,
+      "status": "archived-sprite"
     }
   ],
   "pending": [
     "mordomo",
     "sir-lawnrence",
-    "acapulca",
     "prefeita",
     "djapamala"
   ]
