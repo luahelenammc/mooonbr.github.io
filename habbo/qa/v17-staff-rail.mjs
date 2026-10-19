@@ -59,7 +59,12 @@ try{
    ok((await rail.evaluate(x=>x.scrollLeft))>60,'right arrow actually scrolls '+locale+device);
    ok(errors.length===0,'no JS errors '+errors.join(';'));
    ok(failed.length===0,'no image request failures '+failed.join(';'));
+   await rail.evaluate(x=>x.scrollTo({left:x.scrollWidth,behavior:'instant'}));
+   await page.waitForFunction(()=>{const x=document.querySelector('#gerentes [data-v17-rail]');return !!x&&x.scrollLeft>=x.scrollWidth-x.clientWidth-2;});
    await page.locator('#gerentes').scrollIntoViewIfNeeded();
+   await page.screenshot({path:path.join(out,locale+'-'+device+'-rail-end.png')});
+   await rail.evaluate(x=>x.scrollTo({left:0,behavior:'instant'}));
+   await page.waitForFunction(()=>document.querySelector('#gerentes [data-v17-rail]')?.scrollLeft<=1);
    await page.screenshot({path:path.join(out,locale+'-'+device+'-sprite-rail.png')});
    await ctx.close();
   }
