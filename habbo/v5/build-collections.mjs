@@ -92,7 +92,7 @@ export function buildCollections({root, dist, basePath = ''}) {
   });
   classics.items=[...classics.items,...legacy];
   fs.writeFileSync(path.join(dist,'assets','v7-classic-badges.json'),JSON.stringify(classics));
-  for(const ext of ['css','js'])fs.copyFileSync(path.join(root,'v7',\`classic-display.\${ext}\`),path.join(dist,'assets',\`v7-classic-display.\${ext}\`));
+  for(const ext of ['css','js'])fs.copyFileSync(path.join(root,'v7',`classic-display.${ext}`),path.join(dist,'assets',`v7-classic-display.${ext}`));
  }
 
  for (const ext of ['css','js']) fs.copyFileSync(path.join(root,'v5',`collections.${ext}`),path.join(dist,'assets',`v5-collections.${ext}`));
@@ -139,9 +139,9 @@ export function buildCollections({root, dist, basePath = ''}) {
     const context=en?
      'Documented in an international general badge archive before 2012; hotel-by-hotel issuance is not assumed.':
      'Registrado em um arquivo internacional de emblemas anterior a 2012; não se presume distribuição em todos os hotéis.';
-    const links=[r.sourceUrl,r.archiveSource].filter(Boolean).map(url=>\`<li><a href="\${esc(url)}" target="_blank" rel="noopener noreferrer">\${esc(url)}</a></li>\`).join('');
+    const links=[r.sourceUrl,r.archiveSource].filter(Boolean).map(url=>`<li><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(url)}</a></li>`).join('');
     out(outputPath('badges',en,id),shell(en,'badges',id,
-     \`<a class="back" href="\${route('badges',en)}">← \${title('badges',en)}</a><article class="detail"><div class="stage"><img src="\${local(r.image)}" alt="\${safeName}"></div><div><p class="eyebrow">CLASSIC INTERNATIONAL · \${esc(r.code)}</p><h1>\${safeName}</h1><p>\${context}</p><dl><dt>\${en?'Original code':'Código original'}</dt><dd>\${esc(r.code)}</dd><dt>\${en?'Historical scope':'Recorte histórico'}</dt><dd>\${en?'Before 2012':'Antes de 2012'}</dd><dt>\${en?'Hotel availability':'Disponibilidade por hotel'}</dt><dd>\${en?'Not established':'Não estabelecida'}</dd></dl><h2>\${en?'Provenance':'Proveniência'}</h2><ul>\${links}</ul></div></article>\`));
+     `<a class="back" href="${route('badges',en)}">← ${title('badges',en)}</a><article class="detail"><div class="stage"><img src="${local(r.image)}" alt="${safeName}"></div><div><p class="eyebrow">CLASSIC INTERNATIONAL · ${esc(r.code)}</p><h1>${safeName}</h1><p>${context}</p><dl><dt>${en?'Original code':'Código original'}</dt><dd>${esc(r.code)}</dd><dt>${en?'Historical scope':'Recorte histórico'}</dt><dd>${en?'Before 2012':'Antes de 2012'}</dd><dt>${en?'Hotel availability':'Disponibilidade por hotel'}</dt><dd>${en?'Not established':'Não estabelecida'}</dd></dl><h2>${en?'Provenance':'Proveniência'}</h2><ul>${links}</ul></div></article>`));
    }
   }
  }
