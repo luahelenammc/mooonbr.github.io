@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "status": "conditional_policy_reuse",
+  "evidenceUrl": "https://help.habbo.com/hc/en-us/articles/360011512480-Habbo-Fansite-Policy",
+  "regionalPolicyUrl": "https://help.habbo.com.br/hc/pt-br/articles/360011610939-Pol%C3%ADtica-de-F%C3%A3-Sites-do-Habbo-Hotel",
+  "noncommercial": true,
+  "nonaffiliationDisclaimer": true,
+  "individualPermissionClaimed": false,
+  "officialOrRegisteredFansiteClaimed": false,
+  "publicationScope": "22 individually hashed original historical Habbo sprites in a free, noncommercial, independent museum, with sources and disclaimers",
+  "regionalAmbiguity": "The EN fansite policy states anyone may create a compliant fansite; the BR/PT translation refers to registered fansites. No site-specific Sulake endorsement or registration has been proven. This is a documented conditional-policy interpretation, not independent legal clearance.",
+  "instruction": "Do not represent this file as approval issued by Sulake; respond promptly to takedown/revocation and avoid official logos and cloned trade dress.",
+  "date": "2026-10-19",
+  "reviewTrigger": "Policy change, owner rights concern, rights-holder request or notice"
+}
