@@ -1,0 +1,38 @@
+name: Habbo V17 import original staff figures
+on:
+  push:
+    branches: [feat/habbo-v17-classic-staff-sprite-rail]
+    paths:
+      - 'habbo/v17/acquire-staff.mjs'
+      - '.github/workflows/habbo-v17-import.yml'
+permissions:
+  contents: write
+concurrency:
+  group: habbo-v17-originals
+  cancel-in-progress: false
+jobs:
+  verify-and-preserve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/habbo-v17-classic-staff-sprite-rail
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with: {node-version: '20'}
+      - run: node habbo/v17/acquire-staff.mjs
+      - name: Push exact original image bytes and SHA256 provenance
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add habbo/assets/v17/staff/ habbo/v17/staff-originals.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'assets(habbo): preserve period-source classic BR Staff originals with provenance'
+            git push origin HEAD:feat/habbo-v17-classic-staff-sprite-rail
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v17-original-staff-pixels
+          path: habbo/assets/v17/staff/
