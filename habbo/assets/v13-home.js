@@ -1,5 +1,5 @@
 /* V13 · Animated original archival atlas. Does not interfere with the Places Dock.
- * 105 rares + 101 global badges live on the homepage itself.
+ * 148 historical rare/HC furniture records + 101 global badges live on the homepage itself.
  * Static links remain usable without JS; the viewer is an enhancement.
  */
 (() => {
