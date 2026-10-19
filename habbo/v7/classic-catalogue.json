@@ -1,0 +1,1650 @@
+{
+  "version": 1,
+  "generatedAt": "2026-10-19T12:15:49.186Z",
+  "cutoff": "2011-02-05",
+  "source": "https://habborator.org/badges/general.html",
+  "meaning": "Historical general/international category, not necessarily issued to all hotels",
+  "families": [
+    {
+      "id": "pioneiros",
+      "name": {
+        "ptBr": "Staff, clubes e pioneiros",
+        "en": "Staff, clubs & pioneers"
+      }
+    },
+    {
+      "id": "habbo-x",
+      "name": {
+        "ptBr": "Habbo X e comunidades",
+        "en": "Habbo X & communities"
+      }
+    },
+    {
+      "id": "club",
+      "name": {
+        "ptBr": "Habbo Club histórico",
+        "en": "Historic Habbo Club"
+      }
+    },
+    {
+      "id": "jogos",
+      "name": {
+        "ptBr": "Jogos e competições",
+        "en": "Games & competitions"
+      }
+    },
+    {
+      "id": "linhagens",
+      "name": {
+        "ptBr": "Séries históricas GL",
+        "en": "Historic GL series"
+      }
+    },
+    {
+      "id": "conquistas",
+      "name": {
+        "ptBr": "Distinções e coleções",
+        "en": "Distinctions & collections"
+      }
+    },
+    {
+      "id": "hotel",
+      "name": {
+        "ptBr": "Identidade e transições",
+        "en": "Identity & transitions"
+      }
+    }
+  ],
+  "items": [
+    {
+      "code": "ADM",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Equipe Habbo",
+        "en": "Habbo staff"
+      },
+      "image": "/habbo/assets/v7/classic-badges/ADM.gif",
+      "sha256": "7e2f6d4565ef26aeeac4d325d7fec5b99889a8ea16e8d86ee0e40237647b57a7",
+      "sourceUrl": "https://habborator.org/badges/badges/ADM.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "HS1",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Staff clássico",
+        "en": "Classic staff"
+      },
+      "image": "/habbo/assets/v7/classic-badges/HS1.gif",
+      "sha256": "80a4a61a9927bd494f01aeb12d2d0986901003bbd642a8becb979f50d7c04392",
+      "sourceUrl": "https://habborator.org/badges/badges/HS1.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "Z63",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Emblema Z63",
+        "en": "Badge Z63"
+      },
+      "image": "/habbo/assets/v7/classic-badges/Z63.gif",
+      "sha256": "174967c3c9ae8ca197bc7562c4f46ea161a3d25137cf3c6f46ee25878d4dd5bc",
+      "sourceUrl": "https://habborator.org/badges/badges/Z63.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "Z64",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Emblema Z64",
+        "en": "Badge Z64"
+      },
+      "image": "/habbo/assets/v7/classic-badges/Z64.gif",
+      "sha256": "0a4382128e67408f34ebebae8a68dca660c0ed72d276188db3f84c23cf49718b",
+      "sourceUrl": "https://habborator.org/badges/badges/Z64.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "VIP",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Visitante VIP clássico",
+        "en": "Classic VIP guest"
+      },
+      "image": "/habbo/assets/v7/classic-badges/VIP.gif",
+      "sha256": "36665ce68b021b8ebd25aa92a3efaf2aaba3f3b1b3e4b0bc6f41504737ef453d",
+      "sourceUrl": "https://habborator.org/badges/badges/VIP.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "PRE",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Pioneiros",
+        "en": "Pioneers"
+      },
+      "image": "/habbo/assets/v7/classic-badges/PRE.gif",
+      "sha256": "c2b28835a0ed47f1a485062755d8b485c52a4bfc8f7048570bc0f945cd1316a2",
+      "sourceUrl": "https://habborator.org/badges/badges/PRE.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "FAN",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Fã-site clássico",
+        "en": "Classic fansite"
+      },
+      "image": "/habbo/assets/v7/classic-badges/FAN.gif",
+      "sha256": "b680ced9a571042e8f29d9c721ed1045b1442c70fff17922261f82093c6a2010",
+      "sourceUrl": "https://habborator.org/badges/badges/FAN.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "HH1",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Emblema HH1",
+        "en": "Badge HH1"
+      },
+      "image": "/habbo/assets/v7/classic-badges/HH1.gif",
+      "sha256": "ed763d3ebe8e99d5cf80fc4bb2d13834368e503233afd8753fdc70561e92323e",
+      "sourceUrl": "https://habborator.org/badges/badges/HH1.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "HBA",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Emblema HBA",
+        "en": "Badge HBA"
+      },
+      "image": "/habbo/assets/v7/classic-badges/HBA.gif",
+      "sha256": "6a04948804eb851f2278dc6390cbbc9261deb7f4ec90709619f27be855903edc",
+      "sourceUrl": "https://habborator.org/badges/badges/HBA.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "NWB",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Emblema NWB",
+        "en": "Badge NWB"
+      },
+      "image": "/habbo/assets/v7/classic-badges/NWB.gif",
+      "sha256": "62d16a04559929b4ffe742acb6b9a22f5986e40303e696e722b7c229ceaf5282",
+      "sourceUrl": "https://habborator.org/badges/badges/NWB.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "EXH",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Emblema EXH",
+        "en": "Badge EXH"
+      },
+      "image": "/habbo/assets/v7/classic-badges/EXH.gif",
+      "sha256": "b80edc3b2109b0dd21f9cbf144941beae725e4b080c5897d356f8ca1a366afbd",
+      "sourceUrl": "https://habborator.org/badges/badges/EXH.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "HG1",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Emblema HG1",
+        "en": "Badge HG1"
+      },
+      "image": "/habbo/assets/v7/classic-badges/HG1.gif",
+      "sha256": "ea9a2274cd228effab1b3f7a26ef81211920cc441f26c8fe2bdb654494f1ab82",
+      "sourceUrl": "https://habborator.org/badges/badges/HG1.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "XXX",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Habbo X",
+        "en": "Habbo X"
+      },
+      "image": "/habbo/assets/v7/classic-badges/XXX.gif",
+      "sha256": "2639b4168e13ae36e08a672931c722125a96c2370c9940b3cefd02e48be2ba5b",
+      "sourceUrl": "https://habborator.org/badges/badges/XXX.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "HX1",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema HX1",
+        "en": "Badge HX1"
+      },
+      "image": "/habbo/assets/v7/classic-badges/HX1.gif",
+      "sha256": "3a12c2e34def87587716c331c3725d100cb145c64739543a50f4f0479e44091e",
+      "sourceUrl": "https://habborator.org/badges/badges/HX1.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "HX2",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema HX2",
+        "en": "Badge HX2"
+      },
+      "image": "/habbo/assets/v7/classic-badges/HX2.gif",
+      "sha256": "29f30add202272018537c15754a3ac431b314723c7124236054d69f2235a46c2",
+      "sourceUrl": "https://habborator.org/badges/badges/HX2.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "HX3",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema HX3",
+        "en": "Badge HX3"
+      },
+      "image": "/habbo/assets/v7/classic-badges/HX3.gif",
+      "sha256": "69e8a9124bd6c5e9681b3652cc2688f823d802de058787b86678a70109c1619b",
+      "sourceUrl": "https://habborator.org/badges/badges/HX3.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "HX4",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema HX4",
+        "en": "Badge HX4"
+      },
+      "image": "/habbo/assets/v7/classic-badges/HX4.gif",
+      "sha256": "8f7aee1dbbcad00617bb3816d765fad5381de97cbfaea6b64594feffb5842db3",
+      "sourceUrl": "https://habborator.org/badges/badges/HX4.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "HX5",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema HX5",
+        "en": "Badge HX5"
+      },
+      "image": "/habbo/assets/v7/classic-badges/HX5.gif",
+      "sha256": "1434b6fd69ab1c3e07c46249c2785f1c660cca5614cbae90344bf6cc9e5980dd",
+      "sourceUrl": "https://habborator.org/badges/badges/HX5.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "HX6",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema HX6",
+        "en": "Badge HX6"
+      },
+      "image": "/habbo/assets/v7/classic-badges/HX6.gif",
+      "sha256": "df88784a7171649a5671dec0dbdc3d7bf4604386ac557f27a60cca8468443c90",
+      "sourceUrl": "https://habborator.org/badges/badges/HX6.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "HX7",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema HX7",
+        "en": "Badge HX7"
+      },
+      "image": "/habbo/assets/v7/classic-badges/HX7.gif",
+      "sha256": "21753049ecfeeefd6665a6639c5b1807a275703d4a36a90b5a183967540acd24",
+      "sourceUrl": "https://habborator.org/badges/badges/HX7.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "HX8",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema HX8",
+        "en": "Badge HX8"
+      },
+      "image": "/habbo/assets/v7/classic-badges/HX8.gif",
+      "sha256": "6f63f868265778c31e1ae78b6941df1cd7b9805360fc420d8cc023847b73919d",
+      "sourceUrl": "https://habborator.org/badges/badges/HX8.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "HX9",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema HX9",
+        "en": "Badge HX9"
+      },
+      "image": "/habbo/assets/v7/classic-badges/HX9.gif",
+      "sha256": "0e485b47b3e6dcad430d6dc475a98302a3c5d087fc17c61367a3ffe60a4b21e7",
+      "sourceUrl": "https://habborator.org/badges/badges/HX9.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "JP1",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema JP1",
+        "en": "Badge JP1"
+      },
+      "image": "/habbo/assets/v7/classic-badges/JP1.gif",
+      "sha256": "c3ba71c42e578963f3585e831932ea0b237e56dbbcc72c50dadd724db8c4f346",
+      "sourceUrl": "https://habborator.org/badges/badges/JP1.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "JP2",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema JP2",
+        "en": "Badge JP2"
+      },
+      "image": "/habbo/assets/v7/classic-badges/JP2.gif",
+      "sha256": "5d68a8744fb0809be5beb8604539bd9450290622702a137c8b13a6abb3038d29",
+      "sourceUrl": "https://habborator.org/badges/badges/JP2.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "JP3",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema JP3",
+        "en": "Badge JP3"
+      },
+      "image": "/habbo/assets/v7/classic-badges/JP3.gif",
+      "sha256": "b1c0aa492563c81d644ac939ec109aab4ea736f49173894bfa37a31f6b6467ac",
+      "sourceUrl": "https://habborator.org/badges/badges/JP3.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "JP4",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema JP4",
+        "en": "Badge JP4"
+      },
+      "image": "/habbo/assets/v7/classic-badges/JP4.gif",
+      "sha256": "c10f5ee442ee7c496ee9c2e624c1b8600e637f658c33ce854b908f2f0a199a5c",
+      "sourceUrl": "https://habborator.org/badges/badges/JP4.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "JP5",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema JP5",
+        "en": "Badge JP5"
+      },
+      "image": "/habbo/assets/v7/classic-badges/JP5.gif",
+      "sha256": "cf58f4307c66af5eb58bb878c280ea0734693340a7180eaacb20afd539537bd4",
+      "sourceUrl": "https://habborator.org/badges/badges/JP5.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "JP6",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema JP6",
+        "en": "Badge JP6"
+      },
+      "image": "/habbo/assets/v7/classic-badges/JP6.gif",
+      "sha256": "999b8aea446511f152361695efcaa21c8167e5782d58ddd6e4dc476a8026a631",
+      "sourceUrl": "https://habborator.org/badges/badges/JP6.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "JP7",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema JP7",
+        "en": "Badge JP7"
+      },
+      "image": "/habbo/assets/v7/classic-badges/JP7.gif",
+      "sha256": "5c84a0bdf9269d8678ca704cf9788bc7b6e1e63d61bd2689ba0995426ec5cb46",
+      "sourceUrl": "https://habborator.org/badges/badges/JP7.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "JP8",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema JP8",
+        "en": "Badge JP8"
+      },
+      "image": "/habbo/assets/v7/classic-badges/JP8.gif",
+      "sha256": "c2097ed6800700a3f9ba5d99973ac597db746168faf54d6c54d986f9cf86615d",
+      "sourceUrl": "https://habborator.org/badges/badges/JP8.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "JP9",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema JP9",
+        "en": "Badge JP9"
+      },
+      "image": "/habbo/assets/v7/classic-badges/JP9.gif",
+      "sha256": "27052dfc7131561ba24385da41cb36c23fb97da9aa6da5750eba012e41d8b0de",
+      "sourceUrl": "https://habborator.org/badges/badges/JP9.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "HC3",
+      "family": "club",
+      "label": {
+        "ptBr": "Habbo Club III",
+        "en": "Habbo Club III"
+      },
+      "image": "/habbo/assets/v7/classic-badges/HC3.gif",
+      "sha256": "deb2bd552e67a30f365d2a6b5be35f5a2687851c819e501165f5daeca096896c",
+      "sourceUrl": "https://habborator.org/badges/badges/HC3.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "HC4",
+      "family": "club",
+      "label": {
+        "ptBr": "Habbo Club IV",
+        "en": "Habbo Club IV"
+      },
+      "image": "/habbo/assets/v7/classic-badges/HC4.gif",
+      "sha256": "df9f793db2927001bb592679e99c9fa947b24a5eb8e7a8aefc9d00c2e78c2bf9",
+      "sourceUrl": "https://habborator.org/badges/badges/HC4.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "HC5",
+      "family": "club",
+      "label": {
+        "ptBr": "Habbo Club V",
+        "en": "Habbo Club V"
+      },
+      "image": "/habbo/assets/v7/classic-badges/HC5.gif",
+      "sha256": "f1d07879d63402e3f3bf31d624456929c5dbc66e537aa7345af3c7b3f5b2898a",
+      "sourceUrl": "https://habborator.org/badges/badges/HC5.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "BTB",
+      "family": "jogos",
+      "label": {
+        "ptBr": "Battle Ball",
+        "en": "Battle Ball"
+      },
+      "image": "/habbo/assets/v7/classic-badges/BTB.gif",
+      "sha256": "4825b9eccd80532fb4d03ef7596796f273c69a472a1e2a98657278330639a187",
+      "sourceUrl": "https://habborator.org/badges/badges/BTB.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "SNW",
+      "family": "jogos",
+      "label": {
+        "ptBr": "SnowStorm",
+        "en": "SnowStorm"
+      },
+      "image": "/habbo/assets/v7/classic-badges/SNW.gif",
+      "sha256": "827abf8d5720b45d7fbda26b7a1a76604d3dd52a4b4f8c5266d1be43781b21af",
+      "sourceUrl": "https://habborator.org/badges/badges/SNW.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "WBL",
+      "family": "jogos",
+      "label": {
+        "ptBr": "Wobble Squabble",
+        "en": "Wobble Squabble"
+      },
+      "image": "/habbo/assets/v7/classic-badges/WBL.gif",
+      "sha256": "a48d065c444769318e011a7c77a5244666d34db372b3087e11efca733d67e4f2",
+      "sourceUrl": "https://habborator.org/badges/badges/WBL.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "TC1",
+      "family": "jogos",
+      "label": {
+        "ptBr": "Emblema TC1",
+        "en": "Badge TC1"
+      },
+      "image": "/habbo/assets/v7/classic-badges/TC1.gif",
+      "sha256": "3c8bef73a4f4182812de769dfd4c14f561cab28855b26c615697b667eb694b49",
+      "sourceUrl": "https://habborator.org/badges/badges/TC1.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "TC2",
+      "family": "jogos",
+      "label": {
+        "ptBr": "Emblema TC2",
+        "en": "Badge TC2"
+      },
+      "image": "/habbo/assets/v7/classic-badges/TC2.gif",
+      "sha256": "52ee2624b04fd5a7780c8b8cb6f133440667f0e4dc975e55b2624900f63edc5b",
+      "sourceUrl": "https://habborator.org/badges/badges/TC2.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "TC3",
+      "family": "jogos",
+      "label": {
+        "ptBr": "Emblema TC3",
+        "en": "Badge TC3"
+      },
+      "image": "/habbo/assets/v7/classic-badges/TC3.gif",
+      "sha256": "97f5eb9504f38d9afd5262077c0e015b4683df3b867026f1c72a9ab0c8b0c55f",
+      "sourceUrl": "https://habborator.org/badges/badges/TC3.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "LLL",
+      "family": "jogos",
+      "label": {
+        "ptBr": "Emblema LLL",
+        "en": "Badge LLL"
+      },
+      "image": "/habbo/assets/v7/classic-badges/LLL.gif",
+      "sha256": "ccac4a7b6bcc5f5216998511ef6c71a5a4597b3aa9ecf27c88fac88f4aebae45",
+      "sourceUrl": "https://habborator.org/badges/badges/LLL.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "Z05",
+      "family": "jogos",
+      "label": {
+        "ptBr": "Emblema Z05",
+        "en": "Badge Z05"
+      },
+      "image": "/habbo/assets/v7/classic-badges/Z05.gif",
+      "sha256": "b2d9772fe4247031ef637571423912eac5004df8c151011c675a4f1171de6560",
+      "sourceUrl": "https://habborator.org/badges/badges/Z05.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GLA",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLA",
+        "en": "Badge GLA"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GLA.gif",
+      "sha256": "23ded5c25f194007b39003b0fd7a1fe7ff7aee79d9e7653bbb62c576a960801b",
+      "sourceUrl": "https://habborator.org/badges/badges/GLA.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GLB",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLB",
+        "en": "Badge GLB"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GLB.gif",
+      "sha256": "15cd51e5a46fb796843f249038ed7e95015cea1acc4d55e7f59703823e308cb1",
+      "sourceUrl": "https://habborator.org/badges/badges/GLB.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GLC",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLC",
+        "en": "Badge GLC"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GLC.gif",
+      "sha256": "4b89a318508e383da3335dc7a34d309588b4fe95f81d9855449898dcaca623f8",
+      "sourceUrl": "https://habborator.org/badges/badges/GLC.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GLD",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLD",
+        "en": "Badge GLD"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GLD.gif",
+      "sha256": "d92736b965fe15d3d426a1bc3023846e5c21f41abce6dc82edaf40312b77dd6a",
+      "sourceUrl": "https://habborator.org/badges/badges/GLD.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GLE",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLE",
+        "en": "Badge GLE"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GLE.gif",
+      "sha256": "52baa9e0396da8607756be9aed45aaf2962dccfb5f973c3d2b684fef546c55a2",
+      "sourceUrl": "https://habborator.org/badges/badges/GLE.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GLF",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLF",
+        "en": "Badge GLF"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GLF.gif",
+      "sha256": "ac09d37d3a9e89e7ac7dabdefcc2d81b7704da192ab01128c776bad514363e44",
+      "sourceUrl": "https://habborator.org/badges/badges/GLF.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GLG",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLG",
+        "en": "Badge GLG"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GLG.gif",
+      "sha256": "9e4788f30a8e54343e5a67d2d74b626ef866e374fa1369cedbafe81bcabf8eed",
+      "sourceUrl": "https://habborator.org/badges/badges/GLG.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GLH",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLH",
+        "en": "Badge GLH"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GLH.gif",
+      "sha256": "71c73e68418a252201a2a3baaf2aaf61858b40b6a4b4f69cfdab193758242882",
+      "sourceUrl": "https://habborator.org/badges/badges/GLH.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GLI",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLI",
+        "en": "Badge GLI"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GLI.gif",
+      "sha256": "01ce46a3ad6e27dd9fef552e69c736b5d65afac1b1dc10e0f40300cd9c256739",
+      "sourceUrl": "https://habborator.org/badges/badges/GLI.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GLJ",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLJ",
+        "en": "Badge GLJ"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GLJ.gif",
+      "sha256": "37cd428dac496cf3269db1955f1e85692421a6ff1dbd8571ebcb37d8243b40e0",
+      "sourceUrl": "https://habborator.org/badges/badges/GLJ.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GLK",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLK",
+        "en": "Badge GLK"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GLK.gif",
+      "sha256": "e41aa67691b1f09b951d27e42524a5bb274b932e05fbe4cd072afa7878202c8b",
+      "sourceUrl": "https://habborator.org/badges/badges/GLK.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GL1",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GL1",
+        "en": "Badge GL1"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GL1.gif",
+      "sha256": "1a0749e154689843c6ff984a0c0a15ebd8c5088c6c4f356fc3c6779d696b8032",
+      "sourceUrl": "https://habborator.org/badges/badges/GL1.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GL2",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GL2",
+        "en": "Badge GL2"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GL2.gif",
+      "sha256": "61db9bb01c664fe07f6d80effb0a0f8f1026b9684163361b2e2e16faa3edd123",
+      "sourceUrl": "https://habborator.org/badges/badges/GL2.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GL3",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GL3",
+        "en": "Badge GL3"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GL3.gif",
+      "sha256": "ece8841388a8b9445c6b51661b20c7ba4dc8c6b4409ac12a740a3211e6592169",
+      "sourceUrl": "https://habborator.org/badges/badges/GL3.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GL4",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GL4",
+        "en": "Badge GL4"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GL4.gif",
+      "sha256": "f1e2356ed0559c53a1ed550991176068d7402849bcd086440ff82b8d4ffa88d2",
+      "sourceUrl": "https://habborator.org/badges/badges/GL4.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GL5",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GL5",
+        "en": "Badge GL5"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GL5.gif",
+      "sha256": "30e3048aa69bc26f05177a139f95539201150c9a7e05e67e9c9f0e376708f019",
+      "sourceUrl": "https://habborator.org/badges/badges/GL5.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GL6",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GL6",
+        "en": "Badge GL6"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GL6.gif",
+      "sha256": "8b07461014a9aa1a7fa8f15922ef37999a9e6e0511d288185d587ea90f801ff4",
+      "sourceUrl": "https://habborator.org/badges/badges/GL6.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GL7",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GL7",
+        "en": "Badge GL7"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GL7.gif",
+      "sha256": "26a6fa9d7bf7e9eabac20be78385aa97553194f830a6cc49fe4e1da7c3c225b3",
+      "sourceUrl": "https://habborator.org/badges/badges/GL7.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GL8",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GL8",
+        "en": "Badge GL8"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GL8.gif",
+      "sha256": "1837dc5bb8dd91546cd90b248371bd7fffd0e7f423794803f232261faab0f055",
+      "sourceUrl": "https://habborator.org/badges/badges/GL8.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GL9",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GL9",
+        "en": "Badge GL9"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GL9.gif",
+      "sha256": "ecde6f65fffdc86c5dc8af040dbedac53a3955d3a041e48c7f83243d346f49aa",
+      "sourceUrl": "https://habborator.org/badges/badges/GL9.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "G10",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema G10",
+        "en": "Badge G10"
+      },
+      "image": "/habbo/assets/v7/classic-badges/G10.gif",
+      "sha256": "8aeca438d485aff347377113a2ffb179ca8928aef5f9b39561c2fb762ccc0b01",
+      "sourceUrl": "https://habborator.org/badges/badges/G10.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "DU1",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema DU1",
+        "en": "Badge DU1"
+      },
+      "image": "/habbo/assets/v7/classic-badges/DU1.gif",
+      "sha256": "52e3368d908002c8158dc70a9b90349893a84e0e55cdc857c556784704ea6c59",
+      "sourceUrl": "https://habborator.org/badges/badges/DU1.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "DU2",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema DU2",
+        "en": "Badge DU2"
+      },
+      "image": "/habbo/assets/v7/classic-badges/DU2.gif",
+      "sha256": "e73de774e99cc7434eea10bc1657f012ec7eecc0ec6685a235ca98c96af72878",
+      "sourceUrl": "https://habborator.org/badges/badges/DU2.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "DU3",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema DU3",
+        "en": "Badge DU3"
+      },
+      "image": "/habbo/assets/v7/classic-badges/DU3.gif",
+      "sha256": "7c8de55c6d43d8fd0e2669e7e660beffa190e7369ea1dc8daee03b9b2dd6c3b0",
+      "sourceUrl": "https://habborator.org/badges/badges/DU3.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GM1",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema GM1",
+        "en": "Badge GM1"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GM1.gif",
+      "sha256": "e261412ff0d96316f54daa132ad8cb6ba08947938f31193feefc59e48d909396",
+      "sourceUrl": "https://habborator.org/badges/badges/GM1.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GM2",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema GM2",
+        "en": "Badge GM2"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GM2.gif",
+      "sha256": "38661014f62ee3a413d1a26ffcce71863ef627090e2bcc6bb96bb4b63c016df9",
+      "sourceUrl": "https://habborator.org/badges/badges/GM2.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GM3",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema GM3",
+        "en": "Badge GM3"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GM3.gif",
+      "sha256": "3d967e5147bfd9654e9136a9fdf6a3954beed9a1131f30bb112eceb5ecedef7b",
+      "sourceUrl": "https://habborator.org/badges/badges/GM3.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "GM4",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema GM4",
+        "en": "Badge GM4"
+      },
+      "image": "/habbo/assets/v7/classic-badges/GM4.gif",
+      "sha256": "68632d88daa0674b7606b78d6b96f1ac828dfd4889af49d8b2cb059b1b3d59d8",
+      "sourceUrl": "https://habborator.org/badges/badges/GM4.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "CY1",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema CY1",
+        "en": "Badge CY1"
+      },
+      "image": "/habbo/assets/v7/classic-badges/CY1.gif",
+      "sha256": "003a3fe561887aff1de88336971f70e4c8f69f727ce0d3a06245ed798a542118",
+      "sourceUrl": "https://habborator.org/badges/badges/CY1.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "CY2",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema CY2",
+        "en": "Badge CY2"
+      },
+      "image": "/habbo/assets/v7/classic-badges/CY2.gif",
+      "sha256": "8e472de6a64b5c816dc30fbe18a5aef6d25323cff7b65af47974db1ee0b48a14",
+      "sourceUrl": "https://habborator.org/badges/badges/CY2.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "CY3",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema CY3",
+        "en": "Badge CY3"
+      },
+      "image": "/habbo/assets/v7/classic-badges/CY3.gif",
+      "sha256": "2d7a64ef8434292e6fa8a7a0df45034db9caeb8ac1380c0bce2ee2cf12b0f069",
+      "sourceUrl": "https://habborator.org/badges/badges/CY3.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "BE1",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema BE1",
+        "en": "Badge BE1"
+      },
+      "image": "/habbo/assets/v7/classic-badges/BE1.gif",
+      "sha256": "431945ef6663b6e72f87125f06158c25e016a1b020473214f694fc62302af675",
+      "sourceUrl": "https://habborator.org/badges/badges/BE1.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "BE2",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema BE2",
+        "en": "Badge BE2"
+      },
+      "image": "/habbo/assets/v7/classic-badges/BE2.gif",
+      "sha256": "2fd01f0f34b425ea32252ee0d50d52582de428305887517ad24b9354ae8d3048",
+      "sourceUrl": "https://habborator.org/badges/badges/BE2.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "ZZZ",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema ZZZ",
+        "en": "Badge ZZZ"
+      },
+      "image": "/habbo/assets/v7/classic-badges/ZZZ.gif",
+      "sha256": "6fd353e4e96784d6b6a5def25b1bdfb1bc4ba78782b4bbc0dc9d668b405ef708",
+      "sourceUrl": "https://habborator.org/badges/badges/ZZZ.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "Z84",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema Z84",
+        "en": "Badge Z84"
+      },
+      "image": "/habbo/assets/v7/classic-badges/Z84.gif",
+      "sha256": "9fa8d6bad808f8d44ce20ef0d3f2ce5f9e9e584a2dbc194c055e55c7532bcdbf",
+      "sourceUrl": "https://habborator.org/badges/badges/Z84.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "WHY",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema WHY",
+        "en": "Badge WHY"
+      },
+      "image": "/habbo/assets/v7/classic-badges/WHY.gif",
+      "sha256": "cd70135a973339ffe4cee206853fd835c776b54cd297c70ff92a0b0529bac2bf",
+      "sourceUrl": "https://habborator.org/badges/badges/WHY.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "MRG00",
+      "family": "hotel",
+      "label": {
+        "ptBr": "Emblema MRG00",
+        "en": "Badge MRG00"
+      },
+      "image": "/habbo/assets/v7/classic-badges/MRG00.gif",
+      "sha256": "a31941606d3abdf789417d14696cb08c545f1887279d933976c9223d7d6f0589",
+      "sourceUrl": "https://habborator.org/badges/badges/MRG00.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "MRG01",
+      "family": "hotel",
+      "label": {
+        "ptBr": "Emblema MRG01",
+        "en": "Badge MRG01"
+      },
+      "image": "/habbo/assets/v7/classic-badges/MRG01.gif",
+      "sha256": "304477aff95872d6dec01c5085dd8360fb26ad4158d06fba245b13593758f85f",
+      "sourceUrl": "https://habborator.org/badges/badges/MRG01.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "MRG02",
+      "family": "hotel",
+      "label": {
+        "ptBr": "Emblema MRG02",
+        "en": "Badge MRG02"
+      },
+      "image": "/habbo/assets/v7/classic-badges/MRG02.gif",
+      "sha256": "6174105d07fd4facce0545285a0ece88a81e31416677246e670805a2750d2554",
+      "sourceUrl": "https://habborator.org/badges/badges/MRG02.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "MRG03",
+      "family": "hotel",
+      "label": {
+        "ptBr": "Emblema MRG03",
+        "en": "Badge MRG03"
+      },
+      "image": "/habbo/assets/v7/classic-badges/MRG03.gif",
+      "sha256": "c9c2d59a5bb129f752872caea512b4122f9f1a4d96c551cfefcc7739899de0c3",
+      "sourceUrl": "https://habborator.org/badges/badges/MRG03.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "MRG04",
+      "family": "hotel",
+      "label": {
+        "ptBr": "Emblema MRG04",
+        "en": "Badge MRG04"
+      },
+      "image": "/habbo/assets/v7/classic-badges/MRG04.gif",
+      "sha256": "53f45cf3cdd44eb0bf0109c40bfc1dc822ea2112203a41b48d3652b96a99f173",
+      "sourceUrl": "https://habborator.org/badges/badges/MRG04.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "MRG05",
+      "family": "hotel",
+      "label": {
+        "ptBr": "Emblema MRG05",
+        "en": "Badge MRG05"
+      },
+      "image": "/habbo/assets/v7/classic-badges/MRG05.gif",
+      "sha256": "a579c6a777db86db17d5bd0caf5791b3ca4e2d9b805fb5ec1628b29f852463bf",
+      "sourceUrl": "https://habborator.org/badges/badges/MRG05.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "BOT",
+      "family": "hotel",
+      "label": {
+        "ptBr": "Emblema BOT",
+        "en": "Badge BOT"
+      },
+      "image": "/habbo/assets/v7/classic-badges/BOT.gif",
+      "sha256": "8a0a5e92297b07c2968b548943355e77260bfe21db2c001a72e10ffd4aedf40b",
+      "sourceUrl": "https://habborator.org/badges/badges/BOT.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "PET01",
+      "family": "hotel",
+      "label": {
+        "ptBr": "Emblema PET01",
+        "en": "Badge PET01"
+      },
+      "image": "/habbo/assets/v7/classic-badges/PET01.gif",
+      "sha256": "bb7b9d049068ce6d9fdfc63f8fa17bd68420018799ad91ba88539c88ebc36291",
+      "sourceUrl": "https://habborator.org/badges/badges/PET01.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "PET02",
+      "family": "hotel",
+      "label": {
+        "ptBr": "Emblema PET02",
+        "en": "Badge PET02"
+      },
+      "image": "/habbo/assets/v7/classic-badges/PET02.gif",
+      "sha256": "d29118050bbeabf1dfd6572164d39ebd85aee7ab950c63a3c3fc199b3cc1a6c6",
+      "sourceUrl": "https://habborator.org/badges/badges/PET02.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    },
+    {
+      "code": "PET07",
+      "family": "hotel",
+      "label": {
+        "ptBr": "Emblema PET07",
+        "en": "Badge PET07"
+      },
+      "image": "/habbo/assets/v7/classic-badges/PET07.gif",
+      "sha256": "96ba3a12ea7b0169861a5f5b842fcc622393acfdf239a6dd1ab49e580d3cb626",
+      "sourceUrl": "https://habborator.org/badges/badges/PET07.gif",
+      "archiveSource": "https://habborator.org/badges/general.html",
+      "archiveDocumentedNoLaterThan": "2011-02-05",
+      "dateType": "archival_catalogue_snapshot",
+      "year": null,
+      "hotelDistribution": "not_verified_per_hotel",
+      "width": 50,
+      "height": 50
+    }
+  ],
+  "missing": [],
+  "counts": {
+    "candidates": 88,
+    "verified": 88,
+    "missing": 0
+  }
+}
