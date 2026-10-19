@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "notes": "Only 7 historical full-body sprite image files could be retrieved and verified. 2011 proxy originals for Mordomo and Sir-Lawnrence are documented but their remote PNG files return HTTP 404; never claim they are present.",
+  "sourceList": {
+    "2011": "https://haddicas-habbo.blogspot.com/2011/12/personagens-hotel.html",
+    "2021": "https://viajovem.blogspot.com/2021/02/staffs.html"
+  },
+  "sprites": [
+    {
+      "id": "flecha",
+      "name": "Flecha",
+      "local": "habbo/assets/v17/staff/flecha.png",
+      "sourceArticle": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "sourceImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0hyFpFD_38IJQHnchcX5nHj5AFj3ZvrK_dHgcQuh3pUvklV-B4xtsFlxSgMCk9UzJExG_aiKNdi2etqMqr3QFN2agIbNmmDkH04X1VgGGU7BCOvUgMX076W7_Gcx5migGQl0afCYEehs/s0/image20.png",
+      "sourcePublication": "2021 compilation of historical classic staff sprites",
+      "width": 64,
+      "height": 110,
+      "sha256": "302184b0a22f366dda640d815ea5b937e101c1ac765b1d39e250e9d0dcc25d5d",
+      "bytes": 1843,
+      "status": "archived-sprite"
+    },
+    {
+      "id": "paty-nestle",
+      "name": "Paty-Nestle",
+      "local": "habbo/assets/v17/staff/paty-nestle.png",
+      "sourceArticle": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "sourceImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivjHgqWJ2kRCVZFfYe_LKlp0eqg0QNN6bnCBdb6zg2TkEDYJuOtH5r4obsATNpMiOxoOMWBMnbP-roqvJBCpe4eGMlzENQtu8CjBqX6g5pq2is220TAI8VFgaT2PDdkd8lgz3ANDMqbdY/s0/image1.png",
+      "sourcePublication": "2021 compilation of historical classic staff sprites",
+      "width": 64,
+      "height": 110,
+      "sha256": "7a629ddcaee28c034555654d0621e9dd6e36ade16ec435e48b1065153cfcedc6",
+      "bytes": 3580,
+      "status": "archived-sprite"
+    },
+    {
+      "id": "4queijos",
+      "name": "4Queijos",
+      "local": "habbo/assets/v17/staff/4queijos.png",
+      "sourceArticle": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "sourceImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6tCIj2ktPo5tS-JbLXWzUq_CNdHuvV8ermFyeDJl-8n1D-KpTQkOWd5-5re8RWbLF4pQJ7cusVuBGjNFsF0q-YalWE2Sn-uBmWGuFpth-17ijARTwvsdHHhvRmjfRBYWUIUNJKOIJCZg/s0/image19.png",
+      "sourcePublication": "2021 compilation of historical classic staff sprites",
+      "width": 64,
+      "height": 110,
+      "sha256": "a8329e2665016d78d4611e181f9acab468956d5fe8e76f5644ac62fc2bfd7d68",
+      "bytes": 3086,
+      "status": "archived-sprite"
+    },
+    {
+      "id": "disco-lee",
+      "name": "Disco-Lee",
+      "local": "habbo/assets/v17/staff/disco-lee.png",
+      "sourceArticle": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "sourceImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0_JM0eh7ib7KEkOflJ90PEb2afKpfuqgvzPILz3SzVA1iRha_itK38LbYy2TEV-ebURxO6Ah1sjhM-_rwqZBK3M5MAdORcjmbsF-KQgQYaa1QBesVaI9svR1B9IaItSW_MeQm_5m4N7I/s0/image27.png",
+      "sourcePublication": "2021 compilation of historical classic staff sprites",
+      "width": 64,
+      "height": 110,
+      "sha256": "5991091f419c8784f3fab0880ec2939d4b19617cac7ff55b8051d0cbb810fb21",
+      "bytes": 2116,
+      "status": "archived-sprite"
+    },
+    {
+      "id": "missfurby",
+      "name": "MissFurby",
+      "local": "habbo/assets/v17/staff/missfurby.png",
+      "sourceArticle": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "sourceImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhw6NsvSPUrMtQXVOQQQp37tJEdheYaPn5_b5MTazRG-zpvHgTjrEOL0WYHvmUCa-aCMTMhcopR4adWMMNWEF7Pk0BnMZWipzvN_XIk1-cxGRKNpe5fcOHEQzIz3WEv-f2rki_-lIHAsCY/s0/image9.png",
+      "sourcePublication": "2021 compilation of historical classic staff sprites",
+      "width": 64,
+      "height": 110,
+      "sha256": "97db34784fc4ecb5cd1ed14155340ad75fc1bef5e2c616c71f75060aaead7fd4",
+      "bytes": 1516,
+      "status": "archived-sprite"
+    },
+    {
+      "id": "reeet",
+      "name": "Reeet",
+      "local": "habbo/assets/v17/staff/reeet.png",
+      "sourceArticle": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "sourceImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVQy3g1NadD766ySHogVI0NluwitBt7H6GAWuDRe7YYI69aoD6NyvY29NLZV9X04qyComRP9gH57SWPRPru8KFZtavjoXj12Csu1XT2R40UYfpZBQRFMOQ2dwPnenjpTrJSPJqG69iHwM/s0/image23.png",
+      "sourcePublication": "2021 compilation of historical classic staff sprites",
+      "width": 64,
+      "height": 110,
+      "sha256": "0287694775cee6df109da6304be7241729edf501e3bcbf17a7f06dbbb8ffcc2f",
+      "bytes": 1765,
+      "status": "archived-sprite"
+    },
+    {
+      "id": "thedjhabbo",
+      "name": "TheDJHabbo",
+      "local": "habbo/assets/v17/staff/thedjhabbo.png",
+      "sourceArticle": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "sourceImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7HBtZZCHgQZFoqhCOpt6c4556gZtxVhv8NsBv7Xy4gi8WxRcY1LHxVdkchih123jgv6dOERrMj2WuNWnCRLFjWEy8H3MGCFp7X40Tj4_q4d7c1HFKBA5nUs8f2AxROQIPR0AfyRrBgSc/s0/image10.png",
+      "sourcePublication": "2021 compilation of historical classic staff sprites",
+      "width": 64,
+      "height": 110,
+      "sha256": "52ce7a304fe9ce6a3b62dae041392e86442e6f1a700c44ea45d0b7f0c43d3504",
+      "bytes": 2297,
+      "status": "archived-sprite"
+    }
+  ],
+  "pending": [
+    "mordomo",
+    "sir-lawnrence",
+    "acapulca",
+    "prefeita",
+    "djapamala"
+  ]
+}
