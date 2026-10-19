@@ -23,4 +23,4 @@ O Gate de direitos vigente não é um parecer jurídico. Fontes oficiais:
 - https://help.habbo.com.br/hc/pt-br/articles/360011610939-Pol%C3%ADtica-de-F%C3%A3-Sites-do-Habbo-Hotel
 - https://help.habbo.com/hc/en-us/articles/360011512480-Habbo-Fansite-Policy
 
-**Não fazer merge desta branch enquanto os gates de QA do renderer gerado estiverem pendentes.**
+**Este patch limitado ao display de Raros e a sprites já publicados pode ser integrado após QA Chromium e sincronização dos assets estáticos. A V6 com novos GIFs continua bloqueada pelo gate de direitos e recuperação do checkpoint.**
