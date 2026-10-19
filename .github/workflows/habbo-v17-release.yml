@@ -1,0 +1,145 @@
+name: Habbo V17 one horizontal original staff sprite rail
+on:
+  push:
+    branches: [feat/habbo-v17-classic-staff-sprite-rail]
+    paths:
+      - 'habbo/v13/**'
+      - 'habbo/v14/**'
+      - 'habbo/v15/**'
+      - 'habbo/v16/**'
+      - 'habbo/v17/**'
+      - 'habbo/v8/build-unified.mjs'
+      - 'habbo/v8/museum.js'
+      - 'habbo/v6/sync-static-output.mjs'
+      - 'habbo/qa/v13-original-archive.mjs'
+      - 'habbo/qa/v14-laser-monolith-nav.mjs'
+      - 'habbo/qa/v15-classic-hc.mjs'
+      - 'habbo/qa/v17-staff-rail.mjs'
+      - 'habbo/qa/v12-quiet-atlas.mjs'
+      - 'habbo/qa/v8-visual.mjs'
+      - '.github/workflows/habbo-v17-release.yml'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: habbo-v17-release
+  cancel-in-progress: true
+jobs:
+  museum-v17:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/habbo-v17-classic-staff-sprite-rail
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify native historic asset provenance, hashes and real GIF frames
+        run: node habbo/v13/acquire-native.mjs --check
+      - name: Static syntax and data contract
+        run: |
+          node --check habbo/v8/build-unified.mjs
+          node --check habbo/v8/museum.js
+          node --check habbo/v13/home.js
+          node --check habbo/v13/render-details.mjs
+          node --check habbo/qa/v13-original-archive.mjs
+          node --check habbo/qa/v14-laser-monolith-nav.mjs
+          node --check habbo/qa/v15-classic-hc.mjs
+          node --check habbo/v17/render-rail.mjs
+          node --check habbo/v17/staff.js
+          node --check habbo/qa/v17-staff-rail.mjs
+      - name: Build museum and synchronize all static Pages routes
+        run: |
+          BASE_PATH=/habbo node habbo/build.mjs
+          node habbo/v6/sync-static-output.mjs --write
+          node habbo/v6/sync-static-output.mjs --check
+          grep -q 'v13-home.css?v=20261019-v15.1' habbo/index.html
+          grep -q 'v13-home.js?v=20261019-v16.1' habbo/en/index.html
+          grep -q 'v17-staff.css?v=20261019-v17.1' habbo/pt-br/index.html
+          grep -q 'v17-staff.js?v=20261019-v17.1' habbo/en/index.html
+          grep -q 'v17-staff-rail' habbo/pt-br/gerentes/index.html
+          grep -q 'v17-staff-rail' habbo/en/managers/index.html
+          grep -q 'Gerentes</a>' habbo/index.html
+          grep -q 'Managers</a>' habbo/en/index.html
+          grep -q '4Queijos' habbo/pt-br/gerentes/index.html
+          grep -q 'Disco-Lee' habbo/en/managers/index.html
+          grep -q 'raros-family-collectables-2008-2009' habbo/pt-br/index.html
+          grep -q 'raros-family-laser-gates' habbo/pt-br/index.html
+          grep -q 'raros-family-classic-hc' habbo/pt-br/index.html
+          grep -q 'v15-hc-gift-sofa.gif' habbo/pt-br/raro/v15-hc-gift-sofa/index.html
+          grep -q 'Portas laser' habbo/pt-br/raros/index.html
+          grep -q 'Monolito rosa' habbo/pt-br/raro/v13-monolith-pink/index.html
+          grep -q 'Espaços Públicos</a>' habbo/pt-br/index.html
+          grep -q 'Public Spaces</a>' habbo/en/index.html
+          grep -q 'Monolito rosa' habbo/pt-br/raro/v13-monolith-pink/index.html
+          grep -q 'Pink Spaceship Door' habbo/en/rare/v13-monolith-pink/index.html
+          grep -q 'v14-laser-red.gif' habbo/en/rare/v14-laser-red/index.html
+          grep -q 'v13-collectible-gondola' habbo/pt-br/raro/v13-collectible-gondola/index.html
+          ! grep -q 'badge-br' habbo/pt-br/index.html
+      - name: Source and spatial static regression
+        run: |
+          node --test habbo/qa/v5-collections.test.mjs
+          node --test habbo/qa/v6-release-gate.test.mjs
+          node habbo/qa/run-public-qa.mjs
+      - name: Install browser test runner
+        run: |
+          npm init -y
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Serve publishable files
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory . >/tmp/habbo-v13.log 2>&1 &
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            curl --silent --fail http://127.0.0.1:4173/habbo/ >/dev/null && break
+            sleep 1
+          done
+      - name: V13 original GIF and extended archive acceptance
+        run: node habbo/qa/v13-original-archive.mjs
+      - name: V14 separate monoliths and laser gates regression
+        run: node habbo/qa/v14-laser-monolith-nav.mjs
+      - name: V15 authentic HC monthly gifts and Club Shop acceptance
+        run: node habbo/qa/v15-classic-hc.mjs
+      - name: V17 12-person original sprite and name rail acceptance
+        run: node habbo/qa/v17-staff-rail.mjs
+      - name: Preserve V12 grouped atlas and V8 museum
+        run: |
+          node habbo/qa/v12-quiet-atlas.mjs
+          node habbo/qa/v8-visual.mjs
+      - name: Preserve Places Dock and four-second autoplay
+        run: |
+          node habbo/qa/autoplay-hover-regression.mjs
+          node habbo/qa/visual-qa.mjs
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: habbo-v17-original-staff-sprite-rail-qa
+          path: |
+            habbo/qa/v13-artifacts/
+            habbo/qa/v14-artifacts/
+            habbo/qa/v15-artifacts/
+            habbo/qa/v17-artifacts/
+            habbo/qa/v12-artifacts/
+            habbo/qa/v8-evidence/
+            habbo/qa/visual-artifacts/
+      - name: Commit validated real Pages source and newly generated history pages
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A habbo/index.html habbo/pt-br/index.html habbo/en/index.html
+          git add -A habbo/pt-br/raros/index.html habbo/en/rares/index.html
+          git add -A habbo/pt-br/emblemas/index.html habbo/en/badges/index.html
+          git add -A habbo/pt-br/raro habbo/en/rare
+          git add -A habbo/pt-br/gerentes habbo/en/managers
+          git add -A habbo/assets/v13 habbo/assets/v13-home.css habbo/assets/v13-home.js habbo/assets/v13-detail.css
+          git add -A habbo/assets/v8-museum.js habbo/assets/v16-staff.css
+          git add -A habbo/assets/v17 habbo/assets/v17-staff.css habbo/assets/v17-staff.js
+          if ! git diff --cached --quiet; then
+            git commit -m 'build(habbo): replace biography cards with one original sprite rail of 12 historic names'
+            git push origin HEAD:feat/habbo-v17-classic-staff-sprite-rail
+          fi
