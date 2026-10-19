@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import {renderV13Details} from '../v13/render-details.mjs';
 
 // V8 presentation compiler. Retains research/source data but never emits
 // the BR/PT regional badge pages or artwork into the public-facing galleries.
@@ -185,6 +186,7 @@ function homeChapter(id,title,description,items,en,route) {
 }
 export function buildUnified({root,dist}) {
  const rare=rareItems(root), badge=badgeItems(root);
+ const detailPages=renderV13Details(root,dist);
  const outcomes=[renderCollection(root,dist,'rares',false),renderCollection(root,dist,'rares',true),
   renderCollection(root,dist,'badges',false),renderCollection(root,dist,'badges',true)];
  for(const [file,en] of [['index.html',false],['pt-br/index.html',false],['en/index.html',true]]){
@@ -251,5 +253,5 @@ export function buildUnified({root,dist}) {
  const nativeFrom=path.join(root,'assets/v13/native'),nativeTo=path.join(dist,'assets/v13/native');
  if(!fs.existsSync(nativeFrom))throw Error('Original V13 sprites not yet acquired');
  fs.cpSync(nativeFrom,nativeTo,{recursive:true,force:true});
- return {outcomes,homepage:['index.html','pt-br/index.html','en/index.html'],regionalPublished:0};
+ return {outcomes,detailPages,homepage:['index.html','pt-br/index.html','en/index.html'],regionalPublished:0};
 }
