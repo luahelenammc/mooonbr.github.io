@@ -40,7 +40,7 @@ function rareItems(root) {
   descriptionPt:'Sprite histórico original preservado. A circulação em hotéis individuais não foi confirmada.',
   descriptionEn:'Original historic sprite preserved; hotel-specific release is not established.'}));
  const all=[...old,...added,...extra];
- if(all.length!==105||new Set(all.map(x=>x.id)).size!==all.length)throw Error('V13 rare corpus invalid: '+all.length);
+ if(all.length!==115||new Set(all.map(x=>x.id)).size!==all.length)throw Error('V13 rare corpus invalid: '+all.length);
  return all;
 }
 function picture(item,attr='') {
@@ -96,7 +96,7 @@ function renderCollection(root,dist,kind,en) {
   (kind==='rares'?'Classic rares':'Classic global badges'):
   (kind==='rares'?'Raros clássicos':'Emblemas clássicos globais');
  const nav=[
-  ['Lugares','Places','/habbo/'+lang+'/#lugares'],['Raros','Rares','/habbo/'+lang+'/#raros'],
+  ['Espaços Públicos','Public Spaces','/habbo/'+lang+'/#lugares'],['Raros','Rares','/habbo/'+lang+'/#raros'],
   ['Emblemas','Badges','/habbo/'+lang+'/#emblemas']
  ].map(([ptn,enn,href])=>'<a href="'+href+'">'+(en?enn:ptn)+'</a>').join('');
  const activeLang= '<nav class="v8-lang" aria-label="'+(en?'Language':'Idioma')+'">'+
@@ -230,6 +230,16 @@ export function buildUnified({root,dist}) {
   html=html.replace('id="lugares" ','');
   html=html.replace('<section class="cinematic-dock"','<section id="lugares" class="cinematic-dock"');
   const lang=en?'en':'pt-br';
+  // V14: keep the stable historical anchor #lugares, but show the explicit chapter name.
+  html=html.replace(/(<nav class="collection-switch"[^>]*>[\s\S]*?<\/nav>)/,menu=>
+    menu.replace(/>Lugares<\/a>/g,'>Espaços Públicos</a>')
+        .replace(/>Places<\/a>/g,'>Public Spaces</a>'));
+  if(!en){
+    html=html.replace('Habbo — lugares públicos','Habbo — Espaços Públicos')
+             .replace('Lugares públicos clássicos do Habbo','Espaços Públicos clássicos do Habbo');
+  }else{
+    html=html.replace('Habbo — public places','Habbo — Public Spaces');
+  }
   const chapter='<div class="v8-home-chapters">'+
    homeChapter('raros',en?'Classic rares':'Raros clássicos',
     en?'The furniture we dreamed of owning.':'Os mobis que a gente sonhava em ter.',
@@ -270,6 +280,21 @@ export function buildUnified({root,dist}) {
  for(const [source,dest] of [['v8/museum.css','assets/v8-museum.css'],
   ['v8/museum.js','assets/v8-museum.js'],['v8/home.css','assets/v8-home.css'],['v9/home.js','assets/v9-home.js'],['v10/home.css','assets/v10-home.css'],['v10/home.js','assets/v10-home.js'],['v11/home.css','assets/v11-home.css'],['v11/home.js','assets/v11-home.js'],['v12/home.css','assets/v12-home.css'],['v12/home.js','assets/v12-home.js'],['v13/home.css','assets/v13-home.css'],['v13/home.js','assets/v13-home.js'],['v13/detail.css','assets/v13-detail.css']]){
   fs.copyFileSync(path.join(root,source),path.join(dist,dest));
+ }
+ for(const prefix of ['pt-br/raro','en/rare','pt-br/emblema','en/badge']){
+  const top=path.join(dist,prefix);
+  if(!fs.existsSync(top))continue;
+  const visit=dir=>{
+   for(const d of fs.readdirSync(dir,{withFileTypes:true})){
+    const full=path.join(dir,d.name);
+    if(d.isDirectory()){visit(full);continue;}
+    if(d.name!=='index.html')continue;
+    let html=fs.readFileSync(full,'utf8');
+    const next=html.replace(/(<a\b[^>]*>)(Lugares|Places)(<\/a>)/g,(_match,left,label,right)=>left+(label==='Lugares'?'Espaços Públicos':'Public Spaces')+right);
+    if(html!==next)fs.writeFileSync(full,next);
+   }
+  };
+  visit(top);
  }
  const nativeFrom=path.join(root,'assets/v13/native'),nativeTo=path.join(dist,'assets/v13/native');
  if(!fs.existsSync(nativeFrom))throw Error('Original V13 sprites not yet acquired');
