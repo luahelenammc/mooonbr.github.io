@@ -1,0 +1,763 @@
+{
+  "version": 1,
+  "cutoff": "2011-02-05",
+  "eraSource": "https://habborator.org/badges/general.html",
+  "about": "Codes transcribed from Habborator's pre-2012 General/International badge section. A listing in international archives is not proof of release in any particular hotel.",
+  "families": [
+    {
+      "id": "pioneiros",
+      "name": {
+        "ptBr": "Staff, clubes e pioneiros",
+        "en": "Staff, clubs & pioneers"
+      }
+    },
+    {
+      "id": "habbo-x",
+      "name": {
+        "ptBr": "Habbo X e comunidades",
+        "en": "Habbo X & communities"
+      }
+    },
+    {
+      "id": "club",
+      "name": {
+        "ptBr": "Habbo Club histórico",
+        "en": "Historic Habbo Club"
+      }
+    },
+    {
+      "id": "jogos",
+      "name": {
+        "ptBr": "Jogos e competições",
+        "en": "Games & competitions"
+      }
+    },
+    {
+      "id": "linhagens",
+      "name": {
+        "ptBr": "Séries históricas GL",
+        "en": "Historic GL series"
+      }
+    },
+    {
+      "id": "conquistas",
+      "name": {
+        "ptBr": "Distinções e coleções",
+        "en": "Distinctions & collections"
+      }
+    },
+    {
+      "id": "hotel",
+      "name": {
+        "ptBr": "Identidade e transições",
+        "en": "Identity & transitions"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "code": "ADM",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Equipe Habbo",
+        "en": "Habbo staff"
+      }
+    },
+    {
+      "code": "HS1",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Staff clássico",
+        "en": "Classic staff"
+      }
+    },
+    {
+      "code": "Z63",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Emblema Z63",
+        "en": "Badge Z63"
+      }
+    },
+    {
+      "code": "Z64",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Emblema Z64",
+        "en": "Badge Z64"
+      }
+    },
+    {
+      "code": "VIP",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Visitante VIP clássico",
+        "en": "Classic VIP guest"
+      }
+    },
+    {
+      "code": "PRE",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Pioneiros",
+        "en": "Pioneers"
+      }
+    },
+    {
+      "code": "FAN",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Fã-site clássico",
+        "en": "Classic fansite"
+      }
+    },
+    {
+      "code": "HH1",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Emblema HH1",
+        "en": "Badge HH1"
+      }
+    },
+    {
+      "code": "HBA",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Emblema HBA",
+        "en": "Badge HBA"
+      }
+    },
+    {
+      "code": "NWB",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Emblema NWB",
+        "en": "Badge NWB"
+      }
+    },
+    {
+      "code": "EXH",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Emblema EXH",
+        "en": "Badge EXH"
+      }
+    },
+    {
+      "code": "HG1",
+      "family": "pioneiros",
+      "label": {
+        "ptBr": "Emblema HG1",
+        "en": "Badge HG1"
+      }
+    },
+    {
+      "code": "XXX",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Habbo X",
+        "en": "Habbo X"
+      }
+    },
+    {
+      "code": "HX1",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema HX1",
+        "en": "Badge HX1"
+      }
+    },
+    {
+      "code": "HX2",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema HX2",
+        "en": "Badge HX2"
+      }
+    },
+    {
+      "code": "HX3",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema HX3",
+        "en": "Badge HX3"
+      }
+    },
+    {
+      "code": "HX4",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema HX4",
+        "en": "Badge HX4"
+      }
+    },
+    {
+      "code": "HX5",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema HX5",
+        "en": "Badge HX5"
+      }
+    },
+    {
+      "code": "HX6",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema HX6",
+        "en": "Badge HX6"
+      }
+    },
+    {
+      "code": "HX7",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema HX7",
+        "en": "Badge HX7"
+      }
+    },
+    {
+      "code": "HX8",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema HX8",
+        "en": "Badge HX8"
+      }
+    },
+    {
+      "code": "HX9",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema HX9",
+        "en": "Badge HX9"
+      }
+    },
+    {
+      "code": "JP1",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema JP1",
+        "en": "Badge JP1"
+      }
+    },
+    {
+      "code": "JP2",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema JP2",
+        "en": "Badge JP2"
+      }
+    },
+    {
+      "code": "JP3",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema JP3",
+        "en": "Badge JP3"
+      }
+    },
+    {
+      "code": "JP4",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema JP4",
+        "en": "Badge JP4"
+      }
+    },
+    {
+      "code": "JP5",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema JP5",
+        "en": "Badge JP5"
+      }
+    },
+    {
+      "code": "JP6",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema JP6",
+        "en": "Badge JP6"
+      }
+    },
+    {
+      "code": "JP7",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema JP7",
+        "en": "Badge JP7"
+      }
+    },
+    {
+      "code": "JP8",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema JP8",
+        "en": "Badge JP8"
+      }
+    },
+    {
+      "code": "JP9",
+      "family": "habbo-x",
+      "label": {
+        "ptBr": "Emblema JP9",
+        "en": "Badge JP9"
+      }
+    },
+    {
+      "code": "HC3",
+      "family": "club",
+      "label": {
+        "ptBr": "Habbo Club III",
+        "en": "Habbo Club III"
+      }
+    },
+    {
+      "code": "HC4",
+      "family": "club",
+      "label": {
+        "ptBr": "Habbo Club IV",
+        "en": "Habbo Club IV"
+      }
+    },
+    {
+      "code": "HC5",
+      "family": "club",
+      "label": {
+        "ptBr": "Habbo Club V",
+        "en": "Habbo Club V"
+      }
+    },
+    {
+      "code": "BTB",
+      "family": "jogos",
+      "label": {
+        "ptBr": "Battle Ball",
+        "en": "Battle Ball"
+      }
+    },
+    {
+      "code": "SNW",
+      "family": "jogos",
+      "label": {
+        "ptBr": "SnowStorm",
+        "en": "SnowStorm"
+      }
+    },
+    {
+      "code": "WBL",
+      "family": "jogos",
+      "label": {
+        "ptBr": "Wobble Squabble",
+        "en": "Wobble Squabble"
+      }
+    },
+    {
+      "code": "TC1",
+      "family": "jogos",
+      "label": {
+        "ptBr": "Emblema TC1",
+        "en": "Badge TC1"
+      }
+    },
+    {
+      "code": "TC2",
+      "family": "jogos",
+      "label": {
+        "ptBr": "Emblema TC2",
+        "en": "Badge TC2"
+      }
+    },
+    {
+      "code": "TC3",
+      "family": "jogos",
+      "label": {
+        "ptBr": "Emblema TC3",
+        "en": "Badge TC3"
+      }
+    },
+    {
+      "code": "LLL",
+      "family": "jogos",
+      "label": {
+        "ptBr": "Emblema LLL",
+        "en": "Badge LLL"
+      }
+    },
+    {
+      "code": "Z05",
+      "family": "jogos",
+      "label": {
+        "ptBr": "Emblema Z05",
+        "en": "Badge Z05"
+      }
+    },
+    {
+      "code": "GLA",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLA",
+        "en": "Badge GLA"
+      }
+    },
+    {
+      "code": "GLB",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLB",
+        "en": "Badge GLB"
+      }
+    },
+    {
+      "code": "GLC",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLC",
+        "en": "Badge GLC"
+      }
+    },
+    {
+      "code": "GLD",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLD",
+        "en": "Badge GLD"
+      }
+    },
+    {
+      "code": "GLE",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLE",
+        "en": "Badge GLE"
+      }
+    },
+    {
+      "code": "GLF",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLF",
+        "en": "Badge GLF"
+      }
+    },
+    {
+      "code": "GLG",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLG",
+        "en": "Badge GLG"
+      }
+    },
+    {
+      "code": "GLH",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLH",
+        "en": "Badge GLH"
+      }
+    },
+    {
+      "code": "GLI",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLI",
+        "en": "Badge GLI"
+      }
+    },
+    {
+      "code": "GLJ",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLJ",
+        "en": "Badge GLJ"
+      }
+    },
+    {
+      "code": "GLK",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GLK",
+        "en": "Badge GLK"
+      }
+    },
+    {
+      "code": "GL1",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GL1",
+        "en": "Badge GL1"
+      }
+    },
+    {
+      "code": "GL2",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GL2",
+        "en": "Badge GL2"
+      }
+    },
+    {
+      "code": "GL3",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GL3",
+        "en": "Badge GL3"
+      }
+    },
+    {
+      "code": "GL4",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GL4",
+        "en": "Badge GL4"
+      }
+    },
+    {
+      "code": "GL5",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GL5",
+        "en": "Badge GL5"
+      }
+    },
+    {
+      "code": "GL6",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GL6",
+        "en": "Badge GL6"
+      }
+    },
+    {
+      "code": "GL7",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GL7",
+        "en": "Badge GL7"
+      }
+    },
+    {
+      "code": "GL8",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GL8",
+        "en": "Badge GL8"
+      }
+    },
+    {
+      "code": "GL9",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema GL9",
+        "en": "Badge GL9"
+      }
+    },
+    {
+      "code": "G10",
+      "family": "linhagens",
+      "label": {
+        "ptBr": "Emblema G10",
+        "en": "Badge G10"
+      }
+    },
+    {
+      "code": "DU1",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema DU1",
+        "en": "Badge DU1"
+      }
+    },
+    {
+      "code": "DU2",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema DU2",
+        "en": "Badge DU2"
+      }
+    },
+    {
+      "code": "DU3",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema DU3",
+        "en": "Badge DU3"
+      }
+    },
+    {
+      "code": "GM1",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema GM1",
+        "en": "Badge GM1"
+      }
+    },
+    {
+      "code": "GM2",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema GM2",
+        "en": "Badge GM2"
+      }
+    },
+    {
+      "code": "GM3",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema GM3",
+        "en": "Badge GM3"
+      }
+    },
+    {
+      "code": "GM4",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema GM4",
+        "en": "Badge GM4"
+      }
+    },
+    {
+      "code": "CY1",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema CY1",
+        "en": "Badge CY1"
+      }
+    },
+    {
+      "code": "CY2",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema CY2",
+        "en": "Badge CY2"
+      }
+    },
+    {
+      "code": "CY3",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema CY3",
+        "en": "Badge CY3"
+      }
+    },
+    {
+      "code": "BE1",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema BE1",
+        "en": "Badge BE1"
+      }
+    },
+    {
+      "code": "BE2",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema BE2",
+        "en": "Badge BE2"
+      }
+    },
+    {
+      "code": "ZZZ",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema ZZZ",
+        "en": "Badge ZZZ"
+      }
+    },
+    {
+      "code": "Z84",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema Z84",
+        "en": "Badge Z84"
+      }
+    },
+    {
+      "code": "WHY",
+      "family": "conquistas",
+      "label": {
+        "ptBr": "Emblema WHY",
+        "en": "Badge WHY"
+      }
+    },
+    {
+      "code": "MRG00",
+      "family": "hotel",
+      "label": {
+        "ptBr": "Emblema MRG00",
+        "en": "Badge MRG00"
+      }
+    },
+    {
+      "code": "MRG01",
+      "family": "hotel",
+      "label": {
+        "ptBr": "Emblema MRG01",
+        "en": "Badge MRG01"
+      }
+    },
+    {
+      "code": "MRG02",
+      "family": "hotel",
+      "label": {
+        "ptBr": "Emblema MRG02",
+        "en": "Badge MRG02"
+      }
+    },
+    {
+      "code": "MRG03",
+      "family": "hotel",
+      "label": {
+        "ptBr": "Emblema MRG03",
+        "en": "Badge MRG03"
+      }
+    },
+    {
+      "code": "MRG04",
+      "family": "hotel",
+      "label": {
+        "ptBr": "Emblema MRG04",
+        "en": "Badge MRG04"
+      }
+    },
+    {
+      "code": "MRG05",
+      "family": "hotel",
+      "label": {
+        "ptBr": "Emblema MRG05",
+        "en": "Badge MRG05"
+      }
+    },
+    {
+      "code": "BOT",
+      "family": "hotel",
+      "label": {
+        "ptBr": "Emblema BOT",
+        "en": "Badge BOT"
+      }
+    },
+    {
+      "code": "PET01",
+      "family": "hotel",
+      "label": {
+        "ptBr": "Emblema PET01",
+        "en": "Badge PET01"
+      }
+    },
+    {
+      "code": "PET02",
+      "family": "hotel",
+      "label": {
+        "ptBr": "Emblema PET02",
+        "en": "Badge PET02"
+      }
+    },
+    {
+      "code": "PET07",
+      "family": "hotel",
+      "label": {
+        "ptBr": "Emblema PET07",
+        "en": "Badge PET07"
+      }
+    }
+  ]
+}
