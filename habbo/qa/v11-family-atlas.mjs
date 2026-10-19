@@ -72,7 +72,7 @@ try {
    check(await page.locator('.v9-home-dialog[open]').count()===1,'Lightbox opens from selected family');
    await page.keyboard.press('Escape');
    check(await page.locator('.v9-home-dialog[open]').count()===0,'Lightbox Escape closes');
-   await page.locator('#emblemas .v11-family-directory').scrollIntoViewIfNeeded();
+   await page.locator('#emblemas').evaluate(el=>el.scrollIntoView({block:'start',behavior:'instant'}));
    await page.waitForFunction(()=>document.querySelector('.collection-switch a[href="#emblemas"]')?.getAttribute('aria-current')==='location',null,{timeout:10000});
    check(await page.locator('.collection-switch a[aria-current="location"]').count()===1,'Badge chapter should update header navigation');
    await page.screenshot({path:path.join(out,lang+'-'+device+'-badge-overview.png')});
