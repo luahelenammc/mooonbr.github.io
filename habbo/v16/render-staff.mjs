@@ -54,7 +54,7 @@ export function renderStaffStandalone(root,dist){
    '<header class="v8-top"><a class="v8-wordmark" href="/habbo/'+lang+'/"><span class="v8-glyph">✦</span> Habbo <small>'+(en?'Memory museum':'Museu vivo')+'</small></a>'+
    '<nav class="v8-top-links" aria-label="'+(en?'Museum navigation':'Navegação do museu')+'">'+navHtml+'</nav></header>'+
    '<main class="v8-home-chapters">'+renderStaffChapter(manifest,en)+'</main>'+
-   '<footer class="v8-bottom"><a href="/habbo/'+lang+'/">'+(en?'← Back to museum':'← Voltar ao museu')+'</a></footer></body></html>';
+   '<footer class="v8-bottom"><a href="/habbo/'+lang+'/">'+(en?'← Back to museum':'← Voltar ao museu')+'</a><p>This fan site is not affiliated with, endorsed, sponsored, or specifically approved by Sulake Oy or its Affiliates. Historical assets remain the property of their respective owners.</p></footer></body></html>';
   const target=path.join(dist,lang,route,'index.html');
   fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,html);files.push(lang+'/'+route+'/index.html');
  }
