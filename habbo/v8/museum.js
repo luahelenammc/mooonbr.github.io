@@ -12,7 +12,7 @@
  const dialogLink=dialog.querySelector('[data-v8-dialog-link]');
  const pt=document.documentElement.lang.toLowerCase().startsWith('pt');
  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
- const asset=target=>reduced.matches&&target.dataset.staticImage?target.dataset.staticImage:asset(target);
+ const asset=target=>reduced.matches&&target.dataset.staticImage?target.dataset.staticImage:target.dataset.image;
  let current=0,lastFocus=null;
  if(!items.length)return;
  function select(index) {
