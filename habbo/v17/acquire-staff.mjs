@@ -14,45 +14,20 @@ const sources=[
  {id:'thedjhabbo',name:'TheDJHabbo',type:'2021'},
  {id:'sir-lawnrence',name:'Sir-Lawnrence',type:'2011'}
 ];
-const originalSource={
- '2011':'https://haddicas-habbo.blogspot.com/2011/12/personagens-hotel.html',
- '2021':'https://viajovem.blogspot.com/2021/02/staffs.html'
-};
+const originals=JSON.parse(fs.readFileSync(path.join(root,'v17/staff-source-urls.json'),'utf8'));
+const originalSource=originals.originalArticles;
 const output=path.join(root,'assets/v17/staff');fs.mkdirSync(output,{recursive:true});
 const check=process.argv.includes('--check');
 const ledgerFile=path.join(root,'v17/sprite-ledger.json');
 const existing=check?JSON.parse(fs.readFileSync(ledgerFile,'utf8')):null;
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
-const decode=s=>s.replaceAll('&amp;','&').replaceAll('&#38;','&');
-const htmls={};
-if(!check)for(const [era,url] of Object.entries(originalSource)){
- const r=await fetch(url,{headers:{'User-Agent':'Mozilla/5.0 (verified historical Habbo staff archive)'},signal:AbortSignal.timeout(30000)});
- if(!r.ok)throw Error('History source inaccessible '+url+' '+r.status);
- htmls[era]=await r.text();
-}
 const entries=[];
 for(const source of sources){
  let url;
  const file=path.join(output,source.id+'.png');
  if(!check){
-  const html=htmls[source.type],n=source.name;
-  if(source.type==='2021'){
-   // Name caption is emitted after its 64x110 illustration, not as image alt.
-   const marker=n+' (';
-   const at=html.indexOf(marker);
-   if(at<0)throw Error('Source caption missing '+n);
-   const leading=html.slice(Math.max(0,at-2500),at);
-   const images=[...leading.matchAll(/<img\b[^>]*\bsrc="([^"]+)"[^>]*>/gi)];
-   url=images.at(-1)?.[1];
-   if(!url||!url.includes('blogger.googleusercontent.com/'))throw Error('No original historical full-body sprite for '+n);
-  }else{
-   // 2011 table structure: <strong>NAME</strong> precedes its associated image.
-   const nameRe=new RegExp('<strong>\\s*'+n+'\\s*<\\/strong>[\\s\\S]{0,500}?<img\\b[^>]*\\bsrc="([^"]+)"','i');
-   const match=html.match(nameRe);
-   url=match?.[1];
-   if(!url||!url.includes('googleusercontent.com/'))throw Error('2011 original illustration missing '+n);
-  }
-  url=decode(url);
+  url=originals.images[source.id]?.url;
+  if(!url||originals.images[source.id]?.source!==source.type)throw Error('No pinned historical image for '+source.name);
   const u=new URL(url);
   if(u.protocol!=='https:')throw Error('Unsafe URL');
   const r=await fetch(url,{signal:AbortSignal.timeout(30000),headers:{'User-Agent':'Mozilla/5.0'}});
