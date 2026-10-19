@@ -1,0 +1,25 @@
+name: Habbo V13 asset source probe
+on:
+  push:
+    branches: [feat/habbo-v13-native-animated-rares]
+    paths:
+      - 'habbo/v13/source-probe.mjs'
+      - '.github/workflows/habbo-v13-probe.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Fetch archival HTML and inspect embedded images
+        run: node habbo/v13/source-probe.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v13-source-pages
+          path: habbo/v13/probe/
