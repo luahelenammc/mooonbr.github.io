@@ -1,0 +1,25 @@
+name: Habbo V15 HC source audit
+on:
+  push:
+    branches: [feat/habbo-v15-classic-hc-gifts]
+    paths:
+      - 'habbo/v15/probe-hc.mjs'
+      - '.github/workflows/habbo-v15-probe.yml'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node habbo/v15/probe-hc.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v15-hc-historical-sources
+          path: habbo/v15/probe/

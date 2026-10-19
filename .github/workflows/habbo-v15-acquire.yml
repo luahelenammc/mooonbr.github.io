@@ -1,0 +1,41 @@
+name: Habbo V15 archive original classic HC sprites
+on:
+  push:
+    branches: [feat/habbo-v15-classic-hc-gifts]
+    paths:
+      - 'habbo/v13/source-manifest.json'
+      - 'habbo/v13/acquire-native.mjs'
+      - '.github/workflows/habbo-v15-acquire.yml'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: habbo-v15-classic-hc-import
+  cancel-in-progress: false
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/habbo-v15-classic-hc-gifts
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Preserve original HC monthly gifts and Club Shop renders
+        run: node habbo/v13/acquire-native.mjs
+      - name: Validate SHA256 dimensions GIF frames without network
+        run: node habbo/v13/acquire-native.mjs --check
+      - name: Commit originals and provenance metadata
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A habbo/assets/v13/native/ habbo/v13/native-ledger.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'assets(habbo): preserve 33 authentic Habbo Club classic room sprites'
+            git push origin HEAD:feat/habbo-v15-classic-hc-gifts
+          fi

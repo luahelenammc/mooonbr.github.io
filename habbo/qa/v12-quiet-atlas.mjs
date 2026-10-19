@@ -21,13 +21,13 @@ try {
    await page.goto(base+route,{waitUntil:'networkidle'});
    check(await page.locator('.cinematic-dock').count()===1,'Places Dock not preserved');
    check(await page.locator('html.v12-quiet-ready').count()===1,'V13 JS did not enhance');
-   check(await page.locator('link[href*="v13-home.css?v=20261019-v14.1"]').count()===1,'V12 CSS not versioned');
-   check(await page.locator('script[src*="v13-home.js?v=20261019-v13.1"]').count()===1,'V12 JS not versioned');
-   check(await page.locator('#raros [data-v9-item]').count()===115,'69 unique rare specimens missing');
+   check(await page.locator('link[href*="v13-home.css?v=20261019-v15.1"]').count()===1,'V12 CSS not versioned');
+   check(await page.locator('script[src*="v13-home.js?v=20261019-v15.1"]').count()===1,'V12 JS not versioned');
+   check(await page.locator('#raros [data-v9-item]').count()===148,'69 unique rare specimens missing');
    check(await page.locator('#emblemas [data-v9-item]').count()===101,'101 global badges missing');
-   check(await page.locator('#raros .v11-family-grid a').count()===14,'Exactly 14 rare editorial families expected');
+   check(await page.locator('#raros .v11-family-grid a').count()===15,'Exactly 15 archival furniture families expected');
    check(await page.locator('#emblemas .v11-family-grid a').count()===7,'All original badge families must remain');
-   check(await page.locator('#raros .v11-family-grid a:visible').count()===14,'One or more rare groups concealed');
+   check(await page.locator('#raros .v11-family-grid a:visible').count()===15,'One or more rare groups concealed');
    check(await page.locator('#emblemas .v11-family-grid a:visible').count()===7,'Badge groups concealed');
    check(await page.locator('#raros .v9-family:visible').count()===1,'One rare gallery expected at a time');
    check(await page.locator('#emblemas .v9-family:visible').count()===1,'One badge gallery expected at a time');
@@ -38,7 +38,7 @@ try {
    check(await page.locator('#raros .v9-group-index').count()===0,'02/23 numerical labels must be removed');
    check(await page.locator('#raros .v11-directory-count').count()===0,'Redundant total family count must be removed');
    check(await page.locator('#raros .v9-group-copy p').count()===0,'Duplicate heading counts must be removed');
-   check(await page.locator('#raros .v9-archive-total').textContent().then(t=>t.includes('115')),'One restrained rare total remains');
+   check(await page.locator('#raros .v9-archive-total').textContent().then(t=>t.includes('148')),'One restrained rare total remains');
    check(await page.locator('#emblemas .v9-archive-total').textContent().then(t=>t.includes('101')),'One restrained badge total remains');
    check(await page.locator('[href*="badge-br"]').count()===0,'Regional BR/PT badges not allowed');
    check(await page.locator('.v9-home-dialog').count()===1,'One lightbox preserved');
@@ -82,10 +82,10 @@ try {
   const ctx=await browser.newContext({viewport:{width:1280,height:780},reducedMotion:'reduce'});
   const p=await ctx.newPage();
   await p.goto(base+(lang==='en'?'en/rares/':'pt-br/raros/'),{waitUntil:'networkidle'});
-  check(await p.locator('.v8-family').count()===14,'Standalone rare collection family count mismatched');
+  check(await p.locator('.v8-family').count()===15,'Standalone rare collection family count mismatched');
   check(await p.locator('#family-v12-rare-avulsos .v8-specimen').count()===14,'Standalone rare group missing singles');
   check(await p.locator('#family-eggs').count()===1,'Old standalone family anchor lost');
-  check(await p.locator('.v8-specimen').count()===115,'Original standalone rare specimens missing');
+  check(await p.locator('.v8-specimen').count()===148,'Original standalone rare specimens missing');
   await p.goto(base+(lang==='en'?'en/badges/':'pt-br/emblemas/'),{waitUntil:'networkidle'});
   check(await p.locator('.v8-family').count()===7,'Badge lineage taxonomy changed unnecessarily');
   check(await p.locator('.v8-specimen').count()===101,'Original standalone badge specimens missing');
@@ -94,11 +94,11 @@ try {
  const ctx=await browser.newContext({viewport:{width:390,height:844},javaScriptEnabled:false});
  const p=await ctx.newPage();
  await p.goto(base+'pt-br/',{waitUntil:'load'});
- check(await p.locator('#raros .v11-family-grid a:visible').count()===14,'No-JS 14 rare categories accessible');
+ check(await p.locator('#raros .v11-family-grid a:visible').count()===15,'No-JS 15 rare categories accessible');
  check(await p.locator('#emblemas .v11-family-grid a:visible').count()===7,'No-JS 7 badge categories accessible');
- check(await p.locator('#raros .v9-family:visible').count()===14,'No-JS all 14 rare galleries accessible');
+ check(await p.locator('#raros .v9-family:visible').count()===15,'No-JS all 15 rare galleries accessible');
  check(await p.locator('#emblemas .v9-family:visible').count()===7,'No-JS all badge galleries accessible');
  await ctx.close();
 }finally{await browser.close();}
-fs.writeFileSync(path.join(output,'report.json'),JSON.stringify({status:'passed',checks,rareFamilies:10,rareSingletons:14,badgeFamilies:7},null,2));
+fs.writeFileSync(path.join(output,'report.json'),JSON.stringify({status:'passed',checks,rareFamilies:15,rareSingletons:14,badgeFamilies:7},null,2));
 console.log('V12 QUIET ATLAS PASS',checks);
