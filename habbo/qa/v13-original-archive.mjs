@@ -86,6 +86,9 @@ try{
   await p.goto('http://127.0.0.1:4173/habbo/'+(lang==='en'?'en/rare/':'pt-br/raro/')+'v13-collectible-gondola/',{waitUntil:'networkidle'});
   ok(await p.locator('main.v13-detail-main img').count()===1,'individual V13 collection detail exists');
   ok(await p.locator('main.v13-detail-main a[href*="habboxwiki.com"]').count()===1,'original source link retained');
+  await p.goto('http://127.0.0.1:4173/habbo/'+(lang==='en'?'en/rare/':'pt-br/raro/')+'holopod/',{waitUntil:'networkidle'});
+  ok(await p.locator('article.detail picture img[src$="/holo_boy_anim.gif"]').count()===1,'historic Holoboy record upgraded to authentic GIF');
+  ok(await p.locator('article.detail picture source[media="(prefers-reduced-motion: reduce)"]').count()===1,'historic Holoboy reduced-motion still source preserved');
   await c.close();
  }
  const nojs=await browser.newContext({viewport:{width:390,height:844},javaScriptEnabled:false});
