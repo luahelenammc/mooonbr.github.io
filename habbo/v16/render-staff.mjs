@@ -54,7 +54,7 @@ export function renderStaffStandalone(root,dist){
    '<meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#101520">'+
    '<title>'+esc(title)+' · Habbo Museu Vivo</title>'+
    '<link rel="stylesheet" href="/habbo/assets/v8-museum.css"><link rel="stylesheet" href="/habbo/assets/v13-home.css?v=20261019-v15.1">'+
-   '<link rel="stylesheet" href="/habbo/assets/v16-staff.css?v=20261019-v16.1"></head>'+
+   '<link rel="stylesheet" href="/habbo/assets/v16-staff.css?v=20261019-v16.1"><script defer src="/habbo/assets/v8-museum.js?v=20261019-v16.1"></script></head>'+
    '<body class="v16-staff-standalone"><a class="v8-skip" href="#gerentes">'+(en?'Skip to staff':'Ir para a Staff')+'</a>'+
    '<header class="v8-top"><a class="v8-wordmark" href="/habbo/'+lang+'/"><span class="v8-glyph">✦</span> Habbo <small>'+(en?'Memory museum':'Museu vivo')+'</small></a>'+
    '<nav class="v8-top-links" aria-label="'+(en?'Museum navigation':'Navegação do museu')+'">'+navHtml+'</nav></header>'+
