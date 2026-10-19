@@ -77,7 +77,11 @@
   }
   code.textContent=r.code+' · '+(index+1)+' / '+groups[group].length;
   name.textContent=r.label[pt?0:1];
-  source.href='https://habborator.org/badges/general.html';
+  status.textContent=verified?(pt?'Sprite original preservado':'Preserved original sprite'):S.status;
+  caveat.hidden=verified;
+  source.textContent=verified?(pt?'Abrir ficha completa →':'Open full record →'):S.view+' ↗';
+  source.href=verified?('/habbo/'+(pt?'pt-br/emblema/':'en/badge/')+r.code.toLowerCase().replace(/[^a-z0-9]+/g,'-')+'/'):'https://habborator.org/badges/general.html';
+  source.target=verified?'_self':'_blank';
   panel.setAttribute('data-v6-active',r.code);
  };
  redraw();
