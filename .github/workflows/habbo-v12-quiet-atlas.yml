@@ -1,0 +1,95 @@
+name: Habbo V12 quiet atlas and singleton conservation
+on:
+  push:
+    branches: [feat/habbo-v12-quiet-atlas-and-rare-singles]
+    paths:
+      - 'habbo/v12/**'
+      - 'habbo/v8/build-unified.mjs'
+      - 'habbo/v6/sync-static-output.mjs'
+      - 'habbo/qa/v12-quiet-atlas.mjs'
+      - '.github/workflows/habbo-v12-quiet-atlas.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'habbo/v12/**'
+      - 'habbo/v8/build-unified.mjs'
+      - 'habbo/v6/sync-static-output.mjs'
+      - 'habbo/qa/v12-quiet-atlas.mjs'
+      - '.github/workflows/habbo-v12-quiet-atlas.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: habbo-v12-quiet-atlas
+  cancel-in-progress: true
+jobs:
+  family-atlas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/habbo-v12-quiet-atlas-and-rare-singles
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: JS syntax and structural compiler integrity
+        run: |
+          node --check habbo/v12/home.js
+          node --check habbo/v8/build-unified.mjs
+          node --check habbo/v6/sync-static-output.mjs
+          node --check habbo/qa/v12-quiet-atlas.mjs
+      - name: Rebuild portable museum and synchronize Pages HTML
+        run: |
+          BASE_PATH=/habbo node habbo/build.mjs
+          node habbo/v6/sync-static-output.mjs --write
+          node habbo/v6/sync-static-output.mjs --check
+          grep -q 'v12-home.css?v=20261019-v12.1' habbo/index.html
+          grep -q 'v12-home.js?v=20261019-v12.1' habbo/en/index.html
+          grep -q 'v11-family-grid' habbo/pt-br/index.html
+          ! grep -q 'badge-br' habbo/pt-br/index.html
+      - name: Run static archival and sprite tests
+        run: |
+          node --test habbo/qa/v5-collections.test.mjs
+          node --test habbo/qa/v6-release-gate.test.mjs
+          node habbo/qa/run-public-qa.mjs
+      - name: Install Playwright Chromium
+        run: |
+          npm init -y
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Start Pages preview server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory . >/tmp/habbo-v11.log 2>&1 &
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            curl --silent --fail http://127.0.0.1:4173/habbo/ >/dev/null && break
+            sleep 1
+          done
+      - name: V12 quiet atlas and singleton conservation browser acceptance
+        run: node habbo/qa/v12-quiet-atlas.mjs
+      - name: Protect V8 gallery and original Places Dock
+        run: |
+          node habbo/qa/v8-visual.mjs
+          node habbo/qa/autoplay-hover-regression.mjs
+          node habbo/qa/visual-qa.mjs
+      - name: Upload browser evidence and diagnostic report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: habbo-v12-quiet-atlas-qa
+          path: |
+            habbo/qa/v12-artifacts/
+            habbo/qa/v8-evidence/
+            habbo/qa/visual-artifacts/
+      - name: Commit verified Pages assets to feature branch
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A habbo/index.html habbo/pt-br/index.html habbo/en/index.html
+          git add -A habbo/assets/v12-home.css habbo/assets/v12-home.js
+          if ! git diff --cached --quiet; then
+            git commit -m 'build(habbo): publish verified V12 compact atlas and grouped rarities to Pages source'
+            git push origin HEAD:feat/habbo-v12-quiet-atlas-and-rare-singles
+          fi
