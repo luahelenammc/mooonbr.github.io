@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "stage": "checkpoint_require_gate",
+  "note": "Canonical hashes from the Work V6 asset report. No asset included or publication authorized by this manifest.",
+  "assets": [
+    {
+      "path": "habbo/assets/v6/badges/HC1.gif",
+      "sha256": "c6f364f0b10cf490bb46339632c07c70b4bfdc705c73caf5ea7105e5604765ca",
+      "source": "https://images.habbo.com/c_images/album1584/HC1.gif",
+      "type": "badge"
+    },
+    {
+      "path": "habbo/assets/v6/badges/HC2.gif",
+      "sha256": "018760955592a9fdee7d2d364107ce155bdf5909c4393d4c09e181affe9438ed",
+      "source": "https://images.habbo.com/c_images/album1584/HC2.gif",
+      "type": "badge"
+    },
+    {
+      "path": "habbo/assets/v6/badges/ACH_BasicClub1.gif",
+      "sha256": "045516b87e4c4a2210a370c7051fa695f64b7a11a02aff23612b88f01d79e3b8",
+      "source": "https://images.habbo.com/c_images/album1584/ACH_BasicClub1.gif",
+      "type": "badge"
+    },
+    {
+      "path": "habbo/assets/v6/badges/ACH_BasicClub2.gif",
+      "sha256": "623bd8ed619b66445424529a372b9925aefcacae8f72020cbf867be7a009db6c",
+      "source": "https://images.habbo.com/c_images/album1584/ACH_BasicClub2.gif",
+      "type": "badge"
+    },
+    {
+      "path": "habbo/assets/v6/badges/ACH_BasicClub3.gif",
+      "sha256": "288d79308d3340bc93e5c9a1fd3179e0d5e474b902f027857acd3dceb5874b58",
+      "source": "https://images.habbo.com/c_images/album1584/ACH_BasicClub3.gif",
+      "type": "badge"
+    },
+    {
+      "path": "habbo/assets/v6/badges/ACH_BasicClub4.gif",
+      "sha256": "744910e9c2ed003e2dd8f5cd67c409efe76caf5217ecfc94d809de1b8de01a90",
+      "source": "https://images.habbo.com/c_images/album1584/ACH_BasicClub4.gif",
+      "type": "badge"
+    },
+    {
+      "path": "habbo/assets/v6/badges/ACH_BasicClub5.gif",
+      "sha256": "41ba0cd784101fbf5f69a070f09c1d6188b6d39b61c65ad164d7b96528bd36b6",
+      "source": "https://images.habbo.com/c_images/album1584/ACH_BasicClub5.gif",
+      "type": "badge"
+    },
+    {
+      "path": "habbo/assets/v6/badges/ACH_VipClub1.gif",
+      "sha256": "b87e3cbc89c531b2eb57d6272e1e66bbfa86e894522bf4cdc70ba5ccee09631c",
+      "source": "https://images.habbo.com/c_images/album1584/ACH_VipClub1.gif",
+      "type": "badge"
+    },
+    {
+      "path": "habbo/assets/v6/badges/ACH_VipClub2.gif",
+      "sha256": "982960c864861b23413a8525f33bd479641424cb4430c08d77e31544c21d54bc",
+      "source": "https://images.habbo.com/c_images/album1584/ACH_VipClub2.gif",
+      "type": "badge"
+    },
+    {
+      "path": "habbo/assets/v6/badges/ACH_VipClub3.gif",
+      "sha256": "8a560142e70ea5cee792a4dafc78956f28b331e8f56be526987acc631335d534",
+      "source": "https://images.habbo.com/c_images/album1584/ACH_VipClub3.gif",
+      "type": "badge"
+    },
+    {
+      "path": "habbo/assets/v6/badges/ACH_VipClub4.gif",
+      "sha256": "a2092e6b9600ee1bc1751d7a3b3a713dcfb2be722366efd04256124f5becf883",
+      "source": "https://images.habbo.com/c_images/album1584/ACH_VipClub4.gif",
+      "type": "badge"
+    },
+    {
+      "path": "habbo/assets/v6/badges/ACH_VipClub5.gif",
+      "sha256": "8acf6b854ccc937140234b2bcf21605f6065271fe1406a3ac94c7243bfa8c70a",
+      "source": "https://images.habbo.com/c_images/album1584/ACH_VipClub5.gif",
+      "type": "badge"
+    },
+    {
+      "path": "habbo/assets/v6/badges/EHR.gif",
+      "sha256": "38c1eeb2ecac52392eb4479ad0758c1298ae8a74c2b6616d4d3ed44ad6744e90",
+      "source": "https://images.habbo.com/c_images/album1584/EHR.gif",
+      "type": "badge"
+    },
+    {
+      "path": "habbo/assets/v6/rares/holiday.gif",
+      "sha256": "b761bd20f44331c9737b85c240b68c565ae77e8f1053b59d8558accc09de224a",
+      "source": "https://habborator.org/furniture/display/items/holiday.gif",
+      "type": "rare_display_sprite"
+    },
+    {
+      "path": "habbo/assets/v6/rares/lappland.gif",
+      "sha256": "848014726f1829966a3368d0ec8fba9721655137c9ec7862991d3bc2d6cd30e9",
+      "source": "https://habborator.org/furniture/display/items/lappland.gif",
+      "type": "rare_display_sprite"
+    },
+    {
+      "path": "habbo/assets/v6/rares/aloe.gif",
+      "sha256": "de78a3622374f094eab2c47aa9b0b7e394247626a490af65cfb526dc7fa6dddc",
+      "source": "https://habborator.org/furniture/display/items/aloe.gif",
+      "type": "rare_display_sprite"
+    },
+    {
+      "path": "habbo/assets/v6/rares/deck.gif",
+      "sha256": "9435feaf105ca7aad4ce0dcb464befeceeb27507ffae64a377e8f584fbd96746",
+      "source": "https://habborator.org/furniture/display/items/deck.gif",
+      "type": "rare_display_sprite"
+    },
+    {
+      "path": "habbo/assets/v6/rares/hammock.gif",
+      "sha256": "19d721fc72c56b198648aafafd21a676bd13955091933fccb974afd839aba32d",
+      "source": "https://habborator.org/furniture/display/items/hammock.gif",
+      "type": "rare_display_sprite"
+    },
+    {
+      "path": "habbo/assets/v6/rares/globe.gif",
+      "sha256": "9fa7731fae9092d5f9a6ab45fbc3c31b63fe51901a278be870c6b9b42bf03677",
+      "source": "https://habborator.org/furniture/display/items/globe.gif",
+      "type": "rare_display_sprite"
+    },
+    {
+      "path": "habbo/assets/v6/rares/speaker.gif",
+      "sha256": "8ecd6aea778e1c047a9f7d4d22d68175c24a3e951ae365824914d334050c2c75",
+      "source": "https://habborator.org/furniture/display/items/speaker.gif",
+      "type": "rare_display_sprite"
+    },
+    {
+      "path": "habbo/assets/v6/rares/cola.gif",
+      "sha256": "373f31434160d1abe3993c76571d7c458b969c212ff2302180c166f684d317cc",
+      "source": "https://habborator.org/furniture/display/items/cola.gif",
+      "type": "rare_display_sprite"
+    },
+    {
+      "path": "habbo/assets/v6/rares/gallery_infobus.gif",
+      "sha256": "8895a2df6a3fd835b096e35a37f6183a93c3a49131c0567f3db64aef8e907a2c",
+      "source": "https://habborator.org/furniture/display/items/gallery_infobus.gif",
+      "type": "rare_display_sprite"
+    }
+  ]
+}
