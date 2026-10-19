@@ -7,6 +7,7 @@ on:
     paths:
       - "habbo/v7/**"
       - "habbo/qa/v7-classic-badges-visual.mjs"
+      - "habbo/qa/v5-visual.mjs"
       - "habbo/v6/sync-static-output.mjs"
       - ".github/workflows/habbo-v7-classic-global-badges.yml"
   workflow_dispatch:
