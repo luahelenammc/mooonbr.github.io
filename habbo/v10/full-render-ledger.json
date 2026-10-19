@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "sourcePolicy": "Archive-native object render, not 21–30px hand/catalogue icon. Source files owned by the historical rights holders.",
+  "reviewedDate": "2026-10-19",
+  "assets": [
+    {
+      "id": "holiday-romance",
+      "url": "https://habborator.org/furniture/other_rare/romance.gif",
+      "width": 83,
+      "height": 126,
+      "sha256": "d84a2206b6a38170073f9073df19d036a3bdcb418627757c7f000680c6a3286c",
+      "local": "habbo/assets/v10/full-rares/holiday-romance.gif",
+      "assetKind": "original_furniture_sprite"
+    },
+    {
+      "id": "santa-and-elf",
+      "url": "https://habborator.org/furniture/other_rare/lapland.gif",
+      "width": 88,
+      "height": 126,
+      "sha256": "5da24f2e648081fb575dd0f6d2efef706143f122be8a435a860c004e0799c414",
+      "local": "habbo/assets/v10/full-rares/santa-and-elf.gif",
+      "assetKind": "original_furniture_sprite"
+    },
+    {
+      "id": "aloe-vera",
+      "url": "https://habborator.org/furniture/other_rare/aloe.gif",
+      "width": 45,
+      "height": 54,
+      "sha256": "7c2bcdcc7b884622aeffb1c427a7118e1ac0ca443e7bebf11e14a8125ee51e64",
+      "local": "habbo/assets/v10/full-rares/aloe-vera.gif",
+      "assetKind": "original_furniture_sprite"
+    },
+    {
+      "id": "dj-turntable",
+      "url": "https://habborator.org/furniture/other_rare/deck.gif",
+      "width": 62,
+      "height": 50,
+      "sha256": "4c82e86f1daecffa0e409314c138d6901024c776cd653a715b6b3f6b5bdb8a48",
+      "local": "habbo/assets/v10/full-rares/dj-turntable.gif",
+      "assetKind": "original_furniture_sprite"
+    },
+    {
+      "id": "crusoes-hammock",
+      "url": "https://habborator.org/furniture/other_rare/hammock.gif",
+      "width": 110,
+      "height": 111,
+      "sha256": "e4b7bf9893de869a22077dd9f4f352f7427f0c81cc4ea45dcffd67f9dfa4dffc",
+      "local": "habbo/assets/v10/full-rares/crusoes-hammock.gif",
+      "assetKind": "original_furniture_sprite"
+    },
+    {
+      "id": "snow-globe",
+      "url": "https://habborator.org/furniture/other_rare/globe.gif",
+      "width": 41,
+      "height": 59,
+      "sha256": "fe7e75ebff07dff976b393f420876dea357962b724b5cbba715407bbaf451d05",
+      "local": "habbo/assets/v10/full-rares/snow-globe.gif",
+      "assetKind": "original_furniture_sprite"
+    },
+    {
+      "id": "speakers-corner",
+      "url": "https://habborator.org/furniture/other_rare/speaker.gif",
+      "width": 56,
+      "height": 94,
+      "sha256": "d5b4a155d590a4400c682da36f27e6828bf66847814a75cfbdb68666816d411f",
+      "local": "habbo/assets/v10/full-rares/speakers-corner.gif",
+      "assetKind": "original_furniture_sprite"
+    },
+    {
+      "id": "cola-machine",
+      "url": "https://habborator.org/furniture/other_rare/cola.gif",
+      "width": 60,
+      "height": 108,
+      "sha256": "d106943b8ac8a577863ed4f8f1640c94eb329e2918992ed9e0bb03ff932ccc24",
+      "local": "habbo/assets/v10/full-rares/cola-machine.gif",
+      "assetKind": "original_furniture_sprite"
+    },
+    {
+      "id": "infobus-poster",
+      "url": "https://habboxwiki.com/wiki/images/e/ee/Gallery_7.gif",
+      "width": 58,
+      "height": 58,
+      "sha256": "da64252ebdb0d3168be46b34606359894b4fc5d81d433c775d8e085adf680d7b",
+      "local": "habbo/assets/v10/full-rares/infobus-poster.gif",
+      "assetKind": "original_wall_poster_sprite"
+    }
+  ]
+}
