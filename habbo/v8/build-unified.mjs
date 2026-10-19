@@ -161,6 +161,8 @@ export function buildUnified({root,dist}) {
   html=html.replace(/<div class="v8-home-chapters"[\s\S]*?<!-- END V8 HOME CHAPTERS -->/g,'');
   html=html.replace(/<link rel="stylesheet" href="\/habbo\/assets\/v8-home.css">/g,'');
   html=html.replace(/<script defer src="\/habbo\/assets\/v9-home.js"><\/script>/g,'');
+  // Existing Pages output may be the input on the next build: remove old dialogs before adding exactly one.
+  html=html.replace(/<dialog class="v9-home-dialog"[\s\S]*?<\/dialog>/g,'');
   html=html.replace('id="lugares" ','');
   html=html.replace('<section class="cinematic-dock"','<section id="lugares" class="cinematic-dock"');
   const lang=en?'en':'pt-br';
