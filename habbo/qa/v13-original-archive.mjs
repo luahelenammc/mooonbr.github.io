@@ -28,7 +28,7 @@ try{
    ok(await page.locator('html.v12-quiet-ready').count()===1,'progressive enhancement works');
    ok(await page.locator('link[href*="v13-home.css?v=20261019-v15.1"]').count()===1,'v13 stylesheet missing');
    ok(await page.locator('script[src*="v13-home.js?v=20261019-v15.1"]').count()===1,'v13 script missing');
-   ok(await page.locator('#raros [data-v9-item]').count()===158,'148 historic rare and HC specimens required');
+   ok(await page.locator('#raros [data-v9-item]').count()===148,'148 historic rare and HC specimens required');
    ok(await page.locator('#emblemas [data-v9-item]').count()===101,'101 global classic badges missing');
    ok(await page.locator('#raros .v11-family-grid a').count()===15,'15 groups expected');
    ok(await page.locator('#raros .v11-family-grid a:visible').count()===15,'all 15 groups must be visible');
@@ -36,7 +36,7 @@ try{
    ok(await page.locator('#raros-family-smoke-machines [data-v9-item]').count()===10,'ten smoke machines');
    ok(await page.locator('#raros-family-monoliths [data-v9-item]').count()===10,'ten monoliths');
    ok(await page.locator('#raros-family-collectables-2008-2009 [data-v9-item]').count()===16,'sixteen historical collectibles');
-   ok(await page.locator('#raros-family-v12-rare-avulsos [data-v9-item]').count()===15,'existing 14 rare singles intact');
+   ok(await page.locator('#raros-family-v12-rare-avulsos [data-v9-item]').count()===14,'existing 14 rare singles intact');
    ok(await page.locator('#raros .v11-family-grid').evaluate(e=>getComputedStyle(e).overflowX==='visible'&&e.scrollWidth<=e.clientWidth+2),'family directory cannot hide horizontal overflow');
    ok(await page.locator('[href*="badge-br"]').count()===0,'regional-only badges must be excluded');
    ok(await page.locator('#raros [data-v9-id="holopod"] img').first().getAttribute('src')==='/habbo/assets/v13/native/holo_boy_anim.gif','Holoboy animated src');
@@ -81,7 +81,7 @@ try{
   const c=await browser.newContext({viewport:{width:1200,height:800}});
   const p=await c.newPage();
   await p.goto('http://127.0.0.1:4173/habbo/'+(lang==='en'?'en/rares/':'pt-br/raros/'),{waitUntil:'networkidle'});
-  ok(await p.locator('.v8-specimen').count()===158,'standalone rare archive complete');
+  ok(await p.locator('.v8-specimen').count()===148,'standalone rare archive complete');
   ok(await p.locator('.v8-family').count()===15,'standalone 15 families');
   await p.goto('http://127.0.0.1:4173/habbo/'+(lang==='en'?'en/rare/':'pt-br/raro/')+'v13-collectible-gondola/',{waitUntil:'networkidle'});
   ok(await p.locator('main.v13-detail-main img').count()===1,'individual V13 collection detail exists');
