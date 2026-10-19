@@ -8,6 +8,7 @@ on:
       - 'habbo/v6/release-candidates.mjs'
       - 'habbo/v6/sync-static-output.mjs'
       - 'habbo/qa/v10-index-debug-visual.mjs'
+      - 'habbo/qa/v6-release-gate.test.mjs'
       - '.github/workflows/habbo-v10-debug.yml'
   workflow_dispatch:
 permissions:
