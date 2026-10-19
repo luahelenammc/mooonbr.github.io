@@ -258,7 +258,7 @@ export function buildUnified({root,dist}) {
    '<a href="#" data-v9-dialog-link>'+(en?'Historical record and sources ↗':'Ficha histórica e fontes ↗')+'</a>'+
    '<button type="button" data-v9-dialog-step="1" aria-label="'+(en?'Next':'Próximo')+'">→</button></div></dialog>';
   html=html.replace('</main>', '</main>'+v9Dialog);
-  html=html.replace('</head>','<link rel="stylesheet" href="/habbo/assets/v13-home.css?v=20261019-v13.1"><script defer src="/habbo/assets/v13-home.js?v=20261019-v13.1"></script></head>');
+  html=html.replace('</head>','<link rel="stylesheet" href="/habbo/assets/v13-home.css?v=20261019-v14.1"><script defer src="/habbo/assets/v13-home.js?v=20261019-v13.1"></script></head>');
   const rewrites=[
    [en?'/habbo/en/rares/':'/habbo/pt-br/raros/','#raros'],
    [en?'/habbo/en/badges/':'/habbo/pt-br/emblemas/','#emblemas']
