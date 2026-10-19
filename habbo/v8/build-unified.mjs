@@ -21,16 +21,32 @@ const rareExtra=[
 ];
 function rareItems(root) {
  const base=read(path.join(root,'data/v5-rares.json'));
- const old=base.map(item=>({
-  id:item.id, family:item.familyId, familyPt:item.familyName.ptBr, familyEn:item.familyName.en,
-  pt:item.name.ptBr,en:item.name.en,image:item.image,descriptionPt:item.description?.ptBr||'',descriptionEn:item.description?.en||''
- }));
+ const v13=read(path.join(root,'v13/source-manifest.json'));
+ const animated=new Map(v13.animations.map(o=>[o.id,o]));
+ const old=base.map(item=>{
+  const anim=animated.get(item.id);
+  return {id:item.id,family:item.familyId,familyPt:item.familyName.ptBr,familyEn:item.familyName.en,
+   pt:item.name.ptBr,en:item.name.en,image:anim?'/'+anim.local:item.image,
+   staticImage:anim?item.image:null,animated:!!anim,source:anim?.source||'',
+   descriptionPt:item.description?.ptBr||'',descriptionEn:item.description?.en||''};
+ });
  const added=rareExtra.map(([id,pt,en,file,family])=>({id,family:id,
   familyPt:pt,familyEn:family,pt,en,image:'/habbo/assets/v10/full-rares/'+id+'.gif',
   descriptionPt:'Peça histórica de catálogo. A circulação no Habbo BR depende de evidência específica.',
   descriptionEn:'Historic catalogue piece. Availability in Habbo Brazil requires item-specific evidence.'
  }));
- return [...old,...added];
+ const extra=v13.newRares.map(item=>({...item,image:'/'+item.local,
+  descriptionPt:'Sprite histórico original preservado. A circulação em hotéis individuais não foi confirmada.',
+  descriptionEn:'Original historic sprite preserved; hotel-specific release is not established.'}));
+ const all=[...old,...added,...extra];
+ if(all.length!==105||new Set(all.map(x=>x.id)).size!==all.length)throw Error('V13 rare corpus invalid: '+all.length);
+ return all;
+}
+function picture(item,attr='') {
+ const inner='<img src="'+escape(item.image)+'"'+attr+'>';
+ return item.animated&&item.staticImage
+  ?'<picture><source media="(prefers-reduced-motion: reduce)" srcset="'+escape(item.staticImage)+'">'+inner+'</picture>'
+  :inner;
 }
 function badgeItems(root) {
  const ledger=read(path.join(root,'assets/v7-classic-badges.json'));
@@ -52,8 +68,8 @@ function tile(item,kind,en) {
  return '<button class="v8-specimen" type="button" data-v8-item data-id="'+escape(item.id)+
   '" data-title="'+escape(label)+'" data-image="'+escape(item.image)+
   '" data-link="'+escape(href)+'" data-family="'+escape(en?item.familyEn:item.familyPt)+
-  '" aria-label="'+escape((en?'Inspect ':'Examinar ')+label)+'"><img src="'+escape(item.image)+
-  '" alt="" loading="lazy" decoding="async"><span>'+escape(label)+'</span></button>';
+  '" data-static-image="'+escape(item.staticImage||'')+'" aria-label="'+escape((en?'Inspect ':'Examinar ')+label)+'">'+
+  picture(item,' alt="" loading="lazy" decoding="async"')+'<span>'+escape(label)+'</span></button>';
 }
 // V12: display-only grouping. Each item's historic family metadata remains
 // intact in records and lightboxes. Group solo specimens only if 2+ exist.
@@ -129,9 +145,9 @@ function homeItem(item,kind,en,ordinal) {
   :'/habbo/'+(en?'en/badge/':'pt-br/emblema/')+'classic-'+String(item.id).toLowerCase()+'/';
  return '<a class="v9-home-item" role="listitem" href="'+detail+'" data-v9-item data-v9-id="'+escape(item.id)+
   '" data-v9-title="'+escape(label)+'" data-v9-family="'+escape(group)+
-  '" data-v9-image="'+escape(item.image)+'" data-v9-link="'+detail+'" data-v9-ordinal="'+ordinal+
+  '" data-v9-image="'+escape(item.image)+'" data-v9-static-image="'+escape(item.staticImage||'')+'" data-v9-link="'+detail+'" data-v9-ordinal="'+ordinal+
   '" aria-label="'+escape((en?'Inspect ':'Inspecionar ')+label)+'">'+
-  '<span class="v9-item-art"><img loading="lazy" decoding="async" src="'+escape(item.image)+'" alt=""></span>'+
+  '<span class="v9-item-art">'+picture(item,' loading="lazy" decoding="async" alt=""')+'</span>'+
   '<span class="v9-item-caption">'+escape(label)+'</span></a>';
 }
 function homeChapter(id,title,description,items,en,route) {
@@ -139,7 +155,7 @@ function homeChapter(id,title,description,items,en,route) {
  const label=en?(isBadge?'badges':'rares'):(isBadge?'emblemas':'raros');
  const jump=groups.map(group=>{
   const name=en?group.en:group.pt, covers=group.misc?group.items.slice(0,3):group.items.slice(0,1);
-  const art=covers.map(item=>'<img src="'+escape(item.image)+'" loading="lazy" decoding="async" alt="">').join('');
+  const art=covers.map(item=>picture(item,' loading="lazy" decoding="async" alt=""')).join('');
   return '<a class="v11-family-tile'+(group.misc?' v12-misc-family':'')+'" href="#'+id+'-family-'+escape(group.id)+'" aria-controls="'+id+'-family-'+escape(group.id)+'" aria-label="'+escape(name+', '+group.items.length+' '+(en?'items':'peças'))+'">'+
    '<span class="v11-family-thumb" aria-hidden="true">'+art+'</span>'+
    '<span class="v11-family-text"><span class="v11-family-name">'+escape(name)+'</span></span></a>';
@@ -184,6 +200,8 @@ export function buildUnified({root,dist}) {
   html=html.replace(/<script defer src="\/habbo\/assets\/v11-home.js(?:\?[^"]*)?"><\/script>/g,'');
   html=html.replace(/<link rel="stylesheet" href="\/habbo\/assets\/v12-home.css(?:\?[^"]*)?">/g,'');
   html=html.replace(/<script defer src="\/habbo\/assets\/v12-home.js(?:\?[^"]*)?"><\/script>/g,'');
+  html=html.replace(/<link rel="stylesheet" href="\/habbo\/assets\/v13-home.css(?:\?[^"]*)?">/g,'');
+  html=html.replace(/<script defer src="\/habbo\/assets\/v13-home.js(?:\?[^"]*)?"><\/script>/g,'');
   // Existing Pages output may be the input on the next build: remove old dialogs before adding exactly one.
   html=html.replace(/<dialog class="v9-home-dialog"[\s\S]*?<\/dialog>/g,'');
   html=html.replace('id="lugares" ','');
@@ -207,7 +225,7 @@ export function buildUnified({root,dist}) {
    '<a href="#" data-v9-dialog-link>'+(en?'Historical record and sources ↗':'Ficha histórica e fontes ↗')+'</a>'+
    '<button type="button" data-v9-dialog-step="1" aria-label="'+(en?'Next':'Próximo')+'">→</button></div></dialog>';
   html=html.replace('</main>', '</main>'+v9Dialog);
-  html=html.replace('</head>','<link rel="stylesheet" href="/habbo/assets/v12-home.css?v=20261019-v12.1"><script defer src="/habbo/assets/v12-home.js?v=20261019-v12.1"></script></head>');
+  html=html.replace('</head>','<link rel="stylesheet" href="/habbo/assets/v13-home.css?v=20261019-v13.1"><script defer src="/habbo/assets/v13-home.js?v=20261019-v13.1"></script></head>');
   const rewrites=[
    [en?'/habbo/en/rares/':'/habbo/pt-br/raros/','#raros'],
    [en?'/habbo/en/badges/':'/habbo/pt-br/emblemas/','#emblemas']
@@ -227,8 +245,11 @@ export function buildUnified({root,dist}) {
  const regional=path.join(dist,'assets/v5/badges');
  if(fs.existsSync(regional))fs.rmSync(regional,{recursive:true,force:true});
  for(const [source,dest] of [['v8/museum.css','assets/v8-museum.css'],
-  ['v8/museum.js','assets/v8-museum.js'],['v8/home.css','assets/v8-home.css'],['v9/home.js','assets/v9-home.js'],['v10/home.css','assets/v10-home.css'],['v10/home.js','assets/v10-home.js'],['v11/home.css','assets/v11-home.css'],['v11/home.js','assets/v11-home.js'],['v12/home.css','assets/v12-home.css'],['v12/home.js','assets/v12-home.js']]){
+  ['v8/museum.js','assets/v8-museum.js'],['v8/home.css','assets/v8-home.css'],['v9/home.js','assets/v9-home.js'],['v10/home.css','assets/v10-home.css'],['v10/home.js','assets/v10-home.js'],['v11/home.css','assets/v11-home.css'],['v11/home.js','assets/v11-home.js'],['v12/home.css','assets/v12-home.css'],['v12/home.js','assets/v12-home.js'],['v13/home.css','assets/v13-home.css'],['v13/home.js','assets/v13-home.js'],['v13/detail.css','assets/v13-detail.css']]){
   fs.copyFileSync(path.join(root,source),path.join(dist,dest));
  }
+ const nativeFrom=path.join(root,'assets/v13/native'),nativeTo=path.join(dist,'assets/v13/native');
+ if(!fs.existsSync(nativeFrom))throw Error('Original V13 sprites not yet acquired');
+ fs.cpSync(nativeFrom,nativeTo,{recursive:true,force:true});
  return {outcomes,homepage:['index.html','pt-br/index.html','en/index.html'],regionalPublished:0};
 }
