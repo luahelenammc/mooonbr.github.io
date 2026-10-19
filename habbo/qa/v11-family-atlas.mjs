@@ -45,6 +45,8 @@ try {
     ),id+' directory links must show native image, name, count and valid destination');
    }
    await page.locator('#raros .v11-family-directory').scrollIntoViewIfNeeded();
+   await page.waitForFunction(()=>document.querySelector('.collection-switch a[href="#raros"]')?.getAttribute('aria-current')==='location',null,{timeout:10000});
+   check(await page.locator('.collection-switch a[aria-current="location"]').count()===1,'Header must highlight only the chapter being viewed');
    await page.screenshot({path:path.join(out,lang+'-'+device+'-family-overview.png')});
    const allRares=page.locator('#raros .v11-family-grid a');
    // Direct access to the last family avoids stepping through all 23 with arrows.
@@ -71,6 +73,8 @@ try {
    await page.keyboard.press('Escape');
    check(await page.locator('.v9-home-dialog[open]').count()===0,'Lightbox Escape closes');
    await page.locator('#emblemas .v11-family-directory').scrollIntoViewIfNeeded();
+   await page.waitForFunction(()=>document.querySelector('.collection-switch a[href="#emblemas"]')?.getAttribute('aria-current')==='location',null,{timeout:10000});
+   check(await page.locator('.collection-switch a[aria-current="location"]').count()===1,'Badge chapter should update header navigation');
    await page.screenshot({path:path.join(out,lang+'-'+device+'-badge-overview.png')});
    await page.locator('#emblemas .v11-family-grid a').last().click();
    check(await page.locator('#emblemas .v11-family-grid a[aria-current="location"]').count()===1,'Badge direct selection works');
