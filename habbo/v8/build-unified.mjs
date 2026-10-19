@@ -310,7 +310,7 @@ export function buildUnified({root,dist}) {
  if(!fs.existsSync(nativeFrom))throw Error('Original V13 sprites not yet acquired');
  fs.cpSync(nativeFrom,nativeTo,{recursive:true,force:true});
  const avatarFrom=path.join(root,'assets/v17/managers'),avatarTo=path.join(dist,'assets/v17/managers');
- if(!fs.existsSync(avatarFrom)||fs.readdirSync(avatarFrom).length!==12)throw Error('Twelve verified manager sprites must be acquired before V17 build');
+ if(!fs.existsSync(avatarFrom)||fs.readdirSync(avatarFrom).length!==9)throw Error('Nine verified manager assets missing; three historical sources remain unavailable');
  fs.mkdirSync(path.dirname(avatarTo),{recursive:true});
  fs.cpSync(avatarFrom,avatarTo,{recursive:true,force:true});
  return {outcomes,detailPages,staffPages,homepage:['index.html','pt-br/index.html','en/index.html'],regionalPublished:0};
