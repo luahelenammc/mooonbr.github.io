@@ -24,6 +24,10 @@ jobs:
         with:
           node-version: '20'
       - run: node --check habbo/v17/acquire-managers.mjs
+      - name: Read original research snapshots from previously archived source audit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 39327623180 -n habbo-v17-manager-source-pages -D habbo/v17/source-audit
       - run: node habbo/v17/acquire-managers.mjs
       - name: Commit downloaded originals, provenance and image metadata
         run: |
