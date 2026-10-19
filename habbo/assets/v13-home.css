@@ -247,3 +247,11 @@ html.v11-family-ready .v9-home-archive .v9-family:not([data-v11-active="true"]){
  .v2-header .collection-switch{order:3;flex:1 0 100%;width:100%;max-width:100%;justify-content:center;padding:4px 5px}
  .v2-header .collection-switch a{padding:7px clamp(7px,3.7vw,15px);font-size:clamp(11px,3.1vw,12px);text-align:center}
 }
+
+/* V14 320px typography: preserve entire family labels without orphan letters. */
+@media(max-width:350px){
+ .v9-home-archive .v9-family-index.v11-family-grid a{grid-template-columns:31px minmax(0,1fr);gap:6px;padding:6px}
+ .v9-home-archive .v11-family-thumb{width:31px;height:34px}
+ .v9-home-archive .v11-family-thumb img{max-width:29px;max-height:31px}
+ .v9-home-archive .v11-family-name{font-size:10.75px;letter-spacing:-.02em}
+}
