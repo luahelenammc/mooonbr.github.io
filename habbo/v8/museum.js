@@ -7,6 +7,7 @@
  const family=main.querySelector('[data-v8-family]');
  const link=main.querySelector('[data-v8-feature-link]');
  const dialog=document.querySelector('[data-v8-lightbox]');
+ if(!items.length||!dialog)return;
  const dialogImg=dialog.querySelector('[data-v8-dialog-img]');
  const dialogTitle=dialog.querySelector('[data-v8-dialog-title]');
  const dialogLink=dialog.querySelector('[data-v8-dialog-link]');
