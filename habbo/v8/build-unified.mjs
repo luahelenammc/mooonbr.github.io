@@ -125,12 +125,17 @@ function homeItem(item,kind,en,ordinal) {
 function homeChapter(id,title,description,items,en,route) {
  const kind=id, groups=groupMap(items), lang=en?'en':'pt-br', isBadge=id==='emblemas';
  const label=en?(isBadge?'badges':'rares'):(isBadge?'emblemas':'raros');
- const jump=groups.map((group,index)=>'<a href="#'+id+'-family-'+escape(group.id)+
-  '" aria-label="'+escape((en?'Go to ':'Ir para ')+(en?group.en:group.pt))+'">'+
-  escape(en?group.en:group.pt)+'<small>'+group.items.length+'</small></a>').join('');
+ const jump=groups.map(group=>{
+  const name=en?group.en:group.pt, cover=group.items[0]?.image||'';
+  return '<a class="v11-family-tile" href="#'+id+'-family-'+escape(group.id)+'" aria-controls="'+id+'-family-'+escape(group.id)+'">'+
+   '<span class="v11-family-thumb" aria-hidden="true"><img src="'+escape(cover)+'" loading="lazy" decoding="async" alt=""></span>'+
+   '<span class="v11-family-text"><span class="v11-family-name">'+escape(name)+'</span>'+
+   '<small class="v11-family-count">'+group.items.length+' '+(en?(group.items.length===1?'piece':'pieces'):(group.items.length===1?'peça':'peças'))+'</small></span></a>';
+ }).join('');
  const sections=groups.map((group,index)=>{
   const groupTitle=en?group.en:group.pt, anchor=id+'-family-'+group.id;
   return '<section class="v9-family" id="'+escape(anchor)+'" data-v9-family-section aria-labelledby="'+escape(anchor)+'-title">'+
+   '<div class="v11-gallery-return"><a class="v11-return" href="#'+id+'-familias">'+(en?'↑ All families':'↑ Todas as famílias')+'</a></div>'+
    '<div class="v9-group-heading"><div class="v9-group-copy"><span class="v9-group-index">'+String(index+1).padStart(2,'0')+' / '+String(groups.length).padStart(2,'0')+
    '</span><h3 id="'+escape(anchor)+'-title">'+escape(groupTitle)+'</h3>'+
    '<p>'+group.items.length+' '+(en?(group.items.length===1?'piece':'pieces'):(group.items.length===1?'peça':'peças'))+'</p></div>'+
@@ -146,8 +151,9 @@ function homeChapter(id,title,description,items,en,route) {
  '<div class="v8-chapter-head"><div><p class="v8-overline">'+(isBadge?(en?'BADGES':'EMBLEMAS'):(en?'FURNITURE':'MOBIS'))+' · 2000–2011</p>'+
  '<h2 id="v8-title-'+id+'">'+title+'</h2><p>'+description+'</p>'+
  '<p class="v9-archive-total">'+items.length+' '+(en?'pieces across ':'peças · ')+groups.length+' '+(en?'families':'famílias')+'</p></div>'+
- '<a class="v8-full-collection" href="/habbo/'+lang+'/'+route+'/">'+(en?'Standalone collection':'Coleção separada')+' ↗</a></div>'+
- '<nav class="v9-family-index" aria-label="'+(en?'Jump to a family of ':'Ir para uma família de ')+label+'">'+jump+'</nav>'+
+ '<a class="v8-full-collection" href="/habbo/'+lang+'/'+route+'/">'+(en?'Records and sources':'Fichas e fontes')+' ↗</a></div>'+
+ '<div class="v11-family-directory" id="'+id+'-familias"><div><h3>'+(en?'Choose a family':'Escolha uma família')+'</h3><p>'+(en?'All families are right here. Choose one to explore its original specimens.':'Todas as famílias estão aqui. Selecione uma para explorar as peças originais.')+'</p></div><span class="v11-directory-count">'+groups.length+' '+(en?'families':'famílias')+'</span></div>'+
+ '<nav class="v9-family-index v11-family-grid" aria-label="'+(en?'Families of ':'Famílias de ')+label+'">'+jump+'</nav>'+
  '<div class="v9-families">'+sections+'</div></section>';
 }
 export function buildUnified({root,dist}) {
@@ -163,6 +169,8 @@ export function buildUnified({root,dist}) {
   html=html.replace(/<script defer src="\/habbo\/assets\/v9-home.js"><\/script>/g,'');
   html=html.replace(/<link rel="stylesheet" href="\/habbo\/assets\/v10-home.css(?:\?[^"]*)?">/g,'');
   html=html.replace(/<script defer src="\/habbo\/assets\/v10-home.js(?:\?[^"]*)?"><\/script>/g,'');
+  html=html.replace(/<link rel="stylesheet" href="\/habbo\/assets\/v11-home.css(?:\?[^"]*)?">/g,'');
+  html=html.replace(/<script defer src="\/habbo\/assets\/v11-home.js(?:\?[^"]*)?"><\/script>/g,'');
   // Existing Pages output may be the input on the next build: remove old dialogs before adding exactly one.
   html=html.replace(/<dialog class="v9-home-dialog"[\s\S]*?<\/dialog>/g,'');
   html=html.replace('id="lugares" ','');
@@ -186,7 +194,7 @@ export function buildUnified({root,dist}) {
    '<a href="#" data-v9-dialog-link>'+(en?'Historical record and sources ↗':'Ficha histórica e fontes ↗')+'</a>'+
    '<button type="button" data-v9-dialog-step="1" aria-label="'+(en?'Next':'Próximo')+'">→</button></div></dialog>';
   html=html.replace('</main>', '</main>'+v9Dialog);
-  html=html.replace('</head>','<link rel="stylesheet" href="/habbo/assets/v10-home.css?v=20261019-v10.1"><script defer src="/habbo/assets/v10-home.js?v=20261019-v10.1"></script></head>');
+  html=html.replace('</head>','<link rel="stylesheet" href="/habbo/assets/v11-home.css?v=20261019-v11.1"><script defer src="/habbo/assets/v11-home.js?v=20261019-v11.1"></script></head>');
   const rewrites=[
    [en?'/habbo/en/rares/':'/habbo/pt-br/raros/','#raros'],
    [en?'/habbo/en/badges/':'/habbo/pt-br/emblemas/','#emblemas']
@@ -206,7 +214,7 @@ export function buildUnified({root,dist}) {
  const regional=path.join(dist,'assets/v5/badges');
  if(fs.existsSync(regional))fs.rmSync(regional,{recursive:true,force:true});
  for(const [source,dest] of [['v8/museum.css','assets/v8-museum.css'],
-  ['v8/museum.js','assets/v8-museum.js'],['v8/home.css','assets/v8-home.css'],['v9/home.js','assets/v9-home.js'],['v10/home.css','assets/v10-home.css'],['v10/home.js','assets/v10-home.js']]){
+  ['v8/museum.js','assets/v8-museum.js'],['v8/home.css','assets/v8-home.css'],['v9/home.js','assets/v9-home.js'],['v10/home.css','assets/v10-home.css'],['v10/home.js','assets/v10-home.js'],['v11/home.css','assets/v11-home.css'],['v11/home.js','assets/v11-home.js']]){
   fs.copyFileSync(path.join(root,source),path.join(dist,dest));
  }
  return {outcomes,homepage:['index.html','pt-br/index.html','en/index.html'],regionalPublished:0};
