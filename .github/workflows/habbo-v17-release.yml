@@ -63,7 +63,7 @@ jobs:
           node habbo/v6/sync-static-output.mjs --check
           grep -q 'v13-home.css?v=20261019-v15.1' habbo/index.html
           grep -q 'v13-home.js?v=20261019-v16.1' habbo/en/index.html
-          grep -q 'v16-staff.css?v=20261019-v16.1' habbo/pt-br/index.html
+          grep -q 'v16-staff.css?v=20261019-v17.1' habbo/pt-br/index.html
           grep -q 'Gerentes</a>' habbo/index.html
           grep -q 'Managers</a>' habbo/en/index.html
           grep -q '4Queijos' habbo/pt-br/gerentes/index.html
