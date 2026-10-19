@@ -1,0 +1,21 @@
+name: Habbo V14 laser gate archive audit
+on:
+  push:
+    branches: [feat/habbo-v14-monoliths-laser-gates-public-spaces]
+    paths:
+      - 'habbo/v14/probe-laser.mjs'
+      - '.github/workflows/habbo-v14-probe.yml'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node habbo/v14/probe-laser.mjs

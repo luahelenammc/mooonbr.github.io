@@ -9,9 +9,9 @@ const original=JSON.parse(fs.readFileSync(path.join(root,'v13/source-manifest.js
 const ledger=JSON.parse(fs.readFileSync(path.join(root,'v13/native-ledger.json')));
 let count=0;
 const ok=(pass,msg)=>{assert.ok(pass,msg);count++;};
-ok(original.newRares.length===36,'36 sourced new rarities required');
+ok(original.newRares.length===46,'46 sourced rare additions required');
 ok(original.animations.length===2,'2 hologram animations required');
-ok(ledger.assets.length===38,'38 original sprites required');
+ok(ledger.assets.length===48,'48 original native sprites required');
 for(const a of ledger.assets)ok(a.sha256.length===64&&a.width>=20&&a.height>=20,'native asset verified '+a.id);
 ok(ledger.assets.find(x=>x.id==='holopod').frames===14,'Holoboy must contain 14 original frames');
 ok(ledger.assets.find(x=>x.id==='hologirl').frames===16,'Hologirl must contain 16 original frames');
@@ -26,12 +26,12 @@ try{
    await page.goto('http://127.0.0.1:4173/habbo/'+route,{waitUntil:'networkidle'});
    ok(await page.locator('.cinematic-dock').count()===1,'Places Dock must be preserved');
    ok(await page.locator('html.v12-quiet-ready').count()===1,'progressive enhancement works');
-   ok(await page.locator('link[href*="v13-home.css?v=20261019-v13.1"]').count()===1,'v13 stylesheet missing');
+   ok(await page.locator('link[href*="v13-home.css?v=20261019-v14.1"]').count()===1,'v13 stylesheet missing');
    ok(await page.locator('script[src*="v13-home.js?v=20261019-v13.1"]').count()===1,'v13 script missing');
-   ok(await page.locator('#raros [data-v9-item]').count()===105,'105 rares missing');
+   ok(await page.locator('#raros [data-v9-item]').count()===115,'115 rare sprites required');
    ok(await page.locator('#emblemas [data-v9-item]').count()===101,'101 global classic badges missing');
-   ok(await page.locator('#raros .v11-family-grid a').count()===13,'13 groups expected');
-   ok(await page.locator('#raros .v11-family-grid a:visible').count()===13,'all 13 groups must be visible');
+   ok(await page.locator('#raros .v11-family-grid a').count()===14,'14 groups expected');
+   ok(await page.locator('#raros .v11-family-grid a:visible').count()===14,'all 14 groups must be visible');
    ok(await page.locator('#emblemas .v11-family-grid a:visible').count()===7,'all 7 badge families visible');
    ok(await page.locator('#raros-family-smoke-machines [data-v9-item]').count()===10,'ten smoke machines');
    ok(await page.locator('#raros-family-monoliths [data-v9-item]').count()===10,'ten monoliths');
@@ -81,8 +81,8 @@ try{
   const c=await browser.newContext({viewport:{width:1200,height:800}});
   const p=await c.newPage();
   await p.goto('http://127.0.0.1:4173/habbo/'+(lang==='en'?'en/rares/':'pt-br/raros/'),{waitUntil:'networkidle'});
-  ok(await p.locator('.v8-specimen').count()===105,'standalone rare archive complete');
-  ok(await p.locator('.v8-family').count()===13,'standalone 13 families');
+  ok(await p.locator('.v8-specimen').count()===115,'standalone rare archive complete');
+  ok(await p.locator('.v8-family').count()===14,'standalone 14 families');
   await p.goto('http://127.0.0.1:4173/habbo/'+(lang==='en'?'en/rare/':'pt-br/raro/')+'v13-collectible-gondola/',{waitUntil:'networkidle'});
   ok(await p.locator('main.v13-detail-main img').count()===1,'individual V13 collection detail exists');
   ok(await p.locator('main.v13-detail-main a[href*="habboxwiki.com"]').count()===1,'original source link retained');
@@ -94,9 +94,9 @@ try{
  const nojs=await browser.newContext({viewport:{width:390,height:844},javaScriptEnabled:false});
  const page=await nojs.newPage();
  await page.goto('http://127.0.0.1:4173/habbo/pt-br/',{waitUntil:'load'});
- ok(await page.locator('#raros .v11-family-grid a:visible').count()===13,'no JS retains all 13 rare families');
- ok(await page.locator('#raros .v9-family:visible').count()===13,'no JS retains 13 rare galleries');
+ ok(await page.locator('#raros .v11-family-grid a:visible').count()===14,'no JS retains all 14 rare families');
+ ok(await page.locator('#raros .v9-family:visible').count()===14,'no JS retains 14 rare galleries');
  await nojs.close();
 }finally{await browser.close();}
-fs.writeFileSync(path.join(out,'report.json'),JSON.stringify({status:'passed',checks:count,rares:105,badges:101,newRares:36,animations:2,originals:38},null,2));
+fs.writeFileSync(path.join(out,'report.json'),JSON.stringify({status:'passed',checks:count,rares:115,badges:101,newRares:46,animations:2,originals:48},null,2));
 console.log('V13 ORIGINAL RARES PASS '+count);
