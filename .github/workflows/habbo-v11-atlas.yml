@@ -8,6 +8,14 @@ on:
       - 'habbo/v6/sync-static-output.mjs'
       - 'habbo/qa/v11-family-atlas.mjs'
       - '.github/workflows/habbo-v11-atlas.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'habbo/v11/**'
+      - 'habbo/v8/build-unified.mjs'
+      - 'habbo/v6/sync-static-output.mjs'
+      - 'habbo/qa/v11-family-atlas.mjs'
+      - '.github/workflows/habbo-v11-atlas.yml'
   workflow_dispatch:
 permissions:
   contents: write
