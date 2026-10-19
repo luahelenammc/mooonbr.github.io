@@ -1,0 +1,167 @@
+{
+  "sourcePolicy": "Original archived Habbo sprites only; never AI-generated. Undated account render is labeled and not claimed historically contemporary.",
+  "records": [
+    {
+      "id": "flecha",
+      "name": "Flecha",
+      "bytes": 1843,
+      "dimensions": {
+        "format": "png",
+        "w": 64,
+        "h": 110
+      },
+      "sha256": "302184b0a22f366dda640d815ea5b937e101c1ac765b1d39e250e9d0dcc25d5d",
+      "local": "habbo/assets/v17/managers/flecha.png",
+      "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0hyFpFD_38IJQHnchcX5nHj5AFj3ZvrK_dHgcQuh3pUvklV-B4xtsFlxSgMCk9UzJExG_aiKNdi2etqMqr3QFN2agIbNmmDkH04X1VgGGU7BCOvUgMX076W7_Gcx5migGQl0afCYEehs/s0/image20.png",
+      "origin": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "method": "2021 historical retrospective illustrating staff",
+      "sourceType": "dated-archive",
+      "expectedWidth": 64,
+      "expectedHeight": 110
+    },
+    {
+      "id": "paty-nestle",
+      "name": "Paty-Nestle",
+      "bytes": 3580,
+      "dimensions": {
+        "format": "png",
+        "w": 64,
+        "h": 110
+      },
+      "sha256": "7a629ddcaee28c034555654d0621e9dd6e36ade16ec435e48b1065153cfcedc6",
+      "local": "habbo/assets/v17/managers/paty-nestle.png",
+      "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivjHgqWJ2kRCVZFfYe_LKlp0eqg0QNN6bnCBdb6zg2TkEDYJuOtH5r4obsATNpMiOxoOMWBMnbP-roqvJBCpe4eGMlzENQtu8CjBqX6g5pq2is220TAI8VFgaT2PDdkd8lgz3ANDMqbdY/s0/image1.png",
+      "origin": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "method": "2021 historical retrospective illustrating staff",
+      "sourceType": "dated-archive",
+      "expectedWidth": 64,
+      "expectedHeight": 110
+    },
+    {
+      "id": "4queijos",
+      "name": "4Queijos",
+      "bytes": 3086,
+      "dimensions": {
+        "format": "png",
+        "w": 64,
+        "h": 110
+      },
+      "sha256": "a8329e2665016d78d4611e181f9acab468956d5fe8e76f5644ac62fc2bfd7d68",
+      "local": "habbo/assets/v17/managers/4queijos.png",
+      "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6tCIj2ktPo5tS-JbLXWzUq_CNdHuvV8ermFyeDJl-8n1D-KpTQkOWd5-5re8RWbLF4pQJ7cusVuBGjNFsF0q-YalWE2Sn-uBmWGuFpth-17ijARTwvsdHHhvRmjfRBYWUIUNJKOIJCZg/s0/image19.png",
+      "origin": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "method": "2021 historical retrospective illustrating staff",
+      "sourceType": "dated-archive",
+      "expectedWidth": 64,
+      "expectedHeight": 110
+    },
+    {
+      "id": "disco-lee",
+      "name": "Disco-Lee",
+      "bytes": 2116,
+      "dimensions": {
+        "format": "png",
+        "w": 64,
+        "h": 110
+      },
+      "sha256": "5991091f419c8784f3fab0880ec2939d4b19617cac7ff55b8051d0cbb810fb21",
+      "local": "habbo/assets/v17/managers/disco-lee.png",
+      "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0_JM0eh7ib7KEkOflJ90PEb2afKpfuqgvzPILz3SzVA1iRha_itK38LbYy2TEV-ebURxO6Ah1sjhM-_rwqZBK3M5MAdORcjmbsF-KQgQYaa1QBesVaI9svR1B9IaItSW_MeQm_5m4N7I/s0/image27.png",
+      "origin": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "method": "2021 historical retrospective illustrating staff",
+      "sourceType": "dated-archive",
+      "expectedWidth": 64,
+      "expectedHeight": 110
+    },
+    {
+      "id": "missfurby",
+      "name": "MissFurby",
+      "bytes": 1516,
+      "dimensions": {
+        "format": "png",
+        "w": 64,
+        "h": 110
+      },
+      "sha256": "97db34784fc4ecb5cd1ed14155340ad75fc1bef5e2c616c71f75060aaead7fd4",
+      "local": "habbo/assets/v17/managers/missfurby.png",
+      "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhw6NsvSPUrMtQXVOQQQp37tJEdheYaPn5_b5MTazRG-zpvHgTjrEOL0WYHvmUCa-aCMTMhcopR4adWMMNWEF7Pk0BnMZWipzvN_XIk1-cxGRKNpe5fcOHEQzIz3WEv-f2rki_-lIHAsCY/s0/image9.png",
+      "origin": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "method": "2021 historical retrospective illustrating staff",
+      "sourceType": "dated-archive",
+      "expectedWidth": 64,
+      "expectedHeight": 110
+    },
+    {
+      "id": "reeet",
+      "name": "Reeet",
+      "bytes": 1765,
+      "dimensions": {
+        "format": "png",
+        "w": 64,
+        "h": 110
+      },
+      "sha256": "0287694775cee6df109da6304be7241729edf501e3bcbf17a7f06dbbb8ffcc2f",
+      "local": "habbo/assets/v17/managers/reeet.png",
+      "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVQy3g1NadD766ySHogVI0NluwitBt7H6GAWuDRe7YYI69aoD6NyvY29NLZV9X04qyComRP9gH57SWPRPru8KFZtavjoXj12Csu1XT2R40UYfpZBQRFMOQ2dwPnenjpTrJSPJqG69iHwM/s0/image23.png",
+      "origin": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "method": "2021 historical retrospective illustrating staff",
+      "sourceType": "dated-archive",
+      "expectedWidth": 64,
+      "expectedHeight": 110
+    },
+    {
+      "id": "thedjhabbo",
+      "name": "TheDJHabbo",
+      "bytes": 2297,
+      "dimensions": {
+        "format": "png",
+        "w": 64,
+        "h": 110
+      },
+      "sha256": "52ce7a304fe9ce6a3b62dae041392e86442e6f1a700c44ea45d0b7f0c43d3504",
+      "local": "habbo/assets/v17/managers/thedjhabbo.png",
+      "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7HBtZZCHgQZFoqhCOpt6c4556gZtxVhv8NsBv7Xy4gi8WxRcY1LHxVdkchih123jgv6dOERrMj2WuNWnCRLFjWEy8H3MGCFp7X40Tj4_q4d7c1HFKBA5nUs8f2AxROQIPR0AfyRrBgSc/s0/image10.png",
+      "origin": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "method": "2021 historical retrospective illustrating staff",
+      "sourceType": "dated-archive",
+      "expectedWidth": 64,
+      "expectedHeight": 110
+    },
+    {
+      "id": "acapulca",
+      "name": "Acapulca",
+      "bytes": 3607,
+      "dimensions": {
+        "format": "png",
+        "w": 64,
+        "h": 110
+      },
+      "sha256": "619638226f0feffb5048d1249b28343b14b21335c93a0627b495692840eb469f",
+      "local": "habbo/assets/v17/managers/acapulca.png",
+      "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiC-LrJ7Ju9ti_i7yjawuE-QlhH9K3s9WY_3RsseRYdrm9WnpG1YOwWTfQQFiJtdYvqbVSq7R63j8V5433mVhnJqjD7elXJ2DRwD1gGjA2-xH9EFlLrhsz4ukyurZKnZN9ON9pQj6sekCs/s0/image16.png",
+      "origin": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "method": "2021 historical retrospective illustrating staff",
+      "sourceType": "dated-archive",
+      "expectedWidth": 64,
+      "expectedHeight": 110
+    },
+    {
+      "id": "prefeita",
+      "name": "Prefeita",
+      "bytes": 3444,
+      "dimensions": {
+        "format": "png",
+        "w": 128,
+        "h": 220
+      },
+      "sha256": "ebfeaec3d37e635e4f355d2fb15e9a8f33fdd67ea6e28673114e6eb459c1c034",
+      "local": "habbo/assets/v17/managers/prefeita.png",
+      "url": "https://habbohistory.com/habbo-imaging/avatarimage?user=Prefeita&hotel=br&direction=2&head_direction=2&gesture=std&action=std&size=l&format=png",
+      "origin": "https://habbohistory.com/imager",
+      "method": "Historical-name lookup, current figure only; appearance not independently dated to 2006–2008",
+      "sourceType": "undated-account-render",
+      "expectedWidth": 0,
+      "expectedHeight": 0
+    }
+  ]
+}
