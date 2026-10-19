@@ -31,11 +31,11 @@ for(const source of sources){
   const u=new URL(url);
   if(u.protocol!=='https:')throw Error('Unsafe URL');
   const r=await fetch(url,{signal:AbortSignal.timeout(30000),headers:{'User-Agent':'Mozilla/5.0'}});
-  if(!r.ok)throw Error('Cannot preserve '+n+': '+r.status+' '+url);
+  if(!r.ok)throw Error('Cannot preserve '+source.name+': '+r.status+' '+url);
   const bytes=Buffer.from(await r.arrayBuffer());
-  if(bytes.subarray(0,8).toString('hex')!=='89504e470d0a1a0a')throw Error('Not PNG source '+n+' '+bytes.subarray(0,12).toString('hex'));
+  if(bytes.subarray(0,8).toString('hex')!=='89504e470d0a1a0a')throw Error('Not PNG source '+source.name+' '+bytes.subarray(0,12).toString('hex'));
   const width=bytes.readUInt32BE(16),height=bytes.readUInt32BE(20);
-  if(width<45||height<80||width>256||height>300)throw Error('Suspect room sprite dimensions '+n+' '+width+'x'+height);
+  if(width<45||height<80||width>256||height>300)throw Error('Suspect room sprite dimensions '+source.name+' '+width+'x'+height);
   fs.writeFileSync(file,bytes);
   entries.push({id:source.id,name:source.name,local:'habbo/assets/v17/staff/'+source.id+'.png',sourceArticle:originalSource[source.type],sourceImage:url,sourcePublication:source.type==='2011'?'2011 classic persona archive':'2021 compilation of historical classic staff sprites',width,height,sha256:sha(bytes),bytes:bytes.length,status:'archived-sprite'});
   console.log('ARCHIVED_STAFF',source.name,width+'x'+height,bytes.length,'SHA256',sha(bytes).slice(0,20));
