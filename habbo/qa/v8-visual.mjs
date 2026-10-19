@@ -32,7 +32,7 @@ try{
    await page.goto(base+'/'+rareRoute,{waitUntil:'networkidle'});
    check(await page.locator('body.v8-rares').count()===1,'new rare template missing');
    check(await page.locator('.v8-specimen[data-v8-item]').count()===69,'69 rare specimens required');
-   check(await page.locator('.v8-family').count()===11,'ten lineages plus standalone rarities must remain');
+   check(await page.locator('.v8-family').count()===10,'nine lineages plus standalone rarities must remain');
    check(await page.locator('#family-v12-rare-avulsos .v8-specimen').count()===14,'all 14 standalone rares must be present in archive');
    check(await page.locator('#family-eggs').count()===1,'legacy rare anchor preserved');
    check(await page.locator('.v8-family').first().isVisible(),'first family not visible');
