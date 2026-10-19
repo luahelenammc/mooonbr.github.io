@@ -110,13 +110,45 @@ function renderCollection(root,dist,kind,en) {
  write(dist,route,html);
  return {kind,route,count:items.length,groups:groups.length};
 }
+function homeItem(item,kind,en,ordinal) {
+ const label=en?item.en:item.pt, group=en?item.familyEn:item.familyPt;
+ const detail=kind==='raros'
+  ?'/habbo/'+(en?'en/rare/':'pt-br/raro/')+item.id+'/'
+  :'/habbo/'+(en?'en/badge/':'pt-br/emblema/')+'classic-'+slug(item.id)+'/';
+ return '<a class="v9-home-item" role="listitem" href="'+detail+'" data-v9-item data-v9-id="'+escape(item.id)+
+  '" data-v9-title="'+escape(label)+'" data-v9-family="'+escape(group)+
+  '" data-v9-image="'+escape(item.image)+'" data-v9-link="'+detail+'" data-v9-ordinal="'+ordinal+
+  '" aria-label="'+escape((en?'Inspect ':'Inspecionar ')+label)+'">'+
+  '<span class="v9-item-art"><img loading="lazy" decoding="async" src="'+escape(item.image)+'" alt=""></span>'+
+  '<span class="v9-item-caption">'+escape(label)+'</span></a>';
+}
 function homeChapter(id,title,description,items,en,route) {
- const n=id==='raros'?11:15, shown=items.slice(0,n),lang=en?'en':'pt-br';
- return '<section class="v8-home-chapter" id="'+id+'" aria-labelledby="v8-title-'+id+'">'+
- '<div class="v8-chapter-head"><div><p class="v8-overline">'+(id==='raros'?(en?'FURNITURE':'MOBIS'):(en?'BADGES':'EMBLEMAS'))+
- ' · 2000–2011</p><h2 id="v8-title-'+id+'">'+title+'</h2><p>'+description+'</p></div>'+
- '<a class="v8-full-collection" href="/habbo/'+lang+'/'+route+'/">'+(en?'Explore all':'Explorar coleção')+' ↗</a></div>'+
- '<div class="v8-home-rail" role="list">'+shown.map(item=>'<a role="listitem" href="/habbo/'+lang+'/'+route+'/#family-'+item.family+'"><img loading="lazy" decoding="async" src="'+escape(item.image)+'" alt=""><span>'+escape(en?item.en:item.pt)+'</span></a>').join('')+'</div></section>';
+ const kind=id, groups=groupMap(items), lang=en?'en':'pt-br', isBadge=id==='emblemas';
+ const label=en?(isBadge?'badges':'rares'):(isBadge?'emblemas':'raros');
+ const jump=groups.map((group,index)=>'<a href="#'+id+'-family-'+escape(group.id)+
+  '" aria-label="'+escape((en?'Go to ':'Ir para ')+(en?group.en:group.pt))+'">'+
+  escape(en?group.en:group.pt)+'<small>'+group.items.length+'</small></a>').join('');
+ const sections=groups.map((group,index)=>{
+  const groupTitle=en?group.en:group.pt, anchor=id+'-family-'+group.id;
+  return '<section class="v9-family" id="'+escape(anchor)+'" data-v9-family-section aria-labelledby="'+escape(anchor)+'-title">'+
+   '<div class="v9-group-heading"><div class="v9-group-copy"><span class="v9-group-index">'+String(index+1).padStart(2,'0')+' / '+String(groups.length).padStart(2,'0')+
+   '</span><h3 id="'+escape(anchor)+'-title">'+escape(groupTitle)+'</h3>'+
+   '<p>'+group.items.length+' '+(en?(group.items.length===1?'piece':'pieces'):(group.items.length===1?'peça':'peças'))+'</p></div>'+
+   '<div class="v9-group-controls" aria-label="'+escape(groupTitle)+'">'+
+   '<button type="button" data-v9-slide="-1" aria-label="'+(en?'Scroll back':'Deslizar para trás')+'">←</button>'+
+   '<button type="button" data-v9-slide="1" aria-label="'+(en?'Scroll forward':'Deslizar para frente')+'">→</button></div></div>'+
+   '<div class="v9-group-rail v8-home-rail'+(isBadge?' v9-badge-rail':' v9-rare-rail')+
+   '" role="list" data-v9-rail aria-label="'+escape(groupTitle)+'">'+
+   group.items.map(item=>homeItem(item,id,en,items.indexOf(item)+1)).join('')+
+   '</div></section>';
+ }).join('');
+ return '<section class="v8-home-chapter v9-home-archive" id="'+id+'" data-v9-chapter="'+id+'" aria-labelledby="v8-title-'+id+'">'+
+ '<div class="v8-chapter-head"><div><p class="v8-overline">'+(isBadge?(en?'BADGES':'EMBLEMAS'):(en?'FURNITURE':'MOBIS'))+' · 2000–2011</p>'+
+ '<h2 id="v8-title-'+id+'">'+title+'</h2><p>'+description+'</p>'+
+ '<p class="v9-archive-total">'+items.length+' '+(en?'pieces across ':'peças · ')+groups.length+' '+(en?'families':'famílias')+'</p></div>'+
+ '<a class="v8-full-collection" href="/habbo/'+lang+'/'+route+'/">'+(en?'Standalone collection':'Coleção separada')+' ↗</a></div>'+
+ '<nav class="v9-family-index" aria-label="'+(en?'Jump to a family of ':'Ir para uma família de ')+label+'">'+jump+'</nav>'+
+ '<div class="v9-families">'+sections+'</div></section>';
 }
 export function buildUnified({root,dist}) {
  const rare=rareItems(root), badge=badgeItems(root);
@@ -128,26 +160,29 @@ export function buildUnified({root,dist}) {
   // This operation is idempotent: a rebuild replaces the previous V8 chapters.
   html=html.replace(/<div class="v8-home-chapters"[\s\S]*?<!-- END V8 HOME CHAPTERS -->/g,'');
   html=html.replace(/<link rel="stylesheet" href="\/habbo\/assets\/v8-home.css">/g,'');
+  html=html.replace(/<script defer src="\/habbo\/assets\/v9-home.js"><\/script>/g,'');
   html=html.replace('id="lugares" ','');
   html=html.replace('<section class="cinematic-dock"','<section id="lugares" class="cinematic-dock"');
   const lang=en?'en':'pt-br';
-  const rareOrder=['dragon-black','throne','hologirl','samovar','holiday-romance','cola-machine','aloe-vera','crusoes-hammock'];
-  const featureRares=rareOrder.map(id=>rare.find(x=>x.id===id)).filter(Boolean);
-  const restRares=rare.filter(x=>!featureRares.includes(x));
-  const globalCodes=['ADM','HC1','HC2','HS1','ACH_BasicClub1','ACH_VipClub1','EHR','HX1','GL1','STA'];
-  const featureBadges=globalCodes.map(id=>badge.find(x=>x.id===id)).filter(Boolean);
-  const restBadges=badge.filter(x=>!featureBadges.includes(x));
   const chapter='<div class="v8-home-chapters">'+
    homeChapter('raros',en?'Classic rares':'Raros clássicos',
     en?'The furniture we dreamed of owning.':'Os mobis que a gente sonhava em ter.',
-    [...featureRares,...restRares],en,en?'rares':'raros')+
+    rare,en,en?'rares':'raros')+
    homeChapter('emblemas',en?'Classic badges':'Emblemas clássicos',
     en?'Symbols of belonging, discovery and achievement.':'Símbolos de pertencimento, descobertas e conquistas.',
-    [...featureBadges,...restBadges],en,en?'badges':'emblemas')+
+    badge,en,en?'badges':'emblemas')+
    '</div><!-- END V8 HOME CHAPTERS -->';
   const end=html.lastIndexOf('</main>');if(end<0)throw Error('Missing main on '+file);
   html=html.slice(0,end)+chapter+html.slice(end);
-  html=html.replace('</head>','<link rel="stylesheet" href="/habbo/assets/v8-home.css"></head>');
+  const v9Dialog='<dialog class="v9-home-dialog" data-v9-dialog aria-label="'+(en?'Historical specimen viewer':'Visualizador de peça histórica')+'">'+
+   '<button class="v9-dialog-close" type="button" data-v9-close aria-label="'+(en?'Close':'Fechar')+'">×</button>'+
+   '<p class="v9-dialog-family" data-v9-dialog-family></p><img class="v9-dialog-image" data-v9-dialog-image alt="">'+
+   '<h3 data-v9-dialog-title></h3><p class="v9-dialog-counter" data-v9-dialog-counter aria-live="polite"></p>'+
+   '<div class="v9-dialog-controls"><button type="button" data-v9-dialog-step="-1" aria-label="'+(en?'Previous':'Anterior')+'">←</button>'+
+   '<a href="#" data-v9-dialog-link>'+(en?'Historical record and sources ↗':'Ficha histórica e fontes ↗')+'</a>'+
+   '<button type="button" data-v9-dialog-step="1" aria-label="'+(en?'Next':'Próximo')+'">→</button></div></dialog>';
+  html=html.replace('</main>', '</main>'+v9Dialog);
+  html=html.replace('</head>','<link rel="stylesheet" href="/habbo/assets/v8-home.css"><script defer src="/habbo/assets/v9-home.js"></script></head>');
   const rewrites=[
    [en?'/habbo/en/rares/':'/habbo/pt-br/raros/','#raros'],
    [en?'/habbo/en/badges/':'/habbo/pt-br/emblemas/','#emblemas']
@@ -167,7 +202,7 @@ export function buildUnified({root,dist}) {
  const regional=path.join(dist,'assets/v5/badges');
  if(fs.existsSync(regional))fs.rmSync(regional,{recursive:true,force:true});
  for(const [source,dest] of [['v8/museum.css','assets/v8-museum.css'],
-  ['v8/museum.js','assets/v8-museum.js'],['v8/home.css','assets/v8-home.css']]){
+  ['v8/museum.js','assets/v8-museum.js'],['v8/home.css','assets/v8-home.css'],['v9/home.js','assets/v9-home.js']]){
   fs.copyFileSync(path.join(root,source),path.join(dist,dest));
  }
  return {outcomes,homepage:['index.html','pt-br/index.html','en/index.html'],regionalPublished:0};
