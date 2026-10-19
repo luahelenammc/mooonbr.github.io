@@ -176,7 +176,7 @@ export function buildUnified({root,dist}) {
   html=html.slice(0,end)+chapter+html.slice(end);
   const v9Dialog='<dialog class="v9-home-dialog" data-v9-dialog aria-label="'+(en?'Historical specimen viewer':'Visualizador de peça histórica')+'">'+
    '<button class="v9-dialog-close" type="button" data-v9-close aria-label="'+(en?'Close':'Fechar')+'">×</button>'+
-   '<p class="v9-dialog-family" data-v9-dialog-family></p><img class="v9-dialog-image" data-v9-dialog-image alt="">'+
+   '<p class="v9-dialog-family" data-v9-dialog-family></p><img class="v9-dialog-image" data-v9-dialog-image src="'+escape(rare[0].image)+'" alt="">'+
    '<h3 data-v9-dialog-title></h3><p class="v9-dialog-counter" data-v9-dialog-counter aria-live="polite"></p>'+
    '<div class="v9-dialog-controls"><button type="button" data-v9-dialog-step="-1" aria-label="'+(en?'Previous':'Anterior')+'">←</button>'+
    '<a href="#" data-v9-dialog-link>'+(en?'Historical record and sources ↗':'Ficha histórica e fontes ↗')+'</a>'+
