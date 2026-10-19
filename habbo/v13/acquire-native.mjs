@@ -70,5 +70,5 @@ for(const source of sources){
  console.log('VERIFIED_NATIVE',source.id,info.width+'×'+info.height,info.frames+' frames',bytes.length,digest.slice(0,16));
 }
 if(!check)fs.writeFileSync(path.join(repo,out),JSON.stringify({schema:1,sourcePolicy:manifest.policy,assets:ledger},null,2)+'\n');
-if(sources.length!==48)throw Error('Expected 48 source images, got '+sources.length);
+if(sources.length!==81)throw Error('Expected 81 source images, got '+sources.length);
 console.log('V13_NATIVE_ASSETS_OK',ledger.length,'genuinely animated',ledger.filter(x=>x.animated).length);
