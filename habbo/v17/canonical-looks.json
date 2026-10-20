@@ -1,28 +1,28 @@
 {
   "schema": 1,
   "updatedAt": "2026-10-19",
-  "policy": "Appearance fidelity beats an isolated but incorrect historic sprite. Documentary captures are admitted as archival crops, never marketed as original transparent sprite exports. No AI reconstruction. File encodings are indexed GIF crops, not byte-identical original-size character sprites.",
+  "policy": "Appearance fidelity beats an isolated but incorrect historic sprite. Documentary captures are admitted as archival crops, never marketed as original transparent sprite exports. No AI reconstruction. File encodings are indexed GIF crops, not byte-identical original-size character sprites. V17.2a: For Flecha, the verified HC outfit in the shared room capture with Mordomo supersedes the earlier non-HC full-body image. Source occlusion remains, with no invented feet.",
   "originals": {
     "flecha": {
-      "local": "habbo/assets/v17/staff/canonical/flecha-classic.gif",
+      "local": "habbo/assets/v17/staff/canonical/flecha-hc-room.gif",
       "sourceType": "archival-crop",
-      "source": "Moon-provided archived Habbo Staff profile screenshot",
-      "originalCapture": "image(1).png",
-      "canonicalLook": "spiky blue hair, white sleeveless top, blue bottom, white shoes",
+      "source": "Moon-provided historic Habbo room screenshot showing Flecha beside Mordomo",
+      "originalCapture": "image(2).png",
+      "canonicalLook": "Flecha's blue spiky hairstyle, white sleeveless HC-era top and blue HC outfit as seen in the same historic room capture as Mordomo; distinct from non-HC full-body profile fallback",
       "cropFrom": {
-        "width": 84,
-        "height": 224,
-        "x": 237,
-        "y": 37
+        "width": 48,
+        "height": 87,
+        "x": 227,
+        "y": 195
       },
-      "verifiedAgainst": "user reference 2026-10-19",
-      "status": "archived-on-branch",
+      "verifiedAgainst": "Moon's explicit 2026-10-19 correction: use Flecha's HC outfit from Mordomo's room screenshot",
+      "status": "archived-hc-verified",
       "assetFormat": "gif",
-      "displayProvenance": "user-submitted screenshot > documentary crop > color-indexed GIF (no synthesized character)",
+      "displayProvenance": "Moon-provided image(2).png > unscaled x=227,y=195,w=48,h=87 documentary crop > 64-color indexed GIF; no synthetic pixels; bottom of figure partly occluded in source",
       "sourcePage": "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",
-      "sha256": "5afbfd493b41842c50f1d2583ba8f575a051b378db036e4bd2073d8515e5bd27",
-      "bytes": 4751,
-      "paletteColors": 16
+      "sha256": "d2b95e2852cc96f197074240c3596d5db92a5fc6368082f7f2b5c4435c93c8d9",
+      "bytes": 3064,
+      "paletteColors": 64
     },
     "mordomo": {
       "local": "habbo/assets/v17/staff/canonical/mordomo-classic.gif",
