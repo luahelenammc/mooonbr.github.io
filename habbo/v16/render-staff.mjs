@@ -1,70 +1,62 @@
 import fs from 'node:fs';
 import path from 'node:path';
-const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function profileCard(person,en,index){
- const note=en?person.en:person.pt,role=en?person.roleEn:person.rolePt;
- const sources=person.sources.map((url,i)=>{
-  const label=i===0?(en?'Moon’s original post':'Post original da Moon'):(en?'Historical reference '+i:'Referência histórica '+i);
-  return '<a target="_blank" rel="noopener noreferrer" href="'+esc(url)+'">'+esc(label)+' ↗</a>';
- }).join('');
- return '<article class="v16-person" data-v16-person="'+esc(person.id)+'" id="staff-'+esc(person.id)+'">'+
-  '<div class="v16-person-heading"><div class="v16-person-mark" aria-hidden="true"><span>✦</span><small>HABBO BR</small></div>'+
-  '<div class="v16-person-identity"><p class="v16-person-role">'+esc(role)+'</p><h4>'+esc(person.name)+'</h4></div></div>'+
-  '<p class="v16-person-note">'+esc(note)+'</p>'+
-  '<details class="v16-person-details"><summary>'+(en?'Historical references':'Fontes e contexto')+' <span aria-hidden="true">↗</span></summary><div class="v16-person-sources">'+sources+'</div></details></article>';
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
+export function staffWithSprites(root){
+ const manifest=JSON.parse(fs.readFileSync(path.join(root,'v16/staff-manifest.json'),'utf8'));
+ const ledger=JSON.parse(fs.readFileSync(path.join(root,'v17/sprite-ledger.json'),'utf8'));
+ const sprites=new Map(ledger.sprites.map(s=>[s.id,s]));
+ manifest.profiles=manifest.profiles.map(person=>{
+  const source=sprites.get(person.id);
+  return {...person,sprite:source?'/'+source.local:null,spriteSource:source?.sourceArticle||'',verifiedSprite:!!source};
+ });
+ return manifest;
 }
 export function renderStaffChapter(manifest,en){
- if(manifest.profiles.length!==12||manifest.groups.length!==3)throw Error('V16 staff manifest requires 12 historical names across three editorial groups');
- const grouped=manifest.groups.map(group=>{
-  const people=manifest.profiles.filter(person=>person.group===group.id);
-  if(!people.length)throw Error('Empty staff group '+group.id);
-  return '<section class="v16-staff-era" id="staff-'+esc(group.id)+'" aria-labelledby="staff-'+esc(group.id)+'-title">'+
-   '<div class="v16-era-head"><div><p class="v16-era-period">'+esc(group.period)+'</p><h3 id="staff-'+esc(group.id)+'-title">'+esc(en?group.en:group.pt)+'</h3>'+
-   '<p>'+esc(en?group.subtitleEn:group.subtitlePt)+'</p></div><span class="v16-era-line" aria-hidden="true"></span></div>'+
-   '<div class="v16-staff-grid">'+people.map(p=>profileCard(p,en)).join('')+'</div></section>';
+ if(manifest.profiles.length!==12)throw Error('V17 must retain 12 source-named staff figures');
+ const pending=manifest.profiles.filter(p=>!p.sprite).length;
+ const tiles=manifest.profiles.map((person,index)=>{
+  const art=person.sprite
+   ?'<img src="'+esc(person.sprite)+'" alt="" loading="'+(index<5?'eager':'lazy')+'" decoding="async" width="64" height="110">'
+   :'<span class="v17-staff-unverified" aria-hidden="true">?</span>';
+  const sourceText=person.sprite
+   ?(en?'Historic full-body sprite of ':'Sprite de corpo inteiro arquivado de ')+person.name
+   :(en?'Historic sprite not yet documented for ':'Sprite histórico ainda não documentado para ')+person.name;
+  return '<figure class="v17-staff-item'+(!person.sprite?' v17-staff-pending':'')+'" role="listitem" data-v17-staff="'+esc(person.id)+'" data-v17-verified="'+(person.verifiedSprite?'true':'false')+'" title="'+esc(sourceText)+'">'+
+   '<span class="v17-staff-stage">'+art+'</span><figcaption>'+esc(person.name)+'</figcaption></figure>';
  }).join('');
- const intro=en?'Behind the crowded Theatre, the competitions and the news there were actual people. These are the twelve names remembered in Moon’s essay, not a claim to list every person who worked at the hotel.':
-  'Por trás do Teatro lotado, das competições e das notícias havia gente de verdade. Aqui estão os doze nomes lembrados no post da Moon, não uma lista de todas as pessoas que trabalharam no hotel.';
- const lang=en?'en':'pt-br', standalone=en?'managers':'gerentes';
- return '<section class="v8-home-chapter v16-staff-chapter" id="gerentes" aria-labelledby="v16-staff-title">'+
-  '<header class="v8-chapter-head v16-staff-intro"><div>'+
-   '<p class="v8-overline">'+(en?'PEOPLE WHO KEPT THE HOTEL ALIVE':'AS PESSOAS QUE FAZIAM O HOTEL VIVER')+'</p>'+
-   '<h2 id="v16-staff-title">'+esc(en?manifest.titleEn:manifest.titlePt)+'</h2>'+
-   '<p>'+esc(intro)+'</p></div>'+
-   '<a class="v8-full-collection" href="/habbo/'+lang+'/'+standalone+'/">'+(en?'Read the staff archive ↗':'Ver arquivo da Staff ↗')+'</a></header>'+
-  '<p class="v16-editorial-caveat">'+esc(en?manifest.editorialNoteEn:manifest.editorialNotePt)+'</p>'+
-  '<div class="v16-staff-eras">'+grouped+'</div>'+
-  '<aside class="v16-staff-postscript"><p class="v16-staff-label">'+(en?'THE MODERATION TEAM':'E A MODERAÇÃO?')+'</p><p>'+
-  esc(en?manifest.moderators.en:manifest.moderators.pt)+'</p></aside>'+
-  '<footer class="v16-staff-footer"><p>'+(en?'Moon’s essay recalls an early-team video by Emiseis and interviews by Igor Saringer with 4Queijos, Disco-Lee and MissFurby. Follow the links in the original article; no unverified interview URLs have been reconstructed.':
-    'O post lembra um vídeo de Emiseis sobre a equipe pioneira e as entrevistas de Igor Saringer com 4Queijos, Disco-Lee e MissFurby. Os links estão no texto original; nenhuma URL não verificada foi inventada.')+'</p>'+
-  '<a href="'+esc(manifest.sourceBlog)+'" target="_blank" rel="noopener noreferrer">'+(en?'Read Moon’s original Habbo retrospective':'Ler o post original da Moon')+' ↗</a></footer></section>';
+ return '<section class="v8-home-chapter v16-staff-chapter v17-staff-chapter" id="gerentes" aria-labelledby="v17-staff-title">'+
+  '<header class="v8-chapter-head v17-staff-head"><div><p class="v8-overline">'+
+  (en?'THE PEOPLE BEHIND THE HOTEL':'QUEM FAZIA O HOTEL ACONTECER')+'</p>'+
+  '<h2 id="v17-staff-title">'+esc(en?manifest.titleEn:manifest.titlePt)+'</h2></div></header>'+
+  '<section class="v17-staff-carousel" data-v9-family-section aria-label="'+(en?'Classic Brazilian staff':'Gerentes clássicos do Brasil')+'">'+
+  '<div class="v17-staff-controls"><button type="button" data-v9-slide="-1" aria-label="'+(en?'Previous staff':'Gerentes anteriores')+'">←</button>'+
+  '<button type="button" data-v9-slide="1" aria-label="'+(en?'Next staff':'Próximos gerentes')+'">→</button></div>'+
+  '<div class="v17-staff-rail" data-v9-rail role="list" tabindex="0" aria-label="'+(en?'Scroll horizontally to explore classic managers':'Role horizontalmente para explorar os gerentes clássicos')+'">'+tiles+'</div></section>'+
+  (pending?'<p class="v17-staff-source-note">'+(en
+    ?pending+' classic looks could not be verified in contemporary historical sources; silhouettes are deliberately not fabricated.'
+    :pending+' visuais clássicos ainda não foram encontrados em fontes históricas verificáveis; os sprites não foram inventados.')+'</p>':'')+
+  '</section>';
 }
 export function renderStaffStandalone(root,dist){
- const manifest=JSON.parse(fs.readFileSync(path.join(root,'v16/staff-manifest.json'),'utf8'));
- const documents=[];
+ const manifest=staffWithSprites(root),files=[];
  for(const en of [false,true]){
-  const lang=en?'en':'pt-br',route=en?'managers':'gerentes';
-  const title=en?manifest.titleEn:manifest.titlePt;
-  const chapter=renderStaffChapter(manifest,en);
+  const lang=en?'en':'pt-br',route=en?'managers':'gerentes',title=en?manifest.titleEn:manifest.titlePt;
   const nav=en?['Public Spaces','Rares','Badges','Managers']:['Espaços Públicos','Raros','Emblemas','Gerentes'];
   const items=[['#lugares',nav[0]],['#raros',nav[1]],['#emblemas',nav[2]],['#gerentes',nav[3]]];
   const navHtml=items.map(([hash,label])=>'<a href="/habbo/'+lang+'/'+hash+'">'+esc(label)+'</a>').join('');
   const html='<!doctype html><html lang="'+(en?'en':'pt-BR')+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'+
    '<meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#101520">'+
-   '<title>'+esc(title)+' · Habbo Museu Vivo</title>'+
-   '<link rel="stylesheet" href="/habbo/assets/v8-museum.css"><link rel="stylesheet" href="/habbo/assets/v13-home.css?v=20261019-v15.1">'+
-   '<link rel="stylesheet" href="/habbo/assets/v16-staff.css?v=20261019-v16.1"><script defer src="/habbo/assets/v8-museum.js?v=20261019-v16.1"></script></head>'+
-   '<body class="v16-staff-standalone"><a class="v8-skip" href="#gerentes">'+(en?'Skip to staff':'Ir para a Staff')+'</a>'+
+   '<title>'+esc(title)+' · Habbo Museu Vivo</title><link rel="stylesheet" href="/habbo/assets/v8-museum.css">'+
+   '<link rel="stylesheet" href="/habbo/assets/v13-home.css?v=20261019-v15.1">'+
+   '<link rel="stylesheet" href="/habbo/assets/v16-staff.css?v=20261019-v17.1">'+
+   '<script defer src="/habbo/assets/v8-museum.js?v=20261019-v17.1"></script><script defer src="/habbo/assets/v17-staff.js?v=20261019-v17.1"></script></head>'+
+   '<body class="v16-staff-standalone v17-staff-standalone"><a class="v8-skip" href="#gerentes">'+(en?'Skip to managers':'Ir para os gerentes')+'</a>'+
    '<header class="v8-top"><a class="v8-wordmark" href="/habbo/'+lang+'/"><span class="v8-glyph">✦</span> Habbo <small>'+(en?'Memory museum':'Museu vivo')+'</small></a>'+
    '<nav class="v8-top-links" aria-label="'+(en?'Museum navigation':'Navegação do museu')+'">'+navHtml+'</nav></header>'+
-   '<main class="v8-home-chapters">'+chapter+'</main>'+
-   '<footer class="v8-bottom"><a href="/habbo/'+lang+'/">'+(en?'← Back to museum':'← Voltar ao museu')+'</a>'+
-   '<p>This fan site is not affiliated with, endorsed, sponsored, or specifically approved by Sulake Oy or its Affiliates. Historical assets remain the property of their respective owners.</p></footer>'+
-   '</body></html>';
+   '<main class="v8-home-chapters">'+renderStaffChapter(manifest,en)+'</main>'+
+   '<footer class="v8-bottom"><a href="/habbo/'+lang+'/">'+(en?'← Back to museum':'← Voltar ao museu')+'</a><p>This fan site is not affiliated with, endorsed, sponsored, or specifically approved by Sulake Oy or its Affiliates. Historical assets remain the property of their respective owners.</p></footer></body></html>';
   const target=path.join(dist,lang,route,'index.html');
-  fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,html);
-  documents.push(lang+'/'+route+'/index.html');
+  fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,html);files.push(lang+'/'+route+'/index.html');
  }
- return documents;
+ return files;
 }
