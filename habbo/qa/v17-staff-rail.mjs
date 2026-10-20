@@ -8,9 +8,15 @@ import {withCanonicalStaffAssets} from '../v17/render-rail.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const src=JSON.parse(fs.readFileSync(path.join(root,'v16/staff-manifest.json')));
 const ledger=withCanonicalStaffAssets(root,JSON.parse(fs.readFileSync(path.join(root,'v17/staff-originals.json'))));
+const canonical=JSON.parse(fs.readFileSync(path.join(root,'v17/canonical-looks.json')));
+
 const out=path.join(root,'qa/v17-artifacts');fs.mkdirSync(out,{recursive:true});
 let tests=0;const ok=(v,m)=>{assert.ok(v,m);tests++};
 ok(src.profiles.length===12,'all twelve names retained');
+ok(canonical.originals.flecha.originalCapture===canonical.originals.mordomo.originalCapture,'Flecha HC originates in the same historical room screenshot as Mordomo');
+ok(canonical.originals.flecha.originalCapture==='image(2).png','Flecha no longer uses the non-HC profile screenshot');
+ok(canonical.originals.flecha.cropFrom.width===48&&canonical.originals.flecha.cropFrom.height===87,'HC crop dimensions are documented');
+ok(canonical.originals.flecha.local.endsWith('/flecha-hc-room.gif'),'HC visual is the selected canonical Flecha asset');
 ok(ledger.assets.length===12,'all twelve profiles have historic imagery');
 ok(ledger.assets.filter(x=>x.sourceType==='archival-crop').length===3,'three user-confirmed archival crops override old appearances');
 ok(ledger.assets.every(x=>src.profiles.some(p=>p.id===x.id)),'no unrelated characters included');
@@ -41,7 +47,7 @@ try{
    ok(await page.locator('#gerentes [data-v17-person="djapamala"] .v17-staff-name').textContent().then(t=>t.trim()==='DJapamala'),'last figure named correctly');
    ok(await page.locator('#gerentes [data-v17-person="prefeita"] img[src$="/prefeita-classic.gif"]').count()===1,'Prefeita original user-supplied look is displayed');
    ok(await page.locator('#gerentes [data-v17-person="mordomo"] img[src$="/mordomo-classic.gif"]').count()===1,'Mordomo classic grey suit replaces the blue-hat avatar');
-   ok(await page.locator('#gerentes [data-v17-person="flecha"] img[src$="/flecha-classic.gif"]').count()===1,'Flecha classic spiky blue hair replaces the wrong avatar');
+   ok(await page.locator('#gerentes [data-v17-person="flecha"] img[src$="/flecha-hc-room.gif"]').count()===1,'Flecha now uses HC outfit from Mordomo room screenshot');
    ok(await page.locator('#gerentes [data-v17-scroll]').count()===2,'real scroll controls');
    ok(await page.locator('#gerentes [data-v17-rail]').evaluate(x=>getComputedStyle(x).overflowX==='auto'),'native horizontal scroll '+locale+device);
    ok(await page.locator('#gerentes [data-v17-rail]').evaluate(x=>x.scrollWidth>x.clientWidth),'gallery actually overflows into a swipe rail '+locale+device);
@@ -53,8 +59,8 @@ try{
    ok(await page.locator('#gerentes [data-v17-person] a').count()===12,'all figures have original-source links');
    const figure=page.locator('#gerentes [data-v17-person="flecha"] img');
    await figure.scrollIntoViewIfNeeded();
-   await page.waitForFunction(()=>{const x=document.querySelector('#gerentes [data-v17-person="flecha"] img');return x?.complete&&x.naturalWidth===84&&x.naturalHeight===224;});
-   ok(await figure.evaluate(x=>x.naturalWidth===84&&x.naturalHeight===224),'documentary Flecha crop 84×224, not a fabricated sprite');
+   await page.waitForFunction(()=>{const x=document.querySelector('#gerentes [data-v17-person="flecha"] img');return x?.complete&&x.naturalWidth===48&&x.naturalHeight===87;});
+   ok(await figure.evaluate(x=>x.naturalWidth===48&&x.naturalHeight===87),'Flecha HC outfit crop 48×87 from same room capture as Mordomo');
    const rail=page.locator('#gerentes [data-v17-rail]');
    await rail.evaluate(x=>x.scrollTo({left:0,behavior:'instant'}));
    await page.locator('#gerentes [data-v17-scroll="1"]').click();
