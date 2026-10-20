@@ -1,7 +1,7 @@
-name: Habbo V18 classic-web beta visual QA
+name: Habbo Night Hotel V19 and Classic V18 preservation
 on:
   push:
-    branches: [feat/habbo-v18-classic-web-beta]
+    branches: [feat/habbo-v19-night-hotel-orange-beta]
     paths:
       - 'habbo/beta/**'
       - '.github/workflows/habbo-v18-beta.yml'
@@ -34,14 +34,16 @@ jobs:
             curl -fsS http://127.0.0.1:4173/habbo/beta/ >/dev/null && break
             sleep 1
           done
-      - name: Test four sections, navigation, dialogs, locales and responsive
-        run: node habbo/beta/qa-v18.mjs
-      - name: Validate immutable Classic archive in PT/EN and responsive viewports
+      - name: Check Night Hotel reproducible generated index
+        run: node habbo/beta/build-v19.mjs --check
+      - name: Night Hotel responsive visual and functional QA
+        run: node habbo/beta/qa-v19.mjs
+      - name: Classic V18 preservation QA
         run: node habbo/beta/qa-classic.mjs
       - name: Attach screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: habbo-v18-classic-beta-screenshots
-          path: /tmp/habbo-v18-*.png
+          name: habbo-v19-night-and-classic-screenshots
+          path: /tmp/habbo-v19-*.png
           if-no-files-found: ignore

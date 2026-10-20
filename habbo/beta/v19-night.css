@@ -1,0 +1,388 @@
+/* HABBO NIGHT HOTEL V19 | 2026-10-20
+   Independent museum interpretation. Original historic images, not synthetic pixel art.
+   Distinct composition + existing proven data/control primitives. No V18 theme imports. */
+html{scroll-padding-top:96px}
+body.habbo-v19-night{
+ --world:#081016;--world-deep:#081016;--world-lift:#111e27;
+ --ink:#e6edeb;--ink-soft:#a1b6ba;--ink-faint:#899fa5;
+ --line:#33515b;--line-strong:#6e8b92;--water:#8ac7c5;--gold:#e4b16a;
+ --night:#081016;--surface:#111e27;--raised:#192c34;
+ --edge:#33515b;--text:#e6edeb;--muted:#a1b6ba;--aqua:#8ac7c5;
+ --orange:#f4a22a;--orange-light:#ffd47a;--orange-dark:#b85c17;
+ background:radial-gradient(ellipse at 75% 0,#17333b45 0,transparent 42rem),
+ linear-gradient(180deg,#09141b,#081016 52rem);color:var(--text);
+ font-family:Tahoma,Verdana,Arial,sans-serif;line-height:1.6;
+}
+body.habbo-v19-night::before{display:none}
+body.habbo-v19-night a{color:inherit}
+body.habbo-v19-night button{font-family:inherit}
+body.habbo-v19-night :focus-visible{outline:2px solid var(--orange-light);outline-offset:4px}
+body.habbo-v19-night .site-shell{width:100%;max-width:none;margin:0;padding:0}
+body.habbo-v19-night .home-page--v2{display:block;min-height:0;width:100%;max-width:none;margin:0;padding:0;overflow-x:clip}
+body.habbo-v19-night .site-header.v19-topbar{
+ position:sticky;z-index:50;top:0;width:100%;min-height:76px;
+ padding:11px max(22px,calc((100vw - 1460px)/2));
+ display:grid;grid-template-columns:minmax(180px,1fr) auto minmax(230px,1fr);
+ align-items:center;gap:clamp(13px,2vw,30px);
+ background:#0b171ef5;backdrop-filter:blur(12px);
+ border-bottom:1px solid #33515b;
+ box-shadow:0 6px 30px #02080baa;
+}
+body.habbo-v19-night .identity{display:inline-flex;align-items:center;gap:11px;color:var(--text);text-decoration:none;min-width:0}
+body.habbo-v19-night .v19-monogram{
+ width:38px;height:38px;display:grid;place-items:center;flex:none;
+ color:#151912;background:linear-gradient(#ffca6b,#ee9223);
+ border:2px solid #9c511d;border-radius:7px;
+ box-shadow:inset 0 2px #ffedb4,0 3px 0 #563015;
+ font:900 24px/1 Verdana,sans-serif;text-shadow:1px 1px #ffdf8e;
+}
+body.habbo-v19-night .identity-copy{display:grid;gap:0}
+body.habbo-v19-night .identity-copy strong{font-size:17px;line-height:1;font-weight:900;letter-spacing:.08em;color:#edf6f3}
+body.habbo-v19-night .identity-copy small{display:block;font-size:9px;color:#8da8ad;letter-spacing:.11em;line-height:1.5;font-weight:750}
+body.habbo-v19-night .collection-switch{
+ display:flex;align-items:center;gap:3px;min-width:0;
+ padding:3px;border:1px solid #2b4148;border-radius:8px;background:#0d1b23;
+}
+body.habbo-v19-night .collection-switch a{
+ font-size:12px;font-weight:750;line-height:1.3;white-space:nowrap;
+ padding:10px clamp(11px,1.1vw,18px);min-height:38px;
+ color:#bacacc;background:transparent;border:1px solid transparent;border-radius:5px;
+ text-decoration:none;transition:background .15s,color .15s;
+}
+body.habbo-v19-night .collection-switch a:hover{color:#fff3e3;background:#23353b}
+body.habbo-v19-night .collection-switch a[aria-current="page"],
+body.habbo-v19-night .collection-switch a[aria-current="location"]{
+ color:#392111;background:linear-gradient(#ffc668,#ed9427 72%,#df7c1b);
+ border-color:#ad5f1e;box-shadow:inset 0 1px #fff2b3,0 1px #583016;
+}
+body.habbo-v19-night .v19-meta{display:flex;align-items:center;justify-content:flex-end;gap:15px;min-width:0}
+body.habbo-v19-night .v19-era{font:700 10px/1.2 ui-monospace,Consolas,monospace;color:#8499a0;white-space:nowrap;letter-spacing:.05em}
+body.habbo-v19-night .lang-toggle{
+ display:flex;align-items:center;gap:5px;padding:3px;border:1px solid #2f454b;border-radius:5px;
+ background:#121f26;
+}
+body.habbo-v19-night .lang-button{
+ display:grid;place-items:center;width:30px;height:28px;padding:4px;border:1px solid transparent;border-radius:3px;
+ opacity:.7;transition:opacity .15s,background .15s;
+}
+body.habbo-v19-night .lang-button img{display:block;max-width:22px;height:auto}
+body.habbo-v19-night .lang-button:hover,body.habbo-v19-night .lang-button.is-active{
+ background:#29404a;border-color:#567079;opacity:1;
+}
+body.habbo-v19-night .v19-classic-link{white-space:nowrap;color:#9fbabb;text-decoration:none;font-size:11px;font-weight:700}
+body.habbo-v19-night .v19-classic-link:hover{color:#ffbd69}
+body.habbo-v19-night .v19-masthead{
+ width:min(1450px,calc(100% - 64px));margin:0 auto;
+ display:flex;justify-content:space-between;align-items:center;gap:15px;
+ padding:20px 0 18px;color:#738e95;font:700 10px/1.3 ui-monospace,Consolas,monospace;letter-spacing:.1em;
+}
+body.habbo-v19-night .v19-masthead b{color:#ec9b34}
+body.habbo-v19-night .v19-status-dot{display:inline-block;width:7px;height:7px;background:#8ac7c5;margin-right:8px;box-shadow:0 0 0 3px #8ac7c514;border-radius:1px}
+body.habbo-v19-night .v19-theatre{
+ width:min(1450px,calc(100% - 64px));margin:0 auto;
+ display:grid;grid-template-columns:minmax(255px,.73fr) minmax(0,1.75fr);
+ align-items:stretch;gap:clamp(18px,3.5vw,66px);min-height:clamp(550px,75vh,810px);
+ border-top:1px solid #324b51;border-bottom:1px solid #324b51;
+}
+body.habbo-v19-night .v19-story{display:flex;flex-direction:column;justify-content:center;min-width:0;padding:clamp(22px,3.4vw,50px) 0}
+body.habbo-v19-night .v19-eyebrow{font:800 10px/1.45 ui-monospace,Consolas,monospace;color:#8bc8c4;letter-spacing:.15em;margin:0 0 25px}
+body.habbo-v19-night .v19-story h1{font-weight:780;letter-spacing:-.065em;line-height:1.1;font-size:clamp(32px,3.85vw,62px);color:#edf3f0;margin:0 0 24px}
+body.habbo-v19-night .v19-story h1 em{font-style:normal;color:#8ac7c5}
+body.habbo-v19-night .v19-summary{color:#aec0c4;font-size:clamp(13px,1.08vw,15px);line-height:1.9;max-width:400px;margin:0}
+body.habbo-v19-night .v19-actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:31px}
+body.habbo-v19-night .v19-button{
+ display:inline-flex;align-items:center;justify-content:center;gap:14px;
+ min-height:44px;padding:11px 17px;border-radius:7px;text-decoration:none;
+ font-size:12px;font-weight:800;letter-spacing:.01em;transition:filter .15s,transform .15s,background .15s;
+}
+body.habbo-v19-night .v19-button:hover{transform:translateY(-1px)}
+body.habbo-v19-night .v19-button--orange{
+ color:#392112;border:2px solid #a95b19;background:linear-gradient(#ffcf72,#f3a126 62%,#e88a1c);
+ box-shadow:inset 0 2px #fff0ad,0 3px #703a14;
+}
+body.habbo-v19-night .v19-button--orange:hover{filter:brightness(1.1)}
+body.habbo-v19-night .v19-button--ghost{border:1px solid #4d666d;color:#d7e9e8;background:#182a31}
+body.habbo-v19-night .v19-button--ghost:hover{background:#263d44;border-color:#80a2a6}
+body.habbo-v19-night .v19-index{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 15px;
+ margin-top:auto;padding:42px 0 0;color:#768f96;font-size:11px;
+}
+body.habbo-v19-night .v19-index span{padding-left:11px;border-left:2px solid #e4983170}
+body.habbo-v19-night .v19-stage{
+ display:flex;flex-direction:column;min-width:0;align-self:stretch;
+ border-left:1px solid #293f46;border-right:1px solid #293f46;
+ background:linear-gradient(180deg,#111e27,#0c1920 45%,#0b171e);
+}
+body.habbo-v19-night .v19-stagebar{
+ min-height:46px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 15px;
+ color:#bbd0d2;border-bottom:1px solid #34515b;background:#15252d;
+ font-size:10px;font-weight:800;letter-spacing:.065em;
+}
+body.habbo-v19-night .v19-stage-ident{display:flex;align-items:center;gap:10px;color:#f0f3f0}
+body.habbo-v19-night .v19-corner-glyph{color:#ffb94e;font-size:16px}
+body.habbo-v19-night .v19-stage-count{color:#83a2a7;font:700 10px/1.4 ui-monospace,Consolas,monospace;letter-spacing:.05em}
+body.habbo-v19-night .v19-window-mark{display:flex;gap:4px}
+body.habbo-v19-night .v19-window-mark i{width:9px;height:9px;border:1px solid #46616b;border-radius:1px;background:#29424c}
+body.habbo-v19-night .cinematic-dock{
+ display:grid;grid-template-rows:minmax(0,1fr) auto auto auto;
+ width:100%!important;min-width:0;min-height:520px;flex:1 1 auto;
+ margin:0!important;padding:3px 12px 15px;
+ overflow:hidden;
+ background:radial-gradient(ellipse at 50% 47%,#1c455040,transparent 63%),
+ linear-gradient(180deg,#11202a,#0c1920);
+}
+body.habbo-v19-night .cinematic-dock::before,body.habbo-v19-night .cinematic-dock::after{display:none}
+body.habbo-v19-night .dock-viewport{
+ height:clamp(340px,57vh,600px);min-height:0;max-width:100%;width:100%;
+ margin-inline:0;padding:0;
+}
+body.habbo-v19-night .dock-track{gap:clamp(9px,1vw,16px)}
+body.habbo-v19-night .dock-slide{flex-basis:clamp(220px,30vw,410px)}
+body.habbo-v19-night .dock-slide--grouped{flex-basis:clamp(255px,34vw,450px)}
+body.habbo-v19-night .dock-group-column{background:transparent!important;border-color:transparent!important}
+body.habbo-v19-night .dock-slide--grouped .dock-group-column{background:#10202975!important;border-color:#2e505c60!important}
+body.habbo-v19-night .dock-variant .dock-media{background:transparent;border-color:transparent;filter:none}
+body.habbo-v19-night .dock-slide:not(.dock-slide--grouped) .dock-variant .dock-media{height:clamp(230px,45vh,460px)}
+body.habbo-v19-night .dock-variant .dock-media img{image-rendering:auto;filter:drop-shadow(0 11px 20px #02060866)}
+body.habbo-v19-night .dock-caption{min-height:78px;padding:8px 6px 5px}
+body.habbo-v19-night .dock-caption-index{color:#e9a957;font:700 11px/1.35 ui-monospace,Consolas,monospace}
+body.habbo-v19-night .dock-caption h2{font-size:clamp(20px,2.5vw,34px);font-weight:760;color:#f1f7f4}
+body.habbo-v19-night .dock-caption>p:last-child{color:#90a6ac;font-size:12px}
+body.habbo-v19-night .dock-controls{gap:8px;padding:10px 0 15px}
+body.habbo-v19-night .dock-control{
+ min-height:39px;min-width:43px;padding:8px 12px;
+ border:2px solid #93501f;border-radius:6px;color:#2c1c13;
+ background:linear-gradient(#ffd181,#f1a12f 65%,#e5841e);
+ box-shadow:inset 0 2px #fff0bb,0 3px #613819;
+ font-size:15px;font-weight:800;
+}
+body.habbo-v19-night .dock-control:hover{border-color:#d17c2b;background:linear-gradient(#ffe09f,#ffb648)}
+body.habbo-v19-night .dock-control--play{min-width:104px;font-size:11px}
+body.habbo-v19-night .dock-control[data-paused="true"]{color:#3c2816}
+body.habbo-v19-night .v19-stage-note{
+ display:flex;justify-content:space-between;flex-wrap:wrap;gap:5px 16px;
+ padding:12px 16px;border-top:1px solid #2f454c;
+ font:11px/1.5 Tahoma,Verdana,sans-serif;color:#849fa3;
+}
+body.habbo-v19-night .v19-stage-note span:last-child{color:#c08b4c;font:700 10px/1.5 ui-monospace,Consolas,monospace}
+/* COLLECTIONS: native records inside a new dark archive flow */
+body.habbo-v19-night .v8-home-chapters.v19-collections{
+ width:min(1320px,calc(100% - 64px));max-width:none;min-width:0;
+ margin:70px auto 95px;padding:0;overflow-x:clip;
+ --v8-ink:#e6edeb;--v8-lime:#d9a65e;
+ color:#e6edeb;
+}
+body.habbo-v19-night .v8-home-chapter{
+ position:relative;min-width:0;max-width:100%;padding:27px 0 52px;
+ margin:0;border-top:1px solid #30464e;scroll-margin-top:100px;background:none;
+}
+body.habbo-v19-night .v19-chapter-ident{
+ display:flex;align-items:center;gap:16px;margin-bottom:20px;
+ font:800 11px/1.2 ui-monospace,Consolas,monospace;letter-spacing:.16em;color:#e1a45f;
+}
+body.habbo-v19-night .v19-chapter-ident i{display:block;flex:1;height:1px;background:#2c464e}
+body.habbo-v19-night .v8-chapter-head{gap:20px;align-items:flex-end;margin-bottom:28px}
+body.habbo-v19-night .v8-chapter-head h2{font-size:clamp(27px,3.5vw,46px);font-weight:780;line-height:1.18;color:#f1f4f1;letter-spacing:-.04em}
+body.habbo-v19-night .v8-chapter-head p:not(.v8-overline){color:#a4b8bb}
+body.habbo-v19-night .v8-overline{color:#82bcc0;font-size:10px;letter-spacing:.13em}
+body.habbo-v19-night .v9-archive-total{color:#dfac69!important}
+body.habbo-v19-night .v8-full-collection{
+ color:#3e2613!important;font-weight:800;font-size:12px;
+ background:linear-gradient(#ffcd73,#e99831);
+ border:2px solid #9f6025;border-radius:6px;
+ box-shadow:inset 0 2px #fff0ae,0 3px #5a3117;padding:10px 14px;white-space:normal;
+}
+body.habbo-v19-night .v8-full-collection:hover{filter:brightness(1.12);background:#ffca65}
+body.habbo-v19-night .v11-family-directory h3{color:#d9ebe9}
+body.habbo-v19-night .v11-family-directory p{color:#97afb4}
+body.habbo-v19-night .v11-directory-count{color:#e1af76}
+body.habbo-v19-night .v9-family-index.v11-family-grid,
+body.habbo-v19-night .v11-family-grid{
+ grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;padding:0 0 25px;margin-bottom:32px;
+ border-bottom:1px solid #2b454d;
+}
+body.habbo-v19-night .v9-family-index.v11-family-grid a,
+body.habbo-v19-night .v11-family-grid a{
+ background:#111f27;color:#d9e5e3;
+ border:1px solid #2c4650;border-radius:5px;box-shadow:none;
+ padding:9px 10px;min-height:64px;
+ transition:border-color .15s,background .15s;
+}
+body.habbo-v19-night .v11-family-grid a:hover{border-color:#bc7e3a;background:#192a31;transform:none}
+body.habbo-v19-night .v11-family-grid a[aria-current="location"]{
+ color:#f5ece0!important;border-color:#dc9241!important;background:#3c2b22!important;
+ box-shadow:inset 3px 0 #f3a72e!important;
+}
+body.habbo-v19-night .v11-family-grid a[aria-current="location"] .v11-family-name{color:#fff1d9}
+body.habbo-v19-night .v11-family-thumb{
+ background:#0b161c;border:1px solid #304851;border-radius:3px;
+}
+body.habbo-v19-night .v11-family-name{color:#d8e8e4}
+body.habbo-v19-night .v11-family-count{color:#81999e}
+body.habbo-v19-night .v9-families{gap:26px}
+body.habbo-v19-night .v9-family{
+ margin:0;padding:0 0 20px;border:0;border-bottom:1px solid #1d343b;
+ background:transparent;scroll-margin-top:155px;
+}
+body.habbo-v19-night .v9-group-heading{margin-bottom:13px}
+body.habbo-v19-night .v9-group-heading h3{color:#e5eeeb;font-weight:730;font-size:clamp(17px,2vw,23px)}
+body.habbo-v19-night .v9-group-heading p{color:#849da3}
+body.habbo-v19-night .v9-group-index{color:#bd8a4c}
+body.habbo-v19-night .v9-group-controls button{
+ border:1px solid #705334;border-radius:5px;box-shadow:none;
+ background:#211e1b;color:#f4b76a;width:37px;height:37px;
+}
+body.habbo-v19-night .v9-group-controls button:hover:not(:disabled){border-color:#f2ac4e;background:#3b3024;color:#ffd990}
+body.habbo-v19-night .v9-group-rail .v9-home-item{
+ color:#b8c8c7;background:none!important;border:1px solid transparent;border-radius:6px;
+ box-shadow:none;transform:none;transition:color .15s,background .15s,border-color .15s;
+}
+body.habbo-v19-night .v9-group-rail .v9-home-item:hover,
+body.habbo-v19-night .v9-group-rail .v9-home-item:focus-visible{
+ color:#fff4e5;background:#1b2c33!important;border-color:#445c63;
+ transform:none;
+}
+body.habbo-v19-night .v9-group-rail .v9-item-art{background:radial-gradient(ellipse at 50% 76%,#1c3d4254,transparent 65%);border-radius:4px}
+body.habbo-v19-night .v9-group-rail .v9-item-caption{color:#b9cdcb;font-size:11px}
+body.habbo-v19-night .v9-rare-rail{gap:9px}
+body.habbo-v19-night .v9-rare-rail .v9-home-item{flex-basis:clamp(114px,13vw,165px);width:clamp(114px,13vw,165px);grid-template-rows:135px auto;padding:7px}
+body.habbo-v19-night .v9-badge-rail{grid-auto-columns:clamp(96px,9vw,114px);gap:7px}
+body.habbo-v19-night .v9-badge-rail .v9-home-item{
+ border:1px solid #2a4048;background:#101c24!important;border-radius:4px;
+}
+body.habbo-v19-night .v9-badge-rail .v9-home-item:hover{border-color:#b98243;background:#1e2e35!important}
+body.habbo-v19-night .v9-badge-rail .v9-item-caption{font-size:10px}
+body.habbo-v19-night .v17-staff-chapter{color:#e6edeb}
+body.habbo-v19-night .v17-staff-head{align-items:flex-end}
+body.habbo-v19-night .v17-staff-arrow{border:1px solid #9b601f;border-radius:5px;
+ background:linear-gradient(#ffce6d,#ed9627);color:#3a2110;
+ box-shadow:inset 0 1px #ffefbb,0 2px #623613;
+}
+body.habbo-v19-night .v17-staff-arrow:hover:not(:disabled){background:#ffce71;border-color:#ce802d;color:#2a160e}
+body.habbo-v19-night .v17-staff-portrait{border-bottom:1px solid #4b666a;background:radial-gradient(ellipse at 50% 97%,#34706c24,transparent 67%)}
+body.habbo-v19-night .v17-staff-name{color:#edf3ee}
+body.habbo-v19-night .v17-staff-progress{background:#233a41}
+body.habbo-v19-night .v17-staff-progress-thumb{background:#e7a04c}
+/* Restyled original dialogs, without changing their JS and provenance links */
+body.habbo-v19-night .v9-home-dialog{
+ border:1px solid #47606c;background:#111f27;color:#edf3f0;
+ border-radius:8px;box-shadow:0 30px 100px #000c;
+}
+body.habbo-v19-night .v9-home-dialog::backdrop{background:#020607d9}
+body.habbo-v19-night .v9-dialog-family{color:#e2ab64}
+body.habbo-v19-night .v9-home-dialog h3{color:#e9f2ee}
+body.habbo-v19-night .v9-dialog-counter{color:#a8b7b9}
+body.habbo-v19-night .v9-dialog-close{color:#f9ba71}
+body.habbo-v19-night .v9-dialog-controls button{
+ border:2px solid #9d571c;background:linear-gradient(#ffd07a,#ee9227);
+ border-radius:5px;color:#382010;box-shadow:inset 0 1px #ffefb3;
+}
+body.habbo-v19-night .v9-dialog-controls a{color:#ffc46f;font-weight:800}
+body.habbo-v19-night .room-lightbox{color:#e7f2ee}
+body.habbo-v19-night .room-lightbox::backdrop{background:#02090fe8}
+body.habbo-v19-night .lightbox-close,body.habbo-v19-night .lightbox-arrow{
+ color:#ffbd67;border-color:#79573c;background:#211d1a;
+}
+body.habbo-v19-night .lightbox-detail{color:#ffbd67}
+body.habbo-v19-night .v19-footer{
+ margin:0;padding:30px max(24px,calc((100vw - 1320px)/2));
+ border-top:1px solid #33515b;background:#081017;color:#849ca1;
+}
+body.habbo-v19-night .v19-footer-inner{display:grid;grid-template-columns:1fr auto;gap:18px 28px;align-items:start}
+body.habbo-v19-night .v19-footer strong{color:#d9e9e6;font-size:12px;letter-spacing:.07em}
+body.habbo-v19-night .v19-footer p:not(.rights-disclaimer){font-size:11px;color:#859fa5;max-width:500px;margin:5px 0}
+body.habbo-v19-night .v19-footer-links{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+body.habbo-v19-night .v19-footer-links a{font-size:11px;color:#f1b365;text-decoration:none}
+body.habbo-v19-night .v19-footer-links a:hover{text-decoration:underline}
+body.habbo-v19-night .rights-disclaimer{grid-column:1/-1;color:#6f868d;opacity:1;font-size:10px;margin:0}
+/* tablet */
+@media(max-width:1180px){
+ body.habbo-v19-night .site-header.v19-topbar{grid-template-columns:auto 1fr;gap:10px;padding:11px 22px}
+ body.habbo-v19-night .v19-meta{justify-content:end}
+ body.habbo-v19-night .collection-switch{grid-column:1/-1;grid-row:2;justify-content:center}
+ body.habbo-v19-night .collection-switch a{flex:1;text-align:center}
+ body.habbo-v19-night .v19-theatre{grid-template-columns:minmax(230px,.68fr) minmax(0,1.5fr);gap:20px}
+ body.habbo-v19-night .v19-era{display:none}
+ body.habbo-v19-night .v9-family-index.v11-family-grid,body.habbo-v19-night .v11-family-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media(max-width:820px){
+ body.habbo-v19-night .site-header.v19-topbar{padding:10px 16px}
+ body.habbo-v19-night .v19-masthead{width:calc(100% - 32px);padding:17px 0}
+ body.habbo-v19-night .v19-theatre{width:calc(100% - 32px);display:flex;flex-direction:column;gap:0}
+ body.habbo-v19-night .v19-story{padding:17px 3px 25px}
+ body.habbo-v19-night .v19-story h1{font-size:clamp(32px,5.3vw,45px);max-width:640px}
+ body.habbo-v19-night .v19-summary{max-width:600px}
+ body.habbo-v19-night .v19-actions{margin-top:18px}
+ body.habbo-v19-night .v19-index{display:none}
+ body.habbo-v19-night .v19-stage{border:1px solid #2c4550;border-bottom:0}
+ body.habbo-v19-night .dock-viewport{height:clamp(300px,47vh,480px)}
+ body.habbo-v19-night .cinematic-dock{min-height:0}
+ body.habbo-v19-night .v8-home-chapters.v19-collections{width:calc(100% - 32px);margin:48px auto}
+ body.habbo-v19-night .v9-family-index.v11-family-grid,body.habbo-v19-night .v11-family-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:560px){
+ body.habbo-v19-night .site-header.v19-topbar{grid-template-columns:1fr auto;gap:7px;min-height:0;padding:10px 12px}
+ body.habbo-v19-night .identity{gap:7px}
+ body.habbo-v19-night .v19-monogram{height:34px;width:34px;font-size:20px}
+ body.habbo-v19-night .identity-copy strong{font-size:14px}
+ body.habbo-v19-night .identity-copy small{font-size:7.5px}
+ body.habbo-v19-night .v19-meta{gap:7px}
+ body.habbo-v19-night .v19-classic-link{font-size:10px;max-width:80px;white-space:normal;text-align:right;line-height:1.35}
+ body.habbo-v19-night .lang-toggle{gap:1px;padding:2px}
+ body.habbo-v19-night .lang-button{width:27px;height:28px}
+ body.habbo-v19-night .collection-switch{
+  grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  width:100%;gap:2px;padding:3px;
+ }
+ body.habbo-v19-night .collection-switch a{min-width:0;white-space:normal;font-size:10px;padding:8px 2px;min-height:34px}
+ body.habbo-v19-night .v19-masthead{font-size:9px}
+ body.habbo-v19-night .v19-masthead>span:last-child{display:none}
+ body.habbo-v19-night .v19-story h1{font-size:clamp(30px,8.5vw,42px);margin-bottom:16px}
+ body.habbo-v19-night .v19-story .v19-eyebrow{margin-bottom:15px}
+ body.habbo-v19-night .v19-summary{font-size:13px}
+ body.habbo-v19-night .v19-actions{gap:9px}
+ body.habbo-v19-night .v19-button{font-size:11px;padding:10px 12px}
+ body.habbo-v19-night .v19-stagebar{padding:9px 10px;flex-wrap:wrap}
+ body.habbo-v19-night .v19-stage-count{font-size:9px}
+ body.habbo-v19-night .v19-window-mark{display:none}
+ body.habbo-v19-night .dock-viewport{height:clamp(275px,42vh,410px)}
+ body.habbo-v19-night .dock-slide{flex-basis:clamp(195px,64vw,285px)}
+ body.habbo-v19-night .dock-slide--grouped{flex-basis:clamp(210px,72vw,300px)}
+ body.habbo-v19-night .dock-slide:not(.dock-slide--grouped) .dock-variant .dock-media{height:clamp(195px,35vh,310px)}
+ body.habbo-v19-night .cinematic-dock{padding:4px 2px 11px}
+ body.habbo-v19-night .dock-caption h2{font-size:22px}
+ body.habbo-v19-night .dock-controls{padding-bottom:12px}
+ body.habbo-v19-night .dock-control{min-height:40px}
+ body.habbo-v19-night .v19-stage-note{padding:12px;line-height:1.6}
+ body.habbo-v19-night .v8-home-chapter{padding:25px 0 38px}
+ body.habbo-v19-night .v8-chapter-head{flex-direction:column;align-items:flex-start;gap:16px}
+ body.habbo-v19-night .v8-chapter-head h2{font-size:clamp(27px,7vw,36px)}
+ body.habbo-v19-night .v9-family-index.v11-family-grid,body.habbo-v19-night .v11-family-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+ body.habbo-v19-night .v11-family-grid a,body.habbo-v19-night .v9-family-index.v11-family-grid a{
+  grid-template-columns:35px minmax(0,1fr);min-height:58px;padding:6px;gap:5px;
+ }
+ body.habbo-v19-night .v11-family-thumb{width:35px;height:36px}
+ body.habbo-v19-night .v11-family-thumb img{max-width:30px;max-height:30px}
+ body.habbo-v19-night .v11-family-name{font-size:10px}
+ body.habbo-v19-night .v11-family-count{font-size:10px}
+ body.habbo-v19-night .v9-family{padding-bottom:15px}
+ body.habbo-v19-night .v9-rare-rail .v9-home-item{flex-basis:124px;width:124px;grid-template-rows:115px auto}
+ body.habbo-v19-night .v9-badge-rail{grid-auto-columns:97px}
+ body.habbo-v19-night .v17-staff-head{align-items:stretch}
+ body.habbo-v19-night .v17-staff-arrows{align-self:flex-end}
+ body.habbo-v19-night .v19-footer-inner{grid-template-columns:1fr}
+ body.habbo-v19-night .rights-disclaimer{grid-column:1}
+}
+@media(max-width:360px){
+ body.habbo-v19-night .v19-classic-link{max-width:67px;font-size:9px}
+ body.habbo-v19-night .collection-switch a{font-size:9.5px}
+ body.habbo-v19-night .v19-button{flex:1}
+ body.habbo-v19-night .v9-family-index.v11-family-grid a,body.habbo-v19-night .v11-family-grid a{grid-template-columns:1fr;justify-items:center;text-align:center}
+ body.habbo-v19-night .v11-family-text{text-align:center}
+ body.habbo-v19-night .v11-family-thumb{width:39px;height:39px}
+}
+@media(prefers-reduced-motion:reduce){
+ body.habbo-v19-night *,body.habbo-v19-night *::before,body.habbo-v19-night *::after{
+  transition:none!important;animation:none!important;scroll-behavior:auto!important;
+ }
+}
