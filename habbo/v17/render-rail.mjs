@@ -7,9 +7,10 @@ function renderStaffSprite(person,art,en){
  let visual;
  if(art){
   const src='/'+art.local;
+  const archival=art.sourceType==='archival-crop';
   visual=art.format==='webp'&&art.id==='djapamala'
    ?'<span class="v17-staff-portrait v17-archival-crop"><img class="v17-profile-snapshot" src="'+esc(src)+'" alt="" loading="lazy" decoding="async" width="'+art.width+'" height="'+art.height+'"></span>'
-   :'<span class="v17-staff-portrait"><img src="'+esc(src)+'" alt="" loading="lazy" decoding="async" width="'+art.width+'" height="'+art.height+'"></span>';
+   :'<span class="v17-staff-portrait'+(archival?' v17-classic-archival':'')+'"><img src="'+esc(src)+'" alt="" loading="lazy" decoding="async" width="'+art.width+'" height="'+art.height+'"></span>';
  }else{
   visual='<span class="v17-staff-portrait v17-staff-unavailable" aria-hidden="true">?</span>';
  }
@@ -18,6 +19,25 @@ function renderStaffSprite(person,art,en){
    visual+'<span class="v17-staff-name">'+esc(label)+'</span></a>'+
    (!art?'<span class="v17-staff-image-note">'+(en?'Historical sprite not located':'Sprite não localizado')+'</span>':'')+
   '</li>';
+}
+// V17.2: user-confirmed visual identity takes precedence over older but wrong sprite files.
+// A documentary crop is an archival reference, not a newly recreated pixel avatar.
+export function withCanonicalStaffAssets(root,ledger){
+ const contract=JSON.parse(fs.readFileSync(path.join(root,'v17/canonical-looks.json'),'utf8'));
+ const assets=new Map(ledger.assets.map(a=>[a.id,a]));
+ for(const [id,ref] of Object.entries(contract.originals)){
+  const absolute=path.resolve(root,'..',ref.local);
+  if(!fs.existsSync(absolute)){
+   // Never silently keep a disproven appearance just because the replacement is pending.
+   assets.delete(id);
+   continue;
+  }
+  const dimensions=ref.cropFrom;
+  assets.set(id,{id,local:ref.local,format:'webp',width:dimensions.width,height:dimensions.height,
+   sourcePage:ref.sourcePage||'https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html',
+   sourceType:'archival-crop',sourceDescription:ref.source});
+ }
+ return {...ledger,assets:[...assets.values()]};
 }
 export function renderStaffChapter(manifest,ledger,en){
  const arts=new Map(ledger.assets.map(a=>[a.id,a]));
@@ -42,7 +62,7 @@ export function renderStaffChapter(manifest,ledger,en){
 }
 export function renderStaffStandalone(root,dist){
  const manifest=JSON.parse(fs.readFileSync(path.join(root,'v16/staff-manifest.json'),'utf8'));
- const originals=JSON.parse(fs.readFileSync(path.join(root,'v17/staff-originals.json'),'utf8'));
+ const originals=withCanonicalStaffAssets(root,JSON.parse(fs.readFileSync(path.join(root,'v17/staff-originals.json'),'utf8')));
  const documents=[];
  for(const en of [false,true]){
   const lang=en?'en':'pt-br',route=en?'managers':'gerentes';
