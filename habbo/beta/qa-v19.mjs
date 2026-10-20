@@ -52,7 +52,7 @@ try{
     check(await page.locator('#gerentes [data-v17-rail]').evaluate(x=>x.scrollLeft>0),p+' Staff scroll');
     const next=lang==='pt'?'/habbo/beta/en/':'/habbo/beta/';
     await page.locator('.lang-toggle a[data-lang="'+(lang==='pt'?'en':'pt-br')+'"]').first().click();
-    await page.waitForURL('**'+next);
+    await page.waitForURL(url=>url.pathname===next);
     check(new URL(page.url()).pathname===next,p+' language stays in beta');
    }
    check(errors.length===0,p+' no runtime or asset errors '+errors.join(';'));
