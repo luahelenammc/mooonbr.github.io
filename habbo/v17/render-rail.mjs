@@ -33,7 +33,7 @@ export function withCanonicalStaffAssets(root,ledger){
    continue;
   }
   const dimensions=ref.cropFrom;
-  assets.set(id,{id,local:ref.local,format:'webp',width:dimensions.width,height:dimensions.height,
+  assets.set(id,{id,local:ref.local,format:ref.assetFormat||'gif',width:dimensions.width,height:dimensions.height,
    sourcePage:ref.sourcePage||'https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html',
    sourceType:'archival-crop',sourceDescription:ref.source});
  }
