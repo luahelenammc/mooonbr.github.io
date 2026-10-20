@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "updatedAt": "2026-10-19",
+  "policy": "Appearance fidelity beats an isolated but incorrect historic sprite. Documentary captures are admitted as archival crops, never marketed as original transparent sprite exports. No AI reconstruction.",
+  "originals": {
+    "flecha": {
+      "local": "habbo/assets/v17/staff/canonical/flecha-classic.webp",
+      "sourceType": "archival-crop",
+      "source": "Moon-provided archived Habbo Staff profile screenshot",
+      "originalCapture": "image(1).png",
+      "canonicalLook": "spiky blue hair, white sleeveless top, blue bottom, white shoes",
+      "cropFrom": {"width": 400, "height": 400, "x": 237, "y": 37, "width": 84, "height": 224},
+      "verifiedAgainst": "user reference 2026-10-19",
+      "status": "awaiting-asset-in-branch"
+    },
+    "mordomo": {
+      "local": "habbo/assets/v17/staff/canonical/mordomo-classic.webp",
+      "sourceType": "archival-crop",
+      "source": "Moon-provided historical Habbo room screenshot (Flecha and Mordomo)",
+      "originalCapture": "image(2).png",
+      "canonicalLook": "grey hair or wig, dark grey suit, early hotel room look",
+      "cropFrom": {"width": 766, "height": 400, "x": 302, "y": 194, "width": 48, "height": 105},
+      "verifiedAgainst": "user reference 2026-10-19",
+      "status": "awaiting-asset-in-branch"
+    },
+    "prefeita": {
+      "local": "habbo/assets/v17/staff/canonical/prefeita-classic.webp",
+      "sourceType": "archival-crop",
+      "source": "Moon-provided historical Prefeita screenshot",
+      "originalCapture": "image(3).png",
+      "canonicalLook": "blonde high updo, orange formal outfit, Habbo Staff badge",
+      "cropFrom": {"width": 133, "height": 122, "x": 13, "y": 27, "width": 58, "height": 93},
+      "verifiedAgainst": "user reference 2026-10-19",
+      "status": "awaiting-asset-in-branch"
+    }
+  }
+}
