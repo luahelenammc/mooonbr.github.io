@@ -1,38 +1,19 @@
-# Habbo V18 · Classic Web Beta
+# Habbo V19 · Night Hotel (dark minimal)
 
-**Preview routes**: `/habbo/beta/` (PT) and `/habbo/beta/en/` (EN).
+**Beta preview**: /habbo/beta/ (PT), /habbo/beta/en/ (EN).
 
-This is a static, noindex design laboratory, forked from the approved V17.2a built output. The museum's public index, source data, research records, historic images, javascript and production CSS are unchanged.
+Rebuilt composition (not the V18 hero darkened): dark blue-petrol museum theatre, original period room imagery at center, restrained family collections, **raised classic orange Habbo controls** on the primary CTA, native Dock controls, catalog actions and manager rail. Tahoma/Verdana compact interface. No synthetic historical sprites and no external theme or font dependency.
 
-## Art direction
+The production /habbo/ index is untouched. The complete previous V18 Classic stays at /habbo/beta/classic.html and /habbo/beta/en/classic.html using the frozen Classic stylesheet.
 
-An original interpretation of the 2006–2009 Habbo website: blue-and-gold tab navigation, a cream arrival panel, window-chrome around Hotel View, a catalog/inventory vocabulary for Rares and Badges, and a Staff display inside a classic blue frame. Art assets are archived source images and not AI-generated.
+## Data source and reproducibility
 
-## Invariants
+The build script `node habbo/beta/build-v19.mjs` derives PT/EN pages from the current approved production museum output, preserving native HTML blocks rather than copying old V18 layouts. Run `node habbo/beta/build-v19.mjs --check` to verify generated output is in sync.
 
-- Places Dock: 29 groups, 36 scenes, 4000-ms autoplay and existing room variants.
-- Rares: 148 original entries; badges: 101 original entries; staff: 12 original profiles.
-- Correct historical Flecha HC, Mordomo and Prefeita assets retained.
-- PT and EN routes in beta; native selection, links, viewer dialogs and rails.
-- CSS is scoped to the `habbo-v18-beta` body class; no production CSS or JS is changed.
-- No tracking, no third-party scripts, no new reconstructed sprites; `noindex` inherited.
-- Known constraint: beta HTML pages are frozen from V17.2a. Refresh them intentionally and reapply theme, then rerun QA when source data changes.
+Contracts: **29 grouped rooms / 36 scenes, 4000-ms autoplay; 148 rares/HC pieces, 101 global badges, one horizontal rail of 12 Staff**. Flecha HC, Mordomo and Prefeita preserve their historically sourced crops. Source links, original docs and independent fan-site disclaimer remain intact.
 
-## Validation
+## QA
 
-Run `node habbo/beta/qa-v18.mjs` after installing `playwright` and Chromium, while serving the repository root on `http://127.0.0.1:4173`. The beta workflow executes this check at 1440, 1024, 390 and 320 px.
+Serve repository root on 127.0.0.1:4173, install playwright@1.55.0 and Chromium, then run `node habbo/beta/qa-v19.mjs` plus `node habbo/beta/qa-classic.mjs`. CI tests PT/EN, 1440/1024/390/320px, browser errors, anchors, original dialogs, character rail, language switch, and no-JS readability. Screenshot artifacts are recorded.
 
-## Release rule
-
-Beta publication is allowed once QA passes; no design propagation into `/habbo/` or `/habbo/pt-br/` without Moon's review and approval. Existing official fan-site disclaimer is retained verbatim.
-
-
-## Frozen V18 Classic · 20 October 2026
-
-- PT: \`/habbo/beta/classic.html\`
-- EN: \`/habbo/beta/en/classic.html\`
-- Archived style: \`/habbo/beta/v18-classic-archive.css\`
-
-The two archived pages retain the approved V18 document structure, presentation and original historic source references. Their internal logo and PT/EN language links point to the **archived Classic** URLs, so a later redesign of \`/habbo/beta/index.html\` cannot silently move the visitor out of the saved edition. The approved stylesheet has been copied unchanged to a frozen archive filename. Production \`/habbo/\`, \`/habbo/pt-br/\` and \`/habbo/en/\` are unchanged.
-
-**V19 Dark Minimal proposal:** \`habbo/beta/PROPOSAL_V19_NIGHT_HOTEL.md\`. It is only a proposal; current beta index remains V18 pending a separate implementation decision.
+The independent, non-official beta is intentionally `noindex,nofollow,noarchive`.
