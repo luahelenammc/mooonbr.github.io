@@ -36,6 +36,8 @@ jobs:
           done
       - name: Test four sections, navigation, dialogs, locales and responsive
         run: node habbo/beta/qa-v18.mjs
+      - name: Validate immutable Classic archive in PT/EN and responsive viewports
+        run: node habbo/beta/qa-classic.mjs
       - name: Attach screenshots
         if: always()
         uses: actions/upload-artifact@v4

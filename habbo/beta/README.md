@@ -25,3 +25,14 @@ Run `node habbo/beta/qa-v18.mjs` after installing `playwright` and Chromium, whi
 ## Release rule
 
 Beta publication is allowed once QA passes; no design propagation into `/habbo/` or `/habbo/pt-br/` without Moon's review and approval. Existing official fan-site disclaimer is retained verbatim.
+
+
+## Frozen V18 Classic · 20 October 2026
+
+- PT: \`/habbo/beta/classic.html\`
+- EN: \`/habbo/beta/en/classic.html\`
+- Archived style: \`/habbo/beta/v18-classic-archive.css\`
+
+The two archived pages retain the approved V18 document structure, presentation and original historic source references. Their internal logo and PT/EN language links point to the **archived Classic** URLs, so a later redesign of \`/habbo/beta/index.html\` cannot silently move the visitor out of the saved edition. The approved stylesheet has been copied unchanged to a frozen archive filename. Production \`/habbo/\`, \`/habbo/pt-br/\` and \`/habbo/en/\` are unchanged.
+
+**V19 Dark Minimal proposal:** \`habbo/beta/PROPOSAL_V19_NIGHT_HOTEL.md\`. It is only a proposal; current beta index remains V18 pending a separate implementation decision.
