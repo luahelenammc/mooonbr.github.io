@@ -1,0 +1,45 @@
+name: Habbo V18 classic-web beta visual QA
+on:
+  push:
+    branches: [feat/habbo-v18-classic-web-beta]
+    paths:
+      - 'habbo/beta/**'
+      - '.github/workflows/habbo-v18-beta.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'habbo/beta/**'
+      - '.github/workflows/habbo-v18-beta.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  classic-beta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Serve current Pages tree
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory . >/tmp/habbo-v18-http.log 2>&1 &
+          for i in $(seq 1 15); do
+            curl -fsS http://127.0.0.1:4173/habbo/beta/ >/dev/null && break
+            sleep 1
+          done
+      - name: Test four sections, navigation, dialogs, locales and responsive
+        run: node habbo/beta/qa-v18.mjs
+      - name: Attach screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: habbo-v18-classic-beta-screenshots
+          path: /tmp/habbo-v18-*.png
+          if-no-files-found: ignore

@@ -1,0 +1,269 @@
+/* HABBO MUSEU VIVO · CLASSIC WEB DESIGN REBASE V18
+   Isolated beta aesthetic, inspired by Habbo's 2006–2009 web and client.
+   No original art or historic sprites are synthesized. */
+/* BASE & COLOR TOKENS */
+body.habbo-v18-beta{
+ --h18-ink:#203342;--h18-blue:#2879a5;--h18-deep:#123b56;
+ --h18-sky:#85c8e5;--h18-gold:#f4b83e;--h18-paper:#f5ebcf;
+ background-color:#0e344c;
+ background-image:repeating-linear-gradient(0deg,#ffffff08 0 1px,transparent 1px 7px),
+ radial-gradient(ellipse at 48% 0,#6cbedb50,transparent 55rem),
+ linear-gradient(180deg,#246d94,#113a55 39rem,#0b293f 100%);
+ color:#f5f1e6;font-family:Tahoma,Verdana,Arial,sans-serif;
+}
+body.habbo-v18-beta::before{opacity:.14;background-size:12px 12px}
+body.habbo-v18-beta .site-shell{width:100%;max-width:none;margin:0}
+body.habbo-v18-beta :focus-visible{outline:3px solid #ffe07f;outline-offset:3px}
+body.habbo-v18-beta .v18-utilbar{
+ width:min(1320px,calc(100% - 36px));min-height:37px;margin:auto;
+ display:flex;align-items:center;justify-content:space-between;gap:12px;
+ padding:7px 6px 3px;color:#e8f4f7;font-size:10px;
+ text-transform:uppercase;letter-spacing:.075em;font-weight:800;
+}
+body.habbo-v18-beta .v18-utilbar a{color:#ffdf98;text-decoration:none;border-bottom:1px dashed #ffdf98a6}
+body.habbo-v18-beta .v18-signal{display:inline-block;width:9px;height:9px;margin-right:7px;background:#aada5f;border:1px solid #38652b;border-radius:2px}
+/* SITE SHELL: classic Habbo tabs, not floating modern pills */
+body.habbo-v18-beta .site-header.v2-header{
+ position:sticky;top:0;z-index:40;display:grid;
+ grid-template-columns:minmax(145px,1fr) auto minmax(74px,1fr);
+ align-items:center;gap:clamp(10px,2vw,26px);
+ width:min(1320px,calc(100% - 36px));min-height:76px;margin:auto;padding:12px 17px;
+ border:3px solid #092f49;border-radius:13px 13px 0 0;
+ background:linear-gradient(180deg,#4a9fc2,#2879a5 45%,#155270);
+ box-shadow:inset 0 3px 0 #9cdef2,inset 0 -4px 0 #174868,0 5px 0 #082c43,0 13px 25px #051a2a75;
+ backdrop-filter:none;
+}
+body.habbo-v18-beta .identity{color:white;gap:10px}
+body.habbo-v18-beta .identity-pip{
+ width:44px;height:44px;position:relative;display:grid;place-items:center;
+ border-radius:9px;border:2px solid #7c5417;background:linear-gradient(#ffe490,#eda829);
+ box-shadow:inset 0 3px #fff4bd,0 3px #164660;
+}
+body.habbo-v18-beta .identity-pip::after{content:"H";font:900 28px/.95 Verdana,Tahoma,sans-serif;color:#175077;text-shadow:1px 1px #fff6ce}
+body.habbo-v18-beta .identity-copy strong{font:900 clamp(18px,2vw,24px)/1.1 Verdana,Tahoma,sans-serif;letter-spacing:-.055em;color:#fffbea;text-shadow:0 2px #0d3859}
+body.habbo-v18-beta .identity-copy small{display:block;font-size:9px;letter-spacing:.13em;font-weight:800;color:#d7effb;margin-top:3px}
+body.habbo-v18-beta .collection-switch{
+ display:flex;gap:4px;padding:5px;max-width:100%;
+ background:#175574;border:2px solid #0c3855;border-radius:10px;
+ box-shadow:inset 0 2px #5792ae,0 2px #bddde349;
+}
+body.habbo-v18-beta .collection-switch a{
+ display:grid;place-items:center;min-height:39px;
+ padding:8px clamp(9px,1.5vw,17px);white-space:nowrap;
+ border-radius:6px;border:1px solid #ffffff26;
+ background:linear-gradient(#458fb0,#23688d);
+ box-shadow:inset 0 2px #a1dcf274,0 2px #0d3c59;
+ color:#ebf8fa;font-size:clamp(10px,.9vw,13px);font-weight:800;
+ transition:filter .15s,transform .15s;
+}
+body.habbo-v18-beta .collection-switch a:hover{filter:brightness(1.14);transform:translateY(-1px)}
+body.habbo-v18-beta .collection-switch a[aria-current="location"],
+body.habbo-v18-beta .collection-switch a[aria-current="page"]{
+ background:linear-gradient(#ffe8ae,#f4b83e 70%,#e9a52e);
+ box-shadow:inset 0 2px #fff8c8,0 2px #916228;color:#513615;border-color:#aa7934;
+}
+body.habbo-v18-beta .lang-toggle{justify-self:end;padding:4px;gap:4px;border:2px solid #0c3958;border-radius:9px;background:#155374}
+body.habbo-v18-beta .lang-button{width:35px;height:33px;display:grid;place-items:center;border-radius:5px}
+body.habbo-v18-beta .lang-button.is-active{background:#f5bc47;box-shadow:inset 0 2px #ffeaba}
+/* RECEPTION HERO */
+body.habbo-v18-beta .home-page--v2{min-width:0;overflow-x:clip}
+body.habbo-v18-beta .v18-arrival{
+ position:relative;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.88fr);
+ align-items:center;gap:clamp(18px,4vw,60px);
+ width:min(1320px,calc(100% - 36px));margin:18px auto 0;
+ padding:clamp(25px,4vw,54px) clamp(22px,5vw,64px);
+ border:3px solid #17425c;border-bottom:5px solid #b58e4a;border-radius:12px;
+ background:linear-gradient(120deg,#fffaf0,#f5ebcf 71%,#e8d8b3);
+ color:#203342;box-shadow:inset 0 4px #ffffff,0 7px #0c2c43,0 14px 30px #071e2c75;
+}
+body.habbo-v18-beta .v18-arrival::before{content:"";position:absolute;inset:9px;z-index:0;border:1px dashed #4f839533;border-radius:6px;pointer-events:none}
+body.habbo-v18-beta .v18-arrival-copy,
+body.habbo-v18-beta .v18-visual-window{position:relative;z-index:1;min-width:0}
+body.habbo-v18-beta .v18-kicker{
+ display:inline-flex;padding:7px 11px;margin:0 0 16px;
+ border-radius:5px;background:#daeef1;color:#1a5474;
+ font-size:10px;letter-spacing:.12em;font-weight:800;
+}
+body.habbo-v18-beta .v18-arrival h2{
+ margin:0 0 16px;color:#174764;
+ font:900 clamp(34px,5.3vw,73px)/1.04 Verdana,Tahoma,sans-serif;letter-spacing:-.07em;
+}
+body.habbo-v18-beta .v18-arrival h2 em{font-style:normal;color:#c48020}
+body.habbo-v18-beta .v18-intro{color:#49616d;font-size:clamp(13px,1.25vw,16px);line-height:1.75;max-width:570px;margin:0}
+body.habbo-v18-beta .v18-arrival-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:25px}
+body.habbo-v18-beta .v18-action{
+ display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:46px;
+ padding:11px 17px;border:2px solid #114d6f;border-radius:8px;
+ background:linear-gradient(#65b0d0,#2b81aa 63%,#1c6487);
+ box-shadow:inset 0 2px #b8e6f4,0 4px #124761;
+ color:white;text-decoration:none;font-size:12px;font-weight:800;transition:filter .15s,transform .15s;
+}
+body.habbo-v18-beta .v18-action:hover{filter:brightness(1.12);transform:translateY(-1px)}
+body.habbo-v18-beta .v18-action--gold{border-color:#986b25;color:#4e3311;background:linear-gradient(#ffe9b0,#f4b83e);box-shadow:inset 0 2px #fff9d8,0 4px #91642d}
+body.habbo-v18-beta .v18-visual-window{border:3px solid #174761;border-radius:10px;background:#e9ede5;overflow:hidden;box-shadow:inset 0 0 0 2px white,0 5px #c2a56b,0 11px 19px #0f304153}
+body.habbo-v18-beta .v18-window-bar,
+body.habbo-v18-beta .v18-chapter-chrome,
+body.habbo-v18-beta .v18-hotel-heading{
+ display:flex;align-items:center;justify-content:space-between;gap:12px;
+ background:linear-gradient(#4c9fc1,#216d98);color:#fffaf0;font-weight:800;
+}
+body.habbo-v18-beta .v18-window-bar{padding:10px 12px;border-bottom:2px solid #17465e;font-size:10px;letter-spacing:.08em}
+body.habbo-v18-beta .v18-window-dots{display:flex;gap:5px;flex-shrink:0}
+body.habbo-v18-beta .v18-window-dots i{display:block;width:12px;height:12px;border:1px solid #15516a;border-radius:3px;background:linear-gradient(#ffe09b,#eaae36);box-shadow:inset 0 2px #fff2bd}
+body.habbo-v18-beta .v18-visual-window img{
+ display:block;width:100%;height:clamp(145px,20vw,265px);padding:10px;
+ object-fit:contain;image-rendering:pixelated;
+ background:radial-gradient(ellipse,#bedce3,#eee6d1 72%);
+}
+body.habbo-v18-beta .v18-window-caption{display:block;background:#e6ece6;border-top:2px solid #c7d8d9;padding:9px 12px;font-size:10px;color:#426474;font-weight:700}
+body.habbo-v18-beta .v18-stats{
+ display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+ width:min(1240px,calc(100% - 48px));margin:22px auto 26px;
+ border:2px solid #15516d;border-radius:9px;background:#e3f0f2;overflow:hidden;
+ box-shadow:0 4px #0e3854;
+}
+body.habbo-v18-beta .v18-stat{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;padding:13px 8px;border-right:2px solid #bed3dc;color:#1f516a;font-size:11px;text-align:center}
+body.habbo-v18-beta .v18-stat:last-child{border-right:0}
+body.habbo-v18-beta .v18-stat strong{font:900 clamp(17px,2vw,23px)/1 Verdana,Tahoma,sans-serif;color:#b77926}
+/* HOTEL VIEW: re-skin the real functional Dock, not a new carousel */
+body.habbo-v18-beta .v18-hotel-heading{
+ width:min(1320px,calc(100% - 36px));margin:0 auto;padding:11px clamp(13px,2vw,25px);
+ border:3px solid #0c3955;border-bottom:0;border-radius:10px 10px 0 0;
+ box-shadow:inset 0 3px #adddeb;
+}
+body.habbo-v18-beta .v18-hotel-heading h2{color:white;font:800 clamp(13px,1.4vw,18px)/1.4 Tahoma,Verdana,sans-serif;margin:0}
+body.habbo-v18-beta .v18-hotel-heading p{color:#d7ecf3;font-size:10px;margin:0}
+body.habbo-v18-beta .cinematic-dock{
+ flex:none;width:min(1320px,calc(100% - 36px))!important;margin:0 auto!important;
+ min-height:clamp(490px,72vh,830px);padding:12px clamp(7px,3.6vw,50px) 17px;
+ border:3px solid #0c3955;border-top:0;border-radius:0 0 11px 11px;
+ background:radial-gradient(ellipse at 50% 41%,#2c7b9652,transparent 36rem),linear-gradient(#143e56,#0c2336);
+ box-shadow:inset 0 0 0 2px #579ab95b,0 6px #092b42,0 17px 32px #061b2a9c;
+}
+body.habbo-v18-beta .dock-viewport{height:clamp(340px,52vh,620px);margin-inline:0}
+body.habbo-v18-beta .dock-caption{color:#fff9e8}
+body.habbo-v18-beta .dock-controls .dock-control{border:2px solid #0e4a68;border-radius:9px;background:linear-gradient(#4492b2,#195e7f);box-shadow:inset 0 2px #a3dbea;color:#fff8eb}
+body.habbo-v18-beta .dock-controls .dock-control:hover{filter:brightness(1.15)}
+/* CATALOG WINDOWS & GALLERY EXHIBITIONS */
+body.habbo-v18-beta .v8-home-chapters{width:min(1320px,calc(100% - 36px));max-width:none;margin:59px auto 70px;padding:0;overflow-x:clip;color:#203342}
+body.habbo-v18-beta .v8-home-chapter{
+ position:relative;margin:0 0 38px;padding:0 24px 26px;min-width:0;max-width:100%;
+ border:3px solid #123f5a;border-bottom:5px solid #0f3853;border-radius:13px;
+ background:linear-gradient(#fff8e9,#f5ebcf 29%,#efe3c7);
+ box-shadow:inset 0 3px #fff,0 7px #092d44,0 14px 22px #061a2966;
+ overflow:hidden;scroll-margin-top:125px;
+}
+body.habbo-v18-beta .v18-chapter-chrome{
+ margin:0 -24px 23px;min-height:44px;padding:9px 21px;border-bottom:3px solid #16485f;
+ letter-spacing:.08em;font-size:11px;
+}
+body.habbo-v18-beta .v8-chapter-head h2{color:#194a68;font:900 clamp(27px,4vw,51px)/1.1 Verdana,Tahoma,sans-serif;letter-spacing:-.055em}
+body.habbo-v18-beta .v8-chapter-head p:not(.v8-overline){color:#536d79}
+body.habbo-v18-beta .v8-overline{color:#a66c21;font-size:10px;letter-spacing:.12em}
+body.habbo-v18-beta .v9-archive-total{color:#256787!important}
+body.habbo-v18-beta .v8-full-collection{border:2px solid #a36e25;border-radius:8px;background:linear-gradient(#ffe5a2,#efb542);color:#4e3515;box-shadow:inset 0 2px #fff6c9,0 3px #90612a;font-weight:800;font-size:12px;padding:10px 15px}
+body.habbo-v18-beta .v8-full-collection:hover{background:#ffe3a4;color:#352007}
+body.habbo-v18-beta .v11-family-directory h3{color:#184a66}
+body.habbo-v18-beta .v11-family-directory p{color:#58717c}
+body.habbo-v18-beta .v11-family-grid,
+body.habbo-v18-beta .v9-family-index.v11-family-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;border-bottom:2px solid #d6c7a9}
+body.habbo-v18-beta .v11-family-grid a,
+body.habbo-v18-beta .v9-family-index.v11-family-grid a{
+ border:2px solid #1a6080;border-radius:9px;background:linear-gradient(#4594b7,#236788);
+ box-shadow:inset 0 2px #a0d6e6,0 3px #18435f;color:#fff9ed;
+}
+body.habbo-v18-beta .v11-family-grid a:hover{background:#357a9a;filter:brightness(1.08)}
+body.habbo-v18-beta .v11-family-grid a[aria-current="location"]{
+ background:linear-gradient(#ffe3a3,#edb345)!important;border-color:#b38127!important;
+ color:#452e10!important;box-shadow:inset 0 2px #fff6cb,0 3px #986829!important;
+}
+body.habbo-v18-beta .v11-family-grid a[aria-current="location"] .v11-family-name{color:#442c12}
+body.habbo-v18-beta .v11-family-grid a[aria-current="location"] .v11-family-count{color:#78511e}
+body.habbo-v18-beta .v11-family-thumb{background:#e6f2ed;border:1px solid #12526b;border-radius:5px}
+body.habbo-v18-beta .v11-family-name{color:inherit}
+body.habbo-v18-beta .v11-family-count{color:#dcebf0}
+body.habbo-v18-beta .v9-family{
+ margin:0 0 15px;padding:15px clamp(9px,1.7vw,21px);
+ border:2px solid #b0c8ce;border-radius:11px;
+ background:linear-gradient(#e8f3f3,#d8e8eb);box-shadow:inset 0 2px #fffbea;
+}
+body.habbo-v18-beta .v9-group-heading h3{color:#174b69;font-weight:800}
+body.habbo-v18-beta .v9-group-heading p{color:#5e7780}
+body.habbo-v18-beta .v9-group-index{color:#a36d23}
+body.habbo-v18-beta .v9-group-controls button,
+body.habbo-v18-beta .v17-staff-arrow{border-radius:7px;border:2px solid #15516c;background:linear-gradient(#4b9bbc,#2b6e91);color:white;box-shadow:inset 0 2px #b0dfea,0 2px #0d405c}
+body.habbo-v18-beta .v9-group-rail .v9-home-item{
+ border:2px solid #b5cbd2!important;border-radius:9px;background:#f8f2e2!important;
+ color:#26516a;box-shadow:inset 0 2px white,0 3px #c3d2d0;
+}
+body.habbo-v18-beta .v9-group-rail .v9-home-item:hover{background:#fff8e7!important;border-color:#e2ad45!important}
+body.habbo-v18-beta .v9-group-rail .v9-item-caption{color:#24506a;font-weight:750}
+body.habbo-v18-beta .v9-badge-rail .v9-home-item{background:#f9f5e5!important}
+body.habbo-v18-beta .v17-staff-chapter{background:linear-gradient(#125370,#0d3954);color:#f6f1e7}
+body.habbo-v18-beta .v17-staff-chapter .v8-chapter-head h2{color:#fff6d8}
+body.habbo-v18-beta .v17-staff-chapter .v8-overline{color:#fbd572}
+body.habbo-v18-beta .v17-staff-chapter .v8-chapter-head p:not(.v8-overline){color:#cde6eb}
+body.habbo-v18-beta .v17-staff-name{color:#fff6e8;font-weight:800}
+body.habbo-v18-beta .v17-staff-portrait{background:radial-gradient(ellipse at 50% 100%,#ffda7530,transparent 72%);border-bottom:2px solid #a8d4da73}
+body.habbo-v18-beta .v17-staff-progress{background:#b0d6e44d}
+body.habbo-v18-beta .v17-staff-progress-thumb{background:#efbb45}
+/* authentic modal functionality, restyled surfaces */
+body.habbo-v18-beta .v9-home-dialog,body.habbo-v18-beta .lightbox{border:3px solid #135471;border-radius:13px;background:#f5ebcf;color:#203342;box-shadow:inset 0 4px #acdbe8,0 25px 75px #051927dc}
+body.habbo-v18-beta .v9-dialog-family{color:#ad7726}
+body.habbo-v18-beta .v9-home-dialog h3{color:#174b68}
+body.habbo-v18-beta .v9-dialog-counter{color:#5a7280}
+body.habbo-v18-beta .v9-dialog-controls button{background:#2879a5;color:white;border:2px solid #11445e;border-radius:7px}
+body.habbo-v18-beta .v9-dialog-close,body.habbo-v18-beta .v9-dialog-controls a{color:#174f6a}
+body.habbo-v18-beta .site-footer{background:#092c44;border-top:3px solid #32789b}
+body.habbo-v18-beta .rights-disclaimer{color:#abc9d4}
+body.habbo-v18-beta .v18-beta-footer{width:min(1320px,calc(100% - 36px));margin:0 auto 32px;padding:14px 16px;border:2px solid #367e99;border-radius:9px;background:#17465e;color:#cce8f0;font-size:11px;text-align:center}
+body.habbo-v18-beta .v18-beta-footer a{color:#ffe0a0;text-decoration:underline;text-underline-offset:3px}
+/* responsive windows, no offscreen menu and no horizontal document scroll */
+@media(max-width:1050px){
+ body.habbo-v18-beta .site-header.v2-header{grid-template-columns:auto 1fr auto;gap:10px;padding:11px}
+ body.habbo-v18-beta .collection-switch{justify-self:center}
+ body.habbo-v18-beta .collection-switch a{padding:8px 10px;font-size:11px}
+ body.habbo-v18-beta .v11-family-grid,body.habbo-v18-beta .v9-family-index.v11-family-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:720px){
+ body.habbo-v18-beta .v18-utilbar{width:calc(100% - 20px);font-size:9px;letter-spacing:0}
+ body.habbo-v18-beta .site-header.v2-header{grid-template-columns:1fr auto;width:calc(100% - 18px);min-height:0;gap:7px;padding:9px 10px;border-radius:10px 10px 0 0}
+ body.habbo-v18-beta .identity-pip{width:35px;height:35px}
+ body.habbo-v18-beta .identity-pip::after{font-size:23px}
+ body.habbo-v18-beta .identity-copy strong{font-size:19px}
+ body.habbo-v18-beta .lang-toggle{grid-row:1;grid-column:2}
+ body.habbo-v18-beta .collection-switch{grid-row:2;grid-column:1/-1;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;width:100%;border-radius:7px}
+ body.habbo-v18-beta .collection-switch a{min-width:0;min-height:35px;font-size:12px;white-space:normal;padding:8px 5px;text-align:center}
+ body.habbo-v18-beta .v18-arrival{grid-template-columns:1fr;width:calc(100% - 18px);margin-top:11px;padding:25px 18px}
+ body.habbo-v18-beta .v18-arrival h2{font-size:clamp(32px,8.2vw,49px)}
+ body.habbo-v18-beta .v18-visual-window img{height:clamp(155px,39vw,265px)}
+ body.habbo-v18-beta .v18-stats{grid-template-columns:repeat(2,minmax(0,1fr));width:calc(100% - 24px);margin:17px auto}
+ body.habbo-v18-beta .v18-stat:nth-child(2){border-right:0}
+ body.habbo-v18-beta .v18-stat:nth-child(-n+2){border-bottom:2px solid #bed3dc}
+ body.habbo-v18-beta .v18-hotel-heading{width:calc(100% - 18px);padding:10px 12px}
+ body.habbo-v18-beta .cinematic-dock{width:calc(100% - 18px)!important;min-height:520px;padding:8px 5px 14px}
+ body.habbo-v18-beta .dock-viewport{height:clamp(295px,45vh,480px);margin-inline:-4px}
+ body.habbo-v18-beta .v8-home-chapters{width:calc(100% - 18px);margin:42px auto}
+ body.habbo-v18-beta .v8-home-chapter{padding:0 12px 17px;margin-bottom:24px}
+ body.habbo-v18-beta .v18-chapter-chrome{margin:0 -12px 17px;padding:9px 12px}
+ body.habbo-v18-beta .v8-chapter-head h2{font-size:clamp(27px,6vw,39px)}
+ body.habbo-v18-beta .v11-family-grid,body.habbo-v18-beta .v9-family-index.v11-family-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+ body.habbo-v18-beta .v11-family-grid a,body.habbo-v18-beta .v9-family-index.v11-family-grid a{grid-template-columns:38px minmax(0,1fr);gap:6px;padding:7px;min-height:62px}
+ body.habbo-v18-beta .v11-family-thumb{width:38px;height:40px}
+ body.habbo-v18-beta .v11-family-name{font-size:11px}
+ body.habbo-v18-beta .v9-family{padding:11px 8px}
+ body.habbo-v18-beta .v9-rare-rail .v9-home-item{flex-basis:130px;width:130px}
+ body.habbo-v18-beta .v9-badge-rail{grid-auto-columns:106px}
+ body.habbo-v18-beta .v18-beta-footer{width:calc(100% - 18px)}
+}
+@media(max-width:360px){
+ body.habbo-v18-beta .collection-switch a{font-size:10px}
+ body.habbo-v18-beta .v18-arrival-actions{flex-direction:column}
+ body.habbo-v18-beta .v18-action{width:100%}
+ body.habbo-v18-beta .v11-family-grid a,body.habbo-v18-beta .v9-family-index.v11-family-grid a{grid-template-columns:1fr;text-align:center;justify-items:center}
+ body.habbo-v18-beta .v11-family-text{text-align:center}
+ body.habbo-v18-beta .v9-badge-rail{grid-auto-columns:95px}
+}
+@media(prefers-reduced-motion:reduce){
+ body.habbo-v18-beta *,body.habbo-v18-beta *::before,body.habbo-v18-beta *::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+}
