@@ -19,7 +19,10 @@
       "status": "archived-on-branch",
       "assetFormat": "gif",
       "displayProvenance": "user-submitted screenshot > documentary crop > color-indexed GIF (no synthesized character)",
-      "sourcePage": "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html"
+      "sourcePage": "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",
+      "sha256": "5afbfd493b41842c50f1d2583ba8f575a051b378db036e4bd2073d8515e5bd27",
+      "bytes": 4751,
+      "paletteColors": 16
     },
     "mordomo": {
       "local": "habbo/assets/v17/staff/canonical/mordomo-classic.gif",
@@ -37,7 +40,10 @@
       "status": "archived-on-branch",
       "assetFormat": "gif",
       "displayProvenance": "user-submitted screenshot > documentary crop > color-indexed GIF (no synthesized character)",
-      "sourcePage": "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html"
+      "sourcePage": "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",
+      "sha256": "81244a30b7fadd3550810af8cec3ad77b9c76a94aa6aca35e98fe390ec0ed370",
+      "bytes": 3448,
+      "paletteColors": 64
     },
     "prefeita": {
       "local": "habbo/assets/v17/staff/canonical/prefeita-classic.gif",
@@ -55,7 +61,10 @@
       "status": "archived-on-branch",
       "assetFormat": "gif",
       "displayProvenance": "user-submitted screenshot > documentary crop > color-indexed GIF (no synthesized character)",
-      "sourcePage": "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html"
+      "sourcePage": "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",
+      "sha256": "6a1ba5cd5a5e48da92fcef7a9ec1e7c8d074d519d4de7e8eeadc428201b89811",
+      "bytes": 2907,
+      "paletteColors": 64
     }
   }
 }
