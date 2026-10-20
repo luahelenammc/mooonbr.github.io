@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {renderV13Details} from '../v13/render-details.mjs';
-import {renderStaffChapter,renderStaffStandalone} from '../v17/render-rail.mjs';
+import {renderStaffChapter,renderStaffStandalone,withCanonicalStaffAssets} from '../v17/render-rail.mjs';
 
 // V8 presentation compiler. Retains research/source data but never emits
 // the BR/PT regional badge pages or artwork into the public-facing galleries.
@@ -208,7 +208,7 @@ function upgradeHologramRecordImages(dist){
 export function buildUnified({root,dist}) {
  const rare=rareItems(root), badge=badgeItems(root);
  const staff=read(path.join(root,'v16/staff-manifest.json'));
- const staffOriginals=read(path.join(root,'v17/staff-originals.json'));
+ const staffOriginals=withCanonicalStaffAssets(root,read(path.join(root,'v17/staff-originals.json')));
  const detailPages=renderV13Details(root,dist);
  upgradeHologramRecordImages(dist);
  const outcomes=[renderCollection(root,dist,'rares',false),renderCollection(root,dist,'rares',true),
