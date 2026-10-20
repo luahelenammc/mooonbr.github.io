@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "updatedAt": "2026-10-19",
+  "policy": "Appearance fidelity beats an isolated but incorrect historic sprite. Documentary captures are admitted as archival crops, never marketed as original transparent sprite exports. No AI reconstruction. File encodings are indexed GIF crops, not byte-identical original-size character sprites.",
+  "originals": {
+    "flecha": {
+      "local": "habbo/assets/v17/staff/canonical/flecha-classic.gif",
+      "sourceType": "archival-crop",
+      "source": "Moon-provided archived Habbo Staff profile screenshot",
+      "originalCapture": "image(1).png",
+      "canonicalLook": "spiky blue hair, white sleeveless top, blue bottom, white shoes",
+      "cropFrom": {
+        "width": 84,
+        "height": 224,
+        "x": 237,
+        "y": 37
+      },
+      "verifiedAgainst": "user reference 2026-10-19",
+      "status": "archived-on-branch",
+      "assetFormat": "gif",
+      "displayProvenance": "user-submitted screenshot > documentary crop > color-indexed GIF (no synthesized character)",
+      "sourcePage": "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",
+      "sha256": "5afbfd493b41842c50f1d2583ba8f575a051b378db036e4bd2073d8515e5bd27",
+      "bytes": 4751,
+      "paletteColors": 16
+    },
+    "mordomo": {
+      "local": "habbo/assets/v17/staff/canonical/mordomo-classic.gif",
+      "sourceType": "archival-crop",
+      "source": "Moon-provided historical Habbo room screenshot (Flecha and Mordomo)",
+      "originalCapture": "image(2).png",
+      "canonicalLook": "grey hair or wig, dark grey suit, early hotel room look",
+      "cropFrom": {
+        "width": 48,
+        "height": 105,
+        "x": 302,
+        "y": 194
+      },
+      "verifiedAgainst": "user reference 2026-10-19",
+      "status": "archived-on-branch",
+      "assetFormat": "gif",
+      "displayProvenance": "user-submitted screenshot > documentary crop > color-indexed GIF (no synthesized character)",
+      "sourcePage": "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",
+      "sha256": "81244a30b7fadd3550810af8cec3ad77b9c76a94aa6aca35e98fe390ec0ed370",
+      "bytes": 3448,
+      "paletteColors": 64
+    },
+    "prefeita": {
+      "local": "habbo/assets/v17/staff/canonical/prefeita-classic.gif",
+      "sourceType": "archival-crop",
+      "source": "Moon-provided historical Prefeita screenshot",
+      "originalCapture": "image(3).png",
+      "canonicalLook": "blonde high updo, orange formal outfit, Habbo Staff badge",
+      "cropFrom": {
+        "width": 58,
+        "height": 93,
+        "x": 13,
+        "y": 27
+      },
+      "verifiedAgainst": "user reference 2026-10-19",
+      "status": "archived-on-branch",
+      "assetFormat": "gif",
+      "displayProvenance": "user-submitted screenshot > documentary crop > color-indexed GIF (no synthesized character)",
+      "sourcePage": "https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html",
+      "sha256": "6a1ba5cd5a5e48da92fcef7a9ec1e7c8d074d519d4de7e8eeadc428201b89811",
+      "bytes": 2907,
+      "paletteColors": 64
+    }
+  }
+}

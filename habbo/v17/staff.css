@@ -52,3 +52,10 @@
  .v17-staff-portrait,.v17-staff-progress-thumb,.v17-staff-arrow{transition:none}
  .v17-staff-rail{scroll-behavior:auto}
 }
+
+/* V17.2: captured period appearance. Source is a crop of a real historic screenshot, never a recreated Habbo sprite. */
+.v17-staff-portrait.v17-classic-archival{background:radial-gradient(ellipse at 50% 100%,#8ba87618,transparent 70%);border-bottom:1px solid #8ca4803f}
+.v17-staff-portrait.v17-classic-archival>img{max-width:100%;max-height:124px;object-fit:contain;object-position:bottom center;image-rendering:pixelated;image-rendering:crisp-edges}
+.v17-staff-specimen[data-v17-person="flecha"] .v17-classic-archival>img{max-height:125px}
+.v17-staff-specimen[data-v17-person="mordomo"] .v17-classic-archival>img{max-height:110px}
+.v17-staff-specimen[data-v17-person="prefeita"] .v17-classic-archival>img{max-height:108px}

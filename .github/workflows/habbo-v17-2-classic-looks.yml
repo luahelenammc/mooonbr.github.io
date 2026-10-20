@@ -1,0 +1,93 @@
+name: Habbo V17.2 canonical Staff appearances
+on:
+  push:
+    branches: [fix/habbo-v17-2-canonical-staff-looks]
+    paths:
+      - 'habbo/**'
+      - '.github/workflows/habbo-v17-2-classic-looks.yml'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: habbo-v17-2-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  classic-staff-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify canonical source images and JS syntax
+        run: |
+          node --check habbo/v17/render-rail.mjs
+          node --check habbo/v8/build-unified.mjs
+          node --check habbo/v17/staff.js
+          node --check habbo/qa/v17-staff-rail.mjs
+          node habbo/v13/acquire-native.mjs --check
+          node habbo/v17/acquire-staff.mjs --check
+      - name: Build V17.2 and synchronize Pages sources
+        run: |
+          BASE_PATH=/habbo node habbo/build.mjs
+          node habbo/v6/sync-static-output.mjs --write
+          node habbo/v6/sync-static-output.mjs --check
+      - name: Check 12 appearances and three canonical overrides
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import crypto from 'node:crypto';
+          const doc=JSON.parse(fs.readFileSync('habbo/v17/canonical-looks.json','utf8'));
+          for (const [id,ref] of Object.entries(doc.originals)) {
+            const actual=crypto.createHash('sha256').update(fs.readFileSync(ref.local)).digest('hex');
+            if (actual!==ref.sha256) throw Error('SHA256 mismatch: '+id);
+            for(const page of ['habbo/index.html','habbo/pt-br/index.html','habbo/en/index.html']) {
+              const html=fs.readFileSync(page,'utf8');
+              if(!html.includes('/'+ref.local)) throw Error('Missing '+id+' in '+page);
+            }
+          }
+          NODE
+      - name: Install browser QA
+        run: |
+          npm init -y
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Start Pages preview
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory . >/tmp/habbo-v17-2.log 2>&1 &
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            curl --silent --fail http://127.0.0.1:4173/habbo/ >/dev/null && break
+            sleep 1
+          done
+      - name: Desktop, mobile, 320px, bilingual, no-JS and legacy regression
+        run: |
+          node habbo/qa/v17-staff-rail.mjs
+          node habbo/qa/v12-quiet-atlas.mjs
+          node habbo/qa/v8-visual.mjs
+      - name: Keep visual screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: habbo-v17-2-canonical-look-qa
+          path: |
+            habbo/qa/v17-artifacts/
+            habbo/qa/v12-artifacts/
+            habbo/qa/v8-evidence/
+      - name: Commit rebuilt Pages source to this feature branch
+        if: success() && github.event_name != 'pull_request'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A habbo/index.html habbo/pt-br/index.html habbo/en/index.html
+          git add -A habbo/pt-br/gerentes habbo/en/managers
+          git add -A habbo/assets/v17-staff.css habbo/assets/v17-staff.js habbo/assets/v17
+          if ! git diff --cached --quiet; then
+            git commit -m "build(habbo): publish canonically matched Staff appearances [skip ci]"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
