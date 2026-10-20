@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "policy": "Preserved unchanged original online pixels; never synthetic portraits or current avatars.",
+  "assets": [
+    {
+      "id": "flecha",
+      "sourcePage": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0hyFpFD_38IJQHnchcX5nHj5AFj3ZvrK_dHgcQuh3pUvklV-B4xtsFlxSgMCk9UzJExG_aiKNdi2etqMqr3QFN2agIbNmmDkH04X1VgGGU7BCOvUgMX076W7_Gcx5migGQl0afCYEehs/s0/image20.png",
+      "period": "archived 2006-2010 looks",
+      "local": "habbo/assets/v17/staff/flecha.png",
+      "width": 64,
+      "height": 110,
+      "format": "png",
+      "bytes": 1843,
+      "sha256": "302184b0a22f366dda640d815ea5b937e101c1ac765b1d39e250e9d0dcc25d5d"
+    },
+    {
+      "id": "reeet",
+      "sourcePage": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVQy3g1NadD766ySHogVI0NluwitBt7H6GAWuDRe7YYI69aoD6NyvY29NLZV9X04qyComRP9gH57SWPRPru8KFZtavjoXj12Csu1XT2R40UYfpZBQRFMOQ2dwPnenjpTrJSPJqG69iHwM/s0/image23.png",
+      "period": "archived 2006-2010 looks",
+      "local": "habbo/assets/v17/staff/reeet.png",
+      "width": 64,
+      "height": 110,
+      "format": "png",
+      "bytes": 1765,
+      "sha256": "0287694775cee6df109da6304be7241729edf501e3bcbf17a7f06dbbb8ffcc2f"
+    },
+    {
+      "id": "paty-nestle",
+      "sourcePage": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivjHgqWJ2kRCVZFfYe_LKlp0eqg0QNN6bnCBdb6zg2TkEDYJuOtH5r4obsATNpMiOxoOMWBMnbP-roqvJBCpe4eGMlzENQtu8CjBqX6g5pq2is220TAI8VFgaT2PDdkd8lgz3ANDMqbdY/s0/image1.png",
+      "period": "archived 2006-2010 looks",
+      "local": "habbo/assets/v17/staff/paty-nestle.png",
+      "width": 64,
+      "height": 110,
+      "format": "png",
+      "bytes": 3580,
+      "sha256": "7a629ddcaee28c034555654d0621e9dd6e36ade16ec435e48b1065153cfcedc6"
+    },
+    {
+      "id": "4queijos",
+      "sourcePage": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6tCIj2ktPo5tS-JbLXWzUq_CNdHuvV8ermFyeDJl-8n1D-KpTQkOWd5-5re8RWbLF4pQJ7cusVuBGjNFsF0q-YalWE2Sn-uBmWGuFpth-17ijARTwvsdHHhvRmjfRBYWUIUNJKOIJCZg/s0/image19.png",
+      "period": "archived 2006-2010 looks",
+      "local": "habbo/assets/v17/staff/4queijos.png",
+      "width": 64,
+      "height": 110,
+      "format": "png",
+      "bytes": 3086,
+      "sha256": "a8329e2665016d78d4611e181f9acab468956d5fe8e76f5644ac62fc2bfd7d68"
+    },
+    {
+      "id": "thedjhabbo",
+      "sourcePage": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7HBtZZCHgQZFoqhCOpt6c4556gZtxVhv8NsBv7Xy4gi8WxRcY1LHxVdkchih123jgv6dOERrMj2WuNWnCRLFjWEy8H3MGCFp7X40Tj4_q4d7c1HFKBA5nUs8f2AxROQIPR0AfyRrBgSc/s0/image10.png",
+      "period": "archived 2006-2010 looks",
+      "local": "habbo/assets/v17/staff/thedjhabbo.png",
+      "width": 64,
+      "height": 110,
+      "format": "png",
+      "bytes": 2297,
+      "sha256": "52ce7a304fe9ce6a3b62dae041392e86442e6f1a700c44ea45d0b7f0c43d3504"
+    },
+    {
+      "id": "acapulca",
+      "sourcePage": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiC-LrJ7Ju9ti_i7yjawuE-QlhH9K3s9WY_3RsseRYdrm9WnpG1YOwWTfQQFiJtdYvqbVSq7R63j8V5433mVhnJqjD7elXJ2DRwD1gGjA2-xH9EFlLrhsz4ukyurZKnZN9ON9pQj6sekCs/s0/image16.png",
+      "period": "archived 2006-2010 looks",
+      "local": "habbo/assets/v17/staff/acapulca.png",
+      "width": 64,
+      "height": 110,
+      "format": "png",
+      "bytes": 3607,
+      "sha256": "619638226f0feffb5048d1249b28343b14b21335c93a0627b495692840eb469f"
+    },
+    {
+      "id": "disco-lee",
+      "sourcePage": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0_JM0eh7ib7KEkOflJ90PEb2afKpfuqgvzPILz3SzVA1iRha_itK38LbYy2TEV-ebURxO6Ah1sjhM-_rwqZBK3M5MAdORcjmbsF-KQgQYaa1QBesVaI9svR1B9IaItSW_MeQm_5m4N7I/s0/image27.png",
+      "period": "archived 2006-2010 looks",
+      "local": "habbo/assets/v17/staff/disco-lee.png",
+      "width": 64,
+      "height": 110,
+      "format": "png",
+      "bytes": 2116,
+      "sha256": "5991091f419c8784f3fab0880ec2939d4b19617cac7ff55b8051d0cbb810fb21"
+    },
+    {
+      "id": "missfurby",
+      "sourcePage": "https://viajovem.blogspot.com/2021/02/staffs.html",
+      "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhw6NsvSPUrMtQXVOQQQp37tJEdheYaPn5_b5MTazRG-zpvHgTjrEOL0WYHvmUCa-aCMTMhcopR4adWMMNWEF7Pk0BnMZWipzvN_XIk1-cxGRKNpe5fcOHEQzIz3WEv-f2rki_-lIHAsCY/s0/image9.png",
+      "period": "archived 2006-2010 looks",
+      "local": "habbo/assets/v17/staff/missfurby.png",
+      "width": 64,
+      "height": 110,
+      "format": "png",
+      "bytes": 1516,
+      "sha256": "97db34784fc4ecb5cd1ed14155340ad75fc1bef5e2c616c71f75060aaead7fd4"
+    },
+    {
+      "id": "mordomo",
+      "sourcePage": "https://haddicas-habbo.blogspot.com/2011/12/personagens-hotel.html",
+      "url": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_vr3XBFIH4HPnMPG2QceQp4VSl5wQ5cYB098zPKnDzET3qinut1DRC_aEO0Deu5EYmvea5g4pK74psYibfHA0d9N4xCcmXm_j2f_2XS4bAaQ9BHZzLr-8O9ZcSlyBcb-KrK_9GcQAhjYpmcJFJt9bevhATANDDsh0RYXqYnTWpbToHxBgu4lUxyxK5PyZId3F49jUAJRlui1ur-h_L5_XUNAjweZXVrWycrGNPyzS8yWw=s0-d",
+      "period": "archived 2011 page",
+      "local": "habbo/assets/v17/staff/mordomo.gif",
+      "width": 128,
+      "height": 220,
+      "format": "gif",
+      "bytes": 2799,
+      "sha256": "3e8a43bfbfabbc4e0fec0418f29dbd2e61dbe177ae41af8b2546ac84f627ff64"
+    },
+    {
+      "id": "sir-lawnrence",
+      "sourcePage": "https://haddicas-habbo.blogspot.com/2011/12/personagens-hotel.html",
+      "url": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tsbjfHsFZilSjLME1siJvz1d4lD2X24MDLhEuLr3s8qRzRAatVXqUrH6dNRFZBVbn6kA-qPnXrPqBkarWuw7dYTY01y0alNIOh3bkHV0csYWao9UGRkNpLEMDPhlOqUNWIRj0A1MJtxbwxwbA6M6Fz8YIu95QPLp8vrfG6EoVpA5M9VDTL2BZ0CKAFZdaVOmX5jQJ-iNbceXFstEBNAiPj8cLCAUK8V0Xr2-VrfCdVNrb3JLuhFg=s0-d",
+      "period": "archived 2011 page",
+      "local": "habbo/assets/v17/staff/sir-lawnrence.gif",
+      "width": 128,
+      "height": 220,
+      "format": "gif",
+      "bytes": 2789,
+      "sha256": "33312f53a08e01ccc38a5aca1818bf5cfc1de976336177068befa6e21a1ac7bf"
+    },
+    {
+      "id": "djapamala",
+      "sourcePage": "https://habbo.fandom.com/pt-br/wiki/Gerentes",
+      "url": "https://static.wikia.nocookie.net/habbo/images/c/cf/Perfil_DJapamala.png/revision/latest?cb=20111113160839&path-prefix=pt",
+      "period": "2011 uploaded wiki artwork",
+      "local": "habbo/assets/v17/staff/djapamala.webp",
+      "width": 367,
+      "height": 188,
+      "format": "webp",
+      "bytes": 3952,
+      "sha256": "4339ec1c4bbac9c55af34a4e9d9923ff301b3f22e193d17bba8f7e5ce76b201c"
+    }
+  ]
+}

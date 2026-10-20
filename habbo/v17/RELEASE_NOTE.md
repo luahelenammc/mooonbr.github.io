@@ -1,19 +1,25 @@
-# Habbo V17 · Gerentes clássicos: galeria horizontal de sprites
-Data: 19/10/2026
+# Habbo V17 · Gerentes clássicos: uma fileira de sprites
 
-## Correção de apresentação
-Substituir integralmente o capítulo biográfico de cards da V16 por **uma única fileira horizontal scrollável** com o nome de cada gerente sob o sprite, como os raros e Espaços Públicos. Sem grid, sem três grupos visuais separados, sem minibios, sem links/editoriais na face dos itens. Páginas PT `/habbo/pt-br/gerentes/` e EN `/habbo/en/managers/` acompanham a mesma única rail.
+Data: 19/10/2026. Refatoração corretiva da V16 após feedback explícito de Moon.
 
-**Doze nomes exatamente conforme o texto da Moon**: Flecha, Mordomo, Paty-Nestle, 4Queijos, Disco-Lee, MissFurby, Reeet, TheDJHabbo, Acapulca, Sir-Lawnrence, Prefeita, DJapamala.
-Fonte editorial: https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html .
+## Contrato visual da V17
+- **Uma única fileira horizontal scrollável** em `#gerentes`, sem cards biográficos, sem três grupos empilhados, sem mini-textos por gerente.
+- Doze nomes na ordem curatorial preservada do post da Moon: Flecha, Mordomo, Paty-Nestle, 4Queijos, Disco-Lee, MissFurby, Reeet, TheDJHabbo, Acapulca, Sir-Lawnrence, Prefeita, DJapamala.
+- Cada posição é apenas **sprite histórico e nome**. Há setas externas e swipe nativo, scroll-snap, navegação por teclado e fallback funcional sem JavaScript.
+- As páginas `/habbo/pt-br/gerentes/` e `/habbo/en/managers/` exibem **a mesma fileira**, não a interface antiga.
+- As URLs dos quatro capítulos na home, o Dock dos Espaços Públicos, 148 peças de raros/HC e 101 emblemas não podem sofrer regressão.
 
-## Sprite-only com integridade de evidência
-Fãs preservaram versões históricas de corpo inteiro (64×110 px) para **oito nomes**, recuperadas por link direto do artigo ViaJovem: https://viajovem.blogspot.com/2021/02/staffs.html (compilação retrospectiva de 2021 dos gerentes clássicos). Arquivos baixados em `habbo/assets/v17/staff/`, URLs fontes e SHA-256 auditáveis em `habbo/v17/sprite-ledger.json`. Importação/QA offline: `node habbo/v17/acquire-staff.mjs --check`; fontes literais fixadas em `habbo/v17/staff-source-urls.json`. NÃO é correto dizer que a data do sprite individual é 2021 ou que é necessariamente a roupa usada durante todo o período: é uma ilustração conservada numa retrospectiva publicada em 2021.
+## Originalidade dos arquivos de personagens
+Fonte curatorial: https://nostalgia.mooon.com.br/2025/12/habbo-hotel.html .
 
-**Quatro identidades sem arquivo original utilizável**: Mordomo, Sir-Lawnrence, Prefeita, DJapamala. Os arquivos de 2011 https://haddicas-habbo.blogspot.com/2011/12/personagens-hotel.html citam ilustrações originais de Mordomo e Sir-Lawnrence, mas seus antigos endpoints Google Blogger proxy retornam 404. O gerador de avatar contemporâneo do Habbo não está acessível/é inadequado como documento da época. Por isso, ficam como itens nomeados e assinalados sem sprite (não produzir imagem com Python, CSS, IA, avatar atual disfarçado, nem reusar rosto de outro Habbo). Este limite permanece para futura pesquisa de arquivo e não deve ser ocultado.
+Artistas e looks foram **recuperados de fontes documentais**, não gerados: oito PNGs de personagens completos 64×110 indexados em https://viajovem.blogspot.com/2021/02/staffs.html ; duas versões GIF 128×220 usadas em https://haddicas-habbo.blogspot.com/2011/12/personagens-hotel.html ; uma captura de perfil 2011 de DJapamala indexada em https://habbo.fandom.com/pt-br/wiki/Gerentes . Esta última é exibida via recorte de apresentação em CSS, preservando os bytes intactos, **sem simular um sprite novo**.
 
-## Layout e rotas
-`habbo/v16/render-staff.mjs`: uma única `v17-staff-rail`, 12 `figure` simples (8 `img`, 4 ausências explicitadas), controles de rolagem nativos para homepage e `habbo/v17/staff.js` para páginas independentes. `habbo/v16/staff.css` reescrito como rail de figuras; nenhuma biografia em card. `habbo/v8/build-unified.mjs` integra dados e publica os assets; `habbo/v6/sync-static-output.mjs` sincroniza os PNG, CSS, JS, ambas as páginas e as três indices. Navegação com quatro capítulos, sem alteração do Dock, 148 mobis e 101 badges.
+O ledger `habbo/v17/staff-originals.json` documenta URL de cada arquivo, fonte, dimensões, formato e SHA256. Os arquivos estão em `habbo/assets/v17/staff/` com nomes estáveis. O roteiro `habbo/v17/acquire-staff.mjs` permite revalidar/remetabolizar as fontes.
 
-## Gates
-`habbo/qa/v17-staff-sprite-rail.mjs` exige uma rail, os doze nomes, verificação dos oito sprites e quatro ausências, ausência dos velhos cards, rolagem horizontal via botão/touch/teclado, dimensões de sprite, pages PT/EN, telas 1440/390/320 e sem JS. Pipeline `.github/workflows/habbo-v17-release.yml` deve também passar regressões V13–V15, V12/V8 e Dock antes do merge. Nenhum deploy externo é presumido pelo merge.
+### Lacuna histórica explícita
+**Prefeita:** o nome é garantido pelo post e por arquivos históricos, porém, na presente coleta, nenhum sprite clássico individual pôde ser identificado de forma confiável. Preservar o nome na mesma fileira com marcador editorial discreto `Sprite não localizado`, sem confundir um avatar atual, rosto de outra pessoa ou geração artificial com o look de época. Repor o marcador assim que houver uma fonte específica verificável; nunca se apropriar de pixels de outro personagem.
+
+## Implementação
+`habbo/v17/render-rail.mjs`: renderizador bilíngue; `habbo/v17/staff.css`: rail simples sem estética de card, proporção original, responsive; `habbo/v17/staff.js`: setas funcionais e progresso; `habbo/v8/build-unified.mjs`: substituição de renderer V16 por V17; `habbo/v6/sync-static-output.mjs`: integra asset e páginas em Pages; `habbo/qa/v17-staff-rail.mjs` e `.github/workflows/habbo-v17-release.yml`: testes e publicação com gates.
+
+Exigir CI verde, visual mobile/desktop/320px, nenhum card visível, uma única rail, 12 nomes e imagens arquivísticas legíveis, ausência de overflow da página, e preservar todos os 249 exemplares históricos de mobis/emblemas. Só mesclar após validado.
