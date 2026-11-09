@@ -13,7 +13,7 @@ import {
 export { TYPE, TYPE_ORDER };
 
 export const GYM_STATS = {
-  gymsDefeated: 2228,
+  gymsDefeated: 2351,
   get hoursLeading(){
     return BASE_GYM_STATS.hoursLeading;
   }
